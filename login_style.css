@@ -1,0 +1,59 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'roboto', sans-serif;
+    overflow-x: clip;
+}
+
+/*****Navigation Style*****/
+
+.navbar {
+    background: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/*****Navigation Style End*****/
+
+
+/*****Login Card Style*****/
+
+.card-center-align {
+    padding-top: 80px;
+}
+
+.card-title
+{
+    color: #0F2D52;
+}
+
+.login-card-style {
+    height: 374px;
+    background: #D8E9FF !important;
+    box-shadow: 0px 4px 15px rgba(83, 53, 73, 0.25);
+    border-radius: 20px !important;
+    border: none !important;
+    padding: 30px;
+}
+
+.login-button {
+    padding: 10px !important;
+    width: 250px;
+    height: 50px;
+    color: #fff;
+    background: #0F2D52;
+    border-radius: 30px;
+    border: none !important;
+}
+
+.login-button:hover {
+    padding: 10px !important;
+    width: 250px;
+    height: 50px;
+    color: #d3d1d1;
+    background: #1f4675;
+    border-radius: 30px;
+    border: none !important;
+}
+
+/*****Login Card Style End*****/

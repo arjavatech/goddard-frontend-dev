@@ -98,4 +98,8 @@ body {
     box-shadow: none !important;
 }
 
+#formContent {
+    display: none;
+}
+
 /***** Modal style End *****/

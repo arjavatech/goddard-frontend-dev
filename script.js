@@ -37,7 +37,7 @@ function WelcomeScreen(){
 //         "attachmentName": "Enrollment Agreement 2023-2024",
 //         "attachmentBase64": ""
 //     }
-      
+
 //       $.ajax({
 //         url: "https://f64ff4v9wh.execute-api.ap-south-1.amazonaws.com/godd/email/send",
 //         type: "POST",

@@ -7,6 +7,7 @@ body {
 }
 
 
+
 /*****Navigation Style*****/
 
 .navbar {
@@ -21,15 +22,40 @@ body {
 
 /***** Table style *****/
 
+
+.parent_dashboard_title
+{
+    color: #0F2D52;
+}
+
+.child-name
+{
+    color: #000;
+}
+
+.dowload-all
+{
+    background-color: #0F2D52 !important;
+    color: #fff !important;
+    border: 2px solid #0F2D52 !important;
+}
+
+.dowload-all:hover
+{
+    background-color: #293f5a !important;
+    color: #dddddd !important;
+    border: 2px solid #293f5a !important;
+}
+
 .table>:not(caption)>*>*{
     padding: 21px !important;
     border-collapse: collapse !important;
     
 }
 
-.table-head{
-    background-color: #D8E9FF;
-    color: #0F2D52;
+.table-head, .table-footer{
+    background-color: #D8E9FF !important;
+    color: #0F2D52 !important;
 }
 
 .required{

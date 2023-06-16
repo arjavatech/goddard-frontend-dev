@@ -9,6 +9,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src = 'welcomeScreen.js' async></script>
 </head>
 
 <body>
@@ -23,10 +27,10 @@
 
     <div class="container">
         <h2 class="parent_dashboard_title h2 pt-4 text-center">Parent Dashboard</h2>
-        <h4 class="h4 pt-2 text-center">Welcome Mr. Benet and Mrs. Adina</h4>
+        <h4 class="h4 pt-2 text-center" id = "welcomeText" name = "welcomeText"></h4>
         <div class="row">
             <div class="col-2 m-3 mt-4">
-                <a href="parent_dashboard.html"><div class="card dashboard_card_style1">
+                <a href="parent_dashboard.html" class="text-decoration-none"><div class="card dashboard_card_style1">
                     <div class="card-body pt-4">
                         <h5 class="text-center dashboard_card_text pt-3 h4">Charles</h5>
                     </div>

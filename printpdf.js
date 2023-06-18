@@ -47,6 +47,8 @@ async function printForm() {
     // Wait for the print window to load
     printWindow.onload = function() {
         // Trigger the print dialog
+        printWindow.document.body.style.webkitPrintColorAdjust = 'exact';
+        printWindow.document.body.style.zoom = '100%';
         printWindow.print();
         // Release the object URL
         URL.revokeObjectURL(pdfUrl);

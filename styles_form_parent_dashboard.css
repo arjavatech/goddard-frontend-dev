@@ -1,0 +1,48 @@
+
+.container_form {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+#formContent button {
+    padding: 10px 20px;
+    background-color: #337ab7;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#formContent ol {
+    list-style-type: decimal;
+    text-align: left;
+    padding-left: 20px;
+}
+
+#formContent span {
+    display: block;
+    /* margin-bottom: 5px; */
+    font-family: 'Roboto', sans-serif;
+}
+
+#formContent .center-image {
+    text-align: center;
+}
+
+#formContent .center-image img {
+    display: inline-block;
+}
+
+#formContent #initial {
+    text-align: right;
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+#formContent #initialStyle {
+    size: 3rem;
+}

@@ -2,22 +2,24 @@ import {fetchEnrollmentFormTitle, fetchEnrollmentFormBody} from './enrollmentFor
 
 let title, globalBase64;
 
-let obj = {
-    "from": "raghuls.official@gmail.com",
-    "to": "raghul1998@gmail.com",
-    "subject": "",
-    "body": "",
-    "attachmentName": "",
-    "attachmentKey": ""
-}
+
 
 AWS.config.update({
-                      accessKeyId: 'AKIA3FPYZADUQ6XJ7K3X',
-                      secretAccessKey: '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',
-                      region: 'ap-south-1'
+                      accessKeyId: 'AKIATNZ4QAI6MX5LH34Q',
+                      secretAccessKey: '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',
+                      region: 'us-west-2'
                   });
 
 const s3 = new AWS.S3();
+
+let obj = {
+    "from": "raghuls.official@gmail.com",
+    "to": "raghul1998@gmail.com",
+    "subject": "qwerty",
+    "body": "message data",
+    "attachmentName": "AttachmentForm",
+    "attachmentKey": "attachments/Test.pdf"
+}
 
 async function uploadBase64PDFToS3(base64String, fileName) {
     const byteCharacters = atob(base64String);
@@ -29,9 +31,10 @@ async function uploadBase64PDFToS3(base64String, fileName) {
     const blob = new Blob([byteArray], { type: 'application/pdf' });
 
     const params = {
-        Bucket: 'goddard-forms',
+        Bucket: 'goddard-form',
         Key: 'attachments/' + fileName,
-        Body: blob
+        Body: blob,
+        ContentType: 'application/pdf'
     };
 
     try {
@@ -79,6 +82,21 @@ async function emailSend() {
         const attachmentKey = await uploadBase64PDFToS3(base64Data, title + ' CHILD_ID');
         obj.attachmentKey = attachmentKey;
         console.log(obj);
+        $.ajax({
+               url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
+               type: "POST",
+               contentType: "application/json",
+               data: JSON.stringify(obj),
+               success: function (response) {
+                   alert("Email Sent Successfully")
+                   let modal = document.querySelector('.modal');
+                   let bootstrapModal = bootstrap.Modal.getInstance(modal);
+                   bootstrapModal.hide();
+               },
+               error: function (xhr, status, error) {
+                   alert("Email sending failed")
+               }
+           });
     } catch (error) {
         console.error('Error:', error);
     }
@@ -104,7 +122,27 @@ async function emailSend() {
 //     console.log(obj);
 //
 //     $.ajax({
-//                url: "https://f64ff4v9wh.execute-api.ap-south-1.amazonaws.com/godd/email/send",
+//                url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
+//                type: "POST",
+//                contentType: "application/json",
+//                data: JSON.stringify(obj),
+//                success: function (response) {
+//                    alert("Email Sent Successfully")
+//                    let modal = document.querySelector('.modal');
+//                    let bootstrapModal = bootstrap.Modal.getInstance(modal);
+//                    bootstrapModal.hide();
+//                },
+//                error: function (xhr, status, error) {
+//                    alert("Email sending failed")
+//                }
+//            });
+// }
+
+
+// function emailSend() {
+//     console.log(obj)
+//     $.ajax({
+//                url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
 //                type: "POST",
 //                contentType: "application/json",
 //                data: JSON.stringify(obj),

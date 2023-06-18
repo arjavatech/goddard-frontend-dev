@@ -1,6 +1,6 @@
 export function fetchEnrollmentFormBody(callback) {
     $.ajax({
-               url: 'https://f64ff4v9wh.execute-api.ap-south-1.amazonaws.com/godd/enrollment/fetch/1',
+               url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment/fetch/1',
                type: 'get',
                success: function(response){
                    console.log(response)
@@ -20,18 +20,22 @@ export function fetchEnrollmentFormBody(callback) {
                        document.querySelector('[name="apiResponsep13"]').innerHTML = response.point_thirteen;
                        document.querySelector('[name="apiResponsep14"]').innerHTML = response.point_fourteen;
                    }
-                   callback();
+                   if (typeof callback === 'function') {
+                       callback();
+                   }
                }
            })
 }
 
 export function fetchEnrollmentFormTitle(callback) {
     $.ajax({
-               url: 'https://f64ff4v9wh.execute-api.ap-south-1.amazonaws.com/godd/enrollment/fetch/1',
+               url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment/fetch/1',
                type: 'get',
                success: function(response){
                    document.querySelector('[name="heading"]').innerHTML = response.title
-                   callback();
+                   if (typeof callback === 'function') {
+                       callback();
+                   }
                }
            })
 }

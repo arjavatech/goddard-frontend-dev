@@ -164,6 +164,10 @@ $(document).ready(function () {
         fetchEnrollmentFormTitle(function () {
             fetchEnrollmentFormBody(function () {
                 emailSend();
+                // Clear the text area
+                $('#staticBackdrop').on('show.bs.modal', function() {
+                    $('#messageData').val('');
+                });
             });
         });
     });

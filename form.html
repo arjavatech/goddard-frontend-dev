@@ -1,59 +1,105 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Goddard Website</title>
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-  <script type="module" src = 'enrollmentForm.js'></script>
+    <title>Goddard Website</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+          rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script type="module" src='enrollmentForm.js'></script>
+    <script src='form.js'></script>
 </head>
 <body>
-  <div class="container" id = "wholeDiv">
+<div class="container" id="wholeDiv">
     <div class="center-image">
-      <img src="gs_logo.jpg" alt="Image" width="500" height="100"/>
+        <img src="gs_logo.jpg" alt="Image" width="500" height="100"/>
     </div>
     <h1 id="heading" name="heading"></h1>
     <!-- <button id="apiButton" onclick="p1()">Get Form Data</button> -->
-    <ol>
-      <span id = "apiResponsep1" name = "apiResponsep1"></span><br><br>
-      <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-      <span id = "apiResponsep2" name = "apiResponsep2"></span><br><br>
-      <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-      <span id = "apiResponsep3" name = "apiResponsep3"></span><br><br>
-      <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-      <span id = "apiResponsep4" name = "apiResponsep4"></span><br><br>
-      <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-      <span id = "apiResponsep5" name = "apiResponsep5"></span><br><br>
-      <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-      <span id = "apiResponsep6" name = "apiResponsep6"></span><br><br>
-      <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-      <span id = "apiResponsep7" name = "apiResponsep7"></span><br><br>
-      <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-      <span id = "apiResponsep8" name = "apiResponsep8"></span><br><br>
-      <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-      <span id = "apiResponsep9" name = "apiResponsep9"></span><br><br>
-      <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-      <span id = "apiResponsep10" name = "apiResponsep10"></span><br><br>
-      <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-      <span id = "apiResponsep11" name = "apiResponsep11"></span><br><br>
-      <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-      <span id = "apiResponsep12" name = "apiResponsep12"></span><br><br>
-      <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-      <span id = "apiResponsep13" name = "apiResponsep13"></span><br><br>
-      <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-      <span id = "apiResponsep14" name = "apiResponsep14"></span><br><br>
-      <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-    </ol>
-    <button>Save</button>
-    <button>Submit</button>
-  </div>
+    <form id="enrollment_from">
+        <ol>
+            <p id="responseParagraph"></p>
+            <span id="apiResponsep1" name="apiResponsep1"></span><br><br>
+            <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="child_id" name="child_id" type="text" class="form-control ">
+                    </span>
+            <span id="apiResponsep2" name="apiResponsep2"></span><br><br>
+            <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_three_initial_here" name="point_three_initial_here"
+                               type="text" class="form-control ">
+                    </span>
+            <span id="apiResponsep3" name="apiResponsep3"></span><br><br>
+            <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_four_initial_here" name="point_four_initial_here"
+                               type="text" class="form-control ">
+                    </span>
+            <span id="apiResponsep4" name="apiResponsep4"></span><br><br>
+            <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_five_initial_here" name="point_five_initial_here"
+                               type="text" class="form-control ">
+                    </span>
+            <span id="apiResponsep5" name="apiResponsep5"></span><br><br>
+            <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_six_initial_here" name="point_six_initial_here" type="text"
+                               class="form-control ">
+                    </span>
+            <span id="apiResponsep6" name="apiResponsep6"></span><br><br>
+            <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_seven_initial_here" name="point_seven_initial_here"
+                               type="text" class="form-control ">
+                    </span>
+            <span id="apiResponsep7" name="apiResponsep7"></span><br><br>
+            <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_eight_initial_here" name="point_eight_initial_here"
+                               type="text" class="form-control">
+                    </span>
+            <span id="apiResponsep8" name="apiResponsep8"></span><br><br>
+            <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_nine_initial_here" name="point_nine_initial_here"
+                               type="text" class="form-control ">
+                    </span>
+            <span id="apiResponsep9" name="apiResponsep9"></span><br><br>
+            <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_ten_initial_here" name="point_ten_initial_here" type="text"
+                               class="form-control ">
+                    </span>
+            <span id="apiResponsep10" name="apiResponsep10"></span><br><br>
+            <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_eleven_initial_here" name="point_eleven_initial_here"
+                               type="text" class="form-control ">
+                    </span>
+            <span id="apiResponsep11" name="apiResponsep11"></span><br><br>
+            <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_twelve_initial_here" name="point_twelve_initial_here"
+                               type="text" class="form-control ">
+                    </span>
+            <span id="apiResponsep12" name="apiResponsep12"></span><br><br>
+            <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_thirteen_initial_here" name="point_thirteen_initial_here"
+                               type="text" class="form-control ">
+                    </span>
+            <span id="apiResponsep13" name="apiResponsep13"></span><br><br>
+            <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_fourteen_initial_here" name="point_fourteen_initial_here"
+                               type="text" class="form-control ">
+                    </span>
+            <span id="apiResponsep14" name="apiResponsep14"></span><br><br>
+            <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_fifteen_initial_here" name="point_fifteen_initial_here"
+                               type="text" class="form-control ">
+                    </span>
+        </ol>
+        <button id="saveBtn" type="submit">Save</button>
+        <button id="clearBtn">Clear</button>
+    </form>
+</div>
 
-  <!-- <button id="downloadButton">Download Form</button> -->
+<!-- <button id="downloadButton">Download Form</button> -->
 
-  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
 
 </body>
 </html>

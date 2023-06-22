@@ -13,7 +13,7 @@
     padding: 100px;
 } */
 
-.container {
+#heading {
     text-align: center;
     margin-top: 50px;
   }
@@ -58,4 +58,7 @@
 
   #initialStyle{
     size: 3rem;
+  }
+  .col-sm-12{
+    padding-left: 15% !important;
   }

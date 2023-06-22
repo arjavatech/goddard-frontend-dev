@@ -1,105 +1,200 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Goddard Website</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-          rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script type="module" src='js/enrollmentForm.js'></script>
-    <script src='js/form.js'></script>
-</head>
-<body>
-<div class="container" id="wholeDiv">
-    <div class="center-image">
-        <img src="image/gs_logo.jpg" alt="Image" width="500" height="100"/>
-    </div>
-    <h1 id="heading" name="heading"></h1>
-    <!-- <button id="apiButton" onclick="p1()">Get Form Data</button> -->
-    <form id="enrollment_from">
-        <ol>
-            <p id="responseParagraph"></p>
-            <span id="apiResponsep1" name="apiResponsep1"></span><br><br>
-            <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="child_id" name="child_id" type="text" class="form-control ">
+    <head>
+        <title>Goddard Website</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+            rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <script type="module" src='js/enrollmentForm.js'></script>
+        <script src='js/form.js'></script>
+        <style>
+            .spinner {
+                border: 16px solid #f3f3f3; /* Light grey */
+                border-top: 16px solid #3498db; /* Blue */
+                border-radius: 50%;
+                width: 120px;
+                height: 120px;
+                animation: spin 2s linear infinite;
+                display: none; /* Initially hidden */
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+            }
+          </style>
+    </head>
+    <body>
+        <div class="container" >
+            <div class="center-image">
+                <img src="image/gs_logo.jpg" alt="Image" width="500" height="100"/>
+            </div>
+            <h1 id="heading" name="heading"></h1>
+            <form id="enrollment_from">
+                <ol>
+                    <span id="apiResponsep1" name="apiResponsep1"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_two_initial_here" name="point_two_initial_here" type="text" class="form-control ">
                     </span>
-            <span id="apiResponsep2" name="apiResponsep2"></span><br><br>
-            <span id="initial"><b>Initial here &nbsp;</b>
+                    <span id="apiResponsep2" name="apiResponsep2"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_three_initial_here" name="point_three_initial_here"
-                               type="text" class="form-control ">
+                            type="text" class="form-control ">
                     </span>
-            <span id="apiResponsep3" name="apiResponsep3"></span><br><br>
-            <span id="initial"><b>Initial here &nbsp;</b>
+                    <span id="apiResponsep3" name="apiResponsep3"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_four_initial_here" name="point_four_initial_here"
-                               type="text" class="form-control ">
+                            type="text" class="form-control ">
                     </span>
-            <span id="apiResponsep4" name="apiResponsep4"></span><br><br>
-            <span id="initial"><b>Initial here &nbsp;</b>
+                    <span id="apiResponsep4" name="apiResponsep4"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_five_initial_here" name="point_five_initial_here"
-                               type="text" class="form-control ">
+                            type="text" class="form-control ">
                     </span>
-            <span id="apiResponsep5" name="apiResponsep5"></span><br><br>
-            <span id="initial"><b>Initial here &nbsp;</b>
+                    <span id="apiResponsep5" name="apiResponsep5"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_six_initial_here" name="point_six_initial_here" type="text"
-                               class="form-control ">
+                            class="form-control ">
                     </span>
-            <span id="apiResponsep6" name="apiResponsep6"></span><br><br>
-            <span id="initial"><b>Initial here &nbsp;</b>
+                    <span id="apiResponsep6" name="apiResponsep6"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_seven_initial_here" name="point_seven_initial_here"
-                               type="text" class="form-control ">
+                            type="text" class="form-control ">
                     </span>
-            <span id="apiResponsep7" name="apiResponsep7"></span><br><br>
-            <span id="initial"><b>Initial here &nbsp;</b>
+                    <span id="apiResponsep7" name="apiResponsep7"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_eight_initial_here" name="point_eight_initial_here"
-                               type="text" class="form-control">
+                            type="text" class="form-control">
                     </span>
-            <span id="apiResponsep8" name="apiResponsep8"></span><br><br>
-            <span id="initial"><b>Initial here &nbsp;</b>
+                    <span id="apiResponsep8" name="apiResponsep8"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_nine_initial_here" name="point_nine_initial_here"
-                               type="text" class="form-control ">
+                            type="text" class="form-control ">
                     </span>
-            <span id="apiResponsep9" name="apiResponsep9"></span><br><br>
-            <span id="initial"><b>Initial here &nbsp;</b>
+                    <span id="apiResponsep9" name="apiResponsep9"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_ten_initial_here" name="point_ten_initial_here" type="text"
-                               class="form-control ">
+                            class="form-control ">
                     </span>
-            <span id="apiResponsep10" name="apiResponsep10"></span><br><br>
-            <span id="initial"><b>Initial here &nbsp;</b>
+                    <span id="apiResponsep10" name="apiResponsep10"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_eleven_initial_here" name="point_eleven_initial_here"
-                               type="text" class="form-control ">
+                            type="text" class="form-control ">
                     </span>
-            <span id="apiResponsep11" name="apiResponsep11"></span><br><br>
-            <span id="initial"><b>Initial here &nbsp;</b>
+                    <span id="apiResponsep11" name="apiResponsep11"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_twelve_initial_here" name="point_twelve_initial_here"
-                               type="text" class="form-control ">
+                            type="text" class="form-control ">
                     </span>
-            <span id="apiResponsep12" name="apiResponsep12"></span><br><br>
-            <span id="initial"><b>Initial here &nbsp;</b>
+                    <span id="apiResponsep12" name="apiResponsep12"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_thirteen_initial_here" name="point_thirteen_initial_here"
-                               type="text" class="form-control ">
+                            type="text" class="form-control ">
                     </span>
-            <span id="apiResponsep13" name="apiResponsep13"></span><br><br>
-            <span id="initial"><b>Initial here &nbsp;</b>
+                    <span id="apiResponsep13" name="apiResponsep13"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_fourteen_initial_here" name="point_fourteen_initial_here"
-                               type="text" class="form-control ">
+                            type="text" class="form-control ">
                     </span>
-            <span id="apiResponsep14" name="apiResponsep14"></span><br><br>
-            <span id="initial"><b>Initial here &nbsp;</b>
+                    <span id="apiResponsep14" name="apiResponsep14"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_fifteen_initial_here" name="point_fifteen_initial_here"
-                               type="text" class="form-control ">
+                            type="text" class="form-control ">
                     </span>
-        </ol>
-        <button id="saveBtn" type="submit">Save</button>
-        <button id="clearBtn">Clear</button>
-    </form>
-</div>
-
-<!-- <button id="downloadButton">Download Form</button> -->
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-
-</body>
+                    <span id="apiResponsep15" name="apiResponsep15"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_sixteen_initial_here" name="point_sixteen_initial_here"
+                            type="text" class="form-control ">
+                    </span>
+                    <span id="apiResponsep16" name="apiResponsep16"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_seventeen_initial_here" name="point_seventeen_initial_here"
+                            type="text" class="form-control ">
+                    </span>
+                    <span id="apiResponsep17" name="apiResponsep17"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_eighteen_initial_here" name="point_eighteen_initial_here"
+                            type="text" class="form-control ">
+                    </span>
+                    <span id="apiResponsep18" name="apiResponsep18"></span><br><br>
+                    <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_eighteen_initial_here" name="point_eighteen_initial_here"
+                            type="text" class="form-control ">
+                    </span>
+                    <span id="apiResponsep19" name="apiResponsep19"></span><br><br>
+                </ol>
+                <div class="container">
+                    <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                            <input id="parent_one_sign" name="parent_one_sign"
+                            type="text" class="form-control ">
+                            <label id="parent_sign_one"><b>Signature of Parent or Guardian</b></label>
+                        </div></div>
+                        <div class="col-sm">
+                            <div class="form-group">
+                            <input id="parent_one_sign_date" name="parent_one_sign_date"
+                            type="text" class="form-control ">
+                            <label id="parent_one_date"><b>Date</b></label>
+                        </div></div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                            <input id="parent_two_sign" name="parent_two_sign"
+                            type="text" class="form-control ">
+                            <label id="parent_sign_two"><b>Signature of Parent or Guardian</b></label>
+                        </div></div>
+                        <div class="col-sm">
+                            <div class="form-group">
+                            <input id="parent_two_sign_date" name="parent_two_sign_date"
+                            type="text" class="form-control ">
+                            <label id="parent_two_date"><b>Date</b></label>
+                        </div></div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                            <input id="child's_name" name="child's_name"
+                            type="text" class="form-control ">
+                            <label id="child_name"><b>Child's Name</b></label>
+                        </div></div>
+                        <div class="col-sm">
+                            <div class="form-group">
+                            <input id="dob" name="dob"
+                            type="text" class="form-control ">
+                            <label id="dobdate"><b>Date of Birth</b></label>
+                        </div></div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="form-group">
+                            <input id="school_admin_sign" name="school_admin_sign"
+                            type="text" class="form-control ">
+                            <label id="admin_sign"><b>Signature of School Administration</b></label>
+                        </div></div>
+                        <div class="col-sm">
+                            <div class="form-group">
+                            <input id="school_admin_sign_date" name="school_admin_sign_date"
+                            type="text" class="form-control ">
+                            <label id="admin_sign_date"><b>Date</b></label>
+                        </div></div>
+                    </div></div>
+                </div>
+                <button id="saveBtn" type="submit">Save</button>
+                <button id="clearBtn">Clear</button>
+            </form>
+        </div>
+        <!-- <button id="downloadButton">Download Form</button> -->
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    </body>
 </html>

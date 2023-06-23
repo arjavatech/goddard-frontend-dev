@@ -8,28 +8,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-        <script type="module" src='js/enrollmentForm.js'></script>
-        <script src='js/form.js'></script>
-        <style>
-            .spinner {
-                border: 16px solid #f3f3f3; /* Light grey */
-                border-top: 16px solid #3498db; /* Blue */
-                border-radius: 50%;
-                width: 120px;
-                height: 120px;
-                animation: spin 2s linear infinite;
-                display: none; /* Initially hidden */
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-
-            @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-            }
-          </style>
+        <script type="module" src='js/enrollmentForm.js' ></script>
+        <script src='js/form.js' ></script>
     </head>
     <body>
         <div class="container" >
@@ -37,6 +17,7 @@
                 <img src="image/gs_logo.jpg" alt="Image" width="500" height="100"/>
             </div>
             <h1 id="heading" name="heading"></h1>
+            <div id="spinner" class="spinner"></div>
             <form id="enrollment_from">
                 <ol>
                     <span id="apiResponsep1" name="apiResponsep1"></span><br><br>
@@ -124,73 +105,89 @@
                             type="text" class="form-control ">
                     </span>
                     <span id="apiResponsep18" name="apiResponsep18"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
+                    <!-- <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_eighteen_initial_here" name="point_eighteen_initial_here"
                             type="text" class="form-control ">
-                    </span>
+                    </span> -->
                     <span id="apiResponsep19" name="apiResponsep19"></span><br><br>
                 </ol>
-                <div class="container">
+                <div class="container signblock">
                     <div class="col-sm-12">
                     <div class="row">
-                        <div class="col-sm">
-                            <div class="form-group">
-                            <input id="parent_one_sign" name="parent_one_sign"
-                            type="text" class="form-control ">
-                            <label id="parent_sign_one"><b>Signature of Parent or Guardian</b></label>
-                        </div></div>
-                        <div class="col-sm">
-                            <div class="form-group">
-                            <input id="parent_one_sign_date" name="parent_one_sign_date"
-                            type="text" class="form-control ">
-                            <label id="parent_one_date"><b>Date</b></label>
-                        </div></div>
+                        <div class="col-sm-12">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input id="parent_one_sign" name="parent_one_sign"
+                                    type="text" class="form-control bloc1">
+                                    <span id="apiResponsep20" name="apiResponsep20"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input id="parent_one_sign_date" name="parent_one_sign_date"
+                                    type="text" class="form-control bloc2">
+                                    <span id="apiResponsep21" name="apiResponsep21"></span>
+                                </div>
+                            </div>
+                        </div>
                     </div><br>
                     <div class="row">
-                        <div class="col-sm">
-                            <div class="form-group">
-                            <input id="parent_two_sign" name="parent_two_sign"
-                            type="text" class="form-control ">
-                            <label id="parent_sign_two"><b>Signature of Parent or Guardian</b></label>
-                        </div></div>
-                        <div class="col-sm">
-                            <div class="form-group">
-                            <input id="parent_two_sign_date" name="parent_two_sign_date"
-                            type="text" class="form-control ">
-                            <label id="parent_two_date"><b>Date</b></label>
-                        </div></div>
+                        <div class="col-sm-12">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input id="parent_two_sign" name="parent_two_sign"
+                                    type="text" class="form-control bloc1">
+                                    <span id="apiResponsep22" name="apiResponsep22"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input id="parent_two_sign_date" name="parent_two_sign_date"
+                                    type="text" class="form-control bloc2">
+                                    <span id="apiResponsep23" name="apiResponsep23"></span>
+                                </div>
+                            </div>
+                        </div>
                     </div><br>
                     <div class="row">
-                        <div class="col-sm">
-                            <div class="form-group">
-                            <input id="child's_name" name="child's_name"
-                            type="text" class="form-control ">
-                            <label id="child_name"><b>Child's Name</b></label>
-                        </div></div>
-                        <div class="col-sm">
-                            <div class="form-group">
-                            <input id="dob" name="dob"
-                            type="text" class="form-control ">
-                            <label id="dobdate"><b>Date of Birth</b></label>
-                        </div></div>
+                        <div class="col-sm-12">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input id="child_name" name="child_name"
+                                    type="text" class="form-control bloc1">
+                                    <span id="apiResponsep24" name="apiResponsep24"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input id="dob" name="dob"
+                                    type="text" class="form-control bloc2">
+                                    <span id="apiResponsep25" name="apiResponsep25"></span>
+                                </div>
+                            </div>
+                        </div>
                     </div><br>
                     <div class="row">
-                        <div class="col-sm">
-                            <div class="form-group">
-                            <input id="school_admin_sign" name="school_admin_sign"
-                            type="text" class="form-control ">
-                            <label id="admin_sign"><b>Signature of School Administration</b></label>
-                        </div></div>
-                        <div class="col-sm">
-                            <div class="form-group">
-                            <input id="school_admin_sign_date" name="school_admin_sign_date"
-                            type="text" class="form-control ">
-                            <label id="admin_sign_date"><b>Date</b></label>
-                        </div></div>
-                    </div></div>
+                        <div class="col-sm-12">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input id="school_admin_sign" name="school_admin_sign"
+                                    type="text" class="form-control bloc1">
+                                    <span id="apiResponsep26" name="apiResponsep26"></span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <input id="school_admin_sign_date" name="school_admin_sign_date"
+                                    type="text" class="form-control bloc2">
+                                    <span id="apiResponsep27" name="apiResponsep27"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <button id="saveBtn" type="submit">Save</button>
-                <button id="clearBtn">Clear</button>
+                <button id="clearBtn" >Clear</button>
             </form>
         </div>
         <!-- <button id="downloadButton">Download Form</button> -->

@@ -1,54 +1,67 @@
 // Function to submit the form data
 function submitForm() {
     const form = document.getElementById("enrollment_from");
-    console.log(form);
     const formData = new FormData(form);
-    console.log(form);
     const obj = Object.fromEntries(formData);
-    console.log(obj);
     obj.child_id = "CD0001";
     const json = JSON.stringify(obj);
 
-    var msg = confirm("Are you sure?");
-    if (msg == true) {
-        let xhr = new XMLHttpRequest();
-        xhr.onload = () => {
-            const data = xhr.responseText;
-            if (xhr.status == 200) {
-                var confirmationRes = window.confirm(data);
-                if (confirmationRes) {
-                    window.location.href = "parent_dashboard.html";
-                } else {
-                    window.location.reload();
-                }
+    let xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+        const data = xhr.responseText;
+        if (xhr.status == 200) {
+            var confirmationRes = window.confirm(data);
+            if (confirmationRes) {
+                window.location.href = "parent_dashboard.html";
+            } else {
+                window.location.reload();
             }
-        };
-        xhr.open("POST", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/add");
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.send(json);
-    }
+        }
+    };
+    xhr.open("POST", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/add");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(json);
 }
-// function showSpinner() {
-//     let first_content = document.getElementsByName("child_id");
-//     console.log(first_content.value);
-//     document.getElementById("spinner").style.display = "block";
-//     document.getElementById("content").style.opacity = "0.3";
-//     // You can also disable user interactions while the spinner is shown
-//     // document.getElementById("content").style.pointerEvents = "none";
-// }
 
-// function hideSpinner() {
-//     document.getElementById("spinner").style.display = "none";
-//     document.getElementById("content").style.opacity = "1";
-//     // Re-enable user interactions if disabled
-//     // document.getElementById("content").style.pointerEvents = "auto";
-// }
-// showSpinner();
+function clearForm(){
+    document.getElementById("point_one_field_one").value = "";
+    document.getElementById("point_one_field_two").value = "";
+    document.getElementById("point_one_field_three").value = "";
+    document.getElementById("point_two_initial_here").value = "";
+    document.getElementById("point_three_initial_here").value = "";
+    document.getElementById("point_four_initial_here").value = "";
+    document.getElementById("point_five_initial_here").value = "";
+    document.getElementById("point_six_initial_here").value = "";
+    document.getElementById("point_seven_initial_here").value = "";
+    document.getElementById("point_eight_initial_here").value = "";
+    document.getElementById("point_nine_initial_here").value = "";
+    document.getElementById("point_ten_initial_here").value = "";
+    document.getElementById("point_eleven_initial_here").value = "";
+    document.getElementById("point_twelve_initial_here").value = "";
+    document.getElementById("point_thirteen_initial_here").value = "";
+    document.getElementById("point_fourteen_initial_here").value = "";
+    document.getElementById("point_fifteen_initial_here").value = "";
+    document.getElementById("point_sixteen_initial_here").value = "";
+    document.getElementById("point_seventeen_initial_here").value = "";
+    document.getElementById("point_eighteen_initial_here").value = "";
+    document.getElementById("parent_one_sign").value = "";
+    document.getElementById("parent_one_sign_date").value = "";
+    document.getElementById("parent_two_sign").value = "";
+    document.getElementById("parent_two_sign_date").value = "";
+    document.getElementById("child_name").value = "";
+    document.getElementById("dob").value = "";
+    document.getElementById("school_admin_sign").value = "";
+    document.getElementById("school_admin_sign_date").value = "";
+}
 
 $(document).ready(function() {
     // Add click event listener to the "Save" button
     $("#saveBtn").on("click", function(e) {
         e.preventDefault(); // Prevent the default form submission
         submitForm();
+    });
+    $("#clearBtn").on("click", function(e) {
+        e.preventDefault(); // Prevent the default form submission
+        clearForm();
     });
 });

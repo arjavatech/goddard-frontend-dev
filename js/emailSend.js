@@ -13,9 +13,9 @@ AWS.config.update({
 const s3 = new AWS.S3();
 
 let obj = {
-    "from": "raghuls.official@gmail.com",
-    "to": "raghul1998@gmail.com",
-    "subject": "qwerty",
+    "from": "noreply.goddard@gmail.com",
+    "to": "noreply.goddard@gmail.com",
+    "subject": "subject",
     "body": "message data",
     "attachmentName": "AttachmentForm",
     "attachmentKey": "attachments/Test.pdf"

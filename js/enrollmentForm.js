@@ -3,7 +3,7 @@ export function fetchEnrollmentFormBody(callback) {
         url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment/fetch/1',
         type: 'get',
         success: function(response){
-            console.log(response)
+            // console.log(response)
             
             if(typeof response.point_one !='undefined'){
                 let paragraph = document.querySelector('[name="apiResponsep1"]');
@@ -59,7 +59,7 @@ export function fetchEnrollmentFormBody(callback) {
                 document.querySelector('[name="apiResponsep26"]').innerHTML = response.school_admin_sign;
                 document.querySelector('[name="apiResponsep27"]').innerHTML = response.school_admin_sign_date;
             }
-            hideSpinner();
+            // hideSpinner();
             if (typeof callback === 'function') {
                 callback();
             }
@@ -80,23 +80,81 @@ export function fetchEnrollmentFormTitle(callback) {
     })
 }
 
+export function fetchEnrollmentPointEight(callback) {
+    $.ajax({
+        url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/holidays/fetch/1',
+        type: 'get',
+        success: function(response){
+            document.querySelector('[id="R1C1"]').innerHTML = response.year_one_leave_one;
+            document.querySelector('[id="R1C2"]').innerHTML = response.year_one_leave_one_desc;
+            document.querySelector('[id="R2C1"]').innerHTML = response.year_one_leave_two;
+            document.querySelector('[id="R2C2"]').innerHTML = response.year_one_leave_two_desc;
+            document.querySelector('[id="R3C1"]').innerHTML = response.year_one_leave_three;
+            document.querySelector('[id="R3C2"]').innerHTML = response.year_one_leave_three_desc;
+            document.querySelector('[id="R4C1"]').innerHTML = response.year_one_leave_four;
+            document.querySelector('[id="R4C2"]').innerHTML = response.year_one_leave_four_desc;
+            document.querySelector('[id="R5C1"]').innerHTML = response.year_one_leave_five;
+            document.querySelector('[id="R5C2"]').innerHTML = response.year_one_leave_five_desc;
+            document.querySelector('[id="R6C1"]').innerHTML = response.year_one_leave_six;
+            document.querySelector('[id="R6C2"]').innerHTML = response.year_one_leave_six_desc;
+            document.querySelector('[id="R7C1"]').innerHTML = response.year_one_leave_seven;
+            document.querySelector('[id="R7C2"]').innerHTML = response.year_one_leave_seven_desc;
+            document.querySelector('[id="R8C1"]').innerHTML = response.year_one_leave_eight;
+            document.querySelector('[id="R8C2"]').innerHTML = response.year_one_leave_eight_desc;
+            document.querySelector('[id="R9C1"]').innerHTML = response.year_one_leave_nine;
+            document.querySelector('[id="R9C2"]').innerHTML = response.year_one_leave_nine_desc;
+            document.querySelector('[id="R10C1"]').innerHTML = response.year_one_leave_ten;
+            document.querySelector('[id="R10C2"]').innerHTML = response.year_one_leave_ten_desc;
+            document.querySelector('[id="R11C1"]').innerHTML = response.year_two_leave_one;
+            document.querySelector('[id="R11C2"]').innerHTML = response.year_two_leave_one_desc;
+            document.querySelector('[id="R12C1"]').innerHTML = response.year_two_leave_two;
+            document.querySelector('[id="R12C2"]').innerHTML = response.year_two_leave_two_desc;
+            document.querySelector('[id="R13C1"]').innerHTML = response.year_two_leave_three;
+            document.querySelector('[id="R13C2"]').innerHTML = response.year_two_leave_three_desc;
+            document.querySelector('[id="R14C1"]').innerHTML = response.year_two_leave_four;
+            document.querySelector('[id="R14C2"]').innerHTML = response.year_two_leave_four_desc;
+            document.querySelector('[id="R15C1"]').innerHTML = response.year_two_leave_five;
+            document.querySelector('[id="R15C2"]').innerHTML = response.year_two_leave_five_desc;
+            document.querySelector('[id="R16C1"]').innerHTML = response.year_two_leave_six;
+            document.querySelector('[id="R16C2"]').innerHTML = response.year_two_leave_six_desc;
+            document.querySelector('[id="R17C1"]').innerHTML = response.year_two_leave_seven;
+            document.querySelector('[id="R17C2"]').innerHTML = response.year_two_leave_seven_desc;
+            document.querySelector('[id="R18C1"]').innerHTML = response.year_two_leave_eight;
+            document.querySelector('[id="R18C2"]').innerHTML = response.year_two_leave_eight_desc;
+            document.querySelector('[id="R19C1"]').innerHTML = response.year_two_leave_nine;
+            document.querySelector('[id="R19C2"]').innerHTML = response.year_two_leave_nine_desc;
+            document.querySelector('[id="R20C1"]').innerHTML = response.year_two_leave_ten;
+            document.querySelector('[id="R20C2"]').innerHTML = response.year_two_leave_ten_desc;
+            if (typeof callback === 'function') {
+                callback();
+            }
+        }
+    })
+}
+
 export function displayDetails(callback) {
     $.ajax({
         url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/CD0001',
         type: 'get',
         success: function(response){
             console.log(response);
-            //    document.querySelector('[name="heading"]').innerHTML = response.title;
+            //    document.querySelector('[name="point_one_field_one"]').innerHTML = response.point_one_field_one;
+            //    document.querySelector('[name="point_one_field_two"]').innerHTML = response.point_one_field_two;
+            //    document.querySelector('[name="point_one_field_three"]').innerHTML = response.point_one_field_three;
             // document.getElementsByName('point_two_initial_here')[0].value = response.point_two_initial_here;
 
-            if (typeof response.point_one_field_one !== "undefined"){
-                document.getElementById("point_one_field_one")[0].value = response.point_one_field_one;
+            console.log(response.point_one_field_one);          
+            if (typeof response.point_one_field_one !== "undefined") {
+                // $("#point_one_field_one").val(response.point_one_field_one);
+                document.getElementsByName('point_one_field_one')[0].value = response.point_one_field_one;
+              }
+            if (typeof response.point_one_field_two !== 'undefined'){
+                //  $('#point_one_field_two').val(response.point_one_field_two);
+                document.getElementsByName('point_one_field_two')[0].value = response.point_one_field_two;
             }
-            if (typeof response.point_one_field_two !== "undefined"){
-                document.getElementById("point_one_field_two")[0].value = response.point_one_field_two;
-            }
-            if (typeof response.point_one_field_three !== "undefined"){
-                document.getElementById("point_one_field_three")[0].value = response.point_one_field_three;
+            if (typeof response.point_one_field_three !== 'undefined'){
+                //  $('#point_one_field_three').val(response.point_one_field_three);
+                document.getElementsByName('point_one_field_three')[0].value = response.point_one_field_three;
             }
             if (typeof response.point_two_initial_here !== "undefined"){
                 document.getElementsByName("point_two_initial_here")[0].value = response.point_two_initial_here;
@@ -182,27 +240,28 @@ export function displayDetails(callback) {
 }
 
 export function showSpinner(callback) {
-    document.getElementById("spinner").style.display = "block";
-    document.getElementById("content").style.opacity = "0.3";
-    if (typeof callback === 'function') {
-        callback();
-    }
+    // document.getElementById("spinner").style.display = "block";
+    // document.getElementById("content").style.opacity = "0.3";
+    // if (typeof callback === 'function') {
+    //     callback();
+    // }
 }
 
 export function hideSpinner(callback) {
-    document.getElementById("spinner").style.display = "none";
-    document.getElementById("content").style.opacity = "1";
-    if (typeof callback === 'function') {
-        callback();
-    }
+    // document.getElementById("spinner").style.display = "none";
+    // document.getElementById("content").style.opacity = "1";
+    // if (typeof callback === 'function') {
+    //     callback();
+    // }
 }
 
 $(document).ready(function () {
     fetchEnrollmentFormTitle();
     fetchEnrollmentFormBody();
     displayDetails();
-    showSpinner();
-    hideSpinner();
+    // showSpinner();
+    // hideSpinner();
+    fetchEnrollmentPointEight();
    
 })
 

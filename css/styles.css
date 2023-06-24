@@ -23,7 +23,7 @@ h1 {
 }
 #saveBtn{
   text-align: center !important;
-  margin-left: 50% !important;
+  margin-left: 30% !important;
 }
 .signblock{
   margin-left: 20%;
@@ -86,11 +86,36 @@ span {
 0% { transform: rotate(0deg); }
 100% { transform: rotate(360deg); }
 }
-/* .bloc1
-{
-  display:inline-block;
+
+.signblock {
+  white-space: nowrap;
 }
-.bloc2{
-  display:inline-block;
-  margin-left: 30% !important;
-} */
+.bloc1{
+  border: none;
+  border-bottom: 1px solid black;
+  height: 30px;
+  width: 300px;
+}
+
+.div1{
+  display: inline-block;
+}
+.div2 {
+  display: inline-block;
+  margin-left: 10% !important;
+}
+.div3 {
+  display: inline-block;
+  margin-left: 10% !important;
+}
+.div4 {
+  display: inline-block;
+  margin-left: 10% !important;
+}
+
+/* this used to display border in form */
+.overallblock{
+  padding: 2% !important;
+  border: 3px dashed  black;
+  margin: 2%;
+ }

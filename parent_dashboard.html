@@ -59,7 +59,7 @@
                         <td>6/30/2023</td>
                         <td>Yet to be filled</td>
                         <td>
-                            <a href="form.html"><i class="fa-sharp fa-solid fa-pen p-2 action-icons" id = "enrollmentForm" name = "enrollmentForm"></i></a>
+                            <a href="#"  data-dynamic-value="example"><i class="fa-sharp fa-solid fa-pen p-2 action-icons" id = "enrollmentForm" name = "enrollmentForm"></i></a>
                             <i class="fa-solid fa-circle-arrow-down p-2 action-icons" id="downloadFormAsPDF"
                                name="downloadForm"></i>
                             <span data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -161,7 +161,11 @@
             <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
         </ol>
     </div>
-
+    <script>
+        var link = document.querySelector('a[data-dynamic-value]');
+        var dynamicValue = "CD0001";
+        link.href = `form.html?id=${dynamicValue}`;
+      </script>
 
 </body>
 

@@ -73,7 +73,6 @@ export function fetchEnrollmentFormTitle(callback) {
         type: 'get',
         success: function(response){
             document.querySelector('[name="heading"]').innerHTML = response.title;
-            document.querySelector('[name="point_two_initial_here"]').innerHTML = response.point_two_initial_here;
             if (typeof callback === 'function') {
                 callback();
             }
@@ -182,16 +181,6 @@ export function displayDetails(callback) {
     })
 }
 
-
-$(document).ready(function () {
-    fetchEnrollmentFormTitle();
-    fetchEnrollmentFormBody();
-    displayDetails();
-    showSpinner();
-    hideSpinner();
-   
-})
-
 export function showSpinner(callback) {
     document.getElementById("spinner").style.display = "block";
     document.getElementById("content").style.opacity = "0.3";
@@ -207,5 +196,16 @@ export function hideSpinner(callback) {
         callback();
     }
 }
+
+$(document).ready(function () {
+    fetchEnrollmentFormTitle();
+    fetchEnrollmentFormBody();
+    displayDetails();
+    showSpinner();
+    hideSpinner();
+   
+})
+
+
 
   

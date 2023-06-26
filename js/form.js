@@ -11,8 +11,8 @@ function submitForm() {
     const obj = Object.fromEntries(formData);
     const json = JSON.stringify(obj);
 
-    var msg = confirm("Are you sure?");
-    if (msg == true) {
+    // var msg = confirm("Are you sure?");
+    // if (msg == true) {
         let xhr = new XMLHttpRequest();
         xhr.onload = () => {
             const data = xhr.responseText;
@@ -28,7 +28,7 @@ function submitForm() {
         xhr.open("POST", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/add");
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(json);
-    }
+    // }
 }
 
 $(document).ready(function() {

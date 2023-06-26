@@ -22,9 +22,10 @@ export function fetchEnrollmentFormBody(callback) {
                 let textBox = document.createElement('input');
                 textBox.setAttribute('type', 'text');
                 textBox.setAttribute('id', textboxId);
+                textBox.setAttribute('name', textboxId);
                 textBox.setAttribute('class', 'form-control');
                 textBox.setAttribute('style', 'border: none; border-bottom: 1px solid black;');
-
+                // let textBoxs = document.body.appendChild(textBox);
                 // Replace the target text with the textbox in the paragraph
                 paragraph.innerHTML = paragraph.innerHTML.replace(targetText, targetText + textBox.outerHTML);
                 // console.log(paragraph.innerHTML)
@@ -143,19 +144,23 @@ export function displayDetails(callback) {
             //    document.querySelector('[name="point_one_field_three"]').innerHTML = response.point_one_field_three;
             // document.getElementsByName('point_two_initial_here')[0].value = response.point_two_initial_here;
 
-            console.log(response.point_one_field_one);          
+            // console.log(response.point_one_field_one); 
             if (typeof response.point_one_field_one !== "undefined") {
+                console.log(response.point_one_field_one);      
+                console.log(document.getElementsByName('point_one_field_one').value = response.point_one_field_one);
                 // $("#point_one_field_one").val(response.point_one_field_one);
-                document.getElementsByName('point_one_field_one')[0].value = response.point_one_field_one;
-              }
+                // $('[name="point_one_field_one"]').val(response.point_one_field_one);
+                 document.getElementsByName('point_one_field_one').value = response.point_one_field_one;
+            }
             if (typeof response.point_one_field_two !== 'undefined'){
                 //  $('#point_one_field_two').val(response.point_one_field_two);
-                document.getElementsByName('point_one_field_two')[0].value = response.point_one_field_two;
+                document.getElementsByName('point_one_field_two').value = response.point_one_field_two;
             }
             if (typeof response.point_one_field_three !== 'undefined'){
                 //  $('#point_one_field_three').val(response.point_one_field_three);
-                document.getElementsByName('point_one_field_three')[0].value = response.point_one_field_three;
+                document.getElementsByName('point_one_field_three').value = response.point_one_field_three;
             }
+            
             if (typeof response.point_two_initial_here !== "undefined"){
                 document.getElementsByName("point_two_initial_here")[0].value = response.point_two_initial_here;
             }
@@ -231,11 +236,10 @@ export function displayDetails(callback) {
             if (typeof response.school_admin_sign_date !== "undefined"){
                 document.getElementsByName("school_admin_sign_date")[0].value = response.school_admin_sign_date;
             }
-
             if (typeof callback === 'function') {
                 callback();
             }
-        }
+        },
     })
 }
 
@@ -258,13 +262,18 @@ export function hideSpinner(callback) {
 $(document).ready(function () {
     fetchEnrollmentFormTitle();
     fetchEnrollmentFormBody();
+    fetchEnrollmentPointEight();
     displayDetails();
     // showSpinner();
     // hideSpinner();
-    fetchEnrollmentPointEight();
+   
    
 })
-
+// document.addEventListener('DOMContentLoaded', function() {
+//     // Your code here
+//     displayDetails();
+//   });
+  
 
 
   

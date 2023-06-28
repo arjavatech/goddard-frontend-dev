@@ -1,230 +1,229 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Goddard Website</title>
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-            rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-        <script type="module" src='js/enrollmentForm.js' ></script>
-        <script src='js/form.js' ></script>
-    </head>
-    <body>
-        <div class="container overallblock" >
-            <div class="center-image">
-                <img src="image/gs_logo.jpg" alt="Image" width="500" height="100"/>
-            </div>
-            <h1 id="heading" name="heading"></h1>
-            <div id="spinner" class="spinner"></div>
-            <form id="enrollment_from">
-                <ol>
-                    <!-- <input id="point" name="point" type="text" class="form-control "> -->
-                    <span id="apiResponsep1" name="apiResponsep1"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_two_initial_here" name="point_two_initial_here" type="text" class="form-control ">
-                    </span>
-                    <span id="apiResponsep2" name="apiResponsep2"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_three_initial_here" name="point_three_initial_here"
-                            type="text" class="form-control ">
-                    </span>
-                    <span id="apiResponsep3" name="apiResponsep3"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_four_initial_here" name="point_four_initial_here"
-                            type="text" class="form-control ">
-                    </span>
-                    <span id="apiResponsep4" name="apiResponsep4"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_five_initial_here" name="point_five_initial_here"
-                            type="text" class="form-control ">
-                    </span>
-                    <span id="apiResponsep5" name="apiResponsep5"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_six_initial_here" name="point_six_initial_here" type="text"
-                            class="form-control ">
-                    </span>
-                    <span id="apiResponsep6" name="apiResponsep6"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_seven_initial_here" name="point_seven_initial_here"
-                            type="text" class="form-control ">
-                    </span>
-                    <span id="apiResponsep7" name="apiResponsep7"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_eight_initial_here" name="point_eight_initial_here"
-                            type="text" class="form-control">
-                    </span>
-                    <span id="apiResponsep8" name="apiResponsep8"></span><br><br>
-                    <div class="row">
-                        <div class="col-sm-6 div1" >
-                            <table>
-                                <tr>
-                                    <th>Leave Dates</th>
-                                    <th>Leave Reasons</th>
-                                </tr>
-                                <tr>
-                                    <td id = "R1C1"></td>
-                                    <td id = "R1C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R2C1"></td>
-                                    <td id = "R2C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R3C1"></td>
-                                    <td id = "R3C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R4C1"></td>
-                                    <td id = "R4C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R5C1"></td>
-                                    <td id = "R5C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R6C1"></td>
-                                    <td id = "R6C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R7C1"></td>
-                                    <td id = "R7C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R8C1"></td>
-                                    <td id = "R8C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R9C1"></td>
-                                    <td id = "R9C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R10C1"></td>
-                                    <td id = "R10C2"></td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div class="col-sm-6 div2" >
-                            <table >
-                                <tr>
-                                    <th>Leave Dates</th>
-                                    <th>Leave Reasons</th>
-                                </tr>
-                                <tr>
-                                    <td id = "R11C1"></td>
-                                    <td id = "R11C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R12C1"></td>
-                                    <td id = "R12C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R13C1"></td>
-                                    <td id = "R13C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R14C1"></td>
-                                    <td id = "R14C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R15C1"></td>
-                                    <td id = "R15C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R16C1"></td>
-                                    <td id = "R16C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R17C1"></td>
-                                    <td id = "R17C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R18C1"></td>
-                                    <td id = "R18C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R19C1"></td>
-                                    <td id = "R19C2"></td>
-                                </tr>
-                                <tr>
-                                    <td id = "R20C1"></td>
-                                    <td id = "R20C2"></td>
-                                </tr>
-                            </table>
-                        </div>    
+
+<head>
+    <title>Goddard Website</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script type="module" src='js/enrollmentForm.js'></script>
+    <script src='js/form.js'></script>
+</head>
+
+<body>
+    <div class="container overallblock">
+        <div class="center-image">
+            <img src="image/gs_logo.jpg" alt="Image" width="500" height="100" />
+        </div>
+        <h1 id="heading" name="heading"></h1>
+        <div id="spinner" class="spinner"></div>
+        <form id="enrollment_from">
+            <ol>
+                <!-- <input id="point" name="point" type="text" class="form-control "> -->
+                <span id="apiResponsep1" name="apiResponsep1"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_two_initial_here" name="point_two_initial_here" type="text" class="form-control ">
+                </span>
+                <span id="apiResponsep2" name="apiResponsep2"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_three_initial_here" name="point_three_initial_here" type="text"
+                        class="form-control ">
+                </span>
+                <span id="apiResponsep3" name="apiResponsep3"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_four_initial_here" name="point_four_initial_here" type="text"
+                        class="form-control ">
+                </span>
+                <span id="apiResponsep4" name="apiResponsep4"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_five_initial_here" name="point_five_initial_here" type="text"
+                        class="form-control ">
+                </span>
+                <span id="apiResponsep5" name="apiResponsep5"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_six_initial_here" name="point_six_initial_here" type="text" class="form-control ">
+                </span>
+                <span id="apiResponsep6" name="apiResponsep6"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_seven_initial_here" name="point_seven_initial_here" type="text"
+                        class="form-control ">
+                </span>
+                <span id="apiResponsep7" name="apiResponsep7"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_eight_initial_here" name="point_eight_initial_here" type="text"
+                        class="form-control">
+                </span>
+                <span id="apiResponsep8" name="apiResponsep8"></span><br><br>
+                <div class="row">
+                    <div class="col-sm-6 div1">
+                        <table>
+                            <tr>
+                                <th>Leave Dates</th>
+                                <th>Leave Reasons</th>
+                            </tr>
+                            <tr>
+                                <td id="R1C1"></td>
+                                <td id="R1C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R2C1"></td>
+                                <td id="R2C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R3C1"></td>
+                                <td id="R3C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R4C1"></td>
+                                <td id="R4C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R5C1"></td>
+                                <td id="R5C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R6C1"></td>
+                                <td id="R6C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R7C1"></td>
+                                <td id="R7C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R8C1"></td>
+                                <td id="R8C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R9C1"></td>
+                                <td id="R9C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R10C1"></td>
+                                <td id="R10C2"></td>
+                            </tr>
+                        </table>
                     </div>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_nine_initial_here" name="point_nine_initial_here"
-                            type="text" class="form-control ">
-                    </span>
-                    <span id="apiResponsep9" name="apiResponsep9"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_ten_initial_here" name="point_ten_initial_here" type="text"
-                            class="form-control ">
-                    </span>
-                    <span id="apiResponsep10" name="apiResponsep10"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_eleven_initial_here" name="point_eleven_initial_here"
-                            type="text" class="form-control ">
-                    </span>
-                    <span id="apiResponsep11" name="apiResponsep11"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_twelve_initial_here" name="point_twelve_initial_here"
-                            type="text" class="form-control ">
-                    </span>
-                    <span id="apiResponsep12" name="apiResponsep12"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_thirteen_initial_here" name="point_thirteen_initial_here"
-                            type="text" class="form-control ">
-                    </span>
-                    <span id="apiResponsep13" name="apiResponsep13"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_fourteen_initial_here" name="point_fourteen_initial_here"
-                            type="text" class="form-control ">
-                    </span>
-                    <span id="apiResponsep14" name="apiResponsep14"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_fifteen_initial_here" name="point_fifteen_initial_here"
-                            type="text" class="form-control ">
-                    </span>
-                    <span id="apiResponsep15" name="apiResponsep15"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_sixteen_initial_here" name="point_sixteen_initial_here"
-                            type="text" class="form-control ">
-                    </span>
-                    <span id="apiResponsep16" name="apiResponsep16"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_seventeen_initial_here" name="point_seventeen_initial_here"
-                            type="text" class="form-control ">
-                    </span>
-                    <span id="apiResponsep17" name="apiResponsep17"></span><br><br>
-                    <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_eighteen_initial_here" name="point_eighteen_initial_here"
-                            type="text" class="form-control ">
-                    </span>
-                    <span id="apiResponsep18" name="apiResponsep18"></span><br><br>
-                    <!-- <span id="initial"><b>Initial here &nbsp;</b>
+                    <div class="col-sm-6 div2">
+                        <table>
+                            <tr>
+                                <th>Leave Dates</th>
+                                <th>Leave Reasons</th>
+                            </tr>
+                            <tr>
+                                <td id="R11C1"></td>
+                                <td id="R11C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R12C1"></td>
+                                <td id="R12C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R13C1"></td>
+                                <td id="R13C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R14C1"></td>
+                                <td id="R14C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R15C1"></td>
+                                <td id="R15C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R16C1"></td>
+                                <td id="R16C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R17C1"></td>
+                                <td id="R17C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R18C1"></td>
+                                <td id="R18C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R19C1"></td>
+                                <td id="R19C2"></td>
+                            </tr>
+                            <tr>
+                                <td id="R20C1"></td>
+                                <td id="R20C2"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_nine_initial_here" name="point_nine_initial_here" type="text"
+                        class="form-control ">
+                </span>
+                <span id="apiResponsep9" name="apiResponsep9"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_ten_initial_here" name="point_ten_initial_here" type="text" class="form-control ">
+                </span>
+                <span id="apiResponsep10" name="apiResponsep10"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_eleven_initial_here" name="point_eleven_initial_here" type="text"
+                        class="form-control ">
+                </span>
+                <span id="apiResponsep11" name="apiResponsep11"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_twelve_initial_here" name="point_twelve_initial_here" type="text"
+                        class="form-control ">
+                </span>
+                <span id="apiResponsep12" name="apiResponsep12"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_thirteen_initial_here" name="point_thirteen_initial_here" type="text"
+                        class="form-control ">
+                </span>
+                <span id="apiResponsep13" name="apiResponsep13"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_fourteen_initial_here" name="point_fourteen_initial_here" type="text"
+                        class="form-control ">
+                </span>
+                <span id="apiResponsep14" name="apiResponsep14"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_fifteen_initial_here" name="point_fifteen_initial_here" type="text"
+                        class="form-control ">
+                </span>
+                <span id="apiResponsep15" name="apiResponsep15"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_sixteen_initial_here" name="point_sixteen_initial_here" type="text"
+                        class="form-control ">
+                </span>
+                <span id="apiResponsep16" name="apiResponsep16"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_seventeen_initial_here" name="point_seventeen_initial_here" type="text"
+                        class="form-control ">
+                </span>
+                <span id="apiResponsep17" name="apiResponsep17"></span><br><br>
+                <span id="initial"><b>Initial here &nbsp;</b>
+                    <input id="point_eighteen_initial_here" name="point_eighteen_initial_here" type="text"
+                        class="form-control ">
+                </span>
+                <span id="apiResponsep18" name="apiResponsep18"></span><br><br>
+                <!-- <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_eighteen_initial_here" name="point_eighteen_initial_here"
                             type="text" class="form-control ">
                     </span> -->
-                    <span id="apiResponsep19" name="apiResponsep19"></span><br><br>
-                </ol>
-                <div class="container signblock">
-                    <div class="col-sm-12">
+                <span id="apiResponsep19" name="apiResponsep19"></span><br><br>
+            </ol>
+            <div class="container signblock">
+                <div class="col-sm-12">
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="col-sm-6 div1">
                                 <div class="form-group ">
-                                    <input id="parent_one_sign" name="parent_one_sign"
-                                    type="text" class="form-control bloc1">
+                                    <input id="parent_one_sign" name="parent_one_sign" type="text"
+                                        class="form-control bloc1">
                                     <span id="apiResponsep20" name="apiResponsep20"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6 div2">
                                 <div class="form-group ">
-                                    <input id="parent_one_sign_date" name="parent_one_sign_date"
-                                    type="text" class="form-control bloc1">
+                                    <input id="parent_one_sign_date" name="parent_one_sign_date" type="date"
+                                        class="form-control bloc1" onclick="dateValidation('parent_one_sign_date')">
                                     <span id="apiResponsep21" name="apiResponsep21"></span>
                                 </div>
                             </div>
@@ -234,15 +233,15 @@
                         <div class="col-sm-12">
                             <div class="col-sm-6 div1">
                                 <div class="form-group ">
-                                    <input id="parent_two_sign" name="parent_two_sign"
-                                    type="text" class="form-control bloc1">
+                                    <input id="parent_two_sign" name="parent_two_sign" type="text"
+                                        class="form-control bloc1">
                                     <span id="apiResponsep22" name="apiResponsep22"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6 div2">
                                 <div class="form-group ">
-                                    <input id="parent_two_sign_date" name="parent_two_sign_date"
-                                    type="text" class="form-control bloc1">
+                                    <input id="parent_two_sign_date" name="parent_two_sign_date" type="date"
+                                        class="form-control bloc1" onclick="dateValidation('parent_two_sign_date')">
                                     <span id="apiResponsep23" name="apiResponsep23"></span>
                                 </div>
                             </div>
@@ -252,15 +251,13 @@
                         <div class="col-sm-12">
                             <div class="col-sm-6 div1">
                                 <div class="form-group ">
-                                    <input id="child_name" name="child_name"
-                                    type="text" class="form-control bloc1">
+                                    <input id="child_name" name="child_name" type="text" class="form-control bloc1" >
                                     <span id="apiResponsep24" name="apiResponsep24"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6 div3">
                                 <div class="form-group ">
-                                    <input id="dob" name="dob"
-                                    type="text" class="form-control bloc1">
+                                    <input id="dob" name="dob" type="date" class="form-control bloc1" onclick="dateValidation('dob')">
                                     <span id="apiResponsep25" name="apiResponsep25"></span>
                                 </div>
                             </div>
@@ -270,15 +267,15 @@
                         <div class="col-sm-12">
                             <div class="col-sm-6 div1">
                                 <div class="form-group ">
-                                    <input id="school_admin_sign" name="school_admin_sign"
-                                    type="text" class="form-control bloc1">
+                                    <input id="school_admin_sign" name="school_admin_sign" type="text"
+                                        class="form-control bloc1">
                                     <span id="apiResponsep26" name="apiResponsep26"></span>
                                 </div>
                             </div>
                             <div class="col-sm-6 div4">
                                 <div class="form-group ">
-                                    <input id="school_admin_sign_date" name="school_admin_sign_date"
-                                    type="text" class="form-control bloc1">
+                                    <input id="school_admin_sign_date" name="school_admin_sign_date" type="date"
+                                        class="form-control bloc1" onclick="dateValidation('school_admin_sign_date')">
                                     <span id="apiResponsep27" name="apiResponsep27"></span>
                                 </div>
                             </div>
@@ -286,13 +283,19 @@
                     </div>
                 </div><br><br>
                 <button id="saveBtn" type="submit">Save</button>
-                <button id="clearBtn" >Clear</button>
-            </form>
-        </div>
-        <!-- <button id="downloadButton">Download Form</button> -->
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-        <!-- <script type="module" src='js/enrollmentForm.js'></script>
+                <button id="clearBtn">Clear</button>
+        </form>
+    </div>
+    <!-- <button id="downloadButton">Download Form</button> -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <!-- <script type="module" src='js/enrollmentForm.js'></script>
         <script src='js/form.js' ></script> -->
-    </body>
+    <script>
+        function dateValidation(val){
+            document.getElementById(val).max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+        }
+    </script>
+</body>
+
 </html>

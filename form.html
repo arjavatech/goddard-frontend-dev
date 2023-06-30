@@ -8,8 +8,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-        <script type="module" src='js/enrollmentForm.js' ></script>
-        <script src='js/form.js' ></script>
+        <script type="module" src='js/enrollmentForm.js' async></script>
+        <script src='js/form.js' async></script>
     </head>
     <body>
         <div class="container overallblock" >
@@ -224,7 +224,7 @@
                             <div class="col-sm-6 div2">
                                 <div class="form-group ">
                                     <input id="parent_one_sign_date" name="parent_one_sign_date"
-                                    type="text" class="form-control bloc1">
+                                    type="date" class="form-control bloc1">
                                     <span id="apiResponsep21" name="apiResponsep21"></span>
                                 </div>
                             </div>
@@ -242,7 +242,7 @@
                             <div class="col-sm-6 div2">
                                 <div class="form-group ">
                                     <input id="parent_two_sign_date" name="parent_two_sign_date"
-                                    type="text" class="form-control bloc1">
+                                    type="date" class="form-control bloc1">
                                     <span id="apiResponsep23" name="apiResponsep23"></span>
                                 </div>
                             </div>
@@ -260,7 +260,7 @@
                             <div class="col-sm-6 div3">
                                 <div class="form-group ">
                                     <input id="dob" name="dob"
-                                    type="text" class="form-control bloc1">
+                                    type="date" class="form-control bloc1">
                                     <span id="apiResponsep25" name="apiResponsep25"></span>
                                 </div>
                             </div>
@@ -278,7 +278,7 @@
                             <div class="col-sm-6 div4">
                                 <div class="form-group ">
                                     <input id="school_admin_sign_date" name="school_admin_sign_date"
-                                    type="text" class="form-control bloc1">
+                                    type="date" class="form-control bloc1" >
                                     <span id="apiResponsep27" name="apiResponsep27"></span>
                                 </div>
                             </div>
@@ -290,6 +290,7 @@
             </form>
         </div>
         <!-- <button id="downloadButton">Download Form</button> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
         <!-- <script type="module" src='js/enrollmentForm.js'></script>

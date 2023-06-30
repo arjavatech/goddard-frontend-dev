@@ -1,6 +1,6 @@
 $(document).ready(function welcomeText() {
     $.ajax({
-        url: 'https://f64ff4v9wh.execute-api.ap-south-1.amazonaws.com/godd/parent/fetch/PAT01',
+        url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/parent/fetch/PAT01',
         type: 'get',
         success: function(response){
           console.log('hello')

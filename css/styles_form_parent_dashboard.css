@@ -4,6 +4,12 @@
     margin-top: 50px;
 }
 
+.overallblock {
+    padding: 2% !important;
+    border: 3px dashed  black;
+    margin: 2%;
+}
+
 h1 {
     font-size: 24px;
 }
@@ -43,6 +49,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-#formContent #initialStyle {
+#formContent .initialStyle {
     size: 3rem;
 }

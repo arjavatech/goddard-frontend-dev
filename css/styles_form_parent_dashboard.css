@@ -47,8 +47,29 @@ h1 {
     text-align: right;
     margin-top: -20px;
     margin-bottom: 20px;
+    margin-right: 50px;
 }
 
 #formContent .initialStyle {
-    size: 3rem;
+    size: 1rem;
+    /* height: 60px;
+    width: 100px;
+    padding-left: 20%;
+    margin-right: 20%; */
+}
+
+/* this used for drowarrow displayed in dropdown */
+.dropdown {
+    position: relative;
+}
+.dropdown:after {
+    content: "";
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 2px; 
+    height: 1px; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #a3a0a0;
 }

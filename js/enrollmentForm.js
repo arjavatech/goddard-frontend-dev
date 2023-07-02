@@ -1,16 +1,15 @@
 export function fetchEnrollmentFormBody(callback) {
     let arr =[];
     $.ajax({
-        url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment/fetch/1',
+        url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment/fetch/2023',
         type: 'get',
         success: function(response){
-            // console.log(response)
+            // let editID = window.location.search.slice(4);
+            // console.log(editID);
             $.ajax({
-                url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/CD0001',
+                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/CD0001`,
                 type: 'get',
                 success: function(response1){
-                    console.log(response1);
-                    console.log(arr.length);
                     if(typeof response.point_one !='undefined'){
                         let paragraph = document.querySelector('[name="apiResponsep1"]');
                         paragraph.textContent = response.point_one;
@@ -31,14 +30,20 @@ export function fetchEnrollmentFormBody(callback) {
                         let textBox = document.createElement('input');
                         textBox.setAttribute('type', 'text');
                         textBox.setAttribute('id', textboxId);
-                        textBox.setAttribute('value',responseFieldData);
+                        console.log(responseData[i]);
+                        if(typeof responseData[i] == 'undefined' || responseData[i] == ''){
+                            console.log(responseFieldData);
+                            textBox.setAttribute('value','');
+                        }else{
+                            console.log(responseFieldData);
+                            textBox.setAttribute('value',responseFieldData);
+                        }
                         textBox.setAttribute('name', textboxId);
                         textBox.setAttribute('class', 'form-control');
                         textBox.setAttribute('style', 'border: none; border-bottom: 1px solid black;');
                         // let textBoxs = document.body.appendChild(textBox);
                         // Replace the target text with the textbox in the paragraph
                         paragraph.innerHTML = paragraph.innerHTML.replace(targetText, targetText + textBox.outerHTML);
-                        // console.log(paragraph.innerHTML)
                         }
                     //    document.querySelector('[name="apiResponsep1"]').innerHTML = response.point_one;
                         document.querySelector('[name="apiResponsep2"]').innerHTML = response.point_two;
@@ -161,7 +166,7 @@ export function fetchEnrollmentFormBody(callback) {
 
 export function fetchEnrollmentFormTitle(callback) {
     $.ajax({
-        url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment/fetch/1',
+        url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment/fetch/2023',
         type: 'get',
         success: function(response){
             document.querySelector('[name="heading"]').innerHTML = response.title;
@@ -174,7 +179,7 @@ export function fetchEnrollmentFormTitle(callback) {
 
 function fetchEnrollmentPointEight(callback) {
     $.ajax({
-        url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/holidays/fetch/1',
+        url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/holidays/fetch/2023',
         type: 'get',
         success: function(response){
             document.querySelector('[id="R1C1"]').innerHTML = response.year_one_leave_one;

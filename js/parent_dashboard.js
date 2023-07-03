@@ -8,6 +8,7 @@ function parentDashBoardDetails(val) {
             if(typeof response.child_name !='undefined'){
                 document.querySelector('[name="child_name"]').innerHTML = response.child_name;
                 document.querySelector('[name="enrollment_agreement"]').innerHTML = response.form_name1;
+                // document.querySelector('[name="enrollment_span"]').style.display = "block";
                 document.querySelector('[name="date_value"]').innerHTML = response.form_expiry_date;
                 if (response.form_status == "Yet To Be Filled") {
                     document.querySelector('[name="form_status"]').innerHTML = response.form_status;
@@ -59,14 +60,14 @@ function disableAction() {
     let icon1 = document.getElementById('enrollmentForm');
   
     link.style.pointerEvents = 'auto'; // Enable link click
-    icon1.style.color ='black';//changed the color
+    icon1.style.color ='#0F2D52';//changed the color
     icon1.classList.remove('disabled'); // Remove disabled styling
 
     let span = document.querySelector('[data-bs-toggle="modal"]');
     let icon2 = document.getElementById('mail_icon');
   
     span.style.pointerEvents = 'auto'; // Enable span click
-    icon2.style.color ='black';//changed the color
+    icon2.style.color ='#0F2D52';//changed the color
     icon2.classList.remove('disabled'); // Remove disabled styling
   }
 

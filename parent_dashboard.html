@@ -1,202 +1,411 @@
 <html>
+    <head>
+        <title>Welcome-Dashboard</title>
+        <link rel="stylesheet" type="text/css" href="css/styles_form_parent_dashboard.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
+        <link rel="stylesheet" href="css/parent_dashboard_styel.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
+        <script src='js/script.js'></script>
+        <script type="module" src='js/emailSend.js'></script>
+        <script type="module" src='js/downloadpdf.js'></script>
+        <script type="module" src='js/printpdf.js'></script>
+        <script src="js/parentHandBookDownload.js"></script>
+        <script src="js/parent_dashboard.js"></script>
+        <link  rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <style>
+          
+        </style>
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar d-flex justify-content-center">
+            <img src="image/gs_logo.svg" alt="gs_logo" type="image/svg" width="476" height="112">
+        </nav>
+        <!-- Navigation Bar End -->
+        <div class="container">
+            <h2 class="parent_dashboard_title h2 pt-4 text-center">Parent Dashboard for :
+                <span class="child-name fs-4" id="child_name" name="child_name"></span></h2>
+            <div class="row">
+                <div class="col-1">
+                    <h4>Year : </h4>
+                </div>
+                <div class="col-1 dropdown">
+                    <!-- <h4>Year : <span id="form_year" name="form_year"></span></h4> -->
+                    <select name="form_year" id="form_year" class="form-control" onclick="parentDashBoardDetails(this.value)" required>
+                    </select>
+                    
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="container" style="margin-top: 20px;">
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <thead class="table-head">
+                                <tr>
+                                    <th>Form Name</th>
+                                    <th >Form Expire Date</th>
+                                    <th>Form Review Status</th>
+                                    <th >Form Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- <tbody id="tableBody"></tbody> -->
+                                <tr>
+                                    <!-- <td id="enrollment_agreement" name="enrollment_agreement">Enrollment Agreement 2023-2024 <span class="required">*</span></td>
+                                    <td id="date_value" name="date_value">6/30/2023</td>
+                                    <td id="form_status" name="form_status">Yet to be filled</td> -->
+                                    <td id="enrollment_agreement" name="enrollment_agreement"><span class="required">*</span></td>
+                                    <td id="date_value" name="date_value"></td>
+                                    <td id="form_status" name="form_status"></td>
+                                    <td>
+                                        <a href="#"  data-dynamic-value="example" id="pencil_icon_link" name="pencil_icon_link" >
+                                            <i class="fa-sharp fa-solid fa-pen p-2 action-icons" id = "enrollmentForm" name = "enrollmentForm"></i>
+                                        </a>
+                                        <i class="fa-solid fa-circle-arrow-down p-2 action-icons" id="downloadFormAsPDF"
+                                        name="downloadForm"></i>
+                                        <span data-bs-toggle="modal" data-bs-target="#staticBackdrop"  >
+                                            <i class="fa-solid fa-envelope p-2 action-icons" id="mail_icon" name="mail_icon"></i>
+                                        </span>
 
-<head>
-    <title>Welcome-Dashboard</title>
-    <link rel="stylesheet" type="text/css" href="css/styles_form_parent_dashboard.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
-    <link rel="stylesheet" href="css/parent_dashboard_styel.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
-    <script src='js/script.js'></script>
-    <script type="module" src='js/emailSend.js'></script>
-    <script type="module" src='js/downloadpdf.js'></script>
-    <script type="module" src='js/printpdf.js'></script>
-    <script src="js/parentHandBookDownload.js"></script>
-</head>
-
-<body>
-
-<!-- Navigation Bar -->
-
-<nav class="navbar d-flex justify-content-center">
-    <img src="image/gs_logo.svg" alt="gs_logo" type="image/svg" width="476" height="112">
-</nav>
-
-<!-- Navigation Bar End -->
-
-<div class="container">
-    <h2 class="parent_dashboard_title h2 pt-4 text-center">Parent Dashboard for : <span
-            class="child-name fs-4">Charles</span></h2>
-    <div class="row">
-        <div class="col-6">
-            <h4>Year : 2023</h4>
-        </div>
-<!--        <div class="col-6"><button class="float-end dowload-all ">Download All</button>-->
-<!--        </div>-->
-    </div>
-    <div class="d-flex justify-content-center">
-        <div class="container" style="margin-top: 20px;">
-            <div class="table-wrapper">
-                <table class="table">
-                    <thead class="table-head">
-                    <tr>
-                        <th>Form Name</th>
-                        <th>Form Expire Date</th>
-                        <th>Form Review Status</th>
-                        <th>Form Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Enrollment Agreement 2023-2024 <span class="required">*</span></td>
-                        <td>6/30/2023</td>
-                        <td>Yet to be filled</td>
-                        <td>
-                            <a href="#"  data-dynamic-value="example"><i class="fa-sharp fa-solid fa-pen p-2 action-icons" id = "enrollmentForm" name = "enrollmentForm"></i></a>
-                            <i class="fa-solid fa-circle-arrow-down p-2 action-icons" id="downloadFormAsPDF"
-                               name="downloadForm"></i>
-                            <span data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                        <i class="fa-solid fa-envelope p-2 action-icons"></i>
-                                    </span>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
-                                 data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                 aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Mail Send to
-                                                Admin
-                                            </h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form role="form" class="form-horizontal">
-                                                <div class="form-group">
-                                                    <label class="col-lg-2 control-label pt-2">Message</label>
-                                                    <div class="col-lg-10">
-                                                                <textarea rows="10" cols="30" class="form-control" id="messageData"
-                                                                          name=""></textarea>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Mail Send to Admin </h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form role="form" class="form-horizontal">
+                                                            <div class="form-group">
+                                                                <label class="col-lg-2 control-label pt-2">Message</label>
+                                                                <div class="col-lg-10">
+                                                                    <textarea rows="10" cols="30" class="form-control" id="messageData"
+                                                                            name=""></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Cancel</button>
+                                                        <button id="sendButton" type="button" class="btn btn-primary">Send</button>
                                                     </div>
                                                 </div>
-
-                                            </form>
+                                            </div>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Cancel</button>
-
-                                            <button id="sendButton" type="button" class="btn btn-primary">Send</button>
-                                        </div>
+                                        <!-- Button trigger modal -->
+                                        <i class="fa-solid fa-print p-2 action-icons" id="printFormBtn"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="table-footer">
+                                <tr>
+                                    <th>Goddard School Hand Book</th>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        <i class="fa-solid fa-circle-arrow-down p-2 action-icons" id="GetFile" name="downloadForm"></i>
+                                        <i id="printParentHandbook" class="fa-solid fa-print p-2 action-icons"></i>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+            <div class="container_form " id = "formContent">
+                <div class="center-image">
+                    <img src="image/gs_logo.jpg" alt="Image" width="500" height="100"/>
+                </div>
+                <h1 id="heading" name="heading"></h1>
+                <div id="spinner" class="spinner"></div>
+                <form id="enrollment_from">
+                    <ol>
+                        <span id="apiResponsep1" name="apiResponsep1"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_two_initial_here" name="point_two_initial_here" type="text" class="form-control initialStyle ">
+                        </span>
+                        <span id="apiResponsep2" name="apiResponsep2"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_three_initial_here" name="point_three_initial_here"
+                                type="text" class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep3" name="apiResponsep3"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_four_initial_here" name="point_four_initial_here"
+                                type="text" class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep4" name="apiResponsep4"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_five_initial_here" name="point_five_initial_here"
+                                type="text" class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep5" name="apiResponsep5"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_six_initial_here" name="point_six_initial_here" type="text"
+                                class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep6" name="apiResponsep6"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_seven_initial_here" name="point_seven_initial_here"
+                                type="text" class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep7" name="apiResponsep7"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_eight_initial_here" name="point_eight_initial_here"
+                                type="text" class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep8" name="apiResponsep8"></span><br><br>
+                        <div class="row">
+                            <div class="col-sm-6 div1" >
+                                <table>
+                                    <tr>
+                                        <th>Leave Dates</th>
+                                        <th>Leave Reasons</th>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R1C1"></td>
+                                        <td id = "R1C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R2C1"></td>
+                                        <td id = "R2C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R3C1"></td>
+                                        <td id = "R3C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R4C1"></td>
+                                        <td id = "R4C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R5C1"></td>
+                                        <td id = "R5C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R6C1"></td>
+                                        <td id = "R6C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R7C1"></td>
+                                        <td id = "R7C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R8C1"></td>
+                                        <td id = "R8C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R9C1"></td>
+                                        <td id = "R9C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R10C1"></td>
+                                        <td id = "R10C2"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-sm-6 div2" >
+                                <table >
+                                    <tr>
+                                        <th>Leave Dates</th>
+                                        <th>Leave Reasons</th>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R11C1"></td>
+                                        <td id = "R11C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R12C1"></td>
+                                        <td id = "R12C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R13C1"></td>
+                                        <td id = "R13C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R14C1"></td>
+                                        <td id = "R14C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R15C1"></td>
+                                        <td id = "R15C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R16C1"></td>
+                                        <td id = "R16C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R17C1"></td>
+                                        <td id = "R17C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R18C1"></td>
+                                        <td id = "R18C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R19C1"></td>
+                                        <td id = "R19C2"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id = "R20C1"></td>
+                                        <td id = "R20C2"></td>
+                                    </tr>
+                                </table>
+                            </div>    
+                        </div>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_nine_initial_here" name="point_nine_initial_here"
+                                type="text" class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep9" name="apiResponsep9"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_ten_initial_here" name="point_ten_initial_here" type="text"
+                                class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep10" name="apiResponsep10"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_eleven_initial_here" name="point_eleven_initial_here"
+                                type="text" class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep11" name="apiResponsep11"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_twelve_initial_here" name="point_twelve_initial_here"
+                                type="text" class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep12" name="apiResponsep12"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_thirteen_initial_here" name="point_thirteen_initial_here"
+                                type="text" class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep13" name="apiResponsep13"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_fourteen_initial_here" name="point_fourteen_initial_here"
+                                type="text" class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep14" name="apiResponsep14"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_fifteen_initial_here" name="point_fifteen_initial_here"
+                                type="text" class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep15" name="apiResponsep15"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_sixteen_initial_here" name="point_sixteen_initial_here"
+                                type="text" class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep16" name="apiResponsep16"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_seventeen_initial_here" name="point_seventeen_initial_here"
+                                type="text" class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep17" name="apiResponsep17"></span><br><br>
+                        <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_eighteen_initial_here" name="point_eighteen_initial_here"
+                                type="text" class="form-control initialStyle">
+                        </span>
+                        <span id="apiResponsep18" name="apiResponsep18"></span><br><br>
+                        <!-- <span id="initial"><b>Initial here &nbsp;</b>
+                            <input id="point_eighteen_initial_here" name="point_eighteen_initial_here"
+                                type="text" class="form-control ">
+                        </span> -->
+                        <span id="apiResponsep19" name="apiResponsep19"></span><br><br>
+                    </ol>
+                    <div class="container signblock">
+                        <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-6 div1">
+                                    <div class="form-group ">
+                                        <input id="parent_one_sign" name="parent_one_sign"
+                                        type="text" class="form-control bloc1 initialStyle">
+                                        <span id="apiResponsep20" name="apiResponsep20"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 div2">
+                                    <div class="form-group ">
+                                        <input id="parent_one_sign_date" name="parent_one_sign_date"
+                                        type="date" class="form-control bloc1 initialStyle">
+                                        <span id="apiResponsep21" name="apiResponsep21"></span>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Button trigger modal -->
-                            <i class="fa-solid fa-print p-2 action-icons" id="printFormBtn"></i>
-                        </td>
-                    </tr>
-                    </tbody>
-                    <tfoot class="table-footer">
-                    <tr>
-                        <th>Goddard School Hand Book</th>
-                        <td></td>
-                        <td></td>
-                        <td>
-                            <i
-                                    class="fa-solid fa-circle-arrow-down p-2 action-icons" id="GetFile"
-                                    name="downloadForm"></i>
-                            <i id="printParentHandbook" class="fa-solid fa-print p-2 action-icons"></i>
-                        </td>
-                    </tr>
-                    </tfoot>
-                </table>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-6 div1">
+                                    <div class="form-group ">
+                                        <input id="parent_two_sign" name="parent_two_sign"
+                                        type="text" class="form-control bloc1 initialStyle">
+                                        <span id="apiResponsep22" name="apiResponsep22"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 div2">
+                                    <div class="form-group ">
+                                        <input id="parent_two_sign_date" name="parent_two_sign_date"
+                                        type="date" class="form-control bloc1 initialStyle">
+                                        <span id="apiResponsep23" name="apiResponsep23"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-6 div1">
+                                    <div class="form-group ">
+                                        <input id="child_name" name="child_name"
+                                        type="text" class="form-control bloc1 initialStyle">
+                                        <span id="apiResponsep24" name="apiResponsep24"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 div3">
+                                    <div class="form-group ">
+                                        <input id="dob" name="dob"
+                                        type="date" class="form-control bloc1 initialStyle">
+                                        <span id="apiResponsep25" name="apiResponsep25"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-6 div1">
+                                    <div class="form-group ">
+                                        <input id="school_admin_sign" name="school_admin_sign"
+                                        type="text" class="form-control bloc1 initialStyle">
+                                        <span id="apiResponsep26" name="apiResponsep26"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 div4">
+                                    <div class="form-group ">
+                                        <input id="school_admin_sign_date" name="school_admin_sign_date"
+                                        type="date" class="form-control bloc1 initialStyle" >
+                                        <span id="apiResponsep27" name="apiResponsep27"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br><br>
+                </form>
             </div>
         </div>
-
-    </div>
-
-    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-    <div class="container_form" id = "formContent">
-        <div class="center-image">
-            <img src="image/gs_logo.jpg" alt="Image" width="500" height="100"/>
-        </div>
-        <h1 id="heading" name="heading"></h1>
-        <!-- <button id="apiButton" onclick="p1()">Get Form Data</button> -->
-        <br/><br/>
-        <ol>
-            <span id = "apiResponsep1" name = "apiResponsep1"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep2" name = "apiResponsep2"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep3" name = "apiResponsep3"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep4" name = "apiResponsep4"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep5" name = "apiResponsep5"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep6" name = "apiResponsep6"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep7" name = "apiResponsep7"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep8" name = "apiResponsep8"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <br/><br/><br/><br/><br/><br/><br/><br/>
-            <span id = "apiResponsep9" name = "apiResponsep9"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep10" name = "apiResponsep10"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep11" name = "apiResponsep11"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep12" name = "apiResponsep12"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep13" name = "apiResponsep13"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep14" name = "apiResponsep14"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep15" name = "apiResponsep15"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep16" name = "apiResponsep16"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep17" name = "apiResponsep17"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep18" name = "apiResponsep18"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep19" name = "apiResponsep19"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep20" name = "apiResponsep20"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep21" name = "apiResponsep21"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep22" name = "apiResponsep22"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep23" name = "apiResponsep23"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep24" name = "apiResponsep24"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep25" name = "apiResponsep25"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep26" name = "apiResponsep26"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-            <span id = "apiResponsep27" name = "apiResponsep27"></span><br><br>
-            <span id = "initial" name = "initial"><b>Initial here &nbsp;</b><input id = "initialStyle" type="text"></span>
-        </ol>
-    </div>
-</div>
-<script>
-    var link = document.querySelector('a[data-dynamic-value]');
-    var dynamicValue = "CD0001";
-    link.href = `form.html?id=${dynamicValue}`;
-  </script>
-
-</body>
-
+        <script>
+            var link = document.querySelector('a[data-dynamic-value]');
+            // var year = document.querySelector('form_year');
+            // console.log(year);
+            var dynamicValue = "CD0001";
+            link.href = `form.html?id=${dynamicValue}`;
+        </script>
+    </body>
 </html>

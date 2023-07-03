@@ -119,3 +119,9 @@ span {
   border: 3px dashed  black;
   margin: 2%;
  }
+
+ td {
+  display: table-cell;
+  vertical-align: inherit;
+  font-family: 'Roboto', sans-serif;
+}

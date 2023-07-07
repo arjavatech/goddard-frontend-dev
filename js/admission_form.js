@@ -10,17 +10,17 @@ function submitForm() {
     console.log(json);
 
     let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        const data = xhr.responseText;
-        if (xhr.status == 200) {
-            var confirmationRes = window.confirm(data);
-            if (confirmationRes) {
-                window.location.href = "parent_dashboard.html";
-            } else {
-                window.location.reload();
-            }
-        }
-    };
+    // xhr.onload = () => {
+    //     const data = xhr.responseText;
+    //     if (xhr.status == 200) {
+    //         var confirmationRes = window.confirm(data);
+    //         if (confirmationRes) {
+    //             window.location.href = "parent_dashboard.html";
+    //         } else {
+    //             window.location.reload();
+    //         }
+    //     }
+    // };
     xhr.open("POST", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/child/add");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);

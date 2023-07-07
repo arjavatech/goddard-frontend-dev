@@ -1,7 +1,8 @@
 <html>
     <head>
         <title>Welcome-Dashboard</title>
-        <link rel="stylesheet" type="text/css" href="css/styles_form_parent_dashboard.css">
+        <!-- <link rel="stylesheet" type="text/css" href="css/styles_form_parent_dashboard.css"> -->
+        <link rel="stylesheet" type="text/css" href="css/downloadpdf.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
         <link rel="stylesheet" href="css/parent_dashboard_styel.css">
@@ -125,7 +126,7 @@
                 </div>
             </div>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <div class="container_form " id = "formContent">
+            <div class="container_form overallblock" id = "formContent">
                 <div class="center-image">
                     <img src="image/gs_logo.jpg" alt="Image" width="500" height="100"/>
                 </div>
@@ -134,16 +135,16 @@
                 <form id="enrollment_from">
                     <ol>
                         <span id="apiResponsep1" name="apiResponsep1"></span><br><br>
-                        <span id="initial"><b>Initial here &nbsp;</b>
+                        <span id="initial" name = "initial"><b>Initial here &nbsp;</b>
                             <input id="point_two_initial_here" name="point_two_initial_here" type="text" class="form-control initialStyle ">
                         </span>
                         <span id="apiResponsep2" name="apiResponsep2"></span><br><br>
-                        <span id="initial"><b>Initial here &nbsp;</b>
+                        <span id="initial" name = "initial"><b>Initial here &nbsp;</b>
                             <input id="point_three_initial_here" name="point_three_initial_here"
                                 type="text" class="form-control initialStyle">
                         </span>
                         <span id="apiResponsep3" name="apiResponsep3"></span><br><br>
-                        <span id="initial"><b>Initial here &nbsp;</b>
+                        <span id="initial" name = "initial"><b>Initial here &nbsp;</b>
                             <input id="point_four_initial_here" name="point_four_initial_here"
                                 type="text" class="form-control initialStyle">
                         </span>
@@ -404,7 +405,7 @@
             var link = document.querySelector('a[data-dynamic-value]');
             // var year = document.querySelector('form_year');
             // console.log(year);
-            var dynamicValue = "CD0001";
+            var dynamicValue = "CD01";
             link.href = `form.html?id=${dynamicValue}`;
         </script>
     </body>

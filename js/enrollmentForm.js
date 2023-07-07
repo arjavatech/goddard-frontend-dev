@@ -7,7 +7,7 @@ export function fetchEnrollmentFormBody(callback) {
             // let editID = window.location.search.slice(4);
             // console.log(editID);
             $.ajax({
-                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/CD0001`,
+                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/CD01`,
                 type: 'get',
                 success: function(response1){
                     if(typeof response.point_one !='undefined'){

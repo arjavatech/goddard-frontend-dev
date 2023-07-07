@@ -11,7 +11,7 @@ function submitForm() {
     console.log(formData);
     const obj = Object.fromEntries(formData);
     console.log(obj);
-    obj.child_id = "CD01";
+    obj.child_id = "CD0001";
     const json = JSON.stringify(obj);
 
     let xhr = new XMLHttpRequest();

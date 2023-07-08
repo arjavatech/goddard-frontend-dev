@@ -6,8 +6,9 @@ function getAllInfo(callback) {
                url: url + logged_in_email,
                type: 'get',
                success: function (response) {
-                   console.log(response.parent_name)
-                   localStorage.setItem('parent_name', response.parent_name)
+                   console.log(response)
+                   localStorage.setItem('parent_name', response[0].parent_name)
+                   localStorage.setItem('child_name', response[0].child_full_name)
                    if (typeof callback === 'function') {
                        callback();
                    }
@@ -27,10 +28,11 @@ function welcomeText() {
     const parentName = localStorage.getItem('parent_name');
     if (parentName !== 'undefined' && parentName !== null) {
         document.getElementById('welcomeText').innerHTML = 'Welcome ' + parentName;
+        document.getElementById('childname').innerHTML = localStorage.getItem('child_name');
         additionalHtmlContainer.style.display = 'block';
     } else {
-        document.getElementById('welcomeText').innerHTML = 'No parent found';
-        window.alert("No parent found")
+        document.getElementById('welcomeText').innerHTML = 'Parent not found';
+        window.alert("Parent Not found")
         window.history.back();
     }
 }

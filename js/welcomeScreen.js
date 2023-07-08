@@ -30,7 +30,8 @@ function welcomeText() {
         additionalHtmlContainer.style.display = 'block';
     } else {
         document.getElementById('welcomeText').innerHTML = 'No parent found';
-        additionalHtmlContainer.style.display = 'none';
+        window.alert("No parent found")
+        window.history.back();
     }
 }
 

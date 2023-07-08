@@ -26,6 +26,7 @@ h1 {
   margin-left: 30% !important;
 }
 .signblock{
+  white-space: nowrap;
   margin-left: 20%;
 }
 
@@ -86,10 +87,7 @@ span {
 0% { transform: rotate(0deg); }
 100% { transform: rotate(360deg); }
 }
-
-.signblock {
-  white-space: nowrap;
-}
+ 
 .bloc1{
   border: none;
   border-bottom: 1px solid black;

@@ -50,7 +50,7 @@ body {
 }
 
 .form-wizard .wizard-form-radio input[type="radio"]:checked {
-    background-color: #fb1647;
+    background-color: #0F2D52;
 }
 
 .form-wizard .wizard-form-radio input[type="radio"]:checked::before {
@@ -70,7 +70,7 @@ body {
 .form-wizard .wizard-form-radio input[type="radio"]:checked::after {
     content: "";
     display: inline-block;
-    webkit-animation: click-radio-wave 0.65s;
+    -webkit-animation: click-radio-wave 0.65s;
     -moz-animation: click-radio-wave 0.65s;
     animation: click-radio-wave 0.65s;
     background: #000000;
@@ -139,8 +139,7 @@ body {
 .form-wizard .form-control {
     font-weight: 300;
     color: #000000;
-    background-color: #f1f1f1;
-    height: 50px;
+    height: 40px;
   
 }
 

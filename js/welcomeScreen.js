@@ -7,8 +7,11 @@ function getAllInfo(callback) {
                type: 'get',
                success: function (response) {
                    console.log(response)
-                   localStorage.setItem('parent_name', response[0].parent_name)
-                   localStorage.setItem('child_name', response[0].child_full_name)
+                   localStorage.clear()
+                   if(response && response.length > 0) {                
+                        localStorage.setItem('parent_name', response[0].parent_name)
+                        localStorage.setItem('child_name', response[0].child_full_name)
+                   }
                    if (typeof callback === 'function') {
                        callback();
                    }

@@ -148,13 +148,12 @@
                                             <div class="form-group">
                                                 <p><b>GENDER</b></p>
                                                 <div class="wizard-form-radio">
-                                                    <input name="gender" id="radio1"
-                                                        value="Male" type="radio">
+                                                    <input name="gender" id="radio1" value="Male" type="radio">
                                                     <label for="radio1">Male</label>
                                                 </div>
                                                 <div class="wizard-form-radio">
-                                                    <input name="gender" id="radio2"
-                                                        type="radio" value="Female" checked>
+                                                    <input name="gender" id="radio2" type="radio" value="Female"
+                                                        checked>
                                                     <label for="radio2">Female</label>
                                                 </div>
                                             </div>
@@ -162,7 +161,8 @@
                                     </div>
                                     <div class="row m-3">
                                         <div class="col">
-                                            <label for="parent_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S NAME</label>
+                                            <label for="parent_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S
+                                                NAME</label>
                                             <input type="text" class="form-control" aria-label="Email Address"
                                                 id="parent_name" name="parent_name">
                                         </div>
@@ -174,7 +174,8 @@
                                         <div class="panel-body">
                                             <div class="row m-1">
                                                 <div class="col">
-                                                    <label for="parent_street_address" class="wizard-form">STREET</label>
+                                                    <label for="parent_street_address"
+                                                        class="wizard-form">STREET</label>
                                                     <input type="text" class="form-control" id="parent_street_address"
                                                         name="parent_street_address">
                                                 </div>
@@ -222,7 +223,8 @@
                                                 id="work_hours" name="work_hours">
                                         </div>
                                         <div class="col">
-                                            <label for="business_telephone_number" class="form-label">BUSINESS TELEPHONE NUMBER</label>
+                                            <label for="business_telephone_number" class="form-label">BUSINESS TELEPHONE
+                                                NUMBER</label>
                                             <input type="number" class="form-control" aria-label="Email Address"
                                                 id="business_telephone_number" name="business_telephone_number">
                                         </div>
@@ -234,7 +236,8 @@
                                         <div class="panel-body">
                                             <div class="row m-1">
                                                 <div class="col">
-                                                    <label for="business_street_address" class="wizard-form">STREET</label>
+                                                    <label for="business_street_address"
+                                                        class="wizard-form">STREET</label>
                                                     <input type="text" class="form-control" id="business_street_address"
                                                         name="business_street_address">
                                                 </div>
@@ -550,45 +553,535 @@
                             </div>
                         </fieldset>
                         <fieldset class="wizard-fieldset ">
-                            <h3 style="text-align: center;">Family Information</h3>
                             <div class="container">
-                                <div class="row">
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="father_name" class="wizard-form"><b>Father's Name</b></label>
-                                            <input name="father_name" type="text" class="form-control " id="fatherName"
-                                                maxlength="50">
-                                            <span class="spanmsg" id="fatherNameErrorSpan"
-                                                style="color:red; display:none">
-                                                Enter valid input[only letters].</span>
-                                        </div>
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title text-center"><b>Child & Family History</b></h3>
                                     </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="father_mobile" class="wizard-form"><b>Father's
-                                                    Mobile</b></label>
-                                            <input name="father_mobile" type="text" class="form-control "
-                                                id="fatherMobile" minlength="7" maxlength="15">
-                                            <span id="ErrorFatherMobile" style="color:red; display:none">
-                                                Enter valid input [only numbers,+,-,()].</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="fatherOccupation" class="wizard-form"><b>Father's
-                                                    Occupation</b></label>
-                                            <input name="father_occupation" type="text" class="form-control "
-                                                id="fatherOccupation" maxlength="50">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                    <div class="panel-body">
+                                        <form action="" class="form">
+                                            <div class="row p-3">
+                                                <div class="col-sm">
+                                                    <label for="student_name" class="form-label">Student</label>
+                                                    <input type="text" class="form-control" id="student_name">
+                                                </div>
+                                            </div>
+                                            <div class="row p-3">
+                                                <div class="col-sm">
+                                                    <label for="physical_exam_date" class="form-label">Date of Last
+                                                        Physical
+                                                        Exam</label>
+                                                    <input type="date" class="form-control" id="physical_exam_date">
+                                                </div>
+                                                <div class="col-sm">
+                                                    <label for="dental_exam_date" class="form-label">Date of Last Dental
+                                                        Exam</label>
+                                                    <input type="date" class="form-control" id="dental_exam_date">
+                                                </div>
+                                            </div>
+                                            <div class="pt-4">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-heading">
+                                                        <h5 class="panel-title text-center"><b>MEDICAL HISTORY AND
+                                                                ILLNESSES</b></h5>
+                                                    </div>
+                                                    <p class="text-center pt-5"><b>Does your child have a history of :
+                                                            (please
+                                                            describe)</b>
+                                                    </p>
+                                                    <div class="panel-body">
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="allergies" class="form-label">Allergies
+                                                                    (food/drug)</label>
+                                                                <input type="text" class="form-control" id="allergies">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="asthma" class="form-label">Asthma</label>
+                                                                <input type="text" class="form-control" id="asthma">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="bleeding_problems"
+                                                                    class="form-label">Bleeding
+                                                                    Problems</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="bleeding_problems">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="diabetes"
+                                                                    class="form-label">Diabetes</label>
+                                                                <input type="text" class="form-control" id="diabetes">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="epilepsy"
+                                                                    class="form-label">Epilepsy</label>
+                                                                <input type="text" class="form-control" id="epilepsy">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="ear_infections" class="form-label">Frequent
+                                                                    Ear
+                                                                    Infections</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="ear_infections">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="illnesses"
+                                                                    class="form-label">Illnesses</label>
+                                                                <input type="text" class="form-control" id="illnesses">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="hearing_problems" class="form-label">Hearing
+                                                                    Problems</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="hearing_problems">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="high_fevers" class="form-label">High
+                                                                    Fevers</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="high_fevers">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="hospitialization"
+                                                                    class="form-label">Hospitialization</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="hospitialization">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="rheumatic_fever"
+                                                                    class="form-label">Rheumatic Fever
+                                                                    Problems</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="rheumatic_fever">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="seizures_convulsions"
+                                                                    class="form-label">Seizures/Convulsions</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="seizures_convulsions">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="injuries_accidents"
+                                                                    class="form-label">Serious
+                                                                    Injuries/Accidents</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="injuries_accidents">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="surgeries"
+                                                                    class="form-label">Surgeries</label>
+                                                                <input type="text" class="form-control" id="surgeries">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="vision_problems" class="form-label">Vision
+                                                                    Problems</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="vision_problems">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row p-3">
+                                                            <div class="col-sm">
+                                                                <label for="medical_other"
+                                                                    class="form-label">Other</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="medical_other">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                            <div class="form-group clearfix">
-                                <div style="padding-left: 100px;text-align: center;">
-                                    <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h5 class="panel-title text-center"><b>PREGNANCY AND INFANT
+                                                            HISTORY</b></h5>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row p-3">
+                                                        <div class="col-sm">
+                                                            <label for="illness_during_pregnancy"
+                                                                class="form-label">Illness during
+                                                                pregnancy</label>
+                                                            <input type="text" class="form-control"
+                                                                id="illness_during_pregnancy">
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <label for="newborn" class="form-label">Condition of
+                                                                Newborn</label>
+                                                            <input type="text" class="form-control" id="newborn">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row p-3">
+                                                        <div class="col-sm">
+                                                            <label for="during_pregnancy" class="form-label">Duration of
+                                                                pregnancy</label>
+                                                            <input type="text" class="form-control"
+                                                                id="during_pregnancy">
+                                                        </div>
+                                                        <div class="col-sm">
 
-                                    <a href="javascript:;" class="form-wizard-next-btn  float-right">Next</a>
+                                                            <label for="birth_weight" class="form-label">Birth
+                                                                Weight</label>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control"
+                                                                    id="birth_weight_lbs">
+                                                                <span class="input-group-text input-group-addon"
+                                                                    id="inputGroupPrependlbs">lbs.</span>
+                                                                <input type="text" class="form-control"
+                                                                    id="birth_weight_oz">
+                                                                <span class="input-group-text input-group-addon"
+                                                                    id="inputGroupPrependoz">oz</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row p-3">
+                                                        <div class="col-sm">
+                                                            <label for="complications"
+                                                                class="form-label">Complications</label>
+                                                            <input type="text" class="form-control" id="complications">
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <label for="bottle_fed" class="form-label">Bottle
+                                                                Fed?</label>
+                                                            <input type="text" class="form-control" id="bottle_fed">
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <label for="breast_fed" class="form-label">Breast
+                                                                Fed?</label>
+                                                            <input type="text" class="form-control" id="breast_fed">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row p-3">
+                                                        <div class="col-sm">
+                                                            <label for="Other_Siblings" class="form-label">Other
+                                                                Siblings (name &
+                                                                age)</label>
+                                                            <input type="text" class="form-control" id="Other_Siblings">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-info">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title text-center"><b>FAMILY HISTORY</b></h3>
+                                                </div>
+                                                <p class="text-center pt-5"><b>Has any blood relative of this child had
+                                                        any of the
+                                                        following conditions? (please check off)</b>
+                                                </p>
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-sm">
+
+                                                            <div class="checkbox">
+                                                                <label for="family_history_allergies"
+                                                                    class="form-check-label">
+                                                                    <input type="checkbox" id="family_history_allergies"
+                                                                        name="family_history_allergies"
+                                                                        value="1">Allergies
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <div class="checkbox">
+                                                                <label for="family_history_heart_problems"
+                                                                    class="form-check-label">
+                                                                    <input type="checkbox"
+                                                                        id="family_history_heart_problems"
+                                                                        name="family_history_heart_problems"
+                                                                        value="1">Heart Problems
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <div class="checkbox">
+                                                                <label for="family_history_tuberculosis"
+                                                                    class="form-check-label">
+                                                                    <input type="checkbox"
+                                                                        id="family_history_tuberculosis"
+                                                                        name="family_history_tuberculosis"
+                                                                        value="1">Tuberculosis
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm">
+
+                                                            <div class="checkbox">
+                                                                <label for="family_history_asthma"
+                                                                    class="form-check-label">
+                                                                    <input type="checkbox" id="family_history_asthma"
+                                                                        name="family_history_asthma" value="1">Asthma
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <div class="checkbox">
+                                                                <label for="family_history_high_blood_pressure"
+                                                                    class="form-check-label">
+                                                                    <input type="checkbox"
+                                                                        id="family_history_high_blood_pressure"
+                                                                        name="family_history_high_blood_pressure"
+                                                                        value="1">High Blood
+                                                                    Pressure
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <div class="checkbox">
+                                                                <label for="family_history_vision_problems"
+                                                                    class="form-check-label">
+                                                                    <input type="checkbox"
+                                                                        id="family_history_vision_problems"
+                                                                        name="family_history_vision_problems"
+                                                                        value="1">Vision Problems
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm">
+
+                                                            <div class="checkbox">
+                                                                <label for="family_history_diabetes"
+                                                                    class="form-check-label">
+                                                                    <input type="checkbox" id="family_history_diabetes"
+                                                                        name="family_history_diabetes"
+                                                                        value="1">Diabetes
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <div class="checkbox">
+                                                                <label for="family_history_hyperactivity"
+                                                                    class="form-check-label">
+                                                                    <input type="checkbox"
+                                                                        id="family_history_hyperactivity"
+                                                                        name="family_history_hyperactivity"
+                                                                        value="1">Hyperactivity
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <div class="checkbox">
+                                                                <label for="family_history_epilepsy"
+                                                                    class="form-check-label">
+                                                                    <input type="checkbox" id="family_history_epilepsy"
+                                                                        name="family_history_epilepsy"
+                                                                        value="1">Epilepsy
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title text-center"><b>SOCIAL BEHAVIOR</b></h3>
+                                                </div>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="age_group_friends" class="form-label">Age group of
+                                                            friends</label>
+                                                        <input type="text" class="form-control" id="age_group_friends"
+                                                            name="age_group_friends">
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="neighborhood_friends"
+                                                            class="form-label">Neighborhood
+                                                            friends</label>
+                                                        <input type="text" class="form-control"
+                                                            id="neighborhood_friends" name="neighborhood_friends">
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="relationship_with_mother"
+                                                            class="form-label">Relationship with
+                                                            mother</label>
+                                                        <input type="text" class="form-control"
+                                                            id="relationship_with_mother"
+                                                            name="relationship_with_mother">
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="relationship_with_father"
+                                                            class="form-label">Relationship with
+                                                            father</label>
+                                                        <input type="text" class="form-control"
+                                                            id="relationship_with_father"
+                                                            name="relationship_with_father">
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="relationship_with_siblings"
+                                                            class="form-label">Relationship with
+                                                            siblings</label>
+                                                        <input type="text" class="form-control"
+                                                            id="relationship_with_siblings"
+                                                            name="relationship_with_siblings">
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="relationship_with_extended_family"
+                                                            class="form-label">Relationship
+                                                            with extended family</label>
+                                                        <input type="text" class="form-control"
+                                                            id="relationship_with_extended_family"
+                                                            name="relationship_with_extended_family">
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="fears_conflicts" class="form-label">Child’s response
+                                                            to
+                                                            frustration</label>
+                                                        <input type="text" class="form-control" id="fears_conflicts"
+                                                            name="fears_conflicts">
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="child_response_frustration"
+                                                            class="form-label">Favorite
+                                                            activities</label>
+                                                        <input type="text" class="form-control"
+                                                            id="child_response_frustration"
+                                                            name="child_response_frustration">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title text-center"><b>ENVIRONMENTAL FACTORS</b>
+                                                    </h3>
+                                                </div>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="last_five_years_moved" class="form-label">How many
+                                                            times have you
+                                                            moved in the last five years?</label>
+                                                        <input type="text" class="form-control"
+                                                            id="last_five_years_moved" name="last_five_years_moved">
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="things_used_at_home" class="form-label">Educational
+                                                            toys, games,
+                                                            books used at home?</label>
+                                                        <input type="text" class="form-control" id="things_used_at_home"
+                                                            name="things_used_at_home">
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="hours_of_television_daily" class="form-label">How
+                                                            many hours of
+                                                            television daily?</label>
+                                                        <input type="text" class="form-control"
+                                                            id="hours_of_television_daily"
+                                                            name="hours_of_television_daily">
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="language_used_at_home" class="form-label">Language
+                                                            used in the
+                                                            home?</label>
+                                                        <input type="text" class="form-control"
+                                                            id="language_used_at_home" name="language_used_at_home">
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="changes_at_home_situation" class="form-label">Have
+                                                            there been any
+                                                            changes in the home situation recently, i.e.
+                                                            addition/loss/death/divorce.</label>
+                                                        <input type="text" class="form-control"
+                                                            id="changes_at_home_situation"
+                                                            name="changes_at_home_situation">
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="educational_expectations_of_child"
+                                                            class="form-label">What are your
+                                                            educational expectations of your child?</label>
+                                                        <input type="text" class="form-control"
+                                                            id="educational_expectations_of_child"
+                                                            name="educational_expectations_of_child">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row m-3">
+                                                <div class="col-sm">
+                                                    <label for="family_history_parent_sign"
+                                                        class="form-label">Parent/Legal Guardian
+                                                        Signature</label>
+                                                    <input type="text" class="form-control"
+                                                        id="family_history_parent_sign"
+                                                        name="family_history_parent_sign">
+                                                </div>
+                                                <div class="col-sm">
+                                                    <label for="family_history_parent_sign_date"
+                                                        class="form-label">Date</label>
+                                                    <input type="date" class="form-control"
+                                                        id="family_history_parent_sign_date"
+                                                        name="family_history_parent_sign_date">
+                                                </div>
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="form-group clearfix">
+                                            <div style="padding-left: 100px;text-align: center;">
+                                                <a href="javascript:;"
+                                                    class="form-wizard-previous-btn float-left">Previous</a>
+
+                                                <a href="javascript:;"
+                                                    class="form-wizard-next-btn  float-right">Next</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </fieldset>

@@ -224,8 +224,8 @@
                             <div class="col-sm-6 div2">
                                 <div class="form-group ">
                                     <input id="parent_one_sign_date" name="parent_one_sign_date"
-                                    type="text" class="form-control bloc1">
-                                    <span id="apiResponsep21" name="apiResponsep21"></span>
+                                    type="date" class="form-control bloc1" onclick="dateValidation('parent_one_sign_date')">
+                                    <span id="apiResponsep21" name="apiResponsep21" ></span>
                                 </div>
                             </div>
                         </div>
@@ -242,8 +242,8 @@
                             <div class="col-sm-6 div2">
                                 <div class="form-group ">
                                     <input id="parent_two_sign_date" name="parent_two_sign_date"
-                                    type="text" class="form-control bloc1">
-                                    <span id="apiResponsep23" name="apiResponsep23"></span>
+                                    type="date" class="form-control bloc1" onclick="dateValidation('parent_two_sign_date')">
+                                    <span id="apiResponsep23" name="apiResponsep23" ></span>
                                 </div>
                             </div>
                         </div>
@@ -260,7 +260,7 @@
                             <div class="col-sm-6 div3">
                                 <div class="form-group ">
                                     <input id="dob" name="dob"
-                                    type="text" class="form-control bloc1">
+                                    type="date" class="form-control bloc1" name="apiResponsep25" >
                                     <span id="apiResponsep25" name="apiResponsep25"></span>
                                 </div>
                             </div>
@@ -278,7 +278,7 @@
                             <div class="col-sm-6 div4">
                                 <div class="form-group ">
                                     <input id="school_admin_sign_date" name="school_admin_sign_date"
-                                    type="text" class="form-control bloc1">
+                                    type="date" class="form-control bloc1"  onclick="dateValidation('school_admin_sign_date')">
                                     <span id="apiResponsep27" name="apiResponsep27"></span>
                                 </div>
                             </div>
@@ -295,9 +295,7 @@
         <!-- <script type="module" src='js/enrollmentForm.js'></script>
         <script src='js/form.js' ></script> -->
     <script>
-        function dateValidation(val){
-            document.getElementById(val).max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
-        }
+       
     </script>
 </body>
 

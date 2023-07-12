@@ -38,7 +38,6 @@
                     <!-- <h4>Year : <span id="form_year" name="form_year"></span></h4> -->
                     <select name="form_year" id="form_year" class="form-control" onclick="parentDashBoardDetails(this.value)" required>
                     </select>
-                    
                 </div>
             </div>
             <div class="d-flex justify-content-center">
@@ -48,9 +47,9 @@
                             <thead class="table-head">
                                 <tr>
                                     <th>Form Name</th>
-                                    <th >Form Expire Date</th>
+                                    <th>Form Expire Date</th>
                                     <th>Form Review Status</th>
-                                    <th >Form Actions</th>
+                                    <th>Form Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -63,11 +62,18 @@
                                     <td id="date_value" name="date_value"></td>
                                     <td id="form_status" name="form_status"></td>
                                     <td>
-                                        <a href="#" data-dynamic-value="example" id="pencil_icon_link" name="pencil_icon_link" >
+                                        <!-- <a href="#" data-dynamic-value="example" id="pencil_icon_link" name="pencil_icon_link" >
                                             <i class="fa-sharp fa-solid fa-pen p-2 action-icons" id = "enrollmentForm" name = "enrollmentForm"></i>
                                         </a>
                                         <i class="fa-solid fa-circle-arrow-down p-2 action-icons" id="downloadFormAsPDF"
-                                        name="downloadForm"></i>
+                                        name="downloadForm"></i> -->
+
+                                        <a href="#" data-dynamic-value="example" id="pencil_icon_link" name="pencil_icon_link" class="fa-stack">
+                                            <i class="fa-sharp fa-solid fa-pen p-2 action-icons" id="enrollmentForm" name="enrollmentForm"></i>
+                                        </a>
+                                        <i class="fa-solid fa-circle-arrow-down p-2 action-icons" id="downloadFormAsPDF" name="downloadForm"></i>
+
+
                                         <span data-bs-toggle="modal" data-bs-target="#staticBackdrop"  >
                                             <i class="fa-solid fa-envelope p-2 action-icons" id="mail_icon" name="mail_icon"></i>
                                         </span>
@@ -87,15 +93,13 @@
                                                             <div class="form-group">
                                                                 <label class="col-lg-2 control-label pt-2">Message</label>
                                                                 <div class="col-lg-10">
-                                                                    <textarea rows="10" cols="30" class="form-control" id="messageData"
-                                                                            name=""></textarea>
+                                                                    <textarea rows="10" cols="30" class="form-control" id="messageData" name=""></textarea>
                                                                 </div>
                                                             </div>
                                                         </form>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Cancel</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                                         <button id="sendButton" type="button" class="btn btn-primary">Send</button>
                                                     </div>
                                                 </div>
@@ -400,12 +404,14 @@
                 </form>
             </div>
         </div>
+
         <script>
             var link = document.querySelector('a[data-dynamic-value]');
             // var year = document.querySelector('form_year');
             // console.log(year);
-            var dynamicValue = "CD0001";
+            var dynamicValue = localStorage.getItem('child_id');
             link.href = `form.html?id=${dynamicValue}`;
         </script>
+
     </body>
 </html>

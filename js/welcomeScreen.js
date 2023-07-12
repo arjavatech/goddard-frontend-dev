@@ -11,6 +11,7 @@ function getAllInfo(callback) {
                    if(response && response.length > 0) {                
                         localStorage.setItem('parent_name', response[0].parent_name)
                         localStorage.setItem('child_name', response[0].child_full_name)
+                        localStorage.setItem('child_id', response[0].child_id)
                    }
                    if (typeof callback === 'function') {
                        callback();

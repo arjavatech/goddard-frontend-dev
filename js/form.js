@@ -11,7 +11,7 @@ function submitForm() {
     console.log(formData);
     const obj = Object.fromEntries(formData);
     console.log(obj);
-    obj.child_id = "CD0001";
+    obj.child_id = localStorage.getItem('child_id');
     const json = JSON.stringify(obj);
 
     let xhr = new XMLHttpRequest();
@@ -32,7 +32,7 @@ function submitForm() {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
-
+//this function is used to clear all the element values
 function clearForm(){
     document.getElementById("point_one_field_one").value = "";
     document.getElementById("point_one_field_two").value = "";
@@ -64,12 +64,18 @@ function clearForm(){
     document.getElementById("school_admin_sign_date").value = "";
 }
 
+//this function restrict future date
+function dateValidation(id){
+    document.getElementById(id).max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+}
+
 $(document).ready(function() {
     // Add click event listener to the "Save" button
     $("#saveBtn").on("click", function(e) {
         e.preventDefault(); // Prevent the default form submission
         submitForm();
     });
+     // Add click event listener to the "Clear" button
     $("#clearBtn").on("click", function(e) {
         e.preventDefault(); // Prevent the default form submission
         clearForm();

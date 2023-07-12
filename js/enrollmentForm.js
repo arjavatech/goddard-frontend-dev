@@ -1,3 +1,5 @@
+import {isAuthenticated} from "./authenticationVerify.js";
+
 export function fetchEnrollmentFormBody(callback) {
     let arr =[];
     $.ajax({
@@ -243,10 +245,15 @@ function hideSpinner(callback) {
 }
 
 $(document).ready(function () {
-    fetchEnrollmentFormTitle();
-    fetchEnrollmentFormBody();
-    fetchEnrollmentPointEight();
-    showSpinner();
+    if(!isAuthenticated()) {
+        window.location.href = 'login.html';
+    } else {
+        document.body.style.visibility = 'visible';
+        fetchEnrollmentFormTitle();
+        fetchEnrollmentFormBody();
+        fetchEnrollmentPointEight();
+        showSpinner();
+    }
 })
   
 

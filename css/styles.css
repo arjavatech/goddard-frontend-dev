@@ -13,6 +13,11 @@
     padding: 100px;
 } */
 
+html,
+body {
+  visibility: hidden;
+}
+
 #heading {
   text-align: center;
   margin-top: 50px;

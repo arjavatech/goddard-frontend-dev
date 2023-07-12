@@ -1,3 +1,7 @@
+html,
+body {
+    visibility: hidden;
+}
 
 .container_form {
     text-align: center;

@@ -1,3 +1,13 @@
+import {isAuthenticated} from "./authenticationVerify.js";
+
+function clearLocalStorageExcept(keysToKeep) {
+    for (let key in localStorage) {
+        if (localStorage.hasOwnProperty(key) && !keysToKeep.includes(key)) {
+            localStorage.removeItem(key);
+        }
+    }
+}
+
 function getAllInfo(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email')
     const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/fetch/email?email='
@@ -7,7 +17,9 @@ function getAllInfo(callback) {
                type: 'get',
                success: function (response) {
                    console.log(response)
-                   localStorage.clear()
+                   let keysToKeep = ['logged_in_email'];
+                   clearLocalStorageExcept(keysToKeep);
+                   // localStorage.clear()
                    if(response && response.length > 0) {                
                         localStorage.setItem('parent_name', response[0].parent_name)
                         localStorage.setItem('child_name', response[0].child_full_name)
@@ -42,7 +54,12 @@ function welcomeText() {
 }
 
 $(document).ready(function () {
-    getAllInfo(function () {
-        welcomeText();
-    });
+    if(!isAuthenticated()) {
+        window.location.href = 'login.html';
+    } else {
+        document.body.style.visibility = 'visible';
+        getAllInfo(function () {
+            welcomeText();
+        });
+    }
 });

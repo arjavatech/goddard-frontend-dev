@@ -1,3 +1,4 @@
+import {isAuthenticated} from "./authenticationVerify.js";
 
 // Function to submit the form data
 function submitForm() {
@@ -69,16 +70,23 @@ function emailValidation(inputtxtID,errorSpanID) {
 }
 
 $(document).ready(function() {
-  
-    // Add click event listener to the "Save" button
-    $("#submit_button").on("click", function(e) {
-        e.preventDefault(); // Prevent the default form submission
-        submitForm();
-    });
-    namevalidation();
-    validatePhone();
-    emailValidation();
+    if(!isAuthenticated()) {
+        window.location.href = 'login.html';
+    } else {
+        document.body.style.visibility = 'visible';
+
+        // Add click event listener to the "Save" button
+        $("#submit_button").on("click", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            submitForm();
+        });
+        namevalidation();
+        validatePhone();
+        emailValidation();
+    }
 });
+
+
 jQuery(document).ready(function () {
     // click on next button
     jQuery('.form-wizard-next-btn').click(function () {

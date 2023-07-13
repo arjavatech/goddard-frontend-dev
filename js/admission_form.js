@@ -69,6 +69,11 @@ function emailValidation(inputtxtID,errorSpanID) {
     }
 }
 
+//this function restrict future date
+function dateValidation(id){
+    document.getElementById(id).max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+}
+
 $(document).ready(function() {
     if(!isAuthenticated()) {
         window.location.href = 'login.html';

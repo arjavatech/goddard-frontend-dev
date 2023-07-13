@@ -74,7 +74,7 @@
                                                         <span style="color:#ff0000;">*</span></b>
                                                 </label>
                                                 <input name="dob" type="date" maxlength="50"
-                                                    class="form-control wizard-required" id="dob">
+                                                    class="form-control wizard-required" id="dob" onclick="dateValidation('dob')">
                                                 <div class="wizard-form-error"></div>
                                             </div>
                                         </div>
@@ -932,7 +932,7 @@
                                                 <div class="col-sm">
                                                     <label for="sign_date">DATE</label>
                                                     <input type="date" class="form-control" id="sign_date"
-                                                        name="sign_date" />
+                                                        name="sign_date" onclick="dateValidation('sign_date')"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -958,7 +958,11 @@
                                             <div class="row p-3">
                                                 <div class="col-sm">
                                                     <label for="student_name" class="form-label">Student</label>
-                                                    <input type="text" class="form-control" id="student_name">
+                                                    <input type="text" class="form-control" id="student_name"
+                                                    onchange="namevalidation(this,'student_name_span')">
+                                                    <span class="spanmsg" id="student_name_span"
+                                                        style="color:red; display:none">
+                                                        Enter valid input[only letters].</span>
                                                 </div>
                                             </div>
                                             <div class="row p-3">
@@ -966,12 +970,12 @@
                                                     <label for="physical_exam_last_date" class="form-label">Date of Last
                                                         Physical
                                                         Exam</label>
-                                                    <input type="date" class="form-control" id="physical_exam_last_date">
+                                                    <input type="date" class="form-control" id="physical_exam_last_date" onclick="dateValidation('physical_exam_last_date')">
                                                 </div>
                                                 <div class="col-sm">
                                                     <label for="dental_exam_last_date" class="form-label">Date of Last Dental
                                                         Exam</label>
-                                                    <input type="date" class="form-control" id="dental_exam_last_date">
+                                                    <input type="date" class="form-control" id="dental_exam_last_date" onclick="dateValidation('dental_exam_last_date')">
                                                 </div>
                                             </div>
                                             <div class="pt-4">
@@ -1177,11 +1181,15 @@
                                                             Siblings</h3>
                                                         <div class="col-sm">
                                                             <label for="other_siblings_name" class="form-label">Name</label>
-                                                            <input type="text" class="form-control" id="other_siblings_name">
+                                                            <input type="text" class="form-control" id="other_siblings_name"
+                                                            onchange="namevalidation(this,'other_siblings_name_span')">
+                                                            <span class="spanmsg" id="other_siblings_name_span"
+                                                                style="color:red; display:none">
+                                                                Enter valid input[only letters].</span>
                                                         </div>
                                                         <div class="col-sm">
                                                             <label for="other_siblings_age" class="form-label">Age</label>
-                                                            <input type="text" class="form-control" id="other_siblings_age">
+                                                            <input type="number" class="form-control" id="other_siblings_age">
                                                         </div>
                                                     </div>
 
@@ -1470,7 +1478,7 @@
                                                         class="form-label">Date</label>
                                                     <input type="date" class="form-control"
                                                         id="family_history_parent_sign_date"
-                                                        name="family_history_parent_sign_date">
+                                                        name="family_history_parent_sign_date" onclick="dateValidation('family_history_parent_sign_date')">
                                                 </div>
                                             </div>
 

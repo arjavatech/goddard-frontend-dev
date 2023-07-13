@@ -68,8 +68,12 @@ function emailValidation(inputtxtID,errorSpanID) {
     }
 }
 
+//this function restrict future date
+function dateValidation(id){
+    document.getElementById(id).max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+}
+
 $(document).ready(function() {
-  
     // Add click event listener to the "Save" button
     $("#submit_button").on("click", function(e) {
         e.preventDefault(); // Prevent the default form submission

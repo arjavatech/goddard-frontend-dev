@@ -141,7 +141,29 @@ body {
     font-weight: 300;
     color: #000000;
     height: 40px;
-  
+}
+
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+select.input-lg {
+    height: 50px !important;
+    line-height: 25px !important;
+}
+
+select+i.fa {
+    float: right;
+    margin-top: -27px;
+    margin-right: 9px;
+    pointer-events: none;
+    color: #424242;
+    background-color: #FFF;
+    padding-right: 5px;
 }
 
 
@@ -170,7 +192,7 @@ body {
 }
 
 .form-wizard .form-wizard-steps li {
-    width: 25%;
+    width: 10%;
     float: left;
     position: relative;
 }

@@ -8,11 +8,13 @@ function submitForm() {
     formData.append('point_one_field_one', textBoxValue1);
     formData.append('point_one_field_two', textBoxValue2);
     formData.append('point_one_field_three', textBoxValue3);
-    console.log(formData);
     const obj = Object.fromEntries(formData);
+    let defaultdate = new Date().getFullYear();
     console.log(obj);
     obj.child_id = localStorage.getItem('child_id');
+    obj.year = defaultdate;
     const json = JSON.stringify(obj);
+    console.log(json);
 
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
@@ -81,3 +83,4 @@ $(document).ready(function() {
         clearForm();
     });
 });
+

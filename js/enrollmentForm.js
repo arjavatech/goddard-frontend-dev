@@ -9,9 +9,14 @@ export function fetchEnrollmentFormBody(callback) {
             // let editID = window.location.search.slice(4);
             // console.log(editID);
             $.ajax({
-                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
+                // url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
+                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch_by_id_year/${localStorage.getItem('child_id')}?year=${localStorage.getItem('form_year_value')}`,
                 type: 'get',
                 success: function(response1){
+                    console.log(response1);
+                    console.log(response1[0].point_one_field_one);
+                    console.log(response1[0].point_one_field_two);
+                    console.log(response1[0].point_one_field_three);
                     if(typeof response.point_one !='undefined'){
                         let paragraph = document.querySelector('[name="apiResponsep1"]');
                         paragraph.textContent = response.point_one;
@@ -19,7 +24,7 @@ export function fetchEnrollmentFormBody(callback) {
                         // Define the target texts and their corresponding textbox IDs
                         let targetTexts = ['effective the', ' day of', 'Inc., and'];
                         let textboxIds = ['point_one_field_one', 'point_one_field_two', 'point_one_field_three'];
-                        let responseData = [response1.point_one_field_one,response1.point_one_field_two,response1.point_one_field_three]
+                        let responseData = [response1[0].point_one_field_one,response1[0].point_one_field_two,response1[0].point_one_field_three]
                         
                         // Iterate over each target text
                         for (let i = 0; i < targetTexts.length; i++) {
@@ -157,6 +162,8 @@ export function fetchEnrollmentFormBody(callback) {
                     if (typeof callback === 'function') {
                         callback();
                     }
+
+                    window.localStorage.setItem("responseEntrollmentData",JSON.stringify(response1));
                 },
             });
         },
@@ -178,7 +185,7 @@ export function fetchEnrollmentFormTitle(callback) {
 
 function fetchEnrollmentPointEight(callback) {
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/holidays/fetch//${localStorage.getItem('form_year_value')}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/holidays/fetch/${localStorage.getItem('form_year_value')}`,
         type: 'get',
         success: function(response){
             document.querySelector('[id="R1C1"]').innerHTML = response.year_one_leave_one;

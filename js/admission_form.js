@@ -88,6 +88,7 @@ $(document).ready(function() {
         namevalidation();
         validatePhone();
         emailValidation();
+        dateValidation();
     }
 });
 

@@ -84,86 +84,86 @@ export function fetchEnrollmentFormBody(callback) {
                     //     callback();
                     // }
 
-                    if (typeof response1.point_two_initial_here !== "undefined"){
-                        document.getElementsByName("point_two_initial_here")[0].value = response1.point_two_initial_here;
+                    if (typeof response1[0].point_two_initial_here !== "undefined"){
+                        document.getElementsByName("point_two_initial_here")[0].value = response1[0].point_two_initial_here;
                     }
-                    if (typeof response1.point_three_initial_here !== "undefined"){
-                        document.getElementsByName("point_three_initial_here")[0].value = response1.point_three_initial_here;
+                    if (typeof response1[0].point_three_initial_here !== "undefined"){
+                        document.getElementsByName("point_three_initial_here")[0].value = response1[0].point_three_initial_here;
                     }
-                    if (typeof response1.point_four_initial_here !== "undefined"){
-                        document.getElementsByName("point_four_initial_here")[0].value = response1.point_four_initial_here;
+                    if (typeof response1[0].point_four_initial_here !== "undefined"){
+                        document.getElementsByName("point_four_initial_here")[0].value = response1[0].point_four_initial_here;
                     }
-                    if (typeof response1.point_five_initial_here !== "undefined"){
-                        document.getElementsByName("point_five_initial_here")[0].value = response1.point_five_initial_here;
+                    if (typeof response1[0].point_five_initial_here !== "undefined"){
+                        document.getElementsByName("point_five_initial_here")[0].value = response1[0].point_five_initial_here;
                     }
-                    if (typeof response1.point_six_initial_here !== "undefined"){
-                        document.getElementsByName("point_six_initial_here")[0].value = response1.point_six_initial_here;
+                    if (typeof response1[0].point_six_initial_here !== "undefined"){
+                        document.getElementsByName("point_six_initial_here")[0].value = response1[0].point_six_initial_here;
                     }
-                    if (typeof response1.point_seven_initial_here !== "undefined"){
-                        document.getElementsByName("point_seven_initial_here")[0].value = response1.point_seven_initial_here;
+                    if (typeof response1[0].point_seven_initial_here !== "undefined"){
+                        document.getElementsByName("point_seven_initial_here")[0].value = response1[0].point_seven_initial_here;
                     }
-                    if (typeof response1.point_eight_initial_here !== "undefined"){
-                        document.getElementsByName("point_eight_initial_here")[0].value = response1.point_eight_initial_here;
+                    if (typeof response1[0].point_eight_initial_here !== "undefined"){
+                        document.getElementsByName("point_eight_initial_here")[0].value = response1[0].point_eight_initial_here;
                     }
-                    if (typeof response1.point_nine_initial_here !== "undefined"){
-                        document.getElementsByName("point_nine_initial_here")[0].value = response1.point_nine_initial_here;
+                    if (typeof response1[0].point_nine_initial_here !== "undefined"){
+                        document.getElementsByName("point_nine_initial_here")[0].value = response1[0].point_nine_initial_here;
                     }
-                    if (typeof response1.point_ten_initial_here !== "undefined"){
-                        document.getElementsByName("point_ten_initial_here")[0].value = response1.point_ten_initial_here;
+                    if (typeof response1[0].point_ten_initial_here !== "undefined"){
+                        document.getElementsByName("point_ten_initial_here")[0].value = response1[0].point_ten_initial_here;
                     }
-                    if (typeof response1.point_eleven_initial_here !== "undefined"){
-                        document.getElementsByName("point_eleven_initial_here")[0].value = response1.point_eleven_initial_here;
+                    if (typeof response1[0].point_eleven_initial_here !== "undefined"){
+                        document.getElementsByName("point_eleven_initial_here")[0].value = response1[0].point_eleven_initial_here;
                     }
-                    if (typeof response1.point_twelve_initial_here !== "undefined"){
-                        document.getElementsByName("point_twelve_initial_here")[0].value = response1.point_twelve_initial_here;
+                    if (typeof response1[0].point_twelve_initial_here !== "undefined"){
+                        document.getElementsByName("point_twelve_initial_here")[0].value = response1[0].point_twelve_initial_here;
                     }
-                    if (typeof response1.point_thirteen_initial_here !== "undefined"){
-                        document.getElementsByName("point_thirteen_initial_here")[0].value = response1.point_thirteen_initial_here;
+                    if (typeof response1[0].point_thirteen_initial_here !== "undefined"){
+                        document.getElementsByName("point_thirteen_initial_here")[0].value = response1[0].point_thirteen_initial_here;
                     }
-                    if (typeof response1.point_fourteen_initial_here !== "undefined"){
-                        document.getElementsByName("point_fourteen_initial_here")[0].value = response1.point_fourteen_initial_here;
+                    if (typeof response1[0].point_fourteen_initial_here !== "undefined"){
+                        document.getElementsByName("point_fourteen_initial_here")[0].value = response1[0].point_fourteen_initial_here;
                     }
-                    if (typeof response1.point_fifteen_initial_here !== "undefined"){
-                        document.getElementsByName("point_fifteen_initial_here")[0].value = response1.point_fifteen_initial_here;
+                    if (typeof response1[0].point_fifteen_initial_here !== "undefined"){
+                        document.getElementsByName("point_fifteen_initial_here")[0].value = response1[0].point_fifteen_initial_here;
                     }
-                    if (typeof response1.point_sixteen_initial_here !== "undefined"){
-                        document.getElementsByName("point_sixteen_initial_here")[0].value = response1.point_sixteen_initial_here;
+                    if (typeof response1[0].point_sixteen_initial_here !== "undefined"){
+                        document.getElementsByName("point_sixteen_initial_here")[0].value = response1[0].point_sixteen_initial_here;
                     }
-                    if (typeof response1.point_seventeen_initial_here !== "undefined"){
-                        document.getElementsByName("point_seventeen_initial_here")[0].value = response1.point_seventeen_initial_here;
+                    if (typeof response1[0].point_seventeen_initial_here !== "undefined"){
+                        document.getElementsByName("point_seventeen_initial_here")[0].value = response1[0].point_seventeen_initial_here;
                     }
-                    if (typeof response1.point_eighteen_initial_here !== "undefined"){
-                        document.getElementsByName("point_eighteen_initial_here")[0].value = response1.point_eighteen_initial_here;
+                    if (typeof response1[0].point_eighteen_initial_here !== "undefined"){
+                        document.getElementsByName("point_eighteen_initial_here")[0].value = response1[0].point_eighteen_initial_here;
                     }
-                    if (typeof response1.parent_one_sign !== "undefined"){
-                        document.getElementsByName("parent_one_sign")[0].value = response1.parent_one_sign;
+                    if (typeof response1[0].parent_one_sign !== "undefined"){
+                        document.getElementsByName("parent_one_sign")[0].value = response1[0].parent_one_sign;
                     }
-                    if (typeof response1.parent_one_sign_date !== "undefined"){
-                        document.getElementsByName("parent_one_sign_date")[0].value = response1.parent_one_sign_date;
+                    if (typeof response1[0].parent_one_sign_date !== "undefined"){
+                        document.getElementsByName("parent_one_sign_date")[0].value = response1[0].parent_one_sign_date;
                     }
-                    if (typeof response1.parent_two_sign !== "undefined"){
-                        document.getElementsByName("parent_two_sign")[0].value = response1.parent_two_sign;
+                    if (typeof response1[0].parent_two_sign !== "undefined"){
+                        document.getElementsByName("parent_two_sign")[0].value = response1[0].parent_two_sign;
                     }
-                    if (typeof response1.parent_two_sign_date !== "undefined"){
-                        document.getElementsByName("parent_two_sign_date")[0].value = response1.parent_two_sign_date;
+                    if (typeof response1[0].parent_two_sign_date !== "undefined"){
+                        document.getElementsByName("parent_two_sign_date")[0].value = response1[0].parent_two_sign_date;
                     }
-                    if (typeof response1.child_name !== "undefined"){
-                        document.getElementsByName("child_name")[0].value = response1.child_name;
+                    if (typeof response1[0].child_name !== "undefined"){
+                        document.getElementsByName("child_name")[0].value = response1[0].child_name;
                     }
-                    if (typeof response1.dob !== "undefined"){
-                        document.getElementsByName("dob")[0].value = response1.dob;
+                    if (typeof response1[0].dob !== "undefined"){
+                        document.getElementsByName("dob")[0].value = response1[0].dob;
                     }
-                    if (typeof response1.school_admin_sign !== "undefined"){
-                        document.getElementsByName("school_admin_sign")[0].value = response1.school_admin_sign;
+                    if (typeof response1[0].school_admin_sign !== "undefined"){
+                        document.getElementsByName("school_admin_sign")[0].value = response1[0].school_admin_sign;
                     }
-                    if (typeof response1.school_admin_sign_date !== "undefined"){
-                        document.getElementsByName("school_admin_sign_date")[0].value = response1.school_admin_sign_date;
+                    if (typeof response1[0].school_admin_sign_date !== "undefined"){
+                        document.getElementsByName("school_admin_sign_date")[0].value = response1[0].school_admin_sign_date;
                     }
                     if (typeof callback === 'function') {
                         callback();
                     }
 
-                    window.localStorage.setItem("responseEntrollmentData",JSON.stringify(response1));
+                    window.localStorage.setItem("responseEntrollmentData",JSON.stringify(response1[0]));
                 },
             });
         },

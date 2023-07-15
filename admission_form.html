@@ -54,11 +54,9 @@
                                                 <div class="form-group">
                                                     <label for="child_full_name" class="form-label"><b>CHILD’S FULL NAME
                                                             <span style="color:#ff0000;">*</span></b></label><br>
-                                                    <input name="child_full_name" type="text" maxlength="20"
-                                                        class="form-control wizard-required" id="child_full_name"
+                                                    <input name="child_full_name" type="text" maxlength="20" class="form-control wizard-required" id="child_full_name"
                                                         onchange="namevalidation(this,'child_full_name_span')">
-                                                    <span class="spanmsg" id="child_full_name_span"
-                                                        style="color:red; display:none">
+                                                    <span class="spanmsg" id="child_full_name_span" style="color:red; display:none">
                                                         Enter valid input[only letters].</span>
                                                     <div class="wizard-form-error"></div>
                                                 </div>
@@ -66,13 +64,11 @@
                                             <div class="col-sm">
                                                 <div class="form-group">
                                                     <label for="nick_name" class="form-label"><b>NICKNAME
-                                                            <span style="color:#ff0000;">*</span></b>
+                                                        <span style="color:#ff0000;">*</span></b>
                                                     </label>
-                                                    <input name="nick_name" type="text" maxlength="50"
-                                                        class="form-control wizard-required" id="nick_name"
+                                                    <input name="nick_name" type="text" maxlength="50" class="form-control wizard-required" id="nick_name"
                                                         onchange="namevalidation(this,'nick_name_span')">
-                                                    <span class="spanmsg" id="nick_name_span"
-                                                        style="color:red; display:none">
+                                                    <span class="spanmsg" id="nick_name_span" style="color:red; display:none">
                                                         Enter valid input[only letters].</span>
                                                     <div class="wizard-form-error"></div>
                                                 </div>
@@ -80,11 +76,10 @@
                                             <div class="col-sm">
                                                 <div class="form-group">
                                                     <label for="dob" class="form-label" onc><b>BIRTH DATE
-                                                            <span style="color:#ff0000;">*</span></b>
+                                                        <span style="color:#ff0000;">*</span></b>
                                                     </label>
-                                                    <input name="dob" type="date" maxlength="50"
-                                                        class="form-control wizard-required" id="dob"
-                                                        onclick="dateValidation('dob')">
+                                                    <input name="dob" type="date" maxlength="50" class="form-control wizard-required" 
+                                                        id="dob" onclick="dateValidation('dob')">
                                                     <div class="wizard-form-error"></div>
                                                 </div>
                                             </div>
@@ -96,16 +91,13 @@
                                             <div class="panel-body">
                                                 <div class="row m-1">
                                                     <div class="col-sm">
-                                                        <label for="child_street_address"
-                                                            class="form-label">STREET</label>
+                                                        <label for="child_street_address" class="form-label">STREET</label>
                                                         <input type="text" class="form-control"
                                                             id="child_street_address" name="child_street_address">
                                                     </div>
                                                     <div class="col-sm">
                                                         <label for="child_city_address" class="form-label">CITY</label>
-                                                        <select class="form-control"
-                                                            aria-label=".form-select-lg example" id="child_city_address"
-                                                            name="child_city_address">
+                                                        <select class="form-control" aria-label=".form-select-lg example" id="child_city_address" name="child_city_address">
                                                             <option selected disabled>Select</option>
                                                             <option value="1">Washington</option>
                                                             <option value="2">New York</option>
@@ -116,10 +108,8 @@
                                                         <i class="fa fa-chevron-down"></i>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="child_state_address"
-                                                            class="form-label">STATE</label>
-                                                        <select class="form-control"
-                                                            aria-label=".form-select-lg example"
+                                                        <label for="child_state_address" class="form-label">STATE</label>
+                                                        <select class="form-control" aria-label=".form-select-lg example"
                                                             id="child_state_address" name="child_state_address">
                                                             <option selected disabled>Select</option>
                                                             <option value="1">DC</option>
@@ -132,23 +122,19 @@
                                                     </div>
                                                     <div class="col-sm">
                                                         <label for="child_zip_address" class="form-label">ZIP</label>
-                                                        <input type="number" class="form-control" id="child_zip_address"
-                                                            name="child_zip_address">
+                                                        <input type="number" class="form-control" id="child_zip_address" name="child_zip_address">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="primary_language" class="form-label">PRIMARY
-                                                    LANGUAGE</label>
+                                                <label for="primary_language" class="form-label">PRIMARY LANGUAGE</label>
                                                 <input type="text" class="form-control" aria-label="Telephone Number"
                                                     id="primary_language" name="primary_language">
                                             </div>
                                             <div class="col-sm">
-                                                <label for="school_age_child_school" class="form-label">SCHOOL-AGE
-                                                    CHILD’S
-                                                    SCHOOL</label>
+                                                <label for="school_age_child_school" class="form-label">SCHOOL-AGE CHILD’S SCHOOL</label>
                                                 <input type="text" class="form-control" id="school_age_child_school"
                                                     name="school_age_child_school">
                                             </div>
@@ -159,14 +145,12 @@
                                                     <p><b>DO RELEVANT CUSTODY PAPERS APPLY?</b></p>
                                                     <div class="wizard-form-radio">
                                                         <input name="do_relevant_custody_papers_apply"
-                                                            id="do_relevant_custody_papers_apply1" value="Yes"
-                                                            type="radio">
+                                                            id="do_relevant_custody_papers_apply1" value="Yes" type="radio">
                                                         <label for="do_relevant_custody_papers_apply1">Yes</label>
                                                     </div>
                                                     <div class="wizard-form-radio">
                                                         <input name="do_relevant_custody_papers_apply"
-                                                            id="do_relevant_custody_papers_apply2" type="radio"
-                                                            value="No" checked>
+                                                            id="do_relevant_custody_papers_apply2" type="radio" value="No" checked>
                                                         <label for="do_relevant_custody_papers_apply2">No</label>
                                                     </div>
                                                 </div>
@@ -188,13 +172,10 @@
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="parent1_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S
-                                                    NAME</label>
-                                                <input type="text" class="form-control" id="parent1_name"
-                                                    name="parent1_name"
+                                                <label for="parent1_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S NAME</label>
+                                                <input type="text" class="form-control" id="parent1_name" name="parent1_name"
                                                     onchange="namevalidation(this,'parent1_name_span')">
-                                                <span class="spanmsg" id="parent1_name_span"
-                                                    style="color:red; display:none">
+                                                <span class="spanmsg" id="parent1_name_span" style="color:red; display:none">
                                                     Enter valid input[only letters].</span>
                                             </div>
                                         </div>
@@ -205,16 +186,13 @@
                                             <div class="panel-body">
                                                 <div class="row m-1">
                                                     <div class="col-sm">
-                                                        <label for="parent1_street_address"
-                                                            class="form-label">STREET</label>
+                                                        <label for="parent1_street_address" class="form-label">STREET</label>
                                                         <input type="text" class="form-control"
                                                             id="parent1_street_address" name="parent1_street_address">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="parent1_city_address"
-                                                            class="form-label">CITY</label>
-                                                        <select class="form-control"
-                                                            aria-label=".form-select-lg example"
+                                                        <label for="parent1_city_address" class="form-label">CITY</label>
+                                                        <select class="form-control"aria-label=".form-select-lg example"
                                                             id="parent1_city_address" name="parent1_city_address">
                                                             <option selected disabled>Select</option>
                                                             <option value="1">Washington</option>
@@ -226,10 +204,8 @@
                                                         <i class="fa fa-chevron-down"></i>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="parent1_state_address"
-                                                            class="form-label">STATE</label>
-                                                        <select class="form-control"
-                                                            aria-label=".form-select-lg example"
+                                                        <label for="parent1_state_address" class="form-label">STATE</label>
+                                                        <select class="form-control" aria-label=".form-select-lg example"
                                                             id="parent1_state_address" name="parent1_state_address">
                                                             <option selected disabled>Select</option>
                                                             <option value="1">DC</option>
@@ -248,14 +224,11 @@
                                                             id="parent1_zip_address" name="parent1_zip_address">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="home_telephone_number1" class="form-label">TELEPHONE
-                                                            NUMBER</label>
-                                                        <input type="text" class="form-control"
-                                                            aria-label="Telephone Number" id="home_telephone_number1"
+                                                        <label for="home_telephone_number1" class="form-label">TELEPHONE NUMBER</label>
+                                                        <input type="text" class="form-control" aria-label="Telephone Number" id="home_telephone_number1"
                                                             name="home_telephone_number1"
                                                             onchange="validatePhone(this,'home_telephone_number1_span')">
-                                                        <span id="home_telephone_number1_span"
-                                                            style="color:red; display:none">
+                                                        <span id="home_telephone_number1_span" style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
@@ -264,23 +237,18 @@
                                         <div class="row m-3">
                                             <div class="col-sm">
                                                 <label for="business1_name" class="form-label">BUSINESS NAME</label>
-                                                <input type="text" class="form-control" id="business1_name"
-                                                    name="business1_name">
+                                                <input type="text" class="form-control" id="business1_name" name="business1_name">
                                             </div>
                                             <div class="col-sm">
                                                 <label for="work_hours1" class="form-label">WORK HOURS</label>
-                                                <input type="number" class="form-control" id="work_hours1"
-                                                    name="work_hours">
+                                                <input type="number" class="form-control" id="work_hours1" name="work_hours">
                                             </div>
                                             <div class="col-sm">
-                                                <label for="business_telephone_number1" class="form-label">BUSINESS
-                                                    TELEPHONE
-                                                    NUMBER</label>
+                                                <label for="business_telephone_number1" class="form-label">BUSINESS TELEPHONE NUMBER</label>
                                                 <input type="number" class="form-control"
                                                     id="business_telephone_number1" name="business_telephone_number1"
                                                     onchange="validatePhone(this,'business_telephone_number1_span')">
-                                                <span id="business_telephone_number1_span"
-                                                    style="color:red; display:none">
+                                                <span id="business_telephone_number1_span" style="color:red; display:none">
                                                     Enter valid input [only numbers,+,-,()].</span>
                                             </div>
                                         </div>
@@ -291,17 +259,13 @@
                                             <div class="panel-body">
                                                 <div class="row m-1">
                                                     <div class="col-sm">
-                                                        <label for="business_street_address1"
-                                                            class="form-label">STREET</label>
-                                                        <input type="text" class="form-control"
-                                                            id="business_street_address1"
+                                                        <label for="business_street_address1" class="form-label">STREET</label>
+                                                        <input type="text" class="form-control" id="business_street_address1"
                                                             name="business_street_address1">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="business_city_address1"
-                                                            class="form-label">CITY</label>
-                                                        <select class="form-control"
-                                                            aria-label=".form-select-lg example"
+                                                        <label for="business_city_address1" class="form-label">CITY</label>
+                                                        <select class="form-control" aria-label=".form-select-lg example"
                                                             id="business_city_address1" name="business_city_address1">
                                                             <option selected disabled>Select</option>
                                                             <option value="1">Washington</option>
@@ -313,10 +277,8 @@
                                                         <i class="fa fa-chevron-down"></i>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="business_state_address1"
-                                                            class="form-label">STATE</label>
-                                                        <select class="form-control"
-                                                            aria-label=".form-select-lg example"
+                                                        <label for="business_state_address1" class="form-label">STATE</label>
+                                                        <select class="form-control" aria-label=".form-select-lg example"
                                                             id="business_state_address1" name="business_state_address1">
                                                             <option selected disabled>Select</option>
                                                             <option value="1">DC</option>
@@ -328,8 +290,7 @@
                                                         <i class="fa fa-chevron-down"></i>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="business_zip_address1"
-                                                            class="form-label">ZIP</label>
+                                                        <label for="business_zip_address1" class="form-label">ZIP</label>
                                                         <input type="number" class="form-control"
                                                             id="business_zip_address1" name="business_zip_address1">
                                                     </div>
@@ -338,19 +299,16 @@
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="business_cell_number1" class="form-label">CELL
-                                                    NUMBER</label>
+                                                <label for="business_cell_number1" class="form-label">CELL NUMBER</label>
                                                 <input type="text" class="form-control" aria-label="Telephone Number"
                                                     id="business_cell_number1" name="business_cell_number1"
                                                     onchange="validatePhone(this,'business_cell_number1_span')">
                                                 <span id="business_cell_number1_span" style="color:red; display:none">
-                                                    Enter valid input [only
-                                                    numbers,+,-,()].</span>
+                                                    Enter valid input [only numbers,+,-,()].</span>
                                             </div>
                                             <div class="col-sm">
                                                 <label for="business_email1" class="form-label">EMAIL ADDRESS</label>
-                                                <input type="text" class="form-control" id="business_email1"
-                                                    name="business_email1"
+                                                <input type="text" class="form-control" id="business_email1" name="business_email1"
                                                     onchange="emailValidation(this,'business_email1_span')">
                                                 <span id="business_email1_span" style="color:red; display:none">
                                                     Enter valid input [should be in @ and .].</span>
@@ -359,10 +317,8 @@
 
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="parent2_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S
-                                                    NAME</label>
-                                                <input type="text" class="form-control" id="parent2_name"
-                                                    name="parent2_name"
+                                                <label for="parent2_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S NAME</label>
+                                                <input type="text" class="form-control" id="parent2_name" name="parent2_name"
                                                     onchange="namevalidation(this,'parent2_name_span')">
                                                 <span class="spanmsg" id="parent2_name_span"
                                                     style="color:red; display:none">
@@ -376,16 +332,13 @@
                                             <div class="panel-body">
                                                 <div class="row m-1">
                                                     <div class="col-sm">
-                                                        <label for="parent2_street_address"
-                                                            class="form-label">STREET</label>
+                                                        <label for="parent2_street_address" class="form-label">STREET</label>
                                                         <input type="text" class="form-control"
                                                             id="parent2_street_address" name="parent2_street_address">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="parent2_city_address"
-                                                            class="form-label">CITY</label>
-                                                        <select class="form-control"
-                                                            aria-label=".form-select-lg example"
+                                                        <label for="parent2_city_address" class="form-label">CITY</label>
+                                                        <select class="form-control" aria-label=".form-select-lg example"
                                                             id="parent2_city_address" name="parent2_city_address">
                                                             <option selected disabled>Select</option>
                                                             <option value="1">Washington</option>
@@ -397,10 +350,8 @@
                                                         <i class="fa fa-chevron-down"></i>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="parent2_state_address"
-                                                            class="form-label">STATE</label>
-                                                        <select class="form-control"
-                                                            aria-label=".form-select-lg example"
+                                                        <label for="parent2_state_address" class="form-label">STATE</label>
+                                                        <select class="form-control" aria-label=".form-select-lg example"
                                                             id="parent2_state_address" name="parent2_state_address">
                                                             <option selected disabled>Select</option>
                                                             <option value="1">DC</option>
@@ -419,14 +370,10 @@
                                                             id="parent2_zip_address" name="parent2_zip_address">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="home_telephone_number2" class="form-label">TELEPHONE
-                                                            NUMBER</label>
-                                                        <input type="text" class="form-control"
-                                                            aria-label="Telephone Number" id="home_telephone_number2"
-                                                            name="home_telephone_number2"
-                                                            onchange="validatePhone(this,'home_telephone_number2_span')">
-                                                        <span id="home_telephone_number2_span"
-                                                            style="color:red; display:none">
+                                                        <label for="home_telephone_number2" class="form-label">TELEPHONE NUMBER</label>
+                                                        <input type="text" class="form-control" aria-label="Telephone Number" id="home_telephone_number2"
+                                                            name="home_telephone_number2" onchange="validatePhone(this,'home_telephone_number2_span')">
+                                                        <span id="home_telephone_number2_span" style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
@@ -435,23 +382,17 @@
                                         <div class="row m-3">
                                             <div class="col-sm">
                                                 <label for="business2_name" class="form-label">BUSINESS NAME</label>
-                                                <input type="text" class="form-control" id="business2_name"
-                                                    name="business2_name">
+                                                <input type="text" class="form-control" id="business2_name" name="business2_name">
                                             </div>
                                             <div class="col-sm">
                                                 <label for="work_hours2" class="form-label">WORK HOURS</label>
-                                                <input type="number" class="form-control" id="work_hours2"
-                                                    name="work_hours2">
+                                                <input type="number" class="form-control" id="work_hours2" name="work_hours2">
                                             </div>
                                             <div class="col-sm">
-                                                <label for="business_telephone_number2" class="form-label">BUSINESS
-                                                    TELEPHONE
-                                                    NUMBER</label>
-                                                <input type="number" class="form-control"
-                                                    id="business_telephone_number2" name="business_telephone_number2"
+                                                <label for="business_telephone_number2" class="form-label">BUSINESS TELEPHONE NUMBER</label>
+                                                <input type="number" class="form-control" id="business_telephone_number2" name="business_telephone_number2"
                                                     onchange="validatePhone(this,'business_telephone_number2_span')">
-                                                <span id="business_telephone_number2_span"
-                                                    style="color:red; display:none">
+                                                <span id="business_telephone_number2_span" style="color:red; display:none">
                                                     Enter valid input [only numbers,+,-,()].</span>
                                             </div>
                                         </div>
@@ -462,17 +403,13 @@
                                             <div class="panel-body">
                                                 <div class="row m-1">
                                                     <div class="col-sm">
-                                                        <label for="business_street_address2"
-                                                            class="form-label">STREET</label>
-                                                        <input type="text" class="form-control"
-                                                            id="business_street_address2"
+                                                        <label for="business_street_address2" class="form-label">STREET</label>
+                                                        <input type="text" class="form-control" id="business_street_address2"
                                                             name="business_street_address2">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="business_city_address2"
-                                                            class="form-label">CITY</label>
-                                                        <select class="form-control"
-                                                            aria-label=".form-select-lg example"
+                                                        <label for="business_city_address2" class="form-label">CITY</label>
+                                                        <select class="form-control" aria-label=".form-select-lg example"
                                                             id="business_city_address2" name="business_city_address2">
                                                             <option selected disabled>Select</option>
                                                             <option value="1">Washington</option>
@@ -484,10 +421,8 @@
                                                         <i class="fa fa-chevron-down"></i>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="business_state_address2"
-                                                            class="form-label">STATE</label>
-                                                        <select class="form-control"
-                                                            aria-label=".form-select-lg example"
+                                                        <label for="business_state_address2" class="form-label">STATE</label>
+                                                        <select class="form-control" aria-label=".form-select-lg example"
                                                             id="business_state_address2" name="business_state_address2">
                                                             <option selected disabled>Select</option>
                                                             <option value="1">DC</option>
@@ -499,8 +434,7 @@
                                                         <i class="fa fa-chevron-down"></i>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="business_zip_address2"
-                                                            class="form-label">ZIP</label>
+                                                        <label for="business_zip_address2" class="form-label">ZIP</label>
                                                         <input type="number" class="form-control"
                                                             id="business_zip_address2" name="business_zip_address2">
                                                     </div>
@@ -509,19 +443,16 @@
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="business_cell_number2" class="form-label">CELL
-                                                    NUMBER</label>
+                                                <label for="business_cell_number2" class="form-label">CELL NUMBER</label>
                                                 <input type="text" class="form-control" aria-label="Telephone Number"
                                                     id="business_cell_number2" name="business_cell_number2"
                                                     onchange="validatePhone(this,'business_cell_number2_span')">
                                                 <span id="business_cell_number2_span" style="color:red; display:none">
-                                                    Enter valid input [only
-                                                    numbers,+,-,()].</span>
+                                                    Enter valid input [only numbers,+,-,()].</span>
                                             </div>
                                             <div class="col-sm">
                                                 <label for="business_email2" class="form-label">EMAIL ADDRESS</label>
-                                                <input type="text" class="form-control" id="business_email2"
-                                                    name="business_email"
+                                                <input type="text" class="form-control" id="business_email2" name="business_email"
                                                     onchange="emailValidation(this,'business_email2_span')">
                                                 <span id="business_email2_span" style="color:red; display:none">
                                                     Enter valid input [should be in @ and .].</span>
@@ -531,97 +462,59 @@
                                         <div class="panel panel-info m-4">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title text-center">
-                                                    <b>TO WHOM THE CHILD MAY BE
-                                                        RELEASED IN
-                                                        THE EVENT OF AN
-                                                        EMERGENCY</b>
+                                                    <b>TO WHOM THE CHILD MAY BE RELEASED IN THE EVENT OF AN EMERGENCY</b>
                                                 </h3>
                                             </div>
                                             <div class="panel-body">
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="emergency_contact_name1"
-                                                            class="form-label">NAME</label>
-                                                        <input type="text" class="form-control"
-                                                            aria-label="Emergency Name" id="emergency_contact_name1"
-                                                            name="emergency_contact_name1"
-                                                            onchange="namevalidation(this,'emergency_contact_name1_span')">
-                                                        <span class="spanmsg" id="emergency_contact_name1_span"
-                                                            style="color:red; display:none">
-                                                            Enter valid
-                                                            input[only
-                                                            letters].</span>
+                                                        <label for="emergency_contact_name1" class="form-label">NAME</label>
+                                                        <input type="text" class="form-control" aria-label="Emergency Name" id="emergency_contact_name1"
+                                                            name="emergency_contact_name1" onchange="namevalidation(this,'emergency_contact_name1_span')">
+                                                        <span class="spanmsg" id="emergency_contact_name1_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="emergency_contact_full_address1"
-                                                            class="form-label">FULL
-                                                            ADDRESS</label>
-                                                        <input type="text" class="form-control"
-                                                            aria-label="emergency_address"
-                                                            id="emergency_contact_full_address1"
-                                                            name="emergency_contact_full_address1">
+                                                        <label for="emergency_contact_full_address1" class="form-label">FULL ADDRESS</label>
+                                                        <input type="text" class="form-control" aria-label="emergency_address"
+                                                            id="emergency_contact_full_address1" name="emergency_contact_full_address1">
                                                     </div>
                                                 </div>
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="emergency_contact_relationship1"
-                                                            class="form-label">RELATIONSHIP</label>
-                                                        <input type="text" class="form-control"
-                                                            aria-label="Emergency Relationship"
-                                                            id="emergency_contact_relationship1"
-                                                            name="emergency_contact_relationship1">
+                                                        <label for="emergency_contact_relationship1" class="form-label">RELATIONSHIP</label>
+                                                        <input type="text" class="form-control" aria-label="Emergency Relationship"
+                                                            id="emergency_contact_relationship1" name="emergency_contact_relationship1">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="emergency_contact_telephone_number1"
-                                                            class="form-label">TELEPHONE
-                                                            NUMBER</label>
-                                                        <input type="text" class="form-control"
-                                                            aria-label="Emergency Relationship"
-                                                            id="emergency_contact_telephone_number1"
-                                                            name="emergency_contact_telephone_number1"
+                                                        <label for="emergency_contact_telephone_number1" class="form-label">TELEPHONE NUMBER</label>
+                                                        <input type="text" class="form-control" aria-label="Emergency Relationship"
+                                                            id="emergency_contact_telephone_number1" name="emergency_contact_telephone_number1"
                                                             onchange="validatePhone(this,'emergency_contact_telephone_number1_span')">
-                                                        <span id="emergency_contact_telephone_number1_span"
-                                                            style="color:red; display:none">
-                                                            Enter valid input
-                                                            [only
-                                                            numbers,+,-,()].</span>
+                                                        <span id="emergency_contact_telephone_number1_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="child_care_provider_name1" class="form-label">NAME
-                                                            OF CHILD’S PHYSICIAN
-                                                            /MEDICAL CARE
-                                                            PROVIDER</label>
-                                                        <input type="text" class="form-control"
-                                                            id="child_care_provider_name1"
-                                                            name="child_care_provider_name1"
-                                                            onchange="namevalidation(this,'child_care_provider_name1_span')">
-                                                        <span class="spanmsg" id="child_care_provider_name1_span"
-                                                            style="color:red; display:none">
-                                                            Enter valid
-                                                            input[only
-                                                            letters].</span>
+                                                        <label for="child_care_provider_name1" class="form-label">NAME OF CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER</label>
+                                                        <input type="text" class="form-control" id="child_care_provider_name1"
+                                                            name="child_care_provider_name1" onchange="namevalidation(this,'child_care_provider_name1_span')">
+                                                        <span class="spanmsg" id="child_care_provider_name1_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
                                                     </div>
                                                 </div>
                                                 <div class="row p-3">
                                                     <div class="col-sm">
                                                         <label for="care_provider_telephone_number1"
-                                                            class="form-label">TELEPHONE
-                                                            NUMBER</label>
-                                                        <input type="text" class="form-control"
-                                                            id="care_provider_telephone_number1"
-                                                            name="care_provider_telephone_number1"
-                                                            onchange="validatePhone(this,'care_provider_telephone_number1_span')">
-                                                        <span id="care_provider_telephone_number1_span"
-                                                            style="color:red; display:none">
-                                                            Enter valid input
-                                                            [only
-                                                            numbers,+,-,()].</span>
+                                                            class="form-label">TELEPHONE NUMBER</label>
+                                                        <input type="text" class="form-control" id="care_provider_telephone_number1"
+                                                            name="care_provider_telephone_number1" onchange="validatePhone(this,'care_provider_telephone_number1_span')">
+                                                        <span id="care_provider_telephone_number1_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="hospital_affiliation1" class="form-label">HOSPITAL
-                                                            AFFILIATION</label>
+                                                        <label for="hospital_affiliation1" class="form-label">HOSPITAL AFFILIATION</label>
                                                         <input type="text" class="form-control"
                                                             id="hospital_affiliation1" name="hospital_affiliation1">
                                                     </div>
@@ -630,180 +523,106 @@
                                             <div class="panel-body">
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="emergency_contact_name2"
-                                                            class="form-label">NAME</label>
-                                                        <input type="text" class="form-control"
-                                                            aria-label="Emergency Name" id="emergency_contact_name2"
-                                                            name="emergency_contact_name2"
-                                                            onchange="namevalidation(this,'emergency_contact_name2_span')">
-                                                        <span class="spanmsg" id="emergency_contact_name2_span"
-                                                            style="color:red; display:none">
-                                                            Enter valid
-                                                            input[only
-                                                            letters].</span>
+                                                        <label for="emergency_contact_name2" class="form-label">NAME</label>
+                                                        <input type="text" class="form-control" aria-label="Emergency Name" id="emergency_contact_name2"
+                                                            name="emergency_contact_name2" onchange="namevalidation(this,'emergency_contact_name2_span')">
+                                                        <span class="spanmsg" id="emergency_contact_name2_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="emergency_contact_full_address2"
-                                                            class="form-label">FULL
-                                                            ADDRESS</label>
-                                                        <input type="text" class="form-control"
-                                                            aria-label="emergency_address"
-                                                            id="emergency_contact_full_address2"
-                                                            name="emergency_contact_full_address2">
+                                                        <label for="emergency_contact_full_address2" class="form-label">FULL ADDRESS</label>
+                                                        <input type="text" class="form-control" aria-label="emergency_address"
+                                                            id="emergency_contact_full_address2" name="emergency_contact_full_address2">
                                                     </div>
                                                 </div>
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="emergency_contact_relationship2"
-                                                            class="form-label">RELATIONSHIP</label>
-                                                        <input type="text" class="form-control"
-                                                            aria-label="Emergency Relationship"
-                                                            id="emergency_contact_relationship2"
-                                                            name="emergency_contact_relationship2">
+                                                        <label for="emergency_contact_relationship2" class="form-label">RELATIONSHIP</label>
+                                                        <input type="text" class="form-control" aria-label="Emergency Relationship"
+                                                            id="emergency_contact_relationship2" name="emergency_contact_relationship2">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="emergency_contact_telephone_number2"
-                                                            class="form-label">TELEPHONE
-                                                            NUMBER</label>
-                                                        <input type="text" class="form-control"
-                                                            aria-label="Emergency Relationship"
-                                                            id="emergency_contact_telephone_number2"
-                                                            name="emergency_contact_telephone_number2"
+                                                        <label for="emergency_contact_telephone_number2" class="form-label">TELEPHONE NUMBER</label>
+                                                        <input type="text" class="form-control" aria-label="Emergency Relationship"
+                                                            id="emergency_contact_telephone_number2" name="emergency_contact_telephone_number2"
                                                             onchange="validatePhone(this,'emergency_contact_telephone_number2_span')">
-                                                        <span id="emergency_contact_telephone_number2_span"
-                                                            style="color:red; display:none">
-                                                            Enter valid input
-                                                            [only
-                                                            numbers,+,-,()].</span>
+                                                        <span id="emergency_contact_telephone_number2_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="child_care_provider_name2" class="form-label">NAME
-                                                            OF CHILD’S PHYSICIAN
-                                                            /MEDICAL CARE
-                                                            PROVIDER</label>
-                                                        <input type="text" class="form-control"
-                                                            id="child_care_provider_name2"
-                                                            name="child_care_provider_name2"
-                                                            onchange="namevalidation(this,'child_care_provider_name2_span')">
-                                                        <span class="spanmsg" id="child_care_provider_name2_span"
-                                                            style="color:red; display:none">
-                                                            Enter valid
-                                                            input[only
-                                                            letters].</span>
+                                                        <label for="child_care_provider_name2" class="form-label">NAME OF CHILD’S PHYSICIAN/MEDICAL CARE PROVIDER</label>
+                                                        <input type="text" class="form-control" id="child_care_provider_name2"
+                                                            name="child_care_provider_name2" onchange="namevalidation(this,'child_care_provider_name2_span')">
+                                                        <span class="spanmsg" id="child_care_provider_name2_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
                                                     </div>
                                                 </div>
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="care_provider_telephone_number2"
-                                                            class="form-label">TELEPHONE
-                                                            NUMBER</label>
-                                                        <input type="text" class="form-control"
-                                                            id="care_provider_telephone_number2"
-                                                            name="care_provider_telephone_number2"
-                                                            onchange="validatePhone(this,'care_provider_telephone_number2_span')">
-                                                        <span id="care_provider_telephone_number2_span"
-                                                            style="color:red; display:none">
-                                                            Enter valid input
-                                                            [only
-                                                            numbers,+,-,()].</span>
+                                                        <label for="care_provider_telephone_number2" class="form-label">TELEPHONE NUMBER</label>
+                                                        <input type="text" class="form-control" id="care_provider_telephone_number2"
+                                                            name="care_provider_telephone_number2" onchange="validatePhone(this,'care_provider_telephone_number2_span')">
+                                                        <span id="care_provider_telephone_number2_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="hospital_affiliation2" class="form-label">HOSPITAL
-                                                            AFFILIATION</label>
-                                                        <input type="text" class="form-control"
-                                                            id="hospital_affiliation2" name="hospital_affiliation2">
+                                                        <label for="hospital_affiliation2" class="form-label">HOSPITAL AFFILIATION</label>
+                                                        <input type="text" class="form-control" id="hospital_affiliation2" name="hospital_affiliation2">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="panel-body">
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="emergency_contact_name3"
-                                                            class="form-label">NAME</label>
-                                                        <input type="text" class="form-control"
-                                                            aria-label="Emergency Name" id="emergency_contact_name3"
-                                                            name="emergency_contact_name3"
-                                                            onchange="namevalidation(this,'emergency_contact_name3_span')">
-                                                        <span class="spanmsg" id="emergency_contact_name3_span"
-                                                            style="color:red; display:none">
-                                                            Enter valid
-                                                            input[only
-                                                            letters].</span>
+                                                        <label for="emergency_contact_name3" class="form-label">NAME</label>
+                                                        <input type="text" class="form-control" aria-label="Emergency Name" id="emergency_contact_name3"
+                                                            name="emergency_contact_name3" onchange="namevalidation(this,'emergency_contact_name3_span')">
+                                                        <span class="spanmsg" id="emergency_contact_name3_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="emergency_contact_full_address3"
-                                                            class="form-label">FULL
-                                                            ADDRESS</label>
-                                                        <input type="text" class="form-control"
-                                                            aria-label="emergency_address"
-                                                            id="emergency_contact_full_address3"
-                                                            name="emergency_contact_full_address3">
+                                                        <label for="emergency_contact_full_address3" class="form-label">FULL ADDRESS</label>
+                                                        <input type="text" class="form-control" aria-label="emergency_address"
+                                                            id="emergency_contact_full_address3" name="emergency_contact_full_address3">
                                                     </div>
                                                 </div>
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="emergency_contact_relationship3"
-                                                            class="form-label">RELATIONSHIP</label>
-                                                        <input type="text" class="form-control"
-                                                            aria-label="Emergency Relationship"
-                                                            id="emergency_contact_relationship3"
-                                                            name="emergency_contact_relationship3">
+                                                        <label for="emergency_contact_relationship3" class="form-label">RELATIONSHIP</label>
+                                                        <input type="text" class="form-control" aria-label="Emergency Relationship"
+                                                            id="emergency_contact_relationship3" name="emergency_contact_relationship3">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="emergency_contact_telephone_number3"
-                                                            class="form-label">TELEPHONE
-                                                            NUMBER</label>
-                                                        <input type="text" class="form-control"
-                                                            aria-label="Emergency Relationship"
-                                                            id="emergency_contact_telephone_number3"
-                                                            name="emergency_contact_telephone_number3"
+                                                        <label for="emergency_contact_telephone_number3" class="form-label">TELEPHONE NUMBER</label>
+                                                        <input type="text" class="form-control" aria-label="Emergency Relationship"
+                                                            id="emergency_contact_telephone_number3" name="emergency_contact_telephone_number3"
                                                             onchange="validatePhone(this,'emergency_contact_telephone_number3_span')">
-                                                        <span id="emergency_contact_telephone_number3_span"
-                                                            style="color:red; display:none">
-                                                            Enter valid input
-                                                            [only
-                                                            numbers,+,-,()].</span>
+                                                        <span id="emergency_contact_telephone_number3_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="child_care_provider_name3" class="form-label">NAME
-                                                            OF CHILD’S PHYSICIAN
-                                                            /MEDICAL CARE
-                                                            PROVIDER</label>
-                                                        <input type="text" class="form-control"
-                                                            id="child_care_provider_name3"
-                                                            name="child_care_provider_name3"
+                                                        <label for="child_care_provider_name3" class="form-label">NAME OF CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER</label>
+                                                        <input type="text" class="form-control" id="child_care_provider_name3" name="child_care_provider_name3"
                                                             onchange="namevalidation(this,'child_care_provider_name3_span')">
-                                                        <span class="spanmsg" id="child_care_provider_name3_span"
-                                                            style="color:red; display:none">
-                                                            Enter valid
-                                                            input[only
-                                                            letters].</span>
+                                                        <span class="spanmsg" id="child_care_provider_name3_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
                                                     </div>
                                                 </div>
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="care_provider_telephone_number3"
-                                                            class="form-label">TELEPHONE
-                                                            NUMBER</label>
-                                                        <input type="text" class="form-control"
-                                                            id="care_provider_telephone_number3"
-                                                            name="care_provider_telephone_number3"
-                                                            onchange="validatePhone(this,'care_provider_telephone_number3_span')">
-                                                        <span id="care_provider_telephone_number3_span"
-                                                            style="color:red; display:none">
-                                                            Enter valid input
-                                                            [only
-                                                            numbers,+,-,()].</span>
+                                                        <label for="care_provider_telephone_number3" class="form-label">TELEPHONE NUMBER</label>
+                                                        <input type="text" class="form-control" id="care_provider_telephone_number3"
+                                                            name="care_provider_telephone_number3" onchange="validatePhone(this,'care_provider_telephone_number3_span')">
+                                                        <span id="care_provider_telephone_number3_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="hospital_affiliation3" class="form-label">HOSPITAL
-                                                            AFFILIATION</label>
-                                                        <input type="text" class="form-control"
-                                                            id="hospital_affiliation3" name="hospital_affiliation3">
+                                                        <label for="hospital_affiliation3" class="form-label">HOSPITAL AFFILIATION</label>
+                                                        <input type="text" class="form-control" id="hospital_affiliation3" name="hospital_affiliation3">
                                                     </div>
                                                 </div>
                                             </div>
@@ -811,72 +630,45 @@
                                         <div class="panel panel-default m-4">
                                             <div class="panel-heading">
                                                 <h5 class="panel-title text-center">
-                                                    <b>PHYSICIAN /MEDICAL CARE
-                                                        PROVIDER - ADDRESS</b>
+                                                    <b>PHYSICIAN /MEDICAL CARE PROVIDER - ADDRESS</b>
                                                 </h5>
                                             </div>
                                             <div class="panel-body">
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="child_care_provider_street_address"
-                                                            class="form-label">STREET</label>
-                                                        <input type="text" class="form-control"
-                                                            id="child_care_provider_street_address"
+                                                        <label for="child_care_provider_street_address" class="form-label">STREET</label>
+                                                        <input type="text" class="form-control" id="child_care_provider_street_address"
                                                             name="child_care_provider_street_address">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="child_care_provider_city_address"
-                                                            class="form-label">CITY</label>
-                                                        <select class="form-control"
-                                                            aria-label=".form-select-lg example"
-                                                            id="child_care_provider_city_address"
-                                                            name="child_care_provider_city_address">
-                                                            <option selected disabled>Select
-                                                            </option>
-                                                            <option value="1">
-                                                                Washington
-                                                            </option>
-                                                            <option value="2">
-                                                                New York
-                                                            </option>
-                                                            <option value="3">
-                                                                Chicago</option>
-                                                            <option value="4">
-                                                                San Francisco
-                                                            </option>
-                                                            <option value="5">
-                                                                Hartford
-                                                            </option>
+                                                        <label for="child_care_provider_city_address" class="form-label">CITY</label>
+                                                        <select class="form-control" aria-label=".form-select-lg example"
+                                                            id="child_care_provider_city_address" name="child_care_provider_city_address">
+                                                            <option selected disabled>Select</option>
+                                                            <option value="1">Washington</option>
+                                                            <option value="2">New York</option>
+                                                            <option value="3">Chicago</option>
+                                                            <option value="4">San Francisco</option>
+                                                            <option value="5">Hartford</option>
                                                         </select>
                                                         <i class="fa fa-chevron-down"></i>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="child_care_provider_state_address"
-                                                            class="form-label">STATE</label>
-                                                        <select class="form-control"
-                                                            aria-label=".form-select-lg example"
-                                                            id="child_care_provider_state_address"
-                                                            name="child_care_provider_state_address">
-                                                            <option selected disabled>Select
-                                                            </option>
-                                                            <option value="1">DC
-                                                            </option>
-                                                            <option value="2">NY
-                                                            </option>
-                                                            <option value="3">IL
-                                                            </option>
-                                                            <option value="4">CA
-                                                            </option>
-                                                            <option value="5">CT
-                                                            </option>
+                                                        <label for="child_care_provider_state_address" class="form-label">STATE</label>
+                                                        <select class="form-control" aria-label=".form-select-lg example"
+                                                            id="child_care_provider_state_address" name="child_care_provider_state_address">
+                                                            <option selected disabled>Select</option>
+                                                            <option value="1">DC</option>
+                                                            <option value="2">NY</option>
+                                                            <option value="3">IL</option>
+                                                            <option value="4">CA</option>
+                                                            <option value="5">CT</option>
                                                         </select>
                                                         <i class="fa fa-chevron-down"></i>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="child_care_provider_zip_address"
-                                                            class="form-label">ZIP</label>
-                                                        <input type="number" class="form-control"
-                                                            id="child_care_provider_zip_address"
+                                                        <label for="child_care_provider_zip_address"class="form-label">ZIP</label>
+                                                        <input type="number" class="form-control" id="child_care_provider_zip_address"
                                                             name="child_care_provider_zip_address">
                                                     </div>
                                                 </div>
@@ -884,127 +676,86 @@
                                         </div>
                                         <div class="row m-2 mb-4 p-1">
                                             <div class="col-sm">
-                                                <label for="child_dentist_name" class="form-label">NAME OF
-                                                    CHILD'S DENTIST</label>
-                                                <input type="text" class="form-control" id="child_dentist_name"
-                                                    name="child_dentist_name"
+                                                <label for="child_dentist_name" class="form-label">NAME OF CHILD'S DENTIST</label>
+                                                <input type="text" class="form-control" id="child_dentist_name" name="child_dentist_name"
                                                     onchange="namevalidation(this,'child_dentist_name_span')">
-                                                <span class="spanmsg" id="child_dentist_name_span"
-                                                    style="color:red; display:none">
-                                                    Enter valid input[only
-                                                    letters].</span>
+                                                <span class="spanmsg" id="child_dentist_name_span" style="color:red; display:none">
+                                                    Enter valid input[only letters].</span>
                                             </div>
                                             <div class="col-sm">
-                                                <label for="dentist_telephone_number" class="form-label">DENTIST
-                                                    TELEPHONE NUMBER</label>
-                                                <input type="text" class="form-control" id="dentist_telephone_number"
-                                                    name="dentist_telephone_number"
+                                                <label for="dentist_telephone_number" class="form-label">DENTIST TELEPHONE NUMBER</label>
+                                                <input type="text" class="form-control" id="dentist_telephone_number" name="dentist_telephone_number"
                                                     onchange="validatePhone(this,'dentist_telephone_number_span')">
-                                                <span id="dentist_telephone_number_span"
-                                                    style="color:red; display:none">
-                                                    Enter valid input [only
-                                                    numbers,+,-,()].</span>
+                                                <span id="dentist_telephone_number_span" style="color:red; display:none">
+                                                    Enter valid input [only numbers,+,-,()].</span>
                                             </div>
                                         </div>
                                         <div class="row m-2 mb-4 p-1">
                                             <div class="col-sm">
-                                                <label for="dentist_address" class="form-label">DENTIST
-                                                    ADDRESS</label>
-                                                <input type="text" class="form-control" id="dentist_address"
-                                                    name="dentist_address">
+                                                <label for="dentist_address" class="form-label">DENTIST ADDRESS</label>
+                                                <input type="text" class="form-control" id="dentist_address" name="dentist_address">
                                             </div>
                                         </div>
                                         <div class="row m-2 mb-4 p-1">
                                             <div class="col-sm">
-                                                <label for="special_disabilities" class="form-label">SPECIAL
-                                                    DIABILITIES (IF ANY)</label>
-                                                <input type="text" class="form-control" id="special_disabilities"
-                                                    name="special_disabilities">
+                                                <label for="special_disabilities" class="form-label">SPECIAL DIABILITIES (IF ANY)</label>
+                                                <input type="text" class="form-control" id="special_disabilities" name="special_disabilities">
                                             </div>
                                             <div class="col-sm">
-                                                <label for="allergies_medication_reaction" class="form-label">ALLERGIES
-                                                    (INCLUDING MEDICATION
-                                                    REACTION)</label>
-                                                <input type="number" class="form-control"
-                                                    id="allergies_medication_reaction"
-                                                    name="allergies_medication_reaction">
+                                                <label for="allergies_medication_reaction" class="form-label">ALLERGIES (INCLUDING MEDICATION REACTION)</label>
+                                                <input type="number" class="form-control" id="allergies_medication_reaction" name="allergies_medication_reaction">
                                             </div>
                                         </div>
                                         <div class="row m-2 mb-4 p-1">
                                             <div class="col-sm">
-                                                <label for="additional_info" class="form-label">ADDITIONAL
-                                                    INFORMATION REGARDING
-                                                    SPECIAL NEEDS</label>
-                                                <input type="text" class="form-control" id="additional_info"
-                                                    name="additional_info">
+                                                <label for="additional_info" class="form-label">ADDITIONAL INFORMATION REGARDING SPECIAL NEEDS</label>
+                                                <input type="text" class="form-control" id="additional_info" name="additional_info">
                                             </div>
                                         </div>
                                         <div class="row m-2 mb-4 p-1">
                                             <div class="col-sm">
-                                                <label for="medication" class="form-label">MEDICATION,
-                                                    SPECIAL CONDITIONS
-                                                    NUMBER</label>
-                                                <input type="number" class="form-control" id="medication"
-                                                    name="medication">
+                                                <label for="medication" class="form-label">MEDICATION, SPECIAL CONDITIONS NUMBER</label>
+                                                <input type="number" class="form-control" id="medication" name="medication">
                                             </div>
                                         </div>
                                         <div class="row m-2 mb-4 p-1">
                                             <div class="col-sm">
-                                                <label for="health_insurance" class="form-label">HEALTH
-                                                    INSURANCE COVERAGE FOR CHILD
-                                                    OR MEDICAL ASSISTANCE
-                                                    BENEFITS</label>
-                                                <input type="text" class="form-control" id="health_insurance"
-                                                    name="health_insurance">
+                                                <label for="health_insurance" class="form-label">HEALTH INSURANCE COVERAGE FOR CHILD OR MEDICAL ASSISTANCE BENEFITS</label>
+                                                <input type="text" class="form-control" id="health_insurance" name="health_insurance">
                                             </div>
                                         </div>
                                         <div class="row m-2 mb-4 p-1">
                                             <div class="col-sm">
-                                                <label for="policy_number" class="form-label">POLICY
-                                                    NUMBER (REQUIRED)
-                                                    NUMBER</label>
-                                                <input type="number" class="form-control" id="policy_number"
-                                                    name="policy_number">
+                                                <label for="policy_number" class="form-label">POLICY NUMBER (REQUIRED) NUMBER</label>
+                                                <input type="number" class="form-control" id="policy_number" name="policy_number">
                                             </div>
                                         </div>
                                         <div class="panel panel-info m-4">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title text-center">
-                                                    <b>PARENT’S / LEGAL
-                                                        GUARDIAN’S SIGNATURE IS
-                                                        REQUIRED</b>
+                                                    <b>PARENT’S / LEGAL GUARDIAN’S SIGNATURE IS REQUIRED</b>
                                                 </h3>
                                             </div>
                                             <div class="panel-body">
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="obtaining_emergency_medical_care"
-                                                            class="form-label">OBTAINING
-                                                            EMERGENCY MEDICAL
-                                                            CARE</label>
-                                                        <input type="text" class="form-control"
-                                                            id="obtaining_emergency_medical_care"
+                                                        <label for="obtaining_emergency_medical_care" class="form-label">OBTAINING EMERGENCY MEDICAL CARE</label>
+                                                        <input type="text" class="form-control" id="obtaining_emergency_medical_care"
                                                             name="obtaining_emergency_medical_care">
                                                     </div>
                                                 </div>
                                                 <div class="row p-3">
                                                     <div class="col-sm">
                                                         <label for="administration_first_aid_procedures"
-                                                            class="form-label">ADMINISTRATION
-                                                            OF MINOR FIRST-AID
-                                                            PROCEDURES</label>
-                                                        <input type="text" class="form-control"
-                                                            id="administration_first_aid_procedures"
+                                                            class="form-label">ADMINISTRATION OF MINOR FIRST-AID PROCEDURES</label>
+                                                        <input type="text" class="form-control" id="administration_first_aid_procedures"
                                                             name="administration_first_aid_procedures">
                                                     </div>
                                                 </div>
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="parent_sign" class="form-label">SIGNATURE
-                                                            OF PARENT /LEGAL
-                                                            GUARDIAN</label>
-                                                        <input type="text" class="form-control" id="parent_sign"
-                                                            name="parent_sign">
+                                                        <label for="parent_sign" class="form-label">SIGNATURE OF PARENT /LEGAL GUARDIAN</label>
+                                                        <input type="text" class="form-control" id="parent_sign" name="parent_sign">
                                                     </div>
                                                     <div class="col-sm">
                                                         <label for="sign_date">DATE</label>
@@ -1024,7 +775,6 @@
                                 </div>
                             </div>
                         </fieldset>
-
                         <fieldset class="wizard-fieldset">
                             <div class="container">
                                 <div class="panel panel-info">
@@ -1037,23 +787,18 @@
                                                 <label for="student_name" class="form-label">Student</label>
                                                 <input type="text" class="form-control" id="student_name"
                                                     onchange="namevalidation(this,'student_name_span')">
-                                                <span class="spanmsg" id="student_name_span"
-                                                    style="color:red; display:none">
+                                                <span class="spanmsg" id="student_name_span" style="color:red; display:none">
                                                     Enter valid input[only letters].</span>
                                             </div>
                                         </div>
                                         <div class="row p-3">
                                             <div class="col-sm">
-                                                <label for="physical_exam_last_date" class="form-label">Date of Last
-                                                    Physical
-                                                    Exam</label>
+                                                <label for="physical_exam_last_date" class="form-label">Date of Last Physical Exam</label>
                                                 <input type="date" class="form-control" id="physical_exam_last_date"
                                                     onclick="dateValidation('physical_exam_last_date')">
                                             </div>
                                             <div class="col-sm">
-                                                <label for="dental_exam_last_date" class="form-label">Date of Last
-                                                    Dental
-                                                    Exam</label>
+                                                <label for="dental_exam_last_date" class="form-label">Date of Last Dental Exam</label>
                                                 <input type="date" class="form-control" id="dental_exam_last_date"
                                                     onclick="dateValidation('dental_exam_last_date')">
                                             </div>
@@ -1061,18 +806,13 @@
                                         <div class="pt-4">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                    <h5 class="panel-title text-center"><b>MEDICAL HISTORY AND
-                                                            ILLNESSES</b></h5>
+                                                    <h5 class="panel-title text-center"><b>MEDICAL HISTORY AND ILLNESSES</b></h5>
                                                 </div>
-                                                <p class="text-center pt-5"><b>Does your child have a history of :
-                                                        (please
-                                                        describe)</b>
-                                                </p>
+                                                <p class="text-center pt-5"><b>Does your child have a history of : (please describe)</b></p>
                                                 <div class="panel-body">
                                                     <div class="row p-3">
                                                         <div class="col-sm">
-                                                            <label for="allergies" class="form-label">Allergies
-                                                                (food/drug)</label>
+                                                            <label for="allergies" class="form-label">Allergies (food/drug)</label>
                                                             <input type="text" class="form-control" id="allergies">
                                                         </div>
                                                     </div>
@@ -1084,10 +824,8 @@
                                                     </div>
                                                     <div class="row p-3">
                                                         <div class="col-sm">
-                                                            <label for="bleeding_problems" class="form-label">Bleeding
-                                                                Problems</label>
-                                                            <input type="text" class="form-control"
-                                                                id="bleeding_problems">
+                                                            <label for="bleeding_problems" class="form-label">Bleeding Problems</label>
+                                                            <input type="text" class="form-control" id="bleeding_problems">
                                                         </div>
                                                     </div>
                                                     <div class="row p-3">
@@ -1104,68 +842,50 @@
                                                     </div>
                                                     <div class="row p-3">
                                                         <div class="col-sm">
-                                                            <label for="frequent_ear_infections"
-                                                                class="form-label">Frequent
-                                                                Ear
-                                                                Infections</label>
-                                                            <input type="text" class="form-control"
-                                                                id="frequent_ear_infections">
+                                                            <label for="frequent_ear_infections" class="form-label">Frequent Ear Infections</label>
+                                                            <input type="text" class="form-control" id="frequent_ear_infections">
                                                         </div>
                                                     </div>
                                                     <div class="row p-3">
                                                         <div class="col-sm">
-                                                            <label for="frequent_illnesses" class="form-label">Frequent
-                                                                Illnesses</label>
-                                                            <input type="text" class="form-control"
-                                                                id="frequent_illnesses">
+                                                            <label for="frequent_illnesses" class="form-label">Frequent Illnesses</label>
+                                                            <input type="text" class="form-control" id="frequent_illnesses">
                                                         </div>
                                                     </div>
                                                     <div class="row p-3">
                                                         <div class="col-sm">
-                                                            <label for="hearing_problems" class="form-label">Hearing
-                                                                Problems</label>
-                                                            <input type="text" class="form-control"
-                                                                id="hearing_problems">
+                                                            <label for="hearing_problems" class="form-label">Hearing Problems</label>
+                                                            <input type="text" class="form-control" id="hearing_problems">
                                                         </div>
                                                     </div>
                                                     <div class="row p-3">
                                                         <div class="col-sm">
-                                                            <label for="high_fevers" class="form-label">High
-                                                                Fevers</label>
+                                                            <label for="high_fevers" class="form-label">High Fevers</label>
                                                             <input type="text" class="form-control" id="high_fevers">
                                                         </div>
                                                     </div>
                                                     <div class="row p-3">
                                                         <div class="col-sm">
-                                                            <label for="hospitialization"
-                                                                class="form-label">Hospitialization</label>
-                                                            <input type="text" class="form-control"
-                                                                id="hospitialization">
+                                                            <label for="hospitialization" class="form-label">Hospitialization</label>
+                                                            <input type="text" class="form-control" id="hospitialization">
                                                         </div>
                                                     </div>
                                                     <div class="row p-3">
                                                         <div class="col-sm">
-                                                            <label for="rheumatic_fever" class="form-label">Rheumatic
-                                                                Fever</label>
-                                                            <input type="text" class="form-control"
-                                                                id="rheumatic_fever">
+                                                            <label for="rheumatic_fever" class="form-label">Rheumatic Fever</label>
+                                                            <input type="text" class="form-control" id="rheumatic_fever">
                                                         </div>
                                                     </div>
                                                     <div class="row p-3">
                                                         <div class="col-sm">
-                                                            <label for="seizures_convulsions"
-                                                                class="form-label">Seizures/Convulsions</label>
-                                                            <input type="text" class="form-control"
-                                                                id="seizures_convulsions">
+                                                            <label for="seizures_convulsions" class="form-label">Seizures/Convulsions</label>
+                                                            <input type="text" class="form-control" id="seizures_convulsions">
                                                         </div>
                                                     </div>
                                                     <div class="row p-3">
                                                         <div class="col-sm">
-                                                            <label for="serious_injuries_accidents"
-                                                                class="form-label">Serious
-                                                                Injuries/Accidents</label>
-                                                            <input type="text" class="form-control"
-                                                                id="serious_injuries_accidents">
+                                                            <label for="serious_injuries_accidents" class="form-label">Serious Injuries/Accidents</label>
+                                                            <input type="text" class="form-control"  id="serious_injuries_accidents">
                                                         </div>
                                                     </div>
                                                     <div class="row p-3">
@@ -1176,10 +896,8 @@
                                                     </div>
                                                     <div class="row p-3">
                                                         <div class="col-sm">
-                                                            <label for="vision_problems" class="form-label">Vision
-                                                                Problems</label>
-                                                            <input type="text" class="form-control"
-                                                                id="vision_problems">
+                                                            <label for="vision_problems" class="form-label">Vision Problems</label>
+                                                            <input type="text" class="form-control" id="vision_problems">
                                                         </div>
                                                     </div>
                                                     <div class="row p-3">
@@ -1194,36 +912,26 @@
 
                                         <div class="panel panel-default">
                                             <div class="panel-heading">
-                                                <h5 class="panel-title text-center"><b>PREGNANCY AND INFANT
-                                                        HISTORY</b></h5>
+                                                <h5 class="panel-title text-center"><b>PREGNANCY AND INFANT HISTORY</b></h5>
                                             </div>
                                             <div class="panel-body">
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="illness_during_pregnancy" class="form-label">Illness
-                                                            during
-                                                            pregnancy</label>
-                                                        <input type="text" class="form-control"
-                                                            id="illness_during_pregnancy">
+                                                        <label for="illness_during_pregnancy" class="form-label">Illness during pregnancy</label>
+                                                        <input type="text" class="form-control" id="illness_during_pregnancy">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="condition_of_newborn" class="form-label">Condition
-                                                            of
-                                                            Newborn</label>
-                                                        <input type="text" class="form-control"
-                                                            id="condition_of_newborn">
+                                                        <label for="condition_of_newborn" class="form-label">Condition of Newborn</label>
+                                                        <input type="text" class="form-control" id="condition_of_newborn">
                                                     </div>
                                                 </div>
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="during_of_pregnancy" class="form-label">Duration of
-                                                            pregnancy</label>
-                                                        <input type="text" class="form-control"
-                                                            id="during_of_pregnancy">
+                                                        <label for="during_of_pregnancy" class="form-label">Duration of pregnancy</label>
+                                                        <input type="text" class="form-control" id="during_of_pregnancy">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="birth_weight" class="form-label">Birth
-                                                            Weight</label>
+                                                        <label for="birth_weight" class="form-label">Birth Weight</label>
                                                         <div class="input-group">
                                                             <input type="text" class="form-control" id="birth_weight">
                                                             <span class="input-group-text input-group-addon"
@@ -1237,36 +945,30 @@
                                                 </div>
                                                 <div class="row p-3">
                                                     <div class="col-sm">
-                                                        <label for="complications"
-                                                            class="form-label">Complications</label>
+                                                        <label for="complications" class="form-label">Complications</label>
                                                         <input type="text" class="form-control" id="complications">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="bottle_fed" class="form-label">Bottle
-                                                            Fed?</label>
+                                                        <label for="bottle_fed" class="form-label">Bottle Fed?</label>
                                                         <input type="text" class="form-control" id="bottle_fed">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="breast_fed" class="form-label">Breast
-                                                            Fed?</label>
+                                                        <label for="breast_fed" class="form-label">Breast Fed?</label>
                                                         <input type="text" class="form-control" id="breast_fed">
                                                     </div>
                                                 </div>
                                                 <div class="row p-3">
-                                                    <h3 class="text-center">Other
-                                                        Siblings</h3>
+                                                    <h3 class="text-center">Other Siblings</h3>
                                                     <div class="col-sm">
                                                         <label for="other_siblings_name" class="form-label">Name</label>
                                                         <input type="text" class="form-control" id="other_siblings_name"
                                                             onchange="namevalidation(this,'other_siblings_name_span')">
-                                                        <span class="spanmsg" id="other_siblings_name_span"
-                                                            style="color:red; display:none">
+                                                        <span class="spanmsg" id="other_siblings_name_span" style="color:red; display:none">
                                                             Enter valid input[only letters].</span>
                                                     </div>
                                                     <div class="col-sm">
                                                         <label for="other_siblings_age" class="form-label">Age</label>
-                                                        <input type="number" class="form-control"
-                                                            id="other_siblings_age">
+                                                        <input type="number" class="form-control" id="other_siblings_age">
                                                     </div>
                                                 </div>
 
@@ -1277,106 +979,67 @@
                                                 <h3 class="panel-title text-center"><b>FAMILY HISTORY</b></h3>
                                             </div>
                                             <p class="text-center pt-5"><b>Has any blood relative of this child had
-                                                    any of the
-                                                    following conditions? (please check off)</b>
-                                            </p>
+                                                    any of the following conditions? (please check off)</b></p>
                                             <div class="panel-body">
                                                 <div class="row">
-                                                    <div class="col-sm">
-
-                                                        <div class="checkbox">
-                                                            <label for="family_history_allergies"
-                                                                class="form-check-label">
-                                                                <input type="checkbox" id="family_history_allergies"
-                                                                    name="family_history_allergies" value="1">Allergies
-                                                            </label>
-                                                        </div>
+                                                    <div class="col-sm m-4">
+                                                        <input type="checkbox" id="family_history_allergies"
+                                                            name="family_history_allergies">&nbsp;
+                                                        <label for="family_history_allergies"
+                                                            class="form-check-label">Allergies</label>
                                                     </div>
-                                                    <div class="col-sm">
-                                                        <div class="checkbox">
-                                                            <label for="family_history_heart_problems"
-                                                                class="form-check-label">
-                                                                <input type="checkbox"
-                                                                    id="family_history_heart_problems"
-                                                                    name="family_history_heart_problems" value="1">Heart
-                                                                Problems
-                                                            </label>
-                                                        </div>
+                                                    <div class="col-sm m-4">
+                                                        <input type="checkbox" id="family_history_heart_problems"
+                                                            name="family_history_heart_problems">&nbsp;
+                                                        <label for="family_history_heart_problems"
+                                                            class="form-check-label">Heart Problems</label>
                                                     </div>
-                                                    <div class="col-sm">
-                                                        <div class="checkbox">
-                                                            <label for="family_history_tuberculosis"
-                                                                class="form-check-label">
-                                                                <input type="checkbox" id="family_history_tuberculosis"
-                                                                    name="family_history_tuberculosis"
-                                                                    value="1">Tuberculosis
-                                                            </label>
-                                                        </div>
+                                                    <div class="col-sm m-4">
+                                                        <input type="checkbox" id="family_history_tuberculosis"
+                                                            name="family_history_tuberculosis">&nbsp;
+                                                        <label for="family_history_tuberculosis"
+                                                            class="form-check-label">Tuberculosis</label>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-sm">
-
-                                                        <div class="checkbox">
-                                                            <label for="family_history_asthma" class="form-check-label">
-                                                                <input type="checkbox" id="family_history_asthma"
-                                                                    name="family_history_asthma" value="1">Asthma
-                                                            </label>
-                                                        </div>
+                                                    <div class="col-sm m-4">
+                                                        <input type="checkbox" id="family_history_asthma"
+                                                            name="family_history_asthma">&nbsp;
+                                                        <label for="family_history_asthma"
+                                                            class="form-check-label">Asthma</label>
                                                     </div>
-                                                    <div class="col-sm">
-                                                        <div class="checkbox">
-                                                            <label for="family_history_high_blood_pressure"
-                                                                class="form-check-label">
-                                                                <input type="checkbox"
-                                                                    id="family_history_high_blood_pressure"
-                                                                    name="family_history_high_blood_pressure"
-                                                                    value="1">High Blood
-                                                                Pressure
-                                                            </label>
-                                                        </div>
+                                                    <div class="col-sm m-4">
+                                                        <input type="checkbox" id="family_history_high_blood_pressure"
+                                                            name="family_history_high_blood_pressure">&nbsp;
+                                                        <label for="family_history_high_blood_pressure"
+                                                            class="form-check-label">High Blood Pressure</label>
                                                     </div>
-                                                    <div class="col-sm">
-                                                        <div class="checkbox">
-                                                            <label for="family_history_vision_problems"
-                                                                class="form-check-label">
-                                                                <input type="checkbox"
-                                                                    id="family_history_vision_problems"
-                                                                    name="family_history_vision_problems"
-                                                                    value="1">Vision Problems
-                                                            </label>
-                                                        </div>
+                                                    <div class="col-sm m-4">
+                                                        <input type="checkbox" id="family_history_vision_problems"
+                                                            name="family_history_vision_problems">&nbsp;
+                                                        <label for="family_history_vision_problems"
+                                                            class="form-check-label">Vision Problems</label>
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-sm">
-
-                                                        <div class="checkbox">
-                                                            <label for="family_history_diabetes"
-                                                                class="form-check-label">
-                                                                <input type="checkbox" id="family_history_diabetes"
-                                                                    name="family_history_diabetes" value="1">Diabetes
-                                                            </label>
-                                                        </div>
+                                                    <div class="col-sm m-4">
+                                                        <input type="checkbox" id="family_history_diabetes"
+                                                            name="family_history_diabetes">&nbsp;
+                                                        <label for="family_history_diabetes"
+                                                            class="form-check-label">Diabetes
+                                                        </label>
                                                     </div>
-                                                    <div class="col-sm">
-                                                        <div class="checkbox">
+                                                    <div class="col-sm m-4">
+                                                            <input type="checkbox" id="family_history_hyperactivity"
+                                                                name="family_history_hyperactivity">&nbsp;
                                                             <label for="family_history_hyperactivity"
-                                                                class="form-check-label">
-                                                                <input type="checkbox" id="family_history_hyperactivity"
-                                                                    name="family_history_hyperactivity"
-                                                                    value="1">Hyperactivity
-                                                            </label>
-                                                        </div>
+                                                                class="form-check-label">Hyperactivity</label>
                                                     </div>
-                                                    <div class="col-sm">
-                                                        <div class="checkbox">
-                                                            <label for="family_history_epilepsy"
-                                                                class="form-check-label">
-                                                                <input type="checkbox" id="family_history_epilepsy"
-                                                                    name="family_history_epilepsy" value="1">Epilepsy
-                                                            </label>
-                                                        </div>
+                                                    <div class="col-sm m-4">
+                                                        <input type="checkbox" id="family_history_epilepsy"
+                                                            name="family_history_epilepsy">&nbsp;
+                                                        <label for="family_history_epilepsy"
+                                                            class="form-check-label">Epilepsy</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1387,83 +1050,59 @@
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
-                                                    <label for="age_group_friends" class="form-label">Age group of
-                                                        friends</label>
-                                                    <input type="text" class="form-control" id="age_group_friends"
-                                                        name="age_group_friends">
+                                                    <label for="age_group_friends" class="form-label">Age group of friends</label>
+                                                    <input type="text" class="form-control" id="age_group_friends" name="age_group_friends">
                                                 </div>
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
-                                                    <label for="neighborhood_friends" class="form-label">Neighborhood
-                                                        friends</label>
-                                                    <input type="text" class="form-control" id="neighborhood_friends"
-                                                        name="neighborhood_friends">
+                                                    <label for="neighborhood_friends" class="form-label">Neighborhood friends</label>
+                                                    <input type="text" class="form-control" id="neighborhood_friends" name="neighborhood_friends">
                                                 </div>
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
-                                                    <label for="relationship_with_mother"
-                                                        class="form-label">Relationship with
-                                                        mother</label>
-                                                    <input type="text" class="form-control"
-                                                        id="relationship_with_mother" name="relationship_with_mother">
+                                                    <label for="relationship_with_mother" class="form-label">Relationship with mother</label>
+                                                    <input type="text" class="form-control" id="relationship_with_mother" name="relationship_with_mother">
                                                 </div>
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
-                                                    <label for="relationship_with_father"
-                                                        class="form-label">Relationship with
-                                                        father</label>
-                                                    <input type="text" class="form-control"
-                                                        id="relationship_with_father" name="relationship_with_father">
+                                                    <label for="relationship_with_father" class="form-label">Relationship with father</label>
+                                                    <input type="text" class="form-control" id="relationship_with_father" name="relationship_with_father">
                                                 </div>
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
-                                                    <label for="relationship_with_siblings"
-                                                        class="form-label">Relationship with
-                                                        siblings</label>
-                                                    <input type="text" class="form-control"
-                                                        id="relationship_with_siblings"
+                                                    <label for="relationship_with_siblings" class="form-label">Relationship with siblings</label>
+                                                    <input type="text" class="form-control" id="relationship_with_siblings"
                                                         name="relationship_with_siblings">
                                                 </div>
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
-                                                    <label for="relationship_with_extended_family"
-                                                        class="form-label">Relationship
-                                                        with extended family</label>
-                                                    <input type="text" class="form-control"
-                                                        id="relationship_with_extended_family"
+                                                    <label for="relationship_with_extended_family" class="form-label">Relationship with extended family</label>
+                                                    <input type="text" class="form-control" id="relationship_with_extended_family"
                                                         name="relationship_with_extended_family">
                                                 </div>
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
-                                                    <label for="fears_conflicts" class="form-label">Fears and
-                                                        Conflicts</label>
-                                                    <input type="text" class="form-control" id="fears_conflicts"
-                                                        name="fears_conflicts">
+                                                    <label for="fears_conflicts" class="form-label">Fears and Conflicts</label>
+                                                    <input type="text" class="form-control" id="fears_conflicts" name="fears_conflicts">
                                                 </div>
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
-                                                    <label for="child_response_frustration" class="form-label">Child’s
-                                                        response
-                                                        to
-                                                        frustration</label>
-                                                    <input type="text" class="form-control"
-                                                        id="child_response_frustration"
+                                                    <label for="child_response_frustration" class="form-label">Child’s response to frustration</label>
+                                                    <input type="text" class="form-control" id="child_response_frustration"
                                                         name="child_response_frustration">
                                                 </div>
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
-                                                    <label for="favorite_activities" class="form-label">Favorite
-                                                        activities</label>
-                                                    <input type="text" class="form-control" id="favorite_activities"
-                                                        name="favorite_activities">
+                                                    <label for="favorite_activities" class="form-label">Favorite activities</label>
+                                                    <input type="text" class="form-control" id="favorite_activities" name="favorite_activities">
                                                 </div>
                                             </div>
                                         </div>
@@ -1474,76 +1113,53 @@
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
-                                                    <label for="last_five_years_moved" class="form-label">How many
-                                                        times have you
-                                                        moved in the last five years?</label>
-                                                    <input type="text" class="form-control" id="last_five_years_moved"
-                                                        name="last_five_years_moved">
+                                                    <label for="last_five_years_moved" class="form-label">How many times have you moved in the last five years?</label>
+                                                    <input type="text" class="form-control" id="last_five_years_moved" name="last_five_years_moved">
                                                 </div>
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
-                                                    <label for="things_used_at_home" class="form-label">Educational
-                                                        toys, games,
-                                                        books used at home?</label>
-                                                    <input type="text" class="form-control" id="things_used_at_home"
-                                                        name="things_used_at_home">
+                                                    <label for="things_used_at_home" class="form-label">Educational toys, games, books used at home?</label>
+                                                    <input type="text" class="form-control" id="things_used_at_home" name="things_used_at_home">
                                                 </div>
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
-                                                    <label for="hours_of_television_daily" class="form-label">How
-                                                        many hours of
-                                                        television daily?</label>
-                                                    <input type="text" class="form-control"
-                                                        id="hours_of_television_daily" name="hours_of_television_daily">
+                                                    <label for="hours_of_television_daily" class="form-label">How many hours of television daily?</label>
+                                                    <input type="text" class="form-control" id="hours_of_television_daily" name="hours_of_television_daily">
                                                 </div>
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
-                                                    <label for="language_used_at_home" class="form-label">Language
-                                                        used in the
-                                                        home?</label>
-                                                    <input type="text" class="form-control" id="language_used_at_home"
-                                                        name="language_used_at_home">
+                                                    <label for="language_used_at_home" class="form-label">Language used in the home?</label>
+                                                    <input type="text" class="form-control" id="language_used_at_home" name="language_used_at_home">
                                                 </div>
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
                                                     <label for="changes_at_home_situation" class="form-label">Have
-                                                        there been any
-                                                        changes in the home situation recently, i.e.
-                                                        addition/loss/death/divorce.</label>
+                                                        there been any changes in the home situation recently, i.e. addition/loss/death/divorce.</label>
                                                     <input type="text" class="form-control"
                                                         id="changes_at_home_situation" name="changes_at_home_situation">
                                                 </div>
                                             </div>
                                             <div class="row m-3">
                                                 <div class="col-sm">
-                                                    <label for="educational_expectations_of_child"
-                                                        class="form-label">What are your
-                                                        educational expectations of your child?</label>
-                                                    <input type="text" class="form-control"
-                                                        id="educational_expectations_of_child"
+                                                    <label for="educational_expectations_of_child" class="form-label">What are your educational expectations of your child?</label>
+                                                    <input type="text" class="form-control" id="educational_expectations_of_child"
                                                         name="educational_expectations_of_child">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="family_history_parent_sign" class="form-label">Parent/Legal
-                                                    Guardian
-                                                    Signature</label>
-                                                <input type="text" class="form-control" id="family_history_parent_sign"
-                                                    name="family_history_parent_sign">
+                                                <label for="family_history_parent_sign" class="form-label">Parent/Legal Guardian Signature</label>
+                                                <input type="text" class="form-control" id="family_history_parent_sign" name="family_history_parent_sign">
                                             </div>
                                             <div class="col-sm">
-                                                <label for="family_history_parent_sign_date"
-                                                    class="form-label">Date</label>
-                                                <input type="date" class="form-control"
-                                                    id="family_history_parent_sign_date"
-                                                    name="family_history_parent_sign_date"
-                                                    onclick="dateValidation('family_history_parent_sign_date')">
+                                                <label for="family_history_parent_sign_date"  class="form-label">Date</label>
+                                                <input type="date" class="form-control" id="family_history_parent_sign_date"
+                                                    name="family_history_parent_sign_date" onclick="dateValidation('family_history_parent_sign_date')">
                                             </div>
                                         </div>
                                     </div>
@@ -1552,7 +1168,6 @@
                                             <div style="padding-left: 100px;text-align: center;">
                                                 <a href="javascript:;"
                                                     class="form-wizard-previous-btn float-left">Previous</a>
-
                                                 <a href="javascript:;"
                                                     class="form-wizard-next-btn  float-right">Next</a>
                                             </div>
@@ -1611,31 +1226,31 @@
                                     <div class="panel-body">
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="child_profile_name" class="form-label">Child’s Full
-                                                    Name</label>
+                                                <label for="child_profile_name" class="form-label">Child’s Full Name</label>
                                                 <input type="text" class="form-control" id="child_profile_name"
-                                                    name="child_profile_name">
+                                                    name="child_profile_name" onchange="namevalidation(this,'child_profile_name_span')">
+                                                    <span class="spanmsg" id="child_profile_name_span" style="color:red; display:none">
+                                                        Enter valid input[only letters].</span>
                                             </div>
                                             <div class="col-sm">
                                                 <label for="child_nick_name" class="form-label">Nickname(s)</label>
-                                                <input type="text" class="form-control" id="child_nick_name"
-                                                    name="child_nick_name">
+                                                <input type="text" class="form-control" id="child_nick_name" name="child_nick_name"  onchange="namevalidation(this,'child_nick_name_span')">
+                                                <span class="spanmsg" id="child_nick_name_span" style="color:red; display:none">
+                                                    Enter valid input[only letters].</span>
                                             </div>
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
                                                 <label for="other_important _family_members" class="form-label">Other
                                                     important Family Members (Siblings, Grandparent, Pets, etc)</label>
-                                                <input type="text" class="form-control"
-                                                    id="other_important _family_members"
+                                                <input type="text" class="form-control" id="other_important _family_members"
                                                     name="other_important _family_members">
                                             </div>
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
                                                 <label for="about_family_celebrations" class="form-label">Tell us about
-                                                    your
-                                                    family traditions or important celebrations</label>
+                                                    your family traditions or important celebrations</label>
                                                 <input type="text" class="form-control" id="about_family_celebrations"
                                                     name="about_family_celebrations">
                                             </div>
@@ -1659,8 +1274,7 @@
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="reason_for_childcare_before" class="form-label">If so, what
-                                                    kind?</label>
+                                                <label for="reason_for_childcare_before" class="form-label">If so, what kind?</label>
                                                 <select class="form-control form-select-lg"
                                                     aria-label=".form-control-lg example"
                                                     id="reason_for_childcare_before" name="reason_for_childcare_before">
@@ -2131,7 +1745,7 @@
                                                             class="form-label">Date</label>
                                                         <input type="date" class="form-control"
                                                             id="child_profile_parent_sign_date"
-                                                            name="child_profile_parent_sign_date">
+                                                            name="child_profile_parent_sign_date" onclick="dateValidation('child_profile_parent_sign_date')">
                                                     </div>
                                                 </div>
                                             </div>
@@ -2151,7 +1765,6 @@
                                 </div>
                             </div>
                         </fieldset>
-
                         <fieldset class="wizard-fieldset">
                             <div class="container">
                                 <div class="panel panel-info">
@@ -2201,7 +1814,10 @@
                                                             class="form-label h-3">Child’s Name</label>
                                                         <input type="text" class="form-control"
                                                             id="emergency_info_child_name"
-                                                            name="emergency_info_child_name">
+                                                            name="emergency_info_child_name" onchange="namevalidation(this,'emergency_info_child_name_span')">
+                                                            <span class="spanmsg" id="emergency_info_child_name_span"
+                                                                style="color:red; display:none">
+                                                                Enter valid input[only letters].</span>
                                                     </div>
                                                 </div>
                                                 <div class="row m-3">
@@ -2223,7 +1839,7 @@
                                                         <label for="password_parent_date"
                                                             class="form-label">Date</label>
                                                         <input type="date" class="form-control"
-                                                            id="password_parent_date" name="password_parent_date">
+                                                            id="password_parent_date" name="password_parent_date" onclick="dateValidation('password_parent_date')">
                                                     </div>
                                                 </div>
                                             </div>
@@ -2243,7 +1859,6 @@
                                 </div>
                             </div>
                         </fieldset>
-
                         <fieldset class="wizard-fieldset">
                             <div class="container">
                                 <div class="panel panel-info">
@@ -2269,7 +1884,10 @@
                                                 <label for="permission_child_name" class="form-label">Child’s
                                                     Name</label>
                                                 <input type="text" class="form-control" id="permission_child_name"
-                                                    name="permission_child_name">
+                                                    name="permission_child_name" onchange="namevalidation(this,'permission_child_name_span')">
+                                                    <span class="spanmsg" id="permission_child_name_span"
+                                                        style="color:red; display:none">
+                                                        Enter valid input[only letters].</span>
                                             </div>
                                         </div>
                                         <div class="row m-3">
@@ -2333,7 +1951,7 @@
                                                     <label for="photo_parent_date"
                                                         class="form-label">Date</label>
                                                     <input type="date" class="form-control"
-                                                        id="photo_parent_date" name="photo_parent_date">
+                                                        id="photo_parent_date" name="photo_parent_date" onclick="dateValidation('photo_parent_date')">
                                                 </div>
                                             </div>
                                         </div>
@@ -2352,7 +1970,6 @@
                                 </div>
                             </div>
                         </fieldset>
-
                         <fieldset class="wizard-fieldset">
                             <div class="container">
                                 <div class="panel panel-info">
@@ -2361,7 +1978,72 @@
                                                 Acknowledgement Form</b></h3>
                                     </div>
                                     <div class="panel-body">
-
+                                        <div class="row m-3">
+                                            <p class="m-4">I understand that The Goddard School® has installed security
+                                                cameras in
+                                                the
+                                                foyer and around the outside perimeter of the building. I also
+                                                understand that while attending The Goddard School®, my child may be
+                                                videotaped by a security camera.</p><br>
+                                            <p class="m-4">I recognize that I may also be videotaped by a security
+                                                camera while at
+                                                or around the
+                                                school premises. I will notify each person listed on the Application for
+                                                Admission that he
+                                                or she may be also videotaped while at or around the school premises.
+                                            </p>
+                                        </div>
+                                        <div class="row m-3">
+                                            <div class="col-sm">
+                                                <label for="security_release_child_name" class="form-label">Child’s
+                                                    Name</label>
+                                                <input type="text" class="form-control" id="security_release_child_name"
+                                                    name="security_release_child_name" onchange="namevalidation(this,'security_release_child_name_span')">
+                                                    <span class="spanmsg" id="security_release_child_name_span" style="color:red; display:none">
+                                                        Enter valid input[only letters].</span>
+                                            </div>
+                                        </div>
+                                        <div class="row m-3">
+                                            <div class="col-sm">
+                                                <label for="security_release_parent_sign"
+                                                    class="form-label">Parent’s/Guardian’s Signature</label>
+                                                <input type="text" class="form-control"
+                                                    id="security_release_parent_sign"
+                                                    name="security_release_parent_sign">
+                                            </div>
+                                            <div class="col-sm">
+                                                <label for="security_release_parent_date"
+                                                    class="form-label">Date</label>
+                                                <input type="date" class="form-control"
+                                                    id="security_release_parent_date"
+                                                    name="security_release_parent_date" onclick="dateValidation('security_release_parent_date')">
+                                            </div>
+                                        </div>
+                                        <div class="panel panel-info m-4">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title text-center"><b>Policy Sign off</b></h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <p class="m-4">My signature below confirms my understanding of the
+                                                    Enrollment Agreement, school
+                                                    policies, my tuition obligation, my responsibility for the payment
+                                                    of fees, and confirms that
+                                                    I have received and read a copy of the parent handbook.</p>
+                                                <div class="row m-3">
+                                                    <div class="col-sm">
+                                                        <label for="policy_parent_sign"
+                                                            class="form-label">Parent’s/Guardian’s Signature</label>
+                                                        <input type="text" class="form-control" id="policy_parent_sign"
+                                                            name="policy_parent_sign">
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <label for="policy_parent_date" class="form-label">Date</label>
+                                                        <input type="date" class="form-control" id="policy_parent_date"
+                                                            name="policy_parent_date" onclick="dateValidation('policy_parent_date')">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="panel-footer">
                                         <div class="form-group clearfix">
@@ -2369,8 +2051,7 @@
                                                 <a href="javascript:;"
                                                     class="form-wizard-previous-btn float-left">Previous</a>
 
-                                                <a href="javascript:;"
-                                                    class="form-wizard-next-btn  float-right">Next</a>
+                                                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
                                             </div>
                                         </div>
                                     </div>
@@ -2385,7 +2066,41 @@
                                                 Waiver</b></h3>
                                     </div>
                                     <div class="panel-body">
-
+                                        <div class="row m-3">
+                                            <div class="col-sm">
+                                                <p class="m-2">The undersigned authorizes
+                                                    representatives of The Goddard School® to contact
+                                                    Emergency Medical Technicians to transport
+                                                    <input type="text" class="form-control"
+                                                        id="contact_emergency_medical_technicians"
+                                                        name="contact_emergency_medical_technicians">(“Student”) to
+                                                    receive medical care, if such transportation/care is deemed
+                                                    necessary.
+                                                </p><br>
+                                                <p>The undersigned irrevocably release any claims, demands, actions or
+                                                    causes of
+                                                    action against The Goddard School®, its franchisor, Goddard Systems,
+                                                    Inc., and their
+                                                    respective representatives and employees, which arise out of or
+                                                    relate to the
+                                                    transportation of Student and any medical care provided.</p><br>
+                                                <p>This authorization and waiver shall remain effective until Student
+                                                    withdraws from The Goddard School®.</p>
+                                            </div>
+                                        </div>
+                                        <div class="row m-3">
+                                            <div class="col-sm">
+                                                <label for="medical_parent_sign" class="form-label">Parent’s/Guardian’s
+                                                    Signature</label>
+                                                <input type="text" class="form-control" id="medical_parent_sign"
+                                                    name="medical_parent_sign">
+                                            </div>
+                                            <div class="col-sm">
+                                                <label for="medical_parent_date" class="form-label">Date</label>
+                                                <input type="date" class="form-control" id="medical_parent_date"
+                                                    name="medical_parent_date" onclick="dateValidation('medical_parent_date')">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="panel-footer">
                                         <div class="form-group clearfix">
@@ -2408,6 +2123,141 @@
                                         <h3 class="panel-title text-center"><b>Health Policies</b></h3>
                                     </div>
                                     <div class="panel-body">
+                                        <div class="row m-3">
+                                            <div class="col-sm">
+                                                <p>The owners and staff at The Goddard School® do all we can to promote
+                                                    a healthy environment for your children.
+                                                    Our teachers make sure children wash their hands before meals, after
+                                                    art projects, after toileting and diapering,
+                                                    after coming in from outside, and after wiping one's nose. Our
+                                                    teachers are required to wash their hands before
+                                                    serving meals or snacks and are sure to wear latex gloves while
+                                                    diapering or assisting a child with toileting and
+                                                    when coming into contact with any bodily fluids. In addition, we
+                                                    disinfect infant and toddler toys on a daily basis.
+                                                    Our preschool toys are disinfected weekly.</p><br>
+                                                <p>The health of the children is very important to the staff at The
+                                                    Goddard School®. Children who are ill cannot be
+                                                    appropriately cared for in a childcare setting. A child who is
+                                                    unable to participate due to illness should not be in
+                                                    attendance. The Goddard School® staff understands that it may be
+                                                    difficult to make alternate arrangements
+                                                    when a child may be too ill to attend the program. However,
+                                                    cooperation in keeping a child home when they
+                                                    are showing symptoms of illness will be greatly appreciated by the
+                                                    teachers and all the children who would
+                                                    normally be in contact with that child. By establishing and
+                                                    maintaining a healthy environment and reasonable
+                                                    health policies, all of our children will benefit.</p><br>
+                                                <p>If a child does arrive in the morning showing signs of ill health, we
+                                                    will be unable to accept him/her. The
+                                                    exception to this requirement would be that a licensed physician has
+                                                    examined the child and indicated, in
+                                                    writing, that there would be no health risk to your child or others,
+                                                    and the child is capable of participating in all
+                                                    activities, including outdoor play. </p><br>
+                                                <h4>Examples of health symptoms that require exclusion from the program
+                                                    include, but are not limited to:</h4>
+                                                <ul>
+                                                    <li>Severe pain or discomfort particularly in joints, abdomen, or
+                                                        ears</li>
+                                                    <li> Vomiting or diarrhea (2 or more incidents within a 24 hour
+                                                        period)</li>
+                                                    <li> Severe coughing or sore throat</li>
+                                                    <li>Temperature of 100 ° or more and/or accompanied by other
+                                                        behavior changes/ symptoms</li>
+                                                    <li>Jaundice (yellow) skin or eyes</li>
+                                                    <li>Eye discharge or conjunctivitis (pink eye) until clear or until
+                                                        24 hours of antibiotic treatment</li>
+                                                    <li> Infected, untreated skin patches/lesions or severe itching of
+                                                        body/scalp</li>
+                                                    <li> Difficult or rapid breathing</li>
+                                                    <li>Skin rashes (excluding diaper rash) especially with fever or
+                                                        itching</li>
+                                                    <li> Swollen joints, visibly enlarged lymph nodes, or stiff neck
+                                                    </li>
+                                                    <li> Blood/pus from ears, skin, urine, stool</li>
+                                                    <li>Unusual behavior characterized by listlessness, loss of normal
+                                                        appetite, or confusion</li>
+                                                    <li> Symptoms of chicken pox, impetigo, lice, scabies, or strep
+                                                        throat</li>
+                                                </ul>
+                                                <p>If a child becomes ill during the day, a parent will be advised
+                                                    immediately. The child will be given the opportunity
+                                                    to rest or have other activities in a separated, supervised area
+                                                    until a designated release person can pick up the
+                                                    child. If the child is not picked up within one hour from the time
+                                                    of notification, the emergency contact person
+                                                    will be called. Children who are sent home due to illness will not
+                                                    be readmitted to the school until all signs of
+                                                    illness have been gone for 24 hours. Therefore, a child who is sent
+                                                    home ill cannot return to school the following
+                                                    day. The exception to this requirement would be that a licensed
+                                                    physician has examined the child and has
+                                                    indicated in writing that the child does not present a health threat
+                                                    to him/her or others and is able to participate
+                                                    in all school activities, including outdoor play.</p><br>
+                                                <p>In cases of certain communicable diseases, The Goddard School® is
+                                                    required to file a report with the Department
+                                                    of Health within 24 hours, so control measures can be used. Parents
+                                                    and staff are reminded to notify The
+                                                    Goddard School® within 24 hours if a child or family member has
+                                                    developed a known or suspected
+                                                    communicable disease. If a child has not been fully immunized for
+                                                    these diseases (due to the child's age, medical
+                                                    condition, or religious belief) they will be excluded from the
+                                                    school during the outbreak of a vaccine-preventable
+                                                    disease, as directed by Washington State Department of Health.
+                                                    Examples of "Reportable Diseases" include (but
+                                                    are not limited to):</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm p-5">
+                                                <table>
+                                                    <tr>
+                                                        <th>COVID19</th>
+                                                        <th>Spinal Meningitis</th>
+                                                        <th>Hepatitis A</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>RSV(respiratory syncytial virus)</td>
+                                                        <td>Flu A/Flu B</td>
+                                                        <td>Varicella/Chicken Pox</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Measles/Mumps/Rubella</td>
+                                                        <td>Pinkeye/Conjunctivitis</td>
+                                                        <td>Giardiasis</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Strep Throat</td>
+                                                        <td>Salmonellosis</td>
+                                                        <td>Shigellosis</td>
+                                                    </tr>
+                                                </table><br>
+                                                <p>All parents will be informed in writing if a communicable disease is
+                                                    reported. The Goddard School® follows the
+                                                    reporting guidelines as established by Washington State Department
+                                                    of Health. A copy of these guidelines is on
+                                                    file in the Director's office and is available for your review.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="row m-3">
+                                            <div class="col-sm">
+                                                <label for="health_policy_parent_sign"
+                                                    class="form-label">Parent’s/Guardian’s
+                                                    Signature</label>
+                                                <input type="text" class="form-control" id="health_policy_parent_sign"
+                                                    name="health_policy_parent_sign">
+                                            </div>
+                                            <div class="col-sm">
+                                                <label for="health_policy_parent_date" class="form-label">Date</label>
+                                                <input type="date" class="form-control" id="health_policy_parent_date"
+                                                    name="health_policy_parent_date" onclick="dateValidation('health_policy_parent_date')">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="panel-footer">
                                         <div class="form-group clearfix">
@@ -2421,9 +2271,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                         </fieldset>
-
                         <fieldset class="wizard-fieldset">
                             <div class="container">
                                 <div class="panel panel-info">
@@ -2432,6 +2280,69 @@
                                                 Release & Waiver</b></h3>
                                     </div>
                                     <div class="panel-body">
+                                        <div class="row m-3">
+                                            <div class="col-sm">
+                                                <p>Parent(s) of student(s) enrolled at The Goddard School Redmond II may
+                                                    request one or more employees of
+                                                    the The Goddard School Redmond II to provide childcare services
+                                                    (baby-sitting/transportation) outside of
+                                                    school premises and school hours.</p>
+                                                <h3>Parents and employees agree as follows:</h3>
+                                                <ul>
+                                                    <li>Parents acknowledge that they have requested that Employee
+                                                        provide Babysitting
+                                                        Services/Transportation solely for Parents' convenience and
+                                                        benefit , and not for the convenience or
+                                                        benefit of the School.</li>
+                                                    <li>Parents acknowledge that, in providing Transportation and/or
+                                                        Babysitting Services, Employee is acting as
+                                                        an independent contractor and not as an employee of the School.
+                                                        Parents acknowledge that
+                                                        providing Transportation and Babysitting Services is not part of
+                                                        Employee's job with the School and that
+                                                        the School is not requesting that Employee provide these
+                                                        services.
+                                                    </li>
+                                                    <li>Parents acknowledge that the School has not reviewed Employee's
+                                                        driving record and makes
+                                                        no representations regarding Employee's driving history or
+                                                        ability or the existence or scope of
+                                                        Employee's insurance.</li>
+                                                    <li>Parents interested in hiring a teacher(s) for outside services
+                                                        must ask if the teacher is interested. The
+                                                        admin team will not aid in finding someone to facilitate
+                                                        before/after hour care.</li>
+                                                    <li>When hiring for outside engagements, parents ensure that staff
+                                                        work hours at school are not disturbed.</li>
+                                                    <li>If there is a matter of contention between the staff hired and
+                                                        the family, management is not
+                                                        liable to mediate or take disciplinary actions against the staff
+                                                        based on what happened outside the
+                                                        school.</li>
+                                                </ul>
+                                                <div class="panel panel-info">
+                                                    <div class="panel-heading">
+                                                        <h3 class="panel-title text-center"><b>I HAVE READ THIS AGREEMENT AND UNDERSTAND ITS TERMS</b></h3>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row m-3">
+                                                            <div class="col-sm">
+                                                                <label for="outside_waiver_parent_sign"
+                                                                    class="form-label">Parent’s/Guardian’s
+                                                                    Signature</label>
+                                                                <input type="text" class="form-control" id="outside_waiver_parent_sign"
+                                                                    name="outside_waiver_parent_sign">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="outside_waiver_parent_date" class="form-label">Date</label>
+                                                                <input type="date" class="form-control" id="outside_waiver_parent_date"
+                                                                    name="outside_waiver_parent_date" onclick="dateValidation('outside_waiver_parent_date')">
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="panel-footer">
                                         <div class="form-group clearfix">
@@ -2439,15 +2350,13 @@
                                                 <a href="javascript:;"
                                                     class="form-wizard-previous-btn float-left">Previous</a>
 
-                                                <a href="#" class="form-wizard-next-btn  float-right">Submit</a>
+                                                <a href="#" class="form-wizard-submit  float-right">Submit</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </fieldset>
-
-
                     </form>
                 </div>
             </div>

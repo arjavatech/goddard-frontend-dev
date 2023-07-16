@@ -7,7 +7,7 @@ function submitForm() {
     console.log(formData);
     const obj = Object.fromEntries(formData);
     console.log(obj);
-    obj.child_id = "NCD0001";
+    obj.child_id = "NCD0003";
     const json = JSON.stringify(obj);
     console.log(json);
 
@@ -23,8 +23,9 @@ function submitForm() {
             }
         }
     };
-    xhr.open("POST", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/child/add");
+    xhr.open("POST", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add");
     xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Access-Control-Allow-Origin", "http://localhost:5500"); // Add the desired origin
     xhr.send(json);
 }
 
@@ -72,6 +73,19 @@ function emailValidation(inputtxtID,errorSpanID) {
 //this function restrict future date
 function dateValidation(id){
     document.getElementById(id).max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+}
+
+//pincode validation
+function ValidatePincode(inputtxt, errorSpan) {
+    var numbers = /^[0-9]+$/;
+    if (inputtxt.value.length == 5 && inputtxt.value.match(numbers)) {
+        document.getElementById(errorSpan).style.display = "none";
+    } else if(inputtxt.value == ''){
+        document.getElementById(errorSpan).style.display = "none";
+    } else {
+        document.getElementById(errorSpan).style.display = "inline";
+        inputtxt.focus();
+    }
 }
 
 $(document).ready(function() {

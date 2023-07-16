@@ -27,7 +27,7 @@
         <div class="row no-gutters">
             <div class="col-lg-12 col-md-12">
                 <div class="form-wizard">
-                    <form id="stud_form">
+                    <form id="admission_form">
                         <div class="form-wizard-header">
                             <ul class="list-unstyled form-wizard-steps clearfix">
                                 <li class="active"><span>1</span></li>
@@ -53,7 +53,7 @@
                                             <div class="col-sm">
                                                 <div class="form-group">
                                                     <label for="child_full_name" class="form-label"><b>CHILD’S FULL NAME
-                                                            <span style="color:#ff0000;">*</span></b></label><br>
+                                                        <span style="color:#ff0000;">*</span></b></label><br>
                                                     <input name="child_full_name" type="text" maxlength="20" class="form-control wizard-required" id="child_full_name"
                                                         onchange="namevalidation(this,'child_full_name_span')">
                                                     <span class="spanmsg" id="child_full_name_span" style="color:red; display:none">
@@ -122,7 +122,10 @@
                                                     </div>
                                                     <div class="col-sm">
                                                         <label for="child_zip_address" class="form-label">ZIP</label>
-                                                        <input type="number" class="form-control" id="child_zip_address" name="child_zip_address">
+                                                        <input type="text" class="form-control" id="child_zip_address" name="child_zip_address" 
+                                                        onchange="ValidatePincode (this,'child_zip_address_span')">                                                     
+                                                        <span id="child_zip_address_span" style="color:red; display:none">
+                                                        Enter valid input [only numbers].</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -220,8 +223,11 @@
                                                 <div class="row m-1">
                                                     <div class="col-sm">
                                                         <label for="parent1_zip_address" class="form-label">ZIP</label>
-                                                        <input type="number" class="form-control"
-                                                            id="parent1_zip_address" name="parent1_zip_address">
+                                                        <input type="text" class="form-control"
+                                                            id="parent1_zip_address" name="parent1_zip_address"
+                                                             onchange="ValidatePincode (this,'parent1_zip_address_span')">                                                     
+                                                            <span id="parent1_zip_address_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers].</span>
                                                     </div>
                                                     <div class="col-sm">
                                                         <label for="home_telephone_number1" class="form-label">TELEPHONE NUMBER</label>
@@ -291,8 +297,11 @@
                                                     </div>
                                                     <div class="col-sm">
                                                         <label for="business_zip_address1" class="form-label">ZIP</label>
-                                                        <input type="number" class="form-control"
-                                                            id="business_zip_address1" name="business_zip_address1">
+                                                        <input type="text" class="form-control"
+                                                            id="business_zip_address1" name="business_zip_address1" 
+                                                            onchange="ValidatePincode (this,'business_zip_address1_span')">                                                     
+                                                            <span id="business_zip_address1_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers].</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -366,8 +375,11 @@
                                                 <div class="row m-1">
                                                     <div class="col-sm">
                                                         <label for="parent2_zip_address" class="form-label">ZIP</label>
-                                                        <input type="number" class="form-control"
-                                                            id="parent2_zip_address" name="parent2_zip_address">
+                                                        <input type="text" class="form-control"
+                                                            id="parent2_zip_address" name="parent2_zip_address" 
+                                                            onchange="ValidatePincode (this,'parent2_zip_address_span')">                                                     
+                                                            <span id="parent2_zip_address_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers].</span>
                                                     </div>
                                                     <div class="col-sm">
                                                         <label for="home_telephone_number2" class="form-label">TELEPHONE NUMBER</label>
@@ -435,8 +447,11 @@
                                                     </div>
                                                     <div class="col-sm">
                                                         <label for="business_zip_address2" class="form-label">ZIP</label>
-                                                        <input type="number" class="form-control"
-                                                            id="business_zip_address2" name="business_zip_address2">
+                                                        <input type="text" class="form-control"
+                                                            id="business_zip_address2" name="business_zip_address2" 
+                                                            onchange="ValidatePincode (this,'business_zip_address2_span')">                                                     
+                                                            <span id="business_zip_address2_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers].</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -668,8 +683,11 @@
                                                     </div>
                                                     <div class="col-sm">
                                                         <label for="child_care_provider_zip_address"class="form-label">ZIP</label>
-                                                        <input type="number" class="form-control" id="child_care_provider_zip_address"
-                                                            name="child_care_provider_zip_address">
+                                                        <input type="text" class="form-control" id="child_care_provider_zip_address"
+                                                            name="child_care_provider_zip_address" 
+                                                            onchange="ValidatePincode(this,'child_care_provider_zip_address_span')">                                                     
+                                                            <span id="child_care_provider_zip_address_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers].</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1175,7 +1193,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </fieldset>
+                        </fieldset> 
                         <fieldset class="wizard-fieldset">
                             <div class="container">
                                 <div class="panel panel-info">
@@ -1260,13 +1278,11 @@
                                                 <div class="form-group">
                                                     <p><b>Has your child been in childcare before?</b></p>
                                                     <div class="wizard-form-radio">
-                                                        <input name="childcare_before" id="childcare_before1"
-                                                            value="Yes" type="radio">
+                                                        <input name="childcare_before" id="childcare_before1" value="Yes" type="radio">
                                                         <label for="childcare_before1">Yes</label>
                                                     </div>
                                                     <div class="wizard-form-radio">
-                                                        <input name="childcare_before" id="childcare_before2"
-                                                            type="radio" value="No" checked>
+                                                        <input name="childcare_before" id="childcare_before2" type="radio" value="No" checked>
                                                         <label for="childcare_before2">No</label>
                                                     </div>
                                                 </div>
@@ -1275,8 +1291,7 @@
                                         <div class="row m-3">
                                             <div class="col-sm">
                                                 <label for="reason_for_childcare_before" class="form-label">If so, what kind?</label>
-                                                <select class="form-control form-select-lg"
-                                                    aria-label=".form-control-lg example"
+                                                <select class="form-control form-select-lg" aria-label=".form-control-lg example"
                                                     id="reason_for_childcare_before" name="reason_for_childcare_before">
                                                     <option selected disabled>Select</option>
                                                     <option value="1">Relative’s Care</option>
@@ -1287,10 +1302,8 @@
                                                 <i class="fa fa-chevron-down"></i>
                                             </div>
                                             <div class="col-sm">
-                                                <label for="what_child_interests" class="form-label">What are you
-                                                    child’s interests</label>
-                                                <input type="text" class="form-control" id="what_child_interests"
-                                                    name="what_child_interests">
+                                                <label for="what_child_interests" class="form-label">What are you child’s interests</label>
+                                                <input type="text" class="form-control" id="what_child_interests" name="what_child_interests">
                                             </div>
                                         </div>
                                         <div class="panel panel-default m-4">
@@ -1302,16 +1315,12 @@
                                             <div class="panel-body">
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="drop_off_time" class="form-label">Drop
-                                                            off time?</label>
-                                                        <input type="time" class="form-control" id="drop_off_time"
-                                                            name="drop_off_time">
+                                                        <label for="drop_off_time" class="form-label">Drop off time?</label>
+                                                        <input type="time" class="form-control" id="drop_off_time" name="drop_off_time">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="pick up_time" class="form-label">Pick
-                                                            up time?</label>
-                                                        <input type="time" class="form-control" id="pick up_time"
-                                                            name="pick up_time">
+                                                        <label for="pick up_time" class="form-label">Pick up time?</label>
+                                                        <input type="time" class="form-control" id="pick up_time" name="pick up_time">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1326,16 +1335,13 @@
                                                 <div class="row m-3">
                                                     <div id="restricted_diet" class="col-sm">
                                                         <div class="form-group">
-                                                            <p><b>Does your child have a special or restricted diet?</b>
-                                                            </p>
+                                                            <p><b>Does your child have a special or restricted diet?</b></p>
                                                             <div class="wizard-form-radio">
-                                                                <input name="restricted_diet" id="restricted_diet1"
-                                                                    value="Yes" type="radio" checked>
+                                                                <input name="restricted_diet" id="restricted_diet1" value="Yes" type="radio" checked>
                                                                 <label for="restricted_diet1">Yes</label>
                                                             </div>
                                                             <div class="wizard-form-radio">
-                                                                <input name="restricted_diet" id="restricted_diet2"
-                                                                    type="radio" value="No">
+                                                                <input name="restricted_diet" id="restricted_diet2" type="radio" value="No">
                                                                 <label for="restricted_diet2">No</label>
                                                             </div>
                                                         </div>
@@ -1343,25 +1349,20 @@
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="restricted_diet_reason"
-                                                            class="form-label">Explain</label>
-                                                        <input type="text" class="form-control"
-                                                            id="restricted_diet_reason" name="restricted_diet_reason">
+                                                        <label for="restricted_diet_reason" class="form-label">Explain</label>
+                                                        <input type="text" class="form-control" id="restricted_diet_reason" name="restricted_diet_reason">
                                                     </div>
                                                 </div>
                                                 <div class="row m-3">
                                                     <div id="eat_own" class="col-sm">
                                                         <div class="form-group">
-                                                            <p><b>Does your child eat on their own?</b>
-                                                            </p>
+                                                            <p><b>Does your child eat on their own?</b></p>
                                                             <div class="wizard-form-radio">
-                                                                <input name="eat_own" id="eat_own1" value="Yes"
-                                                                    type="radio" checked>
+                                                                <input name="eat_own" id="eat_own1" value="Yes" type="radio" checked>
                                                                 <label for="eat_own1">Yes</label>
                                                             </div>
                                                             <div class="wizard-form-radio">
-                                                                <input name="eat_own" id="eat_own2" type="radio"
-                                                                    value="No">
+                                                                <input name="eat_own" id="eat_own2" type="radio" value="No">
                                                                 <label for="eat_own2">No</label>
                                                             </div>
                                                         </div>
@@ -1370,16 +1371,13 @@
                                                 <div class="row m-3">
                                                     <div class="col-sm">
                                                         <label for="eat_own_reason" class="form-label">Explain</label>
-                                                        <input type="text" class="form-control" id="eat_own_reason"
-                                                            name="eat_own_reason">
+                                                        <input type="text" class="form-control" id="eat_own_reason" name="eat_own_reason">
                                                     </div>
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="favorite_foods" class="form-label">What are your
-                                                            child’s favorite foods?</label>
-                                                        <input type="text" class="form-control" id="favorite_foods"
-                                                            name="favorite_foods">
+                                                        <label for="favorite_foods" class="form-label">What are your child’s favorite foods?</label>
+                                                        <input type="text" class="form-control" id="favorite_foods" name="favorite_foods">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1394,17 +1392,14 @@
                                                 <div class="row m-3">
                                                     <div id="rest_in_the_middle_day" class="col-sm">
                                                         <div class="form-group">
-                                                            <p><b>Does your child rest in the middle of the day?</b>
-                                                            </p>
+                                                            <p><b>Does your child rest in the middle of the day?</b></p>
                                                             <div class="wizard-form-radio">
-                                                                <input name="rest_in_the_middle_day"
-                                                                    id="rest_in_the_middle_day1" value="Yes"
+                                                                <input name="rest_in_the_middle_day" id="rest_in_the_middle_day1" value="Yes"
                                                                     type="radio" checked>
                                                                 <label for="rest_in_the_middle_day1">Yes</label>
                                                             </div>
                                                             <div class="wizard-form-radio">
-                                                                <input name="rest_in_the_middle_day"
-                                                                    id="rest_in_the_middle_day2" type="radio"
+                                                                <input name="rest_in_the_middle_day" id="rest_in_the_middle_day2" type="radio"
                                                                     value="No">
                                                                 <label for="rest_in_the_middle_day2">No</label>
                                                             </div>
@@ -1413,19 +1408,15 @@
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="rest_in_the_middle_reason"
-                                                            class="form-label">Explain</label>
-                                                        <input type="text" class="form-control"
-                                                            id="rest_in_the_middle_reason"
+                                                        <label for="rest_in_the_middle_reason" class="form-label">Explain</label>
+                                                        <input type="text" class="form-control" id="rest_in_the_middle_reason"
                                                             name="rest_in_the_middle_reason">
                                                     </div>
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="rest_routine" class="form-label">What is their
-                                                            nap/rest routine?</label>
-                                                        <input type="text" class="form-control" id="rest_routine"
-                                                            name="rest_routine">
+                                                        <label for="rest_routine" class="form-label">What is their nap/rest routine?</label>
+                                                        <input type="text" class="form-control" id="rest_routine" name="rest_routine">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1440,16 +1431,13 @@
                                                 <div class="row m-3">
                                                     <div id="toilet_trained" class="col-sm">
                                                         <div class="form-group">
-                                                            <p><b>Is your child toilet trained?</b>
-                                                            </p>
+                                                            <p><b>Is your child toilet trained?</b></p>
                                                             <div class="wizard-form-radio">
-                                                                <input name="toilet_trained" id="toilet_trained1"
-                                                                    value="Yes" type="radio" checked>
+                                                                <input name="toilet_trained" id="toilet_trained1" value="Yes" type="radio" checked>
                                                                 <label for="toilet_trained1">Yes</label>
                                                             </div>
                                                             <div class="wizard-form-radio">
-                                                                <input name="toilet_trained" id="toilet_trained2"
-                                                                    type="radio" value="No">
+                                                                <input name="toilet_trained" id="toilet_trained2" type="radio" value="No">
                                                                 <label for="toilet_trained2">No</label>
                                                             </div>
                                                         </div>
@@ -1457,11 +1445,8 @@
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="reason_for_toilet_trained"
-                                                            class="form-label">Explain</label>
-                                                        <input type="text" class="form-control"
-                                                            id="reason_for_toilet_trained"
-                                                            name="reason_for_toilet_trained">
+                                                        <label for="reason_for_toilet_trained" class="form-label">Explain</label>
+                                                        <input type="text" class="form-control" id="reason_for_toilet_trained" name="reason_for_toilet_trained">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1476,18 +1461,14 @@
                                                 <div class="row m-3">
                                                     <div id="existing_illness_allergy" class="col-sm">
                                                         <div class="form-group">
-                                                            <p><b>Does your child have an existing
-                                                                    illness/allergy/condition?</b>
-                                                            </p>
+                                                            <p><b>Does your child have an existing illness/allergy/condition?</b></p>
                                                             <div class="wizard-form-radio">
-                                                                <input name="existing_illness_allergy"
-                                                                    id="existing_illness_allergy1" value="Yes"
+                                                                <input name="existing_illness_allergy" id="existing_illness_allergy1" value="Yes"
                                                                     type="radio" checked>
                                                                 <label for="existing_illness_allergy1">Yes</label>
                                                             </div>
                                                             <div class="wizard-form-radio">
-                                                                <input name="existing_illness_allergy"
-                                                                    id="existing_illness_allergy2" type="radio"
+                                                                <input name="existing_illness_allergy" id="existing_illness_allergy2" type="radio"
                                                                     value="No">
                                                                 <label for="existing_illness_allergy2">No</label>
                                                             </div>
@@ -1496,28 +1477,22 @@
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="explain_for_existing_illness_allergy"
-                                                            class="form-label">Explain</label>
-                                                        <input type="text" class="form-control"
-                                                            id="explain_for_existing_illness_allergy"
+                                                        <label for="explain_for_existing_illness_allergy" class="form-label">Explain</label>
+                                                        <input type="text" class="form-control" id="explain_for_existing_illness_allergy"
                                                             name="explain_for_existing_illness_allergy">
                                                     </div>
                                                 </div>
                                                 <div class="row m-3">
                                                     <div id="functioning_at_age" class="col-sm">
                                                         <div class="form-group">
-                                                            <p><b>Does your think your child is functioning at
-                                                                    age-level?</b>
-                                                            </p>
+                                                            <p><b>Does your think your child is functioning at age-level?</b></p>
                                                             <div class="wizard-form-radio">
-                                                                <input name="functioning_at_age"
-                                                                    id="functioning_at_age1" value="Yes" type="radio"
+                                                                <input name="functioning_at_age" id="functioning_at_age1" value="Yes" type="radio"
                                                                     checked>
                                                                 <label for="functioning_at_age1">Yes</label>
                                                             </div>
                                                             <div class="wizard-form-radio">
-                                                                <input name="functioning_at_age"
-                                                                    id="functioning_at_age2" type="radio" value="No">
+                                                                <input name="functioning_at_age" id="functioning_at_age2" type="radio" value="No">
                                                                 <label for="functioning_at_age2">No</label>
                                                             </div>
                                                         </div>
@@ -1525,26 +1500,21 @@
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="explain_for_functioning_at_age"
-                                                            class="form-label">Explain</label>
-                                                        <input type="text" class="form-control"
-                                                            id="explain_for_functioning_at_age"
+                                                        <label for="explain_for_functioning_at_age" class="form-label">Explain</label>
+                                                        <input type="text" class="form-control" id="explain_for_functioning_at_age"
                                                             name="explain_for_functioning_at_age">
                                                     </div>
                                                 </div>
                                                 <div class="row m-3">
                                                     <div id="able_to_walk" class="col-sm">
                                                         <div class="form-group">
-                                                            <p><b>Is your child able to walk?</b>
-                                                            </p>
+                                                            <p><b>Is your child able to walk?</b></p>
                                                             <div class="wizard-form-radio">
-                                                                <input name="able_to_walk" id="able_to_walk1"
-                                                                    value="Yes" type="radio" checked>
+                                                                <input name="able_to_walk" id="able_to_walk1" value="Yes" type="radio" checked>
                                                                 <label for="able_to_walk1">Yes</label>
                                                             </div>
                                                             <div class="wizard-form-radio">
-                                                                <input name="able_to_walk" id="able_to_walk2"
-                                                                    type="radio" value="No">
+                                                                <input name="able_to_walk" id="able_to_walk2" type="radio" value="No">
                                                                 <label for="able_to_walk2">No</label>
                                                             </div>
                                                         </div>
@@ -1552,29 +1522,23 @@
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="explain_for_able_to_walk"
-                                                            class="form-label">Explain</label>
-                                                        <input type="text" class="form-control"
-                                                            id="explain_for_able_to_walk"
+                                                        <label for="explain_for_able_to_walk" class="form-label">Explain</label>
+                                                        <input type="text" class="form-control" id="explain_for_able_to_walk"
                                                             name="explain_for_able_to_walk">
                                                     </div>
                                                 </div>
                                                 <div class="row m-3">
                                                     <div id="communicate_their_needs" class="col-sm">
                                                         <div class="form-group">
-                                                            <p><b>Is your child able to communicate their needs to
-                                                                    others?</b>
-                                                            </p>
+                                                            <p><b>Is your child able to communicate their needs to others?</b></p>
                                                             <div class="wizard-form-radio">
-                                                                <input name="communicate_their_needs"
-                                                                    id="communicate_their_needs1" value="Yes"
+                                                                <input name="communicate_their_needs" id="communicate_their_needs1" value="Yes"
                                                                     type="radio" checked>
                                                                 <label for="communicate_their_needs1">Yes</label>
                                                             </div>
                                                             <div class="wizard-form-radio">
                                                                 <input name="communicate_their_needs"
-                                                                    id="communicate_their_needs2" type="radio"
-                                                                    value="No">
+                                                                    id="communicate_their_needs2" type="radio" value="No">
                                                                 <label for="communicate_their_needs2">No</label>
                                                             </div>
                                                         </div>
@@ -1582,10 +1546,8 @@
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="explain_for_communicate_their_needs"
-                                                            class="form-label">Explain</label>
-                                                        <input type="text" class="form-control"
-                                                            id="explain_for_communicate_their_needs"
+                                                        <label for="explain_for_communicate_their_needs" class="form-label">Explain</label>
+                                                        <input type="text" class="form-control" id="explain_for_communicate_their_needs"
                                                             name="explain_for_communicate_their_needs">
                                                     </div>
                                                 </div>
@@ -1597,13 +1559,11 @@
                                                                     sugar monitoring) while in childcare?</b>
                                                             </p>
                                                             <div class="wizard-form-radio">
-                                                                <input name="any_medication" id="any_medication1"
-                                                                    value="Yes" type="radio" checked>
+                                                                <input name="any_medication" id="any_medication1" value="Yes" type="radio" checked>
                                                                 <label for="any_medication1">Yes</label>
                                                             </div>
                                                             <div class="wizard-form-radio">
-                                                                <input name="any_medication" id="any_medication2"
-                                                                    type="radio" value="No">
+                                                                <input name="any_medication" id="any_medication2" type="radio" value="No">
                                                                 <label for="any_medication2">No</label>
                                                             </div>
                                                         </div>
@@ -1611,10 +1571,8 @@
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="explain_for_any_medication"
-                                                            class="form-label">Explain</label>
-                                                        <input type="text" class="form-control"
-                                                            id="explain_for_any_medication"
+                                                        <label for="explain_for_any_medication" class="form-label">Explain</label>
+                                                        <input type="text" class="form-control" id="explain_for_any_medication"
                                                             name="explain_for_any_medication">
                                                     </div>
                                                 </div>
@@ -1626,14 +1584,12 @@
                                                                     braces)?</b>
                                                             </p>
                                                             <div class="wizard-form-radio">
-                                                                <input name="utilize_special_equipment"
-                                                                    id="utilize_special_equipment1" value="Yes"
+                                                                <input name="utilize_special_equipment" id="utilize_special_equipment1" value="Yes"
                                                                     type="radio" checked>
                                                                 <label for="utilize_special_equipment1">Yes</label>
                                                             </div>
                                                             <div class="wizard-form-radio">
-                                                                <input name="utilize_special_equipment"
-                                                                    id="utilize_special_equipment2" type="radio"
+                                                                <input name="utilize_special_equipment" id="utilize_special_equipment2" type="radio"
                                                                     value="No">
                                                                 <label for="utilize_special_equipment2">No</label>
                                                             </div>
@@ -1642,10 +1598,8 @@
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="explain_for_utilize_special_equipment"
-                                                            class="form-label">Explain</label>
-                                                        <input type="text" class="form-control"
-                                                            id="explain_for_utilize_special_equipment"
+                                                        <label for="explain_for_utilize_special_equipment" class="form-label">Explain</label>
+                                                        <input type="text" class="form-control" id="explain_for_utilize_special_equipment"
                                                             name="explain_for_utilize_special_equipment">
                                                     </div>
                                                 </div>
@@ -1656,14 +1610,12 @@
                                                                     regular basis for significant periods of time?</b>
                                                             </p>
                                                             <div class="wizard-form-radio">
-                                                                <input name="significant_periods"
-                                                                    id="significant_periods1" value="Yes" type="radio"
+                                                                <input name="significant_periods" id="significant_periods1" value="Yes" type="radio"
                                                                     checked>
                                                                 <label for="significant_periods1">Yes</label>
                                                             </div>
                                                             <div class="wizard-form-radio">
-                                                                <input name="significant_periods"
-                                                                    id="significant_periods2" type="radio" value="No">
+                                                                <input name="significant_periods" id="significant_periods2" type="radio" value="No">
                                                                 <label for="significant_periods2">No</label>
                                                             </div>
                                                         </div>
@@ -1671,10 +1623,8 @@
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="explain_for_significant_periods"
-                                                            class="form-label">Explain</label>
-                                                        <input type="text" class="form-control"
-                                                            id="explain_for_significant_periods"
+                                                        <label for="explain_for_significant_periods" class="form-label">Explain</label>
+                                                        <input type="text" class="form-control" id="explain_for_significant_periods"
                                                             name="explain_for_significant_periods">
                                                     </div>
                                                 </div>
@@ -1687,14 +1637,12 @@
                                                                     School &reg; group setting?</b></p>
                                                             </p>
                                                             <div class="wizard-form-radio">
-                                                                <input name="desire_any_accommodations"
-                                                                    id="desire_any_accommodations1" value="Yes"
+                                                                <input name="desire_any_accommodations" id="desire_any_accommodations1" value="Yes"
                                                                     type="radio" checked>
                                                                 <label for="desire_any_accommodations1">Yes</label>
                                                             </div>
                                                             <div class="wizard-form-radio">
-                                                                <input name="desire_any_accommodations"
-                                                                    id="desire_any_accommodations2" type="radio"
+                                                                <input name="desire_any_accommodations" id="desire_any_accommodations2" type="radio"
                                                                     value="No">
                                                                 <label for="desire_any_accommodations2">No</label>
                                                             </div>
@@ -1703,10 +1651,8 @@
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="explain_for_desire_any_accommodations"
-                                                            class="form-label">Explain</label>
-                                                        <input type="text" class="form-control"
-                                                            id="explain_for_desire_any_accommodations"
+                                                        <label for="explain_for_desire_any_accommodations" class="form-label">Explain</label>
+                                                        <input type="text" class="form-control" id="explain_for_desire_any_accommodations"
                                                             name="explain_for_desire_any_accommodations">
                                                     </div>
                                                 </div>
@@ -1714,16 +1660,13 @@
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="additional_information" class="form-label h-3">Comments and
-                                                    additional information</label>
-                                                <input type="text" class="form-control" id="additional_information"
-                                                    name="additional_information">
+                                                <label for="additional_information" class="form-label h-3">Comments and additional information</label>
+                                                <input type="text" class="form-control" id="additional_information" name="additional_information">
                                             </div>
                                         </div>
                                         <div class="panel panel-info m-4">
                                             <div class="panel-heading">
-                                                <h3 class="panel-title text-center"><b>Correct and Complete
-                                                        Information</b></h3>
+                                                <h3 class="panel-title text-center"><b>Correct and Complete Information</b></h3>
                                             </div>
                                             <div class="panel-body">
                                                 <p>To the best of my knowledge, the information I have provided and the
@@ -1734,17 +1677,13 @@
                                                     Record as circumstances may require at Goddard School’s request.</p>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="child_profile_parent_sign"
-                                                            class="form-label">Parent’s/Guardian’s Signature</label>
-                                                        <input type="text" class="form-control"
-                                                            id="child_profile_parent_sign"
+                                                        <label for="child_profile_parent_sign" class="form-label">Parent’s/Guardian’s Signature</label>
+                                                        <input type="text" class="form-control" id="child_profile_parent_sign"
                                                             name="child_profile_parent_sign">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="child_profile_parent_sign_date"
-                                                            class="form-label">Date</label>
-                                                        <input type="date" class="form-control"
-                                                            id="child_profile_parent_sign_date"
+                                                        <label for="child_profile_parent_sign_date" class="form-label">Date</label>
+                                                        <input type="date" class="form-control" id="child_profile_parent_sign_date"
                                                             name="child_profile_parent_sign_date" onclick="dateValidation('child_profile_parent_sign_date')">
                                                     </div>
                                                 </div>
@@ -1804,40 +1743,32 @@
                                         <div class="panel panel-default m-4">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title text-center"><b>The password is an added measure
-                                                        of security for your family and will be kept with your
-                                                        child’s emergency information.</b></h3>
+                                                        of security for your family and will be kept with your child’s emergency information.</b></h3>
                                             </div>
                                             <div class="panel-body">
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="emergency_info_child_name"
-                                                            class="form-label h-3">Child’s Name</label>
-                                                        <input type="text" class="form-control"
-                                                            id="emergency_info_child_name"
+                                                        <label for="emergency_info_child_name" class="form-label h-3">Child’s Name</label>
+                                                        <input type="text" class="form-control" id="emergency_info_child_name"
                                                             name="emergency_info_child_name" onchange="namevalidation(this,'emergency_info_child_name_span')">
-                                                            <span class="spanmsg" id="emergency_info_child_name_span"
-                                                                style="color:red; display:none">
-                                                                Enter valid input[only letters].</span>
+                                                        <span class="spanmsg" id="emergency_info_child_name_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
                                                     </div>
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="child_password"
-                                                            class="form-label h-3">Password</label>
-                                                        <input type="password" class="form-control" id="child_password"
-                                                            name="child_password">
+                                                        <label for="child_password" class="form-label h-3">Password</label>
+                                                        <input type="password" class="form-control" id="child_password" name="child_password">
                                                     </div>
                                                 </div>
                                                 <div class="row m-3">
                                                     <div class="col-sm">
                                                         <label for="password_parent_sign"
                                                             class="form-label">Parent’s/Guardian’s Signature</label>
-                                                        <input type="text" class="form-control"
-                                                            id="password_parent_sign" name="password_parent_sign">
+                                                        <input type="text" class="form-control" id="password_parent_sign" name="password_parent_sign">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="password_parent_date"
-                                                            class="form-label">Date</label>
+                                                        <label for="password_parent_date" class="form-label">Date</label>
                                                         <input type="date" class="form-control"
                                                             id="password_parent_date" name="password_parent_date" onclick="dateValidation('password_parent_date')">
                                                     </div>
@@ -1863,8 +1794,7 @@
                             <div class="container">
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title text-center"><b>Photo/Video Permission
-                                                Form</b></h3>
+                                        <h3 class="panel-title text-center"><b>Photo/Video Permission Form</b></h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="panel panel-default m-4">
@@ -1881,20 +1811,17 @@
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="permission_child_name" class="form-label">Child’s
-                                                    Name</label>
+                                                <label for="permission_child_name" class="form-label">Child’s Name</label>
                                                 <input type="text" class="form-control" id="permission_child_name"
                                                     name="permission_child_name" onchange="namevalidation(this,'permission_child_name_span')">
-                                                    <span class="spanmsg" id="permission_child_name_span"
-                                                        style="color:red; display:none">
-                                                        Enter valid input[only letters].</span>
+                                                <span class="spanmsg" id="permission_child_name_span" style="color:red; display:none">
+                                                    Enter valid input[only letters].</span>
                                             </div>
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
                                                 <label for="photo_usage" class="form-label">Select One</label>
-                                                <select class="form-control form-select-lg"
-                                                    aria-label=".form-control-lg example" id="photo_usage"
+                                                <select class="form-control form-select-lg" aria-label=".form-control-lg example" id="photo_usage"
                                                     name="photo_usage">
                                                     <option selected disabled>Select</option>
                                                     <option value="1">Full Use</option>
@@ -1905,12 +1832,10 @@
                                             </div>
                                         </div>
                                         <h4 class="m-4">*In-house only includes photos used in the classroom or hallways
-                                            and photos taken for and through electronic dailyreport tools, such as
-                                            Tadpoles.</h4>
+                                            and photos taken for and through electronic dailyreport tools, such as Tadpoles.</h4>
                                         <div class="panel panel-info m-4">
                                             <div class="panel-heading">
-                                                <h3 class="panel-title text-center"><b>Group Photos in Electronic Daily
-                                                        Activity Reports</b></h3>
+                                                <h3 class="panel-title text-center"><b>Group Photos in Electronic Daily Activity Reports</b></h3>
                                             </div>
                                             <h4 class="m-4">The Goddard School takes photos of individual children and
                                                 groups of children for electronic daily activity reports. These photos
@@ -1944,14 +1869,12 @@
                                                 <div class="col-sm">
                                                     <label for="photo_parent_sign"
                                                         class="form-label">Parent’s/Guardian’s Signature</label>
-                                                    <input type="text" class="form-control"
-                                                        id="photo_parent_sign" name="photo_parent_sign">
+                                                    <input type="text" class="form-control" id="photo_parent_sign" name="photo_parent_sign">
                                                 </div>
                                                 <div class="col-sm">
                                                     <label for="photo_parent_date"
                                                         class="form-label">Date</label>
-                                                    <input type="date" class="form-control"
-                                                        id="photo_parent_date" name="photo_parent_date" onclick="dateValidation('photo_parent_date')">
+                                                    <input type="date" class="form-control" id="photo_parent_date" name="photo_parent_date" onclick="dateValidation('photo_parent_date')">
                                                 </div>
                                             </div>
                                         </div>
@@ -1974,8 +1897,7 @@
                             <div class="container">
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title text-center"><b>Security Release & Policy
-                                                Acknowledgement Form</b></h3>
+                                        <h3 class="panel-title text-center"><b>Security Release & Policy Acknowledgement Form</b></h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="row m-3">
@@ -2005,17 +1927,13 @@
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="security_release_parent_sign"
-                                                    class="form-label">Parent’s/Guardian’s Signature</label>
-                                                <input type="text" class="form-control"
-                                                    id="security_release_parent_sign"
+                                                <label for="security_release_parent_sign" class="form-label">Parent’s/Guardian’s Signature</label>
+                                                <input type="text" class="form-control" id="security_release_parent_sign"
                                                     name="security_release_parent_sign">
                                             </div>
                                             <div class="col-sm">
-                                                <label for="security_release_parent_date"
-                                                    class="form-label">Date</label>
-                                                <input type="date" class="form-control"
-                                                    id="security_release_parent_date"
+                                                <label for="security_release_parent_date" class="form-label">Date</label>
+                                                <input type="date" class="form-control" id="security_release_parent_date"
                                                     name="security_release_parent_date" onclick="dateValidation('security_release_parent_date')">
                                             </div>
                                         </div>
@@ -2062,20 +1980,16 @@
                             <div class="container">
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title text-center"><b>Medical Transportation
-                                                Waiver</b></h3>
+                                        <h3 class="panel-title text-center"><b>Medical Transportation Waiver</b></h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="row m-3">
                                             <div class="col-sm">
                                                 <p class="m-2">The undersigned authorizes
-                                                    representatives of The Goddard School® to contact
-                                                    Emergency Medical Technicians to transport
-                                                    <input type="text" class="form-control"
-                                                        id="contact_emergency_medical_technicians"
+                                                    representatives of The Goddard School® to contact Emergency Medical Technicians to transport
+                                                    <input type="text" class="form-control" id="contact_emergency_medical_technicians"
                                                         name="contact_emergency_medical_technicians">(“Student”) to
-                                                    receive medical care, if such transportation/care is deemed
-                                                    necessary.
+                                                    receive medical care, if such transportation/care is deemed necessary.
                                                 </p><br>
                                                 <p>The undersigned irrevocably release any claims, demands, actions or
                                                     causes of
@@ -2090,10 +2004,8 @@
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="medical_parent_sign" class="form-label">Parent’s/Guardian’s
-                                                    Signature</label>
-                                                <input type="text" class="form-control" id="medical_parent_sign"
-                                                    name="medical_parent_sign">
+                                                <label for="medical_parent_sign" class="form-label">Parent’s/Guardian’s Signature</label>
+                                                <input type="text" class="form-control" id="medical_parent_sign" name="medical_parent_sign">
                                             </div>
                                             <div class="col-sm">
                                                 <label for="medical_parent_date" class="form-label">Date</label>
@@ -2246,9 +2158,7 @@
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="health_policy_parent_sign"
-                                                    class="form-label">Parent’s/Guardian’s
-                                                    Signature</label>
+                                                <label for="health_policy_parent_sign" class="form-label">Parent’s/Guardian’s Signature</label>
                                                 <input type="text" class="form-control" id="health_policy_parent_sign"
                                                     name="health_policy_parent_sign">
                                             </div>
@@ -2271,13 +2181,12 @@
                                         </div>
                                     </div>
                                 </div>
-                        </fieldset>
+                        </fieldset> 
                         <fieldset class="wizard-fieldset">
                             <div class="container">
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title text-center"><b>Outside Engagements
-                                                Release & Waiver</b></h3>
+                                        <h3 class="panel-title text-center"><b>Outside Engagements Release & Waiver</b></h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="row m-3">
@@ -2327,9 +2236,7 @@
                                                     <div class="panel-body">
                                                         <div class="row m-3">
                                                             <div class="col-sm">
-                                                                <label for="outside_waiver_parent_sign"
-                                                                    class="form-label">Parent’s/Guardian’s
-                                                                    Signature</label>
+                                                                <label for="outside_waiver_parent_sign" class="form-label">Parent’s/Guardian’s Signature</label>
                                                                 <input type="text" class="form-control" id="outside_waiver_parent_sign"
                                                                     name="outside_waiver_parent_sign">
                                                             </div>
@@ -2339,18 +2246,19 @@
                                                                     name="outside_waiver_parent_date" onclick="dateValidation('outside_waiver_parent_date')">
                                                             </div>
                                                         </div>
-                                                        </div>
-                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="panel-footer">
                                         <div class="form-group clearfix">
                                             <div style="padding-left: 100px;text-align: center;">
-                                                <a href="javascript:;"
-                                                    class="form-wizard-previous-btn float-left">Previous</a>
+                                                <!-- <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a> -->
+                                                <button href="javascript:;" class="form-wizard-previous-btn float-left">Previous</button>
 
-                                                <a href="#" class="form-wizard-submit  float-right">Submit</a>
+                                                <!-- <a href="#" class="form-wizard-submit  float-right">Submit</a> -->
+                                                <button id="submit_button" href="#" class="form-wizard-submit float-right" type="submit">Submit</button>
                                             </div>
                                         </div>
                                     </div>

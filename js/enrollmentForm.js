@@ -43,7 +43,7 @@ export function fetchEnrollmentFormBody(callback) {
                             textBox.setAttribute('value',responseFieldData);
                         }
                         textBox.setAttribute('name', textboxId);
-                        textBox.setAttribute('class', 'form-control');
+                        // textBox.setAttribute('class', 'form-control');
                         textBox.setAttribute('style', 'border: none; border-bottom: 1px solid black;');
                         // let textBoxs = document.body.appendChild(textBox);
                         // Replace the target text with the textbox in the paragraph

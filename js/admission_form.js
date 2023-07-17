@@ -7,26 +7,20 @@ function submitForm() {
     console.log(formData);
     const obj = Object.fromEntries(formData);
     console.log(obj);
-    obj.child_id = "NCD0003";
-    const json = JSON.stringify(obj);
-    console.log(json);
+    obj.child_id = "NCD0004";
+    $.ajax({
+        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(obj),
+        success: function (response) {
+            window.location.href = "child_add.html";
+        },
+        error: function (xhr, status, error) {
+            alert("form submit failed");
 
-    let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        const data = xhr.responseText;
-        if (xhr.status == 200) {
-            var confirmationRes = window.confirm(data);
-            if (confirmationRes) {
-                window.location.href = "parent_dashboard.html";
-            } else {
-                window.location.reload();
-            }
         }
-    };
-    xhr.open("POST", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Access-Control-Allow-Origin", "http://localhost:5500"); // Add the desired origin
-    xhr.send(json);
+    });
 }
 
 function namevalidation(inputtxtID,errorSpanId){
@@ -205,3 +199,5 @@ jQuery(document).ready(function () {
         }
     });
 });
+
+

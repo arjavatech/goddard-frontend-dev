@@ -44,6 +44,7 @@ h1 {
     /* margin-bottom: 5px; */
     /* padding-left: 100px; */
     font-family: 'Roboto', sans-serif;
+  
 }
 
 #formContent .center-image {
@@ -62,6 +63,8 @@ h1 {
 
 #formContent .initialStyle {
     size: 1rem;
+    border: none; 
+    border-bottom: 1px solid black;
 }
 
 /* this used for drowarrow displayed in dropdown */
@@ -94,4 +97,9 @@ h1 {
   .div1{
     display: inline-block;
   }
+
+.divSpan{
+    text-align:left;
+    padding-left: 22%;
+}
 

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script type="module" src="js/admission_form.js"></script>
+    <script src="js/admission_form_validation.js"></script>
 </head>
 
 <body>
@@ -251,7 +252,7 @@
                                             </div>
                                             <div class="col-sm">
                                                 <label for="business_telephone_number1" class="form-label">BUSINESS TELEPHONE NUMBER</label>
-                                                <input type="number" class="form-control"
+                                                <input type="text" class="form-control"
                                                     id="business_telephone_number1" name="business_telephone_number1"
                                                     onchange="validatePhone(this,'business_telephone_number1_span')">
                                                 <span id="business_telephone_number1_span" style="color:red; display:none">
@@ -402,7 +403,7 @@
                                             </div>
                                             <div class="col-sm">
                                                 <label for="business_telephone_number2" class="form-label">BUSINESS TELEPHONE NUMBER</label>
-                                                <input type="number" class="form-control" id="business_telephone_number2" name="business_telephone_number2"
+                                                <input type="text" class="form-control" id="business_telephone_number2" name="business_telephone_number2"
                                                     onchange="validatePhone(this,'business_telephone_number2_span')">
                                                 <span id="business_telephone_number2_span" style="color:red; display:none">
                                                     Enter valid input [only numbers,+,-,()].</span>

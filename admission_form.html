@@ -494,6 +494,8 @@
                                                 </h3>
                                             </div>
                                             <div class="panel-body">
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-body">
                                                 <div class="row p-3">
                                                     <div class="col-sm">
                                                         <label for="emergency_contact_name1" class="form-label">NAME</label>
@@ -523,32 +525,13 @@
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="child_care_provider_name1" class="form-label">NAME OF CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER</label>
-                                                        <input type="text" class="form-control" id="child_care_provider_name1"
-                                                            name="child_care_provider_name1" onchange="namevalidation(this,'child_care_provider_name1_span')">
-                                                        <span class="spanmsg" id="child_care_provider_name1_span" style="color:red; display:none">
-                                                            Enter valid input[only letters].</span>
-                                                    </div>
                                                 </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="care_provider_telephone_number1"
-                                                            class="form-label">TELEPHONE NUMBER</label>
-                                                        <input type="text" class="form-control" id="care_provider_telephone_number1"
-                                                            name="care_provider_telephone_number1" onchange="validatePhone(this,'care_provider_telephone_number1_span')">
-                                                        <span id="care_provider_telephone_number1_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers,+,-,()].</span>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="hospital_affiliation1" class="form-label">HOSPITAL AFFILIATION</label>
-                                                        <input type="text" class="form-control"
-                                                            id="hospital_affiliation1" name="hospital_affiliation1">
-                                                    </div>
                                                 </div>
+                                                
                                             </div>
                                             <div class="panel-body">
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-body">
                                                 <div class="row p-3">
                                                     <div class="col-sm">
                                                         <label for="emergency_contact_name2" class="form-label">NAME</label>
@@ -578,30 +561,12 @@
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="child_care_provider_name2" class="form-label">NAME OF CHILD’S PHYSICIAN/MEDICAL CARE PROVIDER</label>
-                                                        <input type="text" class="form-control" id="child_care_provider_name2"
-                                                            name="child_care_provider_name2" onchange="namevalidation(this,'child_care_provider_name2_span')">
-                                                        <span class="spanmsg" id="child_care_provider_name2_span" style="color:red; display:none">
-                                                            Enter valid input[only letters].</span>
-                                                    </div>
                                                 </div>
-                                                <div class="row p-3">
-                                                    <div class="col-sm">
-                                                        <label for="care_provider_telephone_number2" class="form-label">TELEPHONE NUMBER</label>
-                                                        <input type="text" class="form-control" id="care_provider_telephone_number2"
-                                                            name="care_provider_telephone_number2" onchange="validatePhone(this,'care_provider_telephone_number2_span')">
-                                                        <span id="care_provider_telephone_number2_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers,+,-,()].</span>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="hospital_affiliation2" class="form-label">HOSPITAL AFFILIATION</label>
-                                                        <input type="text" class="form-control" id="hospital_affiliation2" name="hospital_affiliation2">
-                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="panel-body">
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-body">
                                                 <div class="row p-3">
                                                     <div class="col-sm">
                                                         <label for="emergency_contact_name3" class="form-label">NAME</label>
@@ -631,6 +596,13 @@
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
+                                                </div>
+                                                </div>
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-heading">
+                                                        <h5 class="panel-title text-center"><b>PHYSICIAN /MEDICAL CARE PROVIDER DETAILS</b></h5>
+                                                    </div>
+                                                    <div class="panel-body">
                                                 <div class="row p-3">
                                                     <div class="col-sm">
                                                         <label for="child_care_provider_name3" class="form-label">NAME OF CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER</label>
@@ -653,8 +625,7 @@
                                                         <input type="text" class="form-control" id="hospital_affiliation3" name="hospital_affiliation3">
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
+                                         
                                         <div class="panel panel-default m-4">
                                             <div class="panel-heading">
                                                 <h5 class="panel-title text-center">
@@ -705,6 +676,13 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        </div>
+                                        </div>
+                                        <div class="panel panel-default m-4">
+                                            <div class="panel-heading">
+                                                <h5 class="panel-title text-center"><b>DENTIST DETAILS</b></h5>
+                                            </div>
+                                            <div class="panel-body">
                                         <div class="row m-2 mb-4 p-1">
                                             <div class="col-sm">
                                                 <label for="child_dentist_name" class="form-label">NAME OF CHILD'S DENTIST</label>
@@ -726,6 +704,8 @@
                                                 <label for="dentist_address" class="form-label">DENTIST ADDRESS</label>
                                                 <input type="text" class="form-control" id="dentist_address" name="dentist_address">
                                             </div>
+                                        </div>
+                                        </div>
                                         </div>
                                         <div class="row m-2 mb-4 p-1">
                                             <div class="col-sm">
@@ -761,6 +741,9 @@
                                                 <input type="number" class="form-control" id="policy_number" name="policy_number">
                                             </div>
                                         </div>
+
+                                    </div>
+                                </div>
                                         <div class="panel panel-info m-4">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title text-center">

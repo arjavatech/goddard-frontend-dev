@@ -179,313 +179,325 @@
                                                 <h3 class="panel-title text-center"><b>PARENT’S / LEGAL GUARDIAN’S DETAILS</b></h3>
                                             </div>
                                             <div class="panel-body">
-                                        <div class="row m-3">
-                                            <div class="col-sm">
-                                                <label for="parent1_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S NAME</label>
-                                                <input type="text" class="form-control" id="parent1_name" name="parent1_name"
-                                                    onchange="namevalidation(this,'parent1_name_span')">
-                                                <span class="spanmsg" id="parent1_name_span" style="color:red; display:none">
-                                                    Enter valid input[only letters].</span>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default m-4">
-                                            <div class="panel-heading">
-                                                <h5 class="panel-title text-center"><b>HOME ADDRESS</b></h5>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="row m-1">
+                                                <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="parent1_street_address" class="form-label">STREET</label>
-                                                        <input type="text" class="form-control"
-                                                            id="parent1_street_address" name="parent1_street_address">
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="parent1_city_address" class="form-label">CITY</label>
-                                                        <select class="form-control"aria-label=".form-select-lg example"
-                                                            id="parent1_city_address" name="parent1_city_address">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">Washington</option>
-                                                            <option value="2">New York</option>
-                                                            <option value="3">Chicago</option>
-                                                            <option value="4">San Francisco</option>
-                                                            <option value="5">Hartford</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="parent1_state_address" class="form-label">STATE</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="parent1_state_address" name="parent1_state_address">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">DC</option>
-                                                            <option value="2">NY</option>
-                                                            <option value="3">IL</option>
-                                                            <option value="4">CA</option>
-                                                            <option value="5">CT</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
+                                                        <label for="parent1_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S NAME</label>
+                                                        <input type="text" class="form-control" id="parent1_name" name="parent1_name"
+                                                            onchange="namevalidation(this,'parent1_name_span')">
+                                                        <span class="spanmsg" id="parent1_name_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
                                                     </div>
                                                 </div>
-                                                <div class="row m-1">
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-heading">
+                                                        <h5 class="panel-title text-center"><b>HOME ADDRESS</b></h5>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row m-1">
+                                                            <div class="col-sm">
+                                                                <label for="parent1_street_address" class="form-label">STREET</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="parent1_street_address" name="parent1_street_address">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="parent1_city_address" class="form-label">CITY</label>
+                                                                <select class="form-control"aria-label=".form-select-lg example"
+                                                                    id="parent1_city_address" name="parent1_city_address">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">Washington</option>
+                                                                    <option value="2">New York</option>
+                                                                    <option value="3">Chicago</option>
+                                                                    <option value="4">San Francisco</option>
+                                                                    <option value="5">Hartford</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="parent1_state_address" class="form-label">STATE</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="parent1_state_address" name="parent1_state_address">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">DC</option>
+                                                                    <option value="2">NY</option>
+                                                                    <option value="3">IL</option>
+                                                                    <option value="4">CA</option>
+                                                                    <option value="5">CT</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row m-1">
+                                                            <div class="col-sm">
+                                                                <label for="parent1_zip_address" class="form-label">ZIP</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="parent1_zip_address" name="parent1_zip_address"
+                                                                    onchange="ValidatePincode (this,'parent1_zip_address_span')">                                                     
+                                                                    <span id="parent1_zip_address_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers].</span>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="home_telephone_number1" class="form-label">TELEPHONE NUMBER</label>
+                                                                <input type="text" class="form-control" aria-label="Telephone Number" id="home_telephone_number1"
+                                                                    name="home_telephone_number1"
+                                                                    onchange="validatePhone(this,'home_telephone_number1_span')">
+                                                                <span id="home_telephone_number1_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers,+,-,()].</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="parent1_zip_address" class="form-label">ZIP</label>
-                                                        <input type="text" class="form-control"
-                                                            id="parent1_zip_address" name="parent1_zip_address"
-                                                             onchange="ValidatePincode (this,'parent1_zip_address_span')">                                                     
-                                                            <span id="parent1_zip_address_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers].</span>
+                                                        <label for="business1_name" class="form-label">BUSINESS NAME</label>
+                                                        <input type="text" class="form-control" id="business1_name" name="business1_name">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="home_telephone_number1" class="form-label">TELEPHONE NUMBER</label>
-                                                        <input type="text" class="form-control" aria-label="Telephone Number" id="home_telephone_number1"
-                                                            name="home_telephone_number1"
-                                                            onchange="validatePhone(this,'home_telephone_number1_span')">
-                                                        <span id="home_telephone_number1_span" style="color:red; display:none">
+                                                        <label for="work_hours1" class="form-label">WORK HOURS</label>
+                                                        <input type="number" class="form-control" id="work_hours1" name="work_hours">
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <label for="business_telephone_number1" class="form-label">BUSINESS TELEPHONE NUMBER</label>
+                                                        <input type="text" class="form-control"
+                                                            id="business_telephone_number1" name="business_telephone_number1"
+                                                            onchange="validatePhone(this,'business_telephone_number1_span')">
+                                                        <span id="business_telephone_number1_span" style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row m-3">
-                                            <div class="col-sm">
-                                                <label for="business1_name" class="form-label">BUSINESS NAME</label>
-                                                <input type="text" class="form-control" id="business1_name" name="business1_name">
-                                            </div>
-                                            <div class="col-sm">
-                                                <label for="work_hours1" class="form-label">WORK HOURS</label>
-                                                <input type="number" class="form-control" id="work_hours1" name="work_hours">
-                                            </div>
-                                            <div class="col-sm">
-                                                <label for="business_telephone_number1" class="form-label">BUSINESS TELEPHONE NUMBER</label>
-                                                <input type="text" class="form-control"
-                                                    id="business_telephone_number1" name="business_telephone_number1"
-                                                    onchange="validatePhone(this,'business_telephone_number1_span')">
-                                                <span id="business_telephone_number1_span" style="color:red; display:none">
-                                                    Enter valid input [only numbers,+,-,()].</span>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default m-4">
-                                            <div class="panel-heading">
-                                                <h5 class="panel-title text-center"><b>BUSINESS ADDRESS</b></h5>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="row m-1">
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-heading">
+                                                        <h5 class="panel-title text-center"><b>BUSINESS ADDRESS</b></h5>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row m-1">
+                                                            <div class="col-sm">
+                                                                <label for="business_street_address1" class="form-label">STREET</label>
+                                                                <input type="text" class="form-control" id="business_street_address1"
+                                                                    name="business_street_address1">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="business_city_address1" class="form-label">CITY</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="business_city_address1" name="business_city_address1">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">Washington</option>
+                                                                    <option value="2">New York</option>
+                                                                    <option value="3">Chicago</option>
+                                                                    <option value="4">San Francisco</option>
+                                                                    <option value="5">Hartford</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="business_state_address1" class="form-label">STATE</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="business_state_address1" name="business_state_address1">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">DC</option>
+                                                                    <option value="2">NY</option>
+                                                                    <option value="3">IL</option>
+                                                                    <option value="4">CA</option>
+                                                                    <option value="5">CT</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="business_zip_address1" class="form-label">ZIP</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="business_zip_address1" name="business_zip_address1" 
+                                                                    onchange="ValidatePincode (this,'business_zip_address1_span')">                                                     
+                                                                    <span id="business_zip_address1_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers].</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="business_street_address1" class="form-label">STREET</label>
-                                                        <input type="text" class="form-control" id="business_street_address1"
-                                                            name="business_street_address1">
+                                                        <label for="business_cell_number1" class="form-label">CELL NUMBER</label>
+                                                        <input type="text" class="form-control" aria-label="Telephone Number"
+                                                            id="business_cell_number1" name="business_cell_number1"
+                                                            onchange="validatePhone(this,'business_cell_number1_span')">
+                                                        <span id="business_cell_number1_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="business_city_address1" class="form-label">CITY</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="business_city_address1" name="business_city_address1">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">Washington</option>
-                                                            <option value="2">New York</option>
-                                                            <option value="3">Chicago</option>
-                                                            <option value="4">San Francisco</option>
-                                                            <option value="5">Hartford</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="business_state_address1" class="form-label">STATE</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="business_state_address1" name="business_state_address1">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">DC</option>
-                                                            <option value="2">NY</option>
-                                                            <option value="3">IL</option>
-                                                            <option value="4">CA</option>
-                                                            <option value="5">CT</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="business_zip_address1" class="form-label">ZIP</label>
-                                                        <input type="text" class="form-control"
-                                                            id="business_zip_address1" name="business_zip_address1" 
-                                                            onchange="ValidatePincode (this,'business_zip_address1_span')">                                                     
-                                                            <span id="business_zip_address1_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers].</span>
+                                                        <label for="business_email1" class="form-label">EMAIL ADDRESS</label>
+                                                        <input type="text" class="form-control" id="business_email1" name="business_email1"
+                                                            onchange="emailValidation(this,'business_email1_span')">
+                                                        <span id="business_email1_span" style="color:red; display:none">
+                                                            Enter valid input [should be in @ and .].</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row m-3">
                                             <div class="col-sm">
-                                                <label for="business_cell_number1" class="form-label">CELL NUMBER</label>
-                                                <input type="text" class="form-control" aria-label="Telephone Number"
-                                                    id="business_cell_number1" name="business_cell_number1"
-                                                    onchange="validatePhone(this,'business_cell_number1_span')">
-                                                <span id="business_cell_number1_span" style="color:red; display:none">
-                                                    Enter valid input [only numbers,+,-,()].</span>
-                                            </div>
-                                            <div class="col-sm">
-                                                <label for="business_email1" class="form-label">EMAIL ADDRESS</label>
-                                                <input type="text" class="form-control" id="business_email1" name="business_email1"
-                                                    onchange="emailValidation(this,'business_email1_span')">
-                                                <span id="business_email1_span" style="color:red; display:none">
-                                                    Enter valid input [should be in @ and .].</span>
+                                                <input type="checkbox" class="input-checkbox" id="additional_parent_add"
+                                                name="additional_parent_add" onclick="checkbox()">
+                                                <label class="form-check-label" for="additional_parent_add"><span>
+                                                    <!-- <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                    </svg></span> -->
+                                                    <span>Do you want to add additional parent details?</span>
+                                                </label>
                                             </div>
                                         </div>
-                                        </div>
-                                        </div>
-                                        <div class="panel panel-info m-4">
+                                        <div class="panel panel-info m-4" id="additional_parent_info" style="display:none">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title text-center"><b>PARENT’S / LEGAL GUARDIAN’S DETAILS</b></h3>
                                             </div>
                                             <div class="panel-body">
-                                        <div class="row m-3">
-                                            <div class="col-sm">
-                                                <label for="parent2_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S NAME</label>
-                                                <input type="text" class="form-control" id="parent2_name" name="parent2_name"
-                                                    onchange="namevalidation(this,'parent2_name_span')">
-                                                <span class="spanmsg" id="parent2_name_span"
-                                                    style="color:red; display:none">
-                                                    Enter valid input[only letters].</span>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default m-4">
-                                            <div class="panel-heading">
-                                                <h5 class="panel-title text-center"><b>HOME ADDRESS</b></h5>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="row m-1">
+                                                <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="parent2_street_address" class="form-label">STREET</label>
-                                                        <input type="text" class="form-control"
-                                                            id="parent2_street_address" name="parent2_street_address">
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="parent2_city_address" class="form-label">CITY</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="parent2_city_address" name="parent2_city_address">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">Washington</option>
-                                                            <option value="2">New York</option>
-                                                            <option value="3">Chicago</option>
-                                                            <option value="4">San Francisco</option>
-                                                            <option value="5">Hartford</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="parent2_state_address" class="form-label">STATE</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="parent2_state_address" name="parent2_state_address">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">DC</option>
-                                                            <option value="2">NY</option>
-                                                            <option value="3">IL</option>
-                                                            <option value="4">CA</option>
-                                                            <option value="5">CT</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
+                                                        <label for="parent2_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S NAME</label>
+                                                        <input type="text" class="form-control" id="parent2_name" name="parent2_name"
+                                                            onchange="namevalidation(this,'parent2_name_span')">
+                                                        <span class="spanmsg" id="parent2_name_span"
+                                                            style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
                                                     </div>
                                                 </div>
-                                                <div class="row m-1">
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-heading">
+                                                        <h5 class="panel-title text-center"><b>HOME ADDRESS</b></h5>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row m-1">
+                                                            <div class="col-sm">
+                                                                <label for="parent2_street_address" class="form-label">STREET</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="parent2_street_address" name="parent2_street_address">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="parent2_city_address" class="form-label">CITY</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="parent2_city_address" name="parent2_city_address">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">Washington</option>
+                                                                    <option value="2">New York</option>
+                                                                    <option value="3">Chicago</option>
+                                                                    <option value="4">San Francisco</option>
+                                                                    <option value="5">Hartford</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="parent2_state_address" class="form-label">STATE</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="parent2_state_address" name="parent2_state_address">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">DC</option>
+                                                                    <option value="2">NY</option>
+                                                                    <option value="3">IL</option>
+                                                                    <option value="4">CA</option>
+                                                                    <option value="5">CT</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row m-1">
+                                                            <div class="col-sm">
+                                                                <label for="parent2_zip_address" class="form-label">ZIP</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="parent2_zip_address" name="parent2_zip_address" 
+                                                                    onchange="ValidatePincode (this,'parent2_zip_address_span')">                                                     
+                                                                    <span id="parent2_zip_address_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers].</span>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="home_telephone_number2" class="form-label">TELEPHONE NUMBER</label>
+                                                                <input type="text" class="form-control" aria-label="Telephone Number" id="home_telephone_number2"
+                                                                    name="home_telephone_number2" onchange="validatePhone(this,'home_telephone_number2_span')">
+                                                                <span id="home_telephone_number2_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers,+,-,()].</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="parent2_zip_address" class="form-label">ZIP</label>
-                                                        <input type="text" class="form-control"
-                                                            id="parent2_zip_address" name="parent2_zip_address" 
-                                                            onchange="ValidatePincode (this,'parent2_zip_address_span')">                                                     
-                                                            <span id="parent2_zip_address_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers].</span>
+                                                        <label for="business2_name" class="form-label">BUSINESS NAME</label>
+                                                        <input type="text" class="form-control" id="business2_name" name="business2_name">
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="home_telephone_number2" class="form-label">TELEPHONE NUMBER</label>
-                                                        <input type="text" class="form-control" aria-label="Telephone Number" id="home_telephone_number2"
-                                                            name="home_telephone_number2" onchange="validatePhone(this,'home_telephone_number2_span')">
-                                                        <span id="home_telephone_number2_span" style="color:red; display:none">
+                                                        <label for="work_hours2" class="form-label">WORK HOURS</label>
+                                                        <input type="number" class="form-control" id="work_hours2" name="work_hours2">
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <label for="business_telephone_number2" class="form-label">BUSINESS TELEPHONE NUMBER</label>
+                                                        <input type="text" class="form-control" id="business_telephone_number2" name="business_telephone_number2"
+                                                            onchange="validatePhone(this,'business_telephone_number2_span')">
+                                                        <span id="business_telephone_number2_span" style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="row m-3">
-                                            <div class="col-sm">
-                                                <label for="business2_name" class="form-label">BUSINESS NAME</label>
-                                                <input type="text" class="form-control" id="business2_name" name="business2_name">
-                                            </div>
-                                            <div class="col-sm">
-                                                <label for="work_hours2" class="form-label">WORK HOURS</label>
-                                                <input type="number" class="form-control" id="work_hours2" name="work_hours2">
-                                            </div>
-                                            <div class="col-sm">
-                                                <label for="business_telephone_number2" class="form-label">BUSINESS TELEPHONE NUMBER</label>
-                                                <input type="text" class="form-control" id="business_telephone_number2" name="business_telephone_number2"
-                                                    onchange="validatePhone(this,'business_telephone_number2_span')">
-                                                <span id="business_telephone_number2_span" style="color:red; display:none">
-                                                    Enter valid input [only numbers,+,-,()].</span>
-                                            </div>
-                                        </div>
-                                        <div class="panel panel-default m-4">
-                                            <div class="panel-heading">
-                                                <h5 class="panel-title text-center"><b>BUSINESS ADDRESS</b></h5>
-                                            </div>
-                                            <div class="panel-body">
-                                                <div class="row m-1">
+                                                <div class="panel panel-default m-4">
+                                                    <div class="panel-heading">
+                                                        <h5 class="panel-title text-center"><b>BUSINESS ADDRESS</b></h5>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <div class="row m-1">
+                                                            <div class="col-sm">
+                                                                <label for="business_street_address2" class="form-label">STREET</label>
+                                                                <input type="text" class="form-control" id="business_street_address2"
+                                                                    name="business_street_address2">
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="business_city_address2" class="form-label">CITY</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="business_city_address2" name="business_city_address2">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">Washington</option>
+                                                                    <option value="2">New York</option>
+                                                                    <option value="3">Chicago</option>
+                                                                    <option value="4">San Francisco</option>
+                                                                    <option value="5">Hartford</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="business_state_address2" class="form-label">STATE</label>
+                                                                <select class="form-control" aria-label=".form-select-lg example"
+                                                                    id="business_state_address2" name="business_state_address2">
+                                                                    <option selected disabled>Select</option>
+                                                                    <option value="1">DC</option>
+                                                                    <option value="2">NY</option>
+                                                                    <option value="3">IL</option>
+                                                                    <option value="4">CA</option>
+                                                                    <option value="5">CT</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <label for="business_zip_address2" class="form-label">ZIP</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="business_zip_address2" name="business_zip_address2" 
+                                                                    onchange="ValidatePincode (this,'business_zip_address2_span')">                                                     
+                                                                    <span id="business_zip_address2_span" style="color:red; display:none">
+                                                                    Enter valid input [only numbers].</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row m-3">
                                                     <div class="col-sm">
-                                                        <label for="business_street_address2" class="form-label">STREET</label>
-                                                        <input type="text" class="form-control" id="business_street_address2"
-                                                            name="business_street_address2">
+                                                        <label for="business_cell_number2" class="form-label">CELL NUMBER</label>
+                                                        <input type="text" class="form-control" aria-label="Telephone Number"
+                                                            id="business_cell_number2" name="business_cell_number2"
+                                                            onchange="validatePhone(this,'business_cell_number2_span')">
+                                                        <span id="business_cell_number2_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                     <div class="col-sm">
-                                                        <label for="business_city_address2" class="form-label">CITY</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="business_city_address2" name="business_city_address2">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">Washington</option>
-                                                            <option value="2">New York</option>
-                                                            <option value="3">Chicago</option>
-                                                            <option value="4">San Francisco</option>
-                                                            <option value="5">Hartford</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="business_state_address2" class="form-label">STATE</label>
-                                                        <select class="form-control" aria-label=".form-select-lg example"
-                                                            id="business_state_address2" name="business_state_address2">
-                                                            <option selected disabled>Select</option>
-                                                            <option value="1">DC</option>
-                                                            <option value="2">NY</option>
-                                                            <option value="3">IL</option>
-                                                            <option value="4">CA</option>
-                                                            <option value="5">CT</option>
-                                                        </select>
-                                                        <i class="fa fa-chevron-down"></i>
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <label for="business_zip_address2" class="form-label">ZIP</label>
-                                                        <input type="text" class="form-control"
-                                                            id="business_zip_address2" name="business_zip_address2" 
-                                                            onchange="ValidatePincode (this,'business_zip_address2_span')">                                                     
-                                                            <span id="business_zip_address2_span" style="color:red; display:none">
-                                                            Enter valid input [only numbers].</span>
+                                                        <label for="business_email2" class="form-label">EMAIL ADDRESS</label>
+                                                        <input type="text" class="form-control" id="business_email2" name="business_email"
+                                                            onchange="emailValidation(this,'business_email2_span')">
+                                                        <span id="business_email2_span" style="color:red; display:none">
+                                                            Enter valid input [should be in @ and .].</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row m-3">
-                                            <div class="col-sm">
-                                                <label for="business_cell_number2" class="form-label">CELL NUMBER</label>
-                                                <input type="text" class="form-control" aria-label="Telephone Number"
-                                                    id="business_cell_number2" name="business_cell_number2"
-                                                    onchange="validatePhone(this,'business_cell_number2_span')">
-                                                <span id="business_cell_number2_span" style="color:red; display:none">
-                                                    Enter valid input [only numbers,+,-,()].</span>
-                                            </div>
-                                            <div class="col-sm">
-                                                <label for="business_email2" class="form-label">EMAIL ADDRESS</label>
-                                                <input type="text" class="form-control" id="business_email2" name="business_email"
-                                                    onchange="emailValidation(this,'business_email2_span')">
-                                                <span id="business_email2_span" style="color:red; display:none">
-                                                    Enter valid input [should be in @ and .].</span>
-                                            </div>
-                                        </div>
-                                        </div>
                                         </div>
                                         <div class="panel panel-info m-4">
                                             <div class="panel-heading">

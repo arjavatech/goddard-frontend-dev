@@ -1,3 +1,4 @@
+'use strict';
 //name validation with particular format
 function namevalidation(inputtxtID,errorSpanId){
     let regName =  /^[a-zA-Z\s]+$/;
@@ -58,9 +59,19 @@ function ValidatePincode(inputtxt, errorSpan) {
     }
 }
 
-// function appendparent(val,element) {
+function checkbox() {
+    console.log('checking the checkbox if valid or not');
+    var additional_parent_info = document.getElementById("additional_parent_info");
+    if ($('input[name="additional_parent_add"]').is(":checked")) {
+        additional_parent_info.style.display = "block";
+    }
+    else{
+        additional_parent_info.style.display = "none";
+    }
+}
+
+// function additionalParent(val,element) {
 //     var course1 = document.getElementById("course1");
-//     var course2 = document.getElementById("course2");
 //     if(val <=2 && val >=0){
 //         if (val == 1) {
 //             course1.style.display = "block";
@@ -92,4 +103,5 @@ $(document).ready(function() {
     validatePhone();
     emailValidation();
     dateValidation();
+    checkbox();
 });

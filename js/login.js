@@ -37,11 +37,36 @@ function checkLoginState() {
 //     });
 // }
 
+function clearCookie(cookieName) {
+    document.cookie = cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+function clearAllCookies() {
+    const cookies = document.cookie.split("; ");
+    for (let i = 0; i < cookies.length; i++) {
+        const cookieParts = cookies[i].split("=");
+        const cookieName = cookieParts[0];
+        clearCookie(cookieName);
+    }
+}
+
 // Function to perform logout/sign out
 function signOut() {
-    // Clear session data and perform cleanup tasks as needed// ...
-    // Redirect the user to the logout page or homepage
-    window.location.href = "login.html";
+    // Clear session data and perform cleanup tasks as needed
+    localStorage.clear()
+    // Check if session is present
+    if (sessionStorage.length > 0) {
+        // Clear the session
+        sessionStorage.clear();
+        console.log('Session cleared.');
+    } else {
+        console.log('No session found.');
+    }
+    // Clear cookies
+    clearAllCookies();
+    // Reload the page to ensure cache is cleared and the user is redirected
+    window.location.reload();
+    window.close();
 }
 
 // Set the inactivity timeout duration in milliseconds (e.g., 10 minutes)

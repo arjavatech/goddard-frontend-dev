@@ -99,6 +99,20 @@ function appendvalidation(val,element) {
     }
 }
 
+//custom textbox hide and show function
+function CustomChange(inputtxt, element,labelvalue) {
+    if (inputtxt == "Yes") {
+        console.log('yes');
+        // element.style.display='block';
+        document.getElementById(element).style.display = "block";
+        document.getElementById(labelvalue).style.display = "block";
+    } else {
+        console.log('no');
+        document.getElementById(element).style.display = "none";
+        document.getElementById(labelvalue).style.display = "none";
+    }   
+}
+
 $(document).ready(function() {
     namevalidation();
     validatePhone();

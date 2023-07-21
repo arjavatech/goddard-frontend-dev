@@ -1,4 +1,36 @@
 'use strict';
+
+//name validation with particular format
+function childNamevalidation(inputtxtID,errorSpanId){
+    let childName1 = document.getElementById('student_name');
+    let childName2 = document.getElementById('child_profile_name');
+    let childName3 = document.getElementById('emergency_info_child_name');
+    let childName4 = document.getElementById('permission_child_name');
+    let childName5 = document.getElementById('security_release_child_name');
+    let regName =  /^[a-zA-Z\s]+$/;
+    if (regName.test(inputtxtID.value) == true) {
+        console.log('if');
+        document.getElementById(errorSpanId).style.display = "none";
+        childName1.value=inputtxtID.value;
+        childName1.disabled=true;
+        childName2.value=inputtxtID.value;
+        childName2.disabled=true;
+        childName3.value=inputtxtID.value;
+        childName3.disabled=true;
+        childName4.value=inputtxtID.value;
+        childName4.disabled=true;
+        childName5.value=inputtxtID.value;
+        childName5.disabled=true;
+    } else if(inputtxtID.value == ''){
+        console.log('else if');
+        document.getElementById(errorSpanId).style.display = "none";
+    } else {
+        console.log('else');
+        document.getElementById(errorSpanId).style.display = "block";
+        inputtxtID.focus();
+    }
+}
+
 //name validation with particular format
 function namevalidation(inputtxtID,errorSpanId){
     let regName =  /^[a-zA-Z\s]+$/;
@@ -100,23 +132,15 @@ function appendvalidation(val,element) {
 }
 
 //custom textbox hide and show function
-function CustomChange(inputtxt, element,labelvalue) {
+function CustomChange(inputtxt,labelvalue) {
     if (inputtxt == "Yes") {
         console.log('yes');
         // element.style.display='block';
-        document.getElementById(element).style.display = "block";
+        // document.getElementById(element).style.display = "block";
         document.getElementById(labelvalue).style.display = "block";
     } else {
         console.log('no');
-        document.getElementById(element).style.display = "none";
+        // document.getElementById(element).style.display = "none";
         document.getElementById(labelvalue).style.display = "none";
     }   
 }
-
-$(document).ready(function() {
-    namevalidation();
-    validatePhone();
-    emailValidation();
-    dateValidation();
-    checkbox();
-});

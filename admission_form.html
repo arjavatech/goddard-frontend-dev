@@ -61,9 +61,8 @@
                                                         <span style="color:#ff0000;">*</span></b></label><br>
                                                     <input name="child_full_name" type="text" maxlength="20" 
                                                     class="form-control wizard-required" id="child_full_name"
-                                                        onchange="namevalidation(this,'child_full_name_span')">
-                                                    <span class="spanmsg" id="child_full_name_span"
-                                                        style="color:red; display:none">
+                                                        onchange="childNamevalidation(this,'child_full_name_span')">
+                                                    <span class="spanmsg" id="child_full_name_span" style="color:red; display:none">
                                                         Enter valid input[only letters].</span>
                                                     <div class="wizard-form-error"></div>
                                                 </div>
@@ -685,7 +684,7 @@
                                                             <label for="business_email2" class="form-label">EMAIL ADDRESS
                                                                 <!-- <span style="color:#ff0000;">*</span> -->
                                                             </label>
-                                                            <input type="text" class="form-control " id="business_email2" name="business_email"
+                                                            <input type="text" class="form-control " id="business_email2" name="business_email2"
                                                                 onchange="emailValidation(this,'business_email2_span')">
                                                             <span id="business_email2_span" style="color:red; display:none">
                                                                 Enter valid input [should be in @ and .].</span>
@@ -1957,11 +1956,11 @@
                                         <div class="row m-3">
                                             <div class="col-sm">
                                                 <div class="form-group"> 
-                                                    <label for="other_important _family_members" class="form-label">Other
+                                                    <label for="other_important_family_members" class="form-label">Other
                                                         important Family Members (Siblings, Grandparent, Pets, etc)
                                                         <span style="color:#ff0000;">*</span></label>
-                                                    <input type="text" class="form-control wizard-required" id="other_important _family_members"
-                                                        name="other_important _family_members">
+                                                    <input type="text" class="form-control wizard-required" id="other_important_family_members"
+                                                        name="other_important_family_members">
                                                         <div class="wizard-form-error"></div>
                                                 </div>
                                             </div>
@@ -2042,10 +2041,10 @@
                                                     </div>
                                                     <div class="col-sm">
                                                         <div class="form-group"> 
-                                                            <label for="pick up_time" class="form-label">Pick up time?
+                                                            <label for="pick_up_time" class="form-label">Pick up time?
                                                                 <span style="color:#ff0000;">*</span>
                                                             </label>
-                                                            <input type="time" class="form-control wizard-required" id="pick up_time" name="pick up_time">
+                                                            <input type="time" class="form-control wizard-required" id="pick_up_time" name="pick_up_time">
                                                             <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>

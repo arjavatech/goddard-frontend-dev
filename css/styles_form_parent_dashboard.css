@@ -70,7 +70,35 @@ h1 {
 /* this used for drowarrow displayed in dropdown */
 .dropdown {
     position: relative;
+   
 }
+
+.form-control{
+    color: #0F2D52 !important;
+    font-weight: 700 !important;
+    width: 85px !important;
+    border: 2px solid #0F2D52 !important;
+}
+
+.form-control:focus{
+    box-shadow: none !important;
+}
+
+select.input-lg {
+    height: 50px !important;
+    line-height: 25px !important;
+}
+
+select+i.fa {
+    float: right;
+    margin-top: -27px;
+    margin-right: -10px;
+    pointer-events: none;
+    color: #0F2D52;
+    background-color: #FFF;
+    padding-right: 5px;
+}
+
 .dropdown:after {
     content: "";
     position: absolute;
@@ -78,9 +106,6 @@ h1 {
     top: 15px;
     width: 2px; 
     height: 1px; 
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 10px solid #0F2D52;
 }
 
 .bloc1{

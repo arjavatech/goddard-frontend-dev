@@ -24,6 +24,31 @@ function submitForm() {
     });
 }
 
+// Function to submit the form data
+function saveform() {
+    const form = document.getElementById("admission_form");
+    const formData = new FormData(form);
+    console.log(formData);
+    const obj = Object.fromEntries(formData);
+    console.log(obj);
+    obj.child_id = "NCD0005";
+    // const json=  JSON.stringify(obj);
+    $.ajax({
+        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(obj),
+        success: function (response) {
+            console.log('data submitted');
+            // window.location.href = "child_add.html";
+        },
+        error: function (xhr, status, error) {
+            alert("form submit failed");
+
+        }
+    });
+}
+
 $(document).ready(function() {
     if(!isAuthenticated()) {
         window.location.href = 'login.html';
@@ -31,10 +56,47 @@ $(document).ready(function() {
         document.body.style.visibility = 'visible';
 
         // Add click event listener to the "Save" button
+        $("#first_save_button").on("click", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveform();
+        });
+        $("#second_save_button").on("click", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveform();
+        });
+        $("#third_save_button").on("click", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveform();
+        });
+        $("#four_save_button").on("click", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveform();
+        });
+        $("#five_save_button").on("click", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveform();
+        });
+        $("#six_save_button").on("click", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveform();
+        });
+        $("#seven_save_button").on("click", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveform();
+        });
+        $("#eight_save_button").on("click", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveform();
+        });
+        $("#nine_save_button").on("click", function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveform();
+        });
         $("#submit_button").on("click", function(e) {
             e.preventDefault(); // Prevent the default form submission
             submitForm();
         });
+        
     }
 });
 
@@ -49,13 +111,13 @@ jQuery(document).ready(function () {
         parentFieldset.find('.wizard-required').each(function () {
             var thisValue = jQuery(this).val();
 
-            if (thisValue == "") {
-                jQuery(this).siblings(".wizard-form-error").slideDown();
-                nextWizardStep = false;
-            }
-            else {
-                jQuery(this).siblings(".wizard-form-error").slideUp();
-            }
+            // if (thisValue == "") {
+            //     jQuery(this).siblings(".wizard-form-error").slideDown();
+            //     nextWizardStep = false;
+            // }
+            // else {
+            //     jQuery(this).siblings(".wizard-form-error").slideUp();
+            // }
         });
         if (nextWizardStep) {
             next.parents('.wizard-fieldset').removeClass("show", "400");

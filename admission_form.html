@@ -20,8 +20,12 @@
 
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar d-flex justify-content-center">
-        <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
+    <nav class="navbar_bg">
+        <div class="text-center">
+            <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
+        </div>
+        <div class="g_id_signout signout"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Sign Out</b>
+        </div>
     </nav>
     <!-- Navigation Bar End -->
     <section class="wizard-section">
@@ -58,7 +62,8 @@
                                                     <input name="child_full_name" type="text" maxlength="20" 
                                                     class="form-control wizard-required" id="child_full_name"
                                                         onchange="namevalidation(this,'child_full_name_span')">
-                                                    <span class="spanmsg" id="child_full_name_span" style="color:red; display:none">
+                                                    <span class="spanmsg" id="child_full_name_span"
+                                                        style="color:red; display:none">
                                                         Enter valid input[only letters].</span>
                                                     <div class="wizard-form-error"></div>
                                                 </div>
@@ -66,11 +71,13 @@
                                             <div class="col-sm">
                                                 <div class="form-group">
                                                     <label for="nick_name" class="form-label"><b>NICKNAME
-                                                        <span style="color:#ff0000;">*</span></b>
+                                                            <span style="color:#ff0000;">*</span></b>
                                                     </label>
-                                                    <input name="nick_name" type="text" maxlength="50" class="form-control wizard-required" id="nick_name"
+                                                    <input name="nick_name" type="text" maxlength="50"
+                                                        class="form-control wizard-required" id="nick_name"
                                                         onchange="namevalidation(this,'nick_name_span')">
-                                                    <span class="spanmsg" id="nick_name_span" style="color:red; display:none">
+                                                    <span class="spanmsg" id="nick_name_span"
+                                                        style="color:red; display:none">
                                                         Enter valid input[only letters].</span>
                                                     <div class="wizard-form-error"></div>
                                                 </div>
@@ -80,8 +87,9 @@
                                                     <label for="dob" class="form-label"><b>BIRTH DATE
                                                         <span style="color:#ff0000;">*</span></b>
                                                     </label>
-                                                    <input name="dob" type="date" maxlength="50" class="form-control wizard-required" 
-                                                        id="dob" onclick="dateValidation('dob')">
+                                                    <input name="dob" type="date" maxlength="50"
+                                                        class="form-control wizard-required" id="dob"
+                                                        onclick="dateValidation('dob')">
                                                     <div class="wizard-form-error"></div>
                                                 </div>
                                             </div>
@@ -172,12 +180,14 @@
                                                     <p><b>DO RELEVANT CUSTODY PAPERS APPLY?</b></p>
                                                     <div class="wizard-form-radio">
                                                         <input name="do_relevant_custody_papers_apply"
-                                                            id="do_relevant_custody_papers_apply1" value="Yes" type="radio">
+                                                            id="do_relevant_custody_papers_apply1" value="Yes"
+                                                            type="radio">
                                                         <label for="do_relevant_custody_papers_apply1">Yes</label>
                                                     </div>
                                                     <div class="wizard-form-radio">
                                                         <input name="do_relevant_custody_papers_apply"
-                                                            id="do_relevant_custody_papers_apply2" type="radio" value="No" checked>
+                                                            id="do_relevant_custody_papers_apply2" type="radio"
+                                                            value="No" checked>
                                                         <label for="do_relevant_custody_papers_apply2">No</label>
                                                     </div>
                                                 </div>
@@ -199,7 +209,8 @@
                                         </div>
                                         <div class="panel panel-info m-4">
                                             <div class="panel-heading">
-                                                <h3 class="panel-title text-center"><b>PARENT’S / LEGAL GUARDIAN’S DETAILS</b></h3>
+                                                <h3 class="panel-title text-center"><b>PARENT’S / LEGAL GUARDIAN’S
+                                                        DETAILS</b></h3>
                                             </div>
                                             <div class="panel-body">
                                                 <div class="row m-3">
@@ -447,9 +458,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="panel panel-info m-4" id="additional_parent_info" style="display:none">
+                                        <div class="panel panel-info m-4" id="additional_parent_info"
+                                            style="display:none">
                                             <div class="panel-heading">
-                                                <h3 class="panel-title text-center"><b>PARENT’S / LEGAL GUARDIAN’S DETAILS</b></h3>
+                                                <h3 class="panel-title text-center"><b>PARENT’S / LEGAL GUARDIAN’S
+                                                        DETAILS</b></h3>
                                             </div>
                                             <div class="panel-body">
                                                 <div class="row m-3">
@@ -685,7 +698,8 @@
                                         <div class="panel panel-info m-4">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title text-center">
-                                                    <b>TO WHOM THE CHILD MAY BE RELEASED IN THE EVENT OF AN EMERGENCY</b>
+                                                    <b>TO WHOM THE CHILD MAY BE RELEASED IN THE EVENT OF AN
+                                                        EMERGENCY</b>
                                                 </h3>
                                             </div>
                                             <div class="panel-body">
@@ -758,7 +772,8 @@
                                                 </div>
                                                 <div class="col-sm"></div>
                                             </div>
-                                            <div class="panel-body" id="additional_emegengy_release1" style="display:none">
+                                            <div class="panel-body" id="additional_emegengy_release1"
+                                                style="display:none">
                                                 <div class="panel panel-default m-4">
                                                     <div class="panel-body">
                                                         <div class="row p-3">
@@ -869,7 +884,8 @@
                                                 </div>
                                                 <div class="panel panel-default m-4">
                                                     <div class="panel-heading">
-                                                        <h5 class="panel-title text-center"><b>PHYSICIAN /MEDICAL CARE PROVIDER DETAILS</b></h5>
+                                                        <h5 class="panel-title text-center"><b>PHYSICIAN /MEDICAL CARE
+                                                                PROVIDER DETAILS</b></h5>
                                                     </div>
                                                     <div class="panel-body">
                                                         <div class="row p-3">
@@ -910,7 +926,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>       
+                                                </div>
                                                 <div class="panel panel-default m-4">
                                                     <div class="panel-heading">
                                                         <h5 class="panel-title text-center">
@@ -1147,9 +1163,15 @@
                                         </div>
                                     </div>
                                     <div class="panel-footer">
-                                        <div class="form-group clearfix text-center">
-                                            <a href="javascript:;" class="form-wizard-next-btn  float-right"
-                                                id="firstbutton" aria-disabled="true" id="btnNext">Next</a>
+                                        <div class="form-group clearfix">
+                                            <div class="position-relative">
+                                                <div class="position-absolute top-50 end-0 translate-middle-y">
+                                                    <a href="javascript:;" class="form-wizard-save-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Save</a>
+                                                    <a href="javascript:;" class="form-wizard-next-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Next</a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1201,7 +1223,8 @@
                                         <div class="pt-4">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                    <h5 class="panel-title text-center"><b>MEDICAL HISTORY AND ILLNESSES</b></h5>
+                                                    <h5 class="panel-title text-center"><b>MEDICAL HISTORY AND
+                                                            ILLNESSES</b></h5>
                                                 </div>
                                                 <p class="text-center pt-5"><b>Does your child have a history of : (please describe)
                                                     <span style="color:#ff0000;">*</span>
@@ -1388,7 +1411,8 @@
                                         </div>
                                         <div class="panel panel-default">
                                             <div class="panel-heading">
-                                                <h5 class="panel-title text-center"><b>PREGNANCY AND INFANT HISTORY</b></h5>
+                                                <h5 class="panel-title text-center"><b>PREGNANCY AND INFANT HISTORY</b>
+                                                </h5>
                                             </div>
                                             <div class="panel-body">
                                                 <div class="row p-3">
@@ -1502,30 +1526,42 @@
                                                 <div class="row">
                                                     <div class="col-sm m-4">
                                                         <div class="wizard-form-checkbox">
-                                                            <input type="checkbox" class="input-checkbox" id="family_history_allergies" name="family_history_allergies">
-                                                            <label class="form-check-label" for="family_history_allergies"><span>
+                                                            <input type="checkbox" class="input-checkbox"
+                                                                id="family_history_allergies"
+                                                                name="family_history_allergies">
+                                                            <label class="form-check-label"
+                                                                for="family_history_allergies"><span>
                                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1">
+                                                                        </polyline>
                                                                     </svg></span><span>Allergies</span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm m-4">
                                                         <div class="wizard-form-checkbox">
-                                                            <input type="checkbox" class="input-checkbox" id="family_history_heart_problems" name="family_history_heart_problems">
-                                                            <label class="form-check-label" for="family_history_heart_problems"><span>
+                                                            <input type="checkbox" class="input-checkbox"
+                                                                id="family_history_heart_problems"
+                                                                name="family_history_heart_problems">
+                                                            <label class="form-check-label"
+                                                                for="family_history_heart_problems"><span>
                                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1">
+                                                                        </polyline>
                                                                     </svg></span><span>Heart Problems</span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm m-4">
                                                         <div class="wizard-form-checkbox">
-                                                            <input type="checkbox" class="input-checkbox" id="family_history_tuberculosis" name="family_history_tuberculosis">
-                                                            <label class="form-check-label" for="family_history_tuberculosis"><span>
+                                                            <input type="checkbox" class="input-checkbox"
+                                                                id="family_history_tuberculosis"
+                                                                name="family_history_tuberculosis">
+                                                            <label class="form-check-label"
+                                                                for="family_history_tuberculosis"><span>
                                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1">
+                                                                        </polyline>
                                                                     </svg></span><span>Tuberculosis</span>
                                                             </label>
                                                         </div>
@@ -1534,30 +1570,41 @@
                                                 <div class="row">
                                                     <div class="col-sm m-4">
                                                         <div class="wizard-form-checkbox">
-                                                            <input type="checkbox" class="input-checkbox" id="family_history_asthma" name="family_history_asthma">
-                                                            <label class="form-check-label" for="family_history_asthma"><span>
+                                                            <input type="checkbox" class="input-checkbox"
+                                                                id="family_history_asthma" name="family_history_asthma">
+                                                            <label class="form-check-label"
+                                                                for="family_history_asthma"><span>
                                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1">
+                                                                        </polyline>
                                                                     </svg></span><span>Asthma</span>
                                                             </label>
-                                                        </div>  
+                                                        </div>
                                                     </div>
                                                     <div class="col-sm m-4">
                                                         <div class="wizard-form-checkbox">
-                                                            <input type="checkbox" class="input-checkbox" id="family_history_high_blood_pressure" name="family_history_high_blood_pressure">
-                                                            <label class="form-check-label" for="family_history_high_blood_pressure"><span>
+                                                            <input type="checkbox" class="input-checkbox"
+                                                                id="family_history_high_blood_pressure"
+                                                                name="family_history_high_blood_pressure">
+                                                            <label class="form-check-label"
+                                                                for="family_history_high_blood_pressure"><span>
                                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1">
+                                                                        </polyline>
                                                                     </svg></span><span>High Blood Pressure</span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm m-4">
                                                         <div class="wizard-form-checkbox">
-                                                            <input type="checkbox" class="input-checkbox" id="family_history_vision_problems" name="family_history_vision_problems">
-                                                            <label class="form-check-label" for="family_history_vision_problems"><span>
+                                                            <input type="checkbox" class="input-checkbox"
+                                                                id="family_history_vision_problems"
+                                                                name="family_history_vision_problems">
+                                                            <label class="form-check-label"
+                                                                for="family_history_vision_problems"><span>
                                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1">
+                                                                        </polyline>
                                                                     </svg></span><span>Vision Problems</span>
                                                             </label>
                                                         </div>
@@ -1566,30 +1613,42 @@
                                                 <div class="row">
                                                     <div class="col-sm m-4">
                                                         <div class="wizard-form-checkbox">
-                                                            <input type="checkbox" class="input-checkbox" id="family_history_diabetes" name="family_history_diabetes">
-                                                            <label class="form-check-label" for="family_history_diabetes"><span>
+                                                            <input type="checkbox" class="input-checkbox"
+                                                                id="family_history_diabetes"
+                                                                name="family_history_diabetes">
+                                                            <label class="form-check-label"
+                                                                for="family_history_diabetes"><span>
                                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1">
+                                                                        </polyline>
                                                                     </svg></span><span>Diabetes</span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm m-4">
                                                         <div class="wizard-form-checkbox">
-                                                            <input type="checkbox" class="input-checkbox" id="family_history_hyperactivity" name="family_history_hyperactivity">
-                                                            <label class="form-check-label" for="family_history_hyperactivity"><span>
+                                                            <input type="checkbox" class="input-checkbox"
+                                                                id="family_history_hyperactivity"
+                                                                name="family_history_hyperactivity">
+                                                            <label class="form-check-label"
+                                                                for="family_history_hyperactivity"><span>
                                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1">
+                                                                        </polyline>
                                                                     </svg></span><span>Hyperactivity</span>
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="col-sm m-4">
                                                         <div class="wizard-form-checkbox">
-                                                            <input type="checkbox" class="input-checkbox" id="family_history_epilepsy" name="family_history_epilepsy">
-                                                            <label class="form-check-label" for="family_history_epilepsy"><span>
+                                                            <input type="checkbox" class="input-checkbox"
+                                                                id="family_history_epilepsy"
+                                                                name="family_history_epilepsy">
+                                                            <label class="form-check-label"
+                                                                for="family_history_epilepsy"><span>
                                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1">
+                                                                        </polyline>
                                                                     </svg></span><span>Epilepsy</span>
                                                             </label>
                                                         </div>
@@ -1803,17 +1862,21 @@
                                     </div>
                                     <div class="panel-footer">
                                         <div class="form-group clearfix">
-                                            <div style="padding-left: 100px;text-align: center;">
+                                            <div class="position-relative">
                                                 <a href="javascript:;"
                                                     class="form-wizard-previous-btn float-left">Previous</a>
-                                                <a href="javascript:;"
-                                                    class="form-wizard-next-btn  float-right">Next</a>
+                                                <div class="position-absolute top-50 end-0 translate-middle-y">
+                                                    <a href="javascript:;" class="form-wizard-save-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Save</a>
+                                                    <a href="javascript:;" class="form-wizard-next-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Next</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </fieldset> 
+                        </fieldset>
                         <fieldset class="wizard-fieldset">
                             <div class="container">
                                 <div class="panel panel-info">
@@ -1844,11 +1907,15 @@
                                     </div>
                                     <div class="panel-footer">
                                         <div class="form-group clearfix">
-                                            <div style="padding-left: 100px;text-align: center;">
+                                            <div class="position-relative">
                                                 <a href="javascript:;"
                                                     class="form-wizard-previous-btn float-left">Previous</a>
-                                                <a href="javascript:;"
-                                                    class="form-wizard-next-btn  float-right">Next</a>
+                                                <div class="position-absolute top-50 end-0 translate-middle-y">
+                                                    <a href="javascript:;" class="form-wizard-save-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Save</a>
+                                                    <a href="javascript:;" class="form-wizard-next-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Next</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -1916,11 +1983,13 @@
                                                 <div class="form-group">
                                                     <p><b>Has your child been in childcare before?</b></p>
                                                     <div class="wizard-form-radio">
-                                                        <input name="childcare_before" id="childcare_before1" value="Yes" type="radio">
+                                                        <input name="childcare_before" id="childcare_before1"
+                                                            value="Yes" type="radio">
                                                         <label for="childcare_before1">Yes</label>
                                                     </div>
                                                     <div class="wizard-form-radio">
-                                                        <input name="childcare_before" id="childcare_before2" type="radio" value="No" checked>
+                                                        <input name="childcare_before" id="childcare_before2"
+                                                            type="radio" value="No" checked>
                                                         <label for="childcare_before2">No</label>
                                                     </div>
                                                 </div>
@@ -2405,7 +2474,8 @@
                                         </div>
                                         <div class="panel panel-info m-4">
                                             <div class="panel-heading">
-                                                <h3 class="panel-title text-center"><b>Correct and Complete Information</b></h3>
+                                                <h3 class="panel-title text-center"><b>Correct and Complete
+                                                        Information</b></h3>
                                             </div>
                                             <div class="panel-body">
                                                 <p>To the best of my knowledge, the information I have provided and the
@@ -2441,12 +2511,15 @@
                                     </div>
                                     <div class="panel-footer">
                                         <div class="form-group clearfix">
-                                            <div style="padding-left: 100px;text-align: center;">
+                                            <div class="position-relative">
                                                 <a href="javascript:;"
                                                     class="form-wizard-previous-btn float-left">Previous</a>
-
-                                                <a href="javascript:;"
-                                                    class="form-wizard-next-btn  float-right">Next</a>
+                                                <div class="position-absolute top-50 end-0 translate-middle-y">
+                                                    <a href="javascript:;" class="form-wizard-save-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Save</a>
+                                                    <a href="javascript:;" class="form-wizard-next-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Next</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -2492,7 +2565,8 @@
                                         <div class="panel panel-default m-4">
                                             <div class="panel-heading">
                                                 <h3 class="panel-title text-center"><b>The password is an added measure
-                                                        of security for your family and will be kept with your child’s emergency information.</b></h3>
+                                                        of security for your family and will be kept with your child’s
+                                                        emergency information.</b></h3>
                                             </div>
                                             <div class="panel-body">
                                                 <div class="row m-3">
@@ -2549,12 +2623,15 @@
                                     </div>
                                     <div class="panel-footer">
                                         <div class="form-group clearfix">
-                                            <div style="padding-left: 100px;text-align: center;">
+                                            <div class="position-relative">
                                                 <a href="javascript:;"
                                                     class="form-wizard-previous-btn float-left">Previous</a>
-
-                                                <a href="javascript:;"
-                                                    class="form-wizard-next-btn  float-right">Next</a>
+                                                <div class="position-absolute top-50 end-0 translate-middle-y">
+                                                    <a href="javascript:;" class="form-wizard-save-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Save</a>
+                                                    <a href="javascript:;" class="form-wizard-next-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Next</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -2613,10 +2690,12 @@
                                             </div>
                                         </div>
                                         <h4 class="m-4">*In-house only includes photos used in the classroom or hallways
-                                            and photos taken for and through electronic dailyreport tools, such as Tadpoles.</h4>
+                                            and photos taken for and through electronic dailyreport tools, such as
+                                            Tadpoles.</h4>
                                         <div class="panel panel-info m-4">
                                             <div class="panel-heading">
-                                                <h3 class="panel-title text-center"><b>Group Photos in Electronic Daily Activity Reports</b></h3>
+                                                <h3 class="panel-title text-center"><b>Group Photos in Electronic Daily
+                                                        Activity Reports</b></h3>
                                             </div>
                                             <p class="m-4">The Goddard School takes photos of individual children and
                                                 groups of children for electronic daily activity reports. These photos
@@ -2679,12 +2758,15 @@
                                     </div>
                                     <div class="panel-footer">
                                         <div class="form-group clearfix">
-                                            <div style="padding-left: 100px;text-align: center;">
+                                            <div class="position-relative">
                                                 <a href="javascript:;"
                                                     class="form-wizard-previous-btn float-left">Previous</a>
-
-                                                <a href="javascript:;"
-                                                    class="form-wizard-next-btn  float-right">Next</a>
+                                                <div class="position-absolute top-50 end-0 translate-middle-y">
+                                                    <a href="javascript:;" class="form-wizard-save-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Save</a>
+                                                    <a href="javascript:;" class="form-wizard-next-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Next</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -2695,7 +2777,8 @@
                             <div class="container">
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title text-center"><b>Security Release & Policy Acknowledgement Form</b></h3>
+                                        <h3 class="panel-title text-center"><b>Security Release & Policy Acknowledgement
+                                                Form</b></h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="row m-3">
@@ -2785,11 +2868,15 @@
                                     </div>
                                     <div class="panel-footer">
                                         <div class="form-group clearfix">
-                                            <div style="padding-left: 100px;text-align: center;">
+                                            <div class="position-relative">
                                                 <a href="javascript:;"
                                                     class="form-wizard-previous-btn float-left">Previous</a>
-
-                                                <a href="javascript:;" class="form-wizard-next-btn float-right">Next</a>
+                                                <div class="position-absolute top-50 end-0 translate-middle-y">
+                                                    <a href="javascript:;" class="form-wizard-save-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Save</a>
+                                                    <a href="javascript:;" class="form-wizard-next-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Next</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -2849,12 +2936,15 @@
                                     </div>
                                     <div class="panel-footer">
                                         <div class="form-group clearfix">
-                                            <div style="padding-left: 100px;text-align: center;">
+                                            <div class="position-relative">
                                                 <a href="javascript:;"
                                                     class="form-wizard-previous-btn float-left">Previous</a>
-
-                                                <a href="javascript:;"
-                                                    class="form-wizard-next-btn  float-right">Next</a>
+                                                <div class="position-absolute top-50 end-0 translate-middle-y">
+                                                    <a href="javascript:;" class="form-wizard-save-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Save</a>
+                                                    <a href="javascript:;" class="form-wizard-next-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Next</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -3014,23 +3104,27 @@
                                     </div>
                                     <div class="panel-footer">
                                         <div class="form-group clearfix">
-                                            <div style="padding-left: 100px;text-align: center;">
+                                            <div class="position-relative">
                                                 <a href="javascript:;"
                                                     class="form-wizard-previous-btn float-left">Previous</a>
-
-                                                <a href="javascript:;"
-                                                    class="form-wizard-next-btn  float-right">Next</a>
+                                                <div class="position-absolute top-50 end-0 translate-middle-y">
+                                                    <a href="javascript:;" class="form-wizard-save-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Save</a>
+                                                    <a href="javascript:;" class="form-wizard-next-btn" id="firstbutton"
+                                                        aria-disabled="true" id="btnNext">Next</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </fieldset> 
+                        </fieldset>
                         <fieldset class="wizard-fieldset">
                             <div class="container">
                                 <div class="panel panel-info">
                                     <div class="panel-heading">
-                                        <h3 class="panel-title text-center"><b>Outside Engagements Release & Waiver</b></h3>
+                                        <h3 class="panel-title text-center"><b>Outside Engagements Release & Waiver</b>
+                                        </h3>
                                     </div>
                                     <div class="panel-body">
                                         <div class="row m-3">
@@ -3075,7 +3169,8 @@
                                                 </ul>
                                                 <div class="panel panel-info">
                                                     <div class="panel-heading">
-                                                        <h3 class="panel-title text-center"><b>I HAVE READ THIS AGREEMENT AND UNDERSTAND ITS TERMS</b></h3>
+                                                        <h3 class="panel-title text-center"><b>I HAVE READ THIS
+                                                                AGREEMENT AND UNDERSTAND ITS TERMS</b></h3>
                                                     </div>
                                                     <div class="panel-body">
                                                         <div class="row m-3">
@@ -3107,12 +3202,12 @@
                                     </div>
                                     <div class="panel-footer">
                                         <div class="form-group clearfix">
-                                            <div style="padding-left: 100px;text-align: center;">
-                                                <!-- <a href="javascript:;" class="form-wizard-previous-btn float-left">Previous</a> -->
-                                                <button href="javascript:;" class="form-wizard-previous-btn float-left">Previous</button>
-
-                                                <!-- <a href="#" class="form-wizard-submit  float-right">Submit</a> -->
-                                                <button id="submit_button" href="#" class="form-wizard-submit float-right" type="submit">Submit</button>
+                                            <div class="position-relative">
+                                                <a href="javascript:;"
+                                                    class="form-wizard-previous-btn float-left">Previous</a>
+                                                <div class="position-absolute top-50 end-0 translate-middle-y">
+                                                    <a href="javascript:;" class="form-wizard-submit" id="submit_button">Submit</a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

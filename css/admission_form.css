@@ -10,9 +10,21 @@ body {
 
 /*****Navigation Style*****/
 
-.navbar {
+.navbar_bg {
     background: white;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signout
+{
+    position: absolute !important;
+    top: 45px;
+    right: 80px !important;
+    color: #0F2D52 !important;
+}
+
+.signout_icon{
+    color: #0F2D52 !important;
 }
 
 /*****Navigation Style End*****/
@@ -179,7 +191,7 @@ body {
 .form-wizard .form-wizard-header {
     text-align: center;
 }
-
+.form-wizard .form-wizard-save-btn,
 .form-wizard .form-wizard-next-btn,
 .form-wizard .form-wizard-previous-btn,
 .form-wizard .form-wizard-submit {
@@ -192,6 +204,8 @@ body {
     text-align: center;
 }
 
+.form-wizard .form-wizard-save-btn:hover,
+.form-wizard .form-wizard-save-btn:focus,
 .form-wizard .form-wizard-next-btn:hover,
 .form-wizard .form-wizard-next-btn:focus,
 .form-wizard .form-wizard-previous-btn:hover,

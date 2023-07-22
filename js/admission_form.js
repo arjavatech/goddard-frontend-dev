@@ -4,10 +4,14 @@ import {isAuthenticated} from "./authenticationVerify.js";
 function submitForm() {
     const form = document.getElementById("admission_form");
     const formData = new FormData(form);
-    console.log(formData);
     const obj = Object.fromEntries(formData);
     console.log(obj);
-    obj.child_id = "NCD0005";
+    // obj.child_id = "NCD0005";
+    const logged_in_email = localStorage.getItem('logged_in_email');
+    const parent_name = localStorage.getItem('parent_name');
+    obj.on_process = false;
+    obj.parent_email_one = logged_in_email;
+    obj.parent_name = parent_name;
     // const json=  JSON.stringify(obj);
     $.ajax({
         url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
@@ -28,10 +32,14 @@ function submitForm() {
 function saveform() {
     const form = document.getElementById("admission_form");
     const formData = new FormData(form);
-    console.log(formData);
     const obj = Object.fromEntries(formData);
     console.log(obj);
-    obj.child_id = "NCD0005";
+    // obj.child_id = "NCD0005"; 
+    const logged_in_email = localStorage.getItem('logged_in_email');
+    const parent_name = localStorage.getItem('parent_name');
+    obj.on_process = true;
+    obj.parent_email_one = logged_in_email;
+    obj.parent_name = parent_name;
     // const json=  JSON.stringify(obj);
     $.ajax({
         url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",

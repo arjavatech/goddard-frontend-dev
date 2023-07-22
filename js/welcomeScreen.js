@@ -40,16 +40,26 @@ function loadDynamicCards() {
     let parentContainer = document.getElementById('dynamicChildCards');
     // Loop through the response size and create the child divs
     for (let i = 0; i < responseSize; i++) {
+        let on_process = child_response[i].on_process;
+
         // Create the elements
         let div = document.createElement('div');
         div.classList.add('col-2', 'm-3', 'mt-4');
 
         let anchor = document.createElement('a');
         anchor.classList.add('text-decoration-none');
-        anchor.href = 'parent_dashboard.html';
 
         let card = document.createElement('div');
-        card.classList.add('card', 'dashboard_card_style1');
+
+        if(on_process === true) {
+            // Card is fulfilled
+            anchor.href = 'admission_form.html';
+            card.classList.add('card', 'dashboard_card_style_on_process');
+        } else {
+            // Need to be fulfilled
+            anchor.href = 'parent_dashboard.html';
+            card.classList.add('card', 'dashboard_card_style1');
+        }
 
         let cardBody = document.createElement('div');
         cardBody.classList.add('card-body', 'pt-4');

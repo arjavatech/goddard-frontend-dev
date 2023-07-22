@@ -79,5 +79,21 @@ body {
     cursor: pointer;
 }
 
+.dashboard_card_style_on_process{
+    width: 200px !important;
+    height: 170px !important;
+    background: #ff0000 !important;
+    border-radius: 20px !important;
+    cursor: pointer;
+}
+
+.dashboard_card_style_on_process:hover{
+    width: 200px !important;
+    height: 170px !important;
+    background: #cd5c5c !important;
+    border-radius: 20px !important;
+    cursor: pointer;
+}
+
 
 /*****Parent Dashboard Style End*****/

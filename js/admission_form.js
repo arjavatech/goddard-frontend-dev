@@ -12,6 +12,11 @@ function submitForm() {
     obj.on_process = false;
     obj.parent_email_one = logged_in_email;
     obj.parent_name = parent_name;
+
+    const child_id_val = localStorage.getItem('child_id');
+    if (child_id_val !== null && child_id_val !== undefined) {
+        obj.child_id = child_id_val;
+    } 
     // const json=  JSON.stringify(obj);
     $.ajax({
         url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
@@ -40,6 +45,10 @@ function saveform() {
     obj.on_process = true;
     obj.parent_email_one = logged_in_email;
     obj.parent_name = parent_name;
+    const child_id_val = localStorage.getItem('child_id');
+    if (child_id_val !== null && child_id_val !== undefined) {
+        obj.child_id = child_id_val;
+    } 
     // const json=  JSON.stringify(obj);
     $.ajax({
         url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",

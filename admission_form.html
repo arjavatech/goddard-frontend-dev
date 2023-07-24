@@ -324,7 +324,7 @@
                                                                 <label for="work_hours1" class="form-label">WORK HOURS
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="number" class="form-control wizard-required" id="work_hours1" name="work_hours">
+                                                                <input type="number" class="form-control wizard-required" id="work_hours1" name="work_hours1">
                                                                 <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
@@ -1101,7 +1101,7 @@
                                                         <label for="policy_number" class="form-label">POLICY NUMBER (REQUIRED) NUMBER
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="number" class="form-control wizard-required" id="policy_number" name="policy_number">
+                                                        <input type="text" class="form-control wizard-required" id="policy_number" name="policy_number">
                                                         <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
@@ -1187,7 +1187,7 @@
                                                         <label for="student_name" class="form-label">Student
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="student_name"
+                                                        <input type="text" class="form-control wizard-required" id="student_name" name="student_name"
                                                             onchange="namevalidation(this,'student_name_span')">
                                                         <span class="spanmsg" id="student_name_span" style="color:red; display:none">
                                                             Enter valid input[only letters].</span>
@@ -1201,7 +1201,7 @@
                                                         <label for="physical_exam_last_date" class="form-label">Date of Last Physical Exam
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="date" class="form-control wizard-required" id="physical_exam_last_date"
+                                                        <input type="date" class="form-control wizard-required" id="physical_exam_last_date" name="physical_exam_last_date"
                                                             onclick="dateValidation('physical_exam_last_date')">
                                                             <div class="wizard-form-error"></div>
                                                     </div>
@@ -1211,7 +1211,7 @@
                                                         <label for="dental_exam_last_date" class="form-label">Date of Last Dental Exam
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="date" class="form-control wizard-required" id="dental_exam_last_date"
+                                                        <input type="date" class="form-control wizard-required" id="dental_exam_last_date" name="dental_exam_last_date" 
                                                             onclick="dateValidation('dental_exam_last_date')">
                                                             <div class="wizard-form-error"></div>
                                                     </div>
@@ -1233,7 +1233,7 @@
                                                                     <label for="allergies" class="form-label">Allergies (food/drug)
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="allergies">
+                                                                    <input type="text" class="form-control wizard-required" name="allergies" id="allergies">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1244,7 +1244,7 @@
                                                                     <label for="asthma" class="form-label">Asthma
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="asthma">
+                                                                    <input type="text" class="form-control wizard-required" id="asthma" name="asthma">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1255,7 +1255,7 @@
                                                                     <label for="bleeding_problems" class="form-label">Bleeding Problems
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="bleeding_problems">
+                                                                    <input type="text" class="form-control wizard-required" name="bleeding_problems" id="bleeding_problems">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1266,7 +1266,7 @@
                                                                     <label for="diabetes" class="form-label">Diabetes
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="diabetes">
+                                                                    <input type="text" class="form-control wizard-required" id="diabetes" name="diabetes">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1277,7 +1277,7 @@
                                                                     <label for="epilepsy" class="form-label">Epilepsy
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="epilepsy">
+                                                                    <input type="text" class="form-control wizard-required" id="epilepsy" name="epilepsy">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1288,7 +1288,7 @@
                                                                     <label for="frequent_ear_infections" class="form-label">Frequent Ear Infections
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="frequent_ear_infections">
+                                                                    <input type="text" class="form-control wizard-required" id="frequent_ear_infections" name="frequent_ear_infections">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1299,7 +1299,7 @@
                                                                     <label for="frequent_illnesses" class="form-label">Frequent Illnesses
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="frequent_illnesses">
+                                                                    <input type="text" class="form-control wizard-required" id="frequent_illnesses" name="frequent_illnesses">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1310,7 +1310,7 @@
                                                                     <label for="hearing_problems" class="form-label">Hearing Problems
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="hearing_problems">
+                                                                    <input type="text" class="form-control wizard-required" id="hearing_problems" name="hearing_problems">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1321,7 +1321,7 @@
                                                                     <label for="high_fevers" class="form-label">High Fevers
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="high_fevers">
+                                                                    <input type="text" class="form-control wizard-required" id="high_fevers" name="high_fevers">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1329,10 +1329,10 @@
                                                         <div class="row p-3">
                                                             <div class="col-sm">
                                                                 <div class="form-group"> 
-                                                                    <label for="hospitialization" class="form-label">Hospitialization
+                                                                    <label for="hospitalization" class="form-label">Hospitialization
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="hospitialization">
+                                                                    <input type="text" class="form-control wizard-required" id="hospitalization" name="hospitalization">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1343,7 +1343,7 @@
                                                                     <label for="rheumatic_fever" class="form-label">Rheumatic Fever
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="rheumatic_fever">
+                                                                    <input type="text" class="form-control wizard-required" id="rheumatic_fever" name="rheumatic_fever">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1354,7 +1354,7 @@
                                                                     <label for="seizures_convulsions" class="form-label">Seizures/Convulsions
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="seizures_convulsions">
+                                                                    <input type="text" class="form-control wizard-required" id="seizures_convulsions" name="seizures_convulsions">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1365,7 +1365,7 @@
                                                                     <label for="serious_injuries_accidents" class="form-label">Serious Injuries/Accidents
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required"  id="serious_injuries_accidents">
+                                                                    <input type="text" class="form-control wizard-required"  id="serious_injuries_accidents" name="serious_injuries_accidents">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1376,7 +1376,7 @@
                                                                     <label for="surgeries" class="form-label">Surgeries
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="surgeries">
+                                                                    <input type="text" class="form-control wizard-required" id="surgeries" name="surgeries">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1387,7 +1387,7 @@
                                                                     <label for="vision_problems" class="form-label">Vision Problems
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="vision_problems">
+                                                                    <input type="text" class="form-control wizard-required" id="vision_problems" name="vision_problems">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1398,7 +1398,7 @@
                                                                     <label for="medical_other" class="form-label">Other
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="medical_other">
+                                                                    <input type="text" class="form-control wizard-required" id="medical_other" name="medical_other">
                                                                     <div class="wizard-form-error"></div>
                                                                 </div>
                                                             </div>
@@ -1418,7 +1418,7 @@
                                                                 <label for="illness_during_pregnancy" class="form-label">Illness during pregnancy
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="illness_during_pregnancy">
+                                                                <input type="text" class="form-control wizard-required" id="illness_during_pregnancy" name="illness_during_pregnancy">
                                                                 <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
@@ -1427,7 +1427,7 @@
                                                                 <label for="condition_of_newborn" class="form-label">Condition of Newborn
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="condition_of_newborn">
+                                                                <input type="text" class="form-control wizard-required" id="condition_of_newborn" name="condition_of_newborn">
                                                                 <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
@@ -1435,19 +1435,19 @@
                                                     <div class="row p-3">
                                                         <div class="col-sm">
                                                             <div class="form-group"> 
-                                                                <label for="during_of_pregnancy" class="form-label">Duration of pregnancy
+                                                                <label for="duration_of_pregnancy" class="form-label">Duration of pregnancy
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="during_of_pregnancy">
+                                                                <input type="text" class="form-control wizard-required" id="duration_of_pregnancy" name="duration_of_pregnancy">
                                                                 <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
                                                             <div class="form-group"> 
-                                                                <label for="birth_weight" class="form-label">Birth Weight<span style="color:#ff0000;">*</span>
+                                                                <label for="birth_weight_lbs" class="form-label">Birth Weight<span style="color:#ff0000;">*</span>
                                                                 </label>
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control wizard-required" id="birth_weight">
+                                                                    <input type="text" class="form-control wizard-required" id="birth_weight_lbs" name="birth_weight_lbs">
                                                                     <div class="wizard-form-error"></div>
                                                                     <span class="input-group-text input-group-addon"
                                                                         id="inputGroupPrependlbs">lbs.</span>
@@ -1462,7 +1462,7 @@
                                                                 <label for="complications" class="form-label">Complications
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="complications">
+                                                                <input type="text" class="form-control wizard-required" id="complications" name="complications">
                                                                 <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
@@ -1471,7 +1471,7 @@
                                                                 <label for="bottle_fed" class="form-label">Bottle Fed?
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="bottle_fed">
+                                                                <input type="text" class="form-control wizard-required" id="bottle_fed"  name="bottle_fed">
                                                                 <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
@@ -1480,7 +1480,7 @@
                                                                 <label for="breast_fed" class="form-label">Breast Fed?
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="breast_fed">
+                                                                <input type="text" class="form-control wizard-required" id="breast_fed" name="breast_fed">
                                                                 <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
@@ -1492,7 +1492,7 @@
                                                                 <label for="other_siblings_name" class="form-label">Name
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="other_siblings_name"
+                                                                <input type="text" class="form-control wizard-required" id="other_siblings_name" name="other_siblings_name"
                                                                     onchange="namevalidation(this,'other_siblings_name_span')">
                                                                 <span class="spanmsg" id="other_siblings_name_span" style="color:red; display:none">
                                                                     Enter valid input[only letters].</span>
@@ -1504,7 +1504,7 @@
                                                                 <label for="other_siblings_age" class="form-label">Age
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="number" class="form-control wizard-required" id="other_siblings_age">
+                                                                <input type="number" class="form-control wizard-required" id="other_siblings_age" name="other_siblings_age">
                                                                 <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
@@ -2140,23 +2140,23 @@
                                                                 </b></p>
                                                                 <div class="wizard-form-radio">
                                                                     <input name="rest_in_the_middle_day" id="rest_in_the_middle_day1" value="Yes"
-                                                                        type="radio" onclick="CustomChange(this.value,'rest_in_the_middle_reason_div');">
+                                                                        type="radio" onclick="CustomChange(this.value,'reason_for_rest_in_the_middle_day_div');">
                                                                     <label for="rest_in_the_middle_day1">Yes</label>
                                                                 </div>
                                                                 <div class="wizard-form-radio">
                                                                     <input name="rest_in_the_middle_day" id="rest_in_the_middle_day2" type="radio"
-                                                                        value="No" onclick="CustomChange(this.value,'rest_in_the_middle_reason_div');" checked>
+                                                                        value="No" onclick="CustomChange(this.value,'reason_for_rest_in_the_middle_day_div');" checked>
                                                                     <label for="rest_in_the_middle_day2">No</label>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row m-3" id="rest_in_the_middle_reason_div" style="display: none;">
+                                                    <div class="row m-3" id="reason_for_rest_in_the_middle_day_div" style="display: none;">
                                                         <div class="col-sm">
                                                             <div class="form-group"> 
-                                                                <label for="rest_in_the_middle_reason" class="form-label">Explain</label>
-                                                                <input type="text" class="form-control " id="rest_in_the_middle_reason"
-                                                                name="rest_in_the_middle_reason">
+                                                                <label for="reason_for_rest_in_the_middle_day" class="form-label">Explain</label>
+                                                                <input type="text" class="form-control " id="reason_for_rest_in_the_middle_day"
+                                                                name="reason_for_rest_in_the_middle_day">
                                                                 <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
@@ -3216,5 +3216,510 @@
                 </div>
             </div>
         </section>
+        <script>
+            let editID = window.location.search.slice(1);
+            console.log(editID);
+            if(editID != ''){
+                //for waking up the aws lambda server   
+                $.ajax({
+                    url: ` https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/fetch/${editID}`,
+                    type: 'get',
+                    //this is uesd to get the response and return the result
+                    success: function(response){
+                       console.log(response);
+                        if (typeof response.adhaar_number !== "undefined")
+                            document.getElementsByName('adhaar_number')[0].value = response.adhaar_number;
+
+                            console.log(response.child_full_name);
+                        if (typeof response.child_full_name !== "undefined"){
+                            document.getElementsByName('child_full_name')[0].value = response.child_full_name;
+                            document.getElementsByName('student_name')[0].value = response.student_name;
+                            document.getElementsByName('child_profile_name')[0].value = response.student_name;
+                            document.getElementsByName('emergency_info_child_name')[0].value = response.student_name;
+                            document.getElementsByName('permission_child_name')[0].value = response.student_name;
+                            document.getElementsByName('security_release_child_name')[0].value = response.student_name;
+                        }
+                           
+                        if (typeof response.nick_name !== "undefined")
+                            document.getElementsByName('nick_name')[0].value = response.nick_name;
+                        if (typeof response.dob !== "undefined")
+                            document.getElementsByName('dob')[0].value = response.dob;
+                        if (typeof response.child_street_address !== "undefined")
+                            document.getElementsByName('child_street_address')[0].value = response.child_street_address;
+                        if (typeof response.child_city_address !== "undefined")
+                            document.getElementsByName('child_city_address')[0].value = response.child_city_address;
+                        if (typeof response.child_state_address !== "undefined")
+                            document.getElementsByName('child_state_address')[0].value = response.child_state_address;
+                        if (typeof response.child_zip_address !== "undefined")
+                            document.getElementsByName('child_zip_address')[0].value = response.child_zip_address;
+                        if (typeof response.primary_language !== "undefined")
+                            document.getElementsByName('primary_language')[0].value = response.primary_language;
+                        if (typeof response.school_age_child_school !== "undefined")
+                            document.getElementsByName('school_age_child_school')[0].value = response.school_age_child_school;
+                        if (typeof response.do_relevant_custody_papers_apply !== "undefined")
+                            document.getElementsByName('do_relevant_custody_papers_apply')[0].value = response.do_relevant_custody_papers_apply;
+                        if (typeof response.gender !== "undefined")
+                            document.getElementsByName('gender')[0].value = response.gender;
+                        if (typeof response.parent1_name !== "undefined")
+                            document.getElementsByName('parent1_name')[0].value = response.parent1_name;
+                        if (typeof response.parent1_street_address !== "undefined")
+                            document.getElementsByName('parent1_street_address')[0].value = response.parent1_street_address;
+                        if (typeof response.parent1_city_address !== "undefined")
+                            document.getElementsByName('parent1_city_address')[0].value = response.parent1_city_address;
+                        if (typeof response.parent1_state_address !== "undefined")
+                            document.getElementsByName('parent1_state_address')[0].value = response.parent1_state_address;
+                        if (typeof response.parent1_zip_address !== "undefined")
+                            document.getElementsByName('parent1_zip_address')[0].value = response.parent1_zip_address;
+                        if (typeof response.home_telephone_number1 !== "undefined")
+                            document.getElementsByName('home_telephone_number1')[0].value = response.home_telephone_number1;
+                        if (typeof response.business1_name !== "undefined")
+                            document.getElementsByName('business1_name')[0].value = response.business1_name;
+                        if (typeof response.work_hours1 !== "undefined")
+                            document.getElementsByName('work_hours1')[0].value = response.work_hours1;
+                        if (typeof response.business_telephone_number1 !== "undefined")
+                            document.getElementsByName('business_telephone_number1')[0].value = response.business_telephone_number1;
+                        if (typeof response.business_street_address1 !== "undefined")
+                            document.getElementsByName('business_street_address1')[0].value = response.business_street_address1;
+                        if (typeof response.business_city_address1 !== "undefined")
+                            document.getElementsByName('business_city_address1')[0].value = response.business_city_address1;
+                        if (typeof response.business_state_address1 !== "undefined")
+                            document.getElementsByName('business_state_address1')[0].value = response.business_state_address1;
+                        if (typeof response.business_zip_address1 !== "undefined")
+                            document.getElementsByName('business_zip_address1')[0].value = response.business_zip_address1;
+                        if (typeof response.business_cell_number1 !== "undefined")
+                            document.getElementsByName('business_cell_number1')[0].value = response.business_cell_number1;
+                        if (typeof response.business_email1 !== "undefined")
+                            document.getElementsByName('business_email1')[0].value = response.business_email1;
+                        if (typeof response.parent2_name !== "undefined")
+                            document.getElementsByName('parent2_name')[0].value = response.parent2_name;
+                        if (typeof response.parent2_street_address !== "undefined")
+                            document.getElementsByName('parent2_street_address')[0].value = response.parent2_street_address;
+                        if (typeof response.parent2_city_address !== "undefined")
+                            document.getElementsByName('parent2_city_address')[0].value = response.parent2_city_address;
+                        if (typeof response.parent2_state_address !== "undefined")
+                            document.getElementsByName('parent2_state_address')[0].value = response.parent2_state_address;
+                        if (typeof response.parent2_zip_address !== "undefined")
+                            document.getElementsByName('parent2_zip_address')[0].value = response.parent2_zip_address;
+                        if (typeof response.home_telephone_number2 !== "undefined")
+                            document.getElementsByName('home_telephone_number2')[0].value = response.home_telephone_number2;
+                        if (typeof response.business2_name !== "undefined")
+                            document.getElementsByName('business2_name')[0].value = response.business2_name;
+                        if (typeof response.work_hours2 !== "undefined")
+                            document.getElementsByName('work_hours2')[0].value = response.work_hours2;
+                        if (typeof response.business_telephone_number2 !== "undefined")
+                            document.getElementsByName('business_telephone_number2')[0].value = response.business_telephone_number2;
+                        if (typeof response.business_street_address2 !== "undefined")
+                            document.getElementsByName('business_street_address2')[0].value = response.business_street_address2;
+                        if (typeof response.business_city_address2 !== "undefined")
+                            document.getElementsByName('business_city_address2')[0].value = response.business_city_address2;
+                        if (typeof response.business_state_address2 !== "undefined")
+                            document.getElementsByName('business_state_address2')[0].value = response.business_state_address2;
+                        if (typeof response.business_zip_address2 !== "undefined")
+                            document.getElementsByName('business_zip_address2')[0].value = response.business_zip_address2;
+                        if (typeof response.business_cell_number2 !== "undefined")
+                            document.getElementsByName('business_cell_number2')[0].value = response.business_cell_number2;
+                        if (typeof response.business_email2 !== "undefined")
+                            document.getElementsByName('business_email2')[0].value = response.business_email2;
+                        if (typeof response.emergency_contact_name1 !== "undefined")
+                            document.getElementsByName('emergency_contact_name1')[0].value = response.emergency_contact_name1;
+                        if (typeof response.emergency_contact_full_address1 !== "undefined")
+                            document.getElementsByName('emergency_contact_full_address1')[0].value = response.emergency_contact_full_address1;
+                        if (typeof response.emergency_contact_relationship1 !== "undefined")
+                            document.getElementsByName('emergency_contact_relationship1')[0].value = response.emergency_contact_relationship1;
+                        if (typeof response.emergency_contact_telephone_number1 !== "undefined")
+                            document.getElementsByName('emergency_contact_telephone_number1')[0].value = response.emergency_contact_telephone_number1;
+                        if (typeof response.child_care_provider_name1 !== "undefined")
+                            document.getElementsByName('child_care_provider_name1')[0].value = response.child_care_provider_name1;
+                        if (typeof response.care_provider_telephone_number1 !== "undefined")
+                            document.getElementsByName('care_provider_telephone_number1')[0].value = response.care_provider_telephone_number1;
+                        if (typeof response.hospital_affiliation1 !== "undefined")
+                            document.getElementsByName('hospital_affiliation1')[0].value = response.hospital_affiliation1;
+                        if (typeof response.emergency_contact_name2 !== "undefined")
+                            document.getElementsByName('emergency_contact_name2')[0].value = response.emergency_contact_name2;
+                        if (typeof response.emergency_contact_full_address2 !== "undefined")
+                            document.getElementsByName('emergency_contact_full_address2')[0].value = response.emergency_contact_full_address2;
+                        if (typeof response.emergency_contact_relationship2 !== "undefined")
+                            document.getElementsByName('emergency_contact_relationship2')[0].value = response.emergency_contact_relationship2;
+                        if (typeof response.emergency_contact_telephone_number2 !== "undefined")
+                            document.getElementsByName('emergency_contact_telephone_number2')[0].value = response.emergency_contact_telephone_number2;
+                        if (typeof response.child_care_provider_name2 !== "undefined")
+                            document.getElementsByName('child_care_provider_name2')[0].value = response.child_care_provider_name2;
+                        if (typeof response.care_provider_telephone_number2 !== "undefined")
+                            document.getElementsByName('care_provider_telephone_number2')[0].value = response.care_provider_telephone_number2;
+                        if (typeof response.hospital_affiliation2 !== "undefined")
+                            document.getElementsByName('hospital_affiliation2')[0].value = response.hospital_affiliation2;
+                        if (typeof response.emergency_contact_name3 !== "undefined")
+                            document.getElementsByName('emergency_contact_name3')[0].value = response.emergency_contact_name3;
+                        if (typeof response.emergency_contact_full_address3 !== "undefined")
+                            document.getElementsByName('emergency_contact_full_address3')[0].value = response.emergency_contact_full_address3;
+                        if (typeof response.emergency_contact_relationship3 !== "undefined")
+                            document.getElementsByName('emergency_contact_relationship3')[0].value = response.emergency_contact_relationship3;
+                        if (typeof response.emergency_contact_telephone_number3 !== "undefined")
+                            document.getElementsByName('emergency_contact_telephone_number3')[0].value = response.emergency_contact_telephone_number3;
+                        if (typeof response.child_care_provider_name3 !== "undefined")
+                            document.getElementsByName('child_care_provider_name3')[0].value = response.child_care_provider_name3;
+                        if (typeof response.care_provider_telephone_number3 !== "undefined")
+                            document.getElementsByName('care_provider_telephone_number3')[0].value = response.care_provider_telephone_number3;
+                        if (typeof response.hospital_affiliation3 !== "undefined")
+                            document.getElementsByName('hospital_affiliation3')[0].value = response.hospital_affiliation3;
+                        if (typeof response.child_care_provider_street_address !== "undefined")
+                            document.getElementsByName('child_care_provider_street_address')[0].value = response.child_care_provider_street_address;
+                        if (typeof response.child_care_provider_city_address !== "undefined")
+                            document.getElementsByName('child_care_provider_city_address')[0].value = response.child_care_provider_city_address;
+                        if (typeof response.child_care_provider_state_address !== "undefined")
+                            document.getElementsByName('child_care_provider_state_address')[0].value = response.child_care_provider_state_address;
+                        if (typeof response.child_care_provider_zip_address !== "undefined")
+                            document.getElementsByName('child_care_provider_zip_address')[0].value = response.child_care_provider_zip_address;
+                        if (typeof response.child_dentist_name !== "undefined")
+                            document.getElementsByName('child_dentist_name')[0].value = response.child_dentist_name;
+                        if (typeof response.dentist_telephone_number !== "undefined")
+                            document.getElementsByName('dentist_telephone_number')[0].value = response.dentist_telephone_number;
+                        if (typeof response.dentist_address !== "undefined")
+                            document.getElementsByName('dentist_address')[0].value = response.dentist_address;
+                        if (typeof response.special_disabilities !== "undefined")
+                            document.getElementsByName('special_disabilities')[0].value = response.special_disabilities;
+                        if (typeof response.allergies_medication_reaction !== "undefined")
+                            document.getElementsByName('allergies_medication_reaction')[0].value = response.allergies_medication_reaction;
+                        if (typeof response.additional_info !== "undefined")
+                            document.getElementsByName('additional_info')[0].value = response.additional_info;
+                        if (typeof response.medication !== "undefined")
+                            document.getElementsByName('medication')[0].value = response.medication;
+                        if (typeof response.health_insurance !== "undefined")
+                            document.getElementsByName('health_insurance')[0].value = response.health_insurance;
+                        if (typeof response.policy_number !== "undefined")
+                            document.getElementsByName('policy_number')[0].value = response.policy_number;
+                        if (typeof response.obtaining_emergency_medical_care !== "undefined")
+                            document.getElementsByName('obtaining_emergency_medical_care')[0].value = response.obtaining_emergency_medical_care;
+                        if (typeof response.administration_first_aid_procedures !== "undefined")
+                            document.getElementsByName('administration_first_aid_procedures')[0].value = response.administration_first_aid_procedures;
+                        if (typeof response.parent_sign !== "undefined")
+                            document.getElementsByName('parent_sign')[0].value = response.parent_sign;
+                        if (typeof response.sign_date !== "undefined")
+                            document.getElementsByName('sign_date')[0].value = response.sign_date;
+                        if (typeof response.Student_id !== "undefined")
+                            document.getElementsByName('Student_id')[0].value = response.Student_id;
+                        // if (typeof response.student_name !== "undefined")
+                        //     document.getElementsByName('student_name')[0].value = response.student_name;
+                        if (typeof response.physical_exam_last_date !== "undefined")
+                            document.getElementsByName('physical_exam_last_date')[0].value = response.physical_exam_last_date;
+                        if (typeof response.dental_exam_last_date !== "undefined")
+                            document.getElementsByName('dental_exam_last_date')[0].value = response.dental_exam_last_date;
+                        if (typeof response.allergies !== "undefined")
+                            document.getElementsByName('allergies')[0].value = response.allergies;
+                        if (typeof response.asthma !== "undefined")
+                            document.getElementsByName('asthma')[0].value = response.asthma;
+                        if (typeof response.bleeding_problems !== "undefined")
+                            document.getElementsByName('bleeding_problems')[0].value = response.bleeding_problems;
+                        if (typeof response.diabetes !== "undefined")
+                            document.getElementsByName('diabetes')[0].value = response.diabetes;
+                        if (typeof response.epilepsy !== "undefined")
+                            document.getElementsByName('epilepsy')[0].value = response.epilepsy;
+                        if (typeof response.frequent_ear_infections !== "undefined")
+                            document.getElementsByName('frequent_ear_infections')[0].value = response.frequent_ear_infections;
+                        if (typeof response.frequent_illnesses !== "undefined")
+                            document.getElementsByName('frequent_illnesses')[0].value = response.frequent_illnesses;
+                        if (typeof response.hearing_problems !== "undefined")
+                            document.getElementsByName('hearing_problems')[0].value = response.hearing_problems;
+                        if (typeof response.high_fevers !== "undefined")
+                            document.getElementsByName('high_fevers')[0].value = response.high_fevers;
+                        if (typeof response.hospitalization !== "undefined")
+                            document.getElementsByName('hospitalization')[0].value = response.hospitalization;
+                        if (typeof response.rheumatic_fever !== "undefined")
+                            document.getElementsByName('rheumatic_fever')[0].value = response.rheumatic_fever;
+                        if (typeof response.seizures_convulsions !== "undefined")
+                            document.getElementsByName('seizures_convulsions')[0].value = response.seizures_convulsions;
+                        if (typeof response.serious_injuries_accidents !== "undefined")
+                            document.getElementsByName('serious_injuries_accidents')[0].value = response.serious_injuries_accidents;
+                        if (typeof response.surgeries !== "undefined")
+                            document.getElementsByName('surgeries')[0].value = response.surgeries;
+                        if (typeof response.vision_problems !== "undefined")
+                            document.getElementsByName('vision_problems')[0].value = response.vision_problems;
+                        if (typeof response.medical_other !== "undefined")
+                            document.getElementsByName('medical_other')[0].value = response.medical_other;
+                        if (typeof response.illness_during_pregnancy !== "undefined")
+                            document.getElementsByName('illness_during_pregnancy')[0].value = response.illness_during_pregnancy;
+                        if (typeof response.condition_of_newborn !== "undefined")
+                            document.getElementsByName('condition_of_newborn')[0].value = response.condition_of_newborn;
+                        if (typeof response.duration_of_pregnancy !== "undefined")
+                            document.getElementsByName('duration_of_pregnancy')[0].value = response.duration_of_pregnancy;
+                        if (typeof response.birth_weight_lbs !== "undefined")
+                            document.getElementsByName('birth_weight_lbs')[0].value = response.birth_weight_lbs;
+                        if (typeof response.birth_weight_oz !== "undefined")
+                            document.getElementsByName('birth_weight_oz')[0].value = response.birth_weight_oz;
+                        if (typeof response.complications !== "undefined")
+                            document.getElementsByName('complications')[0].value = response.complications;
+                        if (typeof response.bottle_fed !== "undefined")
+                            document.getElementsByName('bottle_fed')[0].value = response.bottle_fed;
+                        if (typeof response.breast_fed !== "undefined")
+                            document.getElementsByName('breast_fed')[0].value = response.breast_fed;
+                        if (typeof response.other_siblings_name !== "undefined")
+                            document.getElementsByName('other_siblings_name')[0].value = response.other_siblings_name;
+                        if (typeof response.other_siblings_age !== "undefined")
+                            document.getElementsByName('other_siblings_age')[0].value = response.other_siblings_age;
+                        if (typeof response.family_history_allergies !== "undefined")
+                            document.getElementsByName('family_history_allergies')[0].value = response.family_history_allergies;
+                        if (typeof response.family_history_heart_problems !== "undefined")
+                            document.getElementsByName('family_history_heart_problems')[0].value = response.family_history_heart_problems;
+                        if (typeof response.family_history_tuberculosis !== "undefined")
+                            document.getElementsByName('family_history_tuberculosis')[0].value = response.family_history_tuberculosis;
+                        if (typeof response.family_history_asthma !== "undefined")
+                            document.getElementsByName('family_history_asthma')[0].value = response.family_history_asthma;
+                        if (typeof response.family_history_high_blood_pressure !== "undefined")
+                            document.getElementsByName('family_history_high_blood_pressure')[0].value = response.family_history_high_blood_pressure;
+                        if (typeof response.family_history_vision_problems !== "undefined")
+                            document.getElementsByName('family_history_vision_problems')[0].value = response.family_history_vision_problems;
+                        if (typeof response.family_history_diabetes !== "undefined")
+                            document.getElementsByName('family_history_diabetes')[0].value = response.family_history_diabetes;
+                        if (typeof response.family_history_hyperactivity !== "undefined")
+                            document.getElementsByName('family_history_hyperactivity')[0].value = response.family_history_hyperactivity;
+                        if (typeof response.family_history_epilepsy !== "undefined")
+                            document.getElementsByName('family_history_epilepsy')[0].value = response.family_history_epilepsy;
+                        if (typeof response.age_group_friends !== "undefined")
+                            document.getElementsByName('age_group_friends')[0].value = response.age_group_friends;
+                        if (typeof response.neighborhood_friends !== "undefined")
+                            document.getElementsByName('neighborhood_friends')[0].value = response.neighborhood_friends;
+                        if (typeof response.relationship_with_mother !== "undefined")
+                            document.getElementsByName('relationship_with_mother')[0].value = response.relationship_with_mother;
+                        if (typeof response.relationship_with_father !== "undefined")
+                            document.getElementsByName('relationship_with_father')[0].value = response.relationship_with_father;
+                        if (typeof response.relationship_with_siblings !== "undefined")
+                            document.getElementsByName('relationship_with_siblings')[0].value = response.relationship_with_siblings;
+                        if (typeof response.relationship_with_extended_family !== "undefined")
+                            document.getElementsByName('relationship_with_extended_family')[0].value = response.relationship_with_extended_family;
+                        if (typeof response.fears_conflicts !== "undefined")
+                            document.getElementsByName('fears_conflicts')[0].value = response.fears_conflicts;
+                        if (typeof response.child_response_frustration !== "undefined")
+                            document.getElementsByName('child_response_frustration')[0].value = response.child_response_frustration;
+                        if (typeof response.favorite_activities !== "undefined")
+                            document.getElementsByName('favorite_activities')[0].value = response.favorite_activities;
+                        if (typeof response.last_five_years_moved !== "undefined")
+                            document.getElementsByName('last_five_years_moved')[0].value = response.last_five_years_moved;
+                        if (typeof response.things_used_at_home !== "undefined")
+                            document.getElementsByName('things_used_at_home')[0].value = response.things_used_at_home;
+                        if (typeof response.hours_of_television_daily !== "undefined")
+                            document.getElementsByName('hours_of_television_daily')[0].value = response.hours_of_television_daily;
+                        if (typeof response.language_used_at_home !== "undefined")
+                            document.getElementsByName('language_used_at_home')[0].value = response.language_used_at_home;
+                        if (typeof response.changes_at_home_situation !== "undefined")
+                            document.getElementsByName('changes_at_home_situation')[0].value = response.changes_at_home_situation;
+                        if (typeof response.educational_expectations_of_child !== "undefined")
+                            document.getElementsByName('educational_expectations_of_child')[0].value = response.educational_expectations_of_child;
+                        if (typeof response.family_history_parent_sign !== "undefined")
+                            document.getElementsByName('family_history_parent_sign')[0].value = response.family_history_parent_sign;
+                        if (typeof response.family_history_parent_sign_date !== "undefined")
+                            document.getElementsByName('family_history_parent_sign_date')[0].value = response.family_history_parent_sign_date;
+
+
+                        // if (typeof response.child_profile_name !== "undefined")
+                        //     document.getElementsByName('child_profile_name')[0].value = response.child_profile_name;
+                        if (typeof response.child_nick_name !== "undefined")
+                            document.getElementsByName('child_nick_name')[0].value = response.child_nick_name;
+                        if (typeof response.other_important_family_members !== "undefined")
+                            document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
+                        if (typeof response.about_family_celebrations !== "undefined")
+                            document.getElementsByName('about_family_celebrations')[0].value = response.about_family_celebrations;
+
+                        if(response.childcare_before == "Yes" ){
+                            document.getElementById('childcare_before1').checked = true;
+                            // document.getElementsByName('reason_for_childcare_before')[0].style.display = "block";
+                        }else{
+                            document.getElementById('childcare_before2').checked = true;
+                            // document.getElementsByName('reason_for_childcare_before')[0].style.display = "none";
+                        }
+                        if (typeof response.reason_for_childcare_before !== "undefined")
+                            document.getElementsByName('reason_for_childcare_before')[0].value = response.reason_for_childcare_before;
+                        if (typeof response.what_child_interests !== "undefined")
+                            document.getElementsByName('what_child_interests')[0].value = response.what_child_interests;
+                        if (typeof response.drop_off_time !== "undefined")
+                            document.getElementsByName('drop_off_time')[0].value = response.drop_off_time;
+                        if (typeof response.pick_up_time !== "undefined")
+                            document.getElementsByName('pick_up_time')[0].value = response.pick_up_time;
+
+                        if(response.restricted_diet == "Yes" ){
+                            document.getElementById('restricted_diet1').checked = true;
+                            document.getElementById('restricted_diet_reason_div').style.display = "block";
+                        }else{
+                            document.getElementById('restricted_diet2').checked = true;
+                            document.getElementById('restricted_diet_reason_div').style.display = "none";
+                        }
+                           
+                        if (typeof response.restricted_diet_reason !== "undefined")
+                            document.getElementsByName('restricted_diet_reason')[0].value = response.restricted_diet_reason;
+
+                        if(response.eat_own == "Yes" ){
+                            document.getElementById('eat_own1').checked = true;
+                            document.getElementById('eat_own_reason_div').style.display = "block";
+                        }else{
+                            document.getElementById('eat_own2').checked = true;
+                            document.getElementById('eat_own_reason_div').style.display = "none";
+                        }
+
+                        if (typeof response.eat_own_reason !== "undefined")
+                            document.getElementsByName('eat_own_reason')[0].value = response.eat_own_reason;
+                        if (typeof response.favorite_foods !== "undefined")
+                            document.getElementsByName('favorite_foods')[0].value = response.favorite_foods;
+                        
+                        if(response.rest_in_the_middle_day == "Yes" ){
+                            document.getElementById('rest_in_the_middle_day1').checked = true;
+                            document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "block";
+                        }else{
+                            document.getElementById('rest_in_the_middle_day2').checked = true;
+                            document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "none";
+                        }
+
+                        if (typeof response.reason_for_rest_in_the_middle_day !== "undefined")
+                            document.getElementsByName('reason_for_rest_in_the_middle_day')[0].value = response.reason_for_rest_in_the_middle_day;
+                        if (typeof response.rest_routine !== "undefined")
+                            document.getElementsByName('rest_routine')[0].value = response.rest_routine;
+
+                        if(response.toilet_trained == "Yes" ){
+                            document.getElementById('toilet_trained1').checked = true;
+                            document.getElementById('reason_for_toilet_trained_div').style.display = "block";
+                        }else{
+                            document.getElementById('toilet_trained2').checked = true;
+                            document.getElementById('reason_for_toilet_trained_div').style.display = "none";
+                        }
+                        if (typeof response.reason_for_toilet_trained !== "undefined")
+                            document.getElementsByName('reason_for_toilet_trained')[0].value = response.reason_for_toilet_trained;
+
+                        if(response.existing_illness_allergy == "Yes" ){
+                            document.getElementById('existing_illness_allergy1').checked = true;
+                            document.getElementById('explain_for_existing_illness_allergy_div').style.display = "block";
+                        }else{
+                            document.getElementById('existing_illness_allergy2').checked = true;
+                            document.getElementById('explain_for_existing_illness_allergy_div').style.display = "none";
+                        }
+
+                        if (typeof response.explain_for_existing_illness_allergy !== "undefined")
+                            document.getElementsByName('explain_for_existing_illness_allergy')[0].value = response.explain_for_existing_illness_allergy;
+
+                            if(response.functioning_at_age == "Yes" ){
+                            document.getElementById('functioning_at_age1').checked = true;
+                            document.getElementById('explain_for_functioning_at_age_div').style.display = "block";
+                        }else{
+                            document.getElementById('functioning_at_age2').checked = true;
+                            document.getElementById('explain_for_functioning_at_age_div').style.display = "none";
+                        }
+
+                        if (typeof response.explain_for_functioning_at_age !== "undefined")
+                            document.getElementsByName('explain_for_functioning_at_age')[0].value = response.explain_for_functioning_at_age;
+
+                        if(response.able_to_walk == "Yes" ){
+                            document.getElementById('able_to_walk1').checked = true;
+                            document.getElementById('explain_for_able_to_walk_div').style.display = "block";
+                        }else{
+                            document.getElementById('able_to_walk2').checked = true;
+                            document.getElementById('explain_for_able_to_walk_div').style.display = "none";
+                        }
+
+                        if (typeof response.explain_for_able_to_walk !== "undefined")
+                            document.getElementsByName('explain_for_able_to_walk')[0].value = response.explain_for_able_to_walk;
+
+                        if(response.communicate_their_needs == "Yes" ){
+                            document.getElementById('communicate_their_needs1').checked = true;
+                            document.getElementById('explain_for_communicate_their_needs_div').style.display = "block";
+                        }else{
+                            document.getElementById('communicate_their_needs2').checked = true;
+                            document.getElementById('explain_for_communicate_their_needs_div').style.display = "none";
+                        }
+
+                        if (typeof response.explain_for_communicate_their_needs !== "undefined")
+                            document.getElementsByName('explain_for_communicate_their_needs')[0].value = response.explain_for_communicate_their_needs;
+
+                        if(response.any_medication == "Yes" ){
+                            document.getElementById('any_medication1').checked = true;
+                            document.getElementById('explain_for_any_medication_div').style.display = "block";
+                        }else{
+                            document.getElementById('any_medication2').checked = true;
+                            document.getElementById('explain_for_any_medication_div').style.display = "none";
+                        }
+
+                        if (typeof response.explain_for_any_medication !== "undefined")
+                            document.getElementsByName('explain_for_any_medication')[0].value = response.explain_for_any_medication;
+
+                        if(response.utilize_special_equipment == "Yes" ){
+                            document.getElementById('utilize_special_equipment1').checked = true;
+                            document.getElementById('explain_for_utilize_special_equipment_div').style.display = "block";
+                        }else{
+                            document.getElementById('utilize_special_equipment2').checked = true;
+                            document.getElementById('explain_for_utilize_special_equipment_div').style.display = "none";
+                        }
+
+                        if (typeof response.explain_for_utilize_special_equipment !== "undefined")
+                            document.getElementsByName('explain_for_utilize_special_equipment')[0].value = response.explain_for_utilize_special_equipment;
+                            
+                        if(response.significant_periods == "Yes" ){
+                            document.getElementById('significant_periods1').checked = true;
+                            document.getElementById('explain_for_significant_periods_div').style.display = "block";
+                        }else{
+                            document.getElementById('significant_periods2').checked = true;
+                            document.getElementById('explain_for_significant_periods_div').style.display = "none";
+                        }
+                        if (typeof response.explain_for_significant_periods !== "undefined")
+                            document.getElementsByName('explain_for_significant_periods')[0].value = response.explain_for_significant_periods;
+
+                        if(response.desire_any_accommodations == "Yes" ){
+                            document.getElementById('desire_any_accommodations1').checked = true;
+                            document.getElementById('explain_for_desire_any_accommodations_div').style.display = "block";
+                        }else{
+                            document.getElementById('desire_any_accommodations2').checked = true;
+                            document.getElementById('explain_for_desire_any_accommodations_div').style.display = "none";
+                        }
+                        if (typeof response.explain_for_desire_any_accommodations !== "undefined")
+                            document.getElementsByName('explain_for_desire_any_accommodations')[0].value = response.explain_for_desire_any_accommodations;
+                        if (typeof response.additional_information !== "undefined")
+                            document.getElementsByName('additional_information')[0].value = response.additional_information;
+                        if (typeof response.child_profile_parent_sign !== "undefined")
+                            document.getElementsByName('child_profile_parent_sign')[0].value = response.child_profile_parent_sign;
+                        if (typeof response.child_profile_parent_sign_date !== "undefined")
+                            document.getElementsByName('child_profile_parent_sign_date')[0].value = response.child_profile_parent_sign_date;
+                        
+                        
+                        // if (typeof response.emergency_info_child_name !== "undefined")
+                        // document.getElementsByName('emergency_info_child_name')[0].value = response.emergency_info_child_name;
+                        if (typeof response.child_password !== "undefined")
+                            document.getElementsByName('child_password')[0].value = response.child_password;
+                        if (typeof response.password_parent_sign !== "undefined")
+                            document.getElementsByName('password_parent_sign')[0].value = response.password_parent_sign;
+                        if (typeof response.password_parent_date !== "undefined")
+                            document.getElementsByName('password_parent_date')[0].value = response.password_parent_date;
+                        // if (typeof response.permission_child_name !== "undefined")
+                        //     document.getElementsByName('permission_child_name')[0].value = response.permission_child_name;
+                        if (typeof response.photo_usage !== "undefined")
+                            document.getElementsByName('photo_usage')[0].value = response.photo_usage;
+                        if (typeof response.photo_permission_agree !== "undefined")
+                            document.getElementsByName('photo_permission_agree')[0].value = response.photo_permission_agree;
+                        if (typeof response.photo_parent_sign !== "undefined")
+                            document.getElementsByName('photo_parent_sign')[0].value = response.photo_parent_sign;
+                        if (typeof response.photo_parent_date !== "undefined")
+                            document.getElementsByName('photo_parent_date')[0].value = response.photo_parent_date;
+                        // if (typeof response.security_release_child_name !== "undefined")
+                        //     document.getElementsByName('security_release_child_name')[0].value = response.security_release_child_name;
+                        if (typeof response.security_release_parent_sign !== "undefined")
+                            document.getElementsByName('security_release_parent_sign')[0].value = response.security_release_parent_sign;
+                        if (typeof response.security_release_parent_date !== "undefined")
+                            document.getElementsByName('security_release_parent_date')[0].value = response.security_release_parent_date;
+                        if (typeof response.policy_parent_sign !== "undefined")
+                            document.getElementsByName('policy_parent_sign')[0].value = response.policy_parent_sign;
+                        if (typeof response.policy_parent_date !== "undefined")
+                            document.getElementsByName('policy_parent_date')[0].value = response.policy_parent_date;
+                        if (typeof response.contact_emergency_medical_technicians !== "undefined")
+                            document.getElementsByName('contact_emergency_medical_technicians')[0].value = response.contact_emergency_medical_technicians;
+                        if (typeof response.medical_parent_sign !== "undefined")
+                            document.getElementsByName('medical_parent_sign')[0].value = response.medical_parent_sign;
+                        if (typeof response.medical_parent_date !== "undefined")
+                            document.getElementsByName('medical_parent_date')[0].value = response.medical_parent_date;
+                        if (typeof response.health_policy_parent_sign !== "undefined")
+                            document.getElementsByName('health_policy_parent_sign')[0].value = response.health_policy_parent_sign;
+                        if (typeof response.health_policy_parent_date !== "undefined")
+                            document.getElementsByName('health_policy_parent_date')[0].value = response.health_policy_parent_date;
+                        if (typeof response.outside_waiver_parent_sign !== "undefined")
+                            document.getElementsByName('outside_waiver_parent_sign')[0].value = response.outside_waiver_parent_sign;
+                        if (typeof response.outside_waiver_parent_date !== "undefined")
+                            document.getElementsByName('outside_waiver_parent_date')[0].value = response.outside_waiver_parent_date;
+                    }
+                });
+            }
+        </script>
     </body>
 </html>

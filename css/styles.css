@@ -38,11 +38,15 @@ h1 {
 
 button {
   padding: 10px 20px;
-  background-color: #337ab7;
+  background-color: #0F2D52;
   color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.6;
 }
 
 ol {
@@ -75,8 +79,7 @@ span {
 }
 
 .spinner {
-  border: 16px solid #f3f3f3; 
-  border-top: 16px solid #3498db;
+  border: 10px dotted #0F2D52;
   border-radius: 50%;
   width: 120px;
   height: 120px;
@@ -84,7 +87,7 @@ span {
   display: none; 
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 44%;
   transform: translate(-50%, -50%);
 }
 
@@ -119,7 +122,7 @@ span {
 /* this used to display border in form */
 .overallblock{
   padding: 2% !important;
-  border: 3px dashed  black;
+  border: 3px solid  #0F2D52;
   margin: 2%;
  }
 

@@ -49,6 +49,7 @@ function saveform() {
     if (child_id_val !== null && child_id_val !== undefined) {
         obj.child_id = child_id_val;
     } 
+    console.log(JSON.stringify(obj));
     // const json=  JSON.stringify(obj);
     $.ajax({
         url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",

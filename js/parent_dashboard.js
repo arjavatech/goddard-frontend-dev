@@ -1,12 +1,9 @@
 function parentDashBoardDetails(val) {
-    console.log(val);
     localStorage.setItem('form_year_value',val);
-    console.log(localStorage.getItem('form_year_value'));
     $.ajax({
         url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/dashboard_data/fetch/${val}`,
         type: 'get',
         success: function(response){
-            console.log(response);
             if(typeof response.child_name !='undefined'){
                 // localStorage.setItem('child_name', response[0].child_full_name)
                 document.querySelector('[name="child_name"]').innerHTML = localStorage.getItem('child_name');

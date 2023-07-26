@@ -151,7 +151,7 @@
             <div id="spinner" class="spinner"></div>
             <form id="enrollment_from">
                 <ol>
-                    <span id="apiResponsep1" name="apiResponsep1"></span><br>
+                    <span id="apiResponsep1" name="apiResponsep1"></span><br><br>
                     <span id="initial" name="initial"><b>Initial here &nbsp;</b>
                         <input id="point_two_initial_here" name="point_two_initial_here" type="text"
                             class="initialStyle ">
@@ -185,7 +185,7 @@
                     <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_eight_initial_here" name="point_eight_initial_here" type="text"
                             class="initialStyle">
-                    </span>
+                    </span><br><br><br><br><br><br><br><br><br>
                     <span id="apiResponsep8" name="apiResponsep8"></span><br>
                     <div class="row">
                         <div class="col-sm-6 ">
@@ -320,7 +320,7 @@
                     <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_fifteen_initial_here" name="point_fifteen_initial_here" type="text"
                             class="initialStyle">
-                    </span>
+                    </span><br><br><br><br><br><br>
                     <span id="apiResponsep15" name="apiResponsep15"></span><br><br>
                     <span id="initial"><b>Initial here &nbsp;</b>
                         <input id="point_sixteen_initial_here" name="point_sixteen_initial_here" type="text"
@@ -414,8 +414,8 @@
                             </div>
                         </div>
                     </div><br><br>
-                    <button id="saveBtn" type="submit">Save</button>
-                    <button id="clearBtn">Clear</button>
+                    <!-- <button id="saveBtn" type="submit">Save</button>
+                    <button id="clearBtn">Clear</button> -->
                 </div><br><br>
             </form>
         </div>
@@ -423,8 +423,6 @@
 
     <script>
         var link = document.querySelector('a[data-dynamic-value]');
-        // var year = document.querySelector('form_year');
-        // console.log(year);
         var dynamicValue = localStorage.getItem('child_id');
         link.href = `form.html?id=${dynamicValue}`;
     </script>

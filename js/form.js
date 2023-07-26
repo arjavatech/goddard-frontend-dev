@@ -10,7 +10,6 @@ function submitForm() {
     formData.append('point_one_field_three', textBoxValue3);
     const obj = Object.fromEntries(formData);
     let defaultdate = new Date().getFullYear();
-    console.log(obj);
     obj.child_id = localStorage.getItem('child_id');
     obj.year = defaultdate;
     const json = JSON.stringify(obj);

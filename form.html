@@ -10,6 +10,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
         <script type="module" src='js/enrollmentForm.js' ></script>
         <script src='js/form.js' ></script>
+        <script type="module" src='js/timeout.js'></script>
     </head>
     <body>
         <div class="container overallblock" >
@@ -212,74 +213,75 @@
                 </ol>
                 <div class="container signblock">
                     <div class="col-sm-12">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col-sm-6 div1">
-                                <div class="form-group ">
-                                    <input id="parent_one_sign" name="parent_one_sign"
-                                    type="text" class="form-control bloc1">
-                                    <span id="apiResponsep20" name="apiResponsep20"></span>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-6 div1">
+                                    <div class="form-group ">
+                                        <input id="parent_one_sign" name="parent_one_sign"
+                                        type="text" class="form-control bloc1">
+                                        <span id="apiResponsep20" name="apiResponsep20"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 div2">
+                                    <div class="form-group ">
+                                        <input id="parent_one_sign_date" name="parent_one_sign_date"
+                                        type="date" class="form-control bloc1" onclick="dateValidation('parent_one_sign_date')">
+                                        <span id="apiResponsep21" name="apiResponsep21" ></span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 div2">
-                                <div class="form-group ">
-                                    <input id="parent_one_sign_date" name="parent_one_sign_date"
-                                    type="date" class="form-control bloc1" onclick="dateValidation('parent_one_sign_date')">
-                                    <span id="apiResponsep21" name="apiResponsep21" ></span>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-6 div1">
+                                    <div class="form-group ">
+                                        <input id="parent_two_sign" name="parent_two_sign"
+                                        type="text" class="form-control bloc1">
+                                        <span id="apiResponsep22" name="apiResponsep22"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 div2">
+                                    <div class="form-group ">
+                                        <input id="parent_two_sign_date" name="parent_two_sign_date"
+                                        type="date" class="form-control bloc1" onclick="dateValidation('parent_two_sign_date')">
+                                        <span id="apiResponsep23" name="apiResponsep23" ></span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col-sm-6 div1">
-                                <div class="form-group ">
-                                    <input id="parent_two_sign" name="parent_two_sign"
-                                    type="text" class="form-control bloc1">
-                                    <span id="apiResponsep22" name="apiResponsep22"></span>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-6 div1">
+                                    <div class="form-group ">
+                                        <input id="child_name" name="child_name"
+                                        type="text" class="form-control bloc1">
+                                        <span id="apiResponsep24" name="apiResponsep24"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 div3">
+                                    <div class="form-group ">
+                                        <input id="dob" name="dob"
+                                        type="date" class="form-control bloc1" name="apiResponsep25" >
+                                        <span id="apiResponsep25" name="apiResponsep25"></span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 div2">
-                                <div class="form-group ">
-                                    <input id="parent_two_sign_date" name="parent_two_sign_date"
-                                    type="date" class="form-control bloc1" onclick="dateValidation('parent_two_sign_date')">
-                                    <span id="apiResponsep23" name="apiResponsep23" ></span>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-6 div1">
+                                    <div class="form-group ">
+                                        <input id="school_admin_sign" name="school_admin_sign"
+                                        type="text" class="form-control bloc1">
+                                        <span id="apiResponsep26" name="apiResponsep26"></span>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col-sm-6 div1">
-                                <div class="form-group ">
-                                    <input id="child_name" name="child_name"
-                                    type="text" class="form-control bloc1">
-                                    <span id="apiResponsep24" name="apiResponsep24"></span>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 div3">
-                                <div class="form-group ">
-                                    <input id="dob" name="dob"
-                                    type="date" class="form-control bloc1" name="apiResponsep25" >
-                                    <span id="apiResponsep25" name="apiResponsep25"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div><br>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="col-sm-6 div1">
-                                <div class="form-group ">
-                                    <input id="school_admin_sign" name="school_admin_sign"
-                                    type="text" class="form-control bloc1">
-                                    <span id="apiResponsep26" name="apiResponsep26"></span>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 div4">
-                                <div class="form-group ">
-                                    <input id="school_admin_sign_date" name="school_admin_sign_date"
-                                    type="date" class="form-control bloc1"  onclick="dateValidation('school_admin_sign_date')">
-                                    <span id="apiResponsep27" name="apiResponsep27"></span>
+                                <div class="col-sm-6 div4">
+                                    <div class="form-group ">
+                                        <input id="school_admin_sign_date" name="school_admin_sign_date"
+                                        type="date" class="form-control bloc1"  onclick="dateValidation('school_admin_sign_date')">
+                                        <span id="apiResponsep27" name="apiResponsep27"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

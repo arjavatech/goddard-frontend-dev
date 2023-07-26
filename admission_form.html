@@ -15,6 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script type="module" src="js/admission_form.js"></script>
         <script src="js/admission_form_validation.js"></script>
+        <script type="module" src='js/timeout.js'></script>
     </head>
     <body>
         <!-- Navigation Bar -->
@@ -193,13 +194,16 @@
                                                     <div class="form-group">
                                                         <p><b>GENDER<span style="color:#ff0000;">*</span></b></p>
                                                         <div class="wizard-form-radio">
-                                                            <input name="gender" id="gender1" value="Male" type="radio">
+                                                            <input name="gender" id="gender1" value="Male" type="radio" checked>
                                                             <label for="gender1">Male</label>
                                                         </div>
                                                         <div class="wizard-form-radio">
-                                                            <input name="gender" id="gender2" type="radio" value="Female"
-                                                                checked>
+                                                            <input name="gender" id="gender2" type="radio" value="Female">
                                                             <label for="gender2">Female</label>
+                                                        </div>
+                                                        <div class="wizard-form-radio">
+                                                            <input name="gender" id="gender3" type="radio" value="Others">
+                                                            <label for="gender3">Others</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -444,9 +448,9 @@
                                             <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <input type="checkbox" class="input-checkbox" id="additional_parent_add"
-                                                        name="additional_parent_add" onclick="checkbox()">
-                                                        <label class="form-check-label" for="additional_parent_add"><span>
+                                                        <input type="checkbox" class="input-checkbox" id="additional_parent_details"
+                                                        name="additional_parent_details" onclick="checkbox()">
+                                                        <label class="form-check-label" for="additional_parent_details"><span>
                                                             <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                             </svg></span>
@@ -757,12 +761,12 @@
                                                 <div class="row m-3">
                                                     <div class="col-sm">
                                                         <div class="form-group">
-                                                            <label for="additional_emergency_release" class="form-label"><b>How many details do you want to add additional?
+                                                            <label for="number_of_emergency_contact" class="form-label"><b>How many details do you want to add additional?
                                                                 <!-- <span style="color:#ff0000;">*</span> -->
                                                             </b></label>
-                                                            <input name="additional_emergency_release" type="text" class="form-control" id="additional_emergency_release" 
-                                                            onchange="appendvalidation(this.value,'ErrorSpannoofsiblings');">
-                                                            <span id="ErrorSpannoofsiblings" style="color:red; display:none">
+                                                            <input name="number_of_emergency_contact" type="text" class="form-control" id="number_of_emergency_contact" 
+                                                            onchange="appendvalidation(this.value,'number_of_emergency_contact_span');">
+                                                            <span id="number_of_emergency_contact_span" style="color:red; display:none">
                                                                 Enter positive value within 2.</span>  
                                                                 <!-- <div class="wizard-form-error"></div> -->
                                                         </div>
@@ -1057,7 +1061,7 @@
                                                         <label for="allergies_medication_reaction" class="form-label">ALLERGIES (INCLUDING MEDICATION REACTION)
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="number" class="form-control wizard-required" id="allergies_medication_reaction" name="allergies_medication_reaction">
+                                                        <input type="text" class="form-control wizard-required" id="allergies_medication_reaction" name="allergies_medication_reaction">
                                                         <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
@@ -3229,15 +3233,13 @@
                        console.log(response);
                         if (typeof response.adhaar_number !== "undefined")
                             document.getElementsByName('adhaar_number')[0].value = response.adhaar_number;
-
-                            console.log(response.child_full_name);
                         if (typeof response.child_full_name !== "undefined"){
                             document.getElementsByName('child_full_name')[0].value = response.child_full_name;
-                            document.getElementsByName('student_name')[0].value = response.student_name;
-                            document.getElementsByName('child_profile_name')[0].value = response.student_name;
-                            document.getElementsByName('emergency_info_child_name')[0].value = response.student_name;
-                            document.getElementsByName('permission_child_name')[0].value = response.student_name;
-                            document.getElementsByName('security_release_child_name')[0].value = response.student_name;
+                            document.getElementsByName('student_name')[0].value = response.child_full_name;
+                            document.getElementsByName('child_profile_name')[0].value = response.child_full_name;
+                            document.getElementsByName('emergency_info_child_name')[0].value = response.child_full_name;
+                            document.getElementsByName('permission_child_name')[0].value = response.child_full_name;
+                            document.getElementsByName('security_release_child_name')[0].value = response.child_full_name;
                         }
                            
                         if (typeof response.nick_name !== "undefined")
@@ -3256,8 +3258,18 @@
                             document.getElementsByName('primary_language')[0].value = response.primary_language;
                         if (typeof response.school_age_child_school !== "undefined")
                             document.getElementsByName('school_age_child_school')[0].value = response.school_age_child_school;
-                        if (typeof response.do_relevant_custody_papers_apply !== "undefined")
-                            document.getElementsByName('do_relevant_custody_papers_apply')[0].value = response.do_relevant_custody_papers_apply;
+                        if(response.do_relevant_custody_papers_apply === "Yes" ){
+                            document.getElementById('do_relevant_custody_papers_apply1').checked = true;
+                        }else{
+                            document.getElementById('do_relevant_custody_papers_apply2').checked = true;
+                        }
+                        if(response.gender == "Male" ){
+                            document.getElementById('gender1').checked = true;
+                        }else if(response.gender == "Female"){
+                            document.getElementById('gender2').checked = true;
+                        }else{
+                            document.getElementById('gender3').checked = true;
+                        }
                         if (typeof response.gender !== "undefined")
                             document.getElementsByName('gender')[0].value = response.gender;
                         if (typeof response.parent1_name !== "undefined")
@@ -3320,6 +3332,14 @@
                             document.getElementsByName('business_cell_number2')[0].value = response.business_cell_number2;
                         if (typeof response.business_email2 !== "undefined")
                             document.getElementsByName('business_email2')[0].value = response.business_email2;
+                        if(response.additional_parent_details == "on" ){
+                            document.getElementById('additional_parent_details').checked = true;
+                            document.getElementById("additional_parent_info").style.display = "block";
+                        }else{
+                            document.getElementById('additional_parent_details').checked = false;
+                            document.getElementById("additional_parent_info").style.display = "none";
+                        }
+
                         if (typeof response.emergency_contact_name1 !== "undefined")
                             document.getElementsByName('emergency_contact_name1')[0].value = response.emergency_contact_name1;
                         if (typeof response.emergency_contact_full_address1 !== "undefined")
@@ -3328,6 +3348,21 @@
                             document.getElementsByName('emergency_contact_relationship1')[0].value = response.emergency_contact_relationship1;
                         if (typeof response.emergency_contact_telephone_number1 !== "undefined")
                             document.getElementsByName('emergency_contact_telephone_number1')[0].value = response.emergency_contact_telephone_number1;
+                        if (typeof response.number_of_emergency_contact !== "undefined"){
+                            document.getElementsByName('number_of_emergency_contact')[0].value = response.number_of_emergency_contact;
+                            if(response.number_of_emergency_contact == 2){
+                                document.getElementById("additional_emegengy_release1").style.display = "block";
+                                document.getElementById("additional_emegengy_release2").style.display = "block";
+                            }else if(response.number_of_emergency_contact == 1){
+                                document.getElementById("additional_emegengy_release1").style.display = "block";
+                                document.getElementById("additional_emegengy_release2").style.display = "none";
+                            }else{
+                                document.getElementById("additional_emegengy_release1").style.display = "none";
+                                document.getElementById("additional_emegengy_release2").style.display = "none";
+                            }
+                        }
+                        
+                            
                         if (typeof response.child_care_provider_name1 !== "undefined")
                             document.getElementsByName('child_care_provider_name1')[0].value = response.child_care_provider_name1;
                         if (typeof response.care_provider_telephone_number1 !== "undefined")
@@ -3456,24 +3491,52 @@
                             document.getElementsByName('other_siblings_name')[0].value = response.other_siblings_name;
                         if (typeof response.other_siblings_age !== "undefined")
                             document.getElementsByName('other_siblings_age')[0].value = response.other_siblings_age;
-                        if (typeof response.family_history_allergies !== "undefined")
-                            document.getElementsByName('family_history_allergies')[0].value = response.family_history_allergies;
-                        if (typeof response.family_history_heart_problems !== "undefined")
-                            document.getElementsByName('family_history_heart_problems')[0].value = response.family_history_heart_problems;
-                        if (typeof response.family_history_tuberculosis !== "undefined")
-                            document.getElementsByName('family_history_tuberculosis')[0].value = response.family_history_tuberculosis;
-                        if (typeof response.family_history_asthma !== "undefined")
-                            document.getElementsByName('family_history_asthma')[0].value = response.family_history_asthma;
-                        if (typeof response.family_history_high_blood_pressure !== "undefined")
-                            document.getElementsByName('family_history_high_blood_pressure')[0].value = response.family_history_high_blood_pressure;
-                        if (typeof response.family_history_vision_problems !== "undefined")
-                            document.getElementsByName('family_history_vision_problems')[0].value = response.family_history_vision_problems;
-                        if (typeof response.family_history_diabetes !== "undefined")
-                            document.getElementsByName('family_history_diabetes')[0].value = response.family_history_diabetes;
-                        if (typeof response.family_history_hyperactivity !== "undefined")
-                            document.getElementsByName('family_history_hyperactivity')[0].value = response.family_history_hyperactivity;
-                        if (typeof response.family_history_epilepsy !== "undefined")
-                            document.getElementsByName('family_history_epilepsy')[0].value = response.family_history_epilepsy;
+                       
+                        if( response.family_history_allergies == "on" ){
+                            document.getElementById('family_history_allergies').checked = true;
+                        }else{
+                            document.getElementById('family_history_allergies').checked = false;
+                        }
+                        if ( response.family_history_heart_problems == "on"){
+                            document.getElementById('family_history_heart_problems').checked = true;
+                        }else{
+                            document.getElementById('family_history_heart_problems').checked = false;
+                        }
+                        if ( response.family_history_tuberculosis == "on"){
+                            document.getElementById('family_history_tuberculosis').checked = true;
+                        }else{
+                            document.getElementById('family_history_tuberculosis').checked = false;
+                        }
+                        if ( response.family_history_asthma == "on"){
+                            document.getElementById('family_history_asthma').checked = true;
+                        }else{
+                            document.getElementById('family_history_asthma').checked = false;
+                        }
+                        if ( response.family_history_high_blood_pressure == "on"){
+                            document.getElementById('family_history_high_blood_pressure').checked = true;
+                        }else{
+                            document.getElementById('family_history_high_blood_pressure').checked = false;
+                        }
+                        if ( response.family_history_vision_problems == "on"){
+                            document.getElementById('family_history_vision_problems').checked = true;
+                        }else{
+                            document.getElementById('family_history_vision_problems').checked = false;
+                        }
+                        if ( response.family_history_diabetes == "on"){
+                            document.getElementById('family_history_diabetes').checked = true;
+                        }else{
+                            document.getElementById('family_history_diabetes').checked = false;
+                        }
+                        if ( response.family_history_hyperactivity == "on"){
+                            document.getElementById('family_history_hyperactivity').checked = true;
+                        }else{
+                            document.getElementById('family_history_hyperactivity').checked = false;
+                        }
+                        if ( response.family_history_epilepsy == "on"){
+                            document.getElementById('family_history_epilepsy').checked = true;
+                        }else{
+                            document.getElementById('family_history_epilepsy').checked = false;
+                        }
                         if (typeof response.age_group_friends !== "undefined")
                             document.getElementsByName('age_group_friends')[0].value = response.age_group_friends;
                         if (typeof response.neighborhood_friends !== "undefined")
@@ -3687,8 +3750,13 @@
                         //     document.getElementsByName('permission_child_name')[0].value = response.permission_child_name;
                         if (typeof response.photo_usage !== "undefined")
                             document.getElementsByName('photo_usage')[0].value = response.photo_usage;
-                        if (typeof response.photo_permission_agree !== "undefined")
-                            document.getElementsByName('photo_permission_agree')[0].value = response.photo_permission_agree;
+                        if( response.photo_permission_agree == "on" ){
+                            document.getElementById('photo_permission_agree').checked = true;
+                        }else{
+                            document.getElementById('photo_permission_agree').checked = false;
+                        }
+                        // if (typeof response.photo_permission_agree !== "undefined")
+                        //     document.getElementsByName('photo_permission_agree')[0].value = response.photo_permission_agree;
                         if (typeof response.photo_parent_sign !== "undefined")
                             document.getElementsByName('photo_parent_sign')[0].value = response.photo_parent_sign;
                         if (typeof response.photo_parent_date !== "undefined")

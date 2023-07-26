@@ -9,7 +9,6 @@ function childNamevalidation(inputtxtID,errorSpanId){
     let childName5 = document.getElementById('security_release_child_name');
     let regName =  /^[a-zA-Z\s]+$/;
     if (regName.test(inputtxtID.value) == true) {
-        console.log('if');
         document.getElementById(errorSpanId).style.display = "none";
         childName1.value=inputtxtID.value;
         childName1.disabled=true;
@@ -22,10 +21,8 @@ function childNamevalidation(inputtxtID,errorSpanId){
         childName5.value=inputtxtID.value;
         childName5.disabled=true;
     } else if(inputtxtID.value == ''){
-        console.log('else if');
         document.getElementById(errorSpanId).style.display = "none";
     } else {
-        console.log('else');
         document.getElementById(errorSpanId).style.display = "block";
         inputtxtID.focus();
     }
@@ -35,13 +32,10 @@ function childNamevalidation(inputtxtID,errorSpanId){
 function namevalidation(inputtxtID,errorSpanId){
     let regName =  /^[a-zA-Z\s]+$/;
     if (regName.test(inputtxtID.value) == true) {
-        console.log('if');
         document.getElementById(errorSpanId).style.display = "none";
     } else if(inputtxtID.value == ''){
-        console.log('else if');
         document.getElementById(errorSpanId).style.display = "none";
     } else {
-        console.log('else');
         document.getElementById(errorSpanId).style.display = "block";
         inputtxtID.focus();
     }
@@ -94,7 +88,7 @@ function ValidatePincode(inputtxt, errorSpan) {
 function checkbox() {
     console.log('checking the checkbox if valid or not');
     var additional_parent_info = document.getElementById("additional_parent_info");
-    if ($('input[name="additional_parent_add"]').is(":checked")) {
+    if ($('input[name="additional_parent_details"]').is(":checked")) {
         additional_parent_info.style.display = "block";
     }
     else{
@@ -134,13 +128,8 @@ function appendvalidation(val,element) {
 //custom textbox hide and show function
 function CustomChange(inputtxt,labelvalue) {
     if (inputtxt == "Yes") {
-        console.log('yes');
-        // element.style.display='block';
-        // document.getElementById(element).style.display = "block";
         document.getElementById(labelvalue).style.display = "block";
     } else {
-        console.log('no');
-        // document.getElementById(element).style.display = "none";
         document.getElementById(labelvalue).style.display = "none";
     }   
 }

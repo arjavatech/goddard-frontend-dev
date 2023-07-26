@@ -13,10 +13,6 @@ export function fetchEnrollmentFormBody(callback) {
                 url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch_by_id_year/${localStorage.getItem('child_id')}?year=${localStorage.getItem('form_year_value')}`,
                 type: 'get',
                 success: function(response1){
-                    console.log(response1);
-                    console.log(response1[0].point_one_field_one);
-                    console.log(response1[0].point_one_field_two);
-                    console.log(response1[0].point_one_field_three);
                     if(typeof response.point_one !='undefined'){
                         let paragraph = document.querySelector('[name="apiResponsep1"]');
                         paragraph.textContent = response.point_one;

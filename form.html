@@ -11,15 +11,22 @@
         <script type="module" src='js/enrollmentForm.js' ></script>
         <script src='js/form.js' ></script>
         <script type="module" src='js/timeout.js'></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     </head>
     <body>
+        <nav class="navbar_bg">
+            <div id="btn-signout" class="btn signout">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Sign Out</b>
+            </div>
+           
+        </nav><br><br>
         <div class="container overallblock" >
             <div class="center-image">
                 <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
             </div>
             <h1 id="heading" name="heading"></h1>
             <div id="spinner" class="spinner"></div>
-            <form id="enrollment_from">
+            <form id="enrollment_from" >
                 <ol>
                     <!-- <input id="point" name="point" type="text" class="form-control "> -->
                     <span id="apiResponsep1" name="apiResponsep1"></span><br><br>

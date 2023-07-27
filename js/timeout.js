@@ -4,7 +4,7 @@ import {signOut} from "./authenticationVerify.js"
 document.getElementById('btn-signout').addEventListener('click', signOut);
 
 // Set the inactivity timeout duration in milliseconds (e.g., 10 minutes)
-const inactivityTimeoutDuration = 1 * 60 * 1000;
+const inactivityTimeoutDuration = 10 * 60 * 1000;
 let inactivityTimeoutId;
 // Function to reset the inactivity timer
 function resetInactivityTimer() {

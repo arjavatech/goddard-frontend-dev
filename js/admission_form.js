@@ -76,42 +76,82 @@ $(document).ready(function() {
         // Add click event listener to the "Save" button
         $("#first_save_button").on("click", function(e) {
             e.preventDefault(); // Prevent the default form submission
+            if ($(this).prop("disabled")) {
+                return; // If the button is already disabled, do nothing and return
+            }
+            $(this).prop("disabled", true); // Disable the button after the first click
             saveform();
         });
         $("#second_save_button").on("click", function(e) {
             e.preventDefault(); // Prevent the default form submission
+            if ($(this).prop("disabled")) {
+                return; // If the button is already disabled, do nothing and return
+            }
+            $(this).prop("disabled", true); // Disable the button after the first click
             saveform();
         });
         $("#third_save_button").on("click", function(e) {
             e.preventDefault(); // Prevent the default form submission
+            if ($(this).prop("disabled")) {
+                return; // If the button is already disabled, do nothing and return
+            }
+            $(this).prop("disabled", true); // Disable the button after the first click
             saveform();
         });
         $("#four_save_button").on("click", function(e) {
             e.preventDefault(); // Prevent the default form submission
+            if ($(this).prop("disabled")) {
+                return; // If the button is already disabled, do nothing and return
+            }
+            $(this).prop("disabled", true); // Disable the button after the first click
             saveform();
         });
         $("#five_save_button").on("click", function(e) {
             e.preventDefault(); // Prevent the default form submission
+            if ($(this).prop("disabled")) {
+                return; // If the button is already disabled, do nothing and return
+            }
+            $(this).prop("disabled", true); // Disable the button after the first click
             saveform();
         });
         $("#six_save_button").on("click", function(e) {
             e.preventDefault(); // Prevent the default form submission
+            if ($(this).prop("disabled")) {
+                return; // If the button is already disabled, do nothing and return
+            }
+            $(this).prop("disabled", true); // Disable the button after the first click
             saveform();
         });
         $("#seven_save_button").on("click", function(e) {
             e.preventDefault(); // Prevent the default form submission
+            if ($(this).prop("disabled")) {
+                return; // If the button is already disabled, do nothing and return
+            }
+            $(this).prop("disabled", true); // Disable the button after the first click
             saveform();
         });
         $("#eight_save_button").on("click", function(e) {
             e.preventDefault(); // Prevent the default form submission
+            if ($(this).prop("disabled")) {
+                return; // If the button is already disabled, do nothing and return
+            }
+            $(this).prop("disabled", true); // Disable the button after the first click
             saveform();
         });
         $("#nine_save_button").on("click", function(e) {
             e.preventDefault(); // Prevent the default form submission
+            if ($(this).prop("disabled")) {
+                return; // If the button is already disabled, do nothing and return
+            }
+            $(this).prop("disabled", true); // Disable the button after the first click
             saveform();
         });
         $("#submit_button").on("click", function(e) {
             e.preventDefault(); // Prevent the default form submission
+            if ($(this).prop("disabled")) {
+                return; // If the button is already disabled, do nothing and return
+            }
+            $(this).prop("disabled", true); // Disable the button after the first click
             submitForm();
         });
         

@@ -169,13 +169,13 @@ jQuery(document).ready(function () {
         parentFieldset.find('.wizard-required').each(function () {
             var thisValue = jQuery(this).val();
 
-            // if (thisValue == "") {
-            //     jQuery(this).siblings(".wizard-form-error").slideDown();
-            //     nextWizardStep = false;
-            // }
-            // else {
-            //     jQuery(this).siblings(".wizard-form-error").slideUp();
-            // }
+            if (thisValue == "") {
+                jQuery(this).siblings(".wizard-form-error").slideDown();
+                nextWizardStep = false;
+            }
+            else {
+                jQuery(this).siblings(".wizard-form-error").slideUp();
+            }
         });
         if (nextWizardStep) {
             next.parents('.wizard-fieldset').removeClass("show", "400");

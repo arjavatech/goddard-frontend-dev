@@ -41,14 +41,18 @@
     </nav>
     <!-- Navigation Bar End -->
 
+<!-- Parent Dashboard -->
     <div class="container">
+        <!-- Child Name -->
         <h2 class="parent_dashboard_title h2 pt-4 text-center">Parent Dashboard for :
             <span class="child-name fs-2" id="child_name" name="child_name"></span>
         </h2>
+        <!-- Year -->
         <div class="row">
             <div class="col-1">
                 <h4>Year : </h4>
             </div>
+            <!-- Year dynamic dropdown -->
             <div class="col-1 dropdown">
                 <!-- <h4>Year : <span id="form_year" name="form_year"></span></h4> -->
                 <select name="form_year" id="form_year" class="form-control"
@@ -56,11 +60,15 @@
                 </select>
                 <i class="fa fa-chevron-down"></i>
             </div>
+            <!-- Year dynamic dropdown End -->
         </div>
+        <!-- Year End -->
         <div class="d-flex justify-content-center">
             <div class="container" style="margin-top: 20px;">
                 <div class="table-wrapper">
+                    <!-- Form Action Table -->
                     <table class="table">
+                        <!-- Table Head -->
                         <thead class="table-head">
                             <tr>
                                 <th>Form Name</th>
@@ -69,27 +77,36 @@
                                 <th>Form Actions</th>
                             </tr>
                         </thead>
+                        <!-- Table Head End -->
+                        <!-- Table Body -->
                         <tbody>
-                            <!-- <tbody id="tableBody"></tbody> -->
                             <tr>
                                 <td id="enrollment_agreement" name="enrollment_agreement"><span
                                         class="required">*</span></td>
                                 <td id="date_value" name="date_value"></td>
                                 <td id="form_status" name="form_status"></td>
                                 <td>
+                                    <!-- Edit -->
                                     <a href="#" data-dynamic-value="example" id="pencil_icon_link"
                                         name="pencil_icon_link" class="fa-stack">
+                                        <!-- Edit Icon -->
                                         <i class="fa-sharp fa-solid fa-pen p-1 action-icons" id="enrollmentForm"
                                             name="enrollmentForm"></i>
                                     </a>
+                                    <!-- Edit End-->
+
+                                    <!-- Download Icon -->
                                     <i class="fa-solid fa-circle-arrow-down p-2 action-icons" id="downloadFormAsPDF"
                                         name="downloadForm"></i>
+                                    <!-- Mail -->
                                     <span data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                        <!-- Mail Icon -->
                                         <i class="fa-solid fa-envelope p-1 action-icons" id="mail_icon"
                                             name="mail_icon"></i>
                                     </span>
+                                    <!-- Mail End -->
 
-                                    <!-- Modal -->
+                                    <!-- Mail Popup Modal -->
                                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
                                         data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                         aria-hidden="true">
@@ -121,11 +138,14 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Button trigger modal -->
+                                    <!-- Mail Popup Modal End -->
+                                    <!-- print Icon -->
                                     <i class="fa-solid fa-print p-2 action-icons" id="printFormBtn"></i>
                                 </td>
                             </tr>
                         </tbody>
+                        <!-- Table Body End -->
+                        <!-- Table Footer -->
                         <tfoot class="table-footer">
                             <tr>
                                 <th>Goddard School Hand Book</th>
@@ -138,11 +158,15 @@
                                 </td>
                             </tr>
                         </tfoot>
+                        <!-- Table Footer End -->
                     </table>
+                    <!-- Form Action Table End -->
                 </div>
             </div>
         </div>
+        <!-- Parent Dashboard End -->
         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <!-- Entrollment Form for download and print purpose -->
         <div class="container_form " id="formContent">
             <div class="center-image">
                 <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
@@ -419,6 +443,7 @@
                 </div><br><br>
             </form>
         </div>
+        <!-- Entrollment Form for download and print purpose End -->
     </div>
 
     <script>

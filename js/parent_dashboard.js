@@ -6,7 +6,7 @@ function parentDashBoardDetails(val) {
         success: function(response){
             if(typeof response.child_name !='undefined'){
                 // localStorage.setItem('child_name', response[0].child_full_name)
-                document.querySelector('[name="child_name"]').innerHTML = localStorage.getItem('child_name');
+                document.querySelector('[name="child_dashboard_name"]').innerHTML = localStorage.getItem('child_name');
                 document.querySelector('[name="enrollment_agreement"]').innerHTML = response.form_name1;
                 // document.querySelector('[name="enrollment_span"]').style.display = "block";
                 document.querySelector('[name="date_value"]').innerHTML = response.form_expiry_date;

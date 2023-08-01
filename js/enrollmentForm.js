@@ -247,8 +247,8 @@ function hideSpinner(callback) {
     }
 }
 
-$(document).ready(function () {
-    if(!isAuthenticated()) {
+function mainEntryPoint() {
+    if (!isAuthenticated()) {
         window.location.href = 'login.html';
     } else {
         document.body.style.visibility = 'visible';
@@ -257,7 +257,24 @@ $(document).ready(function () {
         fetchEnrollmentPointEight();
         showSpinner();
     }
-})
+}
+
+// Check if this script is the main entry point and call the main function
+if (window.location.pathname.endsWith('form.html')) {
+    mainEntryPoint();
+}
+
+// $(document).ready(function () {
+//     if(!isAuthenticated()) {
+//         window.location.href = 'login.html';
+//     } else {
+//         document.body.style.visibility = 'visible';
+//         fetchEnrollmentFormTitle();
+//         fetchEnrollmentFormBody();
+//         fetchEnrollmentPointEight();
+//         showSpinner();
+//     }
+// });
   
 
 

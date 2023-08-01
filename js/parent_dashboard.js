@@ -95,6 +95,7 @@ function parentDashBoardYear(){
         }
     });
 }
+
 $(document).ready(function() {
     //geting current year
     let defaultdate = new Date().getFullYear();

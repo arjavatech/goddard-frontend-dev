@@ -38,7 +38,9 @@ $(document).ready(function() {
     $('#downloadFormAsPDF').click(function() {
         fetchEnrollmentFormTitle(function() {
             fetchEnrollmentFormBody(function() {
-                downloadPDF();
+                // fetchEnrollmentPointEight(function(){
+                    downloadPDF();
+                // });
             });
         });
     });

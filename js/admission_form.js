@@ -28,7 +28,19 @@ function submitForm() {
         },
         error: function (xhr, status, error) {
             alert("form submit failed");
-
+        }
+    });
+    $.ajax({
+        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/add",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(obj),
+        success: function (response) {
+            console.log('data submitted');
+            // window.location.href = "child_add.html";
+        },
+        error: function (xhr, status, error) {
+            alert("form submit failed");
         }
     });
 }
@@ -51,6 +63,7 @@ function saveform() {
     } 
     console.log(JSON.stringify(obj));
     // const json=  JSON.stringify(obj);
+    const objc = 
     $.ajax({
         url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
         type: "POST",
@@ -62,7 +75,6 @@ function saveform() {
         },
         error: function (xhr, status, error) {
             alert("form submit failed");
-
         }
     });
 }

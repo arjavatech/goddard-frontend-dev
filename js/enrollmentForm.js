@@ -179,7 +179,7 @@ export function fetchEnrollmentFormTitle(callback) {
     })
 }
 
-function fetchEnrollmentPointEight(callback) {
+export function fetchEnrollmentPointEight(callback) {
     $.ajax({
         url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/holidays/fetch/${localStorage.getItem('form_year_value')}`,
         type: 'get',

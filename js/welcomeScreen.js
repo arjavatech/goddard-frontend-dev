@@ -10,9 +10,9 @@ function clearLocalStorageExcept(keysToKeep) {
     }
 }
 
-function getAllInfo(callback) {
+function checkParentAuthentication(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email')
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/fetch/email?email='
+    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/parent/fetch/email?email='
     console.log(url + logged_in_email)
     $.ajax({
                url: url + logged_in_email,
@@ -23,7 +23,27 @@ function getAllInfo(callback) {
                    clearLocalStorageExcept(keysToKeep);
                    // localStorage.clear()
                    if (response && response.length > 0) {
-                       localStorage.setItem('parent_name', response[0].parent_name)
+                       localStorage.setItem('parent_name', response[0].name)
+                       localStorage.setItem('parent_id', response[0].id)
+                   }
+                   if (typeof callback === 'function') {
+                       callback();
+                   }
+               }
+           });
+}
+
+function getAllInfo(callback) {
+    const logged_in_email = localStorage.getItem('logged_in_email')
+    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/fetch/email?email='
+    console.log(url + logged_in_email)
+    $.ajax({
+               url: url + logged_in_email,
+               type: 'get',
+               success: function (response) {
+                   console.log(response)
+                   // localStorage.clear()
+                   if (response && response.length > 0) {
                        // Iterate through all the child and store the response
                        child_response = response;
                        localStorage.setItem('number_of_children', response.length.toString());
@@ -33,6 +53,17 @@ function getAllInfo(callback) {
                    }
                }
            })
+}
+
+function responseToAuthenticationCheck() {
+    const parentName = localStorage.getItem('parent_name');
+    if (parentName !== 'undefined' && parentName !== null) {
+        document.body.style.visibility = 'visible';
+    } else {
+        document.getElementById('welcomeText').innerHTML = 'Parent not found';
+        window.alert("Parent Not found")
+        window.history.back();
+    }
 }
 
 function loadDynamicCards() {
@@ -51,7 +82,7 @@ function loadDynamicCards() {
 
         let card = document.createElement('div');
 
-        if(on_process === true) {
+        if (on_process === true) {
             // Card is fulfilled
             anchor.href = `admission_form.html?${child_response[i].child_id}`;
             card.classList.add('card', 'dashboard_card_style_on_process');
@@ -72,7 +103,7 @@ function loadDynamicCards() {
         childName.innerHTML = child_response[i].child_full_name;
 
         // Add event listener to the anchor tag
-        anchor.addEventListener('click', function() {
+        anchor.addEventListener('click', function () {
             // Retrieve the child's name and ID
             const selectedChildName = child_response[i].child_full_name;
             const selectedChildId = child_response[i].child_id;
@@ -95,23 +126,21 @@ function loadDynamicCards() {
 
 function welcomeText() {
     const parentName = localStorage.getItem('parent_name');
-    if (parentName !== 'undefined' && parentName !== null) {
-        document.getElementById('welcomeText').innerHTML = 'Welcome ' + parentName;
-        loadDynamicCards();
-        //document.getElementById('childname').innerHTML = localStorage.getItem('child_name');
-        additionalHtmlContainer.style.display = 'block';
-    } else {
-        document.getElementById('welcomeText').innerHTML = 'Parent not found';
-        window.alert("Parent Not found")
-        window.history.back();
-    }
+    console.log(parentName)
+    document.getElementById('welcomeText').innerHTML = 'Welcome ' + parentName;
+    loadDynamicCards();
+    additionalHtmlContainer.style.display = 'block';
 }
 
 $(document).ready(function () {
     if (!isAuthenticated()) {
         window.location.href = 'login.html';
     } else {
-        document.body.style.visibility = 'visible';
+        // Checks the parent info table to see if parent entry is present
+        checkParentAuthentication(function () {
+            responseToAuthenticationCheck();
+        });
+        // Checks the admission info table
         getAllInfo(function () {
             welcomeText();
         });

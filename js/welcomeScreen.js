@@ -139,10 +139,10 @@ $(document).ready(function () {
         // Checks the parent info table to see if parent entry is present
         checkParentAuthentication(function () {
             responseToAuthenticationCheck();
-        });
-        // Checks the admission info table
-        getAllInfo(function () {
-            welcomeText();
+            // Checks the admission info table
+            getAllInfo(function () {
+                welcomeText();
+            });
         });
     }
 });

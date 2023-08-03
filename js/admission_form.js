@@ -6,6 +6,9 @@ function submitForm() {
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     console.log(obj);
+    const enformData = new FormData(form);
+    console.log(enformData);
+   
     // obj.child_id = "NCD0005";
     const logged_in_email = localStorage.getItem('logged_in_email');
     const parent_name = localStorage.getItem('parent_name');
@@ -16,7 +19,15 @@ function submitForm() {
     const child_id_val = localStorage.getItem('child_id');
     if (child_id_val !== null && child_id_val !== undefined) {
         obj.child_id = child_id_val;
+        enformData.child_id =child_id_val;
     } 
+   
+    console.log(enformData.child_id);
+    let defaultdate = new Date().getFullYear();
+    enformData.year =defaultdate;
+    console.log(enformData.year);
+    enformData.parent_id =localStorage.getItem('parent_id');
+    console.log(enformData.parent_id);
     // const json=  JSON.stringify(obj);
     $.ajax({
         url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
@@ -24,25 +35,26 @@ function submitForm() {
         contentType: "application/json",
         data: JSON.stringify(obj),
         success: function (response) {
-            window.location.href = "child_add.html";
-        },
-        error: function (xhr, status, error) {
-            alert("form submit failed");
-        }
-    });
-    $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/add",
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(obj),
-        success: function (response) {
-            console.log('data submitted');
             // window.location.href = "child_add.html";
+            $.ajax({
+                url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/add",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(enformData),
+                success: function (response1) {
+                    console.log('data submitted');
+                    window.location.href = "child_add.html";
+                },
+                error: function (xhr, status, error) {
+                    alert("form submit failed");
+                }
+            });
         },
         error: function (xhr, status, error) {
             alert("form submit failed");
         }
     });
+    
 }
 
 // Function to submit the form data
@@ -181,13 +193,13 @@ jQuery(document).ready(function () {
         parentFieldset.find('.wizard-required').each(function () {
             var thisValue = jQuery(this).val();
 
-            if (thisValue == "") {
-                jQuery(this).siblings(".wizard-form-error").slideDown();
-                nextWizardStep = false;
-            }
-            else {
-                jQuery(this).siblings(".wizard-form-error").slideUp();
-            }
+            // if (thisValue == "") {
+            //     jQuery(this).siblings(".wizard-form-error").slideDown();
+            //     nextWizardStep = false;
+            // }
+            // else {
+            //     jQuery(this).siblings(".wizard-form-error").slideUp();
+            // }
         });
         if (nextWizardStep) {
             next.parents('.wizard-fieldset').removeClass("show", "400");

@@ -6,39 +6,46 @@ function parentDashBoardDetails(val) {
                type: 'get',
                success: function (response) {
                    console.log(response)
-                   if (typeof response.child_name !== 'undefined') {
-                       // localStorage.setItem('child_name', response[0].child_full_name)
-                       document.querySelector('[name="enrollment_agreement"]').innerHTML =
-                           response.form_name1; //
-                       document.querySelector('[name="enrollment_span"]').style.display = // "block";
-                           document.querySelector('[name="date_value"]').innerHTML =
-                               response.form_expiry_date;
+                   if (Array.isArray(response) && response.length > 0) {
+                       response.forEach(data => {
+                           if (data.form_name.includes('Enrollment')) {
+                               // localStorage.setItem('child_name', response[0].child_full_name)
+                               document.getElementById('enrollment_agreement').innerHTML =
+                                   data.form_name; //
+                               // document.querySelector('[name="enrollment_span"]').style.display =  "block";
+                                   document.getElementById('date_value').innerHTML =
+                                       data.form_expiry_date;
 
-                       if (response.form_status === "Yet To Be Filled") {
-                           document.querySelector('[name="form_status"]').innerHTML =
-                               response.form_status;
-                           document.getElementById('form_status').style.color = '#0F2D52';
-                           document.getElementById('form_status').style.fontWeight = 'bold';
-                           enableAction();
-                       } else if (response.form_status === "Completed") {
-                           document.querySelector('[name="form_status"]').innerHTML =
-                               response.form_status;
-                           document.getElementById('form_status').style.color = 'green';
-                           document.getElementById('form_status').style.fontWeight = 'bold';
-                           disableAction();
-                       } else if (response.form_status === "Incomplete") {
-                           document.querySelector('[name="form_status"]').innerHTML =
-                               response.form_status;
-                           document.getElementById('form_status').style.color = 'red';
-                           document.getElementById('form_status').style.fontWeight = 'bold';
-                           enableAction();
-                       } else {
-                           document.querySelector('[name="form_status"]').innerHTML =
-                               response.form_status;
-                           document.getElementById('form_status').style.color = 'yellow';
-                           document.getElementById('form_status').style.fontWeight = 'bold';
-                           enableAction();
-                       }
+                               if (data.form_status === "Yet To Be Filled") {
+                                   document.getElementById('form_status').innerHTML =
+                                       data.form_status;
+                                   document.getElementById('form_status').style.color = '#0F2D52';
+                                   document.getElementById('form_status').style.fontWeight = 'bold';
+                                   enableAction();
+                               } else if (data.form_status === "Completed") {
+                                   document.getElementById('form_status').innerHTML =
+                                       data.form_status;
+                                   document.getElementById('form_status').style.color = 'green';
+                                   document.getElementById('form_status').style.fontWeight = 'bold';
+                                   disableAction();
+                               } else if (data.form_status === "Incomplete") {
+                                   document.getElementById('form_status').innerHTML =
+                                       data.form_status;
+                                   document.getElementById('form_status').style.color = 'red';
+                                   document.getElementById('form_status').style.fontWeight = 'bold';
+                                   enableAction();
+                               } else {
+                                   document.getElementById('form_status').innerHTML =
+                                       data.form_status;
+                                   document.getElementById('form_status').style.color = 'yellow';
+                                   document.getElementById('form_status').style.fontWeight = 'bold';
+                                   enableAction();
+                               }
+                           } else if (data.form_name.includes('Hand Book')) {
+                               document.getElementById('tableFooterHeading').innerHTML =
+                                   data.form_name;
+                           }
+                       })
                    }
                }
            });

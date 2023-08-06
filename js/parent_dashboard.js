@@ -1,51 +1,74 @@
+function getEnrollmentFormStatus(val, callback) {
+    $.ajax({
+               url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/form_status/${localStorage.getItem('child_id')}?year=${val}`,
+               type: 'get',
+               success: function (form_status_resp) {
+                   console.log(form_status_resp)
+                   callback(form_status_resp);
+               }
+           });
+}
+
 function parentDashBoardDetails(val) {
     console.log(val)
     localStorage.setItem('form_year_value', val);
+    let form_status = 'unknown'
     $.ajax({
                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/dashboard_data/formByYear/${val}`,
                type: 'get',
                success: function (response) {
                    console.log(response)
                    if (Array.isArray(response) && response.length > 0) {
-                       response.forEach(data => {
-                           if (data.form_name.includes('Enrollment')) {
-                               // localStorage.setItem('child_name', response[0].child_full_name)
-                               document.getElementById('enrollment_agreement').innerHTML =
-                                   data.form_name; //
-                               // document.querySelector('[name="enrollment_span"]').style.display =  "block";
+                       getEnrollmentFormStatus(val, function (formStatusResp) {
+                           form_status = formStatusResp.form_status;
+                           response.forEach(data => {
+                               if (data.form_name.includes('Enrollment')) {
+                                   // localStorage.setItem('child_name',
+                                   // response[0].child_full_name)
+                                   document.getElementById('enrollment_agreement').innerHTML =
+                                       data.form_name; //
+                                   // document.querySelector('[name="enrollment_span"]').style.display
+                                   // =  "block";
                                    document.getElementById('date_value').innerHTML =
                                        data.form_expiry_date;
 
-                               if (data.form_status === "Yet To Be Filled") {
-                                   document.getElementById('form_status').innerHTML =
-                                       data.form_status;
-                                   document.getElementById('form_status').style.color = '#0F2D52';
-                                   document.getElementById('form_status').style.fontWeight = 'bold';
-                                   enableAction();
-                               } else if (data.form_status === "Completed") {
-                                   document.getElementById('form_status').innerHTML =
-                                       data.form_status;
-                                   document.getElementById('form_status').style.color = 'green';
-                                   document.getElementById('form_status').style.fontWeight = 'bold';
-                                   disableAction();
-                               } else if (data.form_status === "Incomplete") {
-                                   document.getElementById('form_status').innerHTML =
-                                       data.form_status;
-                                   document.getElementById('form_status').style.color = 'red';
-                                   document.getElementById('form_status').style.fontWeight = 'bold';
-                                   enableAction();
-                               } else {
-                                   document.getElementById('form_status').innerHTML =
-                                       data.form_status;
-                                   document.getElementById('form_status').style.color = 'yellow';
-                                   document.getElementById('form_status').style.fontWeight = 'bold';
-                                   enableAction();
+                                   if (form_status === "Yet To Be Filled") {
+                                       document.getElementById('form_status').innerHTML =
+                                           form_status;
+                                       document.getElementById('form_status').style.color =
+                                           '#0F2D52';
+                                       document.getElementById('form_status').style.fontWeight =
+                                           'bold';
+                                       enableAction();
+                                   } else if (form_status === "Completed") {
+                                       document.getElementById('form_status').innerHTML =
+                                           form_status;
+                                       document.getElementById('form_status').style.color = 'green';
+                                       document.getElementById('form_status').style.fontWeight =
+                                           'bold';
+                                       disableAction();
+                                   } else if (form_status === "Incomplete") {
+                                       document.getElementById('form_status').innerHTML =
+                                           form_status;
+                                       document.getElementById('form_status').style.color = 'red';
+                                       document.getElementById('form_status').style.fontWeight =
+                                           'bold';
+                                       enableAction();
+                                   } else {
+                                       document.getElementById('form_status').innerHTML =
+                                           form_status;
+                                       document.getElementById('form_status').style.color =
+                                           'yellow';
+                                       document.getElementById('form_status').style.fontWeight =
+                                           'bold';
+                                       enableAction();
+                                   }
+                               } else if (data.form_name.includes('Hand Book')) {
+                                   document.getElementById('tableFooterHeading').innerHTML =
+                                       data.form_name;
                                }
-                           } else if (data.form_name.includes('Hand Book')) {
-                               document.getElementById('tableFooterHeading').innerHTML =
-                                   data.form_name;
-                           }
-                       })
+                           })
+                       });
                    }
                }
            });

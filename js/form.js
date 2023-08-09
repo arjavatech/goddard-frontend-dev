@@ -18,7 +18,7 @@ function submitForm() {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         // const data = xhr.responseText;
-        if (xhr.status == 200) {
+        if (xhr.status === 200) {
             // var confirmationRes = window.confirm(data);
             // if (confirmationRes) {
                 window.location.href = "parent_dashboard.html";

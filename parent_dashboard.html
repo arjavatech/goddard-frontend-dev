@@ -123,7 +123,7 @@
                                                             <div class="form-group">
                                                                 <label class="col-lg-2 control-label pt-2">Message</label>
                                                                 <div class="col-lg-10">
-                                                                    <textarea rows="10" cols="30" class="form-control"
+                                                                    <textarea rows="10" cols="50" class="form-control"
                                                                         id="messageData" name=""></textarea>
                                                                 </div>
                                                             </div>
@@ -444,6 +444,11 @@
                 </form>
             </div>
             <!-- Entrollment Form for download and print purpose End -->
+            <script>
+                var link = document.querySelector('a[data-dynamic-value]');
+                var dynamicValue = localStorage.getItem('child_id');
+                link.href = `form.html?id=${dynamicValue}`;
+            </script>
         </div>
     </body>
 </html>

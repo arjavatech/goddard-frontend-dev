@@ -26,7 +26,7 @@
             <div class="center-image">
                 <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
             </div>
-            <h1 id="heading" name="heading"></h1>
+            <span id="heading" name="heading"></span>
             <div id="spinner" class="spinner"></div>
             <form id="enrollment_from" >
                 <ol>
@@ -69,7 +69,7 @@
                     <div class="row">
                         <div class="col-sm-6 div1" >
                             <table>
-                                <tr>
+                                <tr> 
                                     <th>Leave Dates</th>
                                     <th>Leave Reasons</th>
                                 </tr>
@@ -281,14 +281,14 @@
                                 <div class="col-sm-6 div1">
                                     <div class="form-group ">
                                         <input id="school_admin_sign" name="school_admin_sign"
-                                        type="text" class="form-control bloc1">
-                                        <span id="apiResponsep26" name="apiResponsep26"></span>
+                                        type="text" class="form-control bloc1" disabled>
+                                        <span id="apiResponsep26" name="apiResponsep26" ></span>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 div4">
                                     <div class="form-group ">
                                         <input id="school_admin_sign_date" name="school_admin_sign_date"
-                                        type="date" class="form-control bloc1"  onclick="dateValidation('school_admin_sign_date')">
+                                        type="date" class="form-control bloc1"  onclick="dateValidation('school_admin_sign_date')" disabled>
                                         <span id="apiResponsep27" name="apiResponsep27"></span>
                                     </div>
                                 </div>
@@ -303,11 +303,5 @@
         <!-- <button id="downloadButton">Download Form</button> -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-        <!-- <script type="module" src='js/enrollmentForm.js'></script>
-        <script src='js/form.js' ></script> -->
-    <script>
-       
-    </script>
-</body>
-
+    </body>
 </html>

@@ -1,4 +1,4 @@
-import {fetchEnrollmentFormTitle, fetchEnrollmentFormBody } from './enrollmentForm.js'
+import {fetchEnrollmentFormTitle, fetchEnrollmentFormBody,fetchEnrollmentPointEight } from './enrollmentForm.js'
 
 // function downloadPDF() {
 //     console.log("Download")
@@ -38,9 +38,9 @@ $(document).ready(function() {
     $('#downloadFormAsPDF').click(function() {
         fetchEnrollmentFormTitle(function() {
             fetchEnrollmentFormBody(function() {
-                // fetchEnrollmentPointEight(function(){
+                fetchEnrollmentPointEight(function(){
                     downloadPDF();
-                // });
+                }); 
             });
         });
     });

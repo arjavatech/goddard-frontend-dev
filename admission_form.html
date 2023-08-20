@@ -3259,7 +3259,6 @@
         <!-- Wizard End -->
         <script>
             let editID = window.location.search.slice(1);
-            console.log(editID);
             if(editID != ''){
                 //for waking up the aws lambda server   
                 $.ajax({
@@ -3267,7 +3266,6 @@
                     type: 'get',
                     //this is uesd to get the response and return the result
                     success: function(response){
-                       console.log(response);
                         if (typeof response.adhaar_number !== "undefined")
                             document.getElementsByName('adhaar_number')[0].value = response.adhaar_number;
                         if (typeof response.child_full_name !== "undefined"){

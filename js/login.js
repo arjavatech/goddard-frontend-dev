@@ -5,12 +5,19 @@ function handleCredentialResponse(response) {
     // console.log('Given Name: ' + responsePayload.given_name);
     // console.log('Family Name: ' + responsePayload.family_name);
     // console.log("Image URL: " + responsePayload.picture);
-    // console.log("Email: " + responsePayload.email)
+    console.log("Email: " + responsePayload.email)
+    // responsePayload.email ="admin1@gmail.com";
     // Store email
     localStorage.clear()
     localStorage.setItem('logged_in_email', responsePayload.email);
-    // Redirect
-    window.location.href = "child_add.html";
+    if(responsePayload.email == "goddard01arjava@gmail.com" || responsePayload.email == "goddard02arjava@gmail.com"){
+        // Redirect
+        window.location.href = "adminRedirect.html";
+    }else{
+        // Redirect
+        window.location.href = "child_add.html";
+    }
+    
 }
 
 function decodeJwtResponse (token)

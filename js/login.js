@@ -12,7 +12,7 @@ function handleCredentialResponse(response) {
     localStorage.setItem('logged_in_email', responsePayload.email);
     if(responsePayload.email == "goddard01arjava@gmail.com" || responsePayload.email == "goddard02arjava@gmail.com"){
         // Redirect
-        window.location.href = "adminRedirect.html";
+        window.location.href = "applicationStatus.html";
     }else{
         // Redirect
         window.location.href = "child_add.html";

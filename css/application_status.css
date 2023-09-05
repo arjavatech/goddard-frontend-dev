@@ -1,0 +1,59 @@
+
+/* Basic Styles */
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 6px;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    color: #0F2D52 !important;
+    border: 2px solid #0F2D52 !important;
+}
+
+/* Search Icon */
+.search-icon {
+    background-color: #0F2D52;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 6px;
+    margin-left: -35px;
+    cursor: pointer;
+}
+
+/* Hover Effect */
+.search-button:hover,
+.search-icon:hover {
+    background-color: #3c5472;
+}
+
+#enrollmentStatus{
+    /* display: flex; */
+    align-items: center;
+    width: 50% !important;
+    /* margin: 10px auto !important; */
+}
+
+.table-container {
+    max-height: 300px; /* Adjust the height as needed */
+    overflow-y: auto;
+    margin-bottom: 20px; /* Add margin to separate pagination controls */
+}
+
+.pagination {
+    text-align: center;
+}
+
+.pagination button {
+    margin: 5px;
+}
+
+

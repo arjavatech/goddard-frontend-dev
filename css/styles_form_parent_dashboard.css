@@ -66,11 +66,7 @@ body {
     border-bottom: 1px solid black;
 }
 
-/* this used for drowarrow displayed in dropdown */
-.dropdown {
-    position: relative;
-   
-}
+
 
 .form-control{
     color: #0F2D52 !important;

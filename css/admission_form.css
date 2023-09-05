@@ -30,11 +30,12 @@ body {
 /*****Navigation Style End*****/
 
 
-
 .form-wizard {
     color: #000000;
     padding: 30px;
 }
+
+/*****Radio button Style*****/
 
 .form-wizard .wizard-form-radio {
     display: inline-block;
@@ -99,9 +100,10 @@ body {
     cursor: pointer;
 }
 
+/*****Radio button Style end*****/
 
-/***checkbox***/
 
+/***Checkbox style***/
 
 
 .wizard-form-checkbox input[type="checkbox"] {
@@ -187,6 +189,9 @@ body {
     }
 }
 
+/***Checkbox style end***/
+
+/***Form fields & button style***/
 
 .form-wizard .form-wizard-header {
     text-align: center;
@@ -246,6 +251,10 @@ body {
     height: 40px;
 }
 
+/***Form fields & button style end***/
+
+
+/***Dropdown style***/
 
 select {
     -webkit-appearance: none;
@@ -283,6 +292,10 @@ select+i.fa {
     border-bottom: #424242 !important;
 }
 
+/***Dropdown style end***/
+
+/***Table style***/
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -314,6 +327,11 @@ table {
     transition: 0.2s linear all;
     font-size: 12px;
 }
+
+/***Table style end***/
+
+
+/***Wizards step style***/
 
 .form-wizard .form-wizard-steps {
     margin: 30px 0;
@@ -408,3 +426,6 @@ table {
         height: auto;
     }
 }
+
+
+/***Wizards step style end***/

@@ -13,8 +13,7 @@ function submitForm() {
     obj.child_id = localStorage.getItem('child_id');
     obj.year = defaultdate;
     const json = JSON.stringify(obj);
-    console.log(json);
-
+    
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         // const data = xhr.responseText;

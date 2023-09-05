@@ -16,7 +16,6 @@ import {fetchEnrollmentFormTitle, fetchEnrollmentFormBody,fetchEnrollmentPointEi
 
 
 function downloadPDF() {
-    console.log("Download");
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF('p', 'mm', [1500, 1400]);
     let formContent = document.querySelector('#formContent');

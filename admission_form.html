@@ -2071,7 +2071,7 @@
                                                         </label>
                                                         <select class="form-control form-select-lg" aria-label=".form-control-lg example"
                                                             id="reason_for_childcare_before" name="reason_for_childcare_before">
-                                                            <option selected disabled>Select</option>
+                                                            <option></option>
                                                             <option value="1">Relative’s Care</option>
                                                             <option value="2">Home Care</option>
                                                             <option value="3">Church Care</option>
@@ -2768,7 +2768,7 @@
                                                         </label>
                                                         <select class="form-control form-select-lg" aria-label=".form-control-lg example" id="photo_usage"
                                                             name="photo_usage">
-                                                            <option selected disabled>Select</option>
+                                                            <option></option>
                                                             <option value="1">Full Use</option>
                                                             <option value="2">In-House Only</option>
                                                             <option value="3">No Photos</option>
@@ -2996,31 +2996,31 @@
                                         </div>
                                         <div class="panel-body">
                                             <div class="row m-3">
-                                                <div class="col-sm form-group">
+                                                <div class="col-sm">
+                                                    <div class="form-group">
                                                     <p class="m-2">The undersigned authorizes
-                                                        representatives of The Goddard School® to contact Emergency Medical Technicians to transport<br><br>
+                                                        representatives of The Goddard School® to contact Emergency Medical Technicians to transport <span style="color:#ff0000;">*</span></p>
                                                         <input type="text" class="form-control wizard-required" id="contact_emergency_medical_technicians" name="contact_emergency_medical_technicians">
-                                                            <div class="wizard-form-error"></div><br>
-                                                            (“Student”) to receive medical care, if such transportation/care is deemed necessary.
-                                                        <span style="color:#ff0000;">*</span>
-                                                    </p><br>
-                                                    <p>The undersigned irrevocably release any claims, demands, actions or
-                                                        causes of
-                                                        action against The Goddard School®, its franchisor, Goddard Systems,
-                                                        Inc., and their
-                                                        respective representatives and employees, which arise out of or
-                                                        relate to the
-                                                        transportation of Student and any medical care provided.</p><br>
-                                                    <p>This authorization and waiver shall remain effective until Student
-                                                        withdraws from The Goddard School®.</p>
+                                                        <div class="wizard-form-error"></div>
+                                                    </div>
                                                 </div>
+                                                <p>  (“Student”) to receive medical care, if such transportation/care is deemed necessary.</p>
+                                                <p>The undersigned irrevocably release any claims, demands, actions or
+                                                    causes of
+                                                    action against The Goddard School®, its franchisor, Goddard Systems,
+                                                    Inc., and their
+                                                    respective representatives and employees, which arise out of or
+                                                    relate to the
+                                                    transportation of Student and any medical care provided.</p><br>
+                                                <p>This authorization and waiver shall remain effective until Student
+                                                    withdraws from The Goddard School®.</p>
                                             </div>
                                             <!-- Parent’s or guardian’s Signature -->
                                             <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="medical_parent_sign" class="form-label">Parent’s/Guardian’s Signature
-                                                            <span style="color:#ff0000;">*</span>
+                                                            <span style="color:#ff0000;">*</span> 
                                                         </label>
                                                         <input type="text" class="form-control wizard-required" id="medical_parent_sign"
                                                         name="medical_parent_sign">
@@ -3345,7 +3345,6 @@
         <!-- Wizard End -->
         <script>
             let editID = window.location.search.slice(1);
-            console.log(editID);
             if(editID != ''){
                 //for waking up the aws lambda server   
                 $.ajax({
@@ -3353,7 +3352,6 @@
                     type: 'get',
                     //this is used to get the response and return the result
                     success: function(response){
-                       console.log(response);
                         if (typeof response.adhaar_number !== "undefined")
                             document.getElementsByName('adhaar_number')[0].value = response.adhaar_number;
                         if (typeof response.child_full_name !== "undefined"){

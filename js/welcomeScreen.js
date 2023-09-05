@@ -13,12 +13,11 @@ function clearLocalStorageExcept(keysToKeep) {
 function checkParentAuthentication(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email')
     const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/parent/fetch/email?email='
-    console.log(url + logged_in_email)
+    // console.log(url + logged_in_email)
     $.ajax({
                url: url + logged_in_email,
                type: 'get',
                success: function (response) {
-                   console.log(response)
                    let keysToKeep = ['logged_in_email'];
                    clearLocalStorageExcept(keysToKeep);
                    // localStorage.clear()
@@ -36,12 +35,11 @@ function checkParentAuthentication(callback) {
 function getAllInfo(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email')
     const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/fetch/email?email='
-    console.log(url + logged_in_email)
+    // console.log(url + logged_in_email)
     $.ajax({
                url: url + logged_in_email,
                type: 'get',
                success: function (response) {
-                   console.log(response)
                    // localStorage.clear()
                    if (response && response.length > 0) {
                        // Iterate through all the child and store the response
@@ -126,7 +124,7 @@ function loadDynamicCards() {
 
 function welcomeText() {
     const parentName = localStorage.getItem('parent_name');
-    console.log(parentName)
+    // console.log(parentName)
     document.getElementById('welcomeText').innerHTML = 'Welcome ' + parentName;
     loadDynamicCards();
     additionalHtmlContainer.style.display = 'block';

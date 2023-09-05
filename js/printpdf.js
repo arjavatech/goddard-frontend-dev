@@ -35,7 +35,6 @@ function generatePDFContent() {
 // }
 
 async function printForm() {
-    console.log("Print Form");
     const pdfDoc = await generatePDFContent();
 
     // Create an object URL for the PDF blob

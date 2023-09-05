@@ -33,21 +33,16 @@ function submitForm() {
                 localStorage.setItem('child_id', response.child_id)
                 enformData.child_id = response.child_id;
             }
-            console.log(enformData)
-
             $.ajax({
                 url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/add",
                 type: "POST",
                 contentType: "application/json",
                 data: JSON.stringify(enformData),
                 success: function (response1) {
-                    console.log('data submitted');
                     window.location.href = "child_add.html";
                 },
                 error: function (xhr, status, error) {
                     alert("form submit failed");
-                    console.log(status)
-                    console.log(error)
                 }
             });
         },
@@ -62,7 +57,6 @@ function saveForm() {
     const form = document.getElementById("admission_form");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
-    console.log(obj);
     // obj.child_id = "NCD0005"; 
     const logged_in_email = localStorage.getItem('logged_in_email');
     const parent_name = localStorage.getItem('parent_name');
@@ -74,15 +68,12 @@ function saveForm() {
     if (child_id_val !== null && child_id_val !== undefined) {
         obj.child_id = child_id_val;
     }
-    console.log(JSON.stringify(obj));
     $.ajax({
         url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(obj),
         success: function (response) {
-            console.log('data submitted');
-            console.log(response.child_id);
             localStorage.setItem('child_id', response.child_id)
             // window.location.href = "child_add.html";
         },

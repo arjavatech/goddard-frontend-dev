@@ -82,7 +82,7 @@ body {
 .dashboard_card_style_on_process{
     width: 200px !important;
     height: 170px !important;
-    background: #ff0000 !important;
+    background: #fa6d6d !important;
     border-radius: 20px !important;
     cursor: pointer;
 }

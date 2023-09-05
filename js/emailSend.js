@@ -46,7 +46,7 @@ async function uploadBase64PDFToS3(base64String, fileName) {
 }
 
 async function getPDFBase64Data() {
-    console.log("Base64");
+    // console.log("Base64");
     const {jsPDF} = window.jspdf;
     const doc = new jsPDF('p', 'mm', [1500, 1400]);
     let formContent = document.querySelector('#formContent');
@@ -76,12 +76,10 @@ async function emailSend() {
         obj.attachmentName = "AttachmentForm";
         obj.subject = 'Query on ' + title;
         let messageData = $('#messageData').val();
-        console.log(messageData);
         obj.body = messageData;
 
         const attachmentKey = await uploadBase64PDFToS3(base64Data, title + ' CHILD_ID');
         obj.attachmentKey = attachmentKey;
-        console.log(obj);
         $.ajax({
                url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
                type: "POST",
@@ -160,7 +158,6 @@ async function emailSend() {
 
 $(document).ready(function () {
     $('#sendButton').click(function () {
-        console.log("Email controller")
         fetchEnrollmentFormTitle(function () {
             fetchEnrollmentFormBody(function () {
                 emailSend();

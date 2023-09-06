@@ -55,7 +55,9 @@
                 <div class="col-7 search-container">
                     <input type="text" id="searchInput" class=" search-input" 
                     placeholder="Search the content...">
-                    <div class="search-icon">🔍</div>
+                    <div class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                      </svg></div>
                 </div>
                 <div class="col-3">
                     <select id="enrollmentStatus" class="form-control">
@@ -75,7 +77,7 @@
                                     <th>Child Name</th>
                                     <th>Parent Name</th>
                                     <th>Application Status</th>
-                                    <th>Enrollment From Status</th>
+                                    <th>Enrollment Form Status</th>
                                 </tr>
                             </thead>
                             <!-- Table Head End -->
@@ -90,7 +92,7 @@
                                 <tr>
                                     <td id="child_name" name="child_name">abi</td>
                                     <td id="parenrt_name" name="parenrt_name">kiruba</td>
-                                    <td id="application_status" name="application_status">10/10</td>
+                                    <td id="application_status" name="application_status">05/10</td>
                                     <td id="enrollment_form_status" name="enrollment_form_status">Incomplete</td>
                                 </tr>
                                 <tr>
@@ -104,26 +106,31 @@
                             <!-- Table Footer -->
                             <tfoot class="table-footer" id="tableFooter">
                                 <tr>
-                                    <th>Application Status</th>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
                                 </tr>
                             </tfoot>
                             <!-- Table Footer End -->
                         </table>
                         <!-- Form Action Table End -->
                     </div>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-end">
-                            <li class="page-item disabled" id="prevPage">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item" id="nextPage">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <div class="position-relative p-4">
+                        <div class="position-absolute top-50 start-50 translate-middle">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item disabled" id="prevPage">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item">
+                                    <a class="page-link" href="#">2</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item" id="nextPage">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
                     <!-- <div class="pagination">
                         <button id="prevPage">Previous</button>
                         <button id="nextPage">Next</button>

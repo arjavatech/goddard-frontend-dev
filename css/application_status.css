@@ -22,17 +22,18 @@
 .search-icon {
     background-color: #0F2D52;
     color: #fff;
-    border: none;
-    border-radius: 3px;
+    border: 2px solid #0F2D52;
+    border-radius: 0 3px 3px 0;
     padding: 6px;
-    margin-left: -35px;
+    margin-left: -29px;
     cursor: pointer;
 }
 
 /* Hover Effect */
 .search-button:hover,
 .search-icon:hover {
-    background-color: #3c5472;
+    background-color: #21446f;
+    border: 2px solid #21446f;
 }
 
 #enrollmentStatus{
@@ -55,5 +56,15 @@
 .pagination button {
     margin: 5px;
 }
+
+.page-item.active .page-link {
+    background-color: #0F2D52 !important;
+    border-color: #0F2D52 !important;
+}
+
+a.page-link{
+    color: #0F2D52;
+}
+
 
 

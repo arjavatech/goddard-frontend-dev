@@ -34,7 +34,7 @@
         <!-- Parent Dashboard -->
         <div class="container">
             <!-- Child Name -->
-            <h2 class="parent_dashboard_title h2 pt-4 text-center">Application Status for :2023
+            <h2 class="parent_dashboard_title h2 pt-4 text-center">Application Status for :<span id="applicationStatusYear"></span>
                 <span class="child-name fs-2" id="applicationStatusyear" name="applicationStatusyear"></span>
             </h2><br><br>
             <!-- Year -->
@@ -46,8 +46,8 @@
                 <div class="col-1 dropdown">
                     <!-- <h4>Year : <span id="form_year" name="form_year"></span></h4> -->
                     <select name="form_year" id="form_year" class="form-control"
-                        onclick="parentDashBoardDetails(this.value)" required>
-                        <option value="2023">2023</option>
+                        onclick="applicationStatusYear(this.value)" required>
+                        <!-- <option value="2023">2023</option> -->
                     </select>
                     <i class="fa fa-chevron-down"></i>
                 </div>
@@ -84,28 +84,20 @@
                             <!-- Table Body -->
                             <tbody id="tableBody">
                                 <tr>
-                                    <td id="child_name" name="child_name">sai</td>
-                                    <td id="parenrt_name" name="parenrt_name">dev</td>
-                                    <td id="application_status" name="application_status">10/10</td>
-                                    <td id="enrollment_form_status" name="enrollment_form_status">Completed</td>
-                                </tr>
-                                <tr>
-                                    <td id="child_name" name="child_name">abi</td>
-                                    <td id="parenrt_name" name="parenrt_name">kiruba</td>
-                                    <td id="application_status" name="application_status">05/10</td>
-                                    <td id="enrollment_form_status" name="enrollment_form_status">Incomplete</td>
-                                </tr>
-                                <tr>
-                                    <td id="child_name" name="child_name">midhu</td>
-                                    <td id="parenrt_name" name="parenrt_name">krish</td>
-                                    <td id="application_status" name="application_status">10/10</td>
-                                    <td id="enrollment_form_status" name="enrollment_form_status">reviewing</td>
+                                    <td id="child_name" name="child_name"></td>
+                                    <td id="parent_name" name="parent_name"></td>
+                                    <td id="application_status" name="application_status"></td>
+                                    <td id="enrollment_form_status" name="enrollment_form_status"></td>
                                 </tr>
                             </tbody>
                             <!-- Table Body End -->
                             <!-- Table Footer -->
                             <tfoot class="table-footer" id="tableFooter">
                                 <tr>
+                                    <th></th>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                 </tr>
                             </tfoot>
                             <!-- Table Footer End -->

@@ -10,6 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script type="module" src='js/admin_dashboard.js'></script>
+    <script src='js/admin_dashboard_validation.js'></script>
 </head>
 
 <body>
@@ -59,32 +61,56 @@
                                 <div class="row">
                                     <div class="col-sm mb-3">
                                         <label for="child_first_name" class="col-form-label">Child First Name</label>
-                                        <input type="text" class="form-control" id="child_first_name">
+                                        <input type="text" class="form-control" id="child_first_name"
+                                        onchange="namevalidation(this,'child_first_name_span')">
+                                        <span class="spanmsg" id="child_first_name_span" style="color:red; display:none">
+                                            Enter valid input[only letters].</span>
+                                        <div class="wizard-form-error"></div>
                                     </div>
                                     <div class="col-sm mb-3">
                                         <label for="child_last_name" class="col-form-label">Child Last Name</label>
-                                        <input type="text" class="form-control" id="child_last_name">
+                                        <input type="text" class="form-control" id="child_last_name"
+                                        onchange="namevalidation(this,'child_last_name_span')">
+                                        <span class="spanmsg" id="child_last_name_span" style="color:red; display:none">
+                                            Enter valid input[only letters].</span>
+                                        <div class="wizard-form-error"></div>
                                     </div>
                                 </div>
                                 <h5 class="text-center admin_dashboard_title">Parent Details</h5>
                                 <div class="row">
                                     <div class="col-sm mb-3">
                                         <label for="parent_first_name" class="col-form-label">First Name</label>
-                                        <input class="form-control" id="parent_first_name">
+                                        <input class="form-control" id="parent_first_name"
+                                        onchange="namevalidation(this,'parent_first_name_span')">
+                                        <span class="spanmsg" id="parent_first_name_span" style="color:red; display:none">
+                                            Enter valid input[only letters].</span>
+                                        <div class="wizard-form-error"></div>
                                     </div>
                                     <div class="col-sm mb-3">
                                         <label for="parent_last_name" class="col-form-label">Last Name</label>
-                                        <input class="form-control" id="parent_last_name">
+                                        <input class="form-control" id="parent_last_name"
+                                        onchange="namevalidation(this,'parent_last_name_span')">
+                                        <span class="spanmsg" id="parent_last_name_span" style="color:red; display:none">
+                                            Enter valid input[only letters].</span>
+                                        <div class="wizard-form-error"></div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm mb-3">
                                         <label for="parent_email" class="col-form-label">Email</label>
-                                        <input class="form-control" id="parent_email">
+                                        <input class="form-control" id="parent_email"
+                                        onchange="emailValidation(this,'parent_email_span')">
+                                        <span id="parent_email_span" style="color:red; display:none">
+                                            Enter valid input [should be in @ and .].</span>
+                                            <div class="wizard-form-error"></div>
                                     </div>
                                     <div class="col-sm mb-3">
                                         <label for="parent_mobile_number" class="col-form-label">Mobile Number</label>
-                                        <input class="form-control" id="parent_mobile_number">
+                                        <input class="form-control" id="parent_mobile_number"
+                                        onchange="validatePhone(this,'parent_mobile_number_span')">
+                                        <span id="parent_mobile_number_span" style="color:red; display:none">
+                                            Enter valid input [only numbers,+,-,()].</span>
+                                            <div class="wizard-form-error"></div>
                                     </div>
                                 </div>
                                 <div class="form-group modal-form-checkbox">
@@ -130,16 +156,18 @@
             <div class="col-12 col-sm-6 col-md-6 p-5">
                 <div class="card admin_cards p-3">
                     <div class="card-body pt-4">
-                        <h5 class="card-title text-center">
-                            <!-- Invite parent Icon -->
-                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
-                                class="bi bi-file-text-fill card_icon pt-1" viewBox="0 0 16 16">
-                                <path
-                                    d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z" />
-                            </svg>
-                        </h5>
-                        <h5 class="text-center card_icon pt-3 h4">Application Status</h5>
-                        </h5>
+                        <a href="application_status.html">
+                            <h5 class="card-title text-center">
+                                <!-- Invite parent Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                                    class="bi bi-file-text-fill card_icon pt-1" viewBox="0 0 16 16">
+                                    <path
+                                        d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z" />
+                                </svg>
+                            </h5>
+                            <h5 class="text-center card_icon pt-3 h4"> Application Status</h5>
+                            </h5>
+                        </a>
                     </div>
                 </div>
             </div>

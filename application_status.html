@@ -17,6 +17,7 @@
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
         <script type="module" src='js/script.js'></script>
         <script type="module" src='js/applicationStatus.js'></script>
+        <script src='js/applicationStatusfilter.js'></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     </head>
     <body>
@@ -57,7 +58,7 @@
                     <div class="search-icon">🔍</div>
                 </div>
                 <div class="col-3">
-                    <select id="enrollmentStatus" class="form-control" onchange="filterTableByEnrollmentStatus()">
+                    <select id="enrollmentStatus" class="form-control">
                         <option hidden>Filter <span class="fa-solid fa-filter-list">🔖</span></option>
                     </select>
                 </div>
@@ -74,7 +75,7 @@
                                     <th>Child Name</th>
                                     <th>Parent Name</th>
                                     <th>Application Status</th>
-                                    <th>Entrollment From Status</th>
+                                    <th>Enrollment From Status</th>
                                 </tr>
                             </thead>
                             <!-- Table Head End -->
@@ -132,5 +133,6 @@
             </div>
         </div>
        <!-- ... Your HTML code ... -->
+      
     </body>
 </html>

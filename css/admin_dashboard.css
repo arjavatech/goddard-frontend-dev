@@ -170,5 +170,12 @@ body {
     box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
   }
 
+a{
+    text-decoration: none !important;
+    color:#0F2D52 !important;
+}
+/* a:hover{
+    color:#21446f !important
+} */
   /***Modal style End***/
 

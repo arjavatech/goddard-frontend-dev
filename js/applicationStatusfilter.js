@@ -35,6 +35,8 @@ function applicationStatusYear(val) {
                         row.appendChild(applicationStatusCell);
             
                         const enrollmentStatusCell = document.createElement('td');
+                        enrollmentStatusCell.setAttribute('id', 'enrollment_form_status');
+                        enrollmentStatusCell.setAttribute('name', 'enrollment_form_status');
                         enrollmentStatusCell.textContent = rowData[j].enrollment_form_status;
                         row.appendChild(enrollmentStatusCell);
                         // Apply styles based on enrollment status
@@ -55,8 +57,6 @@ function applicationStatusYear(val) {
                 }
             }
         }
-        
-        
     });
 }
 
@@ -64,12 +64,10 @@ function applicationStatusYear(val) {
 function applicationStatusAllYear() {
     const child_id = localStorage.getItem('child_id')
     const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/application_status/all'
-    // console.log(url + child_id)
     $.ajax({
         url: url,
         type: 'get',
         success: function (response) {
-            // console.log(response);
             let yearArray = Object.keys(response);
             yearArray.sort().reverse();
             let optionsData = '';
@@ -84,9 +82,23 @@ function applicationStatusAllYear() {
     });
 }
 
+function filterTableByEnrollmentStatus(selectedStatus) {
+    const tableRows = document.querySelectorAll("#tableBody tr");
+    tableRows.forEach((row) => {
+        const enrollmentStatusCell = row.querySelector("[name='enrollment_form_status']");
+        if (enrollmentStatusCell) {
+            const status = enrollmentStatusCell.textContent.trim();
+            if (selectedStatus === "Filter 🔖" || status === selectedStatus) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        }
+    });
+}
+
 
 document.addEventListener("DOMContentLoaded", function () {
-
     document.body.style.visibility = 'visible';
     let defaultdate = new Date().getFullYear();
     // parentDashBoardDetails(defaultdate);
@@ -130,97 +142,71 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Search input changed."); // Add this line for debugging
         filterTable();
     });
+  
 
-    // Function to get unique enrollment form status values
-    function getUniqueEnrollmentStatusValues() {
-        const enrollmentStatusCells = document.querySelectorAll("[name='enrollment_form_status']");
-        const uniqueValues = new Set();
-
-        enrollmentStatusCells.forEach((cell) => {
-            uniqueValues.add(cell.textContent.trim());
-        });
-        console.log(enrollmentStatusCells);
-
-        return Array.from(uniqueValues);
-    }
-
-    // Populate the enrollment status dropdown with unique values
-    const enrollmentStatusDropdown = document.querySelector("#enrollmentStatus");
-    const uniqueStatusValues = getUniqueEnrollmentStatusValues();
-    console.log(uniqueStatusValues);
-
-    uniqueStatusValues.forEach((value) => {
-        const option = document.createElement("option");
-        option.value = value;
-        option.textContent = value;
-        enrollmentStatusDropdown.appendChild(option);
-    });
-
-    enrollmentStatusDropdown.addEventListener("change", filterTableByEnrollmentStatus);
-    function filterTableByEnrollmentStatus() {
-        console.log('filter checking');
-        const selectedStatus = document.querySelector("#enrollmentStatus").value;
-        const tableRows = document.querySelectorAll("#tableBody tr");
-
-        tableRows.forEach((row) => {
-            const enrollmentStatusCell = row.querySelector("[name='enrollment_form_status']");
-            if (enrollmentStatusCell) {
-                const status = enrollmentStatusCell.textContent.trim();
-
-                if (selectedStatus === "" || status === selectedStatus) {
-                    row.style.display = "";
-                } else {
-                    row.style.display = "none";
-                }
-            }
-        });
-    }
-
-    //for applied pagination code
-    // Variables to track pagination
-    let currentPage = 1;
-    const rowsPerPage = 5; // Adjust as needed
-
-    // Function to update the table with rows for the current page
-    function updateTableForPage() {
-        const table = document.querySelector("#myTable");
-        const tableRows = table.querySelectorAll("tbody tr");
-        const startIndex = (currentPage - 1) * rowsPerPage;
-        const endIndex = startIndex + rowsPerPage;
-
-        // Hide all rows
-        tableRows.forEach((row) => {
-            row.style.display = "none";
-        });
-
-        // Display rows for the current page
-        for (let i = startIndex; i < endIndex; i++) {
-            if (tableRows[i]) {
-                tableRows[i].style.display = "";
-            }
-        }
-    }
-    // Event listener for the "Previous" button
-    const prevPageButton = document.querySelector("#prevPage");
-    prevPageButton.addEventListener("click", () => {
-        if (currentPage > 1) {
-            currentPage--;
-            updateTableForPage();
-        }
-    });
-    // Event listener for the "Next" button
-    const nextPageButton = document.querySelector("#nextPage");
-    nextPageButton.addEventListener("click", () => {
-        const tableRows = document.querySelectorAll("#myTable tbody tr");
-        const totalRows = tableRows.length;
-        const totalPages = Math.ceil(totalRows / rowsPerPage);
-
-        if (currentPage < totalPages) {
-            currentPage++;
-            updateTableForPage();
-        }
-    });
-    // Initial update to display the first page
-    updateTableForPage();
+    //for pagination code
+    // Number of rows to display per page
+     const rowsPerPage = 5;
+     let currentPage = 1;
+     
+     // Function to update the table based on the current page
+     function updateTable() {
+         const tableRows = document.querySelectorAll("#tableBody tr");
+         const startIndex = (currentPage - 1) * rowsPerPage;
+         const endIndex = currentPage * rowsPerPage;
+     
+         tableRows.forEach((row, index) => {
+             if (index >= startIndex && index < endIndex) {
+                 row.style.display = "";
+             } else {
+                 row.style.display = "none";
+             }
+         });
+     
+         // Update the pagination buttons
+         updatePaginationButtons();
+     }
+     
+     // Function to update the pagination buttons
+     function updatePaginationButtons() {
+         const tableRows = document.querySelectorAll("#tableBody tr");
+         const totalPages = Math.ceil(tableRows.length / rowsPerPage);
+     
+         const prevPageButton = document.getElementById("prevPage");
+         const nextPageButton = document.getElementById("nextPage");
+     
+         prevPageButton.classList.remove("disabled");
+         nextPageButton.classList.remove("disabled");
+     
+         if (currentPage === 1) {
+             prevPageButton.classList.add("disabled");
+         }
+     
+         if (currentPage === totalPages) {
+             nextPageButton.classList.add("disabled");
+         }
+     }
+     
+     // Event listener for previous page button
+     document.getElementById("prevPage").addEventListener("click", () => {
+         if (currentPage > 1) {
+             currentPage--;
+             updateTable();
+         }
+     });
+     
+     // Event listener for next page button
+     document.getElementById("nextPage").addEventListener("click", () => {
+         const tableRows = document.querySelectorAll("#tableBody tr");
+         const totalPages = Math.ceil(tableRows.length / rowsPerPage);
+     
+         if (currentPage < totalPages) {
+             currentPage++;
+             updateTable();
+         }
+     });
+     
+     // Initial table update
+     updateTable();
 });
 

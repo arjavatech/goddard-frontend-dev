@@ -60,8 +60,11 @@
                       </svg></div>
                 </div>
                 <div class="col-3">
-                    <select id="enrollmentStatus" class="form-control">
-                        <option hidden>Filter <span class="fa-solid fa-filter-list">🔖</span></option>
+                    <select id="enrollmentStatus" class="form-control" onchange="filterTableByEnrollmentStatus(this.value)">
+                        <option >Filter <span class="fa-solid fa-filter-list">🔖</span></option>
+                        <option value="Completed">Completed</option>
+                        <option value="Reviewing">Reviewing</option>
+                        <option value="Incompleted">Incompleted</option>
                     </select>
                 </div>
             </div>
@@ -83,12 +86,12 @@
                             <!-- Table Head End -->
                             <!-- Table Body -->
                             <tbody id="tableBody">
-                                <tr>
+                                <!-- <tr>
                                     <td id="child_name" name="child_name"></td>
                                     <td id="parent_name" name="parent_name"></td>
                                     <td id="application_status" name="application_status"></td>
                                     <td id="enrollment_form_status" name="enrollment_form_status"></td>
-                                </tr>
+                                </tr> -->
                             </tbody>
                             <!-- Table Body End -->
                             <!-- Table Footer -->
@@ -104,6 +107,7 @@
                         </table>
                         <!-- Form Action Table End -->
                     </div>
+                
                     <div class="position-relative p-4">
                         <div class="position-absolute top-50 start-50 translate-middle">
                             <nav aria-label="Page navigation example">
@@ -111,11 +115,6 @@
                                     <li class="page-item disabled" id="prevPage">
                                         <a class="page-link" href="#" tabindex="-1">Previous</a>
                                     </li>
-                                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item">
-                                    <a class="page-link" href="#">2</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
                                     <li class="page-item" id="nextPage">
                                         <a class="page-link" href="#">Next</a>
                                     </li>
@@ -123,15 +122,9 @@
                             </nav>
                         </div>
                     </div>
-                    <!-- <div class="pagination">
-                        <button id="prevPage">Previous</button>
-                        <button id="nextPage">Next</button>
-                    </div> -->
                 </div>
-               
             </div>
         </div>
-       <!-- ... Your HTML code ... -->
-      
+
     </body>
 </html>

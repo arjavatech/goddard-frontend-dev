@@ -10,8 +10,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script type="module" src='js/admin_dashboard.js'></script>
+    <script src='js/inviteParentEmail.js'></script>
     <script src='js/admin_dashboard_validation.js'></script>
+    
+    
+   
 </head>
 
 <body>
@@ -53,111 +59,154 @@
                 <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-3 admin_dashboard_title" id="exampleModalLabel">Invite mail send to parent</h1>
+                            <h1 class="modal-title fs-3 admin_dashboard_title" id="exampleModalLabel" >Invite mail send to parent</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <section class="wizard-section">
                                 <div class="form-wizard">
-                                    <fieldset class="wizard-fieldset show">
                                     <form id="admission_form">
-                                        <div class="row">
-                                            <div class="col-sm mb-3">
-                                                <div class="form-group">
-                                                <label for="child_first_name" class="col-form-label">Child First Name</label>
-                                                <input type="text" class="form-control" id="child_first_name"
-                                                onchange="namevalidation(this,'child_first_name_span')">
-                                                <span class="spanmsg" id="child_first_name_span" style="color:red; display:none">
-                                                    Enter valid input[only letters].</span>
-                                                <div class="wizard-form-error"></div>
+                                        <fieldset class="wizard-fieldset show">
+                                            <div class="row">
+                                                <div class="col-sm mb-3">
+                                                    <input type="text" id="messageData" value="https://arjavatech.github.io/goddard-frontend-dev/login.html">
+                                                    <!-- <a id="messageData">https://arjavatech.github.io/goddard-frontend-dev/login.html</a> -->
+                                                </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-sm mb-3">
+                                                    <div class="form-group">
+                                                        <label for="child_first_name" class="col-form-label">Child First Name</label>
+                                                        <input type="text" class="form-control" id="child_first_name"
+                                                        onchange="namevalidation(this,'child_first_name_span')">
+                                                        <span class="spanmsg" id="child_first_name_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
+                                                        <div class="wizard-form-error"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm mb-3">
+                                                    <div class="form-group">
+                                                        <label for="child_last_name" class="col-form-label">Child Last Name</label>
+                                                        <input type="text" class="form-control" id="child_last_name"
+                                                        onchange="namevalidation(this,'child_last_name_span')">
+                                                        <span class="spanmsg" id="child_last_name_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
+                                                        <div class="wizard-form-error"></div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-sm mb-3">
-                                                <label for="child_last_name" class="col-form-label">Child Last Name</label>
-                                                <input type="text" class="form-control" id="child_last_name"
-                                                onchange="namevalidation(this,'child_last_name_span')">
-                                                <span class="spanmsg" id="child_last_name_span" style="color:red; display:none">
-                                                    Enter valid input[only letters].</span>
-                                                <div class="wizard-form-error"></div>
+                                            <h5 class="text-center admin_dashboard_title">Parent Details</h5>
+                                            <div class="row">
+                                                <div class="col-sm mb-3">
+                                                    <div class="form-group">
+                                                        <label for="parent_first_name" class="col-form-label">First Name</label>
+                                                        <input type="text" class="form-control" id="parent_first_name"
+                                                        onchange="namevalidation(this,'parent_first_name_span')">
+                                                        <span class="spanmsg" id="parent_first_name_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
+                                                        <div class="wizard-form-error"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm mb-3">
+                                                    <div class="form-group">
+                                                        <label for="parent_last_name" class="col-form-label">Last Name</label>
+                                                        <input type="text" class="form-control" id="parent_last_name"
+                                                        onchange="namevalidation(this,'parent_last_name_span')">
+                                                        <span class="spanmsg" id="parent_last_name_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
+                                                        <div class="wizard-form-error"></div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <h5 class="text-center admin_dashboard_title">Parent Details</h5>
-                                        <div class="row">
-                                            <div class="col-sm mb-3">
-                                                <label for="parent_first_name" class="col-form-label">First Name</label>
-                                                <input type="text" class="form-control" id="parent_first_name"
-                                                onchange="namevalidation(this,'parent_first_name_span')">
-                                                <span class="spanmsg" id="parent_first_name_span" style="color:red; display:none">
-                                                    Enter valid input[only letters].</span>
-                                                <div class="wizard-form-error"></div>
+                                            <div class="row">
+                                                <div class="col-sm mb-3">
+                                                    <div class="form-group">
+                                                        <label for="parent_email" class="col-form-label">Email</label>
+                                                        <input type="mail" class="form-control" id="parent_email"
+                                                        onchange="emailValidation(this,'parent_email_span')">
+                                                        <span id="parent_email_span" style="color:red; display:none">
+                                                            Enter valid input [should be in @ and .].</span>
+                                                        <div class="wizard-form-error"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm mb-3">
+                                                    <div class="form-group">
+                                                        <label for="parent_mobile_number" class="col-form-label">Mobile Number</label>
+                                                        <input type="number" class="form-control" id="parent_mobile_number"
+                                                        onchange="validatePhone(this,'parent_mobile_number_span')">
+                                                        <span id="parent_mobile_number_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
+                                                        <div class="wizard-form-error"></div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-sm mb-3">
-                                                <label for="parent_last_name" class="col-form-label">Last Name</label>
-                                                <input type="text" class="form-control" id="parent_last_name"
-                                                onchange="namevalidation(this,'parent_last_name_span')">
-                                                <span class="spanmsg" id="parent_last_name_span" style="color:red; display:none">
-                                                    Enter valid input[only letters].</span>
-                                                <div class="wizard-form-error"></div>
+                                        </fieldset>
+                                        <fieldset class="wizard-fieldset">
+                                            <div class="form-group modal-form-checkbox">
+                                                <input type="checkbox" class="input-checkbox" id="additional_parent_details"
+                                                    name="additional_parent_details" onclick="checkbox()">
+                                                <label class="form-check-label" for="additional_parent_details"><span>
+                                                        <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                        </svg></span>
+                                                    <span>Do you want to add additional parent details?</span>
+                                                </label>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm mb-3">
-                                                <label for="parent_email" class="col-form-label">Email</label>
-                                                <input type="mail" class="form-control" id="parent_email"
-                                                onchange="emailValidation(this,'parent_email_span')">
-                                                <span id="parent_email_span" style="color:red; display:none">
-                                                    Enter valid input [should be in @ and .].</span>
-                                                    <div class="wizard-form-error"></div>
+                                            <h5 class="text-center" id="parent_info_label" style="display: none;">Parent Details 2</h5>
+                                            <div class="row"  id="additional_parent_info" style="display:none">
+                                                <div class="row ">
+                                                    <div class="col-sm mb-3">
+                                                        <div class="form-group">
+                                                            <label for="parent2_first_name" class="col-form-label">First Name</label>
+                                                            <input type="text" class="form-control" id="parent2_first_name"
+                                                            onchange="namevalidation(this,'parent2_first_name_span')">
+                                                            <span class="spanmsg" id="parent2_first_name_span" style="color:red; display:none">
+                                                                Enter valid input[only letters].</span>
+                                                            <div class="wizard-form-error"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm mb-3">
+                                                        <div class="form-group">
+                                                            <label for="parent2_last_name" class="col-form-label">Last Name</label>
+                                                            <input type="text" class="form-control" id="parent2_last_name"
+                                                            onchange="namevalidation(this,'parent2_last_name_span')">
+                                                            <span class="spanmsg" id="parent2_last_name_span" style="color:red; display:none">
+                                                                Enter valid input[only letters].</span>
+                                                            <div class="wizard-form-error"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm mb-3">
+                                                        <div class="form-group">
+                                                            <label for="parent2_email" class="col-form-label">Email</label>
+                                                            <input type="email" class="form-control" id="parent2_email"  
+                                                            onchange="emailValidation(this,'parent2_email_span')">
+                                                            <span id="parent2_email_span" style="color:red; display:none">
+                                                                Enter valid input [should be in @ and .].</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm mb-3">
+                                                        <div class="form-group">
+                                                            <label for="parent2_mobile_number" class="col-form-label">Mobile Number</label>
+                                                            <input type="number" class="form-control" id="parent2_mobile_number"
+                                                            onchange="validatePhone(this,'parent2_mobile_number_span')">
+                                                            <span id="parent2_mobile_number_span" style="color:red; display:none">
+                                                                Enter valid input [only numbers,+,-,()].</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-sm mb-3">
-                                                <label for="parent_mobile_number" class="col-form-label">Mobile Number</label>
-                                                <input type="number" class="form-control" id="parent_mobile_number"
-                                                onchange="validatePhone(this,'parent_mobile_number_span')">
-                                                <span id="parent_mobile_number_span" style="color:red; display:none">
-                                                    Enter valid input [only numbers,+,-,()].</span>
-                                                    <div class="wizard-form-error"></div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group modal-form-checkbox">
-                                            <input type="checkbox" class="input-checkbox" id="additional_parent_details"
-                                                name="additional_parent_details">
-                                            <label class="form-check-label" for="additional_parent_details"><span>
-                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                                    </svg></span>
-                                                <span>Do you want to add additional parent details?</span>
-                                            </label>
-                                        </div>
-                                        <!-- <h5 class="text-center">Parent Details 2</h5>
-                                        <div class="row">
-                                            <div class="col-sm mb-3">
-                                                <label for="parent2_first_name" class="col-form-label">First Name</label>
-                                                <input type="text" class="form-control" id="parent2_first_name">
-                                            </div>
-                                            <div class="col-sm mb-3">
-                                                <label for="parent2_last_name" class="col-form-label">Last Name</label>
-                                                <input type="text" class="form-control" id="parent2_last_name">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm mb-3">
-                                                <label for="parent2_email" class="col-form-label">Email</label>
-                                                <input type="email" class="form-control" id="parent2_email">
-                                            </div>
-                                            <div class="col-sm mb-3">
-                                                <label for="parent2_mobile_number" class="col-form-label">Mobile Number</label>
-                                                <input type="number" class="form-control" id="parent2_mobile_number">
-                                            </div>
-                                        </div> -->
+                                        </fieldset>
                                     </form>
-                                </fieldset>
                                 </div>
                             </section>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                            <a href="javascript:;" class="form-wizard-next-btn" id="first_next_button"
-                                                            aria-disabled="true" id="btnNext">Next</a>
+                            <button type="button" class="btn btn-secondary"
+                                data-bs-dismiss="modal">Cancel</button>
+                            <button id="sendButton" type="button"
+                                class="btn btn-primary">Send</button>
                         </div>
                     </div>
                 </div>

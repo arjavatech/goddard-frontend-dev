@@ -7,69 +7,163 @@ function getEnrollmentFormStatus(val, callback) {
         }
     });
 }
-
 function parentDashBoardDetails(val) {
     localStorage.setItem('form_year_value', val);
-    let form_status = 'unknown'
     $.ajax({
         url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/dashboard_data/formByYear/${val}`,
         type: 'get',
         success: function (response) {
+            console.log(response);
             if (Array.isArray(response) && response.length > 0) {
                 getEnrollmentFormStatus(val, function (formStatusResp) {
-                    form_status = formStatusResp.form_status;
-                    response.forEach(data => {
-                        if (data.form_name.includes('Enrollment')) {
-                            // localStorage.setItem('child_name',
-                            // response[0].child_full_name)
-                            document.getElementById('enrollment_agreement').innerHTML =
-                                data.form_name; //
-                            // document.querySelector('[name="enrollment_span"]').style.display
-                            // =  "block";
-                            document.getElementById('date_value').innerHTML =
-                                data.form_expiry_date;
+                    let form_status = formStatusResp.form_status;
+                    const tableBody = document.getElementById('tableBody');
 
-                            if (form_status === "Yet To Be Filled") {
-                                document.getElementById('form_status').innerHTML =
-                                    form_status;
-                                document.getElementById('form_status').style.color =
-                                    '#0F2D52';
-                                document.getElementById('form_status').style.fontWeight =
-                                    'bold';
-                                enableAction();
-                            } else if (form_status === "Completed") {
-                                document.getElementById('form_status').innerHTML =
-                                    form_status;
-                                document.getElementById('form_status').style.color = 'green';
-                                document.getElementById('form_status').style.fontWeight =
-                                    'bold';
-                                disableAction();
-                            } else if (form_status === "Incomplete") {
-                                document.getElementById('form_status').innerHTML =
-                                    form_status;
-                                document.getElementById('form_status').style.color = 'red';
-                                document.getElementById('form_status').style.fontWeight =
-                                    'bold';
-                                enableAction();
-                            } else {
-                                document.getElementById('form_status').innerHTML =
-                                    form_status;
-                                document.getElementById('form_status').style.color =
-                                    '#FFCC00';
-                                document.getElementById('form_status').style.fontWeight =
-                                    'bold';
-                                enableAction();
-                            }
-                        } else if (data.form_name.includes('Hand Book')) {
-                            document.getElementById('tableFooterHeading').innerHTML =
-                                data.form_name;
+                    // Clear the existing table row
+                    tableBody.innerHTML = '';
+
+                    response.forEach(data => {
+                        const newRow = document.createElement('tr');
+
+                        // Create and append cells for each data point
+                        const formNameCell = document.createElement('td');
+                        formNameCell.innerText = data.form_name;
+
+                        const formExpiryDateCell = document.createElement('td');
+                        formExpiryDateCell.innerText = data.form_expiry_date;
+
+                        const formStatusCell = document.createElement('td');
+                        formStatusCell.innerText = form_status;
+
+                        // Create a cell for action items
+                        const actionCell = document.createElement('td');
+
+                        // Add action buttons to the action cell
+                        const editLink = document.createElement('a');
+                        var dynamicValue = localStorage.getItem('child_id');
+                        if(data.form_name == 'Goddard Application Form'){
+                            editLink.href = `form.html?id=${dynamicValue}`;
+                        }else if(data.form_name == 'SVG form') {
+                            editLink.href = `svg.html?id=${dynamicValue}`;
                         }
-                    })
+                        
+                        editLink.setAttribute('data-dynamic-value', 'example');
+
+                        
+                        // ... Add other attributes and content for editLink
+
+                        const editIcon = document.createElement('i');
+                        editIcon.className = 'fa-sharp fa-solid fa-pen p-1 action-icons';
+                        // ... Add other attributes and content for editIcon
+
+                        const downloadIcon = document.createElement('i');
+                        downloadIcon.className = 'fa-solid fa-circle-arrow-down p-2 action-icons';
+                        // ... Add other attributes and content for downloadIcon
+
+                        const mailSpan = document.createElement('span');
+                        mailSpan.setAttribute('data-bs-toggle', 'modal');
+                        mailSpan.setAttribute('data-bs-target', '#staticBackdrop');
+                        // ... Add other attributes and content for mailSpan
+
+                        const mailIcon = document.createElement('i');
+                        mailIcon.className = 'fa-solid fa-envelope p-1 action-icons';
+                        // ... Add other attributes and content for mailIcon
+
+                        const printIcon = document.createElement('i');
+                        printIcon.className = 'fa-solid fa-print p-2 action-icons';
+                        // ... Add other attributes and content for printIcon
+
+                        // Append action items to the action cell
+                        actionCell.appendChild(editLink);
+                        editLink.appendChild(editIcon);
+                        actionCell.appendChild(downloadIcon);
+                        actionCell.appendChild(mailSpan);
+                        mailSpan.appendChild(mailIcon);
+                        actionCell.appendChild(printIcon);
+
+                        // Append cells to the row
+                        newRow.appendChild(formNameCell);
+                        newRow.appendChild(formExpiryDateCell);
+                        newRow.appendChild(formStatusCell);
+                        newRow.appendChild(actionCell);
+
+                        // Append the row to the table
+                        tableBody.appendChild(newRow);
+
+                        // Apply styling based on form status here as needed
+                    });
                 });
             }
         }
     });
 }
+
+
+
+
+// function parentDashBoardDetails(val) {
+//     localStorage.setItem('form_year_value', val);
+//     let form_status = 'unknown'
+//     $.ajax({
+//         url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/dashboard_data/formByYear/${val}`,
+//         type: 'get',
+//         success: function (response) {
+//             console.log(response);
+//             if (Array.isArray(response) && response.length > 0) {
+//                 getEnrollmentFormStatus(val, function (formStatusResp) {
+//                     form_status = formStatusResp.form_status;
+//                     response.forEach(data => {
+//                         if (data.form_name.includes('Enrollment')) {
+//                             // localStorage.setItem('child_name',
+//                             // response[0].child_full_name)
+//                             document.getElementById('enrollment_agreement').innerHTML =
+//                                 data.form_name; //
+//                             // document.querySelector('[name="enrollment_span"]').style.display
+//                             // =  "block";
+//                             document.getElementById('date_value').innerHTML =
+//                                 data.form_expiry_date;
+
+//                             if (form_status === "Yet To Be Filled") {
+//                                 document.getElementById('form_status').innerHTML =
+//                                     form_status;
+//                                 document.getElementById('form_status').style.color =
+//                                     '#0F2D52';
+//                                 document.getElementById('form_status').style.fontWeight =
+//                                     'bold';
+//                                 enableAction();
+//                             } else if (form_status === "Completed") {
+//                                 document.getElementById('form_status').innerHTML =
+//                                     form_status;
+//                                 document.getElementById('form_status').style.color = 'green';
+//                                 document.getElementById('form_status').style.fontWeight =
+//                                     'bold';
+//                                 disableAction();
+//                             } else if (form_status === "Incomplete") {
+//                                 document.getElementById('form_status').innerHTML =
+//                                     form_status;
+//                                 document.getElementById('form_status').style.color = 'red';
+//                                 document.getElementById('form_status').style.fontWeight =
+//                                     'bold';
+//                                 enableAction();
+//                             } else {
+//                                 document.getElementById('form_status').innerHTML =
+//                                     form_status;
+//                                 document.getElementById('form_status').style.color =
+//                                     '#FFCC00';
+//                                 document.getElementById('form_status').style.fontWeight =
+//                                     'bold';
+//                                 enableAction();
+//                             }
+//                         } else if (data.form_name.includes('Hand Book')) {
+//                             document.getElementById('tableFooterHeading').innerHTML =
+//                                 data.form_name;
+//                         }
+//                     })
+//                 });
+//             }
+//         }
+//     });
+// }
 
 // Disable the action and styling
 function disableAction() {

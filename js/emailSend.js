@@ -158,6 +158,7 @@ async function emailSend() {
 
 $(document).ready(function () {
     $('#sendButton').click(function () {
+        console.log('xfvdfvds');
         fetchEnrollmentFormTitle(function () {
             fetchEnrollmentFormBody(function () {
                 emailSend();

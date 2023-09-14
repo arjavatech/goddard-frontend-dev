@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login and Sign Up</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
+        <link rel="stylesheet" href="css/login_signup.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar d-flex justify-content-center">
+            <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
+        </nav>
+        <!-- Navigation Bar End -->
+        <!-- Login Card -->
+        <div class="container">
+            <div class="card-center-align position-absolute top-50 start-50 translate-middle">
+                <div class="card login-card-style">
+                    <div class="card-body">
+                        <h5 class="card-title h3 text-center">Parent</h5><br>
+                        <ul class="nav nav-pills nav-fill gap-2 p-1 small rounded-5 shadow-sm nav_tab_bg" id="pillNav2" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="true" href="#login">Login</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" href="#signup">Sign Up</button>
+                            </li>
+                        </ul>
+                         <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div id="login" class="container tab-pane active"><br>
+                                <div class="form-group">
+                                    <label for="login_email" class="form-label"><b>Email
+                                        <span style="color:#ff0000;">*</span></b></label><br>
+                                        <input type="email" class="form-control wizard-required" id="login_email" name="login_email"
+                                        onchange="emailValidation(this,'login_email_span')">
+                                    <span id="login_email_span" style="color:red; display:none">
+                                        Enter valid input [should be in @ and .].</span>
+                                        <div class="wizard-form-error"></div>
+                                </div><br>
+                                <div class="form-group">
+                                    <label for="login_pswd" class="form-label"><b>Password
+                                        <span style="color:#ff0000;">*</span></b></label><br>
+                                        <input type="password" class="form-control wizard-required" id="login_pswd" name="login_pswd"
+                                        onchange="emailValidation(this,'login_pswd_span')">
+                                    <span id="login_pswd_span" style="color:red; display:none">
+                                        Enter valid input [should be in @ and .].</span>
+                                        <div class="wizard-form-error"></div>
+                                </div><br>
+                                <div class="d-grid">
+                                  <button type="button" class="btn login_btn btn-block shadow-none">Login</button>
+                                </div><br>
+                                <div class="text-center">
+                                    <a href="#" class="fs-5" style="color: #0F2D52">Forgotten Password?</a>
+                                  </div> 
+                            </div>
+                            <div id="signup" class="container tab-pane fade"><br>
+                                <div class="form-group">
+                                    <label for="signup_email" class="form-label"><b>Email
+                                        <span style="color:#ff0000;">*</span></b></label><br>
+                                        <input type="email" class="form-control wizard-required" id="signup_email" name="signup_email"
+                                        onchange="emailValidation(this,'signup_email_span')">
+                                    <span id="signup_email_span" style="color:red; display:none">
+                                        Enter valid input [should be in @ and .].</span>
+                                        <div class="wizard-form-error"></div>
+                                </div><br>
+                                <div class="form-group">
+                                    <label for="signup_pswd" class="form-label"><b>Password
+                                        <span style="color:#ff0000;">*</span></b></label><br>
+                                        <input type="password" class="form-control wizard-required" id="signup_pswd" name="signup_pswd"
+                                        onchange="emailValidation(this,'signup_pswd_span')">
+                                    <span id="signup_pswd_span" style="color:red; display:none">
+                                        Enter valid input [should be in @ and .].</span>
+                                        <div class="wizard-form-error"></div>
+                                </div><br>
+                                <div class="form-group">
+                                    <label for="signup_confirm_pswd" class="form-label"><b>Confirm Password
+                                        <span style="color:#ff0000;">*</span></b></label><br>
+                                        <input type="password" class="form-control wizard-required" id="signup_confirm_pswd" name="signup_confirm_pswd"
+                                        onchange="emailValidation(this,'signup_confirm_pswd_span')">
+                                    <span id="signup_confirm_pswd_span" style="color:red; display:none">
+                                        Enter valid input [should be in @ and .].</span>
+                                        <div class="wizard-form-error"></div>
+                                </div><br>
+                                <div class="d-grid">
+                                  <button type="button" class="btn signup_btn btn-block shadow-none">Sign Up</button>
+                                </div>  
+                            </div><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Login Card End -->
+    </body>
+</html>

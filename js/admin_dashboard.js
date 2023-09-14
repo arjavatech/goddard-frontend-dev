@@ -29,9 +29,9 @@ $(document).ready(function () {
         window.location.href = 'login.html';
     } else {
         document.body.style.visibility = 'visible';
-        // $("#submit_button").on("click", function (e) {
+        // $("#sendButton").on("click", function (e) {
         //     e.preventDefault(); // Prevent the default form submission
-        //     submitForm();
+        //     // submitForm();
         // });
     }
 });

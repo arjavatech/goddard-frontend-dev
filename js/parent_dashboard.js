@@ -73,7 +73,7 @@ const s3 = new AWS.S3();
 
 let obj = {
     "from": "noreply.goddard@gmail.com",
-    "to": "noreply.goddard@gmail.com",
+    "to": "aarthi.arjava@gmail.com",
     "subject": "subject",
     "body": "message data",
     "attachmentName": "AttachmentForm",
@@ -139,11 +139,13 @@ async function emailSend() {
 
         const attachmentKey = await uploadBase64PDFToS3(base64Data, title + ' CHILD_ID');
         obj.attachmentKey = attachmentKey;
+        const json =JSON.stringify(obj);
+        console.log(json);
         $.ajax({
                url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
-               type: "POST",
+               type: "OPTIONS",
                contentType: "application/json",
-               data: JSON.stringify(obj),
+               data: json,
                success: function (response) {
                    alert("Email Sent Successfully")
                    let modal = document.querySelector('.modal');

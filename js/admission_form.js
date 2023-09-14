@@ -12,8 +12,8 @@ function submitForm() {
     obj.on_process = false;
     obj.parent_email_one = logged_in_email;
     obj.parent_name = parent_name;
-    obj.parent_id = localStorage.getItem('parent_id')
-
+    obj.parent_id = localStorage.getItem('parent_id');
+    obj.application_status_value = 10;
     const child_id_val = localStorage.getItem('child_id');
     if (child_id_val !== null && child_id_val !== undefined) {
         obj.child_id = child_id_val;
@@ -53,7 +53,7 @@ function submitForm() {
 }
 
 // Function to submit the form data
-function saveForm() {
+function saveForm(value) {
     const form = document.getElementById("admission_form");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
@@ -63,7 +63,8 @@ function saveForm() {
     obj.on_process = true;
     obj.parent_email_one = logged_in_email;
     obj.parent_name = parent_name;
-    obj.parent_id = localStorage.getItem('parent_id')
+    obj.parent_id = localStorage.getItem('parent_id');
+    obj.application_status_value = value;
     const child_id_val = localStorage.getItem('child_id');
     if (child_id_val !== null && child_id_val !== undefined) {
         obj.child_id = child_id_val;
@@ -96,7 +97,8 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            saveForm();
+            let application_value =1;
+            saveForm(application_value);
         });
         $("#second_save_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
@@ -104,7 +106,8 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            saveForm();
+            let application_value =1;
+            saveForm(application_value);
         });
         $("#third_save_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
@@ -112,7 +115,8 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            saveForm();
+            let application_value =1;
+            saveForm(application_value);
         });
         $("#four_save_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
@@ -120,7 +124,8 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            saveForm();
+            let application_value =1;
+            saveForm(application_value);
         });
         $("#five_save_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
@@ -128,7 +133,8 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            saveForm();
+            let application_value =1;
+            saveForm(application_value);
         });
         $("#six_save_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
@@ -136,7 +142,8 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            saveForm();
+            let application_value =1;
+            saveForm(application_value);
         });
         $("#seven_save_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
@@ -144,7 +151,8 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            saveForm();
+            let application_value =1;
+            saveForm(application_value);
         });
         $("#eight_save_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
@@ -152,7 +160,8 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            saveForm();
+            let application_value =1;
+            saveForm(application_value);
         });
         $("#nine_save_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
@@ -160,7 +169,8 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            saveForm();
+            let application_value =1;
+            saveForm(application_value);
         });
         $("#submit_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission

@@ -44,4 +44,11 @@ body {
     border: 1px solid #0F2D52 !important;
 }
 
+#avf_form .div2 {
+    color: #0F2D52 !important;
+    font-weight: 700 !important;
+     width: 100% !important; 
+    border: 1px solid #0F2D52 !important;
+}
+
 /***button style end***/

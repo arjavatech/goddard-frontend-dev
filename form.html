@@ -214,10 +214,10 @@
                             type="text" class="form-control ">
                     </span>
                     <span id="apiResponsep18" name="apiResponsep18"></span><br><br>
-                    <!-- <span id="initial"><b>Initial here &nbsp;</b>
-                        <input id="point_eighteen_initial_here" name="point_eighteen_initial_here"
+                    <span id="initial"><b>Initial here &nbsp;</b>
+                        <input id="point_nineteen_initial_here" name="point_nineteen_initial_here"
                             type="text" class="form-control ">
-                    </span> -->
+                    </span>
                     <span id="apiResponsep19" name="apiResponsep19"></span><br><br>
                 </ol>
                 <div class="container signblock">
@@ -244,15 +244,21 @@
                             <div class="col-sm-12">
                                 <div class="col-sm-6 div1">
                                     <div class="form-group ">
-                                        <input id="parent_two_sign" name="parent_two_sign"
-                                        type="text" class="form-control bloc1">
+                                        <input id="primary_parent_email" name="primary_parent_email"
+                                        type="text" class="form-control bloc1" onchange="emailValidation(this,'primary_parent_email_span')">
+                                        <span id="primary_parent_email_span" style="color:red; display:none">
+                                            Enter valid input [should be in @ and .].</span>
+                                            <div class="wizard-form-error"></div>
                                         <span id="apiResponsep22" name="apiResponsep22"></span>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 div2">
                                     <div class="form-group ">
-                                        <input id="parent_two_sign_date" name="parent_two_sign_date"
-                                        type="date" class="form-control bloc1" onclick="dateValidation('parent_two_sign_date')">
+                                        <input id="primary_parent_cell_number" name="primary_parent_cell_number"
+                                        type="text" class="form-control bloc1" onchange="validatePhone(this,'primary_parent_cell_number_span')">
+                                        <span id="primary_parent_cell_number_span" style="color:red; display:none">
+                                            Enter valid input [only numbers,+,-,()].</span>
+                                        <div class="wizard-form-error"></div>
                                         <span id="apiResponsep23" name="apiResponsep23" ></span>
                                     </div>
                                 </div>

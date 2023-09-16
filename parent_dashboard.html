@@ -327,14 +327,21 @@
                                 <div class="col-sm-12">
                                     <div class="col-sm-6 div1">
                                         <div class="form-group ">
-                                            <input id="parent_two_sign" name="parent_two_sign" type="text" class="bloc1">
+                                            <input id="primary_parent_email" name="primary_parent_email" type="text"
+                                             class="bloc1" onchange="emailValidation(this,'primary_parent_email_span')">
+                                             <span id="primary_parent_email_span" style="color:red; display:none">
+                                                 Enter valid input [should be in @ and .].</span>
+                                                 <div class="wizard-form-error"></div>
                                             <span id="apiResponsep22" name="apiResponsep22" class="divSpan"></span>
                                         </div>
                                     </div>
                                     <div class="col-sm-6 div1">
                                         <div class="form-group ">
-                                            <input id="parent_two_sign_date" name="parent_two_sign_date" type="date"
-                                                class="bloc1">
+                                            <input id="primary_parent_cell_number" name="primary_parent_cell_number" type="date"
+                                                class="bloc1" onchange="validatePhone(this,'primary_parent_cell_number_span')">
+                                                <span id="primary_parent_cell_number_span" style="color:red; display:none">
+                                                    Enter valid input [only numbers,+,-,()].</span>
+                                                <div class="wizard-form-error"></div>
                                             <span id="apiResponsep23" name="apiResponsep23" class="divSpan"></span>
                                         </div>
                                     </div>

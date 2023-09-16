@@ -64,12 +64,13 @@ export function fetchEnrollmentFormBody(callback) {
                         document.querySelector('[name="apiResponsep16"]').innerHTML = response.point_sixteen;
                         document.querySelector('[name="apiResponsep17"]').innerHTML = response.point_seventeen;
                         document.querySelector('[name="apiResponsep18"]').innerHTML = response.point_eighteen;
-                        document.querySelector('[name="apiResponsep19"]').innerHTML = response.point_eighteen_initial;
+                        // document.querySelector('[name="apiResponsep19"]').innerHTML = response.point_eighteen_initial;
+                        document.querySelector('[name="apiResponsep19"]').innerHTML = response.point_nineteen;
 
                         document.querySelector('[name="apiResponsep20"]').innerHTML = response.parent_one_sign;
                         document.querySelector('[name="apiResponsep21"]').innerHTML = response.parent_one_sign_date;
-                        document.querySelector('[name="apiResponsep22"]').innerHTML = response.parent_two_sign;
-                        document.querySelector('[name="apiResponsep23"]').innerHTML = response.parent_two_sign_date;
+                        document.querySelector('[name="apiResponsep22"]').innerHTML = response.primary_parent_email;
+                        document.querySelector('[name="apiResponsep23"]').innerHTML = response.primary_parent_cell_number;
                         document.querySelector('[name="apiResponsep24"]').innerHTML = response.child_name;
                         document.querySelector('[name="apiResponsep25"]').innerHTML = response.dob;
                         document.querySelector('[name="apiResponsep26"]').innerHTML = response.school_admin_sign;
@@ -137,11 +138,11 @@ export function fetchEnrollmentFormBody(callback) {
                     if (typeof response1[0].parent_one_sign_date !== "undefined"){
                         document.getElementsByName("parent_one_sign_date")[0].value = response1[0].parent_one_sign_date;
                     }
-                    if (typeof response1[0].parent_two_sign !== "undefined"){
-                        document.getElementsByName("parent_two_sign")[0].value = response1[0].parent_two_sign;
+                    if (typeof response1[0].primary_parent_email !== "undefined"){
+                        document.getElementsByName("primary_parent_email")[0].value = response1[0].primary_parent_email;
                     }
-                    if (typeof response1[0].parent_two_sign_date !== "undefined"){
-                        document.getElementsByName("parent_two_sign_date")[0].value = response1[0].parent_two_sign_date;
+                    if (typeof response1[0].primary_parent_cell_number !== "undefined"){
+                        document.getElementsByName("primary_parent_cell_number")[0].value = response1[0].primary_parent_cell_number;
                     }
                     if (typeof response1[0].child_name !== "undefined"){
                         document.getElementsByName("child_name")[0].value = response1[0].child_name;

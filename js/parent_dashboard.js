@@ -1,6 +1,7 @@
 import { fetchEnrollmentFormTitle, fetchEnrollmentFormBody, fetchEnrollmentPointEight } from './enrollmentForm.js';
 import { authorizationFormDetails } from './authorization_form.js';
 
+console.log('cgvuygkiut');
 function getEnrollmentFormStatus(val, callback) {
     $.ajax({
         url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/form_status/${localStorage.getItem('child_id')}?year=${val}`,
@@ -129,12 +130,12 @@ async function getPDFBase64Data() {
     })
 }
 
-async function emailSend() {
+async function emailSend(id) {
     try {
         const base64Data = await getPDFBase64Data();
         obj.attachmentName = "AttachmentForm";
         obj.subject = 'Query on ' + title;
-        let messageData = $('#messageData').val();;
+        let messageData = id.val();
         obj.body = messageData;
 
         const attachmentKey = await uploadBase64PDFToS3(base64Data, title + ' CHILD_ID');
@@ -149,9 +150,8 @@ async function emailSend() {
                success: function (response) {
                    alert("Email Sent Successfully")
                    let modal = document.querySelector('.modal');
-                   $('#mailbox').modal('hide');
-                //    let bootstrapModal = bootstrap.Modal.getInstance(modal);
-                //    bootstrapModal.hide();
+                   let bootstrapModal = bootstrap.Modal.getInstance(modal);
+                   bootstrapModal.hide();
                },
                error: function (xhr, status, error) {
                    alert("Email sending failed")
@@ -271,116 +271,146 @@ function parentDashBoardDetails(val) {
 
                         });
 
-                        // const mailSpan = document.createElement('span');
-                        // mailSpan.setAttribute('data-bs-toggle', 'modal');
-                        // mailSpan.setAttribute('data-bs-target', '#staticBackdrop');
-                        // // ... Add other attributes and content for mailSpan
+                        const mailSpan = document.createElement('span');
+                        mailSpan.setAttribute('data-bs-toggle', 'modal');
+                        mailSpan.setAttribute('data-bs-target', '#staticBackdrop');
+                        // ... Add other attributes and content for mailSpan
 
                         // Create the Mail Icon <i> element
                         const mailIcon = document.createElement('i');
                         mailIcon.className = 'fa-solid fa-envelope p-1 action-icons';
                         mailIcon.id = 'mail_icon';
                         mailIcon.name = 'mail_icon';
-                        mailIcon.addEventListener('click',function(){
-                            var modal = document.createElement('div');
-                            modal.id = 'mailbox';
-                            modal.className = 'modal';
-                        
-                            var modalDialog = document.createElement('div');
-                            modalDialog.className = 'modal-dialog';
-                        
-                            var modalContent = document.createElement('div');
-                            modalContent.className = 'modal-content';
-                        
-                            var modalHeader = document.createElement('div');
-                            modalHeader.className = 'modal-header';
-                        
-                            var modalTitle = document.createElement('h1');
-                            modalTitle.className = 'modal-title';
-                            modalTitle.textContent = 'Mail Send to Admin';
-                        
-                            var closeButton = document.createElement('button');
-                            closeButton.type = 'button';
-                            closeButton.className = 'btn-close';
-                            closeButton.setAttribute('data-dismiss', 'modal');
-                            closeButton.setAttribute('aria-label', 'Close');
-                            closeButton.addEventListener('click',function(){
-                                $('#mailbox').modal('hide');
-                            });
-                        
-                            var modalBody = document.createElement('div');
-                            modalBody.className = 'modal-body';
-                        
-                            var form = document.createElement('form');
-                        
-                            var formGroup = document.createElement('div');
-                            formGroup.className = 'form-group';
-                        
-                            var label = document.createElement('label');
-                            label.setAttribute('for', 'messageData');
-                            label.textContent = 'Message';
-                        
-                            var textarea = document.createElement('textarea');
-                            textarea.rows = '10';
-                            textarea.cols = '50';
-                            textarea.className = 'form-control';
-                            textarea.id = 'messageData';
-                            textarea.name = '';
-                        
-                            var modalFooter = document.createElement('div');
-                            modalFooter.className = 'modal-footer';
-                        
-                            var cancelButton = document.createElement('button');
-                            cancelButton.type = 'button';
-                            cancelButton.className = 'btn btn-secondary';
-                            cancelButton.textContent = 'Cancel';
-                            cancelButton.setAttribute('data-dismiss', 'modal');
-                            cancelButton.addEventListener('click',function(){
-                                $('#mailbox').modal('hide');
-                            });
-                        
-                            var sendButton = document.createElement('button');
-                            sendButton.type = 'button';
-                            sendButton.id = 'sendButton';
-                            sendButton.className = 'btn btn-primary';
-                            sendButton.textContent = 'Send';
-                        
-                            // Append elements to the modal
-                            modalHeader.appendChild(modalTitle);
-                            modalHeader.appendChild(closeButton);
-                        
-                            formGroup.appendChild(label);
-                            formGroup.appendChild(textarea);
-                            form.appendChild(formGroup);
-                            modalBody.appendChild(form);
-                        
-                            modalFooter.appendChild(cancelButton);
-                            modalFooter.appendChild(sendButton);
-                        
-                            modalContent.appendChild(modalHeader);
-                            modalContent.appendChild(modalBody);
-                            modalContent.appendChild(modalFooter);
-                        
-                            modalDialog.appendChild(modalContent);
-                            modal.appendChild(modalDialog);
-                        
-                            // Append the modal to the document
-                            document.body.appendChild(modal);
-                        
-                            // Show the modal
-                            $('#mailbox').modal('show');
-                            sendButton.addEventListener('click',function(){
-                                fetchEnrollmentFormTitle(function () {
-                                    fetchEnrollmentFormBody(function () {
-                                        emailSend();
-                                       
-                                    });
-                                });
-    
-                            });
-                        });
 
+                        // Append the Mail Icon to the Mail Icon <span>
+                        mailSpan.appendChild(mailIcon);
+
+                        // Create the Mail Popup Modal
+                        const modalDiv = document.createElement('div');
+                        modalDiv.className = 'modal fade';
+                        modalDiv.id = 'staticBackdrop';
+                        modalDiv.setAttribute('data-bs-backdrop', 'static');
+                        modalDiv.setAttribute('data-bs-keyboard', 'false');
+                        modalDiv.tabIndex = '-1';
+                        modalDiv.setAttribute('aria-labelledby', 'staticBackdropLabel');
+                        modalDiv.setAttribute('aria-hidden', 'true');
+
+                        // Create the Modal Dialog
+                        const modalDialogDiv = document.createElement('div');
+                        modalDialogDiv.className = 'modal-dialog';
+
+                        // Create the Modal Content
+                        const modalContentDiv = document.createElement('div');
+                        modalContentDiv.className = 'modal-content';
+
+                        // Create the Modal Header
+                        const modalHeaderDiv = document.createElement('div');
+                        modalHeaderDiv.className = 'modal-header';
+
+                        // Create the Modal Title
+                        const modalTitle = document.createElement('h1');
+                        modalTitle.className = 'modal-title fs-5';
+                        modalTitle.id = 'staticBackdropLabel';
+                        modalTitle.textContent = 'Mail Send to Admin';
+
+                        // Create the Close Button
+                        const closeButton = document.createElement('button');
+                        closeButton.type = 'button';
+                        closeButton.className = 'btn-close';
+                        closeButton.setAttribute('data-bs-dismiss', 'modal');
+                        closeButton.setAttribute('aria-label', 'Close');
+
+                        // Append the Modal Title and Close Button to the Modal Header
+                        modalHeaderDiv.appendChild(modalTitle);
+                        modalHeaderDiv.appendChild(closeButton);
+
+                        // Create the Modal Body
+                        const modalBodyDiv = document.createElement('div');
+                        modalBodyDiv.className = 'modal-body';
+
+                        // Create the Form
+                        const form = document.createElement('form');
+                        form.role = 'form';
+                        form.className = 'form-horizontal';
+
+                        // Create the Form Group
+                        const formGroupDiv = document.createElement('div');
+                        formGroupDiv.className = 'form-group';
+
+                        // Create the Label
+                        const label = document.createElement('label');
+                        label.className = 'col-lg-2 control-label pt-2';
+                        label.textContent = 'Message';
+
+                        // Create the Textarea
+                        const textarea = document.createElement('textarea');
+                        textarea.rows = '10';
+                        textarea.cols = '50';
+                        textarea.className = 'form-control';
+                        textarea.id = 'messageData';
+                        textarea.name = '';
                         
+                        // Append the Label and Textarea to the Form Group
+                        formGroupDiv.appendChild(label);
+                        formGroupDiv.appendChild(textarea);
+                        // formGroupDiv.addEventListener('click',function(){
+                        //     console.log('hiiiisds');
+                        //     mailSpan.modal('show');
+                        //     formGroupDiv.focus();
+
+                        // });
+
+
+                        // Append the Form Group to the Form
+                        form.appendChild(formGroupDiv);
+
+                        // Append the Form to the Modal Body
+                        modalBodyDiv.appendChild(form);
+
+                        // Create the Modal Footer
+                        const modalFooterDiv = document.createElement('div');
+                        modalFooterDiv.className = 'modal-footer';
+
+                        // Create the Cancel Button
+                        const cancelButton = document.createElement('button');
+                        cancelButton.type = 'button';
+                        cancelButton.className = 'btn btn-secondary';
+                        cancelButton.setAttribute('data-bs-dismiss', 'modal');
+                        cancelButton.textContent = 'Cancel';
+
+                        // Create the Send Button
+                        const sendButton = document.createElement('button');
+                        sendButton.type = 'button';
+                        sendButton.id = 'sendButton';
+                        sendButton.className = 'btn btn-primary';
+                        sendButton.textContent = 'Send';
+
+                        // Append the Cancel and Send Buttons to the Modal Footer
+                        modalFooterDiv.appendChild(cancelButton);
+                        modalFooterDiv.appendChild(sendButton);
+
+                        // Append the Modal Header, Body, and Footer to the Modal Content
+                        modalContentDiv.appendChild(modalHeaderDiv);
+                        modalContentDiv.appendChild(modalBodyDiv);
+                        modalContentDiv.appendChild(modalFooterDiv);
+
+                        // Append the Modal Content to the Modal Dialog
+                        modalDialogDiv.appendChild(modalContentDiv);
+
+                        // Append the Modal Dialog to the Modal
+                        modalDiv.appendChild(modalDialogDiv);
+
+                        // Append the entire Mail Popup Modal to the Mail Icon <span>
+                        mailSpan.appendChild(modalDiv);
+                        sendButton.addEventListener('click',function(){
+                            fetchEnrollmentFormTitle(function () {
+                                fetchEnrollmentFormBody(function () {
+                                    emailSend(modalDiv);
+                                   
+                                });
+                            });
+
+                        });
 
                         // Now you can append the Mail Icon <span> to your desired location in the DOM
                         // For example, assuming you have a div with id "container":
@@ -414,8 +444,8 @@ function parentDashBoardDetails(val) {
                         actionCell.appendChild(editLink);
                         editLink.appendChild(editIcon);
                         actionCell.appendChild(downloadIcon);
-                        actionCell.appendChild(mailIcon);
-                        // mailSpan.appendChild(mailIcon);
+                        actionCell.appendChild(mailSpan);
+                        mailSpan.appendChild(mailIcon);
                         actionCell.appendChild(printIcon);
 
                         // Append cells to the row

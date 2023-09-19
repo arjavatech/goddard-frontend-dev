@@ -1,4 +1,7 @@
-// import {isAuthenticated} from "./authenticationVerify.js";
+import {signOut,isAuthenticated} from "./authenticationVerify.js";
+
+// Signout button event listener
+document.getElementById('btn-signout').addEventListener('click', signOut);
 
 // Function to submit the form data
 function submitForm() {
@@ -22,15 +25,15 @@ function submitForm() {
     // });
 }
 
-// $(document).ready(function () {
-//     if (!isAuthenticated()) {
-//         window.location.href = 'login.html';
-//     } else {
-//         document.body.style.visibility = 'visible';
-//         $("#submit_button").on("click", function (e) {
-//             e.preventDefault(); // Prevent the default form submission
-//             submitForm();
-//         });
-//     }
-// });
+$(document).ready(function () {
+    if (!isAuthenticated()) {
+        window.location.href = 'login.html';
+    } else {
+        document.body.style.visibility = 'visible';
+        // $("#submit_button").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     submitForm();
+        // });
+    }
+});
 

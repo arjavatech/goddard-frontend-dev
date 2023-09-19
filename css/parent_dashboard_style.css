@@ -116,6 +116,12 @@ body {
 .btn-secondary:focus{
     box-shadow: none !important;
 }
+.form-control {
+    color: #0F2D52 !important;
+    font-weight: 700 !important;
+    width: 100px !important;
+    border: 2px solid #0F2D52 !important;
+}
 
 #formContent {
     display: none;

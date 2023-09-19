@@ -8,19 +8,20 @@ AWS.config.update({
 const s3 = new AWS.S3();
 
 let obj = {
-    "from": "noreply.goddard@gmail.com",
-    "to": "noreply.goddard@gmail.com",
+    "from": "goddard01arjava@gmail.com",
+    "to": "aarthi.arjav@gmail.com",
     "subject": "subject",
     "body": "message data",
-    "attachmentName": "AttachmentForm",
-    "attachmentKey": "attachments/Test.pdf"
+    // "attachmentName": "AttachmentForm",
+    // "attachmentKey": "attachments/Test.pdf"
 }
 
-async function emailSend() {
+function emailSend() {
     try {
         // const base64Data = await getPDFBase64Data();
-        obj.attachmentName = "AttachmentForm";
+        // obj.attachmentName = "AttachmentForm";
         let parent_email = $('#parent_one_email').val();
+        console.log(parent_email);
         obj.to =parent_email;
         obj.subject = 'Invite parents';
         let messageData = $('#messageData').val();;

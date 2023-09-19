@@ -66,5 +66,11 @@ a.page-link{
     color: #0F2D52;
 }
 
+.form-control {
+    color: #0F2D52 !important;
+    font-weight: 700 !important;
+    width: 100px !important;
+    border: 2px solid #0F2D52 !important;
+}
 
 

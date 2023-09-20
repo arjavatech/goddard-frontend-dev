@@ -118,7 +118,7 @@
                                                 <div class="col-sm mb-3">
                                                     <div class="form-group">
                                                         <label for="parent_one_email" class="col-form-label">Email</label>
-                                                        <input type="mail" class="form-control" id="parent_one_email" name="parent_one_last_name"
+                                                        <input type="mail" class="form-control" id="parent_one_email" name="parent_one_email"
                                                         onchange="emailValidation(this,'parent_one_email_span')">
                                                         <span id="parent_one_email_span" style="color:red; display:none">
                                                             Enter valid input [should be in @ and .].</span>
@@ -192,13 +192,27 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div><br><br>
+                                            <div class="panel-footer" >
+                                                <div class="form-group clearfix">
+                                                    <div class="position-relative">
+                                                        <!-- <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Cancel</button> -->
+                                                       
+                                                        <div class="position-absolute top-50 end-0 translate-middle-y">
+                                                            <button id="saveButton" type="button"
+                                                            class="btn btn-primary">Save</button>
+                                                            <!-- <a href="javascript:;" class="form-wizard-submit" id="submit_button">Submit</a> -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div><br><br>
                                         </fieldset>
                                     </form>
                                 </div>
                             </section>
                         </div>
-                        <div class="modal-footer">
+                        <div class="modal-footer" id="emailButtonDiv" style="display: none;">
                             <button type="button" class="btn btn-secondary"
                                 data-bs-dismiss="modal">Cancel</button>
                             <button id="sendButton" type="button"

@@ -7,6 +7,7 @@ export function authorizationFormDetails(callback) {
         type: 'get',
         success: function(response){
             console.log(response);
+            console.log(response.child_name);
 
             // Set values of form fields
             if (typeof response.child_name !== "undefined"){

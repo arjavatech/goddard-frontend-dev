@@ -1,49 +1,112 @@
 'use strict';
+function enrollmentValueSend(val){
+    console.log(val);
+    var enrollmentValue={id : val};
+    const obj=JSON.stringify(enrollmentValue);
+    console.log(obj);
+    $.ajax({
+        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/form_status_level",
+        type: "POST",
+        contentType: "application/json",
+        data: obj,
+        success: function (response) {
+            console.log(response);
+            // window.location.href = "admin_dashboard.html";
+            alert("form submitted successfully");
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            alert("form submit failed");
+        }
+    });
 
+}
 function applicationStatusYear(val) {
     localStorage.setItem('form_year_value', val);
     let applicationStatusYear = document.getElementById("applicationStatusYear");
     applicationStatusYear.textContent = val;
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/application_status/result/${val}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/app_status/year_info?year=${val}`,
         type: 'get',
         success: function (response) {
+            console.log(response);
             let responseValue = Object.values(response);
+            console.log(responseValue);
             if (Array.isArray(responseValue)) {
                 const tableBody = document.getElementById('tableBody');
                 tableBody.innerHTML = ''; // Clear existing content
         
                 for (let i = 0; i < responseValue.length; i++) {
                     const rowData = responseValue[i];
-                     for (let j = 0; j <=responseValue.length; j++) {
+                    for (let j = 0; j <=responseValue.length; j++) {
         
                         // Create a new row for each data set
                         const row = document.createElement('tr');
-                        
                         // Create cell for child name
                         const childNameCell = document.createElement('td');
-                        childNameCell.textContent = rowData[j].child_name;
+                        childNameCell.textContent = responseValue[j].child_name;
                         row.appendChild(childNameCell);
             
                         // Create cell for parent name
                         const parentNameCell = document.createElement('td');
-                        parentNameCell.textContent = rowData[j].parent_name;
+                        parentNameCell.textContent = responseValue[j].parent_name;
                         row.appendChild(parentNameCell);
 
                         const applicationStatusCell = document.createElement('td');
-                        applicationStatusCell.textContent = rowData[j].application_status;
+                        applicationStatusCell.textContent = responseValue[j].admission_form_status_level;
                         row.appendChild(applicationStatusCell);
             
+                        // const enrollmentStatusCell = document.createElement('td');
+                        // enrollmentStatusCell.setAttribute('id', 'enrollment_form_status');
+                        // enrollmentStatusCell.setAttribute('name', 'enrollment_form_status');
+                        // enrollmentStatusCell.textContent = responseValue[j].enrollment_form_status_level;
+                        // row.appendChild(enrollmentStatusCell);
+
                         const enrollmentStatusCell = document.createElement('td');
                         enrollmentStatusCell.setAttribute('id', 'enrollment_form_status');
                         enrollmentStatusCell.setAttribute('name', 'enrollment_form_status');
-                        enrollmentStatusCell.textContent = rowData[j].enrollment_form_status;
-                        row.appendChild(enrollmentStatusCell);
+
+                        // Create a <select> element
+                        const statusSelect = document.createElement('select');
+                        statusSelect.style.color = "red";
+                        statusSelect.setAttribute('style', 'border: none;');
+
+                        // Create <option> elements for each status option
+                        const completedOption = document.createElement('option');
+                        completedOption.value = 'Completed';
+                        completedOption.textContent = 'Completed';
+                        completedOption.style.color = 'green';
+
+
+                        const reviewingOption = document.createElement('option');
+                        reviewingOption.value = 'Reviewing';
+                        reviewingOption.textContent = 'Reviewing';
+                        reviewingOption.style.color = 'yellow';
+
+                        const incompleteOption = document.createElement('option');
+                        incompleteOption.value = 'Incomplete';
+                        incompleteOption.textContent = 'Incomplete';
+                        incompleteOption.style.color = 'red';
+
+                        // Append the <option> elements to the <select> element
+                        statusSelect.appendChild(incompleteOption);
+                        statusSelect.appendChild(reviewingOption);
+                        statusSelect.appendChild(completedOption);
+                        statusSelect.addEventListener('change',function(){
+                           enrollmentValueSend(statusSelect.value);
+                        });
+                       
+                        row.appendChild(statusSelect);
+
+                        // Set the default selected option based on responseValue[j].
+
+
+
                         // Apply styles based on enrollment status
-                        if (rowData[j].enrollment_form_status === "Completed") {
+                        if (responseValue[j].enrollment_form_status_level === "Completed") {
                             enrollmentStatusCell.style.color = 'green';
                             enrollmentStatusCell.style.fontWeight = 'bold';
-                        } else if (rowData[j].enrollment_form_status === "Incomplete") {
+                        } else if (responseValue[j].enrollment_form_status_level === "Incomplete") {
                             enrollmentStatusCell.style.color = 'red';
                             enrollmentStatusCell.style.fontWeight = 'bold';
                         } else {
@@ -63,7 +126,7 @@ function applicationStatusYear(val) {
 //to display child's year
 function applicationStatusAllYear() {
     const child_id = localStorage.getItem('child_id')
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/application_status/all'
+    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/app_status/info'
     $.ajax({
         url: url,
         type: 'get',

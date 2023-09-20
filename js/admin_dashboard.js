@@ -4,25 +4,29 @@ import {signOut,isAuthenticated} from "./authenticationVerify.js";
 document.getElementById('btn-signout').addEventListener('click', signOut);
 
 // Function to submit the form data
-function submitForm() {
+function saveForm() {
+    
     const form = document.getElementById("admission_form");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
-    const enformData = new FormData(form);
-  
+    console.log(obj);
     // const json=  JSON.stringify(obj);
-    // $.ajax({
-    //     url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
-    //     type: "POST",
-    //     contentType: "application/json",
-    //     data: JSON.stringify(obj),
-    //     success: function (response) {
-    //         window.location.href = "admin_dashboard.html";
-    //     },
-    //     error: function (xhr, status, error) {
-    //         alert("form submit failed");
-    //     }
-    // });
+    // console.log(json);
+    $.ajax({
+        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/invite_info/add",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(obj),
+        success: function (response) {
+            console.log(response);
+            // window.location.href = "admin_dashboard.html";
+            alert("form submitted successfully");
+        },
+        error: function (xhr, status, error) {
+            console.log(error);
+            alert("form submit failed");
+        }
+    });
 }
 
 $(document).ready(function () {
@@ -30,10 +34,13 @@ $(document).ready(function () {
         window.location.href = 'login.html';
     } else {
         document.body.style.visibility = 'visible';
-        // $("#submit_button").on("click", function (e) {
-        //     e.preventDefault(); // Prevent the default form submission
-        //     submitForm();
-        // });
+        $("#saveButton").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            const emailButton = document.getElementById("emailButtonDiv");
+            console.log(emailButton);
+            emailButton.style.display ="block";
+            saveForm();
+        });
     }
 });
 

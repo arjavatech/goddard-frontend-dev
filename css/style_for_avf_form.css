@@ -1,19 +1,11 @@
-#avf_form .form-control{
-    color: #0F2D52 !important;
-    font-weight: 700 !important;
-    width: 300px !important;
-    border: 2px solid #0F2D52 !important;
-    /* padding: 40% !important; */
-}
 
 .form-control:focus{
     box-shadow: none !important;
 }
 
-#avf_form .form-group{
-    
-    padding-left: 40% !important;
-
+#avf_form {
+    text-align: center;
+    /* padding-left: 40% !important; */
 }
 #avf_form .center-image {
     text-align: center;
@@ -22,3 +14,5 @@
 #avf_form .center-image img {
     display: inline-block;
 }
+
+

@@ -3,6 +3,7 @@
     <head>
         <title>Parent-Dashboard</title>
         <link rel="stylesheet" type="text/css" href="css/styles_form_parent_dashboard.css">
+        <link rel="stylesheet" type="text/css" href="css/style_for_avf_form.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
         <link rel="stylesheet" href="css/parent_dashboard_style.css">
@@ -53,7 +54,7 @@
                 <!-- Year dynamic dropdown -->
                 <div class="col-1 dropdown">
                     <!-- <h4>Year : <span id="form_year" name="form_year"></span></h4> -->
-                    <select name="form_year" id="form_year" class="form-control"
+                    <select name="form_year" id="form_year" class="form-control selectDropdown"
                         onclick="parentDashBoardDetails(this.value)" required>
                     </select>
                     <i class="fa fa-chevron-down"></i>
@@ -406,19 +407,19 @@
                                                 <!-- Admission form body -->
                                                 <div class="panel-body">
                                                     <div class="row">
-                                                    <div class="col-sm m-3">
-                                                            <div class="form-group">
+                                                        <div class="col-sm m-3">
+                                                            <div class="form-group ">
                                                                 <label for="child_name" class="form-label"><b>Name of Child(ren):
                                                                     <span style="color:#ff0000;">*</span></b></label><br>
                                                                 <input name="child_name" type="text" maxlength="20" 
-                                                                class="form-control wizard-required" id="child_name"
+                                                                class="form-control wizard-required " id="child_name" 
                                                                     onchange="namevalidation(this,'child_name_span')">
                                                                 <span class="spanmsg" id="child_name_span" style="color:red; display:none">
                                                                     Enter valid input[only letters].</span>
                                                                 <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm m-3">
+                                                        <div class="col-sm m-3 ">
                                                             <div class="form-group">
                                                                 <label for="parent_name" class="form-label"><b>Name of Parent:
                                                                     <span style="color:#ff0000;">*</span></b></label><br>
@@ -432,7 +433,7 @@
                                                         </div>
                                                     </div> 
                                                     <div class="row">
-                                                        <div class="col-sm m-3">       
+                                                        <div class="col-sm m-3 ">       
                                                             <div class="form-group">
                                                                 <label for="bank_routing" class="form-label"><b>Bank Routing #:
                                                                     <span style="color:#ff0000;">*</span></b></label><br>
@@ -440,7 +441,7 @@
                                                                 class="form-control wizard-required" id="bank_routing">
                                                             </div>
                                                         </div>  
-                                                        <div class="col-sm m-3">  
+                                                        <div class="col-sm m-3 ">  
                                                             <div class="form-group">
                                                                 <label for="bank_account" class="form-label"><b>Bank Account #:
                                                                     <span style="color:#ff0000;">*</span></b></label><br>
@@ -450,7 +451,7 @@
                                                         </div>
                                                     </div>        
                                                     <div class="row">
-                                                        <div class="col-sm m-3">
+                                                        <div class="col-sm m-3 ">
                                                             <div class="form-group">
                                                                 <label for="driver_license" class="form-label"><b>Driver’s License #:
                                                                     <span style="color:#ff0000;">*</span></b></label><br>
@@ -458,7 +459,7 @@
                                                                 class="form-control wizard-required" id="driver_license">
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm m-3">    
+                                                        <div class="col-sm m-3 ">    
                                                             <div class="form-group">
                                                                 <label for="state" class="form-label">State <span style="color:#ff0000;">*</span></label>
                                                                 <select class="form-control wizard-required" aria-label=".form-select-lg example" id="state" name="state" size="1">
@@ -522,7 +523,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-sm m-3">
+                                                        <div class="col-sm m-3 ">
                                                             <div class="form-group">
                                                                 <label for="email" class="form-label"><b>Email #:
                                                                     <span style="color:#ff0000;">*</span></b></label><br>
@@ -541,18 +542,30 @@
                                                             <h5 class="panel-title text-center"><b>Statement of Authorization</b></h5>
                                                         </div>
                                                         <div class="panel-body">
-                                                            <div class="form-group">
-                                                            <p>I</p>
-                                                                <label for="i" class="form-label">
-                                                                <input name="i" type="text" maxlength="20" 
-                                                                class="form-control wizard-required" id="i">
+                                                            <div class="row">
+                                                                <div class="col-sm-1">
+                                                                    <!-- <label for="i" >I</label> -->
+                                                                    <p style="padding-top: 10px !important;padding-left: 70px !important;">I</p>
+                                                                </div>
+                                                                <div class="col-sm-11">
+                                                                    <div class="form-group">
+                                                                        <!-- <p>I</p> -->
+                                                                        <input name="i" type="text"
+                                                                        class="form-control wizard-required" id="i">
+                                                                        <div class="wizard-form-error"></div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
-                                                            <p>hereby authorize (Alphabetz Corp, dba The Goddard School) 
-                                                                to charge my above referenced bank account for the invoiced amount once each month on 
-                                                                the 1st day of the month until changed by me in writing in the future. This will 
-                                                                constitute the paid tuition for my child(ren) during the period designated. 
-                                                                For wait-listed/newly enrolled families this is a one-time charge and not 
-                                                                a recurring one until they start the school.</p>
+                                                            <div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <div class="form-group">
+                                                            <p>hereby authorize (Alphabetz Corp, dba The Goddard School) to 
+                                                                charge my above referenced bank account for the invoiced amount once each 
+                                                                month on the 1st day of the month until changed by me in writing in the future. 
+                                                                This will constitute the paid tuition for my child(ren) during the period designated. 
+                                                                For wait-listed/newly enrolled families this is a one-time charge and not a recurring
+                                                                 one until they start the school.</p>
+                                                            </div></div></div>
                                                             <div class="row">
                                                                 <div class="col-sm m-3">
                                                                     <div class="form-group">
@@ -564,14 +577,14 @@
                                                                 </div>
                                                                 <div class="col-sm m-3">
                                                                     <div class="form-group"> 
-                                                                        <label for="date">DATE</label>
+                                                                        <label for="date">Date:</label>
                                                                         <input type="date" class="form-control wizard-required" id="date"
                                                                             name="date" onclick="dateValidation('date')" />
                                                                             <div class="wizard-form-error"></div>
                                                                     </div>
                                                                 </div> 
                                                             </div>        
-                                                        </div>    
+                                                        </div>     
                                                     </div>        
                                                 </div> 
                                             </div>    

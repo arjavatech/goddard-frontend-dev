@@ -8,45 +8,43 @@ AWS.config.update({
 const s3 = new AWS.S3();
 
 let obj = {
-    "from": "goddard01arjava@gmail.com",
-    "to": "aarthi.arjav@gmail.com",
+    "from": "noreply.goddard@gmail.com",
+    "to": "noreply.godard@gmail.com",
     "subject": "subject",
     "body": "message data",
-    // "attachmentName": "AttachmentForm",
-    // "attachmentKey": "attachments/Test.pdf"
+    "attachmentName": "AttachmentForm",
+    "attachmentKey": "attachments/Test.pdf"
 }
 
-function emailSend() {
+
+async function emailSend() {
     try {
         // const base64Data = await getPDFBase64Data();
         // obj.attachmentName = "AttachmentForm";
-        let parent_email = $('#parent_one_email').val();
-        console.log(parent_email);
-        obj.to =parent_email;
+        // obj.from = "goddard01arjava@gmail.com";
+        // obj.to = "aarthi.arjava@gmail.com";
         obj.subject = 'Invite parents';
-        let messageData = $('#messageData').val();;
+        let messageData = $('#messageData').val();
         obj.body = messageData;
+        console.log(obj);
 
-        // const attachmentKey = await uploadBase64PDFToS3(base64Data, title + ' CHILD_ID');
+        // const attachmentKey = await uploadBase64PDFToS3( title + ' CHILD_ID');
         // obj.attachmentKey = attachmentKey;
-        const json =JSON.stringify(obj);
-        console.log(json);
         $.ajax({
-               url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
-               type: "POST",
-               contentType: "application/json",
-               data: json,
-               success: function (response) {
-                   alert("Email Sent Successfully")
-                //    let modal = document.querySelector('.modal');
-                //    $('#mailbox').modal('hide');
-                //    let bootstrapModal = bootstrap.Modal.getInstance(modal);
-                //    bootstrapModal.hide();
-               },
-               error: function (xhr, status, error) {
-                   alert("Email sending failed")
-               }
-           });
+            url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(obj),
+            success: function (response) {
+                alert("Email Sent Successfully")
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr);
+                console.log(status);
+                console.log(error);
+                alert("Email sending failed")
+            }
+        });
     } catch (error) {
         console.error('Error:', error);
     }
@@ -54,7 +52,7 @@ function emailSend() {
 
 $(document).ready(function () {
     $('#sendButton').click(function () {
-        console.log('xfvdfvds');
+        console.log('checking email send');
         // fetchEnrollmentFormTitle(function () {
         //     fetchEnrollmentFormBody(function () {
                 emailSend();

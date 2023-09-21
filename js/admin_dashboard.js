@@ -5,7 +5,7 @@ document.getElementById('btn-signout').addEventListener('click', signOut);
 
 // Function to submit the form data
 function saveForm() {
-    
+
     const form = document.getElementById("admission_form");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
@@ -20,7 +20,7 @@ function saveForm() {
         success: function (response) {
             console.log(response);
             // window.location.href = "admin_dashboard.html";
-            alert("form submitted successfully");
+            // alert("form submitted successfully");
         },
         error: function (xhr, status, error) {
             console.log(error);

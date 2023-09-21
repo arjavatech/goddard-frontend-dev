@@ -13,7 +13,7 @@ function submitForm() {
     obj.parent_email_one = logged_in_email;
     obj.parent_name = parent_name;
     obj.parent_id = localStorage.getItem('parent_id');
-    obj.application_status_value = 10;
+    obj.admission_form_status_level = "10";
     const child_id_val = localStorage.getItem('child_id');
     if (child_id_val !== null && child_id_val !== undefined) {
         obj.child_id = child_id_val;
@@ -64,12 +64,13 @@ function saveForm(value) {
     obj.parent_email_one = logged_in_email;
     obj.parent_name = parent_name;
     obj.parent_id = localStorage.getItem('parent_id');
-    obj.application_status_value = value;
+    obj.admission_form_status_level = value;
     const child_id_val = localStorage.getItem('child_id');
     if (child_id_val !== null && child_id_val !== undefined) {
         obj.child_id = child_id_val;
     }
     obj.year = new Date().getFullYear() + '';
+    console.log(obj);
     $.ajax({
         url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
         type: "POST",
@@ -98,7 +99,7 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value =1;
+            let application_value ="1";
             saveForm(application_value);
         });
         $("#second_save_button").on("click", function (e) {
@@ -107,7 +108,7 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value =1;
+            let application_value ="2";
             saveForm(application_value);
         });
         $("#third_save_button").on("click", function (e) {
@@ -116,7 +117,7 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value =1;
+            let application_value ="3";
             saveForm(application_value);
         });
         $("#four_save_button").on("click", function (e) {
@@ -125,7 +126,7 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value =1;
+            let application_value ="4";
             saveForm(application_value);
         });
         $("#five_save_button").on("click", function (e) {
@@ -134,7 +135,7 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value =1;
+            let application_value ="5";
             saveForm(application_value);
         });
         $("#six_save_button").on("click", function (e) {
@@ -143,7 +144,7 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value =1;
+            let application_value ="6";
             saveForm(application_value);
         });
         $("#seven_save_button").on("click", function (e) {
@@ -152,7 +153,7 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value =1;
+            let application_value ="7";
             saveForm(application_value);
         });
         $("#eight_save_button").on("click", function (e) {
@@ -161,7 +162,7 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value =1;
+            let application_value ="8";
             saveForm(application_value);
         });
         $("#nine_save_button").on("click", function (e) {
@@ -170,7 +171,7 @@ $(document).ready(function () {
                 return; // If the button is already disabled, do nothing and return
             }
             $(this).prop("disabled", true); // Disable the button after the first click
-            let application_value =1;
+            let application_value ="9";
             saveForm(application_value);
         });
         $("#submit_button").on("click", function (e) {

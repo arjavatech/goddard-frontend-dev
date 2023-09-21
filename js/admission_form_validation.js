@@ -87,7 +87,7 @@ function ValidatePincode(inputtxt, errorSpan) {
 
 function checkbox() {
     var additional_parent_info = document.getElementById("additional_parent_info");
-    if ($('input[name="additional_parent_details"]').is(":checked")) {
+    if ($('input[id="additional_parent_details"]').is(":checked")) {
         additional_parent_info.style.display = "block";
     }
     else{

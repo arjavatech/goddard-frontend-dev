@@ -1,17 +1,17 @@
 'use strict';
-function enrollmentValueSend(val){
-    console.log(val);
-    var enrollmentValue={id : val};
-    const obj=JSON.stringify(enrollmentValue);
-    console.log(obj);
+function enrollmentValueSend(status,id,year){
+    console.log(status);
+    console.log(id);
+    console.log(year);
+    var enrollmentValue={child_id : id,year:year,form_status:status};
+    console.log(enrollmentValue);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/form_status_level",
-        type: "POST",
-        contentType: "application/json",
-        data: obj,
+        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/update",
+        type: "PUT",
+        // contentType: "application/json",
+        data: JSON.stringify(enrollmentValue),
         success: function (response) {
             console.log(response);
-            // window.location.href = "admin_dashboard.html";
             alert("form submitted successfully");
         },
         error: function (xhr, status, error) {
@@ -93,10 +93,11 @@ function applicationStatusYear(val) {
                         statusSelect.appendChild(reviewingOption);
                         statusSelect.appendChild(completedOption);
                         statusSelect.addEventListener('change',function(){
-                           enrollmentValueSend(statusSelect.value);
+                           enrollmentValueSend(statusSelect.value, responseValue[j].child_id, responseValue[j].year);
                         });
                        
-                        row.appendChild(statusSelect);
+                        enrollmentStatusCell.appendChild(statusSelect);
+                        row.appendChild(enrollmentStatusCell);
 
                         // Set the default selected option based on responseValue[j].
 

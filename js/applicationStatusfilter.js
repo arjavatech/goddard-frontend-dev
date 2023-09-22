@@ -7,7 +7,7 @@ function enrollmentValueSend(status,id,year,form_name){
     var enrollmentValue={child_id : id,year:year,form_status:status,form_name:form_name};
     console.log(enrollmentValue);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/child_from/add",
+        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/child_form/add",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(enrollmentValue),

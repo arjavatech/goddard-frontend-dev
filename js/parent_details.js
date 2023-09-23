@@ -48,14 +48,14 @@ function applicationStatusYear(val) {
                     row.appendChild(parentTwoEmailCell);
 
                     // Create cell for the invite button
-                    const inviteButtonCell = document.createElement('td');
-                    const inviteButton = document.createElement('button');
-                    inviteButton.setAttribute('type', 'button');
-                    inviteButton.setAttribute('id', 'sendButton');
-                    inviteButton.setAttribute('class', 'invite-button'); // Use class instead of ID
-                    inviteButton.textContent = 'Send';
-                    inviteButtonCell.appendChild(inviteButton);
-                    row.appendChild(inviteButtonCell);
+                    // const inviteButtonCell = document.createElement('td');
+                    // const inviteButton = document.createElement('button');
+                    // inviteButton.setAttribute('type', 'button');
+                    // inviteButton.setAttribute('id', 'sendButton');
+                    // inviteButton.setAttribute('class', 'invite-button'); // Use class instead of ID
+                    // inviteButton.textContent = 'Send';
+                    // inviteButtonCell.appendChild(inviteButton);
+                    // row.appendChild(inviteButtonCell);
 
                     // Append the row to the table body
                     tableBody.appendChild(row);

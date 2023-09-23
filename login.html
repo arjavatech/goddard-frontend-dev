@@ -111,22 +111,18 @@
         </div>
         <!-- Login Card End -->
         <script>
+            document.getElementById('password_span').style.display = "none";
             function validatePassword() {
                 // Retrieve password input values
-                var password1 = document.getElementById('signup_pswd').value;
-                var password2 = document.getElementById('password').value;
+                let password1 = document.getElementById('signup_pswd').value;
+                let password2 = document.getElementById('password').value;
                 console.log(password1);
                 console.log(password2);
                 // Check if passwords match
-                if (password1 !== password2) {
+                if (password1 === password2) {
                     console.log('if');
-                    document.getElementById('password_span').style.display = "block";
-                    // return true; // Allow form submission
-                } else {
                     document.getElementById('password_span').style.display = "none";
-                    // Display an error message
-                    // alert("Passwords do not match!");
-                    // return false; // Prevent form submission
+                    // return true; // Allow form submission
                 }
             }
             //email validation with particular format

@@ -197,9 +197,15 @@ function parentDashBoardDetails(val) {
                         if(data.form_name == '2023-2024 Enrollment Agreement'){
                             console.log('enroll');
                             getEnrollmentFormStatus( data.form_name, function (formStatusResp) {
-                                let form_status = formStatusResp.form_status;
-                                console.log(form_status);
-                                formStatusCell.innerText = "form_status";
+                                if(formStatusResp != null){
+                                    let form_status = formStatusResp.form_status;
+                                    formStatusCell.innerText = form_status;
+                                }else{
+                                    let form_status = formStatusResp.form_status;
+                                    console.log(form_status);
+                                    formStatusCell.innerText = "Incompleted";
+                                }
+                               
 
                                 if (form_status === "Yet To Be Filled") {
                                     formStatusCell.innerText = form_status;

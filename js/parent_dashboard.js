@@ -2,10 +2,12 @@ import { fetchEnrollmentFormTitle, fetchEnrollmentFormBody, fetchEnrollmentPoint
 import { authorizationFormDetails } from './authorization_form.js';
 
 function getEnrollmentFormStatus(val, callback) {
+    console.log(val);
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/form_status/${localStorage.getItem('child_id')}?year=${val}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/child_form/form_status/${val}?child_id=${localStorage.getItem('child_id')}`,
         type: 'get',
         success: function (form_status_resp) {
+            console.log(form_status_resp);
             callback(form_status_resp);
         }
     });
@@ -170,52 +172,89 @@ function parentDashBoardDetails(val) {
         success: function (response) {
             console.log(response);
             if (Array.isArray(response) && response.length > 0) {
-                getEnrollmentFormStatus(val, function (formStatusResp) {
-                    let form_status = formStatusResp.form_status;
+                console.log(response);
+                // localStorage.setItem('form_name',  data.form_name)
+              
                     const tableBody = document.getElementById('tableBody');
-
+                    
                     // Clear the existing table row
                     tableBody.innerHTML = '';
 
                     response.forEach(data => {
                         const newRow = document.createElement('tr');
-
+                 
                         // Create and append cells for each data point
                         const formNameCell = document.createElement('td');
                         formNameCell.innerText = data.form_name;
+                        localStorage.setItem('form_name',  data.form_name)
 
                         const formExpiryDateCell = document.createElement('td');
                         formExpiryDateCell.innerText = data.form_expiry_date;
 
+              
                         const formStatusCell = document.createElement('td');
                         formStatusCell.setAttribute('id','form_status');
-                         formStatusCell.innerText = form_status;
-                        if (form_status === "Yet To Be Filled") {
-                            formStatusCell.innerText = form_status;
-                           formStatusCell.style.color =
-                                '#0F2D52';
-                           formStatusCell.style.fontWeight =
-                                'bold';
-                            // enableAction();
-                        } else if (form_status === "Completed") {
-                            formStatusCell.innerText = form_status;
-                           formStatusCell.style.color = 'green';
-                           formStatusCell.style.fontWeight =
-                                'bold';
-                            // disableAction();
-                        } else if (form_status === "Incomplete") {
-                            formStatusCell.innerText = form_status;
-                           formStatusCell.style.color = 'red';
-                           formStatusCell.style.fontWeight =
-                                'bold';
-                            // enableAction();
-                        } else {
-                            formStatusCell.innerText = form_status;
-                           formStatusCell.style.color =
-                                '#FFCC00';
-                           formStatusCell.style.fontWeight =
-                                'bold';
-                            // enableAction();
+                        if(data.form_name == '2023-2024 Enrollment Agreement'){
+                            console.log('enroll');
+                            getEnrollmentFormStatus( data.form_name, function (formStatusResp) {
+                                let form_status = formStatusResp.form_status;
+                                console.log(form_status);
+                                formStatusCell.innerText = "form_status";
+
+                                if (form_status === "Yet To Be Filled") {
+                                    formStatusCell.innerText = form_status;
+                                formStatusCell.style.color =
+                                        '#0F2D52';
+                                formStatusCell.style.fontWeight =
+                                        'bold';
+                                    // enableAction();
+                                } else if (form_status === "Completed") {
+                                    formStatusCell.innerText = form_status;
+                                formStatusCell.style.color = 'green';
+                                formStatusCell.style.fontWeight =
+                                        'bold';
+                                    // disableAction();
+                                } else if (form_status === "Incomplete") {
+                                    formStatusCell.innerText = form_status;
+                                formStatusCell.style.color = 'red';
+                                formStatusCell.style.fontWeight =
+                                        'bold';
+                                    // enableAction();
+                                } else {
+                                    formStatusCell.innerText = form_status;
+                                formStatusCell.style.color =
+                                        '#FFCC00';
+                                formStatusCell.style.fontWeight =
+                                        'bold';
+                                    // enableAction();
+                                }
+                            });
+                        }else{
+                            const formStatusCell = document.createElement('td');
+                            formStatusCell.setAttribute('id','form_status');
+                            formStatusCell.innerText = "Incomplete";
+
+                            if (data.form_status === "Completed") {
+                                formStatusCell.innerText = data.form_status;
+                            formStatusCell.style.color = 'green';
+                            formStatusCell.style.fontWeight =
+                                    'bold';
+                                // disableAction();
+                            } else if (data.form_status === "Incomplete") {
+                                formStatusCell.innerText = data.form_status;
+                            formStatusCell.style.color = 'red';
+                            formStatusCell.style.fontWeight =
+                                    'bold';
+                                // enableAction();
+                            } else {
+                                formStatusCell.innerText = data.form_status;
+                            formStatusCell.style.color =
+                                    '#FFCC00';
+                            formStatusCell.style.fontWeight =
+                                    'bold';
+                                // enableAction();
+                            }
+                            
                         }
 
                         // Create a cell for action items
@@ -429,7 +468,7 @@ function parentDashBoardDetails(val) {
 
                         // Apply styling based on form status here as needed
                     });
-                });
+                // });
             }
         }
     });

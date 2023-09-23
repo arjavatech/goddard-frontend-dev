@@ -5,7 +5,7 @@ function handleCredentialResponse(response) {
     // console.log('Given Name: ' + responsePayload.given_name);
     // console.log('Family Name: ' + responsePayload.family_name);
     // console.log("Image URL: " + responsePayload.picture);
-    console.log("Email: " + responsePayload.email)
+    console.log("Email: " + responsePayload.email);
     // responsePayload.email ="admin1@gmail.com";
     // Store email
     localStorage.clear()

@@ -9,6 +9,7 @@ function saveForm() {
     const form = document.getElementById("admission_form");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
+    obj.year = new Date().getFullYear() + '';
     console.log(obj);
     // const json=  JSON.stringify(obj);
     // console.log(json);

@@ -1,14 +1,15 @@
 'use strict';
-function enrollmentValueSend(status,id,year){
+function enrollmentValueSend(status,id,year,form_name){
     console.log(status);
     console.log(id);
     console.log(year);
-    var enrollmentValue={child_id : id,year:year,form_status:status};
+    console.log(form_name);
+    var enrollmentValue={child_id : id,year:year,form_status:status,form_name:form_name};
     console.log(enrollmentValue);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/update",
-        type: "PUT",
-        // contentType: "application/json",
+        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/child_form/add",
+        type: "POST",
+        contentType: "application/json",
         data: JSON.stringify(enrollmentValue),
         success: function (response) {
             console.log(response);
@@ -36,8 +37,8 @@ function applicationStatusYear(val) {
                 const tableBody = document.getElementById('tableBody');
                 tableBody.innerHTML = ''; // Clear existing content
         
-                for (let i = 0; i < responseValue.length; i++) {
-                    const rowData = responseValue[i];
+                // for (let i = 0; i < responseValue.length; i++) {
+                //     const rowData = responseValue[i];
                     for (let j = 0; j <=responseValue.length; j++) {
         
                         // Create a new row for each data set
@@ -93,7 +94,7 @@ function applicationStatusYear(val) {
                         statusSelect.appendChild(reviewingOption);
                         statusSelect.appendChild(completedOption);
                         statusSelect.addEventListener('change',function(){
-                           enrollmentValueSend(statusSelect.value, responseValue[j].child_id, responseValue[j].year);
+                           enrollmentValueSend(statusSelect.value, responseValue[j].child_id, responseValue[j].year,responseValue[j].form_name);
                         });
                        
                         enrollmentStatusCell.appendChild(statusSelect);
@@ -118,7 +119,7 @@ function applicationStatusYear(val) {
                         // Append the row to the table body
                         tableBody.appendChild(row);
                     }
-                }
+                // }
             }
         }
     });
@@ -161,21 +162,18 @@ function filterTableByEnrollmentStatus(selectedStatus) {
     });
 }
 
-
 document.addEventListener("DOMContentLoaded", function () {
     document.body.style.visibility = 'visible';
     let defaultdate = new Date().getFullYear();
     // parentDashBoardDetails(defaultdate);
     applicationStatusYear(defaultdate);
     applicationStatusAllYear();
-
     // Function to filter table data based on the search input
     function filterTable() {
         const input = document.querySelector("#searchInput");
         const filter = input.value.toUpperCase();
         const tableBody = document.querySelector("#tableBody");
         const rows = tableBody.getElementsByTagName("tr");
-
         for (let i = 0; i < rows.length; i++) {
             const cells = rows[i].getElementsByTagName("td");
             let found = false;
@@ -190,7 +188,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     }
                 }
             }
-
             if (found) {
                 rows[i].style.display = "";
             } else {
@@ -198,7 +195,6 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         }
     }
-
     // Attach an event listener to the search input
     const searchInput = document.querySelector("#searchInput");
     // searchInput.addEventListener("input", filterTable);
@@ -210,67 +206,72 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //for pagination code
     // Number of rows to display per page
-     const rowsPerPage = 5;
-     let currentPage = 1;
-     
-     // Function to update the table based on the current page
-     function updateTable() {
-         const tableRows = document.querySelectorAll("#tableBody tr");
-         const startIndex = (currentPage - 1) * rowsPerPage;
-         const endIndex = currentPage * rowsPerPage;
-     
-         tableRows.forEach((row, index) => {
-             if (index >= startIndex && index < endIndex) {
-                 row.style.display = "";
-             } else {
-                 row.style.display = "none";
-             }
-         });
-     
-         // Update the pagination buttons
-         updatePaginationButtons();
-     }
-     
-     // Function to update the pagination buttons
-     function updatePaginationButtons() {
-         const tableRows = document.querySelectorAll("#tableBody tr");
-         const totalPages = Math.ceil(tableRows.length / rowsPerPage);
-     
-         const prevPageButton = document.getElementById("prevPage");
-         const nextPageButton = document.getElementById("nextPage");
-     
-         prevPageButton.classList.remove("disabled");
-         nextPageButton.classList.remove("disabled");
-     
-         if (currentPage === 1) {
-             prevPageButton.classList.add("disabled");
-         }
-     
-         if (currentPage === totalPages) {
-             nextPageButton.classList.add("disabled");
-         }
-     }
-     
-     // Event listener for previous page button
-     document.getElementById("prevPage").addEventListener("click", () => {
-         if (currentPage > 1) {
-             currentPage--;
-             updateTable();
-         }
-     });
-     
-     // Event listener for next page button
-     document.getElementById("nextPage").addEventListener("click", () => {
-         const tableRows = document.querySelectorAll("#tableBody tr");
-         const totalPages = Math.ceil(tableRows.length / rowsPerPage);
-     
-         if (currentPage < totalPages) {
-             currentPage++;
-             updateTable();
-         }
-     });
-     
-     // Initial table update
-     updateTable();
+    const rowsPerPage = 5;
+    let currentPage = 1;
+    
+    // Function to update the table based on the current page
+    function updateTable() {
+        const tableRows = document.querySelectorAll("#tableBody tr");
+        const startIndex = (currentPage - 1) * rowsPerPage;
+        const endIndex = currentPage * rowsPerPage;
+    
+        tableRows.forEach((row, index) => {
+            if (index >= startIndex && index < endIndex) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
+    
+        // Update the pagination buttons
+        updatePaginationButtons();
+    }
+    
+    // Function to update the pagination buttons
+    function updatePaginationButtons() {
+        const totalPages = Math.ceil(document.querySelectorAll("#tableBody tr").length / rowsPerPage);
+        const prevPageButton = document.getElementById("prevPage");
+        const nextPageButton = document.getElementById("nextPage");
+    
+        prevPageButton.classList.toggle("disabled", currentPage === 1);
+        nextPageButton.classList.toggle("disabled", currentPage === totalPages);
+    }
+    
+    // Event listener for previous page button
+    document.getElementById("prevPage").addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            updateTable();
+        }
+    });
+    
+    // Event listener for next page button
+    document.getElementById("nextPage").addEventListener("click", () => {
+        const totalPages = Math.ceil(document.querySelectorAll("#tableBody tr").length / rowsPerPage);
+    
+        if (currentPage < totalPages) {
+            currentPage++;
+            updateTable();
+        }
+    });
+    
+    // Initial table setup and update
+    window.addEventListener("load", () => {
+        hideRowsInitially();
+        updateTable();
+    });
+    
+    // Function to hide rows that should not be displayed on the first page
+    function hideRowsInitially() {
+        const tableRows = document.querySelectorAll("#tableBody tr");
+        tableRows.forEach((row, index) => {
+            if (index >= rowsPerPage) {
+                row.style.display = "none";
+            }
+        });
+    }
+    
+
+    
 });
 

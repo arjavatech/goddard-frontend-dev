@@ -13,7 +13,7 @@ function submitForm() {
     obj.parent_email_one = logged_in_email;
     obj.parent_name = parent_name;
     obj.parent_id = localStorage.getItem('parent_id');
-    obj.admission_form_status_level = "10";
+    obj.form_status = "10";
     const child_id_val = localStorage.getItem('child_id');
     if (child_id_val !== null && child_id_val !== undefined) {
         obj.child_id = child_id_val;
@@ -64,7 +64,7 @@ function saveForm(value) {
     obj.parent_email_one = logged_in_email;
     obj.parent_name = parent_name;
     obj.parent_id = localStorage.getItem('parent_id');
-    obj.admission_form_status_level = value;
+    obj.form_status = value;
     const child_id_val = localStorage.getItem('child_id');
     if (child_id_val !== null && child_id_val !== undefined) {
         obj.child_id = child_id_val;

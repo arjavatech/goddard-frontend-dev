@@ -162,12 +162,46 @@ function filterTableByEnrollmentStatus(selectedStatus) {
     });
 }
 
+
+function formdetails(val){
+    console.log(val);
+    document.querySelector('[id="applicationStatusLabel"]').innerHTML = `${val} :`;
+
+}
+function formNameDetails(val) {
+    $.ajax({
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/dashboard_data/formByYear/${val}`,
+        type: 'get',
+        success: function (response) {
+            if (Array.isArray(response) && response.length > 0) {
+                let optionsData = '';
+                document.querySelector('[name="form_name"]').innerHTML = '';
+                for (let i = 0; i < response.length; i++) {
+                    optionsData += '<option value="' + response[i].form_name + '" onchange="formdetails(this.value)">' + response[i].form_name
+                                    + '</option>';
+                    document.querySelector('[name="form_name"]').innerHTML =
+                        optionsData;
+                }
+            }
+        }
+    });
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
     document.body.style.visibility = 'visible';
     let defaultdate = new Date().getFullYear();
     // parentDashBoardDetails(defaultdate);
     applicationStatusYear(defaultdate);
     applicationStatusAllYear();
+
+     // Attach an event listener to the search input
+     const form_name = document.querySelector("#form_status");
+     // form_name.addEventListener("input", filterTable);
+     form_name.addEventListener("click", function () {
+        formNameDetails(defaultdate);
+     });
+
     // Function to filter table data based on the search input
     function filterTable() {
         const input = document.querySelector("#searchInput");

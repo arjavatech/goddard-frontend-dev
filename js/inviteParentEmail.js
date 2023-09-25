@@ -9,11 +9,9 @@ const s3 = new AWS.S3();
 
 let obj = {
     "from": "noreply.goddard@gmail.com",
-    "to": "noreply.godard@gmail.com",
+    "to": "aarthi.arjava@gmail.com",
     "subject": "subject",
-    "body": "message data",
-    "attachmentName": "AttachmentForm",
-    "attachmentKey": "attachments/Test.pdf"
+    "body": "message data"
 }
 
 
@@ -22,7 +20,9 @@ async function emailSend() {
         // const base64Data = await getPDFBase64Data();
         // obj.attachmentName = "AttachmentForm";
         // obj.from = "goddard01arjava@gmail.com";
-        // obj.to = "aarthi.arjava@gmail.com";
+        // let email_to =  $('#parent_one_email').val();
+        // obj.to = email_to;
+        // console.log(obj.to);
         obj.subject = 'Invite parents';
         let messageData = $('#messageData').val();
         obj.body = messageData;
@@ -53,14 +53,6 @@ async function emailSend() {
 $(document).ready(function () {
     $('#sendButton').click(function () {
         console.log('checking email send');
-        // fetchEnrollmentFormTitle(function () {
-        //     fetchEnrollmentFormBody(function () {
-                emailSend();
-                // Clear the text area
-        //         $('#staticBackdrop').on('show.bs.modal', function() {
-        //             $('#messageData').val('');
-        //         });
-        //     });
-        // });
+        emailSend();
     });
 })

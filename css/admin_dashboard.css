@@ -164,6 +164,11 @@ body {
     background-color: #21446f !important;
 }
 
+.form-control
+{
+    border: 1px solid #999999 !important;
+}
+
 .form-control:focus {
     border-color: #66afe9 !important;
     -webkit-box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
@@ -193,7 +198,8 @@ a{
     box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
   }
 
-  .form-multi-select-option .form-multi-select-option-with-checkbox .form-multi-selected {
+  .form-multi-select-option.form-multi-selected::before {
     background-color:#0F2D52 !important;
-}
+    border: none !important;
+   }
 

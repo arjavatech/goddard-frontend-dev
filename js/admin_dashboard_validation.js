@@ -40,15 +40,15 @@ function validatePhone(inputtxtID, errorSpanId) {
     }
 }
 
-function checkbox() {
-    var additional_parent_info1 = document.getElementById("additional_parent_info");
-    var additional_parent_label = document.getElementById("parent_info_label");
-    if ($('input[name="additional_parent_details"]').is(":checked")) {
-        additional_parent_info1.style.display = "block";
-        additional_parent_label.style.display = "block";
-    }
-    else{
-        additional_parent_info1.style.display = "none";
-        additional_parent_label.style.display = "none";
-    }
-}
+// function checkbox() {
+//     var additional_parent_info1 = document.getElementById("additional_parent_info");
+//     var additional_parent_label = document.getElementById("parent_info_label");
+//     if ($('input[name="additional_parent_details"]').is(":checked")) {
+//         additional_parent_info1.style.display = "block";
+//         additional_parent_label.style.display = "block";
+//     }
+//     else{
+//         additional_parent_info1.style.display = "none";
+//         additional_parent_label.style.display = "none";
+//     }
+// }

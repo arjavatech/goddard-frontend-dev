@@ -24,8 +24,8 @@ function checkParentAuthentication(callback) {
                    clearLocalStorageExcept(keysToKeep);
                    // localStorage.clear()
                    if (response && response.length > 0) {
-                       localStorage.setItem('parent_name', response[0].name)
-                       localStorage.setItem('parent_id', response[0].id)
+                       localStorage.setItem('parent_name', response[0].parent_name)
+                    //    localStorage.setItem('parent_id', response[0].id)
                    }
                    if (typeof callback === 'function') {
                        callback();
@@ -36,13 +36,14 @@ function checkParentAuthentication(callback) {
 
 function getAllInfo(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email')
-    const parent_id = localStorage.getItem('parent_id')
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/fetch_by_parent?parent_id='
+    // const parent_id = localStorage.getItem('parent_id');
+    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/fetch/email?email='
     // console.log(url + logged_in_email)
     $.ajax({
-        url: url + parent_id,
+        url: url + logged_in_email,
         type: 'get',
         success: function (response) {
+            console.log(response);
             // localStorage.clear()
             if (response && response.length > 0) {
                 // Iterate through all the child and store the response

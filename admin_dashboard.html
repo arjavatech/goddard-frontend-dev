@@ -10,6 +10,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@4.6.2/dist/js/coreui.bundle.min.js" integrity="sha384-MGnlekWgu70pfTJWjKL2rXoeUNhBVZ6Gh3XLc5UCM1Sid3iv+v3d4DpfiQq0qoQi" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@4.6.2/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-1fDTYSXCTG6zvcnFMWLqQFJhbwrzsGbQoy01t82Su8PO1rV8/tI0y6aoySxizOB/" crossorigin="anonymous">
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script type="module" src='js/admin_dashboard.js'></script>
@@ -32,7 +34,7 @@
         <div class="row">
             <div class="col-12 col-sm-4 col-md-4 p-5">
                 <div class="card_one_style">
-                    <div class="card admin_cards p-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <div class="card admin_cards p-3" data-bs-toggle="modal" data-bs-target="#inviteparent">
                         <div class="card-body pt-4">
                             <h5 class="card-title text-center">
                                 <!-- Invite parent Icon -->
@@ -49,7 +51,7 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            <div class="modal fade" id="inviteparent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
@@ -210,7 +212,7 @@
                                                        
                                                         <div class="position-absolute top-50 end-0 translate-middle-y">
                                                             <button id="saveButton" type="button"
-                                                            class="btn btn-primary">Save</button>
+                                                            class="btn btn-primary btn-bg">Save</button>
                                                             <!-- <a href="javascript:;" class="form-wizard-submit" id="submit_button">Submit</a> -->
                                                         </div>
                                                     </div>
@@ -225,7 +227,7 @@
                             <button type="button" class="btn btn-secondary"
                                 data-bs-dismiss="modal">Cancel</button>
                             <button id="sendButton" type="button"
-                                class="btn btn-primary">Send</button>
+                                class="btn btn-primary btn-bg">Send</button>
                         </div>
                     </div>
                 </div>
@@ -242,7 +244,7 @@
                                         d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z" />
                                 </svg>
                             </h5>
-                            <h5 class="text-center card_icon pt-3 h4"> Application Status</h5>
+                            <h5 class="text-center card_icon pt-3 h4">Application Status</h5>
                         </div>
                     </div>
                 </a>
@@ -263,7 +265,57 @@
                 </a>    
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 col-sm-4 col-md-4 p-5">
+                <div class="card_one_style">
+                    <div class="card admin_cards p-3" data-bs-toggle="modal" data-bs-target="#activeforms">
+                        <div class="card-body pt-4">
+                            <h5 class="card-title text-center">
+                                <!-- Active form Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-file-earmark-text-fill card_icon" viewBox="0 0 16 16">
+                                    <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z"/>
+                                  </svg>
+                            </h5>
+                            <h5 class="text-center card_icon pt-3 h4">Active Form Status</h5>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="activeforms" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen-xxl-down modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content active_form_modal">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-3 admin_dashboard_title" id="exampleModalLabel" >Select Forms</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <select class="form-multi-select" multiple data-coreui-search="true">
+                                <option value="0">Authorization Form</option>
+                                <option value="1">Enrollment Form</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="submitButton" type="button"
+                            class="btn btn-primary btn-bg">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>                        
     </div>
+    <!-- Vertically centered modal -->
+<div class="modal-dialog modal-dialog-centered">
+    ...
+  </div>
+  
+  <!-- Vertically centered scrollable modal -->
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    ...
+  </div>
     <!-- Admin dashboard End -->
     <script>
         jQuery(document).ready(function () {

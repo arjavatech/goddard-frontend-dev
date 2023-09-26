@@ -179,3 +179,21 @@ a{
 } */
   /***Modal style End***/
 
+
+
+  .active_form_modal
+  {
+    height: 500px !important;
+  }
+
+  .form-multi-select.show
+  {
+    border-color: #66afe9 !important;
+    -webkit-box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
+  }
+
+  .form-multi-select-option .form-multi-select-option-with-checkbox .form-multi-selected {
+    background-color:#0F2D52 !important;
+}
+

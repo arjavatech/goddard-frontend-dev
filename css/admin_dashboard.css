@@ -34,19 +34,18 @@ body {
 
 .admin_cards
 {
-    width: 270px !important;
+    width: 250px !important;
     height: 200px !important;
     background: #D8E9FF !important;
+    border: 2px solid #0F2D52 !important;
     border-radius: 20px !important;
     cursor: pointer;
 }
 
 .admin_cards:hover
 {
-    width: 270px !important;
-    height: 200px !important;
     background: #a7cdff !important;
-    border-radius: 20px !important;
+    border: 2px dashed #0F2D52 !important;
     cursor: pointer;
 }
 

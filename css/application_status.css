@@ -80,3 +80,18 @@ a.page-link{
 }
 
 
+select
+{
+   padding: 5px;
+   color: #0F2D52 !important;
+   border: 2px solid #0F2D52 !important;
+   border-radius: 5px;
+}
+
+select#form_status
+{
+    color: #0F2D52 !important;
+    font-size: medium !important;
+}
+
+

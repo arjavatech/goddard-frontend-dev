@@ -189,6 +189,7 @@ a{
   .active_form_modal
   {
     height: 500px !important;
+    width: 500px !important;
   }
 
   .form-multi-select.show
@@ -201,5 +202,12 @@ a{
   .form-multi-select-option.form-multi-selected::before {
     background-color:#0F2D52 !important;
     border: none !important;
+   }
+
+   .modal_center
+   {
+    display: flex;
+    justify-content: center;
+    align-items: center;
    }
 

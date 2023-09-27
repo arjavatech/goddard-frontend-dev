@@ -14,7 +14,7 @@ function saveForm() {
     // const json=  JSON.stringify(obj);
     // console.log(json);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/invite_info/add",
+        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/add",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(obj),
@@ -26,6 +26,29 @@ function saveForm() {
         error: function (xhr, status, error) {
             console.log(error);
             alert("form submit failed");
+        }
+    });
+}
+
+function activeFormList(){
+    console.log('dvsdfv');
+    $.ajax({
+        url :'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all',
+        type : 'GET',
+        success : function(response){
+            console.log(response);
+            let responsevalue = Object.values(response);
+            console.log(responsevalue);
+            let optionsData = '';
+            console.log(document.querySelector('[name="active_form_list"]').value);
+            // document.querySelector('[name="active_form_list"]').value ='';
+            for (let i = 0; i <= responsevalue.length; i++) {
+                console.log(responsevalue[i].form_name);
+                optionsData += '<option value="' + responsevalue[i] + '">' + responsevalue[i]
+                                + '</option>';
+                document.querySelector('[name="active_form_list"]').value =
+                    optionsData;
+            }
         }
     });
 }
@@ -43,6 +66,11 @@ $(document).ready(function () {
             console.log(emailButton);
             emailButton.style.display ="block";
             saveForm();
+        });
+        $("#active_form_list").on("click", function (e) {
+            e.preventDefault();
+            console.log('checking');
+             activeFormList();
         });
     }
     jQuery(document).ready(function () {

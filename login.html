@@ -21,6 +21,8 @@
         <script src="https://accounts.google.com/gsi/client" async defer></script>
         <meta name="google-signin-client_id" content="70072849812-7gjpuusbnoho0v8l80lli57v74rrvch4.apps.googleusercontent.com">
         <script src="js/login.js" ></script>
+        <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+
     </head>
     <body>
         <!-- Navigation Bar -->
@@ -142,6 +144,12 @@
                 const formData = new FormData(form);
                 const obj = Object.fromEntries(formData);
                 console.log(obj);
+                // var encryptedAES = CryptoJS.AES.encrypt("checking", obj.password);
+                // console.log(encryptedAES);
+                // var decryptedBytes = CryptoJS.AES.decrypt(encryptedAES, obj.password);
+                // console.log(decryptedBytes);
+                // var plaintext = decryptedBytes.toString(CryptoJS.enc.Utf8);
+                // console.log(plaintext);
                 $.ajax({
                     url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/login/add",
                     type: "POST",

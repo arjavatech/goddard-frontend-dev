@@ -258,7 +258,6 @@
                                   </svg>
                             </h5>
                             <h5 class="text-center card_icon pt-3 h4">Active Form Status</h5>
-                            </h5>
                         </div>
                     </div>
                 </div>
@@ -274,9 +273,10 @@
                     </div>
                     <div class="modal-body">
                         <div class="container">
-                            <select class="form-multi-select" multiple data-coreui-search="true">
-                                <option value="0">Authorization Form</option>
-                                <option value="1">Enrollment Form</option>
+                            <select class="form-multi-select" multiple data-coreui-search="true" 
+                            id="active_form_list"   onclick="activeFormList()">
+                                <!-- <option value="0">Authorization Form</option>
+                                <option value="1">Enrollment Form</option> -->
                             </select>
                         </div>
                     </div>
@@ -289,18 +289,15 @@
         </div>                        
     </div>
     <!-- Vertically centered modal -->
-<div class="modal-dialog modal-dialog-centered">
-    ...
-  </div>
-  
-  <!-- Vertically centered scrollable modal -->
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    ...
-  </div>
+    <div class="modal-dialog modal-dialog-centered">
+        ...
+    </div>
+
+    <!-- Vertically centered scrollable modal -->
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        ...
+    </div>
     <!-- Admin dashboard End -->
-    <script>
-       
-    </script>
 </body>
 
 </html>

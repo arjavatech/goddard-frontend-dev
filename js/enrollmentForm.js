@@ -3,14 +3,14 @@ import {isAuthenticated} from "./authenticationVerify.js";
 export function fetchEnrollmentFormBody(callback) {
     let arr =[];
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment/fetch/${localStorage.getItem('form_year_value')}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
         type: 'get',
         success: function(response){
             // let editID = window.location.search.slice(4);
             // console.log(editID);
             $.ajax({
                 // url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
-                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch_by_id_year/${localStorage.getItem('child_id')}?year=${localStorage.getItem('form_year_value')}`,
+                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch_by_id_year/${localStorage.getItem('child_id')}`,
                 type: 'get',
                 success: function(response1){
                     if(typeof response.point_one !='undefined'){
@@ -182,7 +182,7 @@ export function fetchEnrollmentFormTitle(callback) {
 
 export function fetchEnrollmentPointEight(callback) {
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/holidays/fetch/${localStorage.getItem('form_year_value')}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/holidays_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
         type: 'get',
         success: function(response){
             document.querySelector('[id="R1C1"]').innerHTML = response.year_one_leave_one;

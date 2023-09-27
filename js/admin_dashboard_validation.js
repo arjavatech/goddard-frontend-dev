@@ -40,6 +40,8 @@ function validatePhone(inputtxtID, errorSpanId) {
     }
 }
 
+
+
 // function checkbox() {
 //     var additional_parent_info1 = document.getElementById("additional_parent_info");
 //     var additional_parent_label = document.getElementById("parent_info_label");

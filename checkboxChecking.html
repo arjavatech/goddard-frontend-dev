@@ -23,20 +23,30 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 my-5">
-                <div class="form-group">
-                    <strong>Select Language:</strong>
-                    <select id="multiple-checkboxes" class="form-control" multiple="multiple">
-                    </select>
+            <form id="multiselectdata">
+                <div class="col-sm-4 my-5">
+                    <div class="form-group">
+                        <strong>Select Language:</strong>
+                        <select id="form_name" name="form_name" class="form-control" multiple="multiple">
+                        </select>
+                    </div>
                 </div>
-            </div>
+                <div class="modal-footer">
+                    <button id="submitButton" type="button"
+                        class="btn btn-primary btn-bg" onclick="">Submit</button>
+                </div>
+            </form>
         </div>
     </div>
     <script>
         $(document).ready(function() {
             // Initialize the Bootstrap Multiselect plugin
-            $('#multiple-checkboxes').multiselect({
+            $('#form_name').multiselect({
                 includeSelectAllOption: true,
+            });
+            $('#submitButton').on('click',function(e){
+                e.preventDefault();
+                submitAction();
             });
 
             // Call your data population function after initialization
@@ -53,7 +63,7 @@
                     let responsevalue = Object.values(response);
                     console.log(responsevalue);
                     let optionsData = '';
-                    let selectElement = document.querySelector('#multiple-checkboxes');
+                    let selectElement = document.querySelector('#form_name');
                     selectElement.innerHTML = ''; // Clear existing options
 
                     for (let i = 0; i < responsevalue.length; i++) {
@@ -63,7 +73,32 @@
                     selectElement.innerHTML = optionsData;
 
                     // Update the Multiselect plugin to reflect the changes
-                    $('#multiple-checkboxes').multiselect('rebuild');
+                    $('#form_name').multiselect('rebuild');
+                }
+            });
+        }
+        function submitAction(){ 
+            const form = document.getElementById("multiselectdata");
+            const mul = document.getElementById("multiselectdata");
+            const formData = new FormData(form);
+            const obj = Object.fromEntries(formData);
+            // obj.year = new Date().getFullYear() + '';
+            console.log(obj);
+            // const json=  JSON.stringify(obj);
+            // console.log(json);
+            $.ajax({
+                url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/active_form_data/add",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(obj),
+                success: function (response) {
+                    console.log(response);
+                    // window.location.href = "admin_dashboard.html";
+                    // alert("form submitted successfully");
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                    alert("form submit failed");
                 }
             });
         }

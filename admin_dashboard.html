@@ -273,13 +273,25 @@
                     </div>
                     <div class="modal-body">
                         <div class="container">
-                            <select class="form-multi-select" multiple data-coreui-search="true" 
-                            id="active_form_list"   onclick="activeFormList()">
-                                <!-- <option value="0">Authorization Form</option>
-                                <option value="1">Enrollment Form</option> -->
-                            </select>
+                            <div class="row">
+                                <div class="col-sm-4 my-5">
+                                    <div class="form-group">
+                                        <strong>Select Language:</strong>
+                                        <select id="multiple-checkboxes"
+                                        multiple="multiple" onclick="abc()">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <!-- <div class="container">
+                            <select id="multiple-checkboxes" class="form-control"
+                             multiple="multiple" onclick="abc()">
+                            </select>
+                        </div> -->
                     </div>
+                    
+                    
                     <div class="modal-footer">
                         <button id="submitButton" type="button"
                             class="btn btn-primary btn-bg">Submit</button>
@@ -298,6 +310,45 @@
         ...
     </div>
     <!-- Admin dashboard End -->
+    <script>
+    $(document).ready(function() {
+    //    function abc(){
+    //     console.log('gnf');
+            // Initialize the Bootstrap Multiselect plugin
+            $('#multiple-checkboxes').multiselect({
+                includeSelectAllOption: true,
+            });
+
+            // Call your data population function after initialization
+            abc();
+        // }
+    });
+
+        function abc() {
+            console.log('Fetching data and populating dropdown...');
+            $.ajax({
+                url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=Active',
+                type: 'GET',
+                success: function(response) {
+                    console.log(response);
+                    let responsevalue = Object.values(response);
+                    console.log(responsevalue);
+                    let optionsData = '';
+                    let selectElement = document.querySelector('#multiple-checkboxes');
+                    selectElement.innerHTML = ''; // Clear existing options
+
+                    for (let i = 0; i < responsevalue.length; i++) {
+                        optionsData += '<option value="' + responsevalue[i].form_name + '">' + responsevalue[i].form_name + '</option>';
+                    }
+
+                    selectElement.innerHTML = optionsData;
+
+                    // Update the Multiselect plugin to reflect the changes
+                    $('#multiple-checkboxes').multiselect('rebuild');
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

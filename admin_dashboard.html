@@ -95,10 +95,10 @@
                                             <div class="row">
                                                 <div class="col-sm mb-3">
                                                     <div class="form-group">
-                                                        <label for="parent_one_name" class="col-form-label">Full Name</label>
-                                                        <input type="text" class="form-control" id="parent_one_name" name="parent_one_name"
-                                                        onchange="namevalidation(this,'parent_one_name_span')">
-                                                        <span class="spanmsg" id="parent_one_name_span" style="color:red; display:none">
+                                                        <label for="parent_name" class="col-form-label">Full Name</label>
+                                                        <input type="text" class="form-control" id="parent_name" name="parent_name"
+                                                        onchange="namevalidation(this,'parent_name_span')">
+                                                        <span class="spanmsg" id="parent_name_span" style="color:red; display:none">
                                                             Enter valid input[only letters].</span>
                                                         <div class="wizard-form-error"></div>
                                                     </div>
@@ -115,10 +115,10 @@
                                                 </div> -->
                                                 <div class="col-sm mb-3">
                                                     <div class="form-group">
-                                                        <label for="parent_one_email" class="col-form-label">Email</label>
-                                                        <input type="mail" class="form-control" id="parent_one_email" name="parent_one_email"
-                                                        onchange="emailValidation(this,'parent_one_email_span')">
-                                                        <span id="parent_one_email_span" style="color:red; display:none">
+                                                        <label for="parent_email" class="col-form-label">Email</label>
+                                                        <input type="mail" class="form-control" id="parent_email" name="parent_email"
+                                                        onchange="emailValidation(this,'parent_email_span')">
+                                                        <span id="parent_email_span" style="color:red; display:none">
                                                             Enter valid input [should be in @ and .].</span>
                                                         <div class="wizard-form-error"></div>
                                                     </div>
@@ -127,10 +127,10 @@
                                             <div class="row">
                                                 <div class="col-sm mb-3">
                                                     <div class="form-group">
-                                                        <label for="parent_one_mobile" class="col-form-label">Mobile Number</label>
-                                                        <input type="number" class="form-control" id="parent_one_mobile"  name="parent_one_mobile"
-                                                        onchange="validatePhone(this,'parent_one_mobile_span')">
-                                                        <span id="parent_one_mobile_span" style="color:red; display:none">
+                                                        <label for="parent_mobile" class="col-form-label">Mobile Number</label>
+                                                        <input type="number" class="form-control" id="parent_mobile"  name="parent_mobile"
+                                                        onchange="validatePhone(this,'parent_mobile_span')">
+                                                        <span id="parent_mobile_span" style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                         <div class="wizard-form-error"></div>
                                                     </div>
@@ -139,7 +139,7 @@
                                             </div>
                                         <!-- </fieldset>
                                         <fieldset class="wizard-fieldset"> -->
-                                            <div class="form-group modal-form-checkbox">
+                                            <!-- <div class="form-group modal-form-checkbox">
                                                 <input type="checkbox" class="input-checkbox" id="additional_parent_details" name="additional_parent_details"
                                                      onclick="checkbox()">
                                                 <label class="form-check-label" for="additional_parent_details"><span>
@@ -162,16 +162,6 @@
                                                             <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="col-sm mb-3">
-                                                        <div class="form-group">
-                                                            <label for="parent_two_last_name" class="col-form-label">Last Name</label>
-                                                            <input type="text" class="form-control" id="parent_two_last_name" name="parent_two_last_name"
-                                                            onchange="namevalidation(this,'parent_two_last_name_span')">
-                                                            <span class="spanmsg" id="parent_two_last_name_span" style="color:red; display:none">
-                                                                Enter valid input[only letters].</span>
-                                                            <div class="wizard-form-error"></div>
-                                                        </div>
-                                                    </div> -->
                                                     <div class="col-sm mb-3">
                                                         <div class="form-group">
                                                             <label for="parent_two_email" class="col-form-label">Email</label>
@@ -183,7 +173,6 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                   
                                                     <div class="col-sm mb-3">
                                                         <div class="form-group">
                                                             <label for="parent_two_mobile" class="col-form-label">Mobile Number</label>
@@ -193,17 +182,9 @@
                                                                 Enter valid input [only numbers,+,-,()].</span>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm mb-3">
-                                                        <!-- <div class="form-group">
-                                                            <label for="parent_two_email" class="col-form-label">Email</label>
-                                                            <input type="email" class="form-control" id="parent_two_email" name="parent_two_email"
-                                                            onchange="emailValidation(this,'parent_two_email_span')">
-                                                            <span id="parent_two_email_span" style="color:red; display:none">
-                                                                Enter valid input [should be in @ and .].</span>
-                                                        </div> -->
-                                                    </div>
+                                                    <div class="col-sm mb-3"></div>
                                                 </div>
-                                            </div><br><br>
+                                            </div><br><br> -->
                                             <div class="panel-footer" >
                                                 <div class="form-group clearfix">
                                                     <div class="position-relative">
@@ -277,7 +258,6 @@
                                   </svg>
                             </h5>
                             <h5 class="text-center card_icon pt-3 h4">Active Form Status</h5>
-                            </h5>
                         </div>
                     </div>
                 </div>
@@ -293,12 +273,25 @@
                     </div>
                     <div class="modal-body">
                         <div class="container">
-                            <select class="form-multi-select" multiple data-coreui-search="true">
-                                <option value="0">Authorization Form</option>
-                                <option value="1">Enrollment Form</option>
-                            </select>
+                            <div class="row">
+                                <div class="col-sm-4 my-5">
+                                    <div class="form-group">
+                                        <strong>Select Language:</strong>
+                                        <select id="multiple-checkboxes"
+                                        multiple="multiple" onclick="abc()">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <!-- <div class="container">
+                            <select id="multiple-checkboxes" class="form-control"
+                             multiple="multiple" onclick="abc()">
+                            </select>
+                        </div> -->
                     </div>
+                    
+                    
                     <div class="modal-footer">
                         <button id="submitButton" type="button"
                             class="btn btn-primary btn-bg">Submit</button>
@@ -308,121 +301,53 @@
         </div>                        
     </div>
     <!-- Vertically centered modal -->
-<div class="modal-dialog modal-dialog-centered">
-    ...
-  </div>
-  
-  <!-- Vertically centered scrollable modal -->
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    ...
-  </div>
+    <div class="modal-dialog modal-dialog-centered">
+        ...
+    </div>
+
+    <!-- Vertically centered scrollable modal -->
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        ...
+    </div>
     <!-- Admin dashboard End -->
     <script>
-        jQuery(document).ready(function () {
-    // click on next button
-    jQuery('.form-wizard-next-btn').click(function () {
-        var parentFieldset = jQuery(this).parents('.wizard-fieldset');
-        var currentActiveStep = jQuery(this).parents('.form-wizard')
-            .find('.form-wizard-steps .active');
-        var next = jQuery(this);
-        var nextWizardStep = true;
-        parentFieldset.find('.wizard-required').each(function () {
-            var thisValue = jQuery(this).val();
+    $(document).ready(function() {
+    //    function abc(){
+    //     console.log('gnf');
+            // Initialize the Bootstrap Multiselect plugin
+            $('#multiple-checkboxes').multiselect({
+                includeSelectAllOption: true,
+            });
 
-            if (thisValue == "") {
-                jQuery(this).siblings(".wizard-form-error").slideDown();
-                nextWizardStep = false;
-            }
-            else {
-                jQuery(this).siblings(".wizard-form-error").slideUp();
-            }
-        });
-        if (nextWizardStep) {
-            next.parents('.wizard-fieldset').removeClass("show", "400");
-            currentActiveStep.removeClass('active').addClass('activated').next()
-                .addClass('active', "400");
-            next.parents('.wizard-fieldset').next('.wizard-fieldset').addClass("show", "400");
-            jQuery(document).find('.wizard-fieldset').each(function () {
-                if (jQuery(this).hasClass('show')) {
-                    var formAtrr = jQuery(this).attr('data-tab-content');
-                    jQuery(document).find('.form-wizard-steps .form-wizard-step-item')
-                        .each(function () {
-                            if (jQuery(this).attr('data-attr') == formAtrr) {
-                                jQuery(this).addClass('active');
-                                var innerWidth = jQuery(this).innerWidth();
-                                var position = jQuery(this).position();
-                                jQuery(document).find('.form-wizard-step-move')
-                                    .css({"left": position.left, "width": innerWidth});
-                            } else {
-                                jQuery(this).removeClass('active');
-                            }
-                        });
+            // Call your data population function after initialization
+            abc();
+        // }
+    });
+
+        function abc() {
+            console.log('Fetching data and populating dropdown...');
+            $.ajax({
+                url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=Active',
+                type: 'GET',
+                success: function(response) {
+                    console.log(response);
+                    let responsevalue = Object.values(response);
+                    console.log(responsevalue);
+                    let optionsData = '';
+                    let selectElement = document.querySelector('#multiple-checkboxes');
+                    selectElement.innerHTML = ''; // Clear existing options
+
+                    for (let i = 0; i < responsevalue.length; i++) {
+                        optionsData += '<option value="' + responsevalue[i].form_name + '">' + responsevalue[i].form_name + '</option>';
+                    }
+
+                    selectElement.innerHTML = optionsData;
+
+                    // Update the Multiselect plugin to reflect the changes
+                    $('#multiple-checkboxes').multiselect('rebuild');
                 }
             });
         }
-    });
-    //click on previous button
-    jQuery('.form-wizard-previous-btn').click(function () {
-        var counter = parseInt(jQuery(".wizard-counter").text());
-        ;
-        var prev = jQuery(this);
-        var currentActiveStep = jQuery(this).parents('.form-wizard')
-            .find('.form-wizard-steps .active');
-        prev.parents('.wizard-fieldset').removeClass("show", "400");
-        prev.parents('.wizard-fieldset').prev('.wizard-fieldset').addClass("show", "400");
-        currentActiveStep.removeClass('active').prev().removeClass('activated')
-            .addClass('active', "400");
-        jQuery(document).find('.wizard-fieldset').each(function () {
-            if (jQuery(this).hasClass('show')) {
-                var formAtrr = jQuery(this).attr('data-tab-content');
-                jQuery(document).find('.form-wizard-steps .form-wizard-step-item')
-                    .each(function () {
-                        if (jQuery(this).attr('data-attr') == formAtrr) {
-                            jQuery(this).addClass('active');
-                            var innerWidth = jQuery(this).innerWidth();
-                            var position = jQuery(this).position();
-                            jQuery(document).find('.form-wizard-step-move')
-                                .css({"left": position.left, "width": innerWidth});
-                        } else {
-                            jQuery(this).removeClass('active');
-                        }
-                    });
-            }
-        });
-    });
-    //click on form submit button
-    jQuery(document).on("click", ".form-wizard .form-wizard-submit", function () {
-        var parentFieldset = jQuery(this).parents('.wizard-fieldset');
-        var currentActiveStep = jQuery(this).parents('.form-wizard')
-            .find('.form-wizard-steps .active');
-        parentFieldset.find('.wizard-required').each(function () {
-            var thisValue = jQuery(this).val();
-            if (thisValue == "") {
-                jQuery(this).siblings(".wizard-form-error").slideDown();
-            } else {
-                jQuery(this).siblings(".wizard-form-error").slideUp();
-            }
-        });
-    });
-    // focus on input field check empty or not
-    jQuery(".form-control").on('focus', function () {
-        var tmpThis = jQuery(this).val();
-        if (tmpThis == '') {
-            jQuery(this).parent().addClass("focus-input");
-        } else if (tmpThis != '') {
-            jQuery(this).parent().addClass("focus-input");
-        }
-    }).on('blur', function () {
-        var tmpThis = jQuery(this).val();
-        if (tmpThis == '') {
-            jQuery(this).parent().removeClass("focus-input");
-            jQuery(this).siblings('.wizard-form-error').slideDown("3000");
-        } else if (tmpThis != '') {
-            jQuery(this).parent().addClass("focus-input");
-            jQuery(this).siblings('.wizard-form-error').slideUp("3000");
-        }
-    });
-});
     </script>
 </body>
 

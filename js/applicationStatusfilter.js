@@ -173,6 +173,7 @@ function formNameDetails(val) {
         url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/dashboard_data/formByYear/${val}`,
         type: 'get',
         success: function (response) {
+            console.log(response);
             if (Array.isArray(response) && response.length > 0) {
                 let optionsData = '';
                 document.querySelector('[name="form_name"]').innerHTML = '';

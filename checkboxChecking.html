@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .caret {
+            display: none;
+        }
+
+        .btn-group .multiselect {
+            border: 1px solid #ced4da;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <form id="multiselectdata">
+                <div class="col-sm-4 my-5">
+                    <div class="form-group">
+                        <strong>Select Language:</strong>
+                        <select id="form_name" name="form_name" class="form-control" multiple="multiple">
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="submitButton" type="button"
+                        class="btn btn-primary btn-bg" onclick="">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            // Initialize the Bootstrap Multiselect plugin
+            $('#form_name').multiselect({
+                includeSelectAllOption: true,
+            });
+            $('#submitButton').on('click',function(e){
+                e.preventDefault();
+                submitAction();
+            });
+
+            // Call your data population function after initialization
+            fetchDataAndPopulateDropdown();
+        });
+
+        function fetchDataAndPopulateDropdown() {
+            console.log('Fetching data and populating dropdown...');
+            $.ajax({
+                url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=Active',
+                type: 'GET',
+                success: function(response) {
+                    console.log(response);
+                    let responsevalue = Object.values(response);
+                    console.log(responsevalue);
+                    let optionsData = '';
+                    let selectElement = document.querySelector('#form_name');
+                    selectElement.innerHTML = ''; // Clear existing options
+
+                    for (let i = 0; i < responsevalue.length; i++) {
+                        optionsData += '<option value="' + responsevalue[i].form_name + '">' + responsevalue[i].form_name + '</option>';
+                    }
+
+                    selectElement.innerHTML = optionsData;
+
+                    // Update the Multiselect plugin to reflect the changes
+                    $('#form_name').multiselect('rebuild');
+                }
+            });
+        }
+        function submitAction(){ 
+            const form = document.getElementById("multiselectdata");
+            const mul = document.getElementById("multiselectdata");
+            const formData = new FormData(form);
+            const obj = Object.fromEntries(formData);
+            // obj.year = new Date().getFullYear() + '';
+            console.log(obj);
+            // const json=  JSON.stringify(obj);
+            // console.log(json);
+            $.ajax({
+                url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/active_form_data/add",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(obj),
+                success: function (response) {
+                    console.log(response);
+                    // window.location.href = "admin_dashboard.html";
+                    // alert("form submitted successfully");
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                    alert("form submit failed");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

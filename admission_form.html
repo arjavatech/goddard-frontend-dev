@@ -445,12 +445,12 @@
                                                         </div>
                                                         <div class="col-sm">
                                                             <div class="form-group">
-                                                                <label for="business_email1" class="form-label">EMAIL ADDRESS
+                                                                <label for="parent_email_one" class="form-label">EMAIL ADDRESS
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="business_email1" name="business_email1"
-                                                                    onchange="emailValidation(this,'business_email1_span')">
-                                                                <span id="business_email1_span" style="color:red; display:none">
+                                                                <input type="text" class="form-control wizard-required" id="parent_email_one" name="parent_email_one"
+                                                                    onchange="emailValidation(this,'parent_email_one_span')">
+                                                                <span id="parent_email_one_span" style="color:red; display:none">
                                                                     Enter valid input [should be in @ and .].</span>
                                                                     <div class="wizard-form-error"></div>
                                                             </div>
@@ -704,12 +704,12 @@
                                                         </div>
                                                         <div class="col-sm">
                                                             <div class="form-group">
-                                                                <label for="business_email2" class="form-label">EMAIL ADDRESS
+                                                                <label for="parent_email_two" class="form-label">EMAIL ADDRESS
                                                                     <!-- <span style="color:#ff0000;">*</span> -->
                                                                 </label>
-                                                                <input type="text" class="form-control " id="business_email2" name="business_email2"
-                                                                    onchange="emailValidation(this,'business_email2_span')">
-                                                                <span id="business_email2_span" style="color:red; display:none">
+                                                                <input type="text" class="form-control " id="parent_email_two" name="parent_email_two"
+                                                                    onchange="emailValidation(this,'parent_email_two_span')">
+                                                                <span id="parent_email_two_span" style="color:red; display:none">
                                                                     Enter valid input [should be in @ and .].</span>
                                                                     <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
@@ -3421,8 +3421,8 @@
                             document.getElementsByName('business_zip_address1')[0].value = response.business_zip_address1;
                         if (typeof response.business_cell_number1 !== "undefined")
                             document.getElementsByName('business_cell_number1')[0].value = response.business_cell_number1;
-                        if (typeof response.business_email1 !== "undefined")
-                            document.getElementsByName('business_email1')[0].value = response.business_email1;
+                        if (typeof response.parent_email_one !== "undefined")
+                            document.getElementsByName('parent_email_one')[0].value = response.parent_email_one;
                         if (typeof response.parent2_name !== "undefined")
                             document.getElementsByName('parent2_name')[0].value = response.parent2_name;
                         if (typeof response.parent2_street_address !== "undefined")
@@ -3451,8 +3451,8 @@
                             document.getElementsByName('business_zip_address2')[0].value = response.business_zip_address2;
                         if (typeof response.business_cell_number2 !== "undefined")
                             document.getElementsByName('business_cell_number2')[0].value = response.business_cell_number2;
-                        if (typeof response.business_email2 !== "undefined")
-                            document.getElementsByName('business_email2')[0].value = response.business_email2;
+                        if (typeof response.parent_email_two !== "undefined")
+                            document.getElementsByName('parent_email_two')[0].value = response.parent_email_two;
                         if(response.additional_parent_details == "on" ){
                             document.getElementById('additional_parent_details').checked = true;
                             document.getElementById("additional_parent_info").style.display = "block";

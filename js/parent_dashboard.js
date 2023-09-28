@@ -2,10 +2,12 @@ import { fetchEnrollmentFormTitle, fetchEnrollmentFormBody, fetchEnrollmentPoint
 import { authorizationFormDetails } from './authorization_form.js';
 
 function getEnrollmentFormStatus(val, callback) {
+    console.log(val);
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/child_form/form_status/${val}?child_id=${localStorage.getItem('child_id')}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/${val}/form_status/${localStorage.getItem('child_id')}`,
         type: 'get',
         success: function (form_status_resp) {
+            console.log(form_status_resp);
             callback(form_status_resp);
         }
     });
@@ -187,62 +189,64 @@ function parentDashBoardDetails(val) {
 
                     const formStatusCell = document.createElement('td');
                     formStatusCell.setAttribute('id','form_status');
-                    if(data.form_name == '2023-2024 Enrollment Agreement'){
-                        getEnrollmentFormStatus( data.form_name, function (formStatusResp) {
-                            if(formStatusResp != null){
-                                let form_status = formStatusResp.form_status;
-                                formStatusCell.innerText = form_status;
-                            }else{
-                                let form_status = formStatusResp.form_status;
-                                formStatusCell.innerText = "Incompleted";
-                            }
-                            
-
-                            if (form_status === "Yet To Be Filled") {
-                                formStatusCell.innerText = form_status;
-                                formStatusCell.style.color ='#0F2D52';
-                                formStatusCell.style.fontWeight ='bold';
-                                // enableAction();
-                            } else if (form_status === "Completed") {
-                                formStatusCell.innerText = form_status;
+                    if (data.form_name == '2023-2024 Enrollment Agreement') {
+                        let value = 'enrollment_data';
+                        getEnrollmentFormStatus(value, function (formStatusResp) {
+                            console.log(formStatusResp); // Check the structure of formStatusResp
+                            // Assuming formStatusResp contains a property called 'form_status'
+                            let form_status = formStatusResp.form_status;
+                            formStatusCell.innerHTML = form_status;
+                            if (form_status === "Completed") {
                                 formStatusCell.style.color = 'green';
-                                formStatusCell.style.fontWeight ='bold';
-                                // disableAction();
+                                formStatusCell.style.fontWeight = 'bold';
                             } else if (form_status === "Incomplete") {
-                                formStatusCell.innerText = form_status;
                                 formStatusCell.style.color = 'red';
-                                formStatusCell.style.fontWeight ='bold';
-                                // enableAction();
+                                formStatusCell.style.fontWeight = 'bold';
                             } else {
-                                formStatusCell.innerText = form_status;
-                                formStatusCell.style.color ='#FFCC00';
-                                formStatusCell.style.fontWeight ='bold';
-                                // enableAction();
+                                formStatusCell.style.color = '#FFCC00';
+                                formStatusCell.style.fontWeight = 'bold';
                             }
                         });
-                    }else{
-                        const formStatusCell = document.createElement('td');
-                        formStatusCell.setAttribute('id','form_status');
+                    } else if (data.form_name == 'ACH Recurring payments form') {
+                        let value = 'bill_ach';
+                        getEnrollmentFormStatus(value, function (formStatusResp) {
+                            console.log(formStatusResp); // Check the structure of formStatusResp
+                    
+                            // Assuming formStatusResp contains a property called 'form_status'
+                            let form_status = formStatusResp.form_status;
+                    
+                            // Rest of your code...
+                    
+                            // Update the existing formStatusCell properties
+                            formStatusCell.innerText = form_status;
+                            if (form_status === "Completed") {
+                                formStatusCell.style.color = 'green';
+                                formStatusCell.style.fontWeight = 'bold';
+                            } else if (form_status === "Incomplete") {
+                                formStatusCell.style.color = 'red';
+                                formStatusCell.style.fontWeight = 'bold';
+                            } else {
+                                formStatusCell.style.color = '#FFCC00';
+                                formStatusCell.style.fontWeight = 'bold';
+                            }
+                        });
+                    } else {
+                        // Remove the redeclaration of formStatusCell here
+                    
                         formStatusCell.innerText = "Incomplete";
-
+                    
                         if (data.form_status === "Completed") {
-                            formStatusCell.innerText = data.form_status;
                             formStatusCell.style.color = 'green';
-                            formStatusCell.style.fontWeight ='bold';
-                            // disableAction();
+                            formStatusCell.style.fontWeight = 'bold';
                         } else if (data.form_status === "Incomplete") {
-                            formStatusCell.innerText = data.form_status;
                             formStatusCell.style.color = 'red';
-                            formStatusCell.style.fontWeight ='bold';
-                            // enableAction();
+                            formStatusCell.style.fontWeight = 'bold';
                         } else {
-                            formStatusCell.innerText = data.form_status;
-                            formStatusCell.style.color ='#FFCC00';
-                            formStatusCell.style.fontWeight ='bold';
-                            // enableAction();
+                            formStatusCell.style.color = '#FFCC00';
+                            formStatusCell.style.fontWeight = 'bold';
                         }
-                        
                     }
+                    
 
                     // Create a cell for action items
                     const actionCell = document.createElement('td');

@@ -13,6 +13,16 @@ body {
     font-size: 20px !important;
 } */
 
+#avf_form
+{
+    position: relative;
+    left: 150px;
+}
+
+.label_center{
+    float: left;
+}
+
 #formContent button {
     padding: 10px 20px;
     background-color: #337ab7;

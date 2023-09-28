@@ -21,7 +21,7 @@ function applicationStatusYear(val) {
     let applicationStatusYear = document.getElementById("applicationStatusYear");
     applicationStatusYear.textContent = val;
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/app_status/year_info?year=${val}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/admission_status_info`,
         type: 'get',
         success: function (response) {
             let responseValue = Object.values(response);
@@ -40,6 +40,7 @@ function applicationStatusYear(val) {
                         const childNameCell = document.createElement('td');
                         childNameCell.textContent = responseValue[j].child_name;
                         row.appendChild(childNameCell);
+                        
             
                         // Create cell for parent name
                         const parentNameCell = document.createElement('td');
@@ -47,7 +48,7 @@ function applicationStatusYear(val) {
                         row.appendChild(parentNameCell);
 
                         const applicationStatusCell = document.createElement('td');
-                        applicationStatusCell.textContent = responseValue[j].admission_form_status_level;
+                        applicationStatusCell.textContent = responseValue[j].admission_form_status;
                         row.appendChild(applicationStatusCell);
             
                         // const enrollmentStatusCell = document.createElement('td');
@@ -59,6 +60,7 @@ function applicationStatusYear(val) {
                         const enrollmentStatusCell = document.createElement('td');
                         enrollmentStatusCell.setAttribute('id', 'enrollment_form_status');
                         enrollmentStatusCell.setAttribute('name', 'enrollment_form_status');
+                        enrollmentStatusCell.setAttribute('style', 'border: none;');
 
                         // Create a <select> element
                         const statusSelect = document.createElement('select');
@@ -163,7 +165,7 @@ function formdetails(val){
 }
 function formNameDetails() {
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=Active`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=true`,
         type: 'get',
         success: function (response) {
             console.log(response);

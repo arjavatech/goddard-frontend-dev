@@ -75,7 +75,7 @@ function saveForm(value) {
         data: JSON.stringify(obj),
         success: function (response) {
             localStorage.setItem('child_id', response.child_id);
-            alert('succ');
+            // alert('succcessfully added');
             // window.location.href = "child_add.html";
         },
         error: function (xhr, status, error) {

@@ -58,7 +58,7 @@ function getAllInfo(callback) {
 }
 
 function responseToAuthenticationCheck() {
-    const parentName = localStorage.getItem('parent_name');
+    const parentName = localStorage.getItem('logged_in_email');
     console.log(parentName);
     if (parentName !== 'undefined' && parentName !== null) {
         document.body.style.visibility = 'visible';
@@ -128,7 +128,7 @@ function loadDynamicCards() {
 }
 
 function welcomeText() {
-    const parentName = localStorage.getItem('parent_name');
+    const parentName = localStorage.getItem('logged_in_email');
     // console.log(parentName)
     document.getElementById('welcomeText').innerHTML = 'Welcome ' + parentName;
     loadDynamicCards();

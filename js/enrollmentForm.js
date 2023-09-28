@@ -133,8 +133,8 @@ export function fetchEnrollmentFormBody(callback) {
                     if (typeof response1.point_eighteen_initial_here !== "undefined"){
                         document.getElementsByName("point_eighteen_initial_here")[0].value = response1.point_eighteen_initial_here;
                     }
-                    if (typeof response1.point_eighteen_initial_here !== "undefined"){
-                        document.getElementsByName("point_eighteen_initial_here")[0].value = response1.point_eighteen_initial_here;
+                    if (typeof response1.point_nineteen_initial_here !== "undefined"){
+                        document.getElementsByName("point_nineteen_initial_here")[0].value = response1.point_nineteen_initial_here;
                     }
                     if (typeof response1.parent_one_sign !== "undefined"){
                         document.getElementsByName("parent_one_sign")[0].value = response1.parent_one_sign;

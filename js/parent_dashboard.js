@@ -164,6 +164,7 @@ async function emailSend() {
 }
 
 function parentDashBoardDetails(val) {
+    console.log(val);
     localStorage.setItem('form_year_value', val);
     $.ajax({
         url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=true`,

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Admin-Dashboard</title>
+    <title>Active Form</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
     <link rel="stylesheet" href="css/admin_dashboard.css">
@@ -20,6 +20,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
+<style>
+    html
+    {
+        font-size: medium;
+    }
+</style>
 
 <body>
     <!-- Navigation Bar -->
@@ -35,11 +41,11 @@
     <div class="container">
         <h2 class="admin_dashboard_title h2 pt-4 text-center">Active Form Details</h2>       
         <div class="container">
-            <div class="row">
+            <div class="row m-5">
                 <form id="multiselectdata">
                     <div class="col-sm-12">
                         <div class="form-group">
-                            <h2 class="text-center">Active Form Details</h2>    
+                            <strong class="text-center">Active Form Details:</strong>    
                             <!-- <strong>Select Language:</strong> -->
                             <select id="form_name" name="form_name" class="form-control" multiple="multiple"></select>
                         </div>

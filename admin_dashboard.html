@@ -18,6 +18,42 @@
     <script src='js/inviteParentEmail.js'></script>
     <script src='js/admin_dashboard_validation.js'></script>
 </head>
+<style>
+    .modal_active {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.5);
+    }
+    
+    .modal_content_active {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 60%;
+    }
+    
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+</style>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar_bg">
@@ -249,7 +285,7 @@
         <div class="row">
             <div class="col-12 col-sm-4 col-md-4 p-5">
                 <div class="card_one_style">
-                    <div class="card admin_cards p-3" data-bs-toggle="modal" data-bs-target="#activeforms">
+                    <div class="card admin_cards p-3" id="openModal">
                         <div class="card-body pt-4">
                             <h5 class="card-title text-center">
                                 <!-- Active form Icon -->
@@ -263,53 +299,36 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="activeforms" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-fullscreen-xxl-down modal-dialog-centered modal-dialog-scrollable  modal_center">
-                <div class="modal-content active_form_modal">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-3 admin_dashboard_title" id="exampleModalLabel" >Select Forms</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-sm-4 my-5">
-                                    <div class="form-group">
-                                        <strong>Select Language:</strong>
-                                        <select id="multiple-checkboxes"
-                                        multiple="multiple" onclick="abc()">
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="container">
-                            <select id="multiple-checkboxes" class="form-control"
-                             multiple="multiple" onclick="abc()">
-                            </select>
-                        </div> -->
-                    </div>
-                    
-                    
-                    <div class="modal-footer">
-                        <button id="submitButton" type="button"
-                            class="btn btn-primary btn-bg">Submit</button>
-                    </div>
-                </div>
+        <div id="myModal" class="modal_active">
+            <div class="modal_content_active">
+                <span class="close">&times;</span>
+                <p>Modal Content Goes Here</p>
             </div>
-        </div>                        
+        </div>                      
     </div>
-    <!-- Vertically centered modal -->
-    <div class="modal-dialog modal-dialog-centered">
-        ...
-    </div>
-
-    <!-- Vertically centered scrollable modal -->
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        ...
-    </div>
+   
     <!-- Admin dashboard End -->
+<script>
+    $(document).ready(function() {
+        // Open modal when the trigger element is clicked
+        $("#openModal").click(function() {
+            $("#myModal").css("display", "block");
+        });
+    
+        // Close modal when the close button is clicked
+        $(".close").click(function() {
+            $("#myModal").css("display", "none");
+        });
+    
+        // Prevent modal from closing when clicking outside the modal content
+        $("#myModal").click(function(event) {
+            if (event.target == this) {
+                $("#myModal").css("display", "block");
+            }
+        });
+    });
+    
+</script>
     <script>
     $(document).ready(function() {
     //    function abc(){

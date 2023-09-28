@@ -1,4 +1,4 @@
-import {signOut,isAuthenticated} from "./authenticationVerify.js";
+import {signOut} from "./authenticationVerify.js";
 
 // Signout button event listener
 document.getElementById('btn-signout').addEventListener('click', signOut);
@@ -33,9 +33,9 @@ function saveForm() {
 
 
 $(document).ready(function () {
-    if (!isAuthenticated()) {
-        window.location.href = 'login.html';
-    } else {
+    // if (!isAuthenticated()) {
+    //     window.location.href = 'login.html';
+    // } else {
         document.body.style.visibility = 'visible';
         $("#saveButton").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
@@ -51,7 +51,7 @@ $(document).ready(function () {
         //     console.log('checking');
         //      activeFormList();
         // });
-    }
+    // }
     jQuery(document).ready(function () {
         // click on next button
         jQuery('.form-wizard-next-btn').click(function () {

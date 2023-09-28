@@ -141,7 +141,9 @@
             function signupFunction() {
                 const form = document.getElementById("signup");
                 const formData = new FormData(form);
+                console.log(formData);
                 const password = formData.get("password");
+
 
                 // Hash the password
                 const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
@@ -150,6 +152,12 @@
                 // Replace the original password with the hashed password in the form data
                 formData.set("password", hashedPassword);
                 const obj = Object.fromEntries(formData);
+                console.log(obj);
+                if(obj.user_email === 'goddard01arjava@gmail.com' || obj.user_email === 'goddard02arjava@gmail.com'){
+                    obj.is_admin = true;
+                }else{
+                    obj.is_admin = false;
+                }
 
                 $.ajax({
                     url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/login/add",
@@ -181,7 +189,20 @@
                         let isAuthenticated = false;
 
                         for (let i = 0; i < response.length; i++) {
-                            if (user_email === response[i].user_email) {
+                            if(user_email === 'goddard01arjava@gmail.com' || user_email === 'goddard02arjava@gmail.com'){
+                                const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
+                                console.log(storedPasswordHash);
+
+                                // Hash the user-typed password using the same algorithm and parameters
+                                const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+                                console.log(hashedUserPassword);
+                                if (hashedUserPassword === storedPasswordHash) {
+                                    isAuthenticated = true;
+                                    // localStorage.setItem('logged_in_email', user_email);
+                                    window.location.href = "admin_dashboard.html";
+                                    break; // Exit the loop since we found a match
+                                }
+                            }else if (user_email === response[i].user_email ) {
                                 const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
                                 console.log(storedPasswordHash);
 

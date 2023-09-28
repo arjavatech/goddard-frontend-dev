@@ -168,9 +168,9 @@ function formdetails(val){
     document.querySelector('[id="applicationStatusLabel"]').innerHTML = `${val} :`;
 
 }
-function formNameDetails(val) {
+function formNameDetails() {
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/dashboard_data/formByYear/${val}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=Active`,
         type: 'get',
         success: function (response) {
             console.log(response);
@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", function () {
      const form_name = document.querySelector("#form_status");
      // form_name.addEventListener("input", filterTable);
      form_name.addEventListener("click", function () {
-        formNameDetails(defaultdate);
+        formNameDetails();
      });
 
     // Function to filter table data based on the search input

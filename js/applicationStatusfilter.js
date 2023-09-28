@@ -1,9 +1,5 @@
 'use strict';
 function enrollmentValueSend(status,id,year,form_name){
-    console.log(status);
-    console.log(id);
-    console.log(year);
-    console.log(form_name);
     var enrollmentValue={child_id : id,year:year,form_status:status,form_name:form_name};
     console.log(enrollmentValue);
     $.ajax({
@@ -12,11 +8,9 @@ function enrollmentValueSend(status,id,year,form_name){
         contentType: "application/json",
         data: JSON.stringify(enrollmentValue),
         success: function (response) {
-            console.log(response);
             alert("form submitted successfully");
         },
         error: function (xhr, status, error) {
-            console.log(error);
             alert("form submit failed");
         }
     });
@@ -30,7 +24,6 @@ function applicationStatusYear(val) {
         url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/app_status/year_info?year=${val}`,
         type: 'get',
         success: function (response) {
-            console.log(response);
             let responseValue = Object.values(response);
             console.log(responseValue);
             if (Array.isArray(responseValue)) {

@@ -186,6 +186,7 @@
                     url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/login/all",
                     type: "GET",
                     success: function (response) {
+                        console.log(response);
                         let isAuthenticated = false;
 
                         for (let i = 0; i < response.length; i++) {
@@ -198,7 +199,7 @@
                                 console.log(hashedUserPassword);
                                 if (hashedUserPassword === storedPasswordHash) {
                                     isAuthenticated = true;
-                                    // localStorage.setItem('logged_in_email', user_email);
+                                    localStorage.setItem('logged_in_email', user_email);
                                     window.location.href = "admin_dashboard.html";
                                     break; // Exit the loop since we found a match
                                 }

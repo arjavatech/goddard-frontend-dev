@@ -1,14 +1,14 @@
-// import { signOut, isAuthenticated} from "./authenticationVerify.js"
+import { signOut, isAuthenticated} from "./authenticationVerify.js"
 
-// // Signout button event listener
-// document.getElementById('btn-signout').addEventListener('click', signOut);
+// Signout button event listener
+document.getElementById('btn-signout').addEventListener('click', signOut);
 
 
-// $(document).ready(function () {
-//     if (!isAuthenticated()) {
-//         window.location.href = 'login.html';
-//     } else { 
-//         document.body.style.visibility = 'visible';
+$(document).ready(function () {
+    if (!isAuthenticated()) {
+        window.location.href = 'login.html';
+    } else { 
+        document.body.style.visibility = 'visible';
         
-//     }
-// });
+    }
+});

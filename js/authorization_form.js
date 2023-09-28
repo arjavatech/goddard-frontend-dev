@@ -3,7 +3,7 @@ import {isAuthenticated} from "./authenticationVerify.js";
 
 export function authorizationFormDetails(callback) {
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/ach/fetch/${localStorage.getItem('child_id')}?year=${localStorage.getItem('form_year_value')}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/bill_ach/fetch/${localStorage.getItem('child_id')}`,
         type: 'get',
         success: function(response){
             console.log(response);
@@ -67,7 +67,7 @@ function submitForm() {
             window.location.reload();
         }
     };
-    xhr.open("POST", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/ach/add");
+    xhr.open("POST", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/bill_ach/add");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }

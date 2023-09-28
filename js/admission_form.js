@@ -7,9 +7,9 @@ function submitForm() {
     const obj = Object.fromEntries(formData);
     // const enformData = new FormData(form);
     // obj.child_id = "NCD0005";
-    const logged_in_email = localStorage.getItem('logged_in_email');
+    // const logged_in_email = localStorage.getItem('logged_in_email');
     obj.on_process = false;
-    obj.parent_email_one = logged_in_email;
+    // obj.parent_email_one = logged_in_email;
     obj.form_status = "10";
     obj.year = new Date().getFullYear() + '';
     const child_id_val = localStorage.getItem('child_id');
@@ -17,6 +17,7 @@ function submitForm() {
         obj.child_id = child_id_val;
         // enformData.child_id = child_id_val;
     }
+    console.log(obj);
     // enformData.year = new Date().getFullYear() + '';
     // enformData.parent_id = localStorage.getItem('parent_id');
     // const json=  JSON.stringify(obj);
@@ -56,9 +57,9 @@ function saveForm(value) {
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     // obj.child_id = "NCD0005"; 
-    const logged_in_email = localStorage.getItem('logged_in_email');
+    // const logged_in_email = localStorage.getItem('logged_in_email');
     obj.on_process = true;
-    obj.parent_email_one = logged_in_email;
+    // obj.parent_email_one = logged_in_email;
     obj.parent_id = localStorage.getItem('parent_id');
     obj.form_status = value;
     const child_id_val = localStorage.getItem('child_id');
@@ -73,7 +74,8 @@ function saveForm(value) {
         contentType: "application/json",
         data: JSON.stringify(obj),
         success: function (response) {
-            localStorage.setItem('child_id', response.child_id)
+            localStorage.setItem('child_id', response.child_id);
+            alert('succ');
             // window.location.href = "child_add.html";
         },
         error: function (xhr, status, error) {

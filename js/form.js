@@ -12,6 +12,7 @@ function submitForm() {
     let defaultdate = new Date().getFullYear();
     obj.child_id = localStorage.getItem('child_id');
     obj.year = defaultdate;
+    obj.form_status = 'Reviewing';
     const json = JSON.stringify(obj);
     
     let xhr = new XMLHttpRequest();

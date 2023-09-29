@@ -3,25 +3,26 @@ import {isAuthenticated} from "./authenticationVerify.js";
 export function fetchEnrollmentFormBody(callback) {
     let arr =[];
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment/fetch/${localStorage.getItem('form_year_value')}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
         type: 'get',
         success: function(response){
+            console.log(response);
             // let editID = window.location.search.slice(4);
             // console.log(editID);
             $.ajax({
                 // url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
-                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch_by_id_year/${localStorage.getItem('child_id')}?year=${localStorage.getItem('form_year_value')}`,
+                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
                 type: 'get',
                 success: function(response1){
+                    console.log(response1);
                     if(typeof response.point_one !='undefined'){
                         let paragraph = document.querySelector('[name="apiResponsep1"]');
                         paragraph.textContent = response.point_one;
                         
                         // Define the target texts and their corresponding textbox IDs
-                        let targetTexts = ['effective the', ' day of', 'Inc., and'];
+                        let targetTexts = ['effective the', ' day of', 'Inc.,and'];
                         let textboxIds = ['point_one_field_one', 'point_one_field_two', 'point_one_field_three'];
-                        let responseData = [response1[0].point_one_field_one,response1[0].point_one_field_two,response1[0].point_one_field_three]
-                        
+                        let responseData = [response1.point_one_field_one,response1.point_one_field_two,response1.point_one_field_three]
                         // Iterate over each target text
                         for (let i = 0; i < targetTexts.length; i++) {
                         let targetText = targetTexts[i];
@@ -81,86 +82,90 @@ export function fetchEnrollmentFormBody(callback) {
                     //     callback();
                     // }
 
-                    if (typeof response1[0].point_two_initial_here !== "undefined"){
-                        document.getElementsByName("point_two_initial_here")[0].value = response1[0].point_two_initial_here;
+                    if (typeof response1.point_two_initial_here !== "undefined"){
+                        document.getElementsByName("point_two_initial_here")[0].value = response1.point_two_initial_here;
                     }
-                    if (typeof response1[0].point_three_initial_here !== "undefined"){
-                        document.getElementsByName("point_three_initial_here")[0].value = response1[0].point_three_initial_here;
+                    if (typeof response1.point_three_initial_here !== "undefined"){
+                        document.getElementsByName("point_three_initial_here")[0].value = response1.point_three_initial_here;
                     }
-                    if (typeof response1[0].point_four_initial_here !== "undefined"){
-                        document.getElementsByName("point_four_initial_here")[0].value = response1[0].point_four_initial_here;
+                    if (typeof response1.point_four_initial_here !== "undefined"){
+                        document.getElementsByName("point_four_initial_here")[0].value = response1.point_four_initial_here;
                     }
-                    if (typeof response1[0].point_five_initial_here !== "undefined"){
-                        document.getElementsByName("point_five_initial_here")[0].value = response1[0].point_five_initial_here;
+                    if (typeof response1.point_five_initial_here !== "undefined"){
+                        document.getElementsByName("point_five_initial_here")[0].value = response1.point_five_initial_here;
                     }
-                    if (typeof response1[0].point_six_initial_here !== "undefined"){
-                        document.getElementsByName("point_six_initial_here")[0].value = response1[0].point_six_initial_here;
+                    if (typeof response1.point_six_initial_here !== "undefined"){
+                        document.getElementsByName("point_six_initial_here")[0].value = response1.point_six_initial_here;
                     }
-                    if (typeof response1[0].point_seven_initial_here !== "undefined"){
-                        document.getElementsByName("point_seven_initial_here")[0].value = response1[0].point_seven_initial_here;
+                    if (typeof response1.point_seven_initial_here !== "undefined"){
+                        document.getElementsByName("point_seven_initial_here")[0].value = response1.point_seven_initial_here;
                     }
-                    if (typeof response1[0].point_eight_initial_here !== "undefined"){
-                        document.getElementsByName("point_eight_initial_here")[0].value = response1[0].point_eight_initial_here;
+                    if (typeof response1.point_eight_initial_here !== "undefined"){
+                        document.getElementsByName("point_eight_initial_here")[0].value = response1.point_eight_initial_here;
                     }
-                    if (typeof response1[0].point_nine_initial_here !== "undefined"){
-                        document.getElementsByName("point_nine_initial_here")[0].value = response1[0].point_nine_initial_here;
+                    if (typeof response1.point_nine_initial_here !== "undefined"){
+                        document.getElementsByName("point_nine_initial_here")[0].value = response1.point_nine_initial_here;
                     }
-                    if (typeof response1[0].point_ten_initial_here !== "undefined"){
-                        document.getElementsByName("point_ten_initial_here")[0].value = response1[0].point_ten_initial_here;
+                    if (typeof response1.point_ten_initial_here !== "undefined"){
+                        document.getElementsByName("point_ten_initial_here")[0].value = response1.point_ten_initial_here;
                     }
-                    if (typeof response1[0].point_eleven_initial_here !== "undefined"){
-                        document.getElementsByName("point_eleven_initial_here")[0].value = response1[0].point_eleven_initial_here;
+                    if (typeof response1.point_eleven_initial_here !== "undefined"){
+                        document.getElementsByName("point_eleven_initial_here")[0].value = response1.point_eleven_initial_here;
                     }
-                    if (typeof response1[0].point_twelve_initial_here !== "undefined"){
-                        document.getElementsByName("point_twelve_initial_here")[0].value = response1[0].point_twelve_initial_here;
+                    if (typeof response1.point_twelve_initial_here !== "undefined"){
+                        document.getElementsByName("point_twelve_initial_here")[0].value = response1.point_twelve_initial_here;
                     }
-                    if (typeof response1[0].point_thirteen_initial_here !== "undefined"){
-                        document.getElementsByName("point_thirteen_initial_here")[0].value = response1[0].point_thirteen_initial_here;
+                    if (typeof response1.point_thirteen_initial_here !== "undefined"){
+                        document.getElementsByName("point_thirteen_initial_here")[0].value = response1.point_thirteen_initial_here;
                     }
-                    if (typeof response1[0].point_fourteen_initial_here !== "undefined"){
-                        document.getElementsByName("point_fourteen_initial_here")[0].value = response1[0].point_fourteen_initial_here;
+                    if (typeof response1.point_fourteen_initial_here !== "undefined"){
+                        document.getElementsByName("point_fourteen_initial_here")[0].value = response1.point_fourteen_initial_here;
                     }
-                    if (typeof response1[0].point_fifteen_initial_here !== "undefined"){
-                        document.getElementsByName("point_fifteen_initial_here")[0].value = response1[0].point_fifteen_initial_here;
+                    if (typeof response1.point_fifteen_initial_here !== "undefined"){
+                        document.getElementsByName("point_fifteen_initial_here")[0].value = response1.point_fifteen_initial_here;
                     }
-                    if (typeof response1[0].point_sixteen_initial_here !== "undefined"){
-                        document.getElementsByName("point_sixteen_initial_here")[0].value = response1[0].point_sixteen_initial_here;
+                    if (typeof response1.point_sixteen_initial_here !== "undefined"){
+                        document.getElementsByName("point_sixteen_initial_here")[0].value = response1.point_sixteen_initial_here;
                     }
-                    if (typeof response1[0].point_seventeen_initial_here !== "undefined"){
-                        document.getElementsByName("point_seventeen_initial_here")[0].value = response1[0].point_seventeen_initial_here;
+                    if (typeof response1.point_seventeen_initial_here !== "undefined"){
+                        document.getElementsByName("point_seventeen_initial_here")[0].value = response1.point_seventeen_initial_here;
                     }
-                    if (typeof response1[0].point_eighteen_initial_here !== "undefined"){
-                        document.getElementsByName("point_eighteen_initial_here")[0].value = response1[0].point_eighteen_initial_here;
+                    if (typeof response1.point_eighteen_initial_here !== "undefined"){
+                        document.getElementsByName("point_eighteen_initial_here")[0].value = response1.point_eighteen_initial_here;
                     }
-                    if (typeof response1[0].parent_one_sign !== "undefined"){
-                        document.getElementsByName("parent_one_sign")[0].value = response1[0].parent_one_sign;
+                    if (typeof response1.point_nineteen_initial_here !== "undefined"){
+                        document.getElementsByName("point_nineteen_initial_here")[0].value = response1.point_nineteen_initial_here;
                     }
-                    if (typeof response1[0].parent_one_sign_date !== "undefined"){
-                        document.getElementsByName("parent_one_sign_date")[0].value = response1[0].parent_one_sign_date;
+                    if (typeof response1.parent_one_sign !== "undefined"){
+                        document.getElementsByName("parent_one_sign")[0].value = response1.parent_one_sign;
                     }
-                    if (typeof response1[0].primary_parent_email !== "undefined"){
-                        document.getElementsByName("primary_parent_email")[0].value = response1[0].primary_parent_email;
+                    if (typeof response1.parent_one_sign_date !== "undefined"){
+                        document.getElementsByName("parent_one_sign_date")[0].value = response1.parent_one_sign_date;
                     }
-                    if (typeof response1[0].primary_parent_cell_number !== "undefined"){
-                        document.getElementsByName("primary_parent_cell_number")[0].value = response1[0].primary_parent_cell_number;
+                    // console.log(response1[0].primary_parent_email);
+                    if (typeof response1.primary_parent_email !== "undefined"){
+                        document.getElementsByName("primary_parent_email")[0].value = response1.primary_parent_email;
                     }
-                    if (typeof response1[0].child_name !== "undefined"){
-                        document.getElementsByName("child_name")[0].value = response1[0].child_name;
+                    if (typeof response1.primary_parent_cell_number !== "undefined"){
+                        document.getElementsByName("primary_parent_cell_number")[0].value = response1.primary_parent_cell_number;
                     }
-                    if (typeof response1[0].dob !== "undefined"){
-                        document.getElementsByName("dob")[0].value = response1[0].dob;
+                    if (typeof response1.child_name !== "undefined"){
+                        document.getElementsByName("child_name")[0].value = response1.child_name;
                     }
-                    if (typeof response1[0].school_admin_sign !== "undefined"){
-                        document.getElementsByName("school_admin_sign")[0].value = response1[0].school_admin_sign;
+                    if (typeof response1.dob !== "undefined"){
+                        document.getElementsByName("dob")[0].value = response1.dob;
                     }
-                    if (typeof response1[0].school_admin_sign_date !== "undefined"){
-                        document.getElementsByName("school_admin_sign_date")[0].value = response1[0].school_admin_sign_date;
+                    if (typeof response1.school_admin_sign !== "undefined"){
+                        document.getElementsByName("school_admin_sign")[0].value = response1.school_admin_sign;
+                    }
+                    if (typeof response1.school_admin_sign_date !== "undefined"){
+                        document.getElementsByName("school_admin_sign_date")[0].value = response1.school_admin_sign_date;
                     }
                     if (typeof callback === 'function') {
                         callback();
                     }
 
-                    window.localStorage.setItem("responseEntrollmentData",JSON.stringify(response1[0]));
+                    window.localStorage.setItem("responseEntrollmentData",JSON.stringify(response1));
                 },
             });
         },
@@ -169,9 +174,10 @@ export function fetchEnrollmentFormBody(callback) {
 
 export function fetchEnrollmentFormTitle(callback) {
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment/fetch/${localStorage.getItem('form_year_value')}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
         type: 'get',
         success: function(response){
+            console.log(response);
             document.querySelector('[name="heading"]').innerHTML = response.title;
             if (typeof callback === 'function') {
                 callback();
@@ -182,7 +188,7 @@ export function fetchEnrollmentFormTitle(callback) {
 
 export function fetchEnrollmentPointEight(callback) {
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/holidays/fetch/${localStorage.getItem('form_year_value')}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/holidays_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
         type: 'get',
         success: function(response){
             document.querySelector('[id="R1C1"]').innerHTML = response.year_one_leave_one;

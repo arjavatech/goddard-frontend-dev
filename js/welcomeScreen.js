@@ -11,19 +11,21 @@ function clearLocalStorageExcept(keysToKeep) {
 }
 
 function checkParentAuthentication(callback) {
-    const logged_in_email = localStorage.getItem('logged_in_email')
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/parent/fetch/email?email='
+    const logged_in_email = localStorage.getItem('logged_in_email');
+    console.log(logged_in_email);
+    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/fetch_by_email?email='
     // console.log(url + logged_in_email)
     $.ajax({
                url: url + logged_in_email,
                type: 'get',
                success: function (response) {
+                console.log(response);
                    let keysToKeep = ['logged_in_email'];
                    clearLocalStorageExcept(keysToKeep);
                    // localStorage.clear()
                    if (response && response.length > 0) {
-                       localStorage.setItem('parent_name', response[0].name)
-                       localStorage.setItem('parent_id', response[0].id)
+                       localStorage.setItem('parent_name', response[0].parent_name)
+                    //    localStorage.setItem('parent_id', response[0].id)
                    }
                    if (typeof callback === 'function') {
                        callback();
@@ -34,27 +36,30 @@ function checkParentAuthentication(callback) {
 
 function getAllInfo(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email')
+    // const parent_id = localStorage.getItem('parent_id');
     const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/fetch/email?email='
     // console.log(url + logged_in_email)
     $.ajax({
-               url: url + logged_in_email,
-               type: 'get',
-               success: function (response) {
-                   // localStorage.clear()
-                   if (response && response.length > 0) {
-                       // Iterate through all the child and store the response
-                       child_response = response;
-                       localStorage.setItem('number_of_children', response.length.toString());
-                   }
-                   if (typeof callback === 'function') {
-                       callback();
-                   }
-               }
-           })
+        url: url + logged_in_email,
+        type: 'get',
+        success: function (response) {
+            console.log(response);
+            // localStorage.clear()
+            if (response && response.length > 0) {
+                // Iterate through all the child and store the response
+                child_response = response;
+                localStorage.setItem('number_of_children', response.length.toString());
+            }
+            if (typeof callback === 'function') {
+                callback();
+            } 
+        }
+    })
 }
 
 function responseToAuthenticationCheck() {
-    const parentName = localStorage.getItem('parent_name');
+    const parentName = localStorage.getItem('logged_in_email');
+    console.log(parentName);
     if (parentName !== 'undefined' && parentName !== null) {
         document.body.style.visibility = 'visible';
     } else {
@@ -123,7 +128,7 @@ function loadDynamicCards() {
 }
 
 function welcomeText() {
-    const parentName = localStorage.getItem('parent_name');
+    const parentName = localStorage.getItem('logged_in_email');
     // console.log(parentName)
     document.getElementById('welcomeText').innerHTML = 'Welcome ' + parentName;
     loadDynamicCards();

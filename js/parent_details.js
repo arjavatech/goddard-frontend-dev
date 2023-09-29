@@ -5,7 +5,7 @@ function applicationStatusYear(val) {
     let applicationStatusYear = document.getElementById("applicationStatusYear");
     applicationStatusYear.textContent = val;
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/invite_info/year_wise?year=${val}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/year_wise?year=${val}`,
         type: 'get',
         success: function (response) {
             console.log(response);
@@ -29,23 +29,18 @@ function applicationStatusYear(val) {
 
                     // Create cell for parent one name
                     const parentoneNameCell = document.createElement('td');
-                    parentoneNameCell.textContent = rowData.parent_one_name;
+                    parentoneNameCell.textContent = rowData.parent_name;
                     row.appendChild(parentoneNameCell);
 
                     // Create cell for parent one email
                     const parentOneEmailCell = document.createElement('td');
-                    parentOneEmailCell.textContent = rowData.parent_one_email;
+                    parentOneEmailCell.textContent = rowData.parent_email;
                     row.appendChild(parentOneEmailCell);
 
-                    // Create cell for parent two name
-                    const parentTwoNameCell = document.createElement('td');
-                    parentTwoNameCell.textContent = rowData.parent_two_name;
-                    row.appendChild(parentTwoNameCell);
-
-                    // Create cell for parent two email
-                    const parentTwoEmailCell = document.createElement('td');
-                    parentTwoEmailCell.textContent = rowData.parent_two_email;
-                    row.appendChild(parentTwoEmailCell);
+                    // Create cell for parent one email
+                    const parentOnemobileCell = document.createElement('td');
+                    parentOnemobileCell.textContent = rowData.parent_mobile;
+                    row.appendChild(parentOnemobileCell);
 
                     // Create cell for the invite button
                     // const inviteButtonCell = document.createElement('td');
@@ -70,7 +65,7 @@ function applicationStatusYear(val) {
 //to display child's year
 function applicationStatusAllYear() {
     const child_id = localStorage.getItem('child_id')
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/invite_info/all'
+    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/all'
     $.ajax({
         url: url,
         type: 'get',

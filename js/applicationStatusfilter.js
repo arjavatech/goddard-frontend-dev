@@ -1,9 +1,5 @@
 'use strict';
 function enrollmentValueSend(status,id,year,form_name){
-    console.log(status);
-    console.log(id);
-    console.log(year);
-    console.log(form_name);
     var enrollmentValue={child_id : id,year:year,form_status:status,form_name:form_name};
     console.log(enrollmentValue);
     $.ajax({
@@ -12,11 +8,9 @@ function enrollmentValueSend(status,id,year,form_name){
         contentType: "application/json",
         data: JSON.stringify(enrollmentValue),
         success: function (response) {
-            console.log(response);
             alert("form submitted successfully");
         },
         error: function (xhr, status, error) {
-            console.log(error);
             alert("form submit failed");
         }
     });
@@ -27,10 +21,9 @@ function applicationStatusYear(val) {
     let applicationStatusYear = document.getElementById("applicationStatusYear");
     applicationStatusYear.textContent = val;
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/app_status/year_info?year=${val}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/admission_status_info`,
         type: 'get',
         success: function (response) {
-            console.log(response);
             let responseValue = Object.values(response);
             console.log(responseValue);
             if (Array.isArray(responseValue)) {
@@ -39,7 +32,8 @@ function applicationStatusYear(val) {
         
                 // for (let i = 0; i < responseValue.length; i++) {
                 //     const rowData = responseValue[i];
-                    for (let j = 0; j <=responseValue.length; j++) {
+                    for (let j = 0; j <responseValue.length; j++) {
+                        console.log(responseValue[j].child_name);
         
                         // Create a new row for each data set
                         const row = document.createElement('tr');
@@ -47,6 +41,7 @@ function applicationStatusYear(val) {
                         const childNameCell = document.createElement('td');
                         childNameCell.textContent = responseValue[j].child_name;
                         row.appendChild(childNameCell);
+                        
             
                         // Create cell for parent name
                         const parentNameCell = document.createElement('td');
@@ -54,7 +49,7 @@ function applicationStatusYear(val) {
                         row.appendChild(parentNameCell);
 
                         const applicationStatusCell = document.createElement('td');
-                        applicationStatusCell.textContent = responseValue[j].admission_form_status_level;
+                        applicationStatusCell.textContent = responseValue[j].admission_form_status;
                         row.appendChild(applicationStatusCell);
             
                         // const enrollmentStatusCell = document.createElement('td');
@@ -66,6 +61,7 @@ function applicationStatusYear(val) {
                         const enrollmentStatusCell = document.createElement('td');
                         enrollmentStatusCell.setAttribute('id', 'enrollment_form_status');
                         enrollmentStatusCell.setAttribute('name', 'enrollment_form_status');
+                        enrollmentStatusCell.setAttribute('style', 'border: none;');
 
                         // Create a <select> element
                         const statusSelect = document.createElement('select');
@@ -127,24 +123,24 @@ function applicationStatusYear(val) {
 
 //to display child's year
 function applicationStatusAllYear() {
-    const child_id = localStorage.getItem('child_id')
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/app_status/info'
-    $.ajax({
-        url: url,
-        type: 'get',
-        success: function (response) {
-            let yearArray = Object.keys(response);
-            yearArray.sort().reverse();
-            let optionsData = '';
-            document.querySelector('[name="form_year"]').innerHTML = '';
-            for (let i = 0; i < yearArray.length; i++) {
-                optionsData += '<option value="' + yearArray[i] + '">' + yearArray[i]
-                                + '</option>';
-                document.querySelector('[name="form_year"]').innerHTML =
-                    optionsData;
-            }
-        }
-    });
+    // const child_id = localStorage.getItem('child_id')
+    // const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/app_status/info'
+    // $.ajax({
+    //     url: url,
+    //     type: 'get',
+    //     success: function (response) {
+    //         let yearArray = Object.keys(response);
+    //         yearArray.sort().reverse();
+    //         let optionsData = '';
+    //         document.querySelector('[name="form_year"]').innerHTML = '';
+    //         for (let i = 0; i < yearArray.length; i++) {
+    //             optionsData += '<option value="' + yearArray[i] + '">' + yearArray[i]
+    //                             + '</option>';
+    //             document.querySelector('[name="form_year"]').innerHTML =
+    //                 optionsData;
+    //         }
+    //     }
+    // });
 }
 
 function filterTableByEnrollmentStatus(selectedStatus) {
@@ -162,12 +158,47 @@ function filterTableByEnrollmentStatus(selectedStatus) {
     });
 }
 
+
+function formdetails(val){
+    console.log(val);
+    document.querySelector('[id="applicationStatusLabel"]').innerHTML = `${val} :`;
+
+}
+function formNameDetails() {
+    $.ajax({
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=true`,
+        type: 'get',
+        success: function (response) {
+            console.log(response);
+            if (Array.isArray(response) && response.length > 0) {
+                let optionsData = '';
+                document.querySelector('[name="form_name"]').innerHTML = '';
+                for (let i = 0; i < response.length; i++) {
+                    optionsData += '<option value="' + response[i].form_name + '" onchange="formdetails(this.value)">' + response[i].form_name
+                                    + '</option>';
+                    document.querySelector('[name="form_name"]').innerHTML =
+                        optionsData;
+                }
+            }
+        }
+    });
+}
+
+
 document.addEventListener("DOMContentLoaded", function () {
     document.body.style.visibility = 'visible';
     let defaultdate = new Date().getFullYear();
     // parentDashBoardDetails(defaultdate);
     applicationStatusYear(defaultdate);
     applicationStatusAllYear();
+
+     // Attach an event listener to the search input
+     const form_name = document.querySelector("#form_name");
+     // form_name.addEventListener("input", filterTable);
+     form_name.addEventListener("click", function () {
+        formNameDetails();
+     });
+
     // Function to filter table data based on the search input
     function filterTable() {
         const input = document.querySelector("#searchInput");

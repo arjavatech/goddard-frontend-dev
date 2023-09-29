@@ -34,19 +34,18 @@ body {
 
 .admin_cards
 {
-    width: 270px !important;
+    width: 250px !important;
     height: 200px !important;
     background: #D8E9FF !important;
+    border: 2px solid #0F2D52 !important;
     border-radius: 20px !important;
     cursor: pointer;
 }
 
 .admin_cards:hover
 {
-    width: 270px !important;
-    height: 200px !important;
-    background: #a7cdff !important;
-    border-radius: 20px !important;
+    opacity: 0.7;
+    border: 2px solid #0F2D52 !important;
     cursor: pointer;
 }
 
@@ -164,6 +163,11 @@ body {
     background-color: #21446f !important;
 }
 
+.form-control
+{
+    border: 1px solid #999999 !important;
+}
+
 .form-control:focus {
     border-color: #66afe9 !important;
     -webkit-box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
@@ -178,4 +182,31 @@ a{
     color:#21446f !important
 } */
   /***Modal style End***/
+
+
+
+  .active_form_modal
+  {
+    height: 500px !important;
+    width: 500px !important;
+  }
+
+  .form-multi-select.show
+  {
+    border-color: #66afe9 !important;
+    -webkit-box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
+  }
+
+  .form-multi-select-option.form-multi-selected::before {
+    background-color:#0F2D52 !important;
+    border: none !important;
+   }
+
+   .modal_center
+   {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
 

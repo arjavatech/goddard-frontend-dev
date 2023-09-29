@@ -10,12 +10,50 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@4.6.2/dist/js/coreui.bundle.min.js" integrity="sha384-MGnlekWgu70pfTJWjKL2rXoeUNhBVZ6Gh3XLc5UCM1Sid3iv+v3d4DpfiQq0qoQi" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@coreui/coreui-pro@4.6.2/dist/css/coreui.min.css" rel="stylesheet" integrity="sha384-1fDTYSXCTG6zvcnFMWLqQFJhbwrzsGbQoy01t82Su8PO1rV8/tI0y6aoySxizOB/" crossorigin="anonymous">
     <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script type="module" src='js/admin_dashboard.js'></script>
     <script src='js/inviteParentEmail.js'></script>
     <script src='js/admin_dashboard_validation.js'></script>
 </head>
+<style>
+    .modal_active {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.5);
+    }
+    
+    .modal_content_active {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 60%;
+    }
+    
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+</style>
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar_bg">
@@ -24,15 +62,15 @@
         </div>
         <div id="btn-signout" class="btn signout"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Sign
                 Out</b></div>
-    </nav>
+    </nav><br>
     <!-- Navigation Bar End -->
     <!-- Admin dashboard -->
     <div class="container">
         <h2 class="admin_dashboard_title h2 pt-4 text-center">Admin Dashboard</h2>
         <div class="row">
-            <div class="col-12 col-sm-4 col-md-4 p-5">
+            <div class="col-12 col-md-4 col-lg-3 mt-5">
                 <div class="card_one_style">
-                    <div class="card admin_cards p-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <div class="card admin_cards p-3" data-bs-toggle="modal" data-bs-target="#inviteparent">
                         <div class="card-body pt-4">
                             <h5 class="card-title text-center">
                                 <!-- Invite parent Icon -->
@@ -49,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            <div class="modal fade" id="inviteparent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
                     <div class="modal-content">
@@ -93,10 +131,10 @@
                                             <div class="row">
                                                 <div class="col-sm mb-3">
                                                     <div class="form-group">
-                                                        <label for="parent_one_name" class="col-form-label">Full Name</label>
-                                                        <input type="text" class="form-control" id="parent_one_name" name="parent_one_name"
-                                                        onchange="namevalidation(this,'parent_one_name_span')">
-                                                        <span class="spanmsg" id="parent_one_name_span" style="color:red; display:none">
+                                                        <label for="parent_name" class="col-form-label">Full Name</label>
+                                                        <input type="text" class="form-control" id="parent_name" name="parent_name"
+                                                        onchange="namevalidation(this,'parent_name_span')">
+                                                        <span class="spanmsg" id="parent_name_span" style="color:red; display:none">
                                                             Enter valid input[only letters].</span>
                                                         <div class="wizard-form-error"></div>
                                                     </div>
@@ -113,10 +151,10 @@
                                                 </div> -->
                                                 <div class="col-sm mb-3">
                                                     <div class="form-group">
-                                                        <label for="parent_one_email" class="col-form-label">Email</label>
-                                                        <input type="mail" class="form-control" id="parent_one_email" name="parent_one_email"
-                                                        onchange="emailValidation(this,'parent_one_email_span')">
-                                                        <span id="parent_one_email_span" style="color:red; display:none">
+                                                        <label for="parent_email" class="col-form-label">Email</label>
+                                                        <input type="mail" class="form-control" id="parent_email" name="parent_email"
+                                                        onchange="emailValidation(this,'parent_email_span')">
+                                                        <span id="parent_email_span" style="color:red; display:none">
                                                             Enter valid input [should be in @ and .].</span>
                                                         <div class="wizard-form-error"></div>
                                                     </div>
@@ -125,10 +163,10 @@
                                             <div class="row">
                                                 <div class="col-sm mb-3">
                                                     <div class="form-group">
-                                                        <label for="parent_one_mobile" class="col-form-label">Mobile Number</label>
-                                                        <input type="number" class="form-control" id="parent_one_mobile"  name="parent_one_mobile"
-                                                        onchange="validatePhone(this,'parent_one_mobile_span')">
-                                                        <span id="parent_one_mobile_span" style="color:red; display:none">
+                                                        <label for="parent_mobile" class="col-form-label">Mobile Number</label>
+                                                        <input type="number" class="form-control" id="parent_mobile"  name="parent_mobile"
+                                                        onchange="validatePhone(this,'parent_mobile_span')">
+                                                        <span id="parent_mobile_span" style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                         <div class="wizard-form-error"></div>
                                                     </div>
@@ -137,7 +175,7 @@
                                             </div>
                                         <!-- </fieldset>
                                         <fieldset class="wizard-fieldset"> -->
-                                            <div class="form-group modal-form-checkbox">
+                                            <!-- <div class="form-group modal-form-checkbox">
                                                 <input type="checkbox" class="input-checkbox" id="additional_parent_details" name="additional_parent_details"
                                                      onclick="checkbox()">
                                                 <label class="form-check-label" for="additional_parent_details"><span>
@@ -160,16 +198,6 @@
                                                             <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="col-sm mb-3">
-                                                        <div class="form-group">
-                                                            <label for="parent_two_last_name" class="col-form-label">Last Name</label>
-                                                            <input type="text" class="form-control" id="parent_two_last_name" name="parent_two_last_name"
-                                                            onchange="namevalidation(this,'parent_two_last_name_span')">
-                                                            <span class="spanmsg" id="parent_two_last_name_span" style="color:red; display:none">
-                                                                Enter valid input[only letters].</span>
-                                                            <div class="wizard-form-error"></div>
-                                                        </div>
-                                                    </div> -->
                                                     <div class="col-sm mb-3">
                                                         <div class="form-group">
                                                             <label for="parent_two_email" class="col-form-label">Email</label>
@@ -181,7 +209,6 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                   
                                                     <div class="col-sm mb-3">
                                                         <div class="form-group">
                                                             <label for="parent_two_mobile" class="col-form-label">Mobile Number</label>
@@ -191,17 +218,9 @@
                                                                 Enter valid input [only numbers,+,-,()].</span>
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm mb-3">
-                                                        <!-- <div class="form-group">
-                                                            <label for="parent_two_email" class="col-form-label">Email</label>
-                                                            <input type="email" class="form-control" id="parent_two_email" name="parent_two_email"
-                                                            onchange="emailValidation(this,'parent_two_email_span')">
-                                                            <span id="parent_two_email_span" style="color:red; display:none">
-                                                                Enter valid input [should be in @ and .].</span>
-                                                        </div> -->
-                                                    </div>
+                                                    <div class="col-sm mb-3"></div>
                                                 </div>
-                                            </div><br><br>
+                                            </div><br><br> -->
                                             <div class="panel-footer" >
                                                 <div class="form-group clearfix">
                                                     <div class="position-relative">
@@ -210,7 +229,7 @@
                                                        
                                                         <div class="position-absolute top-50 end-0 translate-middle-y">
                                                             <button id="saveButton" type="button"
-                                                            class="btn btn-primary">Save</button>
+                                                            class="btn btn-primary btn-bg">Save</button>
                                                             <!-- <a href="javascript:;" class="form-wizard-submit" id="submit_button">Submit</a> -->
                                                         </div>
                                                     </div>
@@ -225,14 +244,14 @@
                             <button type="button" class="btn btn-secondary"
                                 data-bs-dismiss="modal">Cancel</button>
                             <button id="sendButton" type="button"
-                                class="btn btn-primary">Send</button>
+                                class="btn btn-primary btn-bg">Send</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-4 col-md-4 p-5">
-                <a href="application_status.html">
-                    <div class="card admin_cards p-3">
+            <div class="col-12 col-md-4 col-lg-3 mt-5">
+                <div class="card admin_cards p-3">
+                    <a href="application_status.html">
                         <div class="card-body pt-4">
                             <h5 class="card-title text-center">
                                 <!-- Application status Icon -->
@@ -242,14 +261,14 @@
                                         d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z" />
                                 </svg>
                             </h5>
-                            <h5 class="text-center card_icon pt-3 h4"> Application Status</h5>
+                            <h5 class="text-center card_icon pt-3 h4">Application Status</h5>
                         </div>
-                    </div>
-                </a>
+                    </a>
+                </div>
             </div>
-            <div class="col-12 col-sm-4 col-md-4 p-5">
-                <a href="parent_details.html">
-                    <div class="card admin_cards p-3">
+            <div class="col-12 col-md-4 col-lg-3 mt-5">
+                <div class="card admin_cards p-3">
+                    <a href="parent_details.html">
                         <div class="card-body pt-4">
                             <h5 class="card-title text-center">
                                 <!-- Parent Icon -->
@@ -259,119 +278,30 @@
                             </h5>
                             <h5 class="text-center card_icon pt-3 h4">Parent Details</h5>
                         </div>
-                    </div>
-                </a>    
+                    </a> 
+                </div>  
             </div>
-        </div>
+            <div class="col-12 col-md-4 col-lg-3 mt-5">
+                <div class="card_one_style">
+                    <a href="active_form_details.html">
+                        <div class="card admin_cards p-3" >
+                            <div class="card-body pt-4">
+                                <h5 class="card-title text-center">
+                                    <!-- Active form Icon -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-file-earmark-text-fill card_icon" viewBox="0 0 16 16">
+                                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z"/>
+                                    </svg>
+                                </h5>
+                                <h5 class="text-center card_icon pt-3 h4">Active Form Status</h5>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>                      
     </div>
+   
     <!-- Admin dashboard End -->
-    <script>
-        jQuery(document).ready(function () {
-    // click on next button
-    jQuery('.form-wizard-next-btn').click(function () {
-        var parentFieldset = jQuery(this).parents('.wizard-fieldset');
-        var currentActiveStep = jQuery(this).parents('.form-wizard')
-            .find('.form-wizard-steps .active');
-        var next = jQuery(this);
-        var nextWizardStep = true;
-        parentFieldset.find('.wizard-required').each(function () {
-            var thisValue = jQuery(this).val();
-
-            if (thisValue == "") {
-                jQuery(this).siblings(".wizard-form-error").slideDown();
-                nextWizardStep = false;
-            }
-            else {
-                jQuery(this).siblings(".wizard-form-error").slideUp();
-            }
-        });
-        if (nextWizardStep) {
-            next.parents('.wizard-fieldset').removeClass("show", "400");
-            currentActiveStep.removeClass('active').addClass('activated').next()
-                .addClass('active', "400");
-            next.parents('.wizard-fieldset').next('.wizard-fieldset').addClass("show", "400");
-            jQuery(document).find('.wizard-fieldset').each(function () {
-                if (jQuery(this).hasClass('show')) {
-                    var formAtrr = jQuery(this).attr('data-tab-content');
-                    jQuery(document).find('.form-wizard-steps .form-wizard-step-item')
-                        .each(function () {
-                            if (jQuery(this).attr('data-attr') == formAtrr) {
-                                jQuery(this).addClass('active');
-                                var innerWidth = jQuery(this).innerWidth();
-                                var position = jQuery(this).position();
-                                jQuery(document).find('.form-wizard-step-move')
-                                    .css({"left": position.left, "width": innerWidth});
-                            } else {
-                                jQuery(this).removeClass('active');
-                            }
-                        });
-                }
-            });
-        }
-    });
-    //click on previous button
-    jQuery('.form-wizard-previous-btn').click(function () {
-        var counter = parseInt(jQuery(".wizard-counter").text());
-        ;
-        var prev = jQuery(this);
-        var currentActiveStep = jQuery(this).parents('.form-wizard')
-            .find('.form-wizard-steps .active');
-        prev.parents('.wizard-fieldset').removeClass("show", "400");
-        prev.parents('.wizard-fieldset').prev('.wizard-fieldset').addClass("show", "400");
-        currentActiveStep.removeClass('active').prev().removeClass('activated')
-            .addClass('active', "400");
-        jQuery(document).find('.wizard-fieldset').each(function () {
-            if (jQuery(this).hasClass('show')) {
-                var formAtrr = jQuery(this).attr('data-tab-content');
-                jQuery(document).find('.form-wizard-steps .form-wizard-step-item')
-                    .each(function () {
-                        if (jQuery(this).attr('data-attr') == formAtrr) {
-                            jQuery(this).addClass('active');
-                            var innerWidth = jQuery(this).innerWidth();
-                            var position = jQuery(this).position();
-                            jQuery(document).find('.form-wizard-step-move')
-                                .css({"left": position.left, "width": innerWidth});
-                        } else {
-                            jQuery(this).removeClass('active');
-                        }
-                    });
-            }
-        });
-    });
-    //click on form submit button
-    jQuery(document).on("click", ".form-wizard .form-wizard-submit", function () {
-        var parentFieldset = jQuery(this).parents('.wizard-fieldset');
-        var currentActiveStep = jQuery(this).parents('.form-wizard')
-            .find('.form-wizard-steps .active');
-        parentFieldset.find('.wizard-required').each(function () {
-            var thisValue = jQuery(this).val();
-            if (thisValue == "") {
-                jQuery(this).siblings(".wizard-form-error").slideDown();
-            } else {
-                jQuery(this).siblings(".wizard-form-error").slideUp();
-            }
-        });
-    });
-    // focus on input field check empty or not
-    jQuery(".form-control").on('focus', function () {
-        var tmpThis = jQuery(this).val();
-        if (tmpThis == '') {
-            jQuery(this).parent().addClass("focus-input");
-        } else if (tmpThis != '') {
-            jQuery(this).parent().addClass("focus-input");
-        }
-    }).on('blur', function () {
-        var tmpThis = jQuery(this).val();
-        if (tmpThis == '') {
-            jQuery(this).parent().removeClass("focus-input");
-            jQuery(this).siblings('.wizard-form-error').slideDown("3000");
-        } else if (tmpThis != '') {
-            jQuery(this).parent().addClass("focus-input");
-            jQuery(this).siblings('.wizard-form-error').slideUp("3000");
-        }
-    });
-});
-    </script>
 </body>
 
 </html>

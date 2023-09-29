@@ -2,7 +2,6 @@
 
 //name validation with particular format
 function namevalidation(inputtxtID,errorSpanId){
-    console.log('name vazlidation');
     let regName =  /^[a-zA-Z\s]+$/;
     if (regName.test(inputtxtID.value) == true) {
         document.getElementById(errorSpanId).style.display = "none";
@@ -40,15 +39,20 @@ function validatePhone(inputtxtID, errorSpanId) {
     }
 }
 
-function checkbox() {
-    var additional_parent_info1 = document.getElementById("additional_parent_info");
-    var additional_parent_label = document.getElementById("parent_info_label");
-    if ($('input[name="additional_parent_details"]').is(":checked")) {
-        additional_parent_info1.style.display = "block";
-        additional_parent_label.style.display = "block";
-    }
-    else{
-        additional_parent_info1.style.display = "none";
-        additional_parent_label.style.display = "none";
-    }
+function activeFormList(){
+    $.ajax({
+        url :'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=Active',
+        type : 'GET',
+        success : function(response){
+            console.log(response);
+            let responsevalue = Object.values(response);
+            let optionsData = '';
+            document.querySelector('[name="active_form_list"]').value ='';
+            for (let i = 0; i <= responsevalue.length; i++) {
+                console.log(responsevalue[i].form_name);
+                optionsData += '<option value="' + responsevalue[i] + '">' + responsevalue[i]+ '</option>';
+                document.querySelector('[name="active_form_list"]').value =optionsData;
+            }
+        }
+    });
 }

@@ -1,10 +1,10 @@
 import { fetchEnrollmentFormTitle, fetchEnrollmentFormBody, fetchEnrollmentPointEight } from './enrollmentForm.js';
-import { authorizationFormDetails } from './authorization_form.js';
+import {isAuthenticated} from "./authenticationVerify.js";
 
 function getEnrollmentFormStatus(val, callback) {
     console.log(val);
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/child_form/form_status/${val}?child_id=${localStorage.getItem('child_id')}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/${val}/form_status/${localStorage.getItem('child_id')}`,
         type: 'get',
         success: function (form_status_resp) {
             console.log(form_status_resp);
@@ -16,7 +16,6 @@ function downloadPDF(id) {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF('p', 'mm', [1500, 1400]);
     let formContent = id;
-    console.log(formContent);
     formContent.style.display = 'block';
 
     doc.html(formContent, {
@@ -66,10 +65,10 @@ async function printForm(id) {
 
 let title, globalBase64;
 AWS.config.update({
-        accessKeyId: 'AKIATNZ4QAI6MX5LH34Q',
-        secretAccessKey: '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',
-        region: 'us-west-2'
-    });
+    accessKeyId: 'AKIATNZ4QAI6MX5LH34Q',
+    secretAccessKey: '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',
+    region: 'us-west-2'
+});
 
 const s3 = new AWS.S3();
 
@@ -136,7 +135,7 @@ async function emailSend() {
         const base64Data = await getPDFBase64Data();
         obj.attachmentName = "AttachmentForm";
         obj.subject = 'Query on ' + title;
-        let messageData = $('#messageData').val();;
+        let messageData = $('#messageData').val();
         obj.body = messageData;
 
         const attachmentKey = await uploadBase64PDFToS3(base64Data, title + ' CHILD_ID');
@@ -165,315 +164,301 @@ async function emailSend() {
 }
 
 function parentDashBoardDetails(val) {
+    console.log(val);
     localStorage.setItem('form_year_value', val);
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/dashboard_data/formByYear/${val}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=true`,
         type: 'get',
         success: function (response) {
             console.log(response);
             if (Array.isArray(response) && response.length > 0) {
                 console.log(response);
                 // localStorage.setItem('form_name',  data.form_name)
-              
-                    const tableBody = document.getElementById('tableBody');
-                    
-                    // Clear the existing table row
-                    tableBody.innerHTML = '';
+                const tableBody = document.getElementById('tableBody');
+                // Clear the existing table row
+                tableBody.innerHTML = '';
+                response.forEach(data => {
+                    const newRow = document.createElement('tr');
 
-                    response.forEach(data => {
-                        const newRow = document.createElement('tr');
-                 
-                        // Create and append cells for each data point
-                        const formNameCell = document.createElement('td');
-                        formNameCell.innerText = data.form_name;
-                        localStorage.setItem('form_name',  data.form_name)
+                    // Create and append cells for each data point
+                    const formNameCell = document.createElement('td');
+                    formNameCell.innerText = data.form_name;
+                    localStorage.setItem('form_name',  data.form_name)
 
-                        const formExpiryDateCell = document.createElement('td');
-                        formExpiryDateCell.innerText = data.form_expiry_date;
+                    const formExpiryDateCell = document.createElement('td');
+                    formExpiryDateCell.innerText = data.form_expiry_date;
 
-              
-                        const formStatusCell = document.createElement('td');
-                        formStatusCell.setAttribute('id','form_status');
-                        if(data.form_name == '2023-2024 Enrollment Agreement'){
-                            console.log('enroll');
-                            getEnrollmentFormStatus( data.form_name, function (formStatusResp) {
-                                if(formStatusResp != null){
-                                    let form_status = formStatusResp.form_status;
-                                    formStatusCell.innerText = form_status;
-                                }else{
-                                    let form_status = formStatusResp.form_status;
-                                    console.log(form_status);
-                                    formStatusCell.innerText = "Incompleted";
-                                }
-                               
-
-                                if (form_status === "Yet To Be Filled") {
-                                    formStatusCell.innerText = form_status;
-                                formStatusCell.style.color =
-                                        '#0F2D52';
-                                formStatusCell.style.fontWeight =
-                                        'bold';
-                                    // enableAction();
-                                } else if (form_status === "Completed") {
-                                    formStatusCell.innerText = form_status;
+                    const formStatusCell = document.createElement('td');
+                    formStatusCell.setAttribute('id','form_status');
+                    if (data.form_name == '2023-2024 Enrollment Agreement') {
+                        let value = 'enrollment_data';
+                        getEnrollmentFormStatus(value, function (formStatusResp) {
+                            console.log(formStatusResp); // Check the structure of formStatusResp
+                            // Assuming formStatusResp contains a property called 'form_status'
+                            let form_status = formStatusResp.form_status;
+                            formStatusCell.innerHTML = form_status;
+                            if (form_status === "Completed") {
                                 formStatusCell.style.color = 'green';
-                                formStatusCell.style.fontWeight =
-                                        'bold';
-                                    // disableAction();
-                                } else if (form_status === "Incomplete") {
-                                    formStatusCell.innerText = form_status;
+                                formStatusCell.style.fontWeight = 'bold';
+                            } else if (form_status === "Incomplete") {
                                 formStatusCell.style.color = 'red';
-                                formStatusCell.style.fontWeight =
-                                        'bold';
-                                    // enableAction();
-                                } else {
-                                    formStatusCell.innerText = form_status;
-                                formStatusCell.style.color =
-                                        '#FFCC00';
-                                formStatusCell.style.fontWeight =
-                                        'bold';
-                                    // enableAction();
-                                }
-                            });
-                        }else{
-                            const formStatusCell = document.createElement('td');
-                            formStatusCell.setAttribute('id','form_status');
-                            formStatusCell.innerText = "Incomplete";
-
-                            if (data.form_status === "Completed") {
-                                formStatusCell.innerText = data.form_status;
-                            formStatusCell.style.color = 'green';
-                            formStatusCell.style.fontWeight =
-                                    'bold';
-                                // disableAction();
-                            } else if (data.form_status === "Incomplete") {
-                                formStatusCell.innerText = data.form_status;
-                            formStatusCell.style.color = 'red';
-                            formStatusCell.style.fontWeight =
-                                    'bold';
-                                // enableAction();
+                                formStatusCell.style.fontWeight = 'bold';
                             } else {
-                                formStatusCell.innerText = data.form_status;
-                            formStatusCell.style.color =
-                                    '#FFCC00';
-                            formStatusCell.style.fontWeight =
-                                    'bold';
-                                // enableAction();
+                                formStatusCell.style.color = '#FFCC00';
+                                formStatusCell.style.fontWeight = 'bold';
                             }
-                            
+                        });
+                    } else if (data.form_name == 'ACH Recurring payments form') {
+                        let value = 'bill_ach';
+                        getEnrollmentFormStatus(value, function (formStatusResp) {
+                            console.log(formStatusResp); // Check the structure of formStatusResp
+                    
+                            // Assuming formStatusResp contains a property called 'form_status'
+                            let form_status = formStatusResp.form_status;
+                    
+                            // Rest of your code...
+                    
+                            // Update the existing formStatusCell properties
+                            formStatusCell.innerText = form_status;
+                            if (form_status === "Completed") {
+                                formStatusCell.style.color = 'green';
+                                formStatusCell.style.fontWeight = 'bold';
+                            } else if (form_status === "Incomplete") {
+                                formStatusCell.style.color = 'red';
+                                formStatusCell.style.fontWeight = 'bold';
+                            } else {
+                                formStatusCell.style.color = '#FFCC00';
+                                formStatusCell.style.fontWeight = 'bold';
+                            }
+                        });
+                    } else {
+                        // Remove the redeclaration of formStatusCell here
+                    
+                        formStatusCell.innerText = "Incomplete";
+                    
+                        if (data.form_status === "Completed") {
+                            formStatusCell.style.color = 'green';
+                            formStatusCell.style.fontWeight = 'bold';
+                        } else if (data.form_status === "Incomplete") {
+                            formStatusCell.style.color = 'red';
+                            formStatusCell.style.fontWeight = 'bold';
+                        } else {
+                            formStatusCell.style.color = '#FFCC00';
+                            formStatusCell.style.fontWeight = 'bold';
                         }
+                    }
+                    
 
-                        // Create a cell for action items
-                        const actionCell = document.createElement('td');
+                    // Create a cell for action items
+                    const actionCell = document.createElement('td');
 
-                        // Add action buttons to the action cell
-                        const editLink = document.createElement('a');
-                        editLink.setAttribute('id','pencil_icon_link');
-                        editLink.setAttribute('name','pencil_icon_link');
-                        editLink.setAttribute('data-dynamic-value','example');
-                        editLink.setAttribute('class','fa-stack');
-                        var dynamicValue = localStorage.getItem('child_id');
+                    // Add action buttons to the action cell
+                    const editLink = document.createElement('a');
+                    editLink.setAttribute('id','pencil_icon_link');
+                    editLink.setAttribute('name','pencil_icon_link');
+                    editLink.setAttribute('data-dynamic-value','example');
+                    editLink.setAttribute('class','fa-stack');
+                    var dynamicValue = localStorage.getItem('child_id');
+                    if(data.form_name == '2023-2024 Enrollment Agreement'){
+                        console.log('enroll');
+                        editLink.href = `form.html?id=${dynamicValue}`;
+                    }else if(data.form_name == 'ACH Recurring payments form') {
+                        console.log('svg');
+                        editLink.href = `authorization_form.html?id=${dynamicValue}`;
+                    }
+                    
+                    editLink.setAttribute('data-dynamic-value', 'example');
+
+                    // ... Add other attributes and content for editLink
+
+                    const editIcon = document.createElement('i');
+                    editIcon.setAttribute('id','enrollmentForm');
+                    editIcon.setAttribute('name','enrollmentForm');
+                    editIcon.className = 'fa-sharp fa-solid fa-pen p-1 action-icons';
+                    // ... Add other attributes and content for editIcon
+
+                    const downloadIcon = document.createElement('i');
+                    downloadIcon.setAttribute('id', 'downloadFormAsPDF');
+                    downloadIcon.setAttribute('name', 'downloadForm');
+                    downloadIcon.className = 'fa-solid fa-circle-arrow-down p-2 action-icons';
+                    // ... Add other attributes and content for downloadIcon
+                    downloadIcon.addEventListener('click',function(){
                         if(data.form_name == '2023-2024 Enrollment Agreement'){
-                            console.log('enroll');
-                            editLink.href = `form.html?id=${dynamicValue}`;
+                            fetchEnrollmentFormTitle(function() {
+                                fetchEnrollmentFormBody(function() {
+                                    fetchEnrollmentPointEight(function(){
+                                        let formContent = document.querySelector('#formContent');
+                                        downloadPDF(formContent);
+                                    }); 
+                                });
+                            });
                         }else if(data.form_name == 'ACH Recurring payments form') {
-                            console.log('svg');
-                            editLink.href = `authorization_form.html?id=${dynamicValue}`;
+                            authorizationFormDetails(function() {
+                                let avfForm = document.querySelector('#avf_form');
+                                downloadPDF(avfForm);
+                            });
                         }
-                        
-                        editLink.setAttribute('data-dynamic-value', 'example');
 
-                        
-                        // ... Add other attributes and content for editLink
-
-                        const editIcon = document.createElement('i');
-                        editIcon.setAttribute('id','enrollmentForm');
-                        editIcon.setAttribute('name','enrollmentForm');
-                        editIcon.className = 'fa-sharp fa-solid fa-pen p-1 action-icons';
-                        // ... Add other attributes and content for editIcon
-
-                        const downloadIcon = document.createElement('i');
-                        downloadIcon.setAttribute('id', 'downloadFormAsPDF');
-                        downloadIcon.setAttribute('name', 'downloadForm');
-                        downloadIcon.className = 'fa-solid fa-circle-arrow-down p-2 action-icons';
-                        // ... Add other attributes and content for downloadIcon
-                        downloadIcon.addEventListener('click',function(){
-                            if(data.form_name == '2023-2024 Enrollment Agreement'){
-                                fetchEnrollmentFormTitle(function() {
-                                    fetchEnrollmentFormBody(function() {
-                                        fetchEnrollmentPointEight(function(){
-                                            let formContent = document.querySelector('#formContent');
-                                            downloadPDF(formContent);
-                                        }); 
-                                    });
-                                });
-                            }else if(data.form_name == 'ACH Recurring payments form') {
-                                authorizationFormDetails(function() {
-                                    let avfForm = document.querySelector('#avf_form');
-                                    downloadPDF(avfForm);
-                                });
-                            }
-
-                        });
-
-                        // const mailSpan = document.createElement('span');
-                        // mailSpan.setAttribute('data-bs-toggle', 'modal');
-                        // mailSpan.setAttribute('data-bs-target', '#staticBackdrop');
-                        // // ... Add other attributes and content for mailSpan
-
-                        // Create the Mail Icon <i> element
-                        const mailIcon = document.createElement('i');
-                        mailIcon.className = 'fa-solid fa-envelope p-1 action-icons';
-                        mailIcon.id = 'mail_icon';
-                        mailIcon.name = 'mail_icon';
-                        mailIcon.addEventListener('click',function(){
-                            var modal = document.createElement('div');
-                            modal.id = 'mailbox';
-                            modal.className = 'modal';
-                        
-                            var modalDialog = document.createElement('div');
-                            modalDialog.className = 'modal-dialog';
-                        
-                            var modalContent = document.createElement('div');
-                            modalContent.className = 'modal-content';
-                        
-                            var modalHeader = document.createElement('div');
-                            modalHeader.className = 'modal-header';
-                        
-                            var modalTitle = document.createElement('h1');
-                            modalTitle.className = 'modal-title';
-                            modalTitle.textContent = 'Mail Send to Admin';
-                        
-                            var closeButton = document.createElement('button');
-                            closeButton.type = 'button';
-                            closeButton.className = 'btn-close';
-                            closeButton.setAttribute('data-dismiss', 'modal');
-                            closeButton.setAttribute('aria-label', 'Close');
-                            closeButton.addEventListener('click',function(){
-                                $('#mailbox').modal('hide');
-                            });
-                        
-                            var modalBody = document.createElement('div');
-                            modalBody.className = 'modal-body';
-                        
-                            var form = document.createElement('form');
-                        
-                            var formGroup = document.createElement('div');
-                            formGroup.className = 'form-group';
-                        
-                            var label = document.createElement('label');
-                            label.setAttribute('for', 'messageData');
-                            label.textContent = 'Message';
-                        
-                            var textarea = document.createElement('textarea');
-                            textarea.rows = '10';
-                            textarea.cols = '50';
-                            textarea.className = 'form-control';
-                            textarea.id = 'messageData';
-                            textarea.name = '';
-                        
-                            var modalFooter = document.createElement('div');
-                            modalFooter.className = 'modal-footer';
-                        
-                            var cancelButton = document.createElement('button');
-                            cancelButton.type = 'button';
-                            cancelButton.className = 'btn btn-secondary';
-                            cancelButton.textContent = 'Cancel';
-                            cancelButton.setAttribute('data-dismiss', 'modal');
-                            cancelButton.addEventListener('click',function(){
-                                $('#mailbox').modal('hide');
-                            });
-                        
-                            var sendButton = document.createElement('button');
-                            sendButton.type = 'button';
-                            sendButton.id = 'sendButton';
-                            sendButton.className = 'btn btn-primary';
-                            sendButton.textContent = 'Send';
-                        
-                            // Append elements to the modal
-                            modalHeader.appendChild(modalTitle);
-                            modalHeader.appendChild(closeButton);
-                        
-                            formGroup.appendChild(label);
-                            formGroup.appendChild(textarea);
-                            form.appendChild(formGroup);
-                            modalBody.appendChild(form);
-                        
-                            modalFooter.appendChild(cancelButton);
-                            modalFooter.appendChild(sendButton);
-                        
-                            modalContent.appendChild(modalHeader);
-                            modalContent.appendChild(modalBody);
-                            modalContent.appendChild(modalFooter);
-                        
-                            modalDialog.appendChild(modalContent);
-                            modal.appendChild(modalDialog);
-                        
-                            // Append the modal to the document
-                            document.body.appendChild(modal);
-                        
-                            // Show the modal
-                            $('#mailbox').modal('show');
-                            sendButton.addEventListener('click',function(){
-                                fetchEnrollmentFormTitle(function () {
-                                    fetchEnrollmentFormBody(function () {
-                                        emailSend();
-                                       
-                                    });
-                                });
-    
-                            });
-                        });
-
-                        
-
-                        // Now you can append the Mail Icon <span> to your desired location in the DOM
-                        // For example, assuming you have a div with id "container":
-                        // let containerval = document.createElement('div');
-                        // containerval.setAttribute('id','container')
-                        // containerval.appendChild(mailSpan);
-
-                        const printIcon = document.createElement('i');
-                        printIcon.setAttribute('id','printFormBtn');
-                        printIcon.className = 'fa-solid fa-print p-2 action-icons';
-                        printIcon.addEventListener('click',function(){
-                            if(data.form_name == '2023-2024 Enrollment Agreement'){
-                                fetchEnrollmentFormTitle(function() {
-                                    fetchEnrollmentFormBody(function() {
-                                        fetchEnrollmentPointEight(function(){
-                                            let formContent = document.querySelector('#formContent');
-                                            printForm(formContent);
-                                        }); 
-                                    });
-                                });
-                            }else if(data.form_name == 'ACH Recurring payments form') {
-                                authorizationFormDetails(function() {
-                                    let avfForm = document.querySelector('#avf_form');
-                                    printForm(avfForm);
-                                });
-                            }
-                        });
-                        // ... Add other attributes and content for printIcon
-
-                        // Append action items to the action cell
-                        actionCell.appendChild(editLink);
-                        editLink.appendChild(editIcon);
-                        actionCell.appendChild(downloadIcon);
-                        actionCell.appendChild(mailIcon);
-                        // mailSpan.appendChild(mailIcon);
-                        actionCell.appendChild(printIcon);
-
-                        // Append cells to the row
-                        newRow.appendChild(formNameCell);
-                        newRow.appendChild(formExpiryDateCell);
-                        newRow.appendChild(formStatusCell);
-                        newRow.appendChild(actionCell);
-
-                        // Append the row to the table
-                        tableBody.appendChild(newRow);
-
-                        // Apply styling based on form status here as needed
                     });
+
+                    // const mailSpan = document.createElement('span');
+                    // mailSpan.setAttribute('data-bs-toggle', 'modal');
+                    // mailSpan.setAttribute('data-bs-target', '#staticBackdrop');
+                    // // ... Add other attributes and content for mailSpan
+
+                    // Create the Mail Icon <i> element
+                    const mailIcon = document.createElement('i');
+                    mailIcon.className = 'fa-solid fa-envelope p-1 action-icons';
+                    mailIcon.id = 'mail_icon';
+                    mailIcon.name = 'mail_icon';
+                    mailIcon.addEventListener('click',function(){
+                        var modal = document.createElement('div');
+                        modal.id = 'mailbox';
+                        modal.className = 'modal';
+                    
+                        var modalDialog = document.createElement('div');
+                        modalDialog.className = 'modal-dialog';
+                    
+                        var modalContent = document.createElement('div');
+                        modalContent.className = 'modal-content';
+                    
+                        var modalHeader = document.createElement('div');
+                        modalHeader.className = 'modal-header';
+                    
+                        var modalTitle = document.createElement('h1');
+                        modalTitle.className = 'modal-title';
+                        modalTitle.textContent = 'Mail Send to Admin';
+                    
+                        var closeButton = document.createElement('button');
+                        closeButton.type = 'button';
+                        closeButton.className = 'btn-close';
+                        closeButton.setAttribute('data-dismiss', 'modal');
+                        closeButton.setAttribute('aria-label', 'Close');
+                        closeButton.addEventListener('click',function(){
+                            $('#mailbox').modal('hide');
+                        });
+                    
+                        var modalBody = document.createElement('div');
+                        modalBody.className = 'modal-body';
+                    
+                        var form = document.createElement('form');
+                    
+                        var formGroup = document.createElement('div');
+                        formGroup.className = 'form-group';
+                    
+                        var label = document.createElement('label');
+                        label.setAttribute('for', 'messageData');
+                        label.textContent = 'Message';
+                    
+                        var textarea = document.createElement('textarea');
+                        textarea.rows = '10';
+                        textarea.cols = '50';
+                        textarea.className = 'form-control';
+                        textarea.id = 'messageData';
+                        textarea.name = '';
+                    
+                        var modalFooter = document.createElement('div');
+                        modalFooter.className = 'modal-footer';
+                    
+                        var cancelButton = document.createElement('button');
+                        cancelButton.type = 'button';
+                        cancelButton.className = 'btn btn-secondary';
+                        cancelButton.textContent = 'Cancel';
+                        cancelButton.setAttribute('data-dismiss', 'modal');
+                        cancelButton.addEventListener('click',function(){
+                            $('#mailbox').modal('hide');
+                        });
+                    
+                        var sendButton = document.createElement('button');
+                        sendButton.type = 'button';
+                        sendButton.id = 'sendButton';
+                        sendButton.className = 'btn btn-primary';
+                        sendButton.textContent = 'Send';
+                    
+                        // Append elements to the modal
+                        modalHeader.appendChild(modalTitle);
+                        modalHeader.appendChild(closeButton);
+                    
+                        formGroup.appendChild(label);
+                        formGroup.appendChild(textarea);
+                        form.appendChild(formGroup);
+                        modalBody.appendChild(form);
+                    
+                        modalFooter.appendChild(cancelButton);
+                        modalFooter.appendChild(sendButton);
+                    
+                        modalContent.appendChild(modalHeader);
+                        modalContent.appendChild(modalBody);
+                        modalContent.appendChild(modalFooter);
+                    
+                        modalDialog.appendChild(modalContent);
+                        modal.appendChild(modalDialog);
+                    
+                        // Append the modal to the document
+                        document.body.appendChild(modal);
+                    
+                        // Show the modal
+                        $('#mailbox').modal('show');
+                        sendButton.addEventListener('click',function(){
+                            fetchEnrollmentFormTitle(function () {
+                                fetchEnrollmentFormBody(function () {
+                                    emailSend();
+                                    
+                                });
+                            });
+
+                        });
+                    });
+
+                    
+
+                    // Now you can append the Mail Icon <span> to your desired location in the DOM
+                    // For example, assuming you have a div with id "container":
+                    // let containerval = document.createElement('div');
+                    // containerval.setAttribute('id','container')
+                    // containerval.appendChild(mailSpan);
+
+                    const printIcon = document.createElement('i');
+                    printIcon.setAttribute('id','printFormBtn');
+                    printIcon.className = 'fa-solid fa-print p-2 action-icons';
+                    printIcon.addEventListener('click',function(){
+                        if(data.form_name == '2023-2024 Enrollment Agreement'){
+                            fetchEnrollmentFormTitle(function() {
+                                fetchEnrollmentFormBody(function() {
+                                    fetchEnrollmentPointEight(function(){
+                                        let formContent = document.querySelector('#formContent');
+                                        printForm(formContent);
+                                    }); 
+                                });
+                            });
+                        }else if(data.form_name == 'ACH Recurring payments form') {
+                            authorizationFormDetails(function() {
+                                let avfForm = document.querySelector('#avf_form');
+                                printForm(avfForm);
+                            });
+                        }
+                    });
+                    // ... Add other attributes and content for printIcon
+
+                    // Append action items to the action cell
+                    actionCell.appendChild(editLink);
+                    editLink.appendChild(editIcon);
+                    actionCell.appendChild(downloadIcon);
+                    actionCell.appendChild(mailIcon);
+                    // mailSpan.appendChild(mailIcon);
+                    actionCell.appendChild(printIcon);
+
+                    // Append cells to the row
+                    newRow.appendChild(formNameCell);
+                    newRow.appendChild(formExpiryDateCell);
+                    newRow.appendChild(formStatusCell);
+                    newRow.appendChild(actionCell);
+
+                    // Append the row to the table
+                    tableBody.appendChild(newRow);
+
+                    // Apply styling based on form status here as needed
+                });
                 // });
             }
         }
@@ -583,36 +568,37 @@ function parentDashBoardDetails(val) {
 
 //to display child's year
 function parentDashBoardYear() {
-    const child_id = localStorage.getItem('child_id')
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/'
-    // console.log(url + child_id)
-    $.ajax({
-        url: url + child_id,
-        type: 'get',
-        success: function (response) {
-            console.log(response);
-            let yearArray = []
-            for (let i = 0; i < response.length; i++) {
-                yearArray.push(response[i].year)
-            }
-            yearArray.sort().reverse();
-            let optionsData = '';
-            document.querySelector('[name="form_year"]').innerHTML = '';
-            for (let i = 0; i < yearArray.length; i++) {
-                optionsData += '<option value="' + yearArray[i] + '">' + yearArray[i]
-                                + '</option>';
-                document.querySelector('[name="form_year"]').innerHTML =
-                    optionsData;
-            }
-        }
-    });
+    // const child_id = localStorage.getItem('child_id')
+    // const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/'
+    // // console.log(url + child_id)
+    // $.ajax({
+    //     url: url + child_id,
+    //     type: 'get',
+    //     success: function (response) {
+    //         console.log(response);
+    //         let yearArray = []
+    //         for (let i = 0; i < response.length; i++) {
+    //             yearArray.push(response[i].year)
+    //         }
+    //         yearArray.sort().reverse();
+    //         let optionsData = '';
+    //         document.querySelector('[name="form_year"]').innerHTML = '';
+    //         for (let i = 0; i < yearArray.length; i++) {
+    //             optionsData += '<option value="' + yearArray[i] + '">' + yearArray[i] + '</option>';
+    //             document.querySelector('[name="form_year"]').innerHTML = optionsData;
+    //         }
+    //     }
+    // });
 }
 
 $(document).ready(function () {
-    //geting current year
-    let defaultdate = new Date().getFullYear();
-    document.querySelector('[name="child_dashboard_name"]').innerHTML =
-        localStorage.getItem('child_name');
-    parentDashBoardDetails(defaultdate);
-    parentDashBoardYear();
+    if (!isAuthenticated()) {
+        window.location.href = 'login.html';
+    } else {
+        //geting current year
+        let defaultdate = new Date().getFullYear();
+        document.querySelector('[name="child_dashboard_name"]').innerHTML = localStorage.getItem('child_name');
+        parentDashBoardDetails(defaultdate);
+        parentDashBoardYear();
+    }
 });

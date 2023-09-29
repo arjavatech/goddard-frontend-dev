@@ -3,7 +3,7 @@ import {isAuthenticated} from "./authenticationVerify.js";
 
 export function authorizationFormDetails(callback) {
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/ach/fetch/${localStorage.getItem('child_id')}?year=${localStorage.getItem('form_year_value')}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/bill_ach/fetch/${localStorage.getItem('child_id')}`,
         type: 'get',
         success: function(response){
             console.log(response);
@@ -54,22 +54,11 @@ function submitForm() {
     const form = document.getElementById("authorization_form");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
-    console.log(obj);
     obj.child_id = localStorage.getItem('child_id');
     obj.year = new Date().getFullYear() + '';
-    console.log(obj);
+    obj.form_status = 'Reviewing';
     const json=  JSON.stringify(obj);
     console.log(json);
-    // $.ajax({
-    //     url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/ach/add",
-    //     type: "POST",
-    //     contentType: "application/json",
-    //     data: json,
-    //     success: function (response) {
-    //         alert("success");
-    //         window.location.href = "parent_dashboard.html";
-    //     },
-    // });
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
@@ -78,7 +67,7 @@ function submitForm() {
             window.location.reload();
         }
     };
-    xhr.open("POST", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/ach/add");
+    xhr.open("POST", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/bill_ach/add");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }

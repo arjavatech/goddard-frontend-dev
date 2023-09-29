@@ -8,8 +8,8 @@ AWS.config.update({
 const s3 = new AWS.S3();
 
 let obj = {
-    "from": "noreply.goddard@gmail.com",
-    "to": "noreply.godard@gmail.com",
+    "from": "goddard01.arjava@gmail.com",
+    "to": "muthiah15cs16@gmail.com",
     "subject": "subject",
     "body": "message data",
     "attachmentName": "AttachmentForm",

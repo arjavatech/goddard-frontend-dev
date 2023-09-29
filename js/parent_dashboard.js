@@ -1,5 +1,5 @@
 import { fetchEnrollmentFormTitle, fetchEnrollmentFormBody, fetchEnrollmentPointEight } from './enrollmentForm.js';
-import { authorizationFormDetails } from './authorization_form.js';
+import {isAuthenticated} from "./authenticationVerify.js";
 
 function getEnrollmentFormStatus(val, callback) {
     console.log(val);
@@ -592,9 +592,13 @@ function parentDashBoardYear() {
 }
 
 $(document).ready(function () {
-    //geting current year
-    let defaultdate = new Date().getFullYear();
-    document.querySelector('[name="child_dashboard_name"]').innerHTML = localStorage.getItem('child_name');
-    parentDashBoardDetails(defaultdate);
-    parentDashBoardYear();
+    if (!isAuthenticated()) {
+        window.location.href = 'login.html';
+    } else {
+        //geting current year
+        let defaultdate = new Date().getFullYear();
+        document.querySelector('[name="child_dashboard_name"]').innerHTML = localStorage.getItem('child_name');
+        parentDashBoardDetails(defaultdate);
+        parentDashBoardYear();
+    }
 });

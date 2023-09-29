@@ -82,16 +82,19 @@ a.page-link{
 
 select
 {
-   padding: 5px;
+   padding: 5px !important;
    color: #0F2D52 !important;
    border: 2px solid #0F2D52 !important;
-   border-radius: 5px;
+   border-radius: 5px !important;
 }
 
 select#form_status
 {
     color: #0F2D52 !important;
     font-size: medium !important;
+}
+.dropdown{
+    padding-left: -5% !important;
 }
 
 

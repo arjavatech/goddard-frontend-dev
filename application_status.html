@@ -15,8 +15,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
-        <!-- <script type="module" src='js/script.js'></script>
-        <script type="module" src='js/applicationStatus.js'></script> -->
+        <script type="module" src='js/script.js'></script>
+        <script type="module" src='js/applicationStatus.js'></script>
         <script src='js/applicationStatusfilter.js'></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     </head>
@@ -40,15 +40,13 @@
             </h2><br><br>
             <!-- Year -->
             <div class="row">
-                <div class="col-1">
-                    <!-- <h4>Year : </h4> -->
+                <!-- <div class="col-1"></div> -->
+                <!-- <div class="col-2">
+                    <h4>All Forms : </h4>
                 </div>
-             
-                <!-- <div class="col-1 dropdown">
-                  
+                <div class="col-3 ">
                     <select name="form_year" id="form_year"
-                        onclick="applicationStatusYear(this.value)" required><i class="fa fa-chevron-down"></i>
-                        
+                        onclick="applicationStatusYear(this.value)" required><i class="fa fa-chevron-down"></i>  
                     </select>
                 </div> -->
                 <!-- Year dynamic dropdown End -->
@@ -57,17 +55,28 @@
                     placeholder="Search the content...">
                     <div class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                      </svg></div>
+                      </svg></div> 
                 </div>
-                <div class="col-3">
-                    <!-- <select id="enrollmentStatus" class="form-control" onchange="filterTableByEnrollmentStatus(this.value)">
+                <div class="col-2">
+                    <h4>All Forms : </h4>
+                </div>
+                <div class="col-2 dropdown">
+                    <select name="form_name" id="form_name" onclick="formdetails(this.value)">
+                        <i id="form_name" class="fa fa-chevron-down form_status_dropdown"></i>
+                    </select>
+                    <!-- <select name="form_year" id="form_year"
+                        onclick="applicationStatusYear(this.value)" required><i class="fa fa-chevron-down"></i>   -->
+                    </select>
+                </div>
+                <!-- <div class="col-2">
+                    <select id="enrollmentStatus" class="form-control" onchange="filterTableByEnrollmentStatus(this.value)">
                         <option >Filter <span class="fa-solid fa-filter-list">🔖</span></option>
                         <option value="Completed">Completed</option>
                         <option value="Reviewing">Reviewing</option>
                         <option value="Inprogress">Inprogress</option>
                         <option value="Incomplete">Incomplete</option>
-                    </select> -->
-                </div>
+                    </select>
+                </div> -->
             </div>
             <!-- Year End -->
             <div class="d-flex justify-content-center">
@@ -81,25 +90,18 @@
                                     <th>Child Name</th>
                                     <th>Parent Name</th>
                                     <th>Admission Form Status</th>
-                                    <th id="form_status">
+                                    <th>Form</th>
+                                    <!-- <th id="form_status">
                                         <label for="form_name" class="form-label">Form Status</label>
                                         <select name="form_name" id="form_name" 
                                            onclick="formdetails(this.value)"><i id="form_name" class="fa fa-chevron-down form_status_dropdown"></i>
-                                          <!-- <option>Form 1</option>
-                                          <option>Form 2</option> -->
                                         </select>   
-                                    </th>
+                                    </th> -->
                                 </tr>
                             </thead>
                             <!-- Table Head End -->
                             <!-- Table Body -->
                             <tbody id="tableBody">
-                                <!-- <tr>
-                                    <td id="child_name" name="child_name"></td>
-                                    <td id="parent_name" name="parent_name"></td>
-                                    <td id="application_status" name="application_status"></td>
-                                    <td id="enrollment_form_status" name="enrollment_form_status"></td>
-                                </tr> -->
                             </tbody>
                             <!-- Table Body End -->
                             <!-- Table Footer -->

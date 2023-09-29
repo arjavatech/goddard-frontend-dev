@@ -32,7 +32,8 @@ function applicationStatusYear(val) {
         
                 // for (let i = 0; i < responseValue.length; i++) {
                 //     const rowData = responseValue[i];
-                    for (let j = 0; j <=responseValue.length; j++) {
+                    for (let j = 0; j <responseValue.length; j++) {
+                        console.log(responseValue[j].child_name);
         
                         // Create a new row for each data set
                         const row = document.createElement('tr');
@@ -122,24 +123,24 @@ function applicationStatusYear(val) {
 
 //to display child's year
 function applicationStatusAllYear() {
-    const child_id = localStorage.getItem('child_id')
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/app_status/info'
-    $.ajax({
-        url: url,
-        type: 'get',
-        success: function (response) {
-            let yearArray = Object.keys(response);
-            yearArray.sort().reverse();
-            let optionsData = '';
-            document.querySelector('[name="form_year"]').innerHTML = '';
-            for (let i = 0; i < yearArray.length; i++) {
-                optionsData += '<option value="' + yearArray[i] + '">' + yearArray[i]
-                                + '</option>';
-                document.querySelector('[name="form_year"]').innerHTML =
-                    optionsData;
-            }
-        }
-    });
+    // const child_id = localStorage.getItem('child_id')
+    // const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/app_status/info'
+    // $.ajax({
+    //     url: url,
+    //     type: 'get',
+    //     success: function (response) {
+    //         let yearArray = Object.keys(response);
+    //         yearArray.sort().reverse();
+    //         let optionsData = '';
+    //         document.querySelector('[name="form_year"]').innerHTML = '';
+    //         for (let i = 0; i < yearArray.length; i++) {
+    //             optionsData += '<option value="' + yearArray[i] + '">' + yearArray[i]
+    //                             + '</option>';
+    //             document.querySelector('[name="form_year"]').innerHTML =
+    //                 optionsData;
+    //         }
+    //     }
+    // });
 }
 
 function filterTableByEnrollmentStatus(selectedStatus) {
@@ -192,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
     applicationStatusAllYear();
 
      // Attach an event listener to the search input
-     const form_name = document.querySelector("#form_status");
+     const form_name = document.querySelector("#form_name");
      // form_name.addEventListener("input", filterTable);
      form_name.addEventListener("click", function () {
         formNameDetails();

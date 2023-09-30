@@ -1,6 +1,5 @@
 function checkGmailLoginState() {
     let value = localStorage.getItem('logged_in_email');
-    console.log(value);
     if (value !== null && value !== undefined) {
         // Key has a valid value in localStorage
         // console.log(value)

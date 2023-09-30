@@ -1,5 +1,6 @@
 import { fetchEnrollmentFormTitle, fetchEnrollmentFormBody, fetchEnrollmentPointEight } from './enrollmentForm.js';
 import {isAuthenticated} from "./authenticationVerify.js";
+import {authorizationFormDetails} from "./authorization_form.js";
 
 function getEnrollmentFormStatus(val, callback) {
     console.log(val);

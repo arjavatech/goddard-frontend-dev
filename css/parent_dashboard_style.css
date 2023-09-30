@@ -1,36 +1,3 @@
-html,
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'roboto', sans-serif;
-    overflow-x: clip;
-}
-
-
-/*****Navigation Style*****/
-
-.navbar_bg {
-    background: white;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-#messageData {
-    min-height: calc(1.5em + 0.75rem + 2px);
-    width: 100% !important;
-}
-
-.signout
-{
-    position: absolute !important;
-    top: 45px;
-    right: 80px !important;
-    color: #0F2D52 !important;
-}
-
-.signout_icon{
-    color: #0F2D52 !important;
-}
-
-/*****Navigation Style End*****/
 
 /* this used for drowarrow displayed in dropdown */
 .dropdown {

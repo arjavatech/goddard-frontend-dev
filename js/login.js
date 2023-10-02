@@ -10,7 +10,7 @@ function handleCredentialResponse(response) {
     // Store email
     localStorage.clear()
     localStorage.setItem('logged_in_email', responsePayload.email);
-    if(responsePayload.email == "goddard01arjava@gmail.com" || responsePayload.email == "goddard02arjava@gmail.com"){
+    if(responsePayload.email == "goddard01arjava@gmail.com" || responsePayload.email == "goddard02arjava@gmail.com" || responsePayload.email == 's_kaliappan@hotmail.com'){
         // Redirect
         window.location.href = "admin_dashboard.html";
     }else{

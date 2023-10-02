@@ -154,7 +154,7 @@
                 formData.set("password", hashedPassword);
                 const obj = Object.fromEntries(formData);
                 console.log(obj);
-                if(obj.user_email === 'goddard01arjava@gmail.com' || obj.user_email === 'goddard02arjava@gmail.com'){
+                if(obj.user_email === 'goddard01arjava@gmail.com' || obj.user_email === 'goddard02arjava@gmail.com' || obj.user_email === 's_kaliappan@hotmail.com'){
                     obj.is_admin = true;
                 }else{
                     obj.is_admin = false;
@@ -191,7 +191,7 @@
                         let isAuthenticated = false;
 
                         for (let i = 0; i < response.length; i++) {
-                            if(user_email === 'goddard01arjava@gmail.com' || user_email === 'goddard02arjava@gmail.com'){
+                            if(user_email === 'goddard01arjava@gmail.com' || user_email === 'goddard02arjava@gmail.com' || user_email === 's_kaliappan@hotmail.com'){
                                 if (user_email === response[i].user_email ) {
                                     const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
                                     console.log(storedPasswordHash);
@@ -236,7 +236,7 @@
                         alert("form submit failed");
                     }
                 });
-                if (user_email === 'goddard01arjava@gmail.com' || user_email === 'goddard01arjava@gmail.com'){
+                if (user_email === 'goddard01arjava@gmail.com' || user_email === 'goddard01arjava@gmail.com' || user_email === 's_kaliappan@hotmail.com'){
                     const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
                     console.log(storedPasswordHash);
                         // Hash the user-typed password using the same algorithm and parameters

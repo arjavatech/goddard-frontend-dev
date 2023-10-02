@@ -16,16 +16,16 @@ function enrollmentValueSend(status,id,year,form_name){
     });
 
 }
-function applicationStatusYear(val) {
-    localStorage.setItem('form_year_value', val);
-    let applicationStatusYear = document.getElementById("applicationStatusYear");
-    applicationStatusYear.textContent = val;
+function applicationStatusYear() {
+    // localStorage.setItem('form_year_value', val);
+    // let applicationStatusYear = document.getElementById("applicationStatusYear");
+    // applicationStatusYear.textContent = val;
     $.ajax({
         url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/admission_status_info`,
         type: 'get',
         success: function (response) {
             let responseValue = Object.values(response);
-            console.log(responseValue);
+            // console.log(responseValue);
             if (Array.isArray(responseValue)) {
                 const tableBody = document.getElementById('tableBody');
                 tableBody.innerHTML = ''; // Clear existing content
@@ -33,7 +33,7 @@ function applicationStatusYear(val) {
                 // for (let i = 0; i < responseValue.length; i++) {
                 //     const rowData = responseValue[i];
                     for (let j = 0; j <responseValue.length; j++) {
-                        console.log(responseValue[j].child_name);
+                        // console.log(responseValue[j].child_name);
         
                         // Create a new row for each data set
                         const row = document.createElement('tr');
@@ -161,7 +161,87 @@ function filterTableByEnrollmentStatus(selectedStatus) {
 
 function formdetails(val){
     console.log(val);
+    let form_table_name;
+    if(val == 'ACH Recurring payments form'){
+        form_table_name = 'enrollment_data';
+    }else if(val == '2023-2024 Enrollment Agreement'){
+        form_table_name = 'bill_ach';
+    }
     document.querySelector('[id="applicationStatusLabel"]').innerHTML = `${val} :`;
+    const tableBody = document.getElementById('tableBody');
+    tableBody.innerHTML = ''; // Clear existing content
+
+    $.ajax({
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/${form_table_name}/all_form_status `,
+        type: 'get',
+        success: function (response1) {
+            console.log(response1);
+            $.ajax({
+                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/admission_status_info`,
+                type: 'get',
+                success: function (response) {
+                    let responseValue = Object.values(response);
+                    console.log(responseValue);
+                    if (Array.isArray(responseValue)) {
+                        const tableBody = document.getElementById('tableBody');
+                        tableBody.innerHTML = ''; // Clear existing content
+                
+                        // for (let i = 0; i < responseValue.length; i++) {
+                        //     const rowData = responseValue[i];
+                            for (let j = 0; j <responseValue.length; j++) {
+                                console.log(responseValue[j].child_name);
+                
+                                // Create a new row for each data set
+                                const row = document.createElement('tr');
+                                // Create cell for child name
+                                const childNameCell = document.createElement('td');
+                                const childNameaCell = document.createElement('a');
+                                childNameaCell.textContent = responseValue[j].child_name;
+                               
+                                if(val == 'ACH Recurring payments form'){
+                                    childNameaCell.href = `authorization_form.html?id=${responseValue[j].child_id}`;
+                                }else{
+                                    childNameaCell.href = `form.html?id=${responseValue[j].child_id}`;
+                                }
+                                childNameCell.appendChild(childNameaCell);
+                                row.appendChild(childNameaCell);
+                                
+                    
+                                // Create cell for parent name
+                                const parentNameCell = document.createElement('td');
+                                parentNameCell.textContent = responseValue[j].parent_name;
+                                row.appendChild(parentNameCell);
+        
+                                const applicationStatusCell = document.createElement('td');
+                                applicationStatusCell.textContent = responseValue[j].admission_form_status;
+                                row.appendChild(applicationStatusCell);
+
+                                console.log(response1[j].form_status);
+                                const enrollmentStatusCell = document.createElement('td');
+                                enrollmentStatusCell.textContent = response1[j].form_status;
+                                row.appendChild(enrollmentStatusCell);
+        
+                                // Apply styles based on enrollment status
+                                if (response1[j].form_status === "Completed") {
+                                    enrollmentStatusCell.style.color = 'green';
+                                    enrollmentStatusCell.style.fontWeight = 'bold';
+                                } else if (response1[j].form_status === "Incomplete") {
+                                    enrollmentStatusCell.style.color = 'red';
+                                    enrollmentStatusCell.style.fontWeight = 'bold';
+                                } else {
+                                    enrollmentStatusCell.style.color = '#FFCC00';
+                                    enrollmentStatusCell.style.fontWeight = 'bold';
+                                }
+                    
+                                // Append the row to the table body
+                                tableBody.appendChild(row);
+                            }
+                        // }
+                    }
+                }
+            });
+        }
+    });
 
 }
 function formNameDetails() {
@@ -189,7 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.style.visibility = 'visible';
     let defaultdate = new Date().getFullYear();
     // parentDashBoardDetails(defaultdate);
-    applicationStatusYear(defaultdate);
+    applicationStatusYear();
     applicationStatusAllYear();
 
      // Attach an event listener to the search input

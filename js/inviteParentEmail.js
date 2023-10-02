@@ -9,9 +9,11 @@ const s3 = new AWS.S3();
 
 let obj = {
     "from": "noreply.goddard@gmail.com",
-    "to": "aarthi.arjava@gmail.com",
+    "to": "noreply.goddard@gmail.com",
     "subject": "subject",
-    "body": "message data"
+    "body": "You are invited",
+    "attachmentName": "AttachmentForm",
+    "attachmentKey": "attachments/Test.pdf"
 }
 
 
@@ -20,12 +22,12 @@ async function emailSend() {
         // const base64Data = await getPDFBase64Data();
         // obj.attachmentName = "AttachmentForm";
         // obj.from = "goddard01arjava@gmail.com";
-        // let email_to =  $('#parent_one_email').val();
-        // obj.to = email_to;
-        // console.log(obj.to);
+        let email_to =  $('#parent_email').val();
+        obj.to = email_to;
+        console.log(obj.to);
         obj.subject = 'Invite parents';
         let messageData = $('#messageData').val();
-        obj.body = messageData;
+        obj.attachmentKey = messageData;
         console.log(obj);
 
         // const attachmentKey = await uploadBase64PDFToS3( title + ' CHILD_ID');
@@ -36,7 +38,8 @@ async function emailSend() {
             contentType: "application/json",
             data: JSON.stringify(obj),
             success: function (response) {
-                alert("Email Sent Successfully")
+                alert("Email Sent Successfully");
+                window.location.reload();
             },
             error: function (xhr, status, error) {
                 console.log(xhr);

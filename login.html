@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>Login and Sign Up</title>
+        <title>Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
         <link rel="stylesheet" href="css/navbar_signout_style.css">
@@ -42,18 +42,10 @@
                             </div>
                         </div>
                         <div class=" text-center"><img src="image/gs_logo_tab.png" type="image/png"></div><br>
-                        <ul class="nav nav-pills nav-fill gap-2 p-1 small rounded-5 shadow-sm nav_tab_bg" id="pillNav2" role="tablist">
-                            <li class="nav-item" role="presentation">
-                              <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="true" href="#login">Login</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                              <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false" href="#signup">Sign Up</button>
-                            </li>
-                        </ul>
-                         <!-- Tab panes -->
-                        <div class="tab-content">
-                            
-                            <form id="login" class="container tab-pane active"><br>
+                       
+                         <!-- Login -->
+                        <div class="container">
+                            <form id="login"><br>
                                 <div class="form-group">
                                     <label for="login_email" class="form-label"><b>Email
                                         <span style="color:#ff0000;">*</span></b></label><br>
@@ -74,38 +66,8 @@
                                 </div><br>
                                 <div class="text-center">
                                     <a href="reset_password.html" class="fs-5 for_pwd" style="color: #0F2D52;">Forgot Password?</a>
-                                </div> 
+                                </div>
                             </form>
-                            <form id="signup" class="container tab-pane fade"><br>
-                                <div class="form-group">
-                                    <label for="user_email" class="form-label"><b>Email
-                                        <span style="color:#ff0000;">*</span></b></label><br>
-                                        <input type="email" class="form-control wizard-required" id="user_email" name="user_email"
-                                        onchange="emailValidation(this,'user_email_span')">
-                                    <span id="user_email_span" style="color:red; display:none">
-                                        Enter valid input [should be in @ and .].</span>
-                                        <div class="wizard-form-error"></div>
-                                </div><br>
-                                <div class="form-group">
-                                    <label for="signup_pswd" class="form-label"><b>Password
-                                        <span style="color:#ff0000;">*</span></b></label><br>
-                                        <input type="password" class="form-control wizard-required" id="signup_pswd"
-                                        name="signup_pswd">
-                                        <div class="wizard-form-error"></div>
-                                </div><br>
-                                <div class="form-group">
-                                    <label for="password" class="form-label"><b>Confirm Password
-                                        <span style="color:#ff0000;">*</span></b></label><br>
-                                        <input type="password" class="form-control wizard-required" id="password" name="password"
-                                        onchange="validatePassword()">
-                                    <span id="password_span" style="color:red; display:none">
-                                       password mismatched.</span>
-                                        <div class="wizard-form-error"></div>
-                                </div><br>
-                                <div class="d-grid">
-                                  <button type="button" class="btn signup_btn btn-block shadow-none" id="signupButton">Sign Up</button>
-                                </div>  
-                            </form><br>
                         </div>
                     </div>
                 </div>
@@ -154,7 +116,7 @@
                 formData.set("password", hashedPassword);
                 const obj = Object.fromEntries(formData);
                 console.log(obj);
-                if(obj.user_email === 'goddard01arjava@gmail.com' || obj.user_email === 'goddard02arjava@gmail.com' || obj.user_email === 's_kaliappan@hotmail.com'){
+                if(obj.user_email === 'goddard01arjava@gmail.com' || obj.user_email === 'goddard02arjava@gmail.com'){
                     obj.is_admin = true;
                 }else{
                     obj.is_admin = false;
@@ -191,7 +153,7 @@
                         let isAuthenticated = false;
 
                         for (let i = 0; i < response.length; i++) {
-                            if(user_email === 'goddard01arjava@gmail.com' || user_email === 'goddard02arjava@gmail.com' || user_email === 's_kaliappan@hotmail.com'){
+                            if(user_email === 'goddard01arjava@gmail.com' || user_email === 'goddard02arjava@gmail.com'){
                                 if (user_email === response[i].user_email ) {
                                     const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
                                     console.log(storedPasswordHash);
@@ -236,7 +198,7 @@
                         alert("form submit failed");
                     }
                 });
-                if (user_email === 'goddard01arjava@gmail.com' || user_email === 'goddard01arjava@gmail.com' || user_email === 's_kaliappan@hotmail.com'){
+                if (user_email === 'goddard01arjava@gmail.com' || user_email === 'goddard01arjava@gmail.com'){
                     const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
                     console.log(storedPasswordHash);
                         // Hash the user-typed password using the same algorithm and parameters

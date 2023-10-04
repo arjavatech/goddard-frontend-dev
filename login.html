@@ -75,7 +75,7 @@
         </div>
         <!-- Login Card End -->
         <script>
-            document.getElementById('password_span').style.display = "none";
+            // document.getElementById('password_span').style.display = "none";
             function validatePassword() {
                 // Retrieve password input values
                 let password1 = document.getElementById('signup_pswd').value;
@@ -101,44 +101,6 @@
                     inputtxtID.focus();
                 }
             }
-            function signupFunction() {
-                const form = document.getElementById("signup");
-                const formData = new FormData(form);
-                console.log(formData);
-                const password = formData.get("password");
-
-
-                // Hash the password
-                const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-                console.log(hashedPassword);
-                
-                // Replace the original password with the hashed password in the form data
-                formData.set("password", hashedPassword);
-                const obj = Object.fromEntries(formData);
-                console.log(obj);
-                if(obj.user_email === 'goddard01arjava@gmail.com' || obj.user_email === 'goddard02arjava@gmail.com'){
-                    obj.is_admin = true;
-                }else{
-                    obj.is_admin = false;
-                }
-
-                $.ajax({
-                    url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/login/add",
-                    type: "POST",
-                    contentType: "application/json",
-                    data: JSON.stringify(obj),
-                    success: function (response) {
-                        console.log(response);
-                        window.location.href = "login.html";
-                        alert("form submitted successfully");
-                    },
-                    error: function (xhr, status, error) {
-                        console.log(error);
-                        alert("form submit failed");
-                    }
-                });
-            }
-
 
             function loginFunction() {
                 const user_email = document.getElementById('login_email').value;
@@ -218,10 +180,6 @@
                 }
             }
             $(document).ready(function () {
-                $("#signupButton").on("click", function (e) {
-                    e.preventDefault(); // Prevent the default form submission
-                    signupFunction();
-                });
                 $("#loginButton").on("click", function (e) {
                     e.preventDefault(); // Prevent the default form submission
                     loginFunction();

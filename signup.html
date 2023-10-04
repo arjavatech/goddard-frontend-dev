@@ -142,93 +142,10 @@
                     }
                 });
             }
-
-
-            function loginFunction() {
-                const user_email = document.getElementById('login_email').value;
-                const password = document.getElementById('login_pswd').value;
-                console.log(password);
-                
-                $.ajax({
-                    url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/login/all",
-                    type: "GET",
-                    success: function (response) {
-                        console.log(response);
-                        let isAuthenticated = false;
-
-                        for (let i = 0; i < response.length; i++) {
-                            if(user_email === 'goddard01arjava@gmail.com' || user_email === 'goddard02arjava@gmail.com'){
-                                if (user_email === response[i].user_email ) {
-                                    const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
-                                    console.log(storedPasswordHash);
-
-                                    // Hash the user-typed password using the same algorithm and parameters
-                                    const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-                                    console.log(hashedUserPassword);
-                                    if (hashedUserPassword === storedPasswordHash) {
-                                        isAuthenticated = true;
-                                        localStorage.setItem('logged_in_email', user_email);
-                                        window.location.href = "admin_dashboard.html";
-                                        break; // Exit the loop since we found a match
-                                    }
-                                }
-                            }else if (user_email === response[i].user_email ) {
-                                const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
-                                console.log(storedPasswordHash);
-
-                                // Hash the user-typed password using the same algorithm and parameters
-                                const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-                                console.log(hashedUserPassword);
-                                if (hashedUserPassword === storedPasswordHash) {
-                                    isAuthenticated = true;
-                                    localStorage.setItem('logged_in_email', user_email);
-                                    window.location.href = "child_add.html";
-                                    break; // Exit the loop since we found a match
-                                }
-                            }
-
-                        }
-
-                        if (!isAuthenticated) {
-                            // Authentication failed
-                            let spanMsg = document.getElementById("errorMessage");
-                            let spanMsgDiv = document.getElementById("errorMessageDiv");
-                            spanMsgDiv.style.display = "block";
-                            spanMsg.style.display = "block";
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        console.log(error);
-                        alert("form submit failed");
-                    }
-                });
-                if (user_email === 'goddard01arjava@gmail.com' || user_email === 'goddard01arjava@gmail.com'){
-                    const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
-                    console.log(storedPasswordHash);
-                        // Hash the user-typed password using the same algorithm and parameters
-                        const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-                    console.log(hashedUserPassword);
-                    if (hashedUserPassword === storedPasswordHash) {
-                        // isAuthenticated = true;
-                        localStorage.setItem('logged_in_email', user_email);
-                        window.location.href = "admin_dashboard.html";
-                        // break; // Exit the loop since we found a match
-                    }else{
-                        let spanMsg = document.getElementById("errorMessage");
-                            let spanMsgDiv = document.getElementById("errorMessageDiv");
-                            spanMsgDiv.style.display = "block";
-                            spanMsg.style.display = "block";
-                    }
-                }
-            }
             $(document).ready(function () {
                 $("#signupButton").on("click", function (e) {
                     e.preventDefault(); // Prevent the default form submission
                     signupFunction();
-                });
-                $("#loginButton").on("click", function (e) {
-                    e.preventDefault(); // Prevent the default form submission
-                    loginFunction();
                 });
             });
         </script>

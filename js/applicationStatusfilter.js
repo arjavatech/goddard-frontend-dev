@@ -78,7 +78,7 @@ function applicationStatusYear() {
                         const reviewingOption = document.createElement('option');
                         reviewingOption.value = 'Reviewing';
                         reviewingOption.textContent = 'Reviewing';
-                        reviewingOption.style.color = 'yellow';
+                        reviewingOption.style.color = '#a5a202';
 
                         const incompleteOption = document.createElement('option');
                         incompleteOption.value = 'Incomplete';
@@ -108,7 +108,7 @@ function applicationStatusYear() {
                             enrollmentStatusCell.style.color = 'red';
                             enrollmentStatusCell.style.fontWeight = 'bold';
                         } else {
-                            enrollmentStatusCell.style.color = '#FFCC00';
+                            enrollmentStatusCell.style.color = '#a5a202';
                             enrollmentStatusCell.style.fontWeight = 'bold';
                         }
             
@@ -317,16 +317,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //for pagination code
     // Number of rows to display per page
-    const rowsPerPage = 5;
+    const rowsPerPage = 2;
     let currentPage = 1;
     
     // Function to update the table based on the current page
     function updateTable() {
         const tableRows = document.querySelectorAll("#tableBody tr");
         const startIndex = (currentPage - 1) * rowsPerPage;
+        console.log(startIndex);
         const endIndex = currentPage * rowsPerPage;
+        console.log(endIndex);
     
         tableRows.forEach((row, index) => {
+            console.log(row);
+            console.log(index);
             if (index >= startIndex && index < endIndex) {
                 row.style.display = "";
             } else {
@@ -379,7 +383,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (index >= rowsPerPage) {
                 row.style.display = "none";
             }
-        });
+        });   
     }
     
 

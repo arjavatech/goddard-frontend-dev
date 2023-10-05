@@ -205,7 +205,7 @@ function parentDashBoardDetails(val) {
                                 formStatusCell.style.color = 'red';
                                 formStatusCell.style.fontWeight = 'bold';
                             } else {
-                                formStatusCell.style.color = '#FFCC00';
+                                formStatusCell.style.color = '#a5a202';
                                 formStatusCell.style.fontWeight = 'bold';
                             }
                         });
@@ -228,7 +228,7 @@ function parentDashBoardDetails(val) {
                                 formStatusCell.style.color = 'red';
                                 formStatusCell.style.fontWeight = 'bold';
                             } else {
-                                formStatusCell.style.color = '#FFCC00';
+                                formStatusCell.style.color = '#a5a202';
                                 formStatusCell.style.fontWeight = 'bold';
                             }
                         });
@@ -244,7 +244,7 @@ function parentDashBoardDetails(val) {
                             formStatusCell.style.color = 'red';
                             formStatusCell.style.fontWeight = 'bold';
                         } else {
-                            formStatusCell.style.color = '#FFCC00';
+                            formStatusCell.style.color = '#a5a202';
                             formStatusCell.style.fontWeight = 'bold';
                         }
                     }

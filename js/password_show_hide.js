@@ -1,14 +1,22 @@
-feather.replace({ 'aria-hidden': 'true' });
+ // Toggle Password Visibility
+ $(".togglePassword").click(function () {
+    togglePasswordVisibility($(this), ".password");
+});
 
-$(".togglePassword").click(function (e) {
-      e.preventDefault();
-      var type = $(this).parent().parent().find(".password").attr("type");
-      console.log(type);
-      if(type == "password"){
-          $("svg.feather.feather-eye").replaceWith(feather.icons["eye-off"].toSvg());
-          $(this).parent().parent().find(".password").attr("type","text");
-      }else if(type == "text"){
-          $("svg.feather.feather-eye-off").replaceWith(feather.icons["eye"].toSvg());
-          $(this).parent().parent().find(".password").attr("type","password");
-      }
-  });
+// Toggle Confirm Password Visibility
+$(".toggleConfirmPassword").click(function () {
+    togglePasswordVisibility($(this), ".confirm-password");
+});
+
+function togglePasswordVisibility(iconElement, passwordFieldSelector) {
+    var passwordField = $(passwordFieldSelector);
+    var type = passwordField.attr("type");
+
+    if (type === "password") {
+        iconElement.find("i").removeClass("fa-eye").addClass("fa-eye-slash");
+        passwordField.attr("type", "text");
+    } else if (type === "text") {
+        iconElement.find("i").removeClass("fa-eye-slash").addClass("fa-eye");
+        passwordField.attr("type", "password");
+    }
+}

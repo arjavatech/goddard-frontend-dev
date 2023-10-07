@@ -49,40 +49,43 @@
                             <form id="signup"><br>
                                 <div class="form-group">
                                     <label for="user_email" class="form-label"><b>Email
-                                        <span style="color:#ff0000;">*</span></b></label><br>
-                                        <input type="email" class="form-control wizard-required" id="user_email" name="user_email"
+                                        <span style="color:#ff0000;">*</span></b>
+                                    </label><br>
+                                    <input type="email" class="form-control wizard-required" id="user_email" name="user_email"
                                         onchange="emailValidation(this,'user_email_span')">
                                     <span id="user_email_span" style="color:red; display:none">
                                         Enter valid input [should be in @ and .].</span>
-                                        <div class="wizard-form-error"></div>
+                                    <div class="wizard-form-error"></div>
                                 </div><br>
                                 <div class="form-group">
                                     <label for="signup_pswd" class="form-label"><b>New Password
-                                        <span style="color:#ff0000;">*</span></b></label><br>
-                                        <div class="input-group">
-                                            <input type="password" class="form-control password" id="signup_pswd"  name="signup_pswd">
-                                            <span class="input-group-text togglePassword" style="cursor: pointer;">
-                                                <i class="fas fa-eye"></i>
-                                            </span>
-                                        </div>
-                                        <div class="wizard-form-error"></div>
+                                        <span style="color:#ff0000;">*</span></b>
+                                    </label><br>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control password" id="signup_pswd"  name="signup_pswd">
+                                        <span class="input-group-text togglePassword" style="cursor: pointer;">
+                                            <i class="fas fa-eye"></i>
+                                        </span>
+                                    </div>
+                                    <div class="wizard-form-error"></div>
                                 </div><br>
                                 <div class="form-group">
                                     <label for="password" class="form-label"><b>Confirm Password
-                                        <span style="color:#ff0000;">*</span></b></label><br>
-                                        <div class="input-group">
-                                            <input type="password" class="form-control confirm-password" id="password" 
-                                             name="password" onchange="validatePassword()">
-                                            <span class="input-group-text toggleConfirmPassword" style="cursor: pointer;">
-                                                <i class="fas fa-eye"></i>
-                                            </span>
-                                        </div>
-                                            <!-- <span id="reset_password_span" style="color:red; display:none">
-                                                password mismatched.</span>
-                                            <div class="wizard-form-error"></div> -->
+                                        <span style="color:#ff0000;">*</span></b>
+                                    </label><br>
+                                    <div class="input-group">
+                                        <input type="password" class="form-control confirm-password" id="password" 
+                                            name="password" onchange="validatePassword()">
+                                        <span class="input-group-text toggleConfirmPassword" style="cursor: pointer;">
+                                            <i class="fas fa-eye"></i>
+                                        </span>
+                                    </div>
+                                    <!-- <span id="reset_password_span" style="color:red; display:none">
+                                        password mismatched.</span>
+                                    <div class="wizard-form-error"></div> -->
                                 </div><br>
                                 <div class="d-grid">
-                                  <button type="button" class="btn signup_btn btn-block shadow-none" id="signupButton">Sign Up</button>
+                                    <button type="button" class="btn signup_btn btn-block shadow-none" id="signupButton">Sign Up</button>
                                 </div><br>  
                                 <div class="text-center">
                                     <span class="fs-5">Already have an account?</span>&nbsp;<a href="login.html" class="fs-5 for_pwd" style="color: #0F2D52;">Login</a>
@@ -134,7 +137,6 @@
                     const formData = new FormData(form);
                     console.log(formData);
                     const password = formData.get("password");
-
 
                     // Hash the password
                     const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);

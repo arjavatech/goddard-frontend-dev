@@ -64,8 +64,7 @@
                                                         <label for="child_full_name" class="form-label"><b>CHILD’S FULL NAME
                                                             <span style="color:#ff0000;">*</span></b></label><br>
                                                         <input name="child_full_name" type="text" maxlength="20" 
-                                                        class="form-control wizard-required" id="child_full_name">
-                                                        <div class="wizard-form-error"></div>
+                                                        class="form-control " id="child_full_name">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
@@ -74,8 +73,7 @@
                                                                 <span style="color:#ff0000;">*</span></b>
                                                         </label>
                                                         <input name="nick_name" type="text" maxlength="50"
-                                                            class="form-control wizard-required" id="nick_name">
-                                                        <div class="wizard-form-error"></div>
+                                                            class="form-control " id="nick_name">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
@@ -84,9 +82,8 @@
                                                             <span style="color:#ff0000;">*</span></b>
                                                         </label>
                                                         <input name="dob" type="date" maxlength="50"
-                                                            class="form-control wizard-required" id="dob"
+                                                            class="form-control " id="dob"
                                                             onclick="dateValidation('dob')">
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -100,35 +97,31 @@
                                                         <div class="col-sm">
                                                             <div class="form-group">
                                                                 <label for="child_street_address" class="form-label">STREET <span style="color:#ff0000;">*</span></label>
-                                                                <input type="text" class="form-control wizard-required"
+                                                                <input type="text" class="form-control "
                                                                     id="child_street_address" name="child_street_address">
-                                                                    <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
                                                             <div class="form-group">
                                                                 <label for="child_city_address" class="form-label">CITY <span style="color:#ff0000;">*</span></label>
-                                                                <input type="text" class="form-control wizard-required"
+                                                                <input type="text" class="form-control "
                                                                 id="child_city_address" name="child_city_address">
-                                                                <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
                                                             <div class="form-group">
                                                                 <label for="child_state_address" class="form-label">STATE <span style="color:#ff0000;">*</span></label>
-                                                                <input type="text" class="form-control wizard-required"
+                                                                <input type="text" class="form-control "
                                                                 id="child_state_address" name="child_state_address">
-                                                                <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
                                                             <div class="form-group">
                                                                 <label for="child_zip_address" class="form-label">ZIP <span style="color:#ff0000;">*</span></label>
-                                                                <input type="text" class="form-control wizard-required" id="child_zip_address" name="child_zip_address" 
+                                                                <input type="text" class="form-control " id="child_zip_address" name="child_zip_address" 
                                                                 onchange="ValidatePincode (this,'child_zip_address_span')">                                                     
                                                                 <span id="child_zip_address_span" style="color:red; display:none">
                                                                 Enter valid input [only numbers].</span>
-                                                                <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -139,9 +132,8 @@
                                                 <div class="col-sm">
                                                     <div class="form-group">
                                                         <label for="primary_language" class="form-label">PRIMARY LANGUAGE <span style="color:#ff0000;">*</span></label>
-                                                        <input type="text" class="form-control wizard-required" aria-label="Telephone Number"
+                                                        <input type="text" class="form-control " aria-label="Telephone Number"
                                                             id="primary_language" name="primary_language">
-                                                            <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
@@ -149,9 +141,8 @@
                                                         <label for="school_age_child_school" class="form-label">SCHOOL-AGE CHILD’S SCHOOL
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="school_age_child_school"
+                                                        <input type="text" class="form-control " id="school_age_child_school"
                                                             name="school_age_child_school">
-                                                            <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -175,7 +166,7 @@
                                                 </div>
                                                 <div id="gender" class="col-sm">
                                                     <div class="form-group">
-                                                        <p><b>GENDER<span style="color:#ff0000;">*</span></b></p>
+                                                        <p><b>GENDER <span style="color:#ff0000;">*</span></b></p>
                                                         <div class="wizard-form-radio">
                                                             <input name="gender" id="gender1" value="Male" type="radio" checked>
                                                             <label for="gender1">Male</label>
@@ -205,8 +196,7 @@
                                                                 <label for="parent1_name" class="form-label">PARENT’S / LEGAL GUARDIAN’S NAME
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="parent1_name" name="parent1_name">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="text" class="form-control " id="parent1_name" name="parent1_name">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -222,9 +212,8 @@
                                                                         <label for="parent1_street_address" class="form-label">STREET
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="text" class="form-control wizard-required"
-                                                                            id="parent1_street_address" name="parent1_street_address">
-                                                                            <div class="wizard-form-error"></div>
+                                                                        <input type="text" class="form-control" id="parent1_street_address" 
+                                                                        name="parent1_street_address" onchange="autoPopulateAddress(this.value,'parent2_street_address')">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm">
@@ -232,9 +221,8 @@
                                                                         <label for="parent1_city_address" class="form-label">CITY
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="text" class="form-control wizard-required"
-                                                                        id="parent1_city_address" name="parent1_city_address">
-                                                                        <div class="wizard-form-error"></div>
+                                                                        <input type="text" class="form-control " id="parent1_city_address" 
+                                                                        name="parent1_city_address" onchange="autoPopulateAddress(this.value,'parent2_city_address')">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm">
@@ -242,9 +230,8 @@
                                                                         <label for="parent1_state_address" class="form-label">STATE
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="text" class="form-control wizard-required"
-                                                                        id="parent1_state_address" name="parent1_state_address">
-                                                                        <div class="wizard-form-error"></div>
+                                                                        <input type="text" class="form-control " id="parent1_state_address"
+                                                                         name="parent1_state_address" onchange="autoPopulateAddress(this.value,'parent2_state_address')">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -254,12 +241,11 @@
                                                                         <label for="parent1_zip_address" class="form-label">ZIP
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="text" class="form-control wizard-required"
+                                                                        <input type="text" class="form-control "
                                                                             id="parent1_zip_address" name="parent1_zip_address"
-                                                                            onchange="ValidatePincode (this,'parent1_zip_address_span')">                                                     
-                                                                            <span id="parent1_zip_address_span" style="color:red; display:none">
-                                                                            Enter valid input [only numbers].</span>
-                                                                            <div class="wizard-form-error"></div>
+                                                                            onchange="ValidatePincode (this,'parent1_zip_address_span'),autoPopulateAddress(this.value,'parent2_zip_address')">                                                     
+                                                                        <span id="parent1_zip_address_span" style="color:red; display:none">
+                                                                        Enter valid input [only numbers].</span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm">
@@ -267,12 +253,11 @@
                                                                         <label for="home_telephone_number1" class="form-label">TELEPHONE NUMBER
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="text" class="form-control wizard-required" aria-label="Telephone Number" id="home_telephone_number1"
+                                                                        <input type="text" class="form-control " aria-label="Telephone Number" id="home_telephone_number1"
                                                                             name="home_telephone_number1"
                                                                             onchange="validatePhone(this,'home_telephone_number1_span')">
                                                                         <span id="home_telephone_number1_span" style="color:red; display:none">
                                                                             Enter valid input [only numbers,+,-,()].</span>
-                                                                            <div class="wizard-form-error"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -286,8 +271,7 @@
                                                                 <label for="business1_name" class="form-label">BUSINESS NAME
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="business1_name" name="business1_name">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="text" class="form-control " id="business1_name" name="business1_name">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -295,8 +279,7 @@
                                                                 <label for="work_hours1" class="form-label">WORK HOURS
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="work_hours1" name="work_hours1">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="text" class="form-control " id="work_hours1" name="work_hours1">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -304,12 +287,11 @@
                                                                 <label for="business_telephone_number1" class="form-label">BUSINESS TELEPHONE NUMBER
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required"
+                                                                <input type="text" class="form-control "
                                                                     id="business_telephone_number1" name="business_telephone_number1"
                                                                     onchange="validatePhone(this,'business_telephone_number1_span')">
                                                                 <span id="business_telephone_number1_span" style="color:red; display:none">
                                                                     Enter valid input [only numbers,+,-,()].</span>
-                                                                    <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -325,9 +307,8 @@
                                                                         <label for="business_street_address1" class="form-label">STREET
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="text" class="form-control wizard-required" id="business_street_address1"
-                                                                            name="business_street_address1">
-                                                                            <div class="wizard-form-error"></div>
+                                                                        <input type="text" class="form-control " id="business_street_address1"
+                                                                            name="business_street_address1" onchange="autoPopulateAddress(this.value,'business_street_address2')">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm">
@@ -335,9 +316,8 @@
                                                                         <label for="business_city_address1" class="form-label">CITY
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="text" class="form-control wizard-required" id="business_city_address1"
-                                                                        name="business_city_address1">
-                                                                       <div class="wizard-form-error"></div>
+                                                                        <input type="text" class="form-control " id="business_city_address1"
+                                                                        name="business_city_address1" onchange="autoPopulateAddress(this.value,'business_city_address2')">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm">
@@ -345,9 +325,8 @@
                                                                         <label for="business_state_address1" class="form-label">STATE
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="text" class="form-control wizard-required" id="business_state_address1"
-                                                                        name="business_state_address1">
-                                                                       <div class="wizard-form-error"></div>
+                                                                        <input type="text" class="form-control " id="business_state_address1"
+                                                                        name="business_state_address1" onchange="autoPopulateAddress(this.value,'business_state_address2')">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm">
@@ -355,12 +334,11 @@
                                                                         <label for="business_zip_address1" class="form-label">ZIP
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="text" class="form-control wizard-required"
+                                                                        <input type="text" class="form-control "
                                                                             id="business_zip_address1" name="business_zip_address1" 
-                                                                            onchange="ValidatePincode (this,'business_zip_address1_span')">                                                     
-                                                                            <span id="business_zip_address1_span" style="color:red; display:none">
-                                                                            Enter valid input [only numbers].</span>
-                                                                            <div class="wizard-form-error"></div>
+                                                                            onchange="ValidatePincode (this,'business_zip_address1_span'),autoPopulateAddress(this.value,'business_zip_address2')">                                                     
+                                                                        <span id="business_zip_address1_span" style="color:red; display:none">
+                                                                        Enter valid input [only numbers].</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -373,12 +351,11 @@
                                                                 <label for="business_cell_number1" class="form-label">CELL NUMBER
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" aria-label="Telephone Number"
+                                                                <input type="text" class="form-control " aria-label="Telephone Number"
                                                                     id="business_cell_number1" name="business_cell_number1"
                                                                     onchange="validatePhone(this,'business_cell_number1_span')">
                                                                 <span id="business_cell_number1_span" style="color:red; display:none">
                                                                     Enter valid input [only numbers,+,-,()].</span>
-                                                                    <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -386,11 +363,10 @@
                                                                 <label for="parent_email_one" class="form-label">EMAIL ADDRESS
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="parent_email_one" name="parent_email_one"
+                                                                <input type="text" class="form-control " id="parent_email_one" name="parent_email_one"
                                                                     onchange="emailValidation(this,'parent_email_one_span')">
                                                                 <span id="parent_email_one_span" style="color:red; display:none">
                                                                     Enter valid input [should be in @ and .].</span>
-                                                                    <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -399,7 +375,7 @@
                                             </div>
                                             <!-- Parent's or legal guardian's details End -->
                                             <!-- Additional Parent's or legal guardian's details -->
-                                            <div class="row m-3">
+                                            <!-- <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group wizard-form-checkbox">
                                                         <input type="checkbox" class="input-checkbox" id="additional_parent_details"
@@ -412,9 +388,9 @@
                                                         </label>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="panel panel-info m-4" id="additional_parent_info"
-                                                style="display:none">
+                                               >
                                                 <div class="panel-heading">
                                                     <h3 class="panel-title text-center"><b>PARENT’S / LEGAL GUARDIAN’S
                                                             DETAILS</b></h3>
@@ -470,7 +446,6 @@
                                                                             onchange="ValidatePincode (this,'parent2_zip_address_span')">                                                     
                                                                             <span id="parent2_zip_address_span" style="color:red; display:none">
                                                                             Enter valid input [only numbers].</span>
-                                                                            <!-- <div class="wizard-form-error"></div> -->
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm">
@@ -482,7 +457,6 @@
                                                                             name="home_telephone_number2" onchange="validatePhone(this,'home_telephone_number2_span')">
                                                                         <span id="home_telephone_number2_span" style="color:red; display:none">
                                                                             Enter valid input [only numbers,+,-,()].</span>
-                                                                            <!-- <div class="wizard-form-error"></div> -->
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -497,7 +471,6 @@
                                                                     <!-- <span style="color:#ff0000;">*</span> -->
                                                                 </label>
                                                                 <input type="text" class="form-control " id="business2_name" name="business2_name">
-                                                                <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -506,7 +479,6 @@
                                                                     <!-- <span style="color:#ff0000;">*</span> -->
                                                                 </label>
                                                                 <input type="text" class="form-control " id="work_hours2" name="work_hours2">
-                                                                <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -518,7 +490,6 @@
                                                                     onchange="validatePhone(this,'business_telephone_number2_span')">
                                                                 <span id="business_telephone_number2_span" style="color:red; display:none">
                                                                     Enter valid input [only numbers,+,-,()].</span>
-                                                                    <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -575,7 +546,6 @@
                                                                     onchange="validatePhone(this,'business_cell_number2_span')">
                                                                 <span id="business_cell_number2_span" style="color:red; display:none">
                                                                     Enter valid input [only numbers,+,-,()].</span>
-                                                                    <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -587,7 +557,6 @@
                                                                     onchange="emailValidation(this,'parent_email_two_span')">
                                                                 <span id="parent_email_two_span" style="color:red; display:none">
                                                                     Enter valid input [should be in @ and .].</span>
-                                                                    <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -612,9 +581,8 @@
                                                                         <label for="emergency_contact_name1" class="form-label">NAME
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="text" class="form-control wizard-required" aria-label="Emergency Name" id="emergency_contact_name1"
+                                                                        <input type="text" class="form-control " aria-label="Emergency Name" id="emergency_contact_name1"
                                                                             name="emergency_contact_name1">
-                                                                        <div class="wizard-form-error"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm">
@@ -622,9 +590,8 @@
                                                                         <label for="emergency_contact_full_address1" class="form-label">FULL ADDRESS
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="text" class="form-control wizard-required" aria-label="emergency_address"
+                                                                        <input type="text" class="form-control " aria-label="emergency_address"
                                                                             id="emergency_contact_full_address1" name="emergency_contact_full_address1">
-                                                                            <div class="wizard-form-error"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -634,9 +601,8 @@
                                                                         <label for="emergency_contact_relationship1" class="form-label">RELATIONSHIP
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="text" class="form-control wizard-required" aria-label="Emergency Relationship"
+                                                                        <input type="text" class="form-control " aria-label="Emergency Relationship"
                                                                             id="emergency_contact_relationship1" name="emergency_contact_relationship1">
-                                                                            <div class="wizard-form-error"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm">
@@ -644,12 +610,11 @@
                                                                         <label for="emergency_contact_telephone_number1" class="form-label">TELEPHONE NUMBER
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="text" class="form-control wizard-required" aria-label="Emergency Relationship"
+                                                                        <input type="text" class="form-control " aria-label="Emergency Relationship"
                                                                             id="emergency_contact_telephone_number1" name="emergency_contact_telephone_number1"
                                                                             onchange="validatePhone(this,'emergency_contact_telephone_number1_span')">
                                                                         <span id="emergency_contact_telephone_number1_span" style="color:red; display:none">
                                                                             Enter valid input [only numbers,+,-,()].</span>
-                                                                            <div class="wizard-form-error"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -657,110 +622,103 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                                <!-- Additional emergency contact person details end -->
-                                                <!-- Medical information -->
-                                                <div class="panel panel-default m-4">
-                                                        <div class="panel-heading">
-                                                            <h5 class="panel-title text-center"><b>PHYSICIAN /MEDICAL CARE
-                                                                    PROVIDER DETAILS</b></h5>
-                                                        </div>
-                                                        <!-- Medical care provider details -->
-                                                        <div class="panel-body">
-                                                            <div class="row m-3">
-                                                                <div class="col-sm">
-                                                                    <div class="form-group">
-                                                                        <label for="child_care_provider_name3" class="form-label">NAME OF CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER
-                                                                            <span style="color:#ff0000;">*</span>
-                                                                        </label>
-                                                                        <input type="text" class="form-control wizard-required" 
-                                                                        id="child_care_provider_name3" name="child_care_provider_name3">
-                                                                        <div class="wizard-form-error"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row m-3">
-                                                                <div class="col-sm">
-                                                                    <div class="form-group">
-                                                                        <label for="care_provider_telephone_number3" class="form-label">TELEPHONE NUMBER
-                                                                            <span style="color:#ff0000;">*</span>
-                                                                        </label>
-                                                                        <input type="text" class="form-control wizard-required" id="care_provider_telephone_number3"
-                                                                            name="care_provider_telephone_number3" onchange="validatePhone(this,'care_provider_telephone_number3_span')">
-                                                                        <span id="care_provider_telephone_number3_span" style="color:red; display:none">
-                                                                            Enter valid input [only numbers,+,-,()].</span>
-                                                                            <div class="wizard-form-error"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm">
-                                                                    <div class="form-group">
-                                                                        <label for="hospital_affiliation3" class="form-label">HOSPITAL AFFILIATION
-                                                                            <span style="color:#ff0000;">*</span>
-                                                                        </label>
-                                                                        <input type="text" class="form-control wizard-required" id="hospital_affiliation3" name="hospital_affiliation3">
-                                                                        <div class="wizard-form-error"></div>
-                                                                    </div>
+                                            <!-- Additional emergency contact person details end -->
+                                            <!-- Medical information -->
+                                            <div class="panel panel-default m-4">
+                                                    <div class="panel-heading">
+                                                        <h5 class="panel-title text-center"><b>PHYSICIAN /MEDICAL CARE
+                                                                PROVIDER DETAILS</b></h5>
+                                                    </div>
+                                                    <!-- Medical care provider details -->
+                                                    <div class="panel-body">
+                                                        <div class="row m-3">
+                                                            <div class="col-sm">
+                                                                <div class="form-group">
+                                                                    <label for="child_care_provider_name3" class="form-label">NAME OF CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER
+                                                                        <span style="color:#ff0000;">*</span>
+                                                                    </label>
+                                                                    <input type="text" class="form-control " 
+                                                                    id="child_care_provider_name3" name="child_care_provider_name3">
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                </div>
-                                                <!-- Medical care provider details end-->
-                                                <!-- Medical care provider address -->
-                                                    <div class="panel panel-default m-4">
-                                                        <div class="panel-heading">
-                                                            <h5 class="panel-title text-center">
-                                                                <b>PHYSICIAN /MEDICAL CARE PROVIDER - ADDRESS</b>
-                                                            </h5>
-                                                        </div>
-                                                        <div class="panel-body">
-                                                            <div class="row m-3">
-                                                                <div class="col-sm">
-                                                                    <div class="form-group">
-                                                                        <label for="child_care_provider_street_address" class="form-label">STREET
-                                                                            <span style="color:#ff0000;">*</span>
-                                                                        </label>
-                                                                        <input type="text" class="form-control wizard-required" id="child_care_provider_street_address"
-                                                                            name="child_care_provider_street_address">
-                                                                            <div class="wizard-form-error"></div>
-                                                                    </div>
+                                                        <div class="row m-3">
+                                                            <div class="col-sm">
+                                                                <div class="form-group">
+                                                                    <label for="care_provider_telephone_number3" class="form-label">TELEPHONE NUMBER
+                                                                        <span style="color:#ff0000;">*</span>
+                                                                    </label>
+                                                                    <input type="text" class="form-control " id="care_provider_telephone_number3"
+                                                                        name="care_provider_telephone_number3" onchange="validatePhone(this,'care_provider_telephone_number3_span')">
+                                                                    <span id="care_provider_telephone_number3_span" style="color:red; display:none">
+                                                                        Enter valid input [only numbers,+,-,()].</span>
                                                                 </div>
-                                                                <div class="col-sm">
-                                                                    <div class="form-group">
-                                                                        <label for="child_care_provider_city_address" class="form-label">CITY
-                                                                            <span style="color:#ff0000;">*</span>
-                                                                        </label>
-                                                                        <input type="text" class="form-control wizard-required" id="child_care_provider_city_address"
-                                                                            name="child_care_provider_city_address">
-                                                                        <div class="wizard-form-error"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm">
-                                                                    <div class="form-group"> 
-                                                                        <label for="child_care_provider_state_address" class="form-label">STATE
-                                                                            <span style="color:#ff0000;">*</span>
-                                                                        </label>
-                                                                        <input type="text" class="form-control wizard-required" id="child_care_provider_state_address"
-                                                                        name="child_care_provider_state_address">
-                                                                        <div class="wizard-form-error"></div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-sm">
-                                                                    <div class="form-group"> 
-                                                                        <label for="child_care_provider_zip_address"class="form-label">ZIP
-                                                                            <span style="color:#ff0000;">*</span>
-                                                                        </label>
-                                                                        <input type="text" class="form-control wizard-required" id="child_care_provider_zip_address"
-                                                                            name="child_care_provider_zip_address" 
-                                                                            onchange="ValidatePincode(this,'child_care_provider_zip_address_span')">                                                     
-                                                                            <span id="child_care_provider_zip_address_span" style="color:red; display:none">
-                                                                            Enter valid input [only numbers].</span>
-                                                                            <div class="wizard-form-error"></div>
-                                                                    </div>
+                                                            </div>
+                                                            <div class="col-sm">
+                                                                <div class="form-group">
+                                                                    <label for="hospital_affiliation3" class="form-label">HOSPITAL AFFILIATION
+                                                                        <span style="color:#ff0000;">*</span>
+                                                                    </label>
+                                                                    <input type="text" class="form-control " id="hospital_affiliation3" name="hospital_affiliation3">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- Medical care provider address end -->
-                                                    <!-- Dentist details -->
+                                            </div>
+                                            <!-- Medical care provider details end-->
+                                            <!-- Medical care provider address -->
+                                            <div class="panel panel-default m-4">
+                                                <div class="panel-heading">
+                                                    <h5 class="panel-title text-center">
+                                                        <b>PHYSICIAN /MEDICAL CARE PROVIDER - ADDRESS</b>
+                                                    </h5>
+                                                </div>
+                                                <div class="panel-body">
+                                                    <div class="row m-3">
+                                                        <div class="col-sm">
+                                                            <div class="form-group">
+                                                                <label for="child_care_provider_street_address" class="form-label">STREET
+                                                                    <span style="color:#ff0000;">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control " id="child_care_provider_street_address"
+                                                                    name="child_care_provider_street_address">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <div class="form-group">
+                                                                <label for="child_care_provider_city_address" class="form-label">CITY
+                                                                    <span style="color:#ff0000;">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control " id="child_care_provider_city_address"
+                                                                    name="child_care_provider_city_address">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <div class="form-group"> 
+                                                                <label for="child_care_provider_state_address" class="form-label">STATE
+                                                                    <span style="color:#ff0000;">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control " id="child_care_provider_state_address"
+                                                                name="child_care_provider_state_address">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <div class="form-group"> 
+                                                                <label for="child_care_provider_zip_address"class="form-label">ZIP
+                                                                    <span style="color:#ff0000;">*</span>
+                                                                </label>
+                                                                <input type="text" class="form-control " id="child_care_provider_zip_address"
+                                                                    name="child_care_provider_zip_address" 
+                                                                    onchange="ValidatePincode(this,'child_care_provider_zip_address_span')">                                                     
+                                                                <span id="child_care_provider_zip_address_span" style="color:red; display:none">
+                                                                Enter valid input [only numbers].</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Medical care provider address end -->
+                                            <!-- Dentist details -->
                                             <div class="panel panel-default m-4">
                                                 <div class="panel-heading">
                                                     <h5 class="panel-title text-center"><b>DENTIST DETAILS</b></h5>
@@ -772,9 +730,8 @@
                                                                 <label for="child_dentist_name" class="form-label">NAME OF CHILD'S DENTIST
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="child_dentist_name"
+                                                                <input type="text" class="form-control " id="child_dentist_name"
                                                                  name="child_dentist_name">
-                                                                <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -782,11 +739,10 @@
                                                                 <label for="dentist_telephone_number" class="form-label">DENTIST TELEPHONE NUMBER
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="dentist_telephone_number" name="dentist_telephone_number"
+                                                                <input type="text" class="form-control " id="dentist_telephone_number" name="dentist_telephone_number"
                                                                     onchange="validatePhone(this,'dentist_telephone_number_span')">
                                                                 <span id="dentist_telephone_number_span" style="color:red; display:none">
                                                                     Enter valid input [only numbers,+,-,()].</span>
-                                                                    <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -796,8 +752,7 @@
                                                                 <label for="dentist_address" class="form-label">DENTIST ADDRESS
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="dentist_address" name="dentist_address">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="text" class="form-control " id="dentist_address" name="dentist_address">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -810,8 +765,7 @@
                                                         <label for="special_disabilities" class="form-label">SPECIAL DIABILITIES (IF ANY)
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="special_disabilities" name="special_disabilities">
-                                                        <div class="wizard-form-error"></div>
+                                                        <input type="text" class="form-control " id="special_disabilities" name="special_disabilities">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
@@ -819,8 +773,7 @@
                                                         <label for="allergies_medication_reaction" class="form-label">ALLERGIES (INCLUDING MEDICATION REACTION)
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="allergies_medication_reaction" name="allergies_medication_reaction">
-                                                        <div class="wizard-form-error"></div>
+                                                        <input type="text" class="form-control " id="allergies_medication_reaction" name="allergies_medication_reaction">
                                                     </div>
                                                 </div>
                                             </div>
@@ -830,8 +783,7 @@
                                                         <label for="additional_info" class="form-label">ADDITIONAL INFORMATION REGARDING SPECIAL NEEDS
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="additional_info" name="additional_info">
-                                                        <div class="wizard-form-error"></div>
+                                                        <input type="text" class="form-control " id="additional_info" name="additional_info">
                                                     </div>
                                                 </div>
                                             </div>
@@ -841,8 +793,7 @@
                                                         <label for="medication" class="form-label">MEDICATION, SPECIAL CONDITIONS NUMBER
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="medication" name="medication">
-                                                        <div class="wizard-form-error"></div>
+                                                        <input type="text" class="form-control " id="medication" name="medication">
                                                     </div>
                                                 </div>
                                             </div>
@@ -852,8 +803,7 @@
                                                         <label for="health_insurance" class="form-label">HEALTH INSURANCE COVERAGE FOR CHILD OR MEDICAL ASSISTANCE BENEFITS
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="health_insurance" name="health_insurance">
-                                                        <div class="wizard-form-error"></div>
+                                                        <input type="text" class="form-control " id="health_insurance" name="health_insurance">
                                                     </div>
                                                 </div>
                                             </div>
@@ -863,8 +813,7 @@
                                                         <label for="policy_number" class="form-label">POLICY NUMBER (REQUIRED) NUMBER
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="policy_number" name="policy_number">
-                                                        <div class="wizard-form-error"></div>
+                                                        <input type="text" class="form-control " id="policy_number" name="policy_number">
                                                     </div>
                                                 </div>
                                             </div>
@@ -884,9 +833,8 @@
                                                             <label for="obtaining_emergency_medical_care" class="form-label">OBTAINING EMERGENCY MEDICAL CARE
                                                                 <span style="color:#ff0000;">*</span>
                                                             </label>
-                                                            <input type="text" class="form-control wizard-required" id="obtaining_emergency_medical_care"
+                                                            <input type="text" class="form-control " id="obtaining_emergency_medical_care"
                                                                 name="obtaining_emergency_medical_care">
-                                                                <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -895,32 +843,43 @@
                                                         <div class="form-group"> 
                                                             <label for="administration_first_aid_procedures"
                                                                 class="form-label">ADMINISTRATION OF MINOR FIRST-AID PROCEDURES
-                                                                <span style="color:#ff0000;">*</span></label>
-                                                            <input type="text" class="form-control wizard-required" id="administration_first_aid_procedures"
+                                                            <span style="color:#ff0000;">*</span></label>
+                                                            <input type="text" class="form-control " id="administration_first_aid_procedures"
                                                                 name="administration_first_aid_procedures">
-                                                                <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row m-3">
+                                                <!-- <div class="row mt-3"> -->
+                                                    <div class="col-sm">
+                                                        <div class="form-group wizard-form-checkbox">
+                                                            <input type="checkbox" class="input-checkbox" id="parent_agree_one"
+                                                            name="parent_agree_one" >
+                                                            <label class="form-check-label" for="parent_agree_one"><span>
+                                                                <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                </svg></span>
+                                                                <span>Do you Agree All the Above Information is correct?</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                <!-- </div> -->
+                                                <!-- <div class="row m-3">
                                                     <div class="col-sm">
                                                         <div class="form-group"> 
                                                             <label for="parent_sign" class="form-label">SIGNATURE OF PARENT /LEGAL GUARDIAN
                                                                 <span style="color:#ff0000;">*</span>
                                                             </label>
-                                                            <input type="text" class="form-control wizard-required" id="parent_sign" name="parent_sign">
-                                                            <div class="wizard-form-error"></div>
+                                                            <input type="text" class="form-control " id="parent_sign" name="parent_sign">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm">
                                                         <div class="form-group"> 
                                                             <label for="sign_date">DATE</label>
-                                                            <input type="date" class="form-control wizard-required" id="sign_date"
+                                                            <input type="date" class="form-control " id="sign_date"
                                                                 name="sign_date" onclick="dateValidation('sign_date')" />
-                                                                <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             </div>
                                         </div>
                                         <!-- Parent's or guardian's signature end -->
@@ -953,27 +912,25 @@
                                         </div>
                                         <!-- Child & family history info -->
                                         <div class="panel-body">
-                                            <div class="row m-3">
+                                            <!-- <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="student_name" class="form-label">Student
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="student_name"
+                                                        <input type="text" class="form-control " id="student_name"
                                                          name="student_name">
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="physical_exam_last_date" class="form-label">Date of Last Physical Exam
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="date" class="form-control wizard-required" id="physical_exam_last_date" name="physical_exam_last_date"
+                                                        <input type="date" class="form-control " id="physical_exam_last_date" name="physical_exam_last_date"
                                                             onclick="dateValidation('physical_exam_last_date')">
-                                                            <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
@@ -981,9 +938,8 @@
                                                         <label for="dental_exam_last_date" class="form-label">Date of Last Dental Exam
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="date" class="form-control wizard-required" id="dental_exam_last_date" name="dental_exam_last_date" 
+                                                        <input type="date" class="form-control " id="dental_exam_last_date" name="dental_exam_last_date" 
                                                             onclick="dateValidation('dental_exam_last_date')">
-                                                            <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1004,8 +960,7 @@
                                                                     <label for="allergies" class="form-label">Allergies (food/drug)
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" name="allergies" id="allergies">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " name="allergies" id="allergies">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1015,8 +970,7 @@
                                                                     <label for="asthma" class="form-label">Asthma
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="asthma" name="asthma">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " id="asthma" name="asthma">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1026,8 +980,7 @@
                                                                     <label for="bleeding_problems" class="form-label">Bleeding Problems
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" name="bleeding_problems" id="bleeding_problems">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " name="bleeding_problems" id="bleeding_problems">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1037,8 +990,7 @@
                                                                     <label for="diabetes" class="form-label">Diabetes
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="diabetes" name="diabetes">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " id="diabetes" name="diabetes">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1048,8 +1000,7 @@
                                                                     <label for="epilepsy" class="form-label">Epilepsy
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="epilepsy" name="epilepsy">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " id="epilepsy" name="epilepsy">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1059,8 +1010,7 @@
                                                                     <label for="frequent_ear_infections" class="form-label">Frequent Ear Infections
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="frequent_ear_infections" name="frequent_ear_infections">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " id="frequent_ear_infections" name="frequent_ear_infections">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1070,8 +1020,7 @@
                                                                     <label for="frequent_illnesses" class="form-label">Frequent Illnesses
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="frequent_illnesses" name="frequent_illnesses">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " id="frequent_illnesses" name="frequent_illnesses">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1081,8 +1030,7 @@
                                                                     <label for="hearing_problems" class="form-label">Hearing Problems
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="hearing_problems" name="hearing_problems">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " id="hearing_problems" name="hearing_problems">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1092,8 +1040,7 @@
                                                                     <label for="high_fevers" class="form-label">High Fevers
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="high_fevers" name="high_fevers">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " id="high_fevers" name="high_fevers">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1103,8 +1050,7 @@
                                                                     <label for="hospitalization" class="form-label">Hospitialization
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="hospitalization" name="hospitalization">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " id="hospitalization" name="hospitalization">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1114,8 +1060,7 @@
                                                                     <label for="rheumatic_fever" class="form-label">Rheumatic Fever
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="rheumatic_fever" name="rheumatic_fever">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " id="rheumatic_fever" name="rheumatic_fever">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1125,8 +1070,7 @@
                                                                     <label for="seizures_convulsions" class="form-label">Seizures/Convulsions
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="seizures_convulsions" name="seizures_convulsions">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " id="seizures_convulsions" name="seizures_convulsions">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1136,8 +1080,7 @@
                                                                     <label for="serious_injuries_accidents" class="form-label">Serious Injuries/Accidents
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required"  id="serious_injuries_accidents" name="serious_injuries_accidents">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control "  id="serious_injuries_accidents" name="serious_injuries_accidents">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1147,8 +1090,7 @@
                                                                     <label for="surgeries" class="form-label">Surgeries
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="surgeries" name="surgeries">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " id="surgeries" name="surgeries">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1158,8 +1100,7 @@
                                                                     <label for="vision_problems" class="form-label">Vision Problems
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="vision_problems" name="vision_problems">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " id="vision_problems" name="vision_problems">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1169,8 +1110,7 @@
                                                                     <label for="medical_other" class="form-label">Other
                                                                         <span style="color:#ff0000;">*</span>
                                                                     </label>
-                                                                    <input type="text" class="form-control wizard-required" id="medical_other" name="medical_other">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " id="medical_other" name="medical_other">
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1191,8 +1131,7 @@
                                                                 <label for="illness_during_pregnancy" class="form-label">Illness during pregnancy
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="illness_during_pregnancy" name="illness_during_pregnancy">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="text" class="form-control " id="illness_during_pregnancy" name="illness_during_pregnancy">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -1200,8 +1139,7 @@
                                                                 <label for="condition_of_newborn" class="form-label">Condition of Newborn
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="condition_of_newborn" name="condition_of_newborn">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="text" class="form-control " id="condition_of_newborn" name="condition_of_newborn">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1211,20 +1149,28 @@
                                                                 <label for="duration_of_pregnancy" class="form-label">Duration of pregnancy
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="duration_of_pregnancy" name="duration_of_pregnancy">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="text" class="form-control " id="duration_of_pregnancy" name="duration_of_pregnancy">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
                                                             <div class="form-group"> 
-                                                                <label for="birth_weight_lbs" class="form-label">Birth Weight<span style="color:#ff0000;">*</span>
+                                                                <label for="birth_weight_lbs" class="form-label">Birth Weight <span style="color:#ff0000;">*</span>
                                                                 </label>
                                                                 <div class="input-group">
-                                                                    <input type="text" class="form-control wizard-required" id="birth_weight_lbs" name="birth_weight_lbs">
-                                                                    <div class="wizard-form-error"></div>
+                                                                    <input type="text" class="form-control " id="birth_weight_lbs" name="birth_weight_lbs">
                                                                     <span class="input-group-text input-group-addon"
                                                                         id="inputGroupPrependlbs">lbs.</span>
-                                                                        
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <div class="form-group"> 
+                                                                <label for="birth_weight_oz" class="form-label">Birth Weight <span style="color:#ff0000;">*</span>
+                                                                </label>
+                                                                <div class="input-group">
+                                                                    <input type="text" class="form-control " id="birth_weight_oz" name="birth_weight_oz">
+                                                                    <span class="input-group-text input-group-addon"
+                                                                        id="inputGroupPrependlbs">oz.</span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -1235,8 +1181,7 @@
                                                                 <label for="complications" class="form-label">Complications
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="complications" name="complications">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="text" class="form-control " id="complications" name="complications">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -1244,8 +1189,7 @@
                                                                 <label for="bottle_fed" class="form-label">Bottle Fed?
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="bottle_fed"  name="bottle_fed">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="text" class="form-control " id="bottle_fed"  name="bottle_fed">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -1253,8 +1197,7 @@
                                                                 <label for="breast_fed" class="form-label">Breast Fed?
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="breast_fed" name="breast_fed">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="text" class="form-control " id="breast_fed" name="breast_fed">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1265,9 +1208,8 @@
                                                                 <label for="other_siblings_name" class="form-label">Name
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="other_siblings_name"
+                                                                <input type="text" class="form-control " id="other_siblings_name"
                                                                  name="other_siblings_name">
-                                                                <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -1275,8 +1217,7 @@
                                                                 <label for="other_siblings_age" class="form-label">Age
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="other_siblings_age" name="other_siblings_age">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="text" class="form-control " id="other_siblings_age" name="other_siblings_age">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1438,8 +1379,7 @@
                                                             <label for="age_group_friends" class="form-label">Age group of friends
                                                                 <span style="color:#ff0000;">*</span>
                                                             </label>
-                                                            <input type="text" class="form-control wizard-required" id="age_group_friends" name="age_group_friends">
-                                                            <div class="wizard-form-error"></div>
+                                                            <input type="text" class="form-control " id="age_group_friends" name="age_group_friends">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1449,9 +1389,8 @@
                                                             <label for="neighborhood_friends" class="form-label">Neighborhood friends
                                                                 <span style="color:#ff0000;">*</span>
                                                             </label>
-                                                            <input type="text" class="form-control wizard-required" id="neighborhood_friends" 
+                                                            <input type="text" class="form-control " id="neighborhood_friends" 
                                                             name="neighborhood_friends">
-                                                            <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1461,9 +1400,8 @@
                                                             <label for="relationship_with_mother" class="form-label">Relationship with mother
                                                                 <span style="color:#ff0000;">*</span>
                                                             </label>
-                                                            <input type="text" class="form-control wizard-required" id="relationship_with_mother" 
+                                                            <input type="text" class="form-control " id="relationship_with_mother" 
                                                             name="relationship_with_mother">
-                                                            <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1473,9 +1411,8 @@
                                                             <label for="relationship_with_father" class="form-label">Relationship with father
                                                                 <span style="color:#ff0000;">*</span>
                                                             </label>
-                                                            <input type="text" class="form-control wizard-required" id="relationship_with_father"\
+                                                            <input type="text" class="form-control " id="relationship_with_father"\
                                                             name="relationship_with_father">
-                                                            <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1485,9 +1422,8 @@
                                                             <label for="relationship_with_siblings" class="form-label">Relationship with siblings
                                                                 <span style="color:#ff0000;">*</span>
                                                             </label>
-                                                            <input type="text" class="form-control wizard-required" id="relationship_with_siblings"
+                                                            <input type="text" class="form-control " id="relationship_with_siblings"
                                                                 name="relationship_with_siblings">
-                                                            <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1495,10 +1431,9 @@
                                                     <div class="col-sm">
                                                         <div class="form-group"> 
                                                             <label for="relationship_with_extended_family" class="form-label">
-                                                                Relationship with extended family<span style="color:#ff0000;">*</span></label>
-                                                            <input type="text" class="form-control wizard-required" id="relationship_with_extended_family"
+                                                                Relationship with extended family <span style="color:#ff0000;">*</span></label>
+                                                            <input type="text" class="form-control " id="relationship_with_extended_family"
                                                                 name="relationship_with_extended_family">
-                                                                <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1508,8 +1443,7 @@
                                                             <label for="fears_conflicts" class="form-label">Fears and Conflicts
                                                                 <span style="color:#ff0000;">*</span>
                                                             </label>
-                                                            <input type="text" class="form-control wizard-required" id="fears_conflicts" name="fears_conflicts">
-                                                            <div class="wizard-form-error"></div>
+                                                            <input type="text" class="form-control " id="fears_conflicts" name="fears_conflicts">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1519,9 +1453,8 @@
                                                             <label for="child_response_frustration" class="form-label">Child’s response to frustration
                                                                 <span style="color:#ff0000;">*</span>
                                                             </label>
-                                                            <input type="text" class="form-control wizard-required" id="child_response_frustration"
+                                                            <input type="text" class="form-control " id="child_response_frustration"
                                                                 name="child_response_frustration">
-                                                                <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1531,9 +1464,8 @@
                                                             <label for="favorite_activities" class="form-label">Favorite activities
                                                                 <span style="color:#ff0000;">*</span>
                                                             </label>
-                                                            <input type="text" class="form-control wizard-required" id="favorite_activities"
+                                                            <input type="text" class="form-control " id="favorite_activities"
                                                             name="favorite_activities">
-                                                            <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1549,10 +1481,9 @@
                                                     <div class="col-sm">
                                                         <div class="form-group"> 
                                                             <label for="last_five_years_moved" class="form-label">
-                                                                How many times have you moved in the last five years?<span style="color:#ff0000;">*</span></label>
-                                                            <input type="text" class="form-control wizard-required" id="last_five_years_moved"
+                                                                How many times have you moved in the last five years? <span style="color:#ff0000;">*</span></label>
+                                                            <input type="text" class="form-control " id="last_five_years_moved"
                                                             name="last_five_years_moved">
-                                                            <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1560,9 +1491,8 @@
                                                     <div class="col-sm">
                                                         <div class="form-group"> 
                                                             <label for="things_used_at_home" class="form-label">
-                                                                Educational toys, games, books used at home?<span style="color:#ff0000;">*</span></label>
-                                                            <input type="text" class="form-control wizard-required" id="things_used_at_home" name="things_used_at_home">
-                                                            <div class="wizard-form-error"></div>
+                                                                Educational toys, games, books used at home? <span style="color:#ff0000;">*</span></label>
+                                                            <input type="text" class="form-control " id="things_used_at_home" name="things_used_at_home">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1570,9 +1500,8 @@
                                                     <div class="col-sm">
                                                         <div class="form-group"> 
                                                             <label for="hours_of_television_daily" class="form-label">
-                                                                How many hours of television daily?<span style="color:#ff0000;">*</span></label>
-                                                            <input type="text" class="form-control wizard-required" id="hours_of_television_daily" name="hours_of_television_daily">
-                                                            <div class="wizard-form-error"></div>
+                                                                How many hours of television daily? <span style="color:#ff0000;">*</span></label>
+                                                            <input type="text" class="form-control " id="hours_of_television_daily" name="hours_of_television_daily">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1580,9 +1509,8 @@
                                                     <div class="col-sm">
                                                         <div class="form-group"> 
                                                             <label for="language_used_at_home" class="form-label">
-                                                                Language used in the home?<span style="color:#ff0000;">*</span></label>
-                                                            <input type="text" class="form-control wizard-required" id="language_used_at_home" name="language_used_at_home">
-                                                            <div class="wizard-form-error"></div>
+                                                                Language used in the home? <span style="color:#ff0000;">*</span></label>
+                                                            <input type="text" class="form-control " id="language_used_at_home" name="language_used_at_home">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1592,9 +1520,8 @@
                                                             <label for="changes_at_home_situation" class="form-label">Have
                                                                 there been any changes in the home situation recently, i.e. addition/loss/death/divorce.
                                                                 <span style="color:#ff0000;">*</span></label>
-                                                            <input type="text" class="form-control wizard-required"
+                                                            <input type="text" class="form-control "
                                                                 id="changes_at_home_situation" name="changes_at_home_situation">
-                                                                <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1604,24 +1531,36 @@
                                                             <label for="educational_expectations_of_child" class="form-label">What are your educational expectations of your child?
                                                                 <span style="color:#ff0000;">*</span>
                                                             </label>
-                                                            <input type="text" class="form-control wizard-required" id="educational_expectations_of_child"
+                                                            <input type="text" class="form-control " id="educational_expectations_of_child"
                                                                 name="educational_expectations_of_child">
-                                                                <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- <div class="row mt-3"> -->
+                                                <div class="col-sm">
+                                                    <div class="form-group wizard-form-checkbox">
+                                                        <input type="checkbox" class="input-checkbox" id="parent_agree_two"
+                                                        name="parent_agree_two" >
+                                                        <label class="form-check-label" for="parent_agree_two"><span>
+                                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                            </svg></span>
+                                                            <span>Do you Agree All the Above Information is correct?</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            <!-- </div> -->
                                             <!-- Environmental factors end -->
                                             <!-- Parent's or guardian's signature -->
-                                            <div class="row m-3">
+                                            <!-- <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="family_history_parent_sign" class="form-label">Parent/Legal Guardian Signature
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="family_history_parent_sign"
+                                                        <input type="text" class="form-control " id="family_history_parent_sign"
                                                         name="family_history_parent_sign">
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
@@ -1629,12 +1568,11 @@
                                                         <label for="family_history_parent_sign_date"  class="form-label">Date
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="date" class="form-control wizard-required" id="family_history_parent_sign_date"
+                                                        <input type="date" class="form-control " id="family_history_parent_sign_date"
                                                             name="family_history_parent_sign_date" onclick="dateValidation('family_history_parent_sign_date')">
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- Parent's or guardian's signature end -->
                                         </div>
                                         <!-- Child & family history info end -->
@@ -1686,7 +1624,22 @@
                                                 one time registration and authentication.</p>
                                             <p>If you have an exemption due to medical or religious reasons. Please let us
                                                 know and we
-                                                will help provide the proper form to fill out.</p>
+                                                will help provide the proper form to fill out.
+                                            </p>
+                                            <!-- <div class="row m-3"> -->
+                                                <div class="col-sm">
+                                                    <div class="form-group wizard-form-checkbox">
+                                                        <input type="checkbox" class="input-checkbox" id="parent_agree_three"
+                                                        name="parent_agree_three" >
+                                                        <label class="form-check-label" for="parent_agree_three"><span>
+                                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                            </svg></span>
+                                                            <span>Do you Agree this?</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            <!-- </div> -->
                                         </div>
                                         <div class="panel-footer">
                                             <div class="form-group clearfix">
@@ -1716,15 +1669,14 @@
                                         </div>
                                         <!-- Child info -->
                                         <div class="panel-body">
-                                            <div class="row m-3">
+                                            <!-- <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="child_profile_name" class="form-label">Child’s Full Name
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="child_profile_name"
+                                                        <input type="text" class="form-control " id="child_profile_name"
                                                          name="child_profile_name"> 
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
@@ -1732,20 +1684,18 @@
                                                         <label for="child_nick_name" class="form-label">Nickname(s)
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="child_nick_name" name="child_nick_name"> 
-                                                        <div class="wizard-form-error"></div>
+                                                        <input type="text" class="form-control " id="child_nick_name" name="child_nick_name"> 
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="other_important_family_members" class="form-label">Other
                                                             important Family Members (Siblings, Grandparent, Pets, etc)
                                                             <span style="color:#ff0000;">*</span></label>
-                                                        <input type="text" class="form-control wizard-required" id="other_important_family_members"
+                                                        <input type="text" class="form-control " id="other_important_family_members"
                                                             name="other_important_family_members">
-                                                            <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1755,9 +1705,8 @@
                                                         <label for="about_family_celebrations" class="form-label">Tell us about
                                                             your family traditions or important celebrations
                                                             <span style="color:#ff0000;">*</span></label>
-                                                        <input type="text" class="form-control wizard-required" id="about_family_celebrations"
+                                                        <input type="text" class="form-control " id="about_family_celebrations"
                                                             name="about_family_celebrations">
-                                                            <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1793,7 +1742,6 @@
                                                             <option value="4">Other</option>
                                                         </select>
                                                         <i class="fa fa-chevron-down"></i>
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
@@ -1801,8 +1749,7 @@
                                                         <label for="what_child_interests" class="form-label">What are you child’s interests
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="what_child_interests" name="what_child_interests">
-                                                        <div class="wizard-form-error"></div>
+                                                        <input type="text" class="form-control " id="what_child_interests" name="what_child_interests">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1819,8 +1766,7 @@
                                                                 <label for="drop_off_time" class="form-label">Drop off time?
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="time" class="form-control wizard-required" id="drop_off_time" name="drop_off_time">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="time" class="form-control " id="drop_off_time" name="drop_off_time">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -1828,8 +1774,7 @@
                                                                 <label for="pick_up_time" class="form-label">Pick up time?
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="time" class="form-control wizard-required" id="pick_up_time" name="pick_up_time">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="time" class="form-control " id="pick_up_time" name="pick_up_time">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1867,7 +1812,6 @@
                                                             <div class="form-group"> 
                                                                 <label for="restricted_diet_reason" class="form-label">Explain</label>
                                                                 <input type="text" class="form-control" id="restricted_diet_reason" name="restricted_diet_reason">
-                                                                <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1895,7 +1839,6 @@
                                                             <div class="form-group"> 
                                                                 <label for="eat_own_reason" class="form-label">Explain</label>
                                                                 <input type="text" class="form-control " id="eat_own_reason" name="eat_own_reason">
-                                                                <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1905,8 +1848,8 @@
                                                                 <label for="favorite_foods" class="form-label">What are your child’s favorite foods?
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="favorite_foods" name="favorite_foods">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="text" class="form-control " id="favorite_foods" name="favorite_foods">
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1945,7 +1888,6 @@
                                                                 <label for="reason_for_rest_in_the_middle_day" class="form-label">Explain</label>
                                                                 <input type="text" class="form-control " id="reason_for_rest_in_the_middle_day"
                                                                 name="reason_for_rest_in_the_middle_day">
-                                                                <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1955,8 +1897,8 @@
                                                                 <label for="rest_routine" class="form-label">What is their nap/rest routine?
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="rest_routine" name="rest_routine">
-                                                                <div class="wizard-form-error"></div>
+                                                                <input type="text" class="form-control " id="rest_routine" name="rest_routine">
+                                                                
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1994,7 +1936,6 @@
                                                                 <label for="reason_for_toilet_trained" class="form-label">Explain</label>
                                                                 <input type="text" class="form-control " id="reason_for_toilet_trained"
                                                                 name="reason_for_toilet_trained">
-                                                                <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2034,7 +1975,6 @@
                                                                 class="form-label">Explain</label>
                                                                 <input type="text" class="form-control" id="explain_for_existing_illness_allergy"
                                                                     name="explain_for_existing_illness_allergy">
-                                                                <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2063,7 +2003,6 @@
                                                                 <label for="explain_for_functioning_at_age" class="form-label">Explain</label>
                                                                 <input type="text" class="form-control " id="explain_for_functioning_at_age"
                                                                 name="explain_for_functioning_at_age">
-                                                                <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2090,7 +2029,6 @@
                                                                 <label for="explain_for_able_to_walk" class="form-label">Explain</label>
                                                                 <input type="text" class="form-control" id="explain_for_able_to_walk"
                                                                 name="explain_for_able_to_walk">
-                                                                <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2120,7 +2058,6 @@
                                                                 <label for="explain_for_communicate_their_needs" class="form-label">Explain</label>
                                                                 <input type="text" class="form-control " id="explain_for_communicate_their_needs"
                                                                     name="explain_for_communicate_their_needs">
-                                                                <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2150,7 +2087,6 @@
                                                                 <label for="explain_for_any_medication" class="form-label">Explain</label>
                                                                 <input type="text" class="form-control " id="explain_for_any_medication"
                                                                 name="explain_for_any_medication">
-                                                                <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2159,7 +2095,7 @@
                                                             <div class="form-group">
                                                                 <p><b>Does your child utilize any special equipment(such as
                                                                         a breathing machine, wheelchair, hearing aid, or
-                                                                        braces)?<span style="color:#ff0000;">*</span></b>
+                                                                        braces)? <span style="color:#ff0000;">*</span></b>
                                                                 </p>
                                                                 <div class="wizard-form-radio">
                                                                     <input name="utilize_special_equipment" id="utilize_special_equipment1" value="Yes"
@@ -2180,7 +2116,6 @@
                                                                 <label for="explain_for_utilize_special_equipment" class="form-label">Explain</label>
                                                                 <input type="text" class="form-control" id="explain_for_utilize_special_equipment"
                                                                 name="explain_for_utilize_special_equipment">
-                                                                <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2209,7 +2144,6 @@
                                                                 <label for="explain_for_significant_periods" class="form-label">Explain</label>
                                                                 <input type="text" class="form-control" id="explain_for_significant_periods"
                                                                 name="explain_for_significant_periods">
-                                                                <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2240,7 +2174,6 @@
                                                                 <label for="explain_for_desire_any_accommodations" class="form-label">Explain</label>
                                                                 <input type="text" class="form-control" id="explain_for_desire_any_accommodations"
                                                                 name="explain_for_desire_any_accommodations">
-                                                                <!-- <div class="wizard-form-error"></div> -->
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2254,9 +2187,8 @@
                                                         <label for="additional_information" class="form-label h-3">Comments and additional information
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="additional_information" 
+                                                        <input type="text" class="form-control " id="additional_information" 
                                                         name="additional_information">
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2272,17 +2204,31 @@
                                                         understand that false information provided herein or in connection
                                                         with the enrollment process may result in disenrollment of my child.
                                                         I further agree to update the information in this Health and Social
-                                                        Record as circumstances may require at Goddard School’s request.</p>
-                                                    <!-- Parent's or guardian's sinature -->
+                                                        Record as circumstances may require at Goddard School’s request.
+                                                    </p>
                                                     <div class="row m-3">
+                                                        <div class="col-sm">
+                                                            <div class="form-group wizard-form-checkbox">
+                                                                <input type="checkbox" class="input-checkbox" id="parent_agree_four"
+                                                                name="parent_agree_four" >
+                                                                <label class="form-check-label" for="parent_agree_four"><span>
+                                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                    </svg></span>
+                                                                    <span>Do you Agree this?</span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                    <!-- <div class="row m-3">
                                                         <div class="col-sm">
                                                             <div class="form-group"> 
                                                                 <label for="child_profile_parent_sign" class="form-label">Parent’s/Guardian’s Signature
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="child_profile_parent_sign"
+                                                                <input type="text" class="form-control " id="child_profile_parent_sign"
                                                                     name="child_profile_parent_sign">
-                                                                <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -2290,13 +2236,12 @@
                                                                 <label for="child_profile_parent_sign_date" class="form-label">Date
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="date" class="form-control wizard-required" id="child_profile_parent_sign_date"
+                                                                <input type="date" class="form-control " id="child_profile_parent_sign_date"
                                                                     name="child_profile_parent_sign_date" onclick="dateValidation('child_profile_parent_sign_date')">
-                                                                <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <!-- Parent's or guardian's sinature end -->
+                                                    </div> -->
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -2366,40 +2311,51 @@
                                                             emergency information.</b></h3>
                                                 </div>
                                                 <div class="panel-body">
-                                                    <div class="row m-3">
+                                                    <!-- <div class="row m-3">
                                                         <div class="col-sm">
                                                             <div class="form-group"> 
                                                                 <label for="emergency_info_child_name" class="form-label h-3">Child’s Name
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="text" class="form-control wizard-required" id="emergency_info_child_name"
+                                                                <input type="text" class="form-control " id="emergency_info_child_name"
                                                                     name="emergency_info_child_name">
-                                                                <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                     <div class="row m-3">
                                                         <div class="col-sm">
                                                             <div class="form-group"> 
                                                                 <label for="child_password" class="form-label h-3">Password
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="password" class="form-control wizard-required" id="child_password" 
+                                                                <input type="password" class="form-control " id="child_password" 
                                                                 name="child_password">
-                                                                <div class="wizard-form-error"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row m-3">
+                                                        <div class="col-sm">
+                                                            <div class="form-group wizard-form-checkbox">
+                                                                <input type="checkbox" class="input-checkbox" id="parent_agree_five"
+                                                                name="parent_agree_five" >
+                                                                <label class="form-check-label" for="parent_agree_five"><span>
+                                                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                    </svg></span>
+                                                                    <span>Do you Agree this?</span>
+                                                                </label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <!-- Parent’s or guardian’s signature -->
-                                                    <div class="row m-3">
+                                                    <!-- <div class="row m-3">
                                                         <div class="col-sm">
                                                             <div class="form-group"> 
                                                                 <label for="password_parent_sign"
                                                                     class="form-label">Parent’s/Guardian’s Signature
                                                                     <span style="color:#ff0000;">*</span></label>
-                                                                <input type="text" class="form-control wizard-required" id="password_parent_sign"
+                                                                <input type="text" class="form-control " id="password_parent_sign"
                                                                 name="password_parent_sign">
-                                                                <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -2407,13 +2363,12 @@
                                                                 <label for="password_parent_date" class="form-label">Date
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="date" class="form-control wizard-required"
+                                                                <input type="date" class="form-control "
                                                                     id="password_parent_date" name="password_parent_date"
                                                                 onclick="dateValidation('password_parent_date')">
-                                                                <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                     <!-- Parent’s or guardian’s signature end -->
                                                 </div>
                                             </div>
@@ -2459,18 +2414,17 @@
                                                     illustration, advertising and publicity, in any manner or in any form,
                                                     including in broadcast, print, electronic and social media.</p>
                                             </div>
-                                            <div class="row m-3">
+                                            <!-- <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="permission_child_name" class="form-label">Child’s Name
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="permission_child_name"
+                                                        <input type="text" class="form-control " id="permission_child_name"
                                                         name="permission_child_name">
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
@@ -2485,7 +2439,6 @@
                                                             <option value="3">No Photos</option>
                                                         </select>
                                                         <i class="fa fa-chevron-down"></i>
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -2532,16 +2485,30 @@
                                                     any other form. This includes group photos that I receive as part of an
                                                     electronic daily activity report. My agreement extends to photos or
                                                     videos taken by any member of my family or any visitors that I bring to
-                                                    The Goddard School.</p>
+                                                    The Goddard School.
+                                                </p>
+                                                <div class="row m-4">
+                                                    <div class="col-sm">
+                                                        <div class="form-group wizard-form-checkbox">
+                                                            <input type="checkbox" class="input-checkbox" id="parent_agree_six"
+                                                            name="parent_agree_six" >
+                                                            <label class="form-check-label" for="parent_agree_six"><span>
+                                                                <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                </svg></span>
+                                                                <span>Do you Agree this?</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                     <!-- Parent’s or guardian’s signature -->
-                                                <div class="row m-3">
+                                                <!-- <div class="row m-3">
                                                     <div class="col-sm">
                                                         <div class="form-group"> 
                                                             <label for="photo_parent_sign"
                                                                 class="form-label">Parent’s/Guardian’s Signature
                                                                 <span style="color:#ff0000;">*</span></label>
-                                                            <input type="text" class="form-control wizard-required" id="photo_parent_sign" name="photo_parent_sign">
-                                                            <div class="wizard-form-error"></div>
+                                                            <input type="text" class="form-control " id="photo_parent_sign" name="photo_parent_sign">
                                                         </div>
                                                     </div>
                                                     <div class="col-sm">
@@ -2549,12 +2516,11 @@
                                                             <label for="photo_parent_date"
                                                                 class="form-label">Date
                                                                 <span style="color:#ff0000;">*</span></label>
-                                                            <input type="date" class="form-control wizard-required" id="photo_parent_date" 
+                                                            <input type="date" class="form-control " id="photo_parent_date" 
                                                             name="photo_parent_date" onclick="dateValidation('photo_parent_date')">
-                                                            <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 <!-- Parent’s or guardian’s signature end -->
                                             </div>
                                         </div>
@@ -2603,27 +2569,25 @@
                                                     or she may be also videotaped while at or around the school premises.
                                                 </p>
                                             </div>
-                                            <div class="row m-3">
+                                            <!-- <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="security_release_child_name" class="form-label">Child’s
                                                             Name<span style="color:#ff0000;">*</span></label>
-                                                        <input type="text" class="form-control wizard-required" id="security_release_child_name"
+                                                        <input type="text" class="form-control " id="security_release_child_name"
                                                             name="security_release_child_name">
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- Parent’s or guardian’s signature -->
-                                            <div class="row m-3">
+                                            <!-- <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="security_release_parent_sign" class="form-label">Parent’s/Guardian’s Signature
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="security_release_parent_sign"
+                                                        <input type="text" class="form-control " id="security_release_parent_sign"
                                                             name="security_release_parent_sign">
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
@@ -2631,12 +2595,11 @@
                                                         <label for="security_release_parent_date" class="form-label">Date
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="date" class="form-control wizard-required" id="security_release_parent_date"
+                                                        <input type="date" class="form-control " id="security_release_parent_date"
                                                         name="security_release_parent_date" onclick="dateValidation('security_release_parent_date')">
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- Parent’s or guardian’s signature end-->
                                             <div class="panel panel-info m-4">
                                                 <div class="panel-heading">
@@ -2647,17 +2610,29 @@
                                                         Enrollment Agreement, school
                                                         policies, my tuition obligation, my responsibility for the payment
                                                         of fees, and confirms that
-                                                        I have received and read a copy of the parent handbook.</p>
+                                                        I have received and read a copy of the parent handbook.
+                                                    </p>
+                                                    <div class="col-sm">
+                                                        <div class="form-group wizard-form-checkbox">
+                                                            <input type="checkbox" class="input-checkbox" id="parent_agree_seven"
+                                                            name="parent_agree_seven" >
+                                                            <label class="form-check-label" for="parent_agree_seven"><span>
+                                                                <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                </svg></span>
+                                                                <span>Do you Agree this?</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
                                                     <!-- Parent’s or guardian’s Signature -->
-                                                    <div class="row m-3">
+                                                    <!-- <div class="row m-3">
                                                         <div class="col-sm">
                                                             <div class="form-group"> 
                                                                 <label for="policy_parent_sign"
                                                                     class="form-label">Parent’s/Guardian’s Signature
                                                                     <span style="color:#ff0000;">*</span></label>
-                                                                <input type="text" class="form-control wizard-required" id="policy_parent_sign"
+                                                                <input type="text" class="form-control " id="policy_parent_sign"
                                                                 name="policy_parent_sign">
-                                                                <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm">
@@ -2665,12 +2640,11 @@
                                                                 <label for="policy_parent_date" class="form-label">Date
                                                                     <span style="color:#ff0000;">*</span>
                                                                 </label>
-                                                                <input type="date" class="form-control wizard-required" id="policy_parent_date"
+                                                                <input type="date" class="form-control " id="policy_parent_date"
                                                                 name="policy_parent_date" onclick="dateValidation('policy_parent_date')">
-                                                                <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                     <!-- Parent’s or guardian’s Signature End -->
                                                 </div>
                                             </div>
@@ -2709,8 +2683,7 @@
                                                     <div class="form-group">
                                                     <p class="m-2">The undersigned authorizes
                                                         representatives of The Goddard School® to contact Emergency Medical Technicians to transport <span style="color:#ff0000;">*</span></p>
-                                                        <input type="text" class="form-control wizard-required" id="contact_emergency_medical_technicians" name="contact_emergency_medical_technicians">
-                                                        <div class="wizard-form-error"></div>
+                                                        <input type="text" class="form-control " id="contact_emergency_medical_technicians" name="contact_emergency_medical_technicians">
                                                     </div>
                                                 </div>
                                                 <p>  (“Student”) to receive medical care, if such transportation/care is deemed necessary.</p>
@@ -2723,17 +2696,28 @@
                                                     transportation of Student and any medical care provided.</p><br>
                                                 <p>This authorization and waiver shall remain effective until Student
                                                     withdraws from The Goddard School®.</p>
+                                                <div class="col-sm">
+                                                    <div class="form-group wizard-form-checkbox">
+                                                        <input type="checkbox" class="input-checkbox" id="parent_agree_eight"
+                                                        name="parent_agree_eight" >
+                                                        <label class="form-check-label" for="parent_agree_eight"><span>
+                                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                            </svg></span>
+                                                            <span>Do you Agree this?</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <!-- Parent’s or guardian’s Signature -->
-                                            <div class="row m-3">
+                                            <!-- <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="medical_parent_sign" class="form-label">Parent’s/Guardian’s Signature
                                                             <span style="color:#ff0000;">*</span> 
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="medical_parent_sign"
+                                                        <input type="text" class="form-control " id="medical_parent_sign"
                                                         name="medical_parent_sign">
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
@@ -2741,12 +2725,11 @@
                                                         <label for="medical_parent_date" class="form-label">Date
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="date" class="form-control wizard-required" id="medical_parent_date"
+                                                        <input type="date" class="form-control " id="medical_parent_date"
                                                             name="medical_parent_date" onclick="dateValidation('medical_parent_date')">
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- Parent’s or guardian’s Signature End -->
                                         </div>
                                         <!-- Medical Transportation Waiver footer -->
@@ -2898,19 +2881,30 @@
                                                         of Health. A copy of these guidelines is on
                                                         file in the Director's office and is available for your review.
                                                     </p>
+                                                    <div class="col-sm">
+                                                        <div class="form-group wizard-form-checkbox">
+                                                            <input type="checkbox" class="input-checkbox" id="parent_agree_nine"
+                                                            name="parent_agree_nine" >
+                                                            <label class="form-check-label" for="parent_agree_nine"><span>
+                                                                <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                </svg></span>
+                                                                <span>Do you Agree this?</span>
+                                                            </label>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <!-- Health Policies table end -->
                                             <!-- Parent’s or guardian’s Signature -->
-                                            <div class="row m-3">
+                                            <!-- <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="health_policy_parent_sign" class="form-label">Parent’s/Guardian’s Signature
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="text" class="form-control wizard-required" id="health_policy_parent_sign"
+                                                        <input type="text" class="form-control " id="health_policy_parent_sign"
                                                         name="health_policy_parent_sign">
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
@@ -2918,12 +2912,11 @@
                                                         <label for="health_policy_parent_date" class="form-label">Date
                                                             <span style="color:#ff0000;">*</span>
                                                         </label>
-                                                        <input type="date" class="form-control wizard-required" id="health_policy_parent_date"
+                                                        <input type="date" class="form-control " id="health_policy_parent_date"
                                                             name="health_policy_parent_date" onclick="dateValidation('health_policy_parent_date')">
-                                                        <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- Parent’s or guardian’s Signature End -->
                                         </div>
                                         <!-- Health Policies footer -->
@@ -3009,9 +3002,8 @@
                                                                         <label for="outside_waiver_parent_sign" class="form-label">Parent’s/Guardian’s Signature
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="text" class="form-control wizard-required" id="outside_waiver_parent_sign"
+                                                                        <input type="text" class="form-control " id="outside_waiver_parent_sign"
                                                                             name="outside_waiver_parent_sign">
-                                                                        <div class="wizard-form-error"></div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm">
@@ -3019,9 +3011,8 @@
                                                                         <label for="outside_waiver_parent_date" class="form-label">Date
                                                                             <span style="color:#ff0000;">*</span>
                                                                         </label>
-                                                                        <input type="date" class="form-control wizard-required" id="outside_waiver_parent_date"
+                                                                        <input type="date" class="form-control " id="outside_waiver_parent_date"
                                                                             name="outside_waiver_parent_date" onclick="dateValidation('outside_waiver_parent_date')">
-                                                                        <div class="wizard-form-error"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3065,11 +3056,11 @@
                             document.getElementsByName('adhaar_number')[0].value = response.adhaar_number;
                         if (typeof response.child_full_name !== "undefined"){
                             document.getElementsByName('child_full_name')[0].value = response.child_full_name;
-                            document.getElementsByName('student_name')[0].value = response.child_full_name;
-                            document.getElementsByName('child_profile_name')[0].value = response.child_full_name;
-                            document.getElementsByName('emergency_info_child_name')[0].value = response.child_full_name;
-                            document.getElementsByName('permission_child_name')[0].value = response.child_full_name;
-                            document.getElementsByName('security_release_child_name')[0].value = response.child_full_name;
+                            // document.getElementsByName('student_name')[0].value = response.child_full_name;
+                            // document.getElementsByName('child_profile_name')[0].value = response.child_full_name;
+                            // document.getElementsByName('emergency_info_child_name')[0].value = response.child_full_name;
+                            // document.getElementsByName('permission_child_name')[0].value = response.child_full_name;
+                            // document.getElementsByName('security_release_child_name')[0].value = response.child_full_name;
                         }
                            
                         if (typeof response.nick_name !== "undefined")

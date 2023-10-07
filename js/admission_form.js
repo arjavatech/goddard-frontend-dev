@@ -27,6 +27,7 @@ function submitForm() {
         contentType: "application/json",
         data: JSON.stringify(obj),
         success: function (response) {
+            alert("Admission form submitted successfully");
             window.location.href = "child_add.html";
             // if(enformData.child_id === null || enformData.child_id === undefined) {
                 localStorage.setItem('child_id', response.child_id)
@@ -46,7 +47,7 @@ function submitForm() {
             // });
         },
         error: function (xhr, status, error) {
-            alert("form submit failed");
+            alert("failed to submit admission form");
         }
     });
 }
@@ -74,12 +75,12 @@ function saveForm(value) {
         contentType: "application/json",
         data: JSON.stringify(obj),
         success: function (response) {
+            alert("Form saved successfully")
             localStorage.setItem('child_id', response.child_id);
-            // alert('succcessfully added');
-            // window.location.href = "child_add.html";
+            window.location.reload();
         },
         error: function (xhr, status, error) {
-            alert("form submit failed");
+            alert("failed to save admission form");
         }
     });
 }

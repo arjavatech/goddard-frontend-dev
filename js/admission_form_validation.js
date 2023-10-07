@@ -1,5 +1,7 @@
 'use strict';
 
+document.getElementById("outside_waiver_parent_date").value = new Date();
+
 //number validation with particular format
 function validatePhone(inputtxtID, errorSpanId) {
     let numbersformat =/^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/im;
@@ -44,15 +46,15 @@ function ValidatePincode(inputtxt, errorSpan) {
     }
 }
 
-function checkbox() {
-    var additional_parent_info = document.getElementById("additional_parent_info");
-    if ($('input[id="additional_parent_details"]').is(":checked")) {
-        additional_parent_info.style.display = "block";
-    }
-    else{
-        additional_parent_info.style.display = "none";
-    }
-}
+// function checkbox() {
+//     var additional_parent_info = document.getElementById("additional_parent_info");
+//     if ($('input[id="additional_parent_details"]').is(":checked")) {
+//         additional_parent_info.style.display = "block";
+//     }
+//     else{
+//         additional_parent_info.style.display = "none";
+//     }
+// }
 //custom textbox hide and show function
 function CustomChange(inputtxt,labelvalue) {
     if (inputtxt == "Yes") {
@@ -61,3 +63,30 @@ function CustomChange(inputtxt,labelvalue) {
         document.getElementById(labelvalue).style.display = "none";
     }   
 }
+
+function autoPopulateAddress(inputtxtId,copyAddressId){
+    var parent1_street = inputtxtId;
+    document.getElementById(copyAddressId).value = parent1_street;
+
+    var parent1_city = inputtxtId;
+    document.getElementById(copyAddressId).value = parent1_city;
+
+    var parent1_state = inputtxtId;
+    document.getElementById(copyAddressId).value = parent1_state;
+
+    var parent1_zip = inputtxtId;
+    document.getElementById(copyAddressId).value = parent1_zip;
+
+    var parent1_business_street = inputtxtId;
+    document.getElementById(copyAddressId).value = parent1_business_street;
+
+    var parent1_business_city = inputtxtId;
+    document.getElementById(copyAddressId).value = parent1_business_city;
+
+    var parent1_business_state = inputtxtId;
+    document.getElementById(copyAddressId).value = parent1_business_state;
+
+    var parent1_business_zip = inputtxtId;
+    document.getElementById(copyAddressId).value = parent1_business_zip;
+}
+

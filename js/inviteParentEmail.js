@@ -22,14 +22,18 @@ async function emailSend() {
         // const base64Data = await getPDFBase64Data();
         // obj.attachmentName = "AttachmentForm";
         // obj.from = "goddard01arjava@gmail.com";
+
+        const form = document.getElementById("admission_form");
+        const formData = new FormData(form);
+        const obj = Object.fromEntries(formData);
+        obj.year = new Date().getFullYear() + '';
+        console.log(obj);
+
         let email_to =  $('#parent_email').val();
         obj.to = email_to;
-        console.log(obj.to);
         obj.subject = 'Invite parents';
         let messageData = $('#messageData').val();
         obj.body = messageData;
-        console.log(obj.body);
-        console.log(obj);
         const json =JSON.stringify(obj);
         console.log(json);
 

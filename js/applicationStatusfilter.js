@@ -8,10 +8,10 @@ function enrollmentValueSend(status,id,year,form_name){
         contentType: "application/json",
         data: JSON.stringify(enrollmentValue),
         success: function (response) {
-            alert("form submitted successfully");
+            // alert("form submitted successfully");
         },
         error: function (xhr, status, error) {
-            alert("form submit failed");
+            // alert("form submit failed");
         }
     });
 
@@ -317,19 +317,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //for pagination code
     // Number of rows to display per page
-    const rowsPerPage = 2;
+    const rowsPerPage = 5;
     let currentPage = 1;
     
     // Function to update the table based on the current page
     function updateTable() {
         const tableRows = document.querySelectorAll("#tableBody tr");
+        console.log(tableRows);
         const startIndex = (currentPage - 1) * rowsPerPage;
         console.log(startIndex);
         const endIndex = currentPage * rowsPerPage;
         console.log(endIndex);
     
         tableRows.forEach((row, index) => {
-            console.log(row);
+            // console.log(row);
             console.log(index);
             if (index >= startIndex && index < endIndex) {
                 row.style.display = "";
@@ -371,7 +372,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
     // Initial table setup and update
-    window.addEventListener("load", () => {
+    window.addEventListener("load", function () {
+    // window.addEventListener("load", () => {
         hideRowsInitially();
         updateTable();
     });
@@ -379,7 +381,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to hide rows that should not be displayed on the first page
     function hideRowsInitially() {
         const tableRows = document.querySelectorAll("#tableBody tr");
+        console.log('hide');
+        console.log(tableRows);
         tableRows.forEach((row, index) => {
+            console.log(row);
+            console.log(index);
             if (index >= rowsPerPage) {
                 row.style.display = "none";
             }

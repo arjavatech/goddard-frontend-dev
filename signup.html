@@ -36,6 +36,12 @@
             <div class="card_position">
                 <div class="card login_card_style">
                     <div class="card-body">
+                        <div class="row" id="errorMessageDiv" style="background-color: #fff ;height: 50px;display: none;">
+                            <div class="col-sm-12">
+                                <span id="errorMessage" style="display: none;color: #ff0000;padding-top: 10px;text-align: center;">
+                                    <b>Password Mismatched</b></span>
+                            </div>
+                        </div>
                         <div class=" text-center"><img src="image/gs_logo_tab.png" type="image/png"></div><br>
 
                          <!-- Sign Up -->
@@ -54,7 +60,7 @@
                                     <label for="signup_pswd" class="form-label"><b>New Password
                                         <span style="color:#ff0000;">*</span></b></label><br>
                                         <div class="input-group">
-                                            <input type="password" class="form-control password" id="signup_pswd"  name="reset_pswd">
+                                            <input type="password" class="form-control password" id="signup_pswd"  name="signup_pswd">
                                             <span class="input-group-text togglePassword" style="cursor: pointer;">
                                                 <i class="fas fa-eye"></i>
                                             </span>
@@ -62,17 +68,18 @@
                                         <div class="wizard-form-error"></div>
                                 </div><br>
                                 <div class="form-group">
-                                    <label for="confirmPassword" class="form-label"><b>Confirm Password
+                                    <label for="password" class="form-label"><b>Confirm Password
                                         <span style="color:#ff0000;">*</span></b></label><br>
                                         <div class="input-group">
-                                            <input type="password" class="form-control confirm-password" id="confirmPassword"  name="confirmPassword">
+                                            <input type="password" class="form-control confirm-password" id="password" 
+                                             name="password" onchange="validatePassword()">
                                             <span class="input-group-text toggleConfirmPassword" style="cursor: pointer;">
                                                 <i class="fas fa-eye"></i>
                                             </span>
                                         </div>
-                                            <span id="reset_password_span" style="color:red; display:none">
+                                            <!-- <span id="reset_password_span" style="color:red; display:none">
                                                 password mismatched.</span>
-                                            <div class="wizard-form-error"></div>
+                                            <div class="wizard-form-error"></div> -->
                                 </div><br>
                                 <div class="d-grid">
                                   <button type="button" class="btn signup_btn btn-block shadow-none" id="signupButton">Sign Up</button>
@@ -88,18 +95,21 @@
         </div>
         <!-- Sign Up Card End -->
         <script>
-            document.getElementById('password_span').style.display = "none";
+            // document.getElementById('reset_password_span').style.display = "none";
+            let spanMsg = document.getElementById("errorMessage");
+            let spanMsgDiv = document.getElementById("errorMessageDiv");
             function validatePassword() {
                 // Retrieve password input values
                 let password1 = document.getElementById('signup_pswd').value;
                 let password2 = document.getElementById('password').value;
-                console.log(password1);
-                console.log(password2);
-                // Check if passwords match
                 if (password1 === password2) {
-                    console.log('if');
-                    document.getElementById('password_span').style.display = "none";
+                  
+                    spanMsgDiv.style.display = "none";
+                    spanMsg.style.display = "none";
                     // return true; // Allow form submission
+                }else{
+                    spanMsgDiv.style.display = "block";
+                    spanMsg.style.display = "block";
                 }
             }
             //email validation with particular format
@@ -115,41 +125,49 @@
                 }
             }
             function signupFunction() {
-                const form = document.getElementById("signup");
-                const formData = new FormData(form);
-                console.log(formData);
-                const password = formData.get("password");
+                let password1 = document.getElementById('signup_pswd').value;
+                let password2 = document.getElementById('password').value;
+                if (password1 === password2) {
+                    spanMsgDiv.style.display = "none";
+                    spanMsg.style.display = "none";
+                    const form = document.getElementById("signup");
+                    const formData = new FormData(form);
+                    console.log(formData);
+                    const password = formData.get("password");
 
 
-                // Hash the password
-                const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-                console.log(hashedPassword);
-                
-                // Replace the original password with the hashed password in the form data
-                formData.set("password", hashedPassword);
-                const obj = Object.fromEntries(formData);
-                console.log(obj);
-                if(obj.user_email === 'goddard01arjava@gmail.com' || obj.user_email === 'goddard02arjava@gmail.com'){
-                    obj.is_admin = true;
-                }else{
-                    obj.is_admin = false;
-                }
-
-                $.ajax({
-                    url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/login/add",
-                    type: "POST",
-                    contentType: "application/json",
-                    data: JSON.stringify(obj),
-                    success: function (response) {
-                        console.log(response);
-                        window.location.href = "login.html";
-                        alert("form submitted successfully");
-                    },
-                    error: function (xhr, status, error) {
-                        console.log(error);
-                        alert("form submit failed");
+                    // Hash the password
+                    const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+                    console.log(hashedPassword);
+                    
+                    // Replace the original password with the hashed password in the form data
+                    formData.set("password", hashedPassword);
+                    const obj = Object.fromEntries(formData);
+                    console.log(obj);
+                    if(obj.user_email === 'goddard01arjava@gmail.com' || obj.user_email === 'goddard02arjava@gmail.com'){
+                        obj.is_admin = true;
+                    }else{
+                        obj.is_admin = false;
                     }
-                });
+
+                    $.ajax({
+                        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/login/add",
+                        type: "POST",
+                        contentType: "application/json",
+                        data: JSON.stringify(obj),
+                        success: function (response) {
+                            alert("You are signed up successfully");
+                            window.location.href = "login.html";
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(error);
+                            alert("failed to sign up");
+                        }
+                    });
+                }else{
+                    spanMsgDiv.style.display = "block";
+                    spanMsg.style.display = "blck";
+                }
             }
             $(document).ready(function () {
                 $("#signupButton").on("click", function (e) {

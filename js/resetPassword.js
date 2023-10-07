@@ -1,17 +1,14 @@
+
 function validatePassword() {
-    // Retrieve password input values
     var password1 = document.getElementById('reset_pswd').value;
     var password2 = document.getElementById('password').value;
-
-    // Check if passwords match
+    // Retrieve password input values
     if (password1 === password2) {
-        document.getElementById('reset_password_span').style.display = "none";
-        return true; // Allow form submission
-    } else {
-        document.getElementById('reset_password_span').style.display = "block";
-        // Display an error message
-        // alert("Passwords do not match!");
-        return false; // Prevent form submission
+        document.getElementById("errorMessage").style.display = "none";
+        document.getElementById("errorMessageDiv").style.display = "none";
+    }else{
+        document.getElementById("errorMessage").style.display = "block";
+        document.getElementById("errorMessageDiv").style.display = "block";
     }
 }
 
@@ -28,4 +25,46 @@ function emailValidation(inputtxtID,errorSpanID) {
         inputtxtID.focus();
     }
 }
+
+function signupFunction(){
+    var password1 = document.getElementById('reset_pswd').value;
+    var password2 = document.getElementById('password').value;
+
+    // Check if passwords match
+    if (password1 === password2) {
+        document.getElementById("errorMessage").style.display = "none";
+        document.getElementById("errorMessageDiv").style.display = "none";
+        const form = document.getElementById("reset_password");
+        const formData = new FormData(form);
+        const obj = Object.fromEntries(formData);
+        console.log(obj);
+        $.ajax({
+            url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/login/add",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(obj),
+            success: function (response) {
+                alert("Reseted Your Password successfully ");
+                window.location.href = "login.html";
+            
+            },
+            error: function (xhr, status, error) {
+                alert("failed to reset");
+            }
+        });
+    } else {
+        document.getElementById("errorMessage").style.display = "block";
+        document.getElementById("errorMessageDiv").style.display = "block";
+        // Display an error message
+        // alert("Passwords do not match!");
+        
+    }
+
+}
+$(document).ready(function () {
+    $("#resetButton").on("click", function (e) {
+        e.preventDefault(); // Prevent the default form submission
+        signupFunction();
+    });
+});
 

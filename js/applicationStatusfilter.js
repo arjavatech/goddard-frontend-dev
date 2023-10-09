@@ -315,76 +315,76 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   
 
-    //for pagination code
-    // Number of rows to display per page
-    const rowsPerPage = 4;
-    let currentPage = 1;
+    // //for pagination code
+    // // Number of rows to display per page
+    // const rowsPerPage = 4;
+    // let currentPage = 1;
     
-    // Function to update the table based on the current page
-    function updateTable() {
-        const tableRows = document.querySelectorAll("#tableBody tr");
-        console.log(tableRows);
-        const startIndex = (currentPage - 1) * rowsPerPage;
-        console.log(startIndex);
-        const endIndex = currentPage * rowsPerPage;
-        console.log(endIndex);
+    // // Function to update the table based on the current page
+    // function updateTable() {
+    //     const tableRows = document.querySelectorAll("#tableBody tr");
+    //     console.log(tableRows);
+    //     const startIndex = (currentPage - 1) * rowsPerPage;
+    //     console.log(startIndex);
+    //     const endIndex = currentPage * rowsPerPage;
+    //     console.log(endIndex);
     
-        tableRows.forEach((row, index) => {
-            console.log(row);
-            console.log(index);
-            if (index >= startIndex && index < endIndex) {
-                row.style.display = "";
-            } else {
-                row.style.display = "none";
-            }
-        });
+    //     tableRows.forEach((row, index) => {
+    //         console.log(row);
+    //         console.log(index);
+    //         if (index >= startIndex && index < endIndex) {
+    //             row.style.display = "";
+    //         } else {
+    //             row.style.display = "none";
+    //         }
+    //     });
     
-        // Update the pagination buttons
-        updatePaginationButtons();
-    };
+    //     // Update the pagination buttons
+    //     updatePaginationButtons();
+    // };
     
-    // Function to update the pagination buttons
-    function updatePaginationButtons() {
-        const totalPages = Math.ceil(document.querySelectorAll("#tableBody tr").length / rowsPerPage);
-        const prevPageButton = document.getElementById("prevPage");
-        const nextPageButton = document.getElementById("nextPage");
+    // // Function to update the pagination buttons
+    // function updatePaginationButtons() {
+    //     const totalPages = Math.ceil(document.querySelectorAll("#tableBody tr").length / rowsPerPage);
+    //     const prevPageButton = document.getElementById("prevPage");
+    //     const nextPageButton = document.getElementById("nextPage");
     
-        prevPageButton.classList.toggle("disabled", currentPage === 1);
-        nextPageButton.classList.toggle("disabled", currentPage === totalPages);
-    }
+    //     prevPageButton.classList.toggle("disabled", currentPage === 1);
+    //     nextPageButton.classList.toggle("disabled", currentPage === totalPages);
+    // }
     
-    // Event listener for previous page button
-    document.getElementById("prevPage").addEventListener("click", () => {
-        if (currentPage > 1) {
-            currentPage--;
-            updateTable();
-        }
-    });
+    // // Event listener for previous page button
+    // document.getElementById("prevPage").addEventListener("click", () => {
+    //     if (currentPage > 1) {
+    //         currentPage--;
+    //         updateTable();
+    //     }
+    // });
     
-    // Event listener for next page button
-    document.getElementById("nextPage").addEventListener("click", () => {
-        const totalPages = Math.ceil(document.querySelectorAll("#tableBody tr").length / rowsPerPage);
-        if (currentPage < totalPages) {
-            currentPage++;
-            updateTable();
-        }
-    });
+    // // Event listener for next page button
+    // document.getElementById("nextPage").addEventListener("click", () => {
+    //     const totalPages = Math.ceil(document.querySelectorAll("#tableBody tr").length / rowsPerPage);
+    //     if (currentPage < totalPages) {
+    //         currentPage++;
+    //         updateTable();
+    //     }
+    // });
     
-    // Initial table setup and update
-    window.addEventListener("load", () => {
-        hideRowsInitially();
-        updateTable();
-    });
+    // // Initial table setup and update
+    // window.addEventListener("load", () => {
+    //     hideRowsInitially();
+    //     updateTable();
+    // });
     
-    // Function to hide rows that should not be displayed on the first page
-    function hideRowsInitially() {
-        const tableRows = document.querySelectorAll("#tableBody tr");
-        tableRows.forEach((row, index) => {
-            if (index >= rowsPerPage) {
-                row.style.display = "none";
-            }
-        });   
-    }
+    // // Function to hide rows that should not be displayed on the first page
+    // function hideRowsInitially() {
+    //     const tableRows = document.querySelectorAll("#tableBody tr");
+    //     tableRows.forEach((row, index) => {
+    //         if (index >= rowsPerPage) {
+    //             row.style.display = "none";
+    //         }
+    //     });   
+    // }
     
 
     

@@ -1,6 +1,6 @@
 'use strict';
 
-document.getElementById("outside_waiver_parent_date").value = new Date();
+// document.getElementById("outside_waiver_parent_date").value = new Date();
 
 //number validation with particular format
 function validatePhone(inputtxtID, errorSpanId) {
@@ -88,5 +88,10 @@ function autoPopulateAddress(inputtxtId,copyAddressId){
 
     var parent1_business_zip = inputtxtId;
     document.getElementById(copyAddressId).value = parent1_business_zip;
+}
+
+function parentSignValidation(val){
+    console.log('checking');
+    alert(`${val},This Signature will be taken as your signature forever.`)
 }
 

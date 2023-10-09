@@ -17,77 +17,39 @@
     <script src='js/inviteParentEmail.js'></script>
     <script src='js/admin_dashboard_validation.js'></script>
 </head>
-<style>
-    .modal_active {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0,0,0,0.5);
-    }
-    
-    .modal_content_active {
-        background-color: #fefefe;
-        margin: 15% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 60%;
-    }
-    
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-    
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-    input[type=number]::-webkit-inner-spin-button, 
-                input[type=number]::-webkit-outer-spin-button { 
-                -webkit-appearance: none; 
-            }
-    input[type=number] {
-    -moz-appearance: textfield;
-    }
-</style>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar_bg">
-        <div class="text-center">
-            <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
-        </div>
-        <div id="btn-signout" class="btn signout"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Sign
-                Out</b></div>
-    </nav><br>
     <!-- Navigation Bar End -->
+
+        <!-- Navigation Bar -->
+        <nav class="navbar_bg">
+            <div class="text-center">
+                <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
+            </div>
+            <div id="btn-signout" class="btn signout"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Sign Out</b>
+            </div>
+        </nav>
+        <!-- Navigation Bar End -->
     <!-- Admin dashboard -->
     <div class="container">
         <h2 class="admin_dashboard_title h2 pt-4 text-center">Admin Dashboard</h2>
         <div class="row">
             <div class="col-12 col-md-4 col-lg-3 mt-5">
                 <div class="card_one_style">
-                    <div class="card admin_cards p-3" data-bs-toggle="modal" data-bs-target="#inviteparent">
-                        <div class="card-body pt-4">
-                            <h5 class="card-title text-center">
-                                <!-- Invite parent Icon -->
-                                <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
-                                    class="bi bi-plus-circle-fill card_icon" viewBox="0 0 16 16">
-                                    <path
-                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
-                                </svg>
-                            </h5>
-                            <h5 class="text-center card_icon pt-3 h4">Invite Parent</h5>
-                            </h5>
-                        </div>
+                    <div class="card admin_cards p-3">
+                        <a href="invite_parent.html">
+                            <div class="card-body pt-4">
+                                <h5 class="card-title text-center">
+                                    <!-- Invite parent Icon -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
+                                        class="bi bi-plus-circle-fill card_icon" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>
+                                </h5>
+                                <h5 class="text-center card_icon pt-3 h4">Invite Parent</h5>
+                                </h5>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -108,25 +70,52 @@
                                             <div class="row">
                                                 <div class="col-sm mb-3">
                                                     <label for="messageData" class="col-form-label">Invite Link</label>
-                                                    <input type="text" class="form-control" id="messageData" disabled value="https://arjavatech.github.io/goddard-frontend-dev/signup.html">
+                                                    <input type="text" class="form-control" id="messageData" value="https://arjavatech.github.io/goddard-frontend-dev/signup.html">
+                                                    <!-- <a href="https://arjavatech.github.io/goddard-frontend-dev/login.html" id="messageData">https://arjavatech.github.io/goddard-frontend-dev/login.html</a> -->
                                                 </div>
                                                 <div class="col-sm mb-3">
                                                     <div class="form-group">
                                                         <label for="child_full_name" class="col-form-label">Child Full Name</label>
-                                                        <input type="text" class="form-control" id="child_full_name" name="child_full_name">
+                                                        <input type="text" class="form-control" id="child_full_name" name="child_full_name"
+                                                        onchange="namevalidation(this,'child_full_name_span')">
+                                                        <span class="spanmsg" id="child_full_name_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
                                                         <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
+                                                <!-- <div class="col-sm mb-3">
+                                                    <div class="form-group">
+                                                        <label for="child_last_name" class="col-form-label">Child Last Name</label>
+                                                        <input type="text" class="form-control" id="child_last_name" name="child_last_name"
+                                                        onchange="namevalidation(this,'child_last_name_span')">
+                                                        <span class="spanmsg" id="child_last_name_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
+                                                        <div class="wizard-form-error"></div>
+                                                    </div>
+                                                </div> -->
                                             </div>
                                             <h5 class="text-center admin_dashboard_title">Parent Details</h5>
                                             <div class="row">
                                                 <div class="col-sm mb-3">
                                                     <div class="form-group">
                                                         <label for="parent_name" class="col-form-label">Full Name</label>
-                                                        <input type="text" class="form-control" id="parent_name" name="parent_name">
+                                                        <input type="text" class="form-control" id="parent_name" name="parent_name"
+                                                        onchange="namevalidation(this,'parent_name_span')">
+                                                        <span class="spanmsg" id="parent_name_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
                                                         <div class="wizard-form-error"></div>
                                                     </div>
                                                 </div>
+                                                <!-- <div class="col-sm mb-3">
+                                                    <div class="form-group">
+                                                        <label for="parent_one_last_name" class="col-form-label">Last Name</label>
+                                                        <input type="text" class="form-control" id="parent_one_last_name" name="parent_one_last_name"
+                                                        onchange="namevalidation(this,'parent_one_last_name_span')">
+                                                        <span class="spanmsg" id="parent_one_last_name_span" style="color:red; display:none">
+                                                            Enter valid input[only letters].</span>
+                                                        <div class="wizard-form-error"></div>
+                                                    </div>
+                                                </div> -->
                                                 <div class="col-sm mb-3">
                                                     <div class="form-group">
                                                         <label for="parent_email" class="col-form-label">Email</label>
@@ -157,16 +146,7 @@
                                                 <button id="sendButton" type="button"
                                                     class="btn btn-primary btn-bg">Send</button>
                                             </div>
-                                            <!-- <div class="panel-footer" >
-                                                <div class="form-group clearfix">
-                                                    <div class="position-relative">
-                                                        <div class="position-absolute top-50 end-0 translate-middle-y">
-                                                            <button id="saveButton" type="button"
-                                                            class="btn btn-primary btn-bg">Save</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><br><br> -->
+                                           
                                         </fieldset>
                                     </form>
                                 </div>

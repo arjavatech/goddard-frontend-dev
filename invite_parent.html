@@ -122,11 +122,7 @@
                                                     <label for="child_full_name" class="col-form-label">Child Full
                                                         Name</label>
                                                     <input type="text" class="form-control" id="child_full_name"
-                                                        name="child_full_name"
-                                                        onchange="namevalidation(this,'child_full_name_span')">
-                                                    <span class="spanmsg" id="child_full_name_span"
-                                                        style="color:red; display:none">
-                                                        Enter valid input[only letters].</span>
+                                                        name="child_full_name">
                                                     <div class="wizard-form-error"></div>
                                                 </div>
                                             </div>
@@ -137,11 +133,7 @@
                                                 <div class="form-group">
                                                     <label for="parent_name" class="col-form-label">Full Name</label>
                                                     <input type="text" class="form-control" id="parent_name"
-                                                        name="parent_name"
-                                                        onchange="namevalidation(this,'parent_name_span')">
-                                                    <span class="spanmsg" id="parent_name_span"
-                                                        style="color:red; display:none">
-                                                        Enter valid input[only letters].</span>
+                                                        name="parent_name">
                                                     <div class="wizard-form-error"></div>
                                                 </div>
                                             </div>
@@ -178,7 +170,7 @@
                                                         data-bs-dismiss="modal">Cancel</button> -->
 
                                                     <div class="position-absolute top-50 end-0 translate-middle-y">
-                                                        <button id="saveButton" type="button"
+                                                        <button id="sendButton" type="button"
                                                             class="btn btn-primary btn-bg">Send</button>
                                                         <!-- <a href="javascript:;" class="form-wizard-submit" id="submit_button">Submit</a> -->
                                                     </div>

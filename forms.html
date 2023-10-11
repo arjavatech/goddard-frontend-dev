@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admission Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
+        <link rel="stylesheet" href="css/navbar_signout_style.css">
+        <link rel="stylesheet" href="css/admission_form.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script type="module" src="js/admission_form.js"></script>
+        <script src="js/admission_form_validation.js"></script>
+       
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar_bg">
+            <div class="text-center">
+                <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
+            </div>
+        </nav>
+        <!-- Navigation Bar End -->
+
+        <div class="row m-2">
+            <div class="col-sm">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Admission
+                        </button>
+                      </h2>
+                      <!-- Nav pills -->
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul class="nav nav-pills" role="tablist">
+                                    <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="pill" href="#chlidinfo">Child Information</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#parentinfo">Parent Details</a>
+                                    </li>
+                                    <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#emergencyContactinfo">Emergency Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10">
+                <div class="accordion" id="accordionExample2">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+                                data-bs-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne">
+                                Child Information
+                            </button>
+                        </h2>
+                        <div id="collapseOne2" class="accordion-collapse collapse show" data-bs-parent="#accordionExample2">
+                            <div class="accordion-body">
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div id="chlidinfo" class="container tab-pane active"><br>
+                                        <div class="row">
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="child_full_name" class="form-label"><b>CHILD’S FULL NAME
+                                                        <span style="color:#ff0000;">*</span></b></label><br>
+                                                    <input name="child_full_name" type="text" maxlength="20" 
+                                                    class="form-control " id="child_full_name">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm">
+                                                <div class="form-group">
+                                                    <label for="nick_name" class="form-label"><b>NICKNAME
+                                                            <span style="color:#ff0000;">*</span></b>
+                                                    </label>
+                                                    <input name="nick_name" type="text" maxlength="50"
+                                                        class="form-control " id="nick_name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo2" aria-expanded="false" aria-controls="collapseTwo">
+                         Parent details
+                        </button>
+                      </h2>
+                      <div id="collapseTwo2" class="accordion-collapse collapse show" data-bs-parent="#accordionExample2">
+                        <div class="accordion-body">
+                            <div class="tab-content">
+                                <div id="parentinfo" class="container tab-pane "><br>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <div class="form-group">
+                                                <label for="child_full" class="form-label"><b> NAME
+                                                    <span style="color:#ff0000;">*</span></b></label><br>
+                                                <input name="child_full" type="text" maxlength="20" 
+                                                class="form-control " id="child_full">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm">
+                                            <div class="form-group">
+                                                <label for="nick" class="form-label"><b>NICKNAME
+                                                        <span style="color:#ff0000;">*</span></b>
+                                                </label>
+                                                <input name="nick" type="text" maxlength="50"
+                                                    class="form-control " id="nick">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree2" aria-expanded="false" aria-controls="collapseThree">
+                        Emergency Contact
+                        </button>
+                    </h2>
+                    <div id="collapseThree2" class="accordion-collapse collapse show" data-bs-parent="#accordionExample2">
+                        <div class="accordion-body">
+                            <div class="tab-content">
+                                <div id="emergencyContactinfo" class="container tab-pane "><br>
+                                    <div class="row">
+                                        <div class="col-sm">
+                                            <div class="form-group">
+                                                <label for="child" class="form-label"><b>CHILD’S NAME
+                                                    <span style="color:#ff0000;">*</span></b></label><br>
+                                                <input name="child" type="text" maxlength="20" 
+                                                class="form-control " id="child">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script type="module">
+            document.addEventListener('DOMContentLoaded', function () {
+                const tabLinks = document.querySelectorAll('.nav-link');
+                const tabPanes = document.querySelectorAll('.tab-pane');
+        
+                tabLinks.forEach(function (tabLink) {
+                    tabLink.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        tabPanes.forEach(function (pane) {
+                            pane.classList.remove('active');
+                        });
+        
+                        const targetId = e.target.getAttribute('href').substring(1);
+                        console.log(targetId);
+                        const targetPane = document.getElementById(targetId);
+                        console.log(targetPane);
+                        targetPane.classList.add('active');
+                    });
+                });
+            });
+        </script>
+        
+    </body>
+</html>        

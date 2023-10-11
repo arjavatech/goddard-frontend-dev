@@ -29,11 +29,14 @@ async function emailSend() {
         obj.year = new Date().getFullYear() + '';
         console.log(obj);
 
+        obj.from = "noreply.goddard@gmail.com";
         let email_to =  $('#parent_email').val();
         obj.to = email_to;
         obj.subject = 'Invite parents';
         let messageData = $('#messageData').val();
         obj.body = messageData;
+        obj.attachmentName ="AttachmentForm";
+        obj.attachmentKey ="attachment";
         const json =JSON.stringify(obj);
         console.log(json);
 

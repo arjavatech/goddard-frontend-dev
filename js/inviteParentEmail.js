@@ -34,7 +34,7 @@ async function emailSend() {
         obj.to = email_to;
         obj.subject = 'Invite parents';
         let messageData = $('#messageData').val();
-        obj.body = messageData;
+        obj.body = `${messageData}?email=${email_to}`;
         obj.attachmentName ="AttachmentForm";
         obj.attachmentKey ="attachment";
         const json =JSON.stringify(obj);

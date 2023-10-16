@@ -1,0 +1,143 @@
+<!-- the code taken by this link : https://getbootstrap.com/docs/5.3/components/accordion/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Admission Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar_bg">
+            <div class="text-center">
+                <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
+            </div>
+        </nav>
+        <!-- Navigation Bar End -->
+        <div class="row m-3">
+            <div class="col-3">
+                <h5><b>Admission Forms</b></h5>
+                <div class="accordion" id="accordionExampleone">
+                    <div class="accordion-item">
+                        <ul class="nav nav-pills" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-bs-toggle="pill" href="#admin">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#admission" aria-expanded="true" aria-controls="collapseOne">
+                                                <b>Admission</b>
+                                        </button>
+                                    </h2>
+                                </a>
+                            </li>
+                        </ul>    
+                        <!-- data-bs-toggle="pill" -->
+                        <div id="admission" class="accordion-collapse collapse show" data-bs-parent="#accordionExampleone">
+                            <div class="accordion-body">
+                                <ul class="nav nav-pills flex-column" role="tablist">
+                                    <li class="nav-item">
+                                        <div data-bs-toggle="collapse" data-bs-target="#childinfo" aria-expanded="true" aria-controls="collapseOne">
+                                        <a class="nav-link " type="button" id="childnavlabel"
+                                         data-bs-toggle="pill">Child Information</a>
+                                    </div>
+                                    </li>
+                                    <div data-bs-toggle="collapse" data-bs-target="#parentdetails" aria-expanded="true" aria-controls="collapseOne">
+                                    <li class="nav-item">
+                                        <a class="nav-link" type="button" id="parentnavlabel"
+                                          data-bs-toggle="pill">Parent Details</a>
+                                    </li>
+                                </div>
+                                </ul>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="tab-content">
+                    <div id="admin" class="container tab-pane active"><br>
+                        <h2 class="text-center">Admission</h2>
+                        <div class="accordion" id="accordionExampletwo">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <div id="chilInformation" onclick="showcall(this,'childnavlabel')">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#childinfo" aria-expanded="true" aria-controls="collapseOne">
+                                    Child Information
+                            
+                                    </button></div>
+                                </h2>
+                                <div id="childinfo" class="accordion-collapse collapse " data-bs-parent="#accordionExampletwo">
+                                    <div class="accordion-body">
+                                    <b>hggigguyguyg</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <div id="parentInformation" onclick="showcall(this,'parentnavlabel')">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#parentdetails" aria-expanded="false" aria-controls="collapseTwo">
+                                        Parent Details
+                                       
+                                    </button></div>
+                                </h2>
+                                <div id="parentdetails" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
+                                    <div class="accordion-body">
+                                    <strong>parentinfo</strong>
+                                    </div>
+                                </div>   
+                            </div>
+                        </div>
+                    </div>    
+                
+                    <div id="admin" class="container tab-pane fade"><br>
+                        <h2 class="text-center">Child and Family History</h2>
+                        <div class="accordion" id="accordionExampletwo">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#childhistory" aria-expanded="true" aria-controls="collapseOne">
+                                    Child History
+                                    </button>
+                                </h2>
+                                <div id="childhistory" class="accordion-collapse collapse show" data-bs-parent="#accordionExampletwo">
+                                    <div class="accordion-body">
+                                    <b>hggigguyguyg</b>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#medicalhistory" aria-expanded="false" aria-controls="collapseTwo">
+                                        Medical History
+                                    </button>
+                                </h2>
+                                <div id="medicalhistory" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
+                                    <div class="accordion-body">
+                                    <strong>dfgd</strong>
+                                    </div>
+                                </div>   
+                            </div>
+                        </div>
+                    </div> 
+                </div>     
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script>
+            function showcall(id,navbarId){
+                // const navlink = document.querySelector('.nav-link');
+                // navlink.classList.remove('active');
+                // console.log(navlink);
+                var navlink = document.querySelector("div a.active");
+                console.log(navlink);
+                if (navlink) navlink.classList.remove("active");
+                // this.parentNode.classList.add('active');
+
+                const navLabel = document.getElementById(navbarId);
+                navLabel.classList.add('active');
+            }
+        </script>
+    </body>
+</html>

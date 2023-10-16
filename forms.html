@@ -2,168 +2,166 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Admission Form</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-</head>
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar_bg">
-        <div class="text-center">
-            <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
-        </div>
-    </nav>
-    <!-- Navigation Bar End -->
-    <div class="row m-3">
-        <div class="col-3">
-            <h5><b>Admission Forms</b></h5>
-            <div class="accordion" id="accordionExampleone">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#admission" aria-expanded="true" aria-controls="collapseOne">
-                    <b>Admission</b>
-                    </button>
-                  </h2>
-                  <div id="admission" class="accordion-collapse collapse show" data-bs-parent="#accordionExampleone">
-                    <div class="accordion-body">
-                        <ul class="nav flex-column">
-                            <li class="nav-item ">
-                                <a class="nav-link active" aria-current="page" type="button" data-bs-toggle="collapse" data-bs-target="#childinfo" aria-expanded="true" aria-controls="collapseOne">Child Information</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#parentdetails" aria-expanded="true" aria-controls="collapseOne">Parent Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#emergencycontact" aria-expanded="true" aria-controls="collapseOne">Emergency Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#medicare" aria-expanded="true" aria-controls="collapseOne">Medical Care Provider Details</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#parentagreement" aria-expanded="true" aria-controls="collapseOne">Parent’s Agreement</a>
-                            </li>
-                        </ul>    
+    <head>
+        <title>Admission Form</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar_bg">
+            <div class="text-center">
+                <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
+            </div>
+        </nav>
+        <!-- Navigation Bar End -->
+        <div class="row m-3">
+            <div class="col-3">
+                <h5><b>Admission Forms</b></h5>
+                <div class="accordion" id="accordionExampleone">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#admission" aria-expanded="true" aria-controls="collapseOne">
+                                <b>Admission</b>
+                            </button>
+                        </h2>
+                        <div id="admission" class="accordion-collapse collapse show" data-bs-parent="#accordionExampleone">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item ">
+                                        <a class="nav-link " aria-current="page" type="button" data-bs-toggle="collapse" data-bs-target="#childinfo" aria-expanded="true" aria-controls="collapseOne">Child Information</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#parentdetails" aria-expanded="true" aria-controls="collapseOne">Parent Details</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#emergencycontact" aria-expanded="true" aria-controls="collapseOne">Emergency Contact</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#medicare" aria-expanded="true" aria-controls="collapseOne">Medical Care Provider Details</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#parentagreement" aria-expanded="true" aria-controls="collapseOne">Parent’s Agreement</a>
+                                    </li>
+                                </ul>    
+                            </div>
+                        </div>
                     </div>
-                  </div>
+                    <!-- <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#history" aria-expanded="false" aria-controls="collapseTwo">
+                                Child and Family History
+                            </button>
+                        </h2>
+                        <div id="history" class="accordion-collapse collapse" data-bs-parent="#accordionExampleone">
+                            <div class="accordion-body">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item ">
+                                        <a class="nav-link active" aria-current="page" type="button" data-bs-toggle="collapse" data-bs-target="#childhistory" aria-expanded="true" aria-controls="collapseOne">Child History</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#medicalhistory" aria-expanded="true" aria-controls="collapseOne">Medical History</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#pregnancyhistory" aria-expanded="true" aria-controls="collapseOne">Pregnancy History</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#familyhistory" aria-expanded="true" aria-controls="collapseOne">Family History</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#socialbehavior" aria-expanded="true" aria-controls="collapseOne">Social Behavior</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#environmentalfactors" aria-expanded="true" aria-controls="collapseOne">Environmental Factors</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#historyparentsign" aria-expanded="true" aria-controls="collapseOne">Parent Agreement</a>
+                                    </li>
+                                </ul> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#contact" aria-expanded="false" aria-controls="collapseThree">
+                                Parent Information
+                            </button>
+                        </h2>
+                        <div id="contact" class="accordion-collapse collapse" data-bs-parent="#accordionExampleone">
+                            <div class="accordion-body">
+                                <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#history" aria-expanded="false" aria-controls="collapseTwo">
-                        Child and Family History
-                    </button>
-                  </h2>
-                  <div id="history" class="accordion-collapse collapse" data-bs-parent="#accordionExampleone">
-                    <div class="accordion-body">
-                        <ul class="nav flex-column">
-                            <li class="nav-item ">
-                                <a class="nav-link active" aria-current="page" type="button" data-bs-toggle="collapse" data-bs-target="#childhistory" aria-expanded="true" aria-controls="collapseOne">Child History</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#medicalhistory" aria-expanded="true" aria-controls="collapseOne">Medical History</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#pregnancyhistory" aria-expanded="true" aria-controls="collapseOne">Pregnancy History</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#familyhistory" aria-expanded="true" aria-controls="collapseOne">Family History</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#socialbehavior" aria-expanded="true" aria-controls="collapseOne">Social Behavior</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#environmentalfactors" aria-expanded="true" aria-controls="collapseOne">Environmental Factors</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" type="button" data-bs-toggle="collapse" data-bs-target="#historyparentsign" aria-expanded="true" aria-controls="collapseOne">Parent Agreement</a>
-                            </li>
-                        </ul> 
+            </div>
+            <div class="col-9">
+                <h2 class="text-center">Admission</h2>
+                <div class="accordion" id="accordionExampletwo">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#childinfo" aria-expanded="true" aria-controls="collapseOne">
+                            Child Information
+                            </button>
+                        </h2>
+                        <div id="childinfo" class="accordion-collapse collapse show" data-bs-parent="#accordionExampletwo">
+                            <div class="accordion-body">
+                            <b>hggigguyguyg</b>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#parentdetails" aria-expanded="false" aria-controls="collapseTwo">
+                                Parent Details
+                            </button>
+                        </h2>
+                        <div id="parentdetails" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
+                            <div class="accordion-body">
+                                <strong>parentinfo</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#emergencycontact" aria-expanded="false" aria-controls="collapseThree">
+                                Emergency Contact
+                            </button>
+                        </h2>
+                        <div id="emergencycontact" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
+                            <div class="accordion-body">
+                            <strong>Sign</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#medicare" aria-expanded="false" aria-controls="collapseThree">
+                                Medical Care Provider Details
+                            </button>
+                        </h2>
+                        <div id="medicare" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
+                            <div class="accordion-body">
+                                <strong>Medical Care Provider Details</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#parentagreement" aria-expanded="false" aria-controls="collapseThree">
+                                Parent’s Agreement
+                            </button>
+                        </h2>
+                        <div id="parentagreement" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
+                            <div class="accordion-body">
+                                <strong>Parent’s Agreement</strong>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#contact" aria-expanded="false" aria-controls="collapseThree">
-                        Parent Information
-                    </button>
-                  </h2>
-                  <div id="contact" class="accordion-collapse collapse" data-bs-parent="#accordionExampleone">
-                    <div class="accordion-body">
-                      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>
-        <div class="col-9">
-            <h2 class="text-center">Admission</h2>
-            <div class="accordion" id="accordionExampletwo">
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#childinfo" aria-expanded="true" aria-controls="collapseOne">
-                    Child Information
-                    </button>
-                  </h2>
-                  <div id="childinfo" class="accordion-collapse collapse show" data-bs-parent="#accordionExampletwo">
-                    <div class="accordion-body">
-                      <b>hggigguyguyg</b>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#parentdetails" aria-expanded="false" aria-controls="collapseTwo">
-                        Parent Details
-                    </button>
-                  </h2>
-                  <div id="parentdetails" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
-                    <div class="accordion-body">
-                      <strong>parentinfo</strong>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#emergencycontact" aria-expanded="false" aria-controls="collapseThree">
-                        Emergency Contact
-                    </button>
-                  </h2>
-                  <div id="emergencycontact" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
-                    <div class="accordion-body">
-                      <strong>Sign</strong>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#medicare" aria-expanded="false" aria-controls="collapseThree">
-                          Medical Care Provider Details
-                      </button>
-                    </h2>
-                    <div id="medicare" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
-                      <div class="accordion-body">
-                        <strong>Medical Care Provider Details</strong>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#parentagreement" aria-expanded="false" aria-controls="collapseThree">
-                          Parent’s Agreement
-                      </button>
-                    </h2>
-                    <div id="parentagreement" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
-                      <div class="accordion-body">
-                        <strong>Parent’s Agreement</strong>
-                      </div>
-                    </div>
-                  </div>
             </div>
         </div>
-    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
-</html>
-</body>
+    </body>
 </html>

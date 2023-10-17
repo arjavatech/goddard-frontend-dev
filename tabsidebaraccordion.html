@@ -25,7 +25,8 @@
                             <li class="nav-item">
                                 <a class="nav-link active" data-bs-toggle="pill" href="#admin">
                                     <h2 class="accordion-header">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#admission" aria-expanded="true" aria-controls="collapseOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                         data-bs-target="#admission" aria-expanded="true" aria-controls="collapseOne">
                                                 <b>Admission</b>
                                         </button>
                                     </h2>
@@ -37,17 +38,28 @@
                             <div class="accordion-body">
                                 <ul class="nav nav-pills flex-column" role="tablist">
                                     <li class="nav-item">
-                                        <div data-bs-toggle="collapse" data-bs-target="#childinfo" aria-expanded="true" aria-controls="collapseOne">
+                                        <div data-bs-toggle="collapse" data-bs-target="#childinfo"
+                                         aria-expanded="true" aria-controls="collapseOne">
                                         <a class="nav-link " type="button" id="childnavlabel"
-                                         data-bs-toggle="pill">Child Information</a>
+                                         data-bs-toggle="pill" onclick="showdiv(this,'childinfo')">Child Information</a>
                                     </div>
                                     </li>
-                                    <div data-bs-toggle="collapse" data-bs-target="#parentdetails" aria-expanded="true" aria-controls="collapseOne">
                                     <li class="nav-item">
+                                    <div data-bs-toggle="collapse" data-bs-target="#parentdetails"
+                                     aria-expanded="true" aria-controls="collapseOne">
+                                    
                                         <a class="nav-link" type="button" id="parentnavlabel"
-                                          data-bs-toggle="pill">Parent Details</a>
-                                    </li>
-                                </div>
+                                          data-bs-toggle="pill" onclick="showdiv(this,'parentdetails')">Parent Details</a>
+                                    
+                                </div></li>
+                                <li class="nav-item">
+                                    <div data-bs-toggle="collapse" data-bs-target="#parentdetail"
+                                     aria-expanded="true" aria-controls="collapseOne">
+                                    
+                                        <a class="nav-link" type="button" id="parentnavlabe"
+                                          data-bs-toggle="pill" onclick="showdiv(this,'parentdetail')">Parent Details</a>
+                                    
+                                </div></li>
                                 </ul>    
                             </div>
                         </div>
@@ -62,11 +74,12 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <div id="chilInformation" onclick="showcall(this,'childnavlabel')">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                    data-bs-target="#childinfo" aria-expanded="true" aria-controls="collapseOne">
-                                    Child Information
-                            
-                                    </button></div>
+                                        <button class="accordion-button collapsed check " type="button" data-bs-toggle="collapse" 
+                                        data-bs-target="#childinfo" aria-expanded="true" aria-controls="collapseOne">
+                                        Child Information
+                                
+                                        </button>
+                                    </div>
                                 </h2>
                                 <div id="childinfo" class="accordion-collapse collapse " data-bs-parent="#accordionExampletwo">
                                     <div class="accordion-body">
@@ -77,8 +90,8 @@
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
                                     <div id="parentInformation" onclick="showcall(this,'parentnavlabel')">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                    data-bs-target="#parentdetails" aria-expanded="false" aria-controls="collapseTwo">
+                                    <button class="accordion-button collapsed  check" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#parentdetails" aria-expanded="true" aria-controls="collapseOne">
                                         Parent Details
                                        
                                     </button></div>
@@ -86,6 +99,21 @@
                                 <div id="parentdetails" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
                                     <div class="accordion-body">
                                     <strong>parentinfo</strong>
+                                    </div>
+                                </div>   
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <div id="parentInformation" onclick="showcall(this,'parentnavlabe')">
+                                    <button class="accordion-button collapsed  check" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#parentdetail" aria-expanded="true" aria-controls="collapseOne">
+                                        Parent dvfdfav
+                                       
+                                    </button></div>
+                                </h2>
+                                <div id="parentdetail" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
+                                    <div class="accordion-body">
+                                    <strong>dsavd</strong>
                                     </div>
                                 </div>   
                             </div>
@@ -97,11 +125,12 @@
                         <div class="accordion" id="accordionExampletwo">
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#childhistory" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                     data-bs-target="#childhistory" aria-expanded="true" aria-controls="collapseOne">
                                     Child History
                                     </button>
                                 </h2>
-                                <div id="childhistory" class="accordion-collapse collapse show" data-bs-parent="#accordionExampletwo">
+                                <div id="childhistory" class="accordion-collapse collapse " data-bs-parent="#accordionExampletwo">
                                     <div class="accordion-body">
                                     <b>hggigguyguyg</b>
                                     </div>
@@ -109,7 +138,7 @@
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#medicalhistory" aria-expanded="false" aria-controls="collapseTwo">
+                                    <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#medicalhistory" aria-expanded="false" aria-controls="collapseTwo">
                                         Medical History
                                     </button>
                                 </h2>
@@ -137,6 +166,20 @@
 
                 const navLabel = document.getElementById(navbarId);
                 navLabel.classList.add('active');
+            }
+            function showdiv(id,classID){
+               
+                const accordionbutton = document.querySelector("div button.check");
+                console.log(accordionbutton);
+                if (accordionbutton) {
+                    accordionbutton.classList.remove('collapsed');
+                }
+                // accordionbutton.classList.add('collapsed');
+                // accordionbutton.classList.add('show');
+                const divName = document.getElementById(classID);
+                divName.classList.add('show');
+                
+               
             }
         </script>
     </body>

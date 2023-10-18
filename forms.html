@@ -48,12 +48,15 @@
             {
                 color: #0F2D52;
                 background-color: #D8E9FF;
-                border: none;
-            } 
-            .title
-            {
-                padding-left: 250px;
             }
+            
+            button.accordion-button.collapsed:hover
+            {
+                color: #D8E9FF;
+                background-color: #0F2D52;
+            } 
+
+            
         </style>
     </head>
     <body>
@@ -74,7 +77,7 @@
                     <!--Admission Form Tab-->
                     <div class="accordion-item">
                         <a href="#admin">
-                            <h2 class="accordion-header">
+                            <h2 class="accordion-header shadow">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#admission" aria-expanded="true" aria-controls="collapseOne">
                                         <b>Admission</b>
                                 </button>
@@ -122,7 +125,7 @@
                     <!--Child and Family History Form Tab-->
                     <div class="accordion-item">
                         <a href="#childandparenthistory">
-                            <h2 class="accordion-header">
+                            <h2 class="accordion-header shadow">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
                                 data-bs-target="#childandfamilyhistory" aria-expanded="true" aria-controls="collapseTwo">
                                 <b>Child and Family History</b>
@@ -197,7 +200,7 @@
                     <!--Child Profile Form Tab-->
                     <div class="accordion-item">
                         <a href="#childpro">
-                            <h2 class="accordion-header">
+                            <h2 class="accordion-header shadow">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
                                 data-bs-target="#childprofile" aria-expanded="true" aria-controls="collapseFour">
                                 <b>Child Profile</b>
@@ -247,11 +250,11 @@
             <div class="col-9">
                 <!--Admission Form-->
                 <div id="admin"><br>
-                    <h2 class="title">Admission</h2>
+                    <h2 class="text-center">Admission</h2>
                     <div class="accordion" id="accordionExampletwo">
                         <!--Child Information-->
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
+                            <h2 class="accordion-header shadow">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
                                 data-bs-target="#childinfo" aria-expanded="true" aria-controls="collapseOne">
                                 Child Information
@@ -326,7 +329,7 @@
                         </div>
                         <!--Parent Details-->
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
+                            <h2 class="accordion-header shadow">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
                                 data-bs-target="#parentdetails" aria-expanded="false" aria-controls="collapseTwo">
                                     Parent Details 
@@ -405,7 +408,7 @@
                         </div>
                         <!--Emergency Contact-->
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
+                            <h2 class="accordion-header shadow">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
                                     data-bs-target="#emergencycontact" aria-expanded="false" aria-controls="collapseThree">
                                     Emergency Contact
@@ -419,7 +422,7 @@
                         </div>   
                         <!--Medical Care Provider Details-->
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
+                            <h2 class="accordion-header shadow">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
                                     data-bs-target="#medicaldetails" aria-expanded="false" aria-controls="collapseThree">
                                     Medical Care Provider Details
@@ -433,7 +436,7 @@
                         </div>     
                         <!--Parent Agreement--> 
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
+                            <h2 class="accordion-header shadow">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
                                     data-bs-target="#parentagreement" aria-expanded="false" aria-controls="collapseThree">
                                     Parent Agreement
@@ -451,12 +454,12 @@
 
                 <!--Child and Family History Form-->
                 <div id="childandparenthistory"><br>
-                    <h2 class="title">Child and Family History</h2>
+                    <h2 class="text-center">Child and Family History</h2>
                     <div class="accordion" id="accordionExample">
 
                        <!--Child History-->
                         <div class="accordion-item">
-                          <h2 class="accordion-header">
+                          <h2 class="accordion-header shadow">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#childhistory" aria-expanded="true" aria-controls="collapseTwo">
                               Child History
                             </button>
@@ -470,7 +473,7 @@
 
                         <!--Medical History-->
                         <div class="accordion-item">
-                          <h2 class="accordion-header">
+                          <h2 class="accordion-header shadow">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#medicalhistory" aria-expanded="false" aria-controls="collapseTwo">
                                 Medical History
                             </button>
@@ -484,7 +487,7 @@
 
                         <!--Pregnancy History-->
                         <div class="accordion-item">
-                          <h2 class="accordion-header">
+                          <h2 class="accordion-header shadow">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pregnancyhistory" aria-expanded="false" aria-controls="collapseTwo">
                                 Pregnancy History
                             </button>
@@ -498,7 +501,7 @@
 
                         <!--Family History-->
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
+                            <h2 class="accordion-header shadow">
                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#familyhistory" aria-expanded="false" aria-controls="collapseTwo">
                                 Family History
                               </button>
@@ -512,7 +515,7 @@
 
                         <!--Social Behavior-->
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
+                            <h2 class="accordion-header shadow">
                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#socialbehavior" aria-expanded="false" aria-controls="collapseTwo">
                                 Social Behavior
                               </button>
@@ -526,7 +529,7 @@
 
                         <!--Environmental Factors-->
                         <div class="accordion-item">
-                            <h2 class="accordion-header">
+                            <h2 class="accordion-header shadow">
                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#environmentalfactors" aria-expanded="false" aria-controls="collapseTwo">
                                 Environmental Factors
                               </button>
@@ -540,7 +543,7 @@
 
                          <!--Parent Agreement-->
                          <div class="accordion-item">
-                            <h2 class="accordion-header">
+                            <h2 class="accordion-header shadow">
                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#historyparentagreement" aria-expanded="false" aria-controls="collapseTwo">
                                 Parent Agreement
                               </button>

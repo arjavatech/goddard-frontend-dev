@@ -88,31 +88,31 @@
                                 <ul class="nav nav-pills flex-column" role="tablist">
                                     <li class="nav-item">
                                         <div data-bs-toggle="collapse" data-bs-target="#childinfo" aria-expanded="true" aria-controls="collapseOne">
-                                        <a class="nav-link " type="button"
+                                        <a class="nav-link " type="button" id="childSideNavbar"
                                          data-bs-toggle="pill">Child Information</a>
                                     </div>
                                     </li>
                                     <div data-bs-toggle="collapse" data-bs-target="#parentdetails" aria-expanded="true" aria-controls="collapseOne">
                                         <li class="nav-item">
-                                            <a class="nav-link" type="button"
+                                            <a class="nav-link" type="button" id="parentSideNavbar"
                                             data-bs-toggle="pill">Parent Details</a>
                                         </li>
                                     </div>
                                     <div data-bs-toggle="collapse" data-bs-target="#emergencycontact" aria-expanded="true" aria-controls="collapseOne">
                                         <li class="nav-item">
-                                            <a class="nav-link" type="button"
+                                            <a class="nav-link" type="button" id="emergencyContactSideNavbar"
                                             data-bs-toggle="pill">Emergency Contact</a>
                                         </li>
                                     </div>
                                     <div data-bs-toggle="collapse" data-bs-target="#medicaldetails" aria-expanded="true" aria-controls="collapseOne">
                                         <li class="nav-item">
-                                            <a class="nav-link" type="button"
+                                            <a class="nav-link" type="button" id="medicalSideNavbar"
                                             data-bs-toggle="pill">Medical Care Provider Details</a>
                                         </li>
                                     </div>
                                     <div data-bs-toggle="collapse" data-bs-target="#parentagreement" aria-expanded="true" aria-controls="collapseOne">
                                         <li class="nav-item">
-                                            <a class="nav-link" type="button"
+                                            <a class="nav-link" type="button" id="parentAgreementSideNavbar"
                                             data-bs-toggle="pill">Parent Agreement</a>
                                         </li>
                                     </div>
@@ -139,7 +139,7 @@
                                     <!--Child History-->
                                     <div data-bs-toggle="collapse" data-bs-target="#childhistory" aria-expanded="true" aria-controls="collapseTwo">
                                         <li class="nav-item">
-                                            <a class="nav-link " type="button"
+                                            <a class="nav-link " type="button" id="childHistorySideNavbar"
                                              data-bs-toggle="pill">Child History</a>
                                         </li>     
                                     </div>
@@ -147,7 +147,7 @@
                                     <!--Medical History-->
                                     <div data-bs-toggle="collapse" data-bs-target="#medicalhistory" aria-expanded="true" aria-controls="collapseTwo">
                                         <li class="nav-item">
-                                            <a class="nav-link" type="button"
+                                            <a class="nav-link" type="button" id="medicalHistorySideNavbar"
                                             data-bs-toggle="pill">Medical History</a>
                                         </li>
                                     </div>
@@ -155,7 +155,7 @@
                                     <!--Pregnancy History-->
                                     <div data-bs-toggle="collapse" data-bs-target="#pregnancyhistory" aria-expanded="true" aria-controls="collapseTwo">
                                         <li class="nav-item">
-                                            <a class="nav-link" type="button"
+                                            <a class="nav-link" type="button" id="pregnancyHistorySideNavbar"
                                             data-bs-toggle="pill">Pregnancy History</a>
                                         </li>
                                     </div>
@@ -163,7 +163,7 @@
                                     <!--Family History-->
                                     <div data-bs-toggle="collapse" data-bs-target="#familyhistory" aria-expanded="true" aria-controls="collapseTwo">
                                         <li class="nav-item">
-                                            <a class="nav-link" type="button"
+                                            <a class="nav-link" type="button" id="familyHistorySideNavbar"
                                             data-bs-toggle="pill">Family History</a>
                                         </li>
                                     </div>
@@ -171,7 +171,7 @@
                                     <!--Social Behavior-->
                                     <div data-bs-toggle="collapse" data-bs-target="#socialbehavior" aria-expanded="true" aria-controls="collapseTwo">
                                         <li class="nav-item">
-                                            <a class="nav-link" type="button"
+                                            <a class="nav-link" type="button" id="socialBahaviourSideNavbar"
                                             data-bs-toggle="pill">Social Behavior</a>
                                         </li>
                                     </div>
@@ -179,7 +179,7 @@
                                     <!--Environmental Factors-->
                                     <div data-bs-toggle="collapse" data-bs-target="#environmentalfactors" aria-expanded="true" aria-controls="collapseTwo">
                                         <li class="nav-item">
-                                            <a class="nav-link" type="button"
+                                            <a class="nav-link" type="button" id="environmentalSideNavbar"
                                             data-bs-toggle="pill">Environmental Factors</a>
                                         </li>
                                     </div>
@@ -187,7 +187,7 @@
                                     <!--Parent Agreement-->
                                     <div data-bs-toggle="collapse" data-bs-target="#historyparentagreement" aria-expanded="true" aria-controls="collapseTwo">
                                         <li class="nav-item">
-                                            <a class="nav-link" type="button"
+                                            <a class="nav-link" type="button" id="childparentAgreementSideNavbar"
                                             data-bs-toggle="pill">Parent Agreement</a>
                                         </li>
                                     </div>
@@ -254,11 +254,13 @@
                     <div class="accordion" id="accordionExampletwo">
                         <!--Child Information-->
                         <div class="accordion-item">
-                            <h2 class="accordion-header shadow">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                data-bs-target="#childinfo" aria-expanded="true" aria-controls="collapseOne">
-                                Child Information
-                                </button>
+                            <h2 class="accordion-header">
+                                <div id="chilInformation" onclick="showcall(this,'childSideNavbar')">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#childinfo" aria-expanded="true" aria-controls="collapseOne">
+                                    Child Information
+                                    </button>
+                                </div>
                             </h2>
                             <div id="childinfo" class="accordion-collapse collapse " data-bs-parent="#accordionExampletwo">
                                 <div class="accordion-body">
@@ -329,11 +331,13 @@
                         </div>
                         <!--Parent Details-->
                         <div class="accordion-item">
-                            <h2 class="accordion-header shadow">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-                                data-bs-target="#parentdetails" aria-expanded="false" aria-controls="collapseTwo">
-                                    Parent Details 
-                                </button>
+                            <h2 class="accordion-header">
+                                <div id="chilInformation" onclick="showcall(this,'parentSideNavbar')">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#parentdetails" aria-expanded="false" aria-controls="collapseTwo">
+                                        Parent Details 
+                                    </button>
+                                </div>
                             </h2>
                             <div id="parentdetails" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
                                 <div class="accordion-body">
@@ -408,11 +412,13 @@
                         </div>
                         <!--Emergency Contact-->
                         <div class="accordion-item">
-                            <h2 class="accordion-header shadow">
+                            <h2 class="accordion-header">
+                                <div id="chilInformation" onclick="showcall(this,'emergencyContactSideNavbar')">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
                                     data-bs-target="#emergencycontact" aria-expanded="false" aria-controls="collapseThree">
                                     Emergency Contact
                                     </button>
+                                </div>
                             </h2>
                             <div id="emergencycontact" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
                                 <div class="accordion-body">
@@ -422,11 +428,13 @@
                         </div>   
                         <!--Medical Care Provider Details-->
                         <div class="accordion-item">
-                            <h2 class="accordion-header shadow">
+                            <h2 class="accordion-header">
+                                <div id="chilInformation" onclick="showcall(this,'medicalSideNavbar')">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
                                     data-bs-target="#medicaldetails" aria-expanded="false" aria-controls="collapseThree">
                                     Medical Care Provider Details
                                     </button>
+                                </div>
                             </h2>
                             <div id="medicaldetails" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
                                 <div class="accordion-body">
@@ -436,11 +444,13 @@
                         </div>     
                         <!--Parent Agreement--> 
                         <div class="accordion-item">
-                            <h2 class="accordion-header shadow">
+                            <h2 class="accordion-header">
+                                <div id="chilInformation" onclick="showcall(this,'parentAgreementSideNavbar')">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
                                     data-bs-target="#parentagreement" aria-expanded="false" aria-controls="collapseThree">
                                     Parent Agreement
                                     </button>
+                                </div>
                             </h2>
                             <div id="parentagreement" class="accordion-collapse collapse" data-bs-parent="#accordionExampletwo">
                                 <div class="accordion-body">
@@ -459,24 +469,30 @@
 
                        <!--Child History-->
                         <div class="accordion-item">
-                          <h2 class="accordion-header shadow">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#childhistory" aria-expanded="true" aria-controls="collapseTwo">
-                              Child History
-                            </button>
-                          </h2>
-                          <div id="childhistory" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                              <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            <h2 class="accordion-header">
+                                <div id="chilInformation" onclick="showcall(this,'childHistorySideNavbar')">
+                                    <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#childhistory" aria-expanded="true" aria-controls="collapseTwo">
+                                    Child History
+                                    </button>
+                                </div>
+                            </h2>
+                            <div id="childhistory" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                </div>
                             </div>
-                          </div>
                         </div>
 
                         <!--Medical History-->
                         <div class="accordion-item">
-                          <h2 class="accordion-header shadow">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#medicalhistory" aria-expanded="false" aria-controls="collapseTwo">
-                                Medical History
-                            </button>
+                          <h2 class="accordion-header">
+                            <div id="chilInformation" onclick="showcall(this,'childnavlabel')">
+                                <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#medicalhistory" aria-expanded="false" aria-controls="collapseTwo">
+                                    Medical History
+                                </button>
+                            </div>
                           </h2>
                           <div id="medicalhistory" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
@@ -487,10 +503,13 @@
 
                         <!--Pregnancy History-->
                         <div class="accordion-item">
-                          <h2 class="accordion-header shadow">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pregnancyhistory" aria-expanded="false" aria-controls="collapseTwo">
-                                Pregnancy History
-                            </button>
+                          <h2 class="accordion-header">
+                            <div id="chilInformation" onclick="showcall(this,'childnavlabel')">
+                                <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#pregnancyhistory" aria-expanded="false" aria-controls="collapseTwo">
+                                    Pregnancy History
+                                </button>
+                            </div>
                           </h2>
                           <div id="pregnancyhistory" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
@@ -501,10 +520,13 @@
 
                         <!--Family History-->
                         <div class="accordion-item">
-                            <h2 class="accordion-header shadow">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#familyhistory" aria-expanded="false" aria-controls="collapseTwo">
-                                Family History
-                              </button>
+                            <h2 class="accordion-header">
+                                <div id="chilInformation" onclick="showcall(this,'childnavlabel')">
+                                    <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#familyhistory" aria-expanded="false" aria-controls="collapseTwo">
+                                        Family History
+                                    </button>
+                                </div>
                             </h2>
                             <div id="familyhistory" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                               <div class="accordion-body">
@@ -515,10 +537,13 @@
 
                         <!--Social Behavior-->
                         <div class="accordion-item">
-                            <h2 class="accordion-header shadow">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#socialbehavior" aria-expanded="false" aria-controls="collapseTwo">
-                                Social Behavior
-                              </button>
+                            <h2 class="accordion-header">
+                                <div id="chilInformation" onclick="showcall(this,'childnavlabel')">
+                                    <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#socialbehavior" aria-expanded="false" aria-controls="collapseTwo">
+                                        Social Behavior
+                                    </button>
+                                </div>
                             </h2>
                             <div id="socialbehavior" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                               <div class="accordion-body">
@@ -529,10 +554,13 @@
 
                         <!--Environmental Factors-->
                         <div class="accordion-item">
-                            <h2 class="accordion-header shadow">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#environmentalfactors" aria-expanded="false" aria-controls="collapseTwo">
-                                Environmental Factors
-                              </button>
+                            <h2 class="accordion-header">
+                                <div id="chilInformation" onclick="showcall(this,'childnavlabel')">
+                                    <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#environmentalfactors" aria-expanded="false" aria-controls="collapseTwo">
+                                        Environmental Factors
+                                    </button>
+                                </div>
                             </h2>
                             <div id="environmentalfactors" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                               <div class="accordion-body">
@@ -543,10 +571,13 @@
 
                          <!--Parent Agreement-->
                          <div class="accordion-item">
-                            <h2 class="accordion-header shadow">
-                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#historyparentagreement" aria-expanded="false" aria-controls="collapseTwo">
-                                Parent Agreement
-                              </button>
+                            <h2 class="accordion-header">
+                                <div id="chilInformation" onclick="showcall(this,'childnavlabel')">
+                                    <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#historyparentagreement" aria-expanded="false" aria-controls="collapseTwo">
+                                        Parent Agreement
+                                    </button>
+                                </div>
                             </h2>
                             <div id="historyparentagreement" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                               <div class="accordion-body">

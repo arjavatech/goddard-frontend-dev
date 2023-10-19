@@ -27,55 +27,173 @@
         <!-- Navigation Bar End -->
 
         <div class="row m-3">
-            <div class="col-3 pt-5 side_tab"><br>
-                <h5><b>Admission Forms</b></h5><br>
-                <ul class="nav nav-pills flex-column" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link" href="admission.html">Admission</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="childandfamilyhistory.html">Child and Family History</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="immunizationinstructions.html">Immunization Instructions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="childprofile.html">Child Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pickuppassword.html">Pick-up Password</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="photovideopermission.html">Photo/Video Permission</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="securitypolicy.html">Security & Policy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="medicaltransportation.html">Medical Transportation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="healthpolicies.html">Health Policies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="outsideengagements.html">Outside Engagements</a>
-                    </li><br>
-                    <h5><b>Enrollment & Authorization Form</b></h5><br> 
-                    <li class="nav-item">
-                        <a class="nav-link" href="enrollmentagreement.html">Enrollment Agreement</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="authorization.html">Authorization</a>
-                    </li><br>
-                    <h5><b>Parent’s Signature Form</b></h5><br> 
-                    <li class="nav-item">
-                        <a class="nav-link" href="parentsignature.html">Parent’s Signature</a>
-                    </li><br>
-                </ul>        
+            <div class="col-3 p-1"><br>
+                <div class="accordion" id="accordionExampleone">
+                  <!--Admission Form Tab-->
+                  <div class="accordion-item">
+                      <a href="#admin">
+                          <h2 class="accordion-header shadow">
+                              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#admission" aria-expanded="true" aria-controls="collapseOne">
+                                      <b>Admission Forms</b>
+                              </button>
+                          </h2>
+                      </a> 
+                      <div id="admission" class="accordion-collapse collapse show" data-bs-parent="#accordionExampleone">
+                          <div class="accordion-body">
+                              <ul class="nav nav-pills flex-column" role="tablist">
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="childinformation.html">Child Information</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="childandfamilyhistory.html">Child and Family History</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link active" href="immunizationinstructions.html">Immunization Instructions</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="childprofile.html">Child Profile</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="pickuppassword.html">Pick-up Password</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="photovideopermission.html">Photo/Video Permission</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="securitypolicy.html">Security & Policy</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="medicaltransportation.html">Medical Transportation</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="healthpolicies.html">Health Policies</a>
+                                  </li>
+                                  <li class="nav-item">
+                                      <a class="nav-link" href="outsideengagements.html">Outside Engagements</a>
+                                  </li>
+                              </ul>    
+                          </div>
+                      </div>
+                  </div>
+                  <!--Admission Form Tab End-->
+                </div><br> 
             </div>
-            <div class="col-9">
-
-            </div>
+            <div class="col-9">   
+                  <!--Child and Family History Form-->
+                  <div id="childandparenthistory"><br>
+                      <h2 class="text-center">Immunization Instructions</h2>
+                      <div class="accordion" id="accordionExample">
+        
+                        <!--Child History-->
+        
+                          <div class="accordion-item">
+                              <h2 class="accordion-header shadow" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                  Child History
+                                </button>
+                              </h2>
+                              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                </div>
+                                </div>
+                              </div>
+                          </div>
+        
+                          <!--Medical History-->
+        
+                          <div class="accordion-item">
+                              <h2 class="accordion-header shadow" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                  Medical History
+                                </button>
+                              </h2>
+                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                 <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                </div>
+                              </div>
+                          </div>
+        
+                          <!--Pregnancy History-->
+        
+                          <div class="accordion-item">
+                              <h2 class="accordion-header shadow" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                  Pregnancy History
+                                </button>
+                              </h2>
+                              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                </div>
+                              </div>
+                          </div>
+        
+                          <!--Family History-->
+        
+                          <div class="accordion-item">
+                              <h2 class="accordion-header shadow" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                  Family History
+                                </button>
+                              </h2>
+                              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                </div>
+                              </div>
+                          </div>
+                          
+        
+                          <!--Social Behavior-->
+        
+                          <div class="accordion-item">
+                              <h2 class="accordion-header shadow" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                  Social Behavior
+                                </button>
+                              </h2>
+                              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                </div>
+                              </div>
+                          </div>
+                          
+        
+                          <!--Environmental Factors-->
+        
+                          <div class="accordion-item">
+                              <h2 class="accordion-header shadow" id="headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                  Environmental Factors
+                                </button>
+                              </h2>
+                              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                </div>
+                              </div>
+                          </div>
+        
+                          <!--Parent Agreement-->
+        
+                          <div class="accordion-item">
+                              <h2 class="accordion-header shadow" id="headingSeven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                  Parent Agreement
+                                </button>
+                              </h2>
+                              <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div> 
+                  <!--Child and Family History Form End-->
         </div>
     </body>
 </html>            

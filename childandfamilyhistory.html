@@ -95,136 +95,695 @@
           
           <!--Child and Family History Form-->
           <div id="childandparenthistory"><br>
-              <h2 class="text-center">Child and Family History</h2>
-              <div class="accordion" id="accordionExample">
+            <h2 class="text-center">Child and Family History</h2>
+            <div class="accordion" id="accordionExample">
 
-                <!--Child History-->
+              <!--Child History-->
 
-                  <div class="accordion-item">
-                      <h2 class="accordion-header shadow" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          Child History
-                        </button>
-                      </h2>
-                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <div class="row m-1 mb-4">
-                            <div class="col-sm">
-                                <div class="form-group"> 
-                                    <label for="physical_exam_last_date" class="form-label"><b>Date of Last Physical Exam</b>
-                                        <span style="color:#ff0000;">*</span>
-                                    </label>
-                                    <input type="date" class="form-control " id="physical_exam_last_date" name="physical_exam_last_date"
-                                        onclick="dateValidation('physical_exam_last_date')">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="form-group"> 
-                                    <label for="dental_exam_last_date" class="form-label"><b>Date of Last Dental Exam</b>
-                                        <span style="color:#ff0000;">*</span>
-                                    </label>
-                                    <input type="date" class="form-control " id="dental_exam_last_date" name="dental_exam_last_date" 
-                                        onclick="dateValidation('dental_exam_last_date')">
-                                </div>
-                            </div>
-                        </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header shadow" id="headingOne">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Child History
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <div class="row m-1 mb-4">
+                      <div class="col-sm">
+                        <div class="form-group"> 
+                            <label for="physical_exam_last_date" class="form-label"><b>Date of Last Physical Exam</b>
+                                <span style="color:#ff0000;">*</span>
+                            </label>
+                            <input type="date" class="form-control " id="physical_exam_last_date" name="physical_exam_last_date"
+                                onclick="dateValidation('physical_exam_last_date')">
                         </div>
                       </div>
-                  </div>
-
-                  <!--Medical History-->
-
-                  <div class="accordion-item">
-                      <h2 class="accordion-header shadow" id="headingTwo">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                          Medical History
-                        </button>
-                      </h2>
-                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                      <div class="col-sm">
+                        <div class="form-group"> 
+                            <label for="dental_exam_last_date" class="form-label"><b>Date of Last Dental Exam</b>
+                                <span style="color:#ff0000;">*</span>
+                            </label>
+                            <input type="date" class="form-control " id="dental_exam_last_date" name="dental_exam_last_date" 
+                                onclick="dateValidation('dental_exam_last_date')">
                         </div>
-                      </div>
+                      </div>    
+                    </div>
+                    <div class="text-center">
+                      <button class="save-btn">Save</button> 
+                    </div>
                   </div>
-
-                  <!--Pregnancy History-->
-
-                  <div class="accordion-item">
-                      <h2 class="accordion-header shadow" id="headingThree">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          Pregnancy History
-                        </button>
-                      </h2>
-                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                        </div>
-                      </div>
-                  </div>
-
-                  <!--Family History-->
-
-                  <div class="accordion-item">
-                      <h2 class="accordion-header shadow" id="headingFour">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                          Family History
-                        </button>
-                      </h2>
-                      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                        </div>
-                      </div>
-                  </div>
-                  
-
-                  <!--Social Behavior-->
-
-                  <div class="accordion-item">
-                      <h2 class="accordion-header shadow" id="headingFive">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                          Social Behavior
-                        </button>
-                      </h2>
-                      <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                        </div>
-                      </div>
-                  </div>
-                  
-
-                  <!--Environmental Factors-->
-
-                  <div class="accordion-item">
-                      <h2 class="accordion-header shadow" id="headingSix">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                          Environmental Factors
-                        </button>
-                      </h2>
-                      <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                        </div>
-                      </div>
-                  </div>
-
-                  <!--Parent Agreement-->
-
-                  <div class="accordion-item">
-                      <h2 class="accordion-header shadow" id="headingSeven">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                          Parent Agreement
-                        </button>
-                      </h2>
-                      <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                        </div>
-                      </div>
-                  </div>
+                </div>
               </div>
-          </div> 
+
+                <!--Medical History-->
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header shadow" id="headingTwo">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Medical History And Illnesses
+                      </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <!-- Medical history -->
+              
+                        <h4 class="text-center p-3">Does your child have a history of : (please describe)</h4>
+                        <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="allergies" class="form-label"><b>Allergies (food/drug)</b>
+                                        <span style="color:#ff0000;">*</span>
+                                    </label>
+                                    <input type="text" class="form-control " name="allergies" id="allergies">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="asthma" class="form-label"><b>Asthma</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="asthma" name="asthma">
+                              </div>
+                          </div>
+                        </div>
+                        <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="bleeding_problems" class="form-label"><b>Bleeding Problems</b>
+                                        <span style="color:#ff0000;">*</span>
+                                    </label>
+                                    <input type="text" class="form-control " name="bleeding_problems" id="bleeding_problems">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="diabetes" class="form-label"><b>Diabetes</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="diabetes" name="diabetes">
+                              </div>
+                          </div>
+                        </div>
+                        <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="epilepsy" class="form-label"><b>Epilepsy</b>
+                                        <span style="color:#ff0000;">*</span>
+                                    </label>
+                                    <input type="text" class="form-control " id="epilepsy" name="epilepsy">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="frequent_ear_infections" class="form-label"><b>Frequent Ear Infections</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="frequent_ear_infections" name="frequent_ear_infections">
+                              </div>
+                          </div>
+                        </div>
+                        <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="frequent_illnesses" class="form-label"><b>Frequent Illnesses</b>
+                                        <span style="color:#ff0000;">*</span>
+                                    </label>
+                                    <input type="text" class="form-control " id="frequent_illnesses" name="frequent_illnesses">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="hearing_problems" class="form-label"><b>Hearing Problems</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="hearing_problems" name="hearing_problems">
+                              </div>
+                          </div>
+                        </div>
+                        <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="high_fevers" class="form-label"><b>High Fevers</b>
+                                        <span style="color:#ff0000;">*</span>
+                                    </label>
+                                    <input type="text" class="form-control " id="high_fevers" name="high_fevers">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="hospitalization" class="form-label"><b>Hospitialization</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="hospitalization" name="hospitalization">
+                              </div>
+                          </div>
+                        </div>
+                                
+                        <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="rheumatic_fever" class="form-label"><b>Rheumatic Fever</b>
+                                        <span style="color:#ff0000;">*</span>
+                                    </label>
+                                    <input type="text" class="form-control " id="rheumatic_fever" name="rheumatic_fever">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="seizures_convulsions" class="form-label"><b>Seizures/Convulsions</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="seizures_convulsions" name="seizures_convulsions">
+                              </div>
+                          </div>
+                        </div>
+                                
+                        <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="serious_injuries_accidents" class="form-label"><b>Serious Injuries/Accidents</b>
+                                        <span style="color:#ff0000;">*</span>
+                                    </label>
+                                    <input type="text" class="form-control "  id="serious_injuries_accidents" name="serious_injuries_accidents">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="surgeries" class="form-label"><b>Surgeries</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="surgeries" name="surgeries">
+                              </div>
+                          </div>
+                        </div>
+                                
+                        <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="vision_problems" class="form-label"><b>Vision Problems</b>
+                                        <span style="color:#ff0000;">*</span>
+                                    </label>
+                                    <input type="text" class="form-control " id="vision_problems" name="vision_problems">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="medical_other" class="form-label"><b>Other</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="medical_other" name="medical_other">
+                              </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <button class="save-btn">Save</button> 
+                        </div>
+                      </div>
+                    </div>
+                      <!-- Medical history end -->
+                </div>
+                    
+
+                <!--Pregnancy and Ifant History-->
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header shadow" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      Pregnancy And Ifant History
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="illness_during_pregnancy" class="form-label"><b>Illness during pregnancy</b>
+                                        <span style="color:#ff0000;">*</span>
+                                    </label>
+                                    <input type="text" class="form-control " id="illness_during_pregnancy" name="illness_during_pregnancy">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="condition_of_newborn" class="form-label"><b>Condition of Newborn</b>
+                                        <span style="color:#ff0000;">*</span>
+                                    </label>
+                                    <input type="text" class="form-control " id="condition_of_newborn" name="condition_of_newborn">
+                                </div>
+                            </div>
+                      </div>
+                      <div class="row m-1 mb-4">
+                          <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="duration_of_pregnancy" class="form-label"><b>Duration of pregnancy</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="duration_of_pregnancy" name="duration_of_pregnancy">
+                              </div>
+                          </div>
+                          <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="birth_weight_lbs" class="form-label"><b>Birth Weight</b><span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <div class="input-group">
+                                      <input type="text" class="form-control " id="birth_weight_lbs" name="birth_weight_lbs">
+                                      <span class="input-group-text input-group-addon"
+                                          id="inputGroupPrependlbs">lbs.</span>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="birth_weight_oz" class="form-label"><b>Birth Weight</b><span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <div class="input-group">
+                                      <input type="text" class="form-control " id="birth_weight_oz" name="birth_weight_oz">
+                                      <span class="input-group-text input-group-addon"
+                                          id="inputGroupPrependlbs">oz.</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row m-1 mb-4">
+                          <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="complications" class="form-label"><b>Complications</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="complications" name="complications">
+                              </div>
+                          </div>
+                          <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="bottle_fed" class="form-label"><b>Bottle Fed?</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="bottle_fed"  name="bottle_fed">
+                              </div>
+                          </div>
+                          <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="breast_fed" class="form-label"><b>Breast Fed?</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="breast_fed" name="breast_fed">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row m-1 mb-4">
+                          <h3 class="text-center mb-3">Other Siblings</h3>
+                          <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="other_siblings_name" class="form-label"><b>Name</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="other_siblings_name"
+                                    name="other_siblings_name">
+                              </div>
+                          </div>
+                          <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="other_siblings_age" class="form-label"><b>Age</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="other_siblings_age" name="other_siblings_age">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="text-center">
+                        <button class="save-btn">Save</button> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Family History-->
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header shadow" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                      Family History
+                    </button>
+                  </h2>
+                  <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <h4 class="text-center p-3">Has any blood relative of this child had
+                        any of the
+                        following conditions? (please check off)
+                      </h4>
+                      <div class="row">
+                        <div class="col-sm m-4">
+                            <div class="wizard-form-checkbox">
+                                <input type="checkbox" class="input-checkbox"
+                                    id="family_history_allergies"
+                                    name="family_history_allergies">
+                                <label class="form-check-label"
+                                    for="family_history_allergies"><span>
+                                        <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                            <polyline points="1.5 6 4.5 9 10.5 1">
+                                            </polyline>
+                                        </svg></span><span><b>Allergies</b></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm m-4">
+                            <div class="wizard-form-checkbox">
+                                <input type="checkbox" class="input-checkbox"
+                                    id="family_history_heart_problems"
+                                    name="family_history_heart_problems">
+                                <label class="form-check-label"
+                                    for="family_history_heart_problems"><span>
+                                        <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                            <polyline points="1.5 6 4.5 9 10.5 1">
+                                            </polyline>
+                                        </svg></span><span><b>Heart Problems</b></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-sm m-4">
+                            <div class="wizard-form-checkbox">
+                                <input type="checkbox" class="input-checkbox"
+                                    id="family_history_tuberculosis"
+                                    name="family_history_tuberculosis">
+                                <label class="form-check-label"
+                                    for="family_history_tuberculosis"><span>
+                                        <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                            <polyline points="1.5 6 4.5 9 10.5 1">
+                                            </polyline>
+                                        </svg></span><span><b>Tuberculosis</b></span>
+                                </label>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-sm m-4">
+                              <div class="wizard-form-checkbox">
+                                  <input type="checkbox" class="input-checkbox"
+                                      id="family_history_asthma" name="family_history_asthma">
+                                  <label class="form-check-label"
+                                      for="family_history_asthma"><span>
+                                          <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                              <polyline points="1.5 6 4.5 9 10.5 1">
+                                              </polyline>
+                                          </svg></span><span><b>Asthma</b></span>
+                                  </label>
+                              </div>
+                          </div>
+                          <div class="col-sm m-4">
+                              <div class="wizard-form-checkbox">
+                                  <input type="checkbox" class="input-checkbox"
+                                      id="family_history_high_blood_pressure"
+                                      name="family_history_high_blood_pressure">
+                                  <label class="form-check-label"
+                                      for="family_history_high_blood_pressure"><span>
+                                          <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                              <polyline points="1.5 6 4.5 9 10.5 1">
+                                              </polyline>
+                                          </svg></span><span><b>High Blood Pressure</b></span>
+                                  </label>
+                              </div>
+                          </div>
+                          <div class="col-sm m-4">
+                              <div class="wizard-form-checkbox">
+                                  <input type="checkbox" class="input-checkbox"
+                                      id="family_history_vision_problems"
+                                      name="family_history_vision_problems">
+                                  <label class="form-check-label"
+                                      for="family_history_vision_problems"><span>
+                                          <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                              <polyline points="1.5 6 4.5 9 10.5 1">
+                                              </polyline>
+                                          </svg></span><span><b>Vision Problems</b></span>
+                                  </label>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-sm m-4">
+                              <div class="wizard-form-checkbox">
+                                  <input type="checkbox" class="input-checkbox"
+                                      id="family_history_diabetes"
+                                      name="family_history_diabetes">
+                                  <label class="form-check-label"
+                                      for="family_history_diabetes"><span>
+                                          <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                              <polyline points="1.5 6 4.5 9 10.5 1">
+                                              </polyline>
+                                          </svg></span><span><b>Diabetes</b></span>
+                                  </label>
+                              </div>
+                          </div>
+                          <div class="col-sm m-4">
+                              <div class="wizard-form-checkbox">
+                                  <input type="checkbox" class="input-checkbox"
+                                      id="family_history_hyperactivity"
+                                      name="family_history_hyperactivity">
+                                  <label class="form-check-label"
+                                      for="family_history_hyperactivity"><span>
+                                          <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                              <polyline points="1.5 6 4.5 9 10.5 1">
+                                              </polyline>
+                                          </svg></span><span><b>Hyperactivity</b></span>
+                                  </label>
+                              </div>
+                          </div>
+                          <div class="col-sm m-4">
+                              <div class="wizard-form-checkbox">
+                                  <input type="checkbox" class="input-checkbox"
+                                      id="family_history_epilepsy"
+                                      name="family_history_epilepsy">
+                                  <label class="form-check-label"
+                                      for="family_history_epilepsy"><span>
+                                          <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                              <polyline points="1.5 6 4.5 9 10.5 1">
+                                              </polyline>
+                                          </svg></span><span><b>Epilepsy</b></span>
+                                  </label>
+                              </div>
+                          </div>
+                      </div> 
+                      <div class="text-center">
+                        <button class="save-btn">Save</button> 
+                      </div> 
+                    </div>
+                  </div>
+                </div>
+                
+
+                <!--Social Behavior-->
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header shadow" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                      Social Behavior
+                    </button>
+                  </h2>
+                  <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <div class="row m-1 mb-4">
+                        <div class="col-sm">
+                            <div class="form-group"> 
+                                <label for="age_group_friends" class="form-label"><b>Age group of friends</b>
+                                    <span style="color:#ff0000;">*</span>
+                                </label>
+                                <input type="text" class="form-control " id="age_group_friends" name="age_group_friends">
+                            </div>
+                        </div>
+                        <div class="col-sm">
+                          <div class="form-group"> 
+                              <label for="neighborhood_friends" class="form-label"><b>Neighborhood friends</b>
+                                  <span style="color:#ff0000;">*</span>
+                              </label>
+                              <input type="text" class="form-control " id="neighborhood_friends" 
+                              name="neighborhood_friends">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row m-1 mb-4">
+                          <div class="col-sm">
+                            <div class="form-group"> 
+                                <label for="relationship_with_mother" class="form-label"><b>Relationship with mother</b>
+                                    <span style="color:#ff0000;">*</span>
+                                </label>
+                                <input type="text" class="form-control " id="relationship_with_mother" 
+                                name="relationship_with_mother">
+                            </div>
+                          </div>
+                          <div class="col-sm">
+                            <div class="form-group"> 
+                                <label for="relationship_with_father" class="form-label"><b>Relationship with father</b>
+                                    <span style="color:#ff0000;">*</span>
+                                </label>
+                                <input type="text" class="form-control " id="relationship_with_father"\
+                                name="relationship_with_father">
+                            </div>
+                          </div>
+                      </div>
+                  
+                      <div class="row m-1 mb-4">
+                          <div class="col-sm">
+                            <div class="form-group"> 
+                                <label for="relationship_with_siblings" class="form-label"><b>Relationship with siblings</b>
+                                    <span style="color:#ff0000;">*</span>
+                                </label>
+                                <input type="text" class="form-control " id="relationship_with_siblings"
+                                    name="relationship_with_siblings">
+                            </div>
+                          </div>
+                          <div class="col-sm">
+                            <div class="form-group"> 
+                                <label for="relationship_with_extended_family" class="form-label">
+                                <b>Relationship with extended family</b><span style="color:#ff0000;">*</span></label>
+                                <input type="text" class="form-control " id="relationship_with_extended_family"
+                                    name="relationship_with_extended_family">
+                            </div>
+                          </div>
+                      </div>
+                    
+                      <div class="row m-1 mb-4">
+                          <div class="col-sm">
+                            <div class="form-group"> 
+                                <label for="fears_conflicts" class="form-label"><b>Fears and Conflicts</b>
+                                    <span style="color:#ff0000;">*</span>
+                                </label>
+                                <input type="text" class="form-control " id="fears_conflicts" name="fears_conflicts">
+                            </div>
+                          </div>
+                          <div class="col-sm">
+                            <div class="form-group"> 
+                                <label for="child_response_frustration" class="form-label"><b>Child’s response to frustration</b>
+                                    <span style="color:#ff0000;">*</span>
+                                </label>
+                                <input type="text" class="form-control " id="child_response_frustration"
+                                    name="child_response_frustration">
+                            </div>
+                          </div>
+                      </div>
+                    
+                      <div class="row m-1 mb-4">
+                          <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="favorite_activities" class="form-label"><b>Favorite activities</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="favorite_activities"
+                                  name="favorite_activities">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="text-center">
+                        <button class="save-btn">Save</button> 
+                      </div> 
+                    </div>
+                  </div>
+                </div>
+                
+
+                <!--Environmental Factors-->
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header shadow" id="headingSix">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        Environmental Factors
+                      </button>
+                    </h2>
+                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <div class="row m-1 mb-4">
+                          <div class="col-sm">
+                            <div class="form-group"> 
+                                <label for="last_five_years_moved" class="form-label">
+                                    <b>How many times have you moved in the last five years?</b><span style="color:#ff0000;">*</span></label>
+                                <input type="text" class="form-control " id="last_five_years_moved"
+                                name="last_five_years_moved">
+                            </div>
+                          </div>
+                          <div class="col-sm">
+                            <div class="form-group"> 
+                                <label for="things_used_at_home" class="form-label">
+                                <b>Educational toys, games, books used at home?</b><span style="color:#ff0000;">*</span></label>
+                                <input type="text" class="form-control " id="things_used_at_home" name="things_used_at_home">
+                            </div>
+                          </div>
+                        </div>
+                      
+                        <div class="row m-3">
+                          <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="hours_of_television_daily" class="form-label">
+                                  <b>How many hours of television daily?</b><span style="color:#ff0000;">*</span></label>
+                                  <input type="text" class="form-control " id="hours_of_television_daily" name="hours_of_television_daily">
+                              </div>
+                          </div>
+                          <div class="col-sm">
+                            <div class="form-group"> 
+                                <label for="language_used_at_home" class="form-label">
+                                <b>Language used in the home?</b><span style="color:#ff0000;">*</span></label>
+                                <input type="text" class="form-control " id="language_used_at_home" name="language_used_at_home">
+                            </div>
+                        </div>
+                        </div>
+                      
+                        <div class="row m-3">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="changes_at_home_situation" class="form-label"><b>Have
+                                        there been any changes in the home situation recently, i.e. addition/loss/death/divorce.</b>
+                                        <span style="color:#ff0000;">*</span></label>
+                                    <input type="text" class="form-control "
+                                        id="changes_at_home_situation" name="changes_at_home_situation">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                              <div class="form-group"> 
+                                  <label for="educational_expectations_of_child" class="form-label"><b>What are your educational expectations of your child?</b>
+                                      <span style="color:#ff0000;">*</span>
+                                  </label>
+                                  <input type="text" class="form-control " id="educational_expectations_of_child"
+                                      name="educational_expectations_of_child">
+                              </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <button class="save-btn">Save</button> 
+                        </div> 
+                      </div>
+                    </div>
+                </div>
+
+                <!--Parent Agreement-->
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header shadow" id="headingSeven">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        Parent Agreement
+                      </button>
+                    </h2>
+                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        <div class="row m-3">
+                          <div class="col-sm">
+                            <div class="form-group wizard-form-checkbox">
+                                <input type="checkbox" class="input-checkbox" id="parent_agree_two"
+                                name="parent_agree_two" >
+                                <label class="form-check-label" for="parent_agree_two"><span>
+                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                    </svg></span>
+                                    <span><b>I agree all the above information is correct.</b></span>
+                                </label>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="text-center">
+                          <button class="save-btn">Save</button> 
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            </div> 
+          </div>    
           <!--Child and Family History Form End-->
           
           

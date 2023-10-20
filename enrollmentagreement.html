@@ -5,13 +5,30 @@
     <head>
         <title>Child and Family History</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
+        <!-- <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png"> -->
 
         <link rel="stylesheet" href="css/navbar_signout_style.css">
-        <link rel="stylesheet" href="css/form_style.css">
+        <!-- <link rel="stylesheet" href="css/form_style.css"> -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
         <style>
+            .inputBox {
+                /* display: block; */
+                /* width: 100%; */
+                padding: 0.375rem 0.75rem !important;
+                font-size: 1rem !important;
+                font-weight: 400 !important;
+                line-height: 1.5 !important;
+                color: #212529 !important;
+                background-color: #fff !important;
+                background-clip: padding-box !important;
+                border: 1px solid #ced4da !important;
+                -webkit-appearance: none !important;
+                -moz-appearance: none !important;
+                appearance: none !important;
+                border-radius: 0.25rem !important;
+                transition: border-color .15s ease-in-out ,box-shadow .15s ease-in-out !important;
+            }
           .accordion-button:not(.collapsed)::after {
             background-image: url('image/down_white.png');
             transform: rotate(-180deg);
@@ -26,10 +43,10 @@
     margin-bottom: 10px;
 } */
   
-/* #apiResponse {
+#apiResponse {
     border: 1px solid #ccc;
     padding: 100px;
-} */
+}
 
 #heading {
   text-align: center;
@@ -103,28 +120,28 @@ span {
   width: 300px;
 }
 
-.div1{
+/* .div1{
   display: inline-block;
 }
 .div2 {
   display: inline-block;
-  margin-left: 10% !important;
+  margin-left: 5% !important;
 }
 .div3 {
   display: inline-block;
-  margin-left: 10% !important;
+  margin-left: 5% !important;
 }
 .div4 {
   display: inline-block;
-  margin-left: 10% !important;
-}
+  margin-left: 5% !important;
+} */
 
 /* this used to display border in form */
-.overallblock{
+/* .overallblock{
   padding: 2% !important;
   border: 3px solid  #0F2D52;
   margin: 2%;
- }
+ } */
 
  td {
   display: table-cell;
@@ -134,8 +151,8 @@ span {
         </style>
     </head>
     <body>
-         <!-- Navigation Bar -->
-         <nav class="navbar_bg">
+        <!-- Navigation Bar -->
+        <nav class="navbar_bg">
             <div class="text-center">
                 <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
             </div>
@@ -183,14 +200,11 @@ span {
             <div class="col-9">
                 
                 <!--Child and Family History Form-->
-                <div id="childandparenthistory"><br>
-                    <h2 class="text-center">Child and Family History</h2>
+                <div id="enrollmentForm"><br>
+                    <h2 class="text-center">Enrollment Form</h2>
                     <div class="accordion" id="accordionExample">
                         <div class="accordion-item">
                             <div class="container overallblock" >
-                                <div class="center-image">
-                                    <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
-                                </div>
                                 <span id="heading" name="heading"></span>
                                 <div id="spinner" class="spinner"></div>
                                 <form id="enrollment_from" >
@@ -205,7 +219,7 @@ span {
                     
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
-                                            <input id="point_two_initial_here" name="point_two_initial_here" type="text" class="form-control ">
+                                            <input id="point_two_initial_here" name="point_two_initial_here" type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep2" name="apiResponsep2">
                                             2. The School's non-refundable registration fee of $250 shall be 
@@ -214,7 +228,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_three_initial_here" name="point_three_initial_here"
-                                                type="text" class="form-control ">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep3" name="apiResponsep3">
                                             3. New Family Enrollment - First month's tuition and non-refundable 
@@ -222,13 +236,13 @@ span {
                                             agreement. If the deposit is not paid, a place for the child cannot be 
                                             guaranteed. The first month's tuition is 100% refundable 90 days before 
                                             the start date, 50% refundable 30 days before the start date and no 
-                                            refund for less than 30daysâ€™ notice. For being on the waitlist only 
+                                            refund for less than 30days - notice. For being on the waitlist only 
                                             the Registration fee is necessary, and it is fully refundable if we are 
                                             unable to provide you with classroom placement.
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_four_initial_here" name="point_four_initial_here"
-                                                type="text" class="form-control ">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep4" name="apiResponsep4">
                                             4. Monthly tuition is due on or before the 1st of each month. A $50 
@@ -242,7 +256,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_five_initial_here" name="point_five_initial_here"
-                                                type="text" class="form-control ">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep5" name="apiResponsep5">
                                             5. At the time of registration, tuition is quoted for the current rate 
@@ -251,7 +265,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_six_initial_here" name="point_six_initial_here" type="text"
-                                                class="form-control ">
+                                                class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep6" name="apiResponsep6">
                                             6. Monthly tuition fees are non-refundable regardless of holidays, 
@@ -268,7 +282,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_seven_initial_here" name="point_seven_initial_here"
-                                                type="text" class="form-control ">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep7" name="apiResponsep7">
                                             7. Monthly tuition fees are non-refundable regardless of illness, 
@@ -280,7 +294,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_eight_initial_here" name="point_eight_initial_here"
-                                                type="text" class="form-control">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep8" name="apiResponsep8">
                                             8. This School is closed on the following days: 
@@ -293,7 +307,7 @@ span {
                                                         <th>Leave Reasons</th>
                                                     </tr>
                                                     <tr>
-                                                        <td id = "R1C1">January 2, 2023</td>                                    </td>
+                                                        <td id = "R1C1">January 2, 2023</td>
                                                         <td id = "R1C2">New Year's Day Observance</td>
                                                     </tr>
                                                     <tr>
@@ -409,7 +423,7 @@ span {
                                         </div><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_nine_initial_here" name="point_nine_initial_here"
-                                                type="text" class="form-control ">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep9" name="apiResponsep9">
                                             9. The Goddard School is a year-round program. Tuition is payable for 
@@ -423,7 +437,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_ten_initial_here" name="point_ten_initial_here" type="text"
-                                                class="form-control ">
+                                                class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep10" name="apiResponsep10">
                                             10. The School will open at 7:00am and close at 6:00pm, however 
@@ -441,7 +455,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_eleven_initial_here" name="point_eleven_initial_here"
-                                                type="text" class="form-control ">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep11" name="apiResponsep11">
                                             11. Our School limits each students day to a maximum of 10 hours. 
@@ -449,7 +463,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_twelve_initial_here" name="point_twelve_initial_here"
-                                                type="text" class="form-control ">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep12" name="apiResponsep12">
                                             12. The School requires a 30 day written notice of withdrawal for 1 
@@ -459,7 +473,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_thirteen_initial_here" name="point_thirteen_initial_here"
-                                                type="text" class="form-control ">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep13" name="apiResponsep13">
                                             13. The School reserves the right to deny, cancel, sever or suspend a 
@@ -469,7 +483,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_fourteen_initial_here" name="point_fourteen_initial_here"
-                                                type="text" class="form-control ">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep14" name="apiResponsep14">
                                             14. Children may not attend the School while ill. Children who become 
@@ -481,7 +495,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_fifteen_initial_here" name="point_fifteen_initial_here"
-                                                type="text" class="form-control ">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep15" name="apiResponsep15">
                                             15. Each child in our childcare facility will be required to have 
@@ -490,7 +504,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_sixteen_initial_here" name="point_sixteen_initial_here"
-                                                type="text" class="form-control ">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep16" name="apiResponsep16">
                                             16. Parents acknowledge and agree that representatives of the School's 
@@ -500,7 +514,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_seventeen_initial_here" name="point_seventeen_initial_here"
-                                                type="text" class="form-control ">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep17" name="apiResponsep17">
                                             17. The School's employees are its most important assets. If Parents 
@@ -511,7 +525,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_eighteen_initial_here" name="point_eighteen_initial_here"
-                                                type="text" class="form-control ">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep18" name="apiResponsep18">
                                             18. Parents agree that Outside Engagements are not for the benefit or 
@@ -527,7 +541,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_nineteen_initial_here" name="point_nineteen_initial_here"
-                                                type="text" class="form-control ">
+                                                type="text" class="form-control inputBox">
                                         </span>
                                         <span id="apiResponsep19" name="apiResponsep19">
                                             19. The undersigned Parents have received an executed copy of this 
@@ -539,63 +553,13 @@ span {
                                         </span><br><br>
                                     </ol>
                                     <div class="container signblock">
-                                        <div class="col-sm-12">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-6 div1">
-                                                        <div class="form-group ">
-                                                            <input id="parent_one_sign" name="parent_one_sign"
-                                                            type="text" class="form-control bloc1">
-                                                            <span id="apiResponsep20" name="apiResponsep20">
-                                                                Signature of Parent or Guardian
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6 div2">
-                                                        <div class="form-group ">
-                                                            <input id="parent_one_sign_date" name="parent_one_sign_date"
-                                                            type="date" class="form-control bloc1" onclick="dateValidation('parent_one_sign_date')">
-                                                            <span id="apiResponsep21" name="apiResponsep21" >
-                                                                Date
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><br>
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-6 div1">
-                                                        <div class="form-group ">
-                                                            <input id="primary_parent_email" name="primary_parent_email"
-                                                            type="text" class="form-control bloc1" onchange="emailValidation(this,'primary_parent_email_span')">
-                                                            <span id="primary_parent_email_span" style="color:red; display:none">
-                                                                Enter valid input [should be in @ and .].</span>
-                                                                <div class="wizard-form-error"></div>
-                                                            <span id="apiResponsep22" name="apiResponsep22">
-                                                                Primary Parent Email
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6 div2">
-                                                        <div class="form-group ">
-                                                            <input id="primary_parent_cell_number" name="primary_parent_cell_number"
-                                                            type="text" class="form-control bloc1" onchange="validatePhone(this,'primary_parent_cell_number_span')">
-                                                            <span id="primary_parent_cell_number_span" style="color:red; display:none">
-                                                                Enter valid input [only numbers,+,-,()].</span>
-                                                            <div class="wizard-form-error"></div>
-                                                            <span id="apiResponsep23" name="apiResponsep23" >
-                                                                Primary Parent Cell Number
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div><br>
+                                        <div class="col-sm-12">                            
                                             <div class="row">
                                                 <div class="col-sm-12">
                                                     <div class="col-sm-6 div1">
                                                         <div class="form-group ">
                                                             <input id="child_name" name="child_name"
-                                                            type="text" class="form-control bloc1">
+                                                            type="text" class="form-control bloc1 inputBox">
                                                             <span id="apiResponsep24" name="apiResponsep24">
                                                                 Child's Name
                                                             </span>
@@ -604,7 +568,7 @@ span {
                                                     <div class="col-sm-6 div3">
                                                         <div class="form-group ">
                                                             <input id="dob" name="dob"
-                                                            type="date" class="form-control bloc1" name="apiResponsep25" >
+                                                            type="date" class="form-control inputBox bloc1" name="apiResponsep25" >
                                                             <span id="apiResponsep25" name="apiResponsep25">
                                                                 Date of Birth
                                                             </span>
@@ -612,28 +576,6 @@ span {
                                                     </div>
                                                 </div>
                                             </div><br>
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="col-sm-6 div1">
-                                                        <div class="form-group ">
-                                                            <input id="school_admin_sign" name="school_admin_sign"
-                                                            type="text" class="form-control bloc1" disabled>
-                                                            <span id="apiResponsep26" name="apiResponsep26" >
-                                                                Signature of School Administration
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6 div4">
-                                                        <div class="form-group ">
-                                                            <input id="school_admin_sign_date" name="school_admin_sign_date"
-                                                            type="date" class="form-control bloc1"  onclick="dateValidation('school_admin_sign_date')" disabled>
-                                                            <span id="apiResponsep27" name="apiResponsep27">
-                                                                Date
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div><br><br>
                                     <button id="saveBtn" type="submit">Save</button>

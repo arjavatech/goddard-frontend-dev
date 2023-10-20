@@ -9,6 +9,12 @@
             .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
                 background-color: #0F2D52 !important;
             }
+
+            .nav-pills .nav-link {
+                background-color: #ffffff !important;
+                border-radius: 0rem !important;
+            }
+
             a.nav-link
             {
                 color: #0F2D52;
@@ -21,9 +27,18 @@
                 
             }
 
+            a {
+                text-decoration: none !important;
+                list-style-type: none !important;
+            }
+
             .accordion-button
             {
                 font-weight: 700;
+            }
+
+            .accordion-body {
+                border: 2px solid #0F2D52;
             }
 
             button.accordion-button.collapsed
@@ -38,13 +53,22 @@
                 background-color: #0F2D52;
             } 
 
-            .side_tab{
+            .accordion-button:focus
+            {
+                box-shadow: none !important;
+            }
+
+            h2.accordion-header.shadow {
+                box-shadow: 0 .5rem 1rem rgba(15, 45, 82, 0.5) !important;
+            }
+
+            .side_tab_bg{
                 background-color: #D8E9FF;
             }
 
             .form-control
             {
-                border: 1px solid #979797 !important;
+                border: 1px solid #888888 !important;
             }
 
             .save-btn

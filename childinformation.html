@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Admission</title>
+        <title>Child Information</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
         <link rel="stylesheet" href="css/navbar_signout_style.css">
@@ -29,69 +29,74 @@
         <!-- Navigation Bar End -->
 
         <div class="row m-3">
-            <div class="col-3 pt-5 side_tab"><br>
-                <h5><b>Admission Forms</b></h5><br>
-                <ul class="nav nav-pills flex-column" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="admission.html">Admission</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="childandfamilyhistory.html">Child and Family History</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="immunizationinstructions.html">Immunization Instructions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="childprofile.html">Child Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pickuppassword.html">Pick-up Password</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="photovideopermission.html">Photo/Video Permission</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="securitypolicy.html">Security & Policy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="medicaltransportation.html">Medical Transportation</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="healthpolicies.html">Health Policies</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="outsideengagements.html">Outside Engagements</a>
-                    </li><br>
-                    <h5><b>Enrollment & Authorization Form</b></h5><br> 
-                    <li class="nav-item">
-                        <a class="nav-link" href="enrollmentagreement.html">Enrollment Agreement</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="authorization.html">Authorization</a>
-                    </li><br>
-                    <h5><b>Parent’s Signature Form</b></h5><br> 
-                    <li class="nav-item">
-                        <a class="nav-link" href="parentsignature.html">Parent’s Signature</a>
-                    </li><br>
-                </ul>        
+            <div class="col-3 p-1"><br>
+                <div class="accordion" id="accordionExampleone">
+                    <!--Admission Form Tab-->
+                    <div class="accordion-item">
+                        <a href="#admin">
+                            <h2 class="accordion-header shadow">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#admission" aria-expanded="true" aria-controls="collapseOne">
+                                        <b>Admission Forms</b>
+                                </button>
+                            </h2>
+                        </a> 
+                        <div id="admission" class="accordion-collapse collapse show" data-bs-parent="#accordionExampleone">
+                            <div class="accordion-body">
+                                <ul class="nav nav-pills flex-column" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" href="childinformation.html">Child Information</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="childandfamilyhistory.html">Child and Family History</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="immunizationinstructions.html">Immunization Instructions</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="childprofile.html">Child Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="pickuppassword.html">Pick-up Password</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="photovideopermission.html">Photo/Video Permission</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="securitypolicy.html">Security & Policy</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="medicaltransportation.html">Medical Transportation</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="healthpolicies.html">Health Policies</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="outsideengagements.html">Outside Engagements</a>
+                                    </li>
+                                </ul>    
+                            </div>
+                        </div>
+                    </div>
+                    <!--Admission Form Tab End-->
+                </div>    
             </div>
             <div class="col-9">
 
                 <!--Admission Form-->
                 <div id="admin"><br>
-                    <h2 class="text-center">Admission</h2>
+                    <h2 class="text-center">Child Information</h2>
                     <div class="accordion" id="accordionExample">
                  
-                        <!--Child Information-->
+                        <!--Child Details-->
                         <div class="accordion-item">
                             <h2 class="accordion-header shadow" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                  Child Information
+                                  Child Details
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <div class="row m-1 mb-5">
+                                    <div class="row m-1 mb-4">
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="child_full_name" class="form-label"><b>CHILD’S FULL NAME
@@ -120,39 +125,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <h4 class="text-center mb-5">ADDRESS</h4>
-                                    <div class="row m-1 mb-5">
-                                        <div class="col-sm">
-                                            <div class="form-group">
-                                                <label for="child_street_address" class="form-label"><b>STREET</b><span style="color:#ff0000;">*</span></label>
-                                                <input type="text" class="form-control "
-                                                    id="child_street_address" name="child_street_address">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-                                            <div class="form-group">
-                                                <label for="child_city_address" class="form-label"><b>CITY</b><span style="color:#ff0000;">*</span></label>
-                                                <input type="text" class="form-control "
-                                                id="child_city_address" name="child_city_address">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-                                            <div class="form-group">
-                                                <label for="child_state_address" class="form-label"><b>STATE</b><span style="color:#ff0000;">*</span></label>
-                                                <input type="text" class="form-control "
-                                                id="child_state_address" name="child_state_address">
-                                            </div>
-                                        </div>
-                                        <div class="col-sm">
-                                            <div class="form-group">
-                                                <label for="child_zip_address" class="form-label"><b>ZIP</b><span style="color:#ff0000;">*</span></label>
-                                                <input type="text" class="form-control " id="child_zip_address" name="child_zip_address" 
-                                                onchange="ValidatePincode (this,'child_zip_address_span')">                                                     
-                                                <span id="child_zip_address_span" style="color:red; display:none">
-                                                Enter valid input [only numbers].</span>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="text-center">
                                         <button class="save-btn">Save</button> 
                                     </div>
@@ -170,7 +142,7 @@
                               </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <div class="row m-1 mb-5">
+                                    <div class="row m-1 mb-4">
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="parent1_name" class="form-label"><b>PARENT’S / LEGAL GUARDIAN’S NAME</b>
@@ -180,8 +152,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <h5 class="text-center mb-5"><b>HOME ADDRESS</b></h5>
-                                    <div class="row m-1 mb-5">
+                                    <h5 class="text-center mb-4"><b>HOME ADDRESS</b></h5>
+                                    <div class="row m-1 mb-4">
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="parent1_street_address" class="form-label"><b>STREET</b>
@@ -222,7 +194,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row m-1 mb-5">
+                                    <div class="row m-1 mb-4">
                                         <div class="col-sm"><br>
                                             <div class="form-group">
                                                 <label for="home_telephone_number1" class="form-label"><b>TELEPHONE NUMBER</b>
@@ -237,7 +209,7 @@
                                         </div>
                                     </div>
                                     <!-- Business info -->
-                                    <div class="row m-1 mb-5">
+                                    <div class="row m-1 mb-4">
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="business1_name" class="form-label"><b>BUSINESS NAME</b>
@@ -271,10 +243,10 @@
                                     <!-- Business address -->
             
                                         <div class="panel-heading">
-                                            <h5 class="panel-title text-center mb-5"><b>BUSINESS ADDRESS</b></h5>
+                                            <h5 class="panel-title text-center mb-4"><b>BUSINESS ADDRESS</b></h5>
                                         </div>
 
-                                            <div class="row m-1 mb-5">
+                                            <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
                                                         <label for="business_street_address1" class="form-label"><b>STREET</b>
@@ -317,7 +289,7 @@
                                             </div>
             
                                     <!-- Business address end -->
-                                    <div class="row m-1 mb-5">
+                                    <div class="row m-1 mb-4">
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="business_cell_number1" class="form-label"><b>CELL NUMBER</b>
@@ -361,7 +333,7 @@
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     
-                                    <div class="row m-1 mb-5">
+                                    <div class="row m-1 mb-4">
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="parent2_name" class="form-label"><b>PARENT’S / LEGAL GUARDIAN’S NAME</b>
@@ -373,9 +345,9 @@
                                     </div>
                                     <!-- Additional Parent's or legal guardian's address info -->
                                         
-                                    <h5 class="panel-title text-center mb-5"><b>HOME ADDRESS</b></h5>
+                                    <h5 class="panel-title text-center mb-4"><b>HOME ADDRESS</b></h5>
                                        
-                                    <div class="row m-1 mb-5">
+                                    <div class="row m-1 mb-4">
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="parent2_street_address" class="form-label"><b>STREET</b></label>
@@ -410,7 +382,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row m-1 mb-5">
+                                    <div class="row m-1 mb-4">
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="home_telephone_number2" class="form-label"><b>TELEPHONE NUMBER</b>
@@ -426,7 +398,7 @@
                                        
                                     <!-- Additional Parent's or legal guardian's address info end -->
                                     <!-- Additional Parent's or legal guardian's business info -->
-                                    <div class="row m-1 mb-5">
+                                    <div class="row m-1 mb-4">
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="business2_name" class="form-label"><b>BUSINESS NAME</b>
@@ -457,9 +429,9 @@
                                     </div>
                                     <!-- Additional Parent's or legal guardian's business address info -->
                     
-                                    <h5 class="panel-title text-center mb-5"><b>BUSINESS ADDRESS</b></h5>
+                                    <h5 class="panel-title text-center mb-4"><b>BUSINESS ADDRESS</b></h5>
                                            
-                                    <div class="row m-1 mb-5">
+                                    <div class="row m-1 mb-4">
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="business_street_address2" class="form-label"><b>STREET</b></label>
@@ -494,7 +466,7 @@
                                     </div>
                                         
                                     <!-- Additional Parent's or legal guardian's business address info end -->
-                                    <div class="row m-1 mb-5">
+                                    <div class="row m-1 mb-4">
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="business_cell_number2" class="form-label"><b>CELL NUMBER</b>
@@ -539,12 +511,12 @@
                                     <div class="accordion-body">
                                                 <!-- Medical information -->
                                 
-                                                <h5 class="text-center mb-5"><b>PHYSICIAN /MEDICAL CARE
+                                                <h5 class="text-center mb-4"><b>PHYSICIAN /MEDICAL CARE
                                                         PROVIDER DETAILS</b></h5>
                                         
                                                  <!-- Medical care provider details -->
                                 
-                                                <div class="row m-1 mb-5">
+                                                <div class="row m-1 mb-4">
                                                     <div class="col-sm">
                                                         <div class="form-group">
                                                             <label for="child_care_provider_name3" class="form-label"><b>NAME OF CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER</b>
@@ -555,7 +527,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row m-1 mb-5">
+                                                <div class="row m-1 mb-4">
                                                     <div class="col-sm">
                                                         <div class="form-group">
                                                             <label for="care_provider_telephone_number3" class="form-label"><b>TELEPHONE NUMBER</b>
@@ -580,11 +552,11 @@
                                           <!-- Medical care provider details end-->
                                           <!-- Medical care provider address -->
                 
-                                            <h5 class="panel-title text-center mb-5">
+                                            <h5 class="panel-title text-center mb-4">
                                                 <b>ADDRESS</b>
                                             </h5>
                                         
-                                            <div class="row m-1 mb-5">
+                                            <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
                                                         <label for="child_care_provider_street_address" class="form-label"><b>STREET</b>
@@ -629,9 +601,9 @@
                                             <!-- Medical care provider address end -->
                                             <!-- Dentist details -->
                                 
-                                            <h5 class="panel-title text-center mb-5"><b>DENTIST DETAILS</b></h5>
+                                            <h5 class="panel-title text-center mb-4"><b>DENTIST DETAILS</b></h5>
                                     
-                                            <div class="row m-1 mb-5">
+                                            <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="child_dentist_name" class="form-label"><b>NAME OF CHILD'S DENTIST</b>
@@ -653,7 +625,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row m-1 mb-5">
+                                            <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="dentist_address" class="form-label"><b>DENTIST ADDRESS</b>
@@ -665,7 +637,7 @@
                                             </div>
                                     
                                             <!-- Dentist details end -->
-                                            <div class="row m-1 mb-5">
+                                            <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="special_disabilities" class="form-label"><b>SPECIAL DIABILITIES (IF ANY)</b>
@@ -683,7 +655,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row m-1 mb-5">
+                                            <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="additional_info" class="form-label"><b>ADDITIONAL INFORMATION REGARDING SPECIAL NEEDS</b>
@@ -693,7 +665,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row m-1 mb-5">
+                                            <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="medication" class="form-label"><b>MEDICATION, SPECIAL CONDITIONS NUMBER</b>
@@ -703,7 +675,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row m-1 mb-5">
+                                            <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="health_insurance" class="form-label"><b>HEALTH INSURANCE COVERAGE FOR CHILD OR MEDICAL ASSISTANCE BENEFITS</b>
@@ -713,7 +685,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row m-1 mb-5">
+                                            <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group"> 
                                                         <label for="policy_number" class="form-label"><b>POLICY NUMBER (REQUIRED) NUMBER</b>
@@ -743,11 +715,11 @@
                                 <div class="accordion-body">
                                    <!-- Parent's or guardian's signature -->
                                   
-                                        <h5 class="text-center m-1 mb-5">
+                                        <h5 class="text-center m-1 mb-4">
                                             <b>PARENT’S / LEGAL GUARDIAN’S AGREEMENT</b>
                                         </h5>
                                   
-                                        <div class="row m-1 mb-5">
+                                        <div class="row m-1 mb-4">
                                             <div class="col-sm">
                                                 <div class="form-group"> 
                                                     <label for="obtaining_emergency_medical_care" class="form-label"><b>OBTAINING EMERGENCY MEDICAL CARE</b>
@@ -758,7 +730,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row m-1 mb-5">
+                                        <div class="row m-1 mb-4">
                                             <div class="col-sm">
                                                 <div class="form-group"> 
                                                     <label for="administration_first_aid_procedures"
@@ -770,7 +742,7 @@
                                             </div>
                                         </div>
                                         
-                                            <div class="row m-1 mb-5">
+                                            <div class="row m-1 mb-4">
                                                 <div class="form-group wizard-form-checkbox">
                                                     <input type="checkbox" class="input-checkbox" id="parent_agree_one"
                                                     name="parent_agree_one" >

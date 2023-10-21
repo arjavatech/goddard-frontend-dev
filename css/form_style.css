@@ -11,13 +11,14 @@
             }
 
             .nav-pills .nav-link {
-                background-color: #ffffff !important;
                 border-radius: 0rem !important;
             }
 
             a.nav-link
             {
                 color: #0F2D52;
+                border: 1px solid #0F2D52 !important;
+                background-color: #D8E9FF !important;
             }
 
             a.nav-link:hover
@@ -38,12 +39,13 @@
             }
 
             .accordion-body {
-                border: 2px solid #0F2D52;
+                border: 1px solid #0F2D52;
             }
 
             button.accordion-button.collapsed
             {
                 color: #0F2D52;
+                border: 1px solid #0F2D52 !important;
                 background-color: #D8E9FF;
             }
             
@@ -59,11 +61,11 @@
             }
 
             h2.accordion-header.shadow {
-                box-shadow: 0 .5rem 1rem rgba(15, 45, 82, 0.5) !important;
+                box-shadow: none !important;
             }
 
-            .side_tab_bg{
-                background-color: #D8E9FF;
+            .side_tab_bg {
+                background-color: #D8E9FF !important;
             }
 
             .form-control

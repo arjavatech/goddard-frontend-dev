@@ -1,7 +1,7 @@
 import {isAuthenticated} from "./authenticationVerify.js";
 
 
-export function authorizationFormDetails(callback) {
+export function ./forms/authorizationFormDetails(callback) {
     $.ajax({
         url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/bill_ach/fetch/${localStorage.getItem('child_id')}`,
         type: 'get',
@@ -51,7 +51,7 @@ export function authorizationFormDetails(callback) {
 
 // Function to submit the form data
 function submitForm() {
-    const form = document.getElementById("authorization_form");
+    const form = document.getElementById("./forms/authorization_form");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     obj.child_id = localStorage.getItem('child_id');
@@ -81,12 +81,12 @@ function mainEntryPoint() {
             e.preventDefault(); // Prevent the default form submission
             submitForm();
         });
-        authorizationFormDetails();
+        ./forms/authorizationFormDetails();
        
     }
 }
 // Check if this script is the main entry point and call the main function
-if (window.location.pathname.endsWith('authorization_form.html')) {
+if (window.location.pathname.endsWith('./forms/authorization_form.html')) {
     mainEntryPoint();
 }
 

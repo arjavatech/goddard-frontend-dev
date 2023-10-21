@@ -199,7 +199,7 @@ function formdetails(val){
                                 childNameaCell.textContent = responseValue[j].child_name;
                                
                                 if(val == 'ACH Recurring payments form'){
-                                    childNameaCell.href = `authorization_form.html?id=${responseValue[j].child_id}`;
+                                    childNameaCell.href = `./forms/authorization_form.html?id=${responseValue[j].child_id}`;
                                 }else{
                                     childNameaCell.href = `form.html?id=${responseValue[j].child_id}`;
                                 }

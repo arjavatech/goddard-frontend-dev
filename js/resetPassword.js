@@ -46,7 +46,7 @@ function signupFunction(){
         const obj = Object.fromEntries(formData);
         console.log(obj);
         $.ajax({
-            url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/login/add",
+            url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/add",
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(obj),

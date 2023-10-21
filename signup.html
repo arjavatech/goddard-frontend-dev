@@ -147,9 +147,9 @@
                     const obj = Object.fromEntries(formData);
                     console.log(obj);
                     if(obj.user_email === 'goddard01arjava@gmail.com' || obj.user_email === 'goddard02arjava@gmail.com'){
-                        obj.is_admin = true;
+                        obj.admin = true;
                     }else{
-                        obj.is_admin = false;
+                        obj.admin = false;
                     }
 
                     $.ajax({

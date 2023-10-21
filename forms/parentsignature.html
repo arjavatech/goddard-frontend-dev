@@ -91,7 +91,37 @@
                 </div>    
             </div>
             <div class="col-9">
+                <div class="accordion pt-5" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="text-center title_bg">Parent Signature</h2>
+                        <!-- Parent's or guardian's signature -->
+                        <div class="row m-3">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="parent_sign" class="form-label"><b>Parent Signature</b>
+                                        <span style="color:#ff0000;">*</span>
+                                    </label>
+                                    <input type="text" class="form-control " id="parent_sign"
+                                    name="parent_sign">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="parent_sign_date"  class="form-label"><b>Date
+                                        <span style="color:#ff0000;">*</span></b>
+                                    </label>
+                                    <input type="date" class="form-control " id="parent_sign_date"
+                                        name="parent_sign_date" onclick="dateValidation('parent_sign_date')">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Parent's or guardian's signature end -->
+                      <div class="text-center">
+                        <button class="submit-btn mb-4">submint</button> 
+                    </div>
 
+                    </div>
+                </div>      
             </div>
         </div>
     </body>

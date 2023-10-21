@@ -18,7 +18,7 @@
                 padding: 0.375rem 0.75rem !important;
                 font-size: 1rem !important;
                 font-weight: 400 !important;
-                line-height: 1.5 !important;
+                /* line-height: 1.5 !important; */
                 color: #212529 !important;
                 background-color: #fff !important;
                 background-clip: padding-box !important;
@@ -28,126 +28,93 @@
                 appearance: none !important;
                 border-radius: 0.25rem !important;
                 transition: border-color .15s ease-in-out ,box-shadow .15s ease-in-out !important;
+                /* border: none !important;
+                 border-bottom: 1px solid black !important; */
+                
             }
           .accordion-button:not(.collapsed)::after {
             background-image: url('image/down_white.png');
             transform: rotate(-180deg);
         }
-        /* .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-} */
   
-/* #button {
-    margin-bottom: 10px;
-} */
-  
-#apiResponse {
-    border: 1px solid #ccc;
-    padding: 100px;
-}
+            #apiResponse {
+                border: 1px solid #ccc;
+                padding: 100px;
+            }
+/* 
+            #heading {
+            text-align: center;
+            margin-top: 10px;
+            }
 
-#heading {
-  text-align: center;
-  margin-top: 10px;
-}
-
-h1 {
-  font-size: 24px;
-}
-#saveBtn{
-  text-align: center !important;
-  margin-left: 45% !important;
-}
-.signblock{
-  white-space: nowrap;
-  margin-left: 20%;
-}
+            h1 {
+            font-size: 24px;
+            } */
+            #saveBtn{
+            text-align: center !important;
+            margin-left: 45% !important;
+            }
+            .signblock{
+            white-space: nowrap;
+            margin-left: 20%;
+            }
 
 
-button {
-  padding: 10px 20px;
-  background-color: #0F2D52;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+            button {
+            padding: 10px 20px;
+            background-color: #0F2D52;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            }
 
-button:hover {
-  opacity: 0.6;
-}
+            button:hover {
+            opacity: 0.6;
+            }
 
-ol {
-  list-style-type: decimal;
-  text-align: left;
-  padding-left: 20px;
-}
+            ol {
+            list-style-type: decimal;
+            text-align: left;
+            padding-left: 20px;
+            }
 
-span {
-  display: block;
-  /* margin-bottom: 5px; */
-  font-family: 'Roboto', sans-serif;
-}
-.center-image {
-  text-align: center;
-}
+            span {
+            display: block;
+            /* margin-bottom: 5px; */
+            font-family: 'Roboto', sans-serif;
+            }
 
-.center-image img {
-  display: inline-block;
-}
+            #initial{
+            text-align: right;
+            margin-top: -40px !important;
+            margin-bottom: 20px;
+            }
 
-#initial{
-  text-align: right;
-  margin-top: -20px;
-  margin-bottom: 20px;
-}
+            #initialStyle{
+            size: 3rem;
+            }
 
-#initialStyle{
-  size: 3rem;
-}
+            @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+            }
+            
+            /* .bloc1{
+            border: none;
+            border-bottom: 1px solid black;
+            height: 30px;
+            width: 300px;
+            } */
+            .div1{
+            display: inline-block;
+            }
 
-@keyframes spin {
-0% { transform: rotate(0deg); }
-100% { transform: rotate(360deg); }
-}
- 
-.bloc1{
-  border: none;
-  border-bottom: 1px solid black;
-  height: 30px;
-  width: 300px;
-}
+            .div3 {
+            display: inline-block;
+            margin-left: -10% !important;
+            }
 
-/* .div1{
-  display: inline-block;
-}
-.div2 {
-  display: inline-block;
-  margin-left: 5% !important;
-}
-.div3 {
-  display: inline-block;
-  margin-left: 5% !important;
-}
-.div4 {
-  display: inline-block;
-  margin-left: 5% !important;
-} */
-
-/* this used to display border in form */
-/* .overallblock{
-  padding: 2% !important;
-  border: 3px solid  #0F2D52;
-  margin: 2%;
- } */
-
- td {
-  display: table-cell;
-  vertical-align: inherit;
-  font-family: 'Roboto', sans-serif;
-}
         </style>
     </head>
     <body>
@@ -162,68 +129,40 @@ span {
         <!-- Navigation Bar End -->
 
         <div class="row m-3">
-            <div class="col-3 p-3 side_tab_bg"><br>
-                <div class="accordion accordion-flush" id="accordionExampleone">
-                    <!--Admission Form Tab-->
-                    
-                    <div class="accordion-item">
-                        <a href="#admin">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                                        Admission Forms
-                                </button>
-                            </h2>
-                        </a> 
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                <ul class="nav nav-pills flex-column" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="childinformation.html">Child Information</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="childandfamilyhistory.html">Child and Family History</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="immunizationinstructions.html">Immunization Instructions</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="childprofile.html">Child Profile</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pickuppassword.html">Pick-up Password</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="photovideopermission.html">Photo/Video Permission</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="securitypolicy.html">Security & Policy</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="medicaltransportation.html">Medical Transportation</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="healthpolicies.html">Health Policies</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="outsideengagements.html">Outside Engagements</a>
-                                    </li>
-                                </ul>    
-                            </div>
-                        </div>
-                    </div><br>
-                    <ul class="nav nav-pills flex-column" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="enrollmentagreement.html">Enrollment Agreement</a>
-                        </li><br>
-                        <li class="nav-item">
-                            <a class="nav-link" href="authorization.html">Authorization</a>
-                        </li><br>
-                        <li class="nav-item">
-                            <a class="nav-link" href="parentsignature.html">Parentsignature</a>
-                        </li>
-                    </ul> 
-                    <!--Admission Form Tab End-->
-                </div>    
+            <div class="col-3 pt-5 side_tab"><br>
+                <h4>Admission Forms</h4><br>
+                <ul class="nav nav-pills flex-column" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" href="admission.html">Admission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="childandfamilyhistory.html">Child and Family History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Immunization Instructions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Child Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Pick-up Password</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Photo/Video Permission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Security & Policy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Medical Transportation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Health Policies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Outside Engagements</a>
+                    </li>
+                </ul>        
             </div>
             <div class="col-9">
                 
@@ -237,17 +176,20 @@ span {
                                 <div id="spinner" class="spinner"></div>
                                 <form id="enrollment_from" >
                                     <ol>
-                                        <!-- <input id="point" name="point" type="text" class="form-control "> -->
+                                        <!-- <input id="point" name="point" type="text" class=" "> -->
                                         <span id="apiResponsep1" name="apiResponsep1">
                                             1. This Enrollment Agreement (the "Agreement"), effective the 
-                                            day of ,2023 is between Alphabetz Corp dba The Goddard School, 
+                                            <input id="point_one_field_one" name="point_one_field_one" type="text" class=" inputBox">
+                                            day of <input id="point_one_field_two" name="point_one_field_two" type="text" class=" inputBox">
+                                             ,2023 is between Alphabetz Corp dba The Goddard School, 
                                             an independent franchisee operating The Goddard SchoolÂ® 
                                             located at 18802 55th Ave W, Lynnwood, WA pursuant to a license 
-                                            from Goddard Systems, Inc.,and ("Parents").
+                                            from Goddard Systems, Inc.,and
+                                            <input id="point_one_field_three" name="point_one_field_three" type="text" class=" inputBox"> ("Parents").
                     
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
-                                            <input id="point_two_initial_here" name="point_two_initial_here" type="text" class="form-control inputBox">
+                                            <input id="point_two_initial_here" name="point_two_initial_here" type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep2" name="apiResponsep2">
                                             2. The School's non-refundable registration fee of $250 shall be 
@@ -256,7 +198,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_three_initial_here" name="point_three_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep3" name="apiResponsep3">
                                             3. New Family Enrollment - First month's tuition and non-refundable 
@@ -270,7 +212,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_four_initial_here" name="point_four_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep4" name="apiResponsep4">
                                             4. Monthly tuition is due on or before the 1st of each month. A $50 
@@ -284,7 +226,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_five_initial_here" name="point_five_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep5" name="apiResponsep5">
                                             5. At the time of registration, tuition is quoted for the current rate 
@@ -293,7 +235,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_six_initial_here" name="point_six_initial_here" type="text"
-                                                class="form-control inputBox">
+                                                class=" inputBox">
                                         </span>
                                         <span id="apiResponsep6" name="apiResponsep6">
                                             6. Monthly tuition fees are non-refundable regardless of holidays, 
@@ -310,7 +252,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_seven_initial_here" name="point_seven_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep7" name="apiResponsep7">
                                             7. Monthly tuition fees are non-refundable regardless of illness, 
@@ -322,7 +264,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_eight_initial_here" name="point_eight_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep8" name="apiResponsep8">
                                             8. This School is closed on the following days: 
@@ -448,10 +390,10 @@ span {
                                                     </tr>
                                                 </table>
                                             </div>    
-                                        </div><br>
+                                        </div><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_nine_initial_here" name="point_nine_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep9" name="apiResponsep9">
                                             9. The Goddard School is a year-round program. Tuition is payable for 
@@ -465,7 +407,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_ten_initial_here" name="point_ten_initial_here" type="text"
-                                                class="form-control inputBox">
+                                                class=" inputBox">
                                         </span>
                                         <span id="apiResponsep10" name="apiResponsep10">
                                             10. The School will open at 7:00am and close at 6:00pm, however 
@@ -483,7 +425,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_eleven_initial_here" name="point_eleven_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep11" name="apiResponsep11">
                                             11. Our School limits each students day to a maximum of 10 hours. 
@@ -491,7 +433,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_twelve_initial_here" name="point_twelve_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep12" name="apiResponsep12">
                                             12. The School requires a 30 day written notice of withdrawal for 1 
@@ -501,7 +443,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_thirteen_initial_here" name="point_thirteen_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep13" name="apiResponsep13">
                                             13. The School reserves the right to deny, cancel, sever or suspend a 
@@ -511,7 +453,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_fourteen_initial_here" name="point_fourteen_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep14" name="apiResponsep14">
                                             14. Children may not attend the School while ill. Children who become 
@@ -523,7 +465,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_fifteen_initial_here" name="point_fifteen_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep15" name="apiResponsep15">
                                             15. Each child in our childcare facility will be required to have 
@@ -532,7 +474,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_sixteen_initial_here" name="point_sixteen_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep16" name="apiResponsep16">
                                             16. Parents acknowledge and agree that representatives of the School's 
@@ -542,7 +484,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_seventeen_initial_here" name="point_seventeen_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep17" name="apiResponsep17">
                                             17. The School's employees are its most important assets. If Parents 
@@ -553,7 +495,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_eighteen_initial_here" name="point_eighteen_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep18" name="apiResponsep18">
                                             18. Parents agree that Outside Engagements are not for the benefit or 
@@ -569,7 +511,7 @@ span {
                                         </span><br><br>
                                         <span id="initial"><b>Initial here &nbsp;</b>
                                             <input id="point_nineteen_initial_here" name="point_nineteen_initial_here"
-                                                type="text" class="form-control inputBox">
+                                                type="text" class=" inputBox">
                                         </span>
                                         <span id="apiResponsep19" name="apiResponsep19">
                                             19. The undersigned Parents have received an executed copy of this 
@@ -587,7 +529,7 @@ span {
                                                     <div class="col-sm-6 div1">
                                                         <div class="form-group ">
                                                             <input id="child_name" name="child_name"
-                                                            type="text" class="form-control bloc1 inputBox">
+                                                            type="text" class=" bloc1 inputBox">
                                                             <span id="apiResponsep24" name="apiResponsep24">
                                                                 Child's Name
                                                             </span>
@@ -596,7 +538,7 @@ span {
                                                     <div class="col-sm-6 div3">
                                                         <div class="form-group ">
                                                             <input id="dob" name="dob"
-                                                            type="date" class="form-control inputBox bloc1" name="apiResponsep25" >
+                                                            type="date" class=" inputBox bloc1" name="apiResponsep25" >
                                                             <span id="apiResponsep25" name="apiResponsep25">
                                                                 Date of Birth
                                                             </span>

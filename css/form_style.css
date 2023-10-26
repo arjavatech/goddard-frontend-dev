@@ -84,9 +84,9 @@
                 border: 1px solid #888888 !important;
             }
 
-            .save-btn, .submit-btn
+            .save-btn, .submit-btn, .cancel-btn
             {
-                background-color: #0F2D52;
+                background-color: #0F2D52 !important;
                 color: #ffffff;
                 display: inline-block;
                 min-width: 100px;
@@ -98,7 +98,8 @@
             }
 
             .save-btn:hover,
-            .submit-btn:hover{
+            .submit-btn:hover,
+            .cancel-btn:hover{
                 opacity: 0.7;
             }
 

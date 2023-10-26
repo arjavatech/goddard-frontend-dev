@@ -51,7 +51,7 @@ function signupFunction(){
             contentType: "application/json",
             data: JSON.stringify(obj),
             success: function (response) {
-                alert("Reseted Your Password successfully ");
+                alert(response.message);
                 window.location.href = "login.html";
             
             },

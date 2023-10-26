@@ -1,6 +1,6 @@
 import { fetchEnrollmentFormTitle, fetchEnrollmentFormBody, fetchEnrollmentPointEight } from './enrollmentForm.js';
 import {isAuthenticated} from "./authenticationVerify.js";
-import {./forms/authorizationFormDetails} from "././forms/authorization_form.js";
+import {authorizationFormDetails} from "./authorization_form.js";
 
 function getEnrollmentFormStatus(val, callback) {
     console.log(val);
@@ -294,7 +294,7 @@ function parentDashBoardDetails(val) {
                                 });
                             });
                         }else if(data.form_name == 'ACH Recurring payments form') {
-                            ./forms/authorizationFormDetails(function() {
+                            authorizationFormDetails(function() {
                                 let avfForm = document.querySelector('#avf_form');
                                 downloadPDF(avfForm);
                             });
@@ -433,7 +433,7 @@ function parentDashBoardDetails(val) {
                                 });
                             });
                         }else if(data.form_name == 'ACH Recurring payments form') {
-                            ./forms/authorizationFormDetails(function() {
+                            authorizationFormDetails(function() {
                                 let avfForm = document.querySelector('#avf_form');
                                 printForm(avfForm);
                             });

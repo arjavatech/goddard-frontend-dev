@@ -94,7 +94,7 @@
             }
 
             function loginFunction() {
-                const user_email = document.getElementById('login_email').value;
+                const email_id = document.getElementById('login_email').value;
                 const password = document.getElementById('login_pswd').value;
                 console.log(password);
                 
@@ -106,8 +106,8 @@
                         let isAuthenticated = false;
 
                         for (let i = 0; i < response.length; i++) {
-                            if(user_email === 'goddard01arjava@gmail.com' || user_email === 'goddard02arjava@gmail.com'){
-                                if (user_email === response[i].user_email ) {
+                            if(email_id === 'goddard01arjava@gmail.com' || email_id === 'goddard02arjava@gmail.com'){
+                                if (email_id === response[i].email_id ) {
                                     const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
                                     console.log(storedPasswordHash);
 
@@ -116,12 +116,12 @@
                                     console.log(hashedUserPassword);
                                     if (hashedUserPassword === storedPasswordHash) {
                                         isAuthenticated = true;
-                                        localStorage.setItem('logged_in_email', user_email);
-                                        window.location.href = "admin_dashboard.html";
+                                        localStorage.setItem('logged_in_email', email_id);
+                                        window.location.href = "/admin/admin_dashboard.html";
                                         break; // Exit the loop since we found a match
                                     }
                                 }
-                            }else if (user_email === response[i].user_email ) {
+                            }else if (email_id === response[i].email_id ) {
                                 const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
                                 console.log(storedPasswordHash);
 
@@ -130,8 +130,8 @@
                                 console.log(hashedUserPassword);
                                 if (hashedUserPassword === storedPasswordHash) {
                                     isAuthenticated = true;
-                                    localStorage.setItem('logged_in_email', user_email);
-                                    window.location.href = "child_add.html";
+                                    localStorage.setItem('logged_in_email', email_id);
+                                    window.location.href = "/parent/child_add.html";
                                     break; // Exit the loop since we found a match
                                 }
                             }
@@ -151,7 +151,7 @@
                         alert("failed to login");
                     }
                 });
-                if (user_email === 'goddard01arjava@gmail.com' || user_email === 'goddard01arjava@gmail.com'){
+                if (email_id === 'goddard01arjava@gmail.com' || email_id === 'goddard01arjava@gmail.com'){
                     const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
                     console.log(storedPasswordHash);
                         // Hash the user-typed password using the same algorithm and parameters
@@ -159,7 +159,7 @@
                     console.log(hashedUserPassword);
                     if (hashedUserPassword === storedPasswordHash) {
                         // isAuthenticated = true;
-                        localStorage.setItem('logged_in_email', user_email);
+                        localStorage.setItem('logged_in_email', email_id);
                         window.location.href = "admin_dashboard.html";
                         // break; // Exit the loop since we found a match
                     }else{

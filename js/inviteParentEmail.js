@@ -26,15 +26,19 @@ async function emailSend() {
         const form = document.getElementById("admission_form");
         const formData = new FormData(form);
         const obj = Object.fromEntries(formData);
-        obj.year = new Date().getFullYear() + '';
-        console.log(obj);
+        // obj.year = new Date().getFullYear() + '';
+        // console.log(obj);
 
         obj.from = "noreply.goddard@gmail.com";
         let email_to =  $('#parent_email').val();
         obj.to = email_to;
+        randomID = Math.floor(Date.now() / 1000);
+        obj.invite_id =randomID;
+        console.log(randomID);
         obj.subject = 'Invite parents';
         let messageData = $('#messageData').val();
-        obj.body = `${messageData}?email=${email_to}`;
+        obj.body = `${messageData}?id=${randomID}`;
+        console.log(obj.body);
         obj.attachmentName ="AttachmentForm";
         obj.attachmentKey ="attachment";
         const json =JSON.stringify(obj);

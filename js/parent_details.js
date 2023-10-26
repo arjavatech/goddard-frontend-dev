@@ -5,7 +5,7 @@ function applicationStatusYear(val) {
     let applicationStatusYear = document.getElementById("applicationStatusYear");
     applicationStatusYear.textContent = val;
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/year_wise?year=${val}`,
+        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/all`,
         type: 'get',
         success: function (response) {
             console.log(response);
@@ -41,6 +41,11 @@ function applicationStatusYear(val) {
                     const parentOnemobileCell = document.createElement('td');
                     parentOnemobileCell.textContent = rowData.parent_mobile;
                     row.appendChild(parentOnemobileCell);
+
+                    // Create cell for parent one email
+                    const parentOneInviteStatus = document.createElement('td');
+                    parentOneInviteStatus.textContent = rowData.invite_status;
+                    row.appendChild(parentOneInviteStatus);
 
                     // Create cell for the invite button
                     // const inviteButtonCell = document.createElement('td');

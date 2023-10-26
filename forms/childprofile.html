@@ -90,121 +90,572 @@
             </div>
           </div>
             <div class="col-9">   
-                  <!--Child and Family History Form-->
-                  <div id="childandparenthistory"><br>
-                      <h2 class="text-center">Child Profile</h2>
-                      <div class="accordion" id="accordionExample">
-        
-                        <!--Child History-->
-        
-                          <div class="accordion-item">
-                              <h2 class="accordion-header shadow" id="headingOne">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                  Child History
-                                </button>
-                              </h2>
-                              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+  
+              <!--Child Profile Form-->
+              <div id="admin"><br>
+                <div class="accordion pt-4" id="accordionExample">
+                    <h2 class="text-center title_bg mb-4">Child Profile</h2>
+                    <!--Child Profile Details-->
+                    <div class="accordion-item">
+                        <h2 class="accordion-header shadow" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              Child Profile Details
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                              <div class="row m-1 mb-4">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="other_important_family_members" class="form-label"><b>Other
+                                            important Family Members (Siblings, Grandparent, Pets, etc)</b>
+                                            <span style="color:#ff0000;">*</span></label>
+                                        <input type="text" class="form-control " id="other_important_family_members"
+                                            name="other_important_family_members">
+                                    </div>
                                 </div>
+                            </div>
+                            <div class="row m-1 mb-4">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="about_family_celebrations" class="form-label"><b>Tell us about
+                                            your family traditions or important celebrations</b>
+                                            <span style="color:#ff0000;">*</span></label>
+                                        <input type="text" class="form-control " id="about_family_celebrations"
+                                            name="about_family_celebrations">
+                                    </div>
                                 </div>
-                              </div>
-                          </div>
-        
-                          <!--Medical History-->
-        
-                          <div class="accordion-item">
-                              <h2 class="accordion-header shadow" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                  Medical History
-                                </button>
-                              </h2>
-                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                 <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                            <div class="row m-1 mb-4">
+                                <div id="childcare_before" class="col-sm">
+                                    <div class="form-group">
+                                        <p><b>Has your child been in childcare before?</b></p>
+                                        <div class="wizard-form-radio">
+                                            <input name="childcare_before" id="childcare_before1"
+                                                value="Yes" type="radio">
+                                            <label for="childcare_before1">Yes</label>
+                                        </div>
+                                        <div class="wizard-form-radio">
+                                            <input name="childcare_before" id="childcare_before2"
+                                                type="radio" value="No" checked>
+                                            <label for="childcare_before2">No</label>
+                                        </div>
+                                    </div>
                                 </div>
-                              </div>
-                          </div>
-        
-                          <!--Pregnancy History-->
-        
-                          <div class="accordion-item">
-                              <h2 class="accordion-header shadow" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                  Pregnancy History
-                                </button>
-                              </h2>
-                              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            </div>
+                            <div class="row m-1 mb-4">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="reason_for_childcare_before" class="form-label"><b>If so, what kind?</b>
+                                            <span style="color:#ff0000;">*</span>
+                                        </label>
+                                        <select class="form-control form-select-lg" aria-label=".form-control-lg example"
+                                            id="reason_for_childcare_before" name="reason_for_childcare_before">
+                                            <option></option>
+                                            <option value="1">Relative’s Care</option>
+                                            <option value="2">Home Care</option>
+                                            <option value="3">Church Care</option>
+                                            <option value="4">Other</option>
+                                        </select>
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
                                 </div>
-                              </div>
-                          </div>
-        
-                          <!--Family History-->
-        
-                          <div class="accordion-item">
-                              <h2 class="accordion-header shadow" id="headingFour">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                  Family History
-                                </button>
-                              </h2>
-                              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="what_child_interests" class="form-label"><b>What are you child’s interests</b>
+                                            <span style="color:#ff0000;">*</span>
+                                        </label>
+                                        <input type="text" class="form-control " id="what_child_interests" name="what_child_interests">
+                                    </div>
                                 </div>
-                              </div>
-                          </div>
+                            </div>
                           
-        
-                          <!--Social Behavior-->
-        
-                          <div class="accordion-item">
-                              <h2 class="accordion-header shadow" id="headingFive">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                  Social Behavior
-                                </button>
-                              </h2>
-                              <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            <h5 class="text-center">
+                                <b>What will be your child’s typical time?</b>
+                            </h5>
+                            <div class="row m-1 mb-4">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="drop_off_time" class="form-label"><b>Drop off time?</b>
+                                            <span style="color:#ff0000;">*</span>
+                                        </label>
+                                        <input type="time" class="form-control " id="drop_off_time" name="drop_off_time">
+                                    </div>
                                 </div>
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="pick_up_time" class="form-label"><b>Pick up time?</b>
+                                            <span style="color:#ff0000;">*</span>
+                                        </label>
+                                        <input type="time" class="form-control " id="pick_up_time" name="pick_up_time">
+                                    </div>
+                                </div>
+                            </div>
+                                <div class="text-center">
+                                    <button class="save-btn">Save</button> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Nutrition Details-->
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header shadow" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              Nutrition
+                            </button>
+                          </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="row m-1 mb-4">
+                                  <div id="restricted_diet" class="col-sm">
+                                    <div class="form-group">
+                                        <p><b>Does your child have a special or restricted diet?
+                                            <span style="color:#ff0000;">*</span>
+                                        </b></p>
+                                        <div class="wizard-form-radio">
+                                            <input name="restricted_diet" id="restricted_diet1" value="Yes" type="radio"
+                                            onclick="CustomChange(this.value,'restricted_diet_reason_div');" >
+                                            <label for="restricted_diet1">Yes</label>
+                                        </div>
+                                        <div class="wizard-form-radio">
+                                            <input name="restricted_diet" id="restricted_diet2" type="radio" value="No"
+                                            onclick="CustomChange(this.value,'restricted_diet_reason_div');" checked>
+                                            <label for="restricted_diet2">No</label>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row m-1 mb-4" id="restricted_diet_reason_div" style="display: none;">
+                                  <div class="col-sm">
+                                      <div class="form-group"> 
+                                          <label for="restricted_diet_reason" class="form-label">Explain</label>
+                                          <input type="text" class="form-control" id="restricted_diet_reason" name="restricted_diet_reason">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row m-1 mb-4">
+                                  <div id="eat_own" class="col-sm">
+                                      <div class="form-group">
+                                          <p><b>Does your child eat on their own?
+                                              <span style="color:#ff0000;">*</span>
+                                          </b></p>
+                                          <div class="wizard-form-radio">
+                                              <input name="eat_own" id="eat_own1" value="Yes" type="radio" 
+                                              onclick="CustomChange(this.value,'eat_own_reason_div');">
+                                              <label for="eat_own1">Yes</label>
+                                          </div>
+                                          <div class="wizard-form-radio">
+                                              <input name="eat_own" id="eat_own2" type="radio" value="No"
+                                              onclick="CustomChange(this.value,'eat_own_reason_div');" checked>
+                                              <label for="eat_own2">No</label>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row m-1 mb-4" id="eat_own_reason_div" style="display: none;">
+                                  <div class="col-sm">
+                                      <div class="form-group"> 
+                                          <label for="eat_own_reason" class="form-label">Explain</label>
+                                          <input type="text" class="form-control " id="eat_own_reason" name="eat_own_reason">
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row m-1 mb-4">
+                                  <div class="col-sm">
+                                      <div class="form-group"> 
+                                          <label for="favorite_foods" class="form-label"><b>What are your child’s favorite foods?
+                                              <span style="color:#ff0000;">*</span></b>
+                                          </label>
+                                          <input type="text" class="form-control " id="favorite_foods" name="favorite_foods">
+                                          
+                                      </div>
+                                  </div>
+                              </div>
+                                <div class="text-center">
+                                    <button class="save-btn">Save</button> 
+                                </div>
+                            </div>  
+                        </div>   
+                    </div>
+
+                    <!--Rest and Diapering/Toilet Learning-->
+                  
+                    <div class="accordion-item">
+                        <h2 class="accordion-header shadow" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                              Rest and Diapering/Toilet Learning
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body"> 
+                                <div class="row m-1 mb-4">
+                                  <div id="rest_in_the_middle_day" class="col-sm">
+                                    <div class="form-group">
+                                        <p><b>Does your child rest in the middle of the day?
+                                            <span style="color:#ff0000;">*</span>
+                                        </b></p>
+                                        <div class="wizard-form-radio">
+                                            <input name="rest_in_the_middle_day" id="rest_in_the_middle_day1" value="Yes"
+                                                type="radio" onclick="CustomChange(this.value,'reason_for_rest_in_the_middle_day_div');">
+                                            <label for="rest_in_the_middle_day1">Yes</label>
+                                        </div>
+                                        <div class="wizard-form-radio">
+                                            <input name="rest_in_the_middle_day" id="rest_in_the_middle_day2" type="radio"
+                                                value="No" onclick="CustomChange(this.value,'reason_for_rest_in_the_middle_day_div');" checked>
+                                            <label for="rest_in_the_middle_day2">No</label>
+                                        </div>
+                                    </div>
+                                  </div>
+                                </div>
+                            
+                            <div class="row m-1 mb-4">
+                              <div class="col-sm">
+                                  <div class="form-group"> 
+                                      <label for="rest_routine" class="form-label"><b>What is their nap/rest routine?
+                                          <span style="color:#ff0000;">*</span></b>
+                                      </label>
+                                      <input type="text" class="form-control " id="rest_routine" name="rest_routine">
+                                      
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="row m-1 mb-4">
+                              <div id="toilet_trained" class="col-sm">
+                                  <div class="form-group">
+                                      <p><b>Is your child toilet trained?
+                                          <span style="color:#ff0000;">*</span>
+                                      </b></p>
+                                      <div class="wizard-form-radio">
+                                          <input name="toilet_trained" id="toilet_trained1" value="Yes" type="radio" 
+                                          onclick="CustomChange(this.value,'reason_for_toilet_trained_div');">
+                                          <label for="toilet_trained1">Yes</label>
+                                      </div>
+                                      <div class="wizard-form-radio">
+                                          <input name="toilet_trained" id="toilet_trained2" type="radio" value="No"
+                                          onclick="CustomChange(this.value,'reason_for_toilet_trained_div');" checked>
+                                          <label for="toilet_trained2">No</label>
+                                      </div>
+                                  </div>
                               </div>
                           </div>
-                          
-        
-                          <!--Environmental Factors-->
-        
-                          <div class="accordion-item">
-                              <h2 class="accordion-header shadow" id="headingSix">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                  Environmental Factors
-                                </button>
-                              </h2>
-                              <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                                </div>
+                          <div class="row m-1 mb-4" id="reason_for_toilet_trained_div" style="display: none;">
+                              <div class="col-sm">
+                                  <div class="form-group"> 
+                                      <label for="reason_for_toilet_trained" class="form-label">Explain</label>
+                                      <input type="text" class="form-control " id="reason_for_toilet_trained"
+                                      name="reason_for_toilet_trained">
+                                  </div>
                               </div>
                           </div>
-        
-                          <!--Parent Agreement-->
-        
-                          <div class="accordion-item">
-                              <h2 class="accordion-header shadow" id="headingSeven">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                  Parent Agreement
-                                </button>
-                              </h2>
-                              <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                  <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                <div class="text-center">
+                                    <button class="save-btn">Save</button> 
                                 </div>
+                              </div>    
+                            </div>
+                        </div>
+                      
+
+                    <!--Medical Details-->
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header shadow" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                              Medical/General
+                            </button>
+                          </h2>
+                          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                  <div class="row m-1 mb-4">
+                                    <div id="existing_illness_allergy" class="col-sm">
+                                        <div class="form-group">
+                                            <p><b>Does your child have an existing illness/allergy/condition?
+                                                <span style="color:#ff0000;">*</span>
+                                            </b></p>
+                                            <div class="wizard-form-radio">
+                                                <input name="existing_illness_allergy" id="existing_illness_allergy1" value="Yes"
+                                                    type="radio" onclick="CustomChange(this.value,'explain_for_existing_illness_allergy_div');">
+                                                <label for="existing_illness_allergy1">Yes</label>
+                                            </div>
+                                            <div class="wizard-form-radio">
+                                                <input name="existing_illness_allergy" id="existing_illness_allergy2" type="radio"
+                                                    value="No" onclick="CustomChange(this.value,'explain_for_existing_illness_allergy_div');" checked>
+                                                <label for="existing_illness_allergy2">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4" id="explain_for_existing_illness_allergy_div" style="display: none;">
+                                    <div class="col-sm">
+                                        <div class="form-group"> 
+                                            <label for="explain_for_existing_illness_allergy"  
+                                            class="form-label">Explain</label>
+                                            <input type="text" class="form-control" id="explain_for_existing_illness_allergy"
+                                                name="explain_for_existing_illness_allergy">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4">
+                                    <div id="functioning_at_age" class="col-sm">
+                                        <div class="form-group">
+                                            <p><b>Does your think your child is functioning at age-level?
+                                                <span style="color:#ff0000;">*</span>
+                                            </b></p>
+                                            <div class="wizard-form-radio">
+                                                <input name="functioning_at_age" id="functioning_at_age1" value="Yes" type="radio"
+                                                onclick="CustomChange(this.value,'explain_for_functioning_at_age_div');">
+                                                <label for="functioning_at_age1">Yes</label>
+                                            </div>
+                                            <div class="wizard-form-radio">
+                                                <input name="functioning_at_age" id="functioning_at_age2" type="radio" value="No"
+                                                onclick="CustomChange(this.value,'explain_for_functioning_at_age_div');" checked>
+                                                <label for="functioning_at_age2">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4" id="explain_for_functioning_at_age_div" style="display: none;">
+                                    <div class="col-sm">
+                                        <div class="form-group"> 
+                                            <label for="explain_for_functioning_at_age" class="form-label">Explain</label>
+                                            <input type="text" class="form-control " id="explain_for_functioning_at_age"
+                                            name="explain_for_functioning_at_age">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4">
+                                    <div id="able_to_walk" class="col-sm">
+                                        <div class="form-group">
+                                            <p><b>Is your child able to walk?<span style="color:#ff0000;">*</span></b></p>
+                                            <div class="wizard-form-radio">
+                                                <input name="able_to_walk" id="able_to_walk1" value="Yes" type="radio" 
+                                                onclick="CustomChange(this.value,'explain_for_able_to_walk_div');">
+                                                <label for="able_to_walk1">Yes</label>
+                                            </div>
+                                            <div class="wizard-form-radio">
+                                                <input name="able_to_walk" id="able_to_walk2" type="radio" value="No"
+                                                onclick="CustomChange(this.value,'explain_for_able_to_walk_div');" checked>
+                                                <label for="able_to_walk2">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4" id="explain_for_able_to_walk_div" style="display: none;">
+                                    <div class="col-sm">
+                                        <div class="form-group"> 
+                                            <label for="explain_for_able_to_walk" class="form-label">Explain</label>
+                                            <input type="text" class="form-control" id="explain_for_able_to_walk"
+                                            name="explain_for_able_to_walk">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4">
+                                    <div id="communicate_their_needs" class="col-sm">
+                                        <div class="form-group">
+                                            <p><b>Is your child able to communicate their needs to others?
+                                                <span style="color:#ff0000;">*</span>
+                                            </b></p>
+                                            <div class="wizard-form-radio">
+                                                <input name="communicate_their_needs" id="communicate_their_needs1" value="Yes"
+                                                    type="radio" onclick="CustomChange(this.value,'explain_for_communicate_their_needs_div');">
+                                                <label for="communicate_their_needs1">Yes</label>
+                                            </div>
+                                            <div class="wizard-form-radio">
+                                                <input name="communicate_their_needs"
+                                                    id="communicate_their_needs2" type="radio" value="No"
+                                                    onclick="CustomChange(this.value,'explain_for_communicate_their_needs_div');" checked>
+                                                <label for="communicate_their_needs2">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4" id="explain_for_communicate_their_needs_div" style="display: none;">
+                                    <div class="col-sm">
+                                        <div class="form-group"> 
+                                            <label for="explain_for_communicate_their_needs" class="form-label">Explain</label>
+                                            <input type="text" class="form-control " id="explain_for_communicate_their_needs"
+                                                name="explain_for_communicate_their_needs">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4">
+                                    <div id="any_medication" class="col-sm">
+                                        <div class="form-group">
+                                            <p><b>Does your child require any medication, therapy,
+                                                    treatment, or medical assessment (example, blood
+                                                    sugar monitoring) while in childcare?<span style="color:#ff0000;">*</span></b>
+                                            </p>
+                                            <div class="wizard-form-radio">
+                                                <input name="any_medication" id="any_medication1" value="Yes" type="radio" 
+                                                onclick="CustomChange(this.value,'explain_for_any_medication_div');">
+                                                <label for="any_medication1">Yes</label>
+                                            </div>
+                                            <div class="wizard-form-radio">
+                                                <input name="any_medication" id="any_medication2" type="radio" value="No"
+                                                onclick="CustomChange(this.value,'explain_for_any_medication_div');" checked>
+                                                <label for="any_medication2">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4" id="explain_for_any_medication_div" style="display: none;">
+                                    <div class="col-sm">
+                                        <div class="form-group"> 
+                                            <label for="explain_for_any_medication" class="form-label">Explain</label>
+                                            <input type="text" class="form-control " id="explain_for_any_medication"
+                                            name="explain_for_any_medication">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4">
+                                    <div id="utilize_special_equipment" class="col-sm">
+                                        <div class="form-group">
+                                            <p><b>Does your child utilize any special equipment(such as
+                                                    a breathing machine, wheelchair, hearing aid, or
+                                                    braces)? <span style="color:#ff0000;">*</span></b>
+                                            </p>
+                                            <div class="wizard-form-radio">
+                                                <input name="utilize_special_equipment" id="utilize_special_equipment1" value="Yes"
+                                                    type="radio" onclick="CustomChange(this.value,'explain_for_utilize_special_equipment_div');">
+                                                <label for="utilize_special_equipment1">Yes</label>
+                                            </div>
+                                            <div class="wizard-form-radio">
+                                                <input name="utilize_special_equipment" id="utilize_special_equipment2" type="radio"
+                                                    value="No" onclick="CustomChange(this.value,'explain_for_utilize_special_equipment_div');" checked>
+                                                <label for="utilize_special_equipment2">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4" id="explain_for_utilize_special_equipment_div" style="display: none;">
+                                    <div class="col-sm">
+                                        <div class="form-group"> 
+                                            <label for="explain_for_utilize_special_equipment" class="form-label">Explain</label>
+                                            <input type="text" class="form-control" id="explain_for_utilize_special_equipment"
+                                            name="explain_for_utilize_special_equipment">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4">
+                                    <div id="significant periods" class="col-sm">
+                                        <div class="form-group">
+                                            <p><b>Does your child require one-on-one supervision on a
+                                                    regular basis for significant periods of time?<span style="color:#ff0000;">*</span></b>
+                                            </p>
+                                            <div class="wizard-form-radio">
+                                                <input name="significant_periods" id="significant_periods1" value="Yes" type="radio"
+                                                onclick="CustomChange(this.value,'explain_for_significant_periods_div');">
+                                                <label for="significant_periods1">Yes</label>
+                                            </div>
+                                            <div class="wizard-form-radio">
+                                                <input name="significant_periods" id="significant_periods2" type="radio" value="No"
+                                                onclick="CustomChange(this.value,'explain_for_significant_periods_div');" checked>
+                                                <label for="significant_periods2">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4" id="explain_for_significant_periods_div" style="display: none;">
+                                    <div class="col-sm">
+                                        <div class="form-group"> 
+                                            <label for="explain_for_significant_periods" class="form-label">Explain</label>
+                                            <input type="text" class="form-control" id="explain_for_significant_periods"
+                                            name="explain_for_significant_periods">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4">
+                                    <div id="desire_any_accommodations" class="col-sm">
+                                        <div class="form-group">
+                                            <p><b>Does your child require and/or desire any
+                                                    accommodations or modifications in order to fully
+                                                    and eually enjoy and participate in The Goddard
+                                                    School &reg; group setting?<span style="color:#ff0000;">*</span></b></p>
+                                            </p>
+                                            <div class="wizard-form-radio">
+                                                <input name="desire_any_accommodations" id="desire_any_accommodations1" value="Yes"
+                                                    type="radio" onclick="CustomChange(this.value,'explain_for_desire_any_accommodations_div');">
+                                                <label for="desire_any_accommodations1">Yes</label>
+                                            </div>
+                                            <div class="wizard-form-radio">
+                                                <input name="desire_any_accommodations" id="desire_any_accommodations2" type="radio"
+                                                    value="No" onclick="CustomChange(this.value,'explain_for_desire_any_accommodations_div');" checked>
+                                                <label for="desire_any_accommodations2">No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-4" id="explain_for_desire_any_accommodations_div" style="display: none;">
+                                    <div class="col-sm">
+                                        <div class="form-group"> 
+                                            <label for="explain_for_desire_any_accommodations" class="form-label">Explain</label>
+                                            <input type="text" class="form-control" id="explain_for_desire_any_accommodations"
+                                            name="explain_for_desire_any_accommodations">
+                                        </div>
+                                    </div>
+                                </div>      
+                                <div class="row m-1 mb-4">
+                                  <div class="col-sm">
+                                      <div class="form-group"> 
+                                          <label for="additional_information" class="form-label h-3"><b>Comments and additional information
+                                              <span style="color:#ff0000;">*</span></b>
+                                          </label>
+                                          <input type="text" class="form-control " id="additional_information" 
+                                          name="additional_information">
+                                      </div>
+                                  </div>
+                              </div>
+                                <div class="text-center">
+                                    <button class="save-btn">Save</button> 
+                                </div>  
+                            </div>
+                        </div>    
+                    </div>     
+
+                    <!--Parent Agreement--> 
+                    <div class="accordion-item">
+                      <h2 class="accordion-header shadow" id="headingFive">
+                          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            Parent Agreement
+                          </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                              <div class="accordion-body">
+                                <h3 class="panel-title text-center"><b>Correct and Complete
+                                  Information</b></h3>
+                      
+                          <p class="m-1 mb-4">To the best of my knowledge, the information I have provided and the
+                              statements I have made in this profile are correct and complete. I
+                              understand that false information provided herein or in connection
+                              with the enrollment process may result in disenrollment of my child.
+                              I further agree to update the information in this Health and Social
+                              Record as circumstances may require at Goddard School’s request.
+                          </p>
+                          <div class="row m-1 mb-4">
+                              <div class="col-sm">
+                                  <div class="form-group wizard-form-checkbox">
+                                      <input type="checkbox" class="input-checkbox" id="parent_agree_four"
+                                      name="parent_agree_four" >
+                                      <label class="form-check-label" for="parent_agree_four"><span>
+                                          <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                              <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                          </svg></span>
+                                          <span><b>I agree all the above information is correct.</b></span>
+                                      </label>
+                                  </div>
                               </div>
                           </div>
-                      </div>
-                  </div> 
-                  <!--Child and Family History Form End-->
+                                <div class="text-center">
+                                    <button class="save-btn">Save</button> 
+                                </div>
+                              
+                        </div>
+                    </div>            
+                    
+                </div>
+                <!--Admission Form End-->
+              </div> 
             </div>
         </div>
     </body>

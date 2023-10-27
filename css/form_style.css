@@ -44,13 +44,20 @@
                 list-style-type: none !important;
             }
 
+            .accordion-item
+            {
+                background-color: #D8E9FF !important;
+                border: none !important;
+            }
+
             .accordion-button
             {
                 font-weight: 700;
             }
 
             .accordion-body {
-                border: 1px solid #0F2D52;
+                padding: 2px !important;
+                border: none !important;
             }
 
             button.accordion-button.collapsed
@@ -77,6 +84,7 @@
 
             .side_tab_bg {
                 background-color: #D8E9FF !important;
+                width: auto !important;
             }
 
             .form-control

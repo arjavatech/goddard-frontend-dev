@@ -32,12 +32,9 @@ async function emailSend() {
         obj.from = "noreply.goddard@gmail.com";
         let email_to =  $('#parent_email').val();
         obj.to = email_to;
-        randomID = Math.floor(Date.now() / 1000);
-        obj.invite_id =randomID;
-        console.log(randomID);
         obj.subject = 'Invite parents';
         let messageData = $('#messageData').val();
-        obj.body = `${messageData}?id=${randomID}`;
+        obj.body = `${messageData}`;
         console.log(obj.body);
         obj.attachmentName ="AttachmentForm";
         obj.attachmentKey ="attachment";

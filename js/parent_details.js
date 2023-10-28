@@ -1,5 +1,71 @@
 'use strict';
 
+let title, globalBase64;
+AWS.config.update({
+        accessKeyId: 'AKIATNZ4QAI6MX5LH34Q',
+        secretAccessKey: '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',
+        region: 'us-west-2'
+    });
+
+const s3 = new AWS.S3();
+
+let obj = {
+    "from": "noreply.goddard@gmail.com",
+    "to": "noreply.goddard@gmail.com",
+    "subject": "subject",
+    "body": "You are invited",
+    "attachmentName": "AttachmentForm",
+    "attachmentKey": "attachment"
+}
+
+
+async function emailSend(child_full_name,parent_name,
+    parent_email,parent_mobile,invite_status) {
+    try {
+        const obj = {};
+        obj.child_full_name = child_full_name;
+        obj.parent_name = parent_name;
+        obj.parent_email = parent_email;
+        obj.parent_mobile = parent_mobile;
+        obj.invite_status = invite_status;
+        obj.from = "noreply.goddard@gmail.com";
+        let email_to =  $('#parent_email').val();
+        obj.to = email_to;
+        let randomID = Math.floor(Date.now() / 1000);
+        obj.invite_id =randomID;
+        console.log(randomID);
+        obj.subject = 'Invite parents';
+        let messageData = 'https://arjavatech.github.io/goddard-frontend-dev/signup.html';
+        obj.body = `${messageData}?id=${randomID}`;
+        console.log(obj.body);
+        obj.attachmentName ="AttachmentForm";
+        obj.attachmentKey ="attachment";
+        const json =JSON.stringify(obj);
+        console.log(json);
+
+        // const attachmentKey = await uploadBase64PDFToS3( title + ' CHILD_ID');
+        // obj.attachmentKey = attachmentKey;
+        $.ajax({
+            url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
+            type: "POST",
+            contentType: "application/json",
+            data: json,
+            success: function (response) {
+                alert("Email Sent Successfully");
+                window.location.reload();
+            },
+            error: function (xhr, status, error) {
+                console.log(xhr);
+                console.log(status);
+                console.log(error);
+                alert("Email sending failed")
+            }
+        });
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
 function applicationStatusYear(val) {
     localStorage.setItem('form_year_value', val);
     let applicationStatusYear = document.getElementById("applicationStatusYear");
@@ -48,14 +114,18 @@ function applicationStatusYear(val) {
                     row.appendChild(parentOneInviteStatus);
 
                     // Create cell for the invite button
-                    // const inviteButtonCell = document.createElement('td');
-                    // const inviteButton = document.createElement('button');
-                    // inviteButton.setAttribute('type', 'button');
-                    // inviteButton.setAttribute('id', 'sendButton');
-                    // inviteButton.setAttribute('class', 'invite-button'); // Use class instead of ID
-                    // inviteButton.textContent = 'Send';
-                    // inviteButtonCell.appendChild(inviteButton);
-                    // row.appendChild(inviteButtonCell);
+                    const inviteButtonCell = document.createElement('td');
+                    const inviteButton = document.createElement('button');
+                    inviteButton.setAttribute('type', 'button');
+                    inviteButton.setAttribute('id', 'sendButton');
+                    inviteButton.setAttribute('class', 'invite-button'); // Use class instead of ID
+                    inviteButton.textContent = 'Send';
+                    inviteButton.addEventListener('click',function(){
+                        emailSend(rowData.child_full_name,rowData.parent_name,
+                            rowData.parent_email,rowData.parent_mobile,rowData.invite_status);
+                    });
+                    inviteButtonCell.appendChild(inviteButton);
+                    row.appendChild(inviteButtonCell);
 
                     // Append the row to the table body
                     tableBody.appendChild(row);

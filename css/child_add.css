@@ -14,7 +14,11 @@
 }
 
 .card_style{
-    background: #D8E9FF !important; 
+    background: #cadffa !important; 
+}
+
+.card_style:hover{
+    opacity: 0.6;
 }
 
 .dashboard_card_style1{

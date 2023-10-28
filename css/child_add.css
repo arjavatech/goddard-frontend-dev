@@ -13,6 +13,10 @@
     color: #fff !important;
 }
 
+.card_style{
+    background: #D8E9FF !important; 
+}
+
 .dashboard_card_style1{
     width: 200px !important;
     height: 170px !important;

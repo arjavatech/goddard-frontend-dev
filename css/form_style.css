@@ -44,10 +44,15 @@
                 list-style-type: none !important;
             }
 
-            .accordion-item
+            .accordio_style
             {
                 background-color: #D8E9FF !important;
                 border: none !important;
+            }
+
+            .accordion-body
+            {
+                border: 1px solid #0F2D52 !important;
             }
 
             .accordion-button
@@ -55,7 +60,7 @@
                 font-weight: 700;
             }
 
-            .accordion-body {
+            .accordion_body_style {
                 padding: 2px !important;
                 border: none !important;
             }
@@ -83,6 +88,11 @@
             }
 
             .side_tab_bg {
+                background-color: #D8E9FF !important;
+                width: 298px !important;
+            }
+
+            .tab_bg {
                 background-color: #D8E9FF !important;
                 width: auto !important;
             }

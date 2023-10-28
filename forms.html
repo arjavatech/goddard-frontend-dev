@@ -28,81 +28,116 @@
     </nav>
     <!-- Navigation Bar End -->
 
-    <div class="row m-3">
-        <div class="col-3">
-            <div class="col-3 p-3 side_tab_bg"><br>
-                <div class="accordion" id="accordionExampleone">
-                    <!--Admission Form Tab-->
-                    <div class="accordion-item">
-                        <h2 class="accordion-header shadow">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#admission" aria-expanded="true" aria-controls="collapseOne">
-                                Admission Forms
-                            </button>
-                        </h2>
-                        <ul class="nav nav-pills flex-column" role="tablist">
-                            <div id="admission" class="accordion-collapse collapse show"
-                                data-bs-parent="#accordionExampleone">
-                                <div class="accordion-body">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" data-bs-toggle="pill" href="#childinformation">Child
-                                            Information</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="pill" href="#childandfamilyhistory">Child
-                                            and Family History</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="pill"
-                                            href="#immunizationinstructions">Immunization Instructions</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="pill" href="#childprofile">Child Profile</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="pill" href="#pickuppassword">Pick-up
-                                            Password</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="pill"
-                                            href="#photovideopermission">Photo/Video Permission</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="pill" href="#securitypolicy">Security &
-                                            Policy</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="pill" href="#medicaltransportation">Medical
-                                            Transportation</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="pill" href="#healthpolicies">Health
-                                            Policies</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="pill" href="#outsideengagements">Outside
-                                            Engagements</a>
-                                    </li>
-                                </div>
-                            </div><br>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="pill" href="#enrollmentagreement">Enrollment
-                                    Agreement</a>
-                            </li><br>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="pill" href="#authorization">Authorization</a>
-                            </li><br>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="pill" href="#parentsignature">Parent Signature</a>
-                            </li>
-                        </ul>
-
-                    </div><br>
-                    <!--Admission Form Tab End-->
-                    <ul class="nav nav-pills flex-column" role="tablist">
-
-                    </ul>
+    <div class="row" id="additionalHtmlContainer">
+        <!-- Dynamic Child Cards -->
+        <div class="col-2 m-3 mt-4">
+            <div id="dynamicChildCards">
+            
+                <a href="parent_dashboard.html" class="text-decoration-none">
+                    <div class="card dashboard_card_style1">
+                        <div class="card-body">
+                            <h5 id="childname" class="text-center">Vikram</h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!-- Add Child -->
+        <div class="col-2 m-3 mt-4">
+            <a href="/parent/child_basic_details.html" class="text-decoration-none">
+                <div class="card dashboard_card_style">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">
+                            <!-- Add Child Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                height="20" fill="currentColor"
+                                class="bi bi-plus-circle-fill dashboard_card_icon"
+                                viewBox="0 0 16 16">
+                                <path
+                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                            </svg>
+                            Add Child
+                        </h5>
+                    </div>
                 </div>
+            </a>
+        </div>
+        <!-- Add Child End -->
+    </div>
+
+    <div class="row m-3 tab_bg">
+        <div class="col-3 p-3 side_tab_bg"><br>
+            <div class="accordion" id="accordionExampleone">
+                <!--Admission Form Tab-->
+                <div class="accordion-item accordio_style">
+                    <h2 class="accordion-header shadow">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#admission" aria-expanded="true" aria-controls="collapseOne">
+                            Admission Forms
+                        </button>
+                    </h2>
+                    <ul class="nav nav-pills flex-column" role="tablist">
+                        <div id="admission" class="accordion-collapse collapse show"
+                            data-bs-parent="#accordionExampleone">
+                            <div class="accordion-body accordion_body_style">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-bs-toggle="pill" href="#childinformation">Child
+                                        Information</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#childandfamilyhistory">Child
+                                        and Family History</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill"
+                                        href="#immunizationinstructions">Immunization Instructions</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#childprofile">Child Profile</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#pickuppassword">Pick-up
+                                        Password</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill"
+                                        href="#photovideopermission">Photo/Video Permission</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#securitypolicy">Security &
+                                        Policy</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#medicaltransportation">Medical
+                                        Transportation</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#healthpolicies">Health
+                                        Policies</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#outsideengagements">Outside
+                                        Engagements</a>
+                                </li>
+                            </div>
+                        </div><br>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#enrollmentagreement">Enrollment
+                                Agreement</a>
+                        </li><br>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#authorization">Authorization</a>
+                        </li><br>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#parentsignature">Parent Signature</a>
+                        </li>
+                    </ul>
+
+                </div><br>
+                <!--Admission Form Tab End-->
+                <ul class="nav nav-pills flex-column" role="tablist">
+
+                </ul>
             </div>
         </div>
 

@@ -13,7 +13,7 @@ function clearLocalStorageExcept(keysToKeep) {
 function checkParentAuthentication(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email');
     console.log(logged_in_email);
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/fetch_by_email?email='
+    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=poo123@gmail.com'
     // console.log(url + logged_in_email)
     $.ajax({
                url: url + logged_in_email,
@@ -37,7 +37,7 @@ function checkParentAuthentication(callback) {
 function getAllInfo(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email')
     // const parent_id = localStorage.getItem('parent_id');
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/fetch/email?email='
+    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email='
     // console.log(url + logged_in_email)
     $.ajax({
         url: url + logged_in_email,

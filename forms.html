@@ -149,7 +149,7 @@
                 <!--Child Information End-->
                 <div id="childinformation" class="container tab-pane active"><br>
                     <div class="accordion pt-4" id="accordionExample">
-                        <h2 class="text-center title_bg mb-4">Child Information</h2>
+                        <h2 class="text-center title_bg mb-4" id="childinfo">Child Information</h2>
                         <!--Child Details-->
                         <div class="accordion-item">
                             <h2 class="accordion-header shadow" id="headingOne">
@@ -161,6 +161,7 @@
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
+                                    <form id="admission_form">
                                     <div class="row m-1 mb-4">
                                         <div class="col-sm">
                                             <div class="form-group">
@@ -189,9 +190,11 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="text-center">
                                         <button class="save-btn" id="childBasicInfo">Save</button>
                                     </div>
+                                </form>
                                 </div>
                             </div>
                         </div>
@@ -3292,7 +3295,7 @@
                                                                                 <div class="row">
                                                                                     <div class="col-sm-1">
                                                                                         <!-- <label for="i" >I</label> -->
-                                                                                        <p  style="padding-top: 10px !important;padding-left: 70px !important;">I</p>
+                                                                                        <p  style="padding-top: 10px !important;padding-left: 40px !important;">I</p>
                                                                                     </div>
                                                                                     <div class="col-sm-11">
                                                                                         <div class="form-group">
@@ -3385,37 +3388,66 @@
     </div>
     <script>
         // Function to submit the form data
-        function saveForm(value) {
+        function saveForm() {
+            let tabHeading = document.getElementById('childinfo');
+            console.log(tabHeading);
             const form = document.getElementById("admission_form");
             const formData = new FormData(form);
             const obj = Object.fromEntries(formData);
+            console.log(obj);
+            if(obj.child_full_name != "" && obj.nick_name != "" && obj.dob != ""){
+                console.log('checking');
+
+            
             // obj.child_id = "NCD0005"; 
             // const logged_in_email = localStorage.getItem('logged_in_email');
-            obj.on_process = true;
-            // obj.parent_email_one = logged_in_email;
-            obj.parent_id = localStorage.getItem('parent_id');
-            obj.form_status = value;
-            const child_id_val = localStorage.getItem('child_id');
-            if (child_id_val !== null && child_id_val !== undefined) {
-                obj.child_id = child_id_val;
+            // obj.on_process = true;
+            // // obj.parent_email_one = logged_in_email;
+            // obj.parent_id = localStorage.getItem('parent_id');
+            // obj.form_status = value;
+            // const child_id_val = localStorage.getItem('child_id');
+            // if (child_id_val !== null && child_id_val !== undefined) {
+            //     obj.child_id = child_id_val;
+            // }
+            // obj.year = new Date().getFullYear() + '';
+            // console.log(obj);
+            // $.ajax({
+            //     url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/update",
+            //     type: "POST",
+            //     contentType: "application/json",
+            //     data: JSON.stringify(obj),
+            //     success: function (response) {
+            //         // alert("Form saved successfully")
+            //         // localStorage.setItem('child_id', response.child_id);
+            //         // window.location.reload();
+                   
+                    console.log(tabHeading);
+                    tabHeading.style.backgroundColor= 'red !important';
+                    tabHeading.style.color = '#fff !important';
+                    tabHeading.style.padding = '10px !important';
+                    console.log('changing');
+                    
+            //     },
+            //     error: function (xhr, status, error) {
+            //         let tabHeading = document.getElementById('childinfo');
+            //         console.log(tabHeading);
+            //         tabHeading.style.backgroundColor= 'red!important';
+            //         tabHeading.style.color = '#fff !important';
+            //         tabHeading.style.padding = '10px !important';
+            //         console.log('changindsvsdg');
+            //         alert("failed to save admission form");
+            //     }
+            // });
             }
-            obj.year = new Date().getFullYear() + '';
-            console.log(obj);
-            $.ajax({
-                url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
-                type: "POST",
-                contentType: "application/json",
-                data: JSON.stringify(obj),
-                success: function (response) {
-                    alert("Form saved successfully")
-                    localStorage.setItem('child_id', response.child_id);
-                    window.location.reload();
-                },
-                error: function (xhr, status, error) {
-                    alert("failed to save admission form");
-                }
-            });
         }
+        $(document).ready(function(){
+           
+            $("#childBasicInfo").on("click", function (e) {
+                e.preventDefault(); // Prevent the default form submission
+                saveForm();
+            });
+        })
+        
     </script>
 </body>
 

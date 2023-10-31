@@ -11,7 +11,7 @@ let obj = {
     "from": "noreply.goddard@gmail.com",
     "to": "noreply.goddard@gmail.com",
     "subject": "subject",
-    "body": "You are invited",
+    "body": "",
     "attachmentName": "AttachmentForm",
     "attachmentKey": "attachment"
 }
@@ -34,7 +34,7 @@ async function emailSend() {
         obj.to = email_to;
         obj.subject = 'Invite parents';
         let messageData = $('#messageData').val();
-        obj.body = `${messageData}`;
+        obj.body = "";
         console.log(obj.body);
         obj.attachmentName ="AttachmentForm";
         obj.attachmentKey ="attachment";
@@ -56,7 +56,7 @@ async function emailSend() {
                 console.log(xhr);
                 console.log(status);
                 console.log(error);
-                alert("Email sending failed")
+                alert("Email sending failed");
             }
         });
     } catch (error) {

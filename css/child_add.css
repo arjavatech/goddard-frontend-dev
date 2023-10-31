@@ -46,11 +46,7 @@
 }
 
 .dashboard_card_style:hover {
-    width: 200px !important;
-    height: 170px !important;
-    background: #a7cdff !important;
-    border-radius: 20px !important;
-    cursor: pointer;
+    opacity: 0.8;
 }
 
 .dashboard_card_style_on_process{

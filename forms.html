@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/form_style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <style>
         .accordion-button:not(.collapsed)::after {
             background-image: url('/image/down_white.png');
@@ -164,7 +165,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="child_full_name" class="form-label"><b>CHILD’S FULL NAME
-                                                        <span style="color:#ff0000;">*</span></b></label><br>
+                                                        </b></label><br>
                                                 <input name="child_full_name" type="text" maxlength="20"
                                                     class="form-control " id="child_full_name">
                                             </div>
@@ -172,7 +173,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="nick_name" class="form-label"><b>NICKNAME
-                                                        <span style="color:#ff0000;">*</span></b>
+                                                        </b>
                                                 </label>
                                                 <input name="nick_name" type="text" maxlength="50" class="form-control "
                                                     id="nick_name">
@@ -181,7 +182,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="dob" class="form-label"><b>BIRTH DATE
-                                                        <span style="color:#ff0000;">*</span></b>
+                                                        </b>
                                                 </label>
                                                 <input name="dob" type="date" maxlength="50" class="form-control "
                                                     id="dob" onclick="dateValidation('dob')">
@@ -189,7 +190,7 @@
                                         </div>
                                     </div>
                                     <div class="text-center">
-                                        <button class="save-btn">Save</button>
+                                        <button class="save-btn" id="childBasicInfo">Save</button>
                                     </div>
                                 </div>
                             </div>
@@ -212,7 +213,7 @@
                                             <div class="form-group">
                                                 <label for="parent1_name" class="form-label"><b>PARENT’S / LEGAL
                                                         GUARDIAN’S NAME</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="parent1_name"
                                                     name="parent1_name">
@@ -224,7 +225,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="parent1_street_address" class="form-label"><b>STREET</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control" id="parent1_street_address"
                                                     name="parent1_street_address"
@@ -234,7 +235,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="parent1_city_address" class="form-label"><b>CITY</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="parent1_city_address"
                                                     name="parent1_city_address"
@@ -244,7 +245,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="parent1_state_address" class="form-label"><b>STATE</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="parent1_state_address"
                                                     name="parent1_state_address"
@@ -254,7 +255,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="parent1_zip_address" class="form-label"><b>ZIP</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="parent1_zip_address"
                                                     name="parent1_zip_address"
@@ -269,7 +270,7 @@
                                             <div class="form-group">
                                                 <label for="home_telephone_number1" class="form-label"><b>TELEPHONE
                                                         NUMBER</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " aria-label="Telephone Number"
                                                     id="home_telephone_number1" name="home_telephone_number1"
@@ -284,7 +285,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="business1_name" class="form-label"><b>BUSINESS NAME</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="business1_name"
                                                     name="business1_name">
@@ -293,7 +294,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="work_hours1" class="form-label"><b>WORK HOURS</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="work_hours1"
                                                     name="work_hours1">
@@ -303,7 +304,7 @@
                                             <div class="form-group">
                                                 <label for="business_telephone_number1" class="form-label"><b>BUSINESS
                                                         TELEPHONE NUMBER</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="business_telephone_number1"
                                                     name="business_telephone_number1"
@@ -325,7 +326,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="business_street_address1" class="form-label"><b>STREET</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="business_street_address1"
                                                     name="business_street_address1"
@@ -335,7 +336,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="business_city_address1" class="form-label"><b>CITY</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="business_city_address1"
                                                     name="business_city_address1"
@@ -345,7 +346,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="business_state_address1" class="form-label"><b>STATE</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="business_state_address1"
                                                     name="business_state_address1"
@@ -355,7 +356,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="business_zip_address1" class="form-label"><b>ZIP</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="business_zip_address1"
                                                     name="business_zip_address1"
@@ -371,7 +372,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="business_cell_number1" class="form-label"><b>CELL NUMBER</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " aria-label="Telephone Number"
                                                     id="business_cell_number1" name="business_cell_number1"
@@ -383,7 +384,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="parent_email_one" class="form-label"><b>EMAIL ADDRESS</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="parent_email_one"
                                                     name="parent_email_one"
@@ -395,7 +396,7 @@
                                     </div>
                                     <!-- Business info end-->
                                     <div class="text-center">
-                                        <button class="save-btn">Save</button>
+                                        <button class="save-btn" id="child">Save</button>
                                     </div>
                                 </div>
                             </div>
@@ -419,7 +420,7 @@
                                             <div class="form-group">
                                                 <label for="parent2_name" class="form-label"><b>PARENT’S / LEGAL
                                                         GUARDIAN’S NAME</b>
-                                                    <!-- <span style="color:#ff0000;">*</span> -->
+                                                    <!--  -->
                                                 </label>
                                                 <input type="text" class="form-control" id="parent2_name"
                                                     name="parent2_name">
@@ -457,7 +458,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="parent2_zip_address" class="form-label"><b>ZIP</b>
-                                                    <!-- <span style="color:#ff0000;">*</span> -->
+                                                    <!--  -->
                                                 </label>
                                                 <input type="text" class="form-control" id="parent2_zip_address"
                                                     name="parent2_zip_address"
@@ -472,7 +473,7 @@
                                             <div class="form-group">
                                                 <label for="home_telephone_number2" class="form-label"><b>TELEPHONE
                                                         NUMBER</b>
-                                                    <!-- <span style="color:#ff0000;">*</span> -->
+                                                    <!--  -->
                                                 </label>
                                                 <input type="text" class="form-control " aria-label="Telephone Number"
                                                     id="home_telephone_number2" name="home_telephone_number2"
@@ -489,7 +490,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="business2_name" class="form-label"><b>BUSINESS NAME</b>
-                                                    <!-- <span style="color:#ff0000;">*</span> -->
+                                                    <!--  -->
                                                 </label>
                                                 <input type="text" class="form-control " id="business2_name"
                                                     name="business2_name">
@@ -498,7 +499,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="work_hours2" class="form-label"><b>WORK HOURS</b>
-                                                    <!-- <span style="color:#ff0000;">*</span> -->
+                                                    <!--  -->
                                                 </label>
                                                 <input type="text" class="form-control " id="work_hours2"
                                                     name="work_hours2">
@@ -508,7 +509,7 @@
                                             <div class="form-group">
                                                 <label for="business_telephone_number2" class="form-label"><b>BUSINESS
                                                         TELEPHONE NUMBER</b>
-                                                    <!-- <span style="color:#ff0000;">*</span> -->
+                                                    <!--  -->
                                                 </label>
                                                 <input type="text" class="form-control " id="business_telephone_number2"
                                                     name="business_telephone_number2"
@@ -565,7 +566,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="business_cell_number2" class="form-label"><b>CELL NUMBER</b>
-                                                    <!-- <span style="color:#ff0000;">*</span> -->
+                                                    <!--  -->
                                                 </label>
                                                 <input type="text" class="form-control" aria-label="Telephone Number"
                                                     id="business_cell_number2" name="business_cell_number2"
@@ -577,7 +578,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="parent_email_two" class="form-label"><b>EMAIL ADDRESS</b>
-                                                    <!-- <span style="color:#ff0000;">*</span> -->
+                                                    <!--  -->
                                                 </label>
                                                 <input type="text" class="form-control " id="parent_email_two"
                                                     name="parent_email_two"
@@ -619,7 +620,7 @@
                                             <div class="form-group">
                                                 <label for="child_care_provider_name3" class="form-label"><b>NAME OF
                                                         CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="child_care_provider_name3"
                                                     name="child_care_provider_name3">
@@ -631,7 +632,7 @@
                                             <div class="form-group">
                                                 <label for="care_provider_telephone_number3"
                                                     class="form-label"><b>TELEPHONE NUMBER</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control "
                                                     id="care_provider_telephone_number3"
@@ -646,7 +647,7 @@
                                             <div class="form-group">
                                                 <label for="hospital_affiliation3" class="form-label"><b>HOSPITAL
                                                         AFFILIATION</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="hospital_affiliation3"
                                                     name="hospital_affiliation3">
@@ -666,7 +667,7 @@
                                             <div class="form-group">
                                                 <label for="child_care_provider_street_address"
                                                     class="form-label"><b>STREET</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control "
                                                     id="child_care_provider_street_address"
@@ -677,7 +678,7 @@
                                             <div class="form-group">
                                                 <label for="child_care_provider_city_address"
                                                     class="form-label"><b>CITY</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control "
                                                     id="child_care_provider_city_address"
@@ -688,7 +689,7 @@
                                             <div class="form-group">
                                                 <label for="child_care_provider_state_address"
                                                     class="form-label"><b>STATE</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control "
                                                     id="child_care_provider_state_address"
@@ -699,7 +700,7 @@
                                             <div class="form-group">
                                                 <label for="child_care_provider_zip_address"
                                                     class="form-label"><b>ZIP</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control "
                                                     id="child_care_provider_zip_address"
@@ -722,7 +723,7 @@
                                             <div class="form-group">
                                                 <label for="child_dentist_name" class="form-label"><b>NAME OF CHILD'S
                                                         DENTIST</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="child_dentist_name"
                                                     name="child_dentist_name">
@@ -732,7 +733,7 @@
                                             <div class="form-group">
                                                 <label for="dentist_telephone_number" class="form-label"><b>DENTIST
                                                         TELEPHONE NUMBER</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="dentist_telephone_number"
                                                     name="dentist_telephone_number"
@@ -747,7 +748,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="dentist_address" class="form-label"><b>DENTIST ADDRESS</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="dentist_address"
                                                     name="dentist_address">
@@ -761,7 +762,7 @@
                                             <div class="form-group">
                                                 <label for="special_disabilities" class="form-label"><b>SPECIAL
                                                         DIABILITIES (IF ANY)</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="special_disabilities"
                                                     name="special_disabilities">
@@ -771,7 +772,7 @@
                                             <div class="form-group">
                                                 <label for="allergies_medication_reaction"
                                                     class="form-label"><b>ALLERGIES (INCLUDING MEDICATION REACTION)</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control "
                                                     id="allergies_medication_reaction"
@@ -784,7 +785,7 @@
                                             <div class="form-group">
                                                 <label for="additional_info" class="form-label"><b>ADDITIONAL
                                                         INFORMATION REGARDING SPECIAL NEEDS</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="additional_info"
                                                     name="additional_info">
@@ -796,7 +797,7 @@
                                             <div class="form-group">
                                                 <label for="medication" class="form-label"><b>MEDICATION, SPECIAL
                                                         CONDITIONS NUMBER</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="medication"
                                                     name="medication">
@@ -808,7 +809,7 @@
                                             <div class="form-group">
                                                 <label for="health_insurance" class="form-label"><b>HEALTH INSURANCE
                                                         COVERAGE FOR CHILD OR MEDICAL ASSISTANCE BENEFITS</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="health_insurance"
                                                     name="health_insurance">
@@ -820,7 +821,7 @@
                                             <div class="form-group">
                                                 <label for="policy_number" class="form-label"><b>POLICY NUMBER
                                                         (REQUIRED) NUMBER</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="policy_number"
                                                     name="policy_number">
@@ -858,7 +859,7 @@
                                             <div class="form-group">
                                                 <label for="obtaining_emergency_medical_care"
                                                     class="form-label"><b>OBTAINING EMERGENCY MEDICAL CARE</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control "
                                                     id="obtaining_emergency_medical_care"
@@ -872,7 +873,7 @@
                                                 <label for="administration_first_aid_procedures"
                                                     class="form-label"><b>ADMINISTRATION OF MINOR FIRST-AID
                                                         PROCEDURES</b>
-                                                    <span style="color:#ff0000;">*</span></label>
+                                                    </label>
                                                 <input type="text" class="form-control "
                                                     id="administration_first_aid_procedures"
                                                     name="administration_first_aid_procedures">
@@ -924,7 +925,7 @@
                                             <div class="form-group">
                                                 <label for="physical_exam_last_date" class="form-label"><b>Date of Last
                                                         Physical Exam</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="date" class="form-control " id="physical_exam_last_date"
                                                     name="physical_exam_last_date"
@@ -935,7 +936,7 @@
                                             <div class="form-group">
                                                 <label for="dental_exam_last_date" class="form-label"><b>Date of Last
                                                         Dental Exam</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="date" class="form-control " id="dental_exam_last_date"
                                                     name="dental_exam_last_date"
@@ -970,7 +971,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="allergies" class="form-label"><b>Allergies (food/drug)</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " name="allergies"
                                                     id="allergies">
@@ -979,7 +980,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="asthma" class="form-label"><b>Asthma</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="asthma" name="asthma">
                                             </div>
@@ -990,7 +991,7 @@
                                             <div class="form-group">
                                                 <label for="bleeding_problems" class="form-label"><b>Bleeding
                                                         Problems</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " name="bleeding_problems"
                                                     id="bleeding_problems">
@@ -999,7 +1000,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="diabetes" class="form-label"><b>Diabetes</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="diabetes" name="diabetes">
                                             </div>
@@ -1009,7 +1010,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="epilepsy" class="form-label"><b>Epilepsy</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="epilepsy" name="epilepsy">
                                             </div>
@@ -1018,7 +1019,7 @@
                                             <div class="form-group">
                                                 <label for="frequent_ear_infections" class="form-label"><b>Frequent Ear
                                                         Infections</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="frequent_ear_infections"
                                                     name="frequent_ear_infections">
@@ -1030,7 +1031,7 @@
                                             <div class="form-group">
                                                 <label for="frequent_illnesses" class="form-label"><b>Frequent
                                                         Illnesses</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="frequent_illnesses"
                                                     name="frequent_illnesses">
@@ -1039,7 +1040,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="hearing_problems" class="form-label"><b>Hearing Problems</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="hearing_problems"
                                                     name="hearing_problems">
@@ -1050,7 +1051,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="high_fevers" class="form-label"><b>High Fevers</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="high_fevers"
                                                     name="high_fevers">
@@ -1059,7 +1060,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="hospitalization" class="form-label"><b>Hospitialization</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="hospitalization"
                                                     name="hospitalization">
@@ -1071,7 +1072,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="rheumatic_fever" class="form-label"><b>Rheumatic Fever</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="rheumatic_fever"
                                                     name="rheumatic_fever">
@@ -1081,7 +1082,7 @@
                                             <div class="form-group">
                                                 <label for="seizures_convulsions"
                                                     class="form-label"><b>Seizures/Convulsions</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="seizures_convulsions"
                                                     name="seizures_convulsions">
@@ -1094,7 +1095,7 @@
                                             <div class="form-group">
                                                 <label for="serious_injuries_accidents" class="form-label"><b>Serious
                                                         Injuries/Accidents</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="serious_injuries_accidents"
                                                     name="serious_injuries_accidents">
@@ -1103,7 +1104,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="surgeries" class="form-label"><b>Surgeries</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="surgeries"
                                                     name="surgeries">
@@ -1115,7 +1116,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="vision_problems" class="form-label"><b>Vision Problems</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="vision_problems"
                                                     name="vision_problems">
@@ -1124,7 +1125,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="medical_other" class="form-label"><b>Other</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="medical_other"
                                                     name="medical_other">
@@ -1157,7 +1158,7 @@
                                             <div class="form-group">
                                                 <label for="illness_during_pregnancy" class="form-label"><b>Illness
                                                         during pregnancy</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="illness_during_pregnancy"
                                                     name="illness_during_pregnancy">
@@ -1167,7 +1168,7 @@
                                             <div class="form-group">
                                                 <label for="condition_of_newborn" class="form-label"><b>Condition of
                                                         Newborn</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="condition_of_newborn"
                                                     name="condition_of_newborn">
@@ -1179,7 +1180,7 @@
                                             <div class="form-group">
                                                 <label for="duration_of_pregnancy" class="form-label"><b>Duration of
                                                         pregnancy</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="duration_of_pregnancy"
                                                     name="duration_of_pregnancy">
@@ -1188,7 +1189,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="birth_weight_lbs" class="form-label"><b>Birth
-                                                        Weight</b><span style="color:#ff0000;">*</span>
+                                                        Weight</b>
                                                 </label>
                                                 <div class="input-group">
                                                     <input type="text" class="form-control " id="birth_weight_lbs"
@@ -1216,7 +1217,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="complications" class="form-label"><b>Complications</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="complications"
                                                     name="complications">
@@ -1225,7 +1226,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="bottle_fed" class="form-label"><b>Bottle Fed?</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="bottle_fed"
                                                     name="bottle_fed">
@@ -1234,7 +1235,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="breast_fed" class="form-label"><b>Breast Fed?</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="breast_fed"
                                                     name="breast_fed">
@@ -1246,7 +1247,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="other_siblings_name" class="form-label"><b>Name</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="other_siblings_name"
                                                     name="other_siblings_name">
@@ -1255,7 +1256,7 @@
                                         <div class="col-sm">
                                             <div class="form-group">
                                                 <label for="other_siblings_age" class="form-label"><b>Age</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="other_siblings_age"
                                                     name="other_siblings_age">
@@ -1432,7 +1433,7 @@
                                             <div class="form-group">
                                                 <label for="age_group_friends" class="form-label"><b>Age group of
                                                         friends</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="age_group_friends"
                                                     name="age_group_friends">
@@ -1442,7 +1443,7 @@
                                             <div class="form-group">
                                                 <label for="neighborhood_friends" class="form-label"><b>Neighborhood
                                                         friends</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="neighborhood_friends"
                                                     name="neighborhood_friends">
@@ -1454,7 +1455,7 @@
                                             <div class="form-group">
                                                 <label for="relationship_with_mother" class="form-label"><b>Relationship
                                                         with mother</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="relationship_with_mother"
                                                     name="relationship_with_mother">
@@ -1464,7 +1465,7 @@
                                             <div class="form-group">
                                                 <label for="relationship_with_father" class="form-label"><b>Relationship
                                                         with father</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="relationship_with_father" \
                                                     name="relationship_with_father">
@@ -1477,7 +1478,7 @@
                                             <div class="form-group">
                                                 <label for="relationship_with_siblings"
                                                     class="form-label"><b>Relationship with siblings</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="relationship_with_siblings"
                                                     name="relationship_with_siblings">
@@ -1500,7 +1501,7 @@
                                             <div class="form-group">
                                                 <label for="fears_conflicts" class="form-label"><b>Fears and
                                                         Conflicts</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="fears_conflicts"
                                                     name="fears_conflicts">
@@ -1510,7 +1511,7 @@
                                             <div class="form-group">
                                                 <label for="child_response_frustration" class="form-label"><b>Child’s
                                                         response to frustration</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="child_response_frustration"
                                                     name="child_response_frustration">
@@ -1523,7 +1524,7 @@
                                             <div class="form-group">
                                                 <label for="favorite_activities" class="form-label"><b>Favorite
                                                         activities</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control " id="favorite_activities"
                                                     name="favorite_activities">
@@ -1598,7 +1599,7 @@
                                                 <label for="changes_at_home_situation" class="form-label"><b>Have
                                                         there been any changes in the home situation recently, i.e.
                                                         addition/loss/death/divorce.</b>
-                                                    <span style="color:#ff0000;">*</span></label>
+                                                    </label>
                                                 <input type="text" class="form-control " id="changes_at_home_situation"
                                                     name="changes_at_home_situation">
                                             </div>
@@ -1608,7 +1609,7 @@
                                                 <label for="educational_expectations_of_child"
                                                     class="form-label"><b>What are your educational expectations of your
                                                         child?</b>
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </label>
                                                 <input type="text" class="form-control "
                                                     id="educational_expectations_of_child"
@@ -1725,7 +1726,7 @@
                                         <div class="form-group"> 
                                             <label for="other_important_family_members" class="form-label"><b>Other
                                                 important Family Members (Siblings, Grandparent, Pets, etc)</b>
-                                                <span style="color:#ff0000;">*</span></label>
+                                                </label>
                                             <input type="text" class="form-control " id="other_important_family_members"
                                                 name="other_important_family_members">
                                         </div>
@@ -1736,7 +1737,7 @@
                                         <div class="form-group"> 
                                             <label for="about_family_celebrations" class="form-label"><b>Tell us about
                                                 your family traditions or important celebrations</b>
-                                                <span style="color:#ff0000;">*</span></label>
+                                                </label>
                                             <input type="text" class="form-control " id="about_family_celebrations"
                                                 name="about_family_celebrations">
                                         </div>
@@ -1763,7 +1764,7 @@
                                     <div class="col-sm">
                                         <div class="form-group"> 
                                             <label for="reason_for_childcare_before" class="form-label"><b>If so, what kind?</b>
-                                                <span style="color:#ff0000;">*</span>
+                                                
                                             </label>
                                             <select class="form-control form-select-lg" aria-label=".form-control-lg example"
                                                 id="reason_for_childcare_before" name="reason_for_childcare_before">
@@ -1779,7 +1780,7 @@
                                     <div class="col-sm">
                                         <div class="form-group"> 
                                             <label for="what_child_interests" class="form-label"><b>What are you child’s interests</b>
-                                                <span style="color:#ff0000;">*</span>
+                                                
                                             </label>
                                             <input type="text" class="form-control " id="what_child_interests" name="what_child_interests">
                                         </div>
@@ -1793,7 +1794,7 @@
                                     <div class="col-sm">
                                         <div class="form-group"> 
                                             <label for="drop_off_time" class="form-label"><b>Drop off time?</b>
-                                                <span style="color:#ff0000;">*</span>
+                                                
                                             </label>
                                             <input type="time" class="form-control " id="drop_off_time" name="drop_off_time">
                                         </div>
@@ -1801,7 +1802,7 @@
                                     <div class="col-sm">
                                         <div class="form-group"> 
                                             <label for="pick_up_time" class="form-label"><b>Pick up time?</b>
-                                                <span style="color:#ff0000;">*</span>
+                                                
                                             </label>
                                             <input type="time" class="form-control " id="pick_up_time" name="pick_up_time">
                                         </div>
@@ -1828,7 +1829,7 @@
                                       <div id="restricted_diet" class="col-sm">
                                         <div class="form-group">
                                             <p><b>Does your child have a special or restricted diet?
-                                                <span style="color:#ff0000;">*</span>
+                                                
                                             </b></p>
                                             <div class="wizard-form-radio">
                                                 <input name="restricted_diet" id="restricted_diet1" value="Yes" type="radio"
@@ -1855,7 +1856,7 @@
                                       <div id="eat_own" class="col-sm">
                                           <div class="form-group">
                                               <p><b>Does your child eat on their own?
-                                                  <span style="color:#ff0000;">*</span>
+                                                  
                                               </b></p>
                                               <div class="wizard-form-radio">
                                                   <input name="eat_own" id="eat_own1" value="Yes" type="radio" 
@@ -1882,7 +1883,7 @@
                                       <div class="col-sm">
                                           <div class="form-group"> 
                                               <label for="favorite_foods" class="form-label"><b>What are your child’s favorite foods?
-                                                  <span style="color:#ff0000;">*</span></b>
+                                                  </b>
                                               </label>
                                               <input type="text" class="form-control " id="favorite_foods" name="favorite_foods">
                                               
@@ -1910,7 +1911,7 @@
                                       <div id="rest_in_the_middle_day" class="col-sm">
                                         <div class="form-group">
                                             <p><b>Does your child rest in the middle of the day?
-                                                <span style="color:#ff0000;">*</span>
+                                                
                                             </b></p>
                                             <div class="wizard-form-radio">
                                                 <input name="rest_in_the_middle_day" id="rest_in_the_middle_day1" value="Yes"
@@ -1930,7 +1931,7 @@
                                   <div class="col-sm">
                                       <div class="form-group"> 
                                           <label for="rest_routine" class="form-label"><b>What is their nap/rest routine?
-                                              <span style="color:#ff0000;">*</span></b>
+                                              </b>
                                           </label>
                                           <input type="text" class="form-control " id="rest_routine" name="rest_routine">
                                           
@@ -1941,7 +1942,7 @@
                                   <div id="toilet_trained" class="col-sm">
                                       <div class="form-group">
                                           <p><b>Is your child toilet trained?
-                                              <span style="color:#ff0000;">*</span>
+                                              
                                           </b></p>
                                           <div class="wizard-form-radio">
                                               <input name="toilet_trained" id="toilet_trained1" value="Yes" type="radio" 
@@ -1987,7 +1988,7 @@
                                         <div id="existing_illness_allergy" class="col-sm">
                                             <div class="form-group">
                                                 <p><b>Does your child have an existing illness/allergy/condition?
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </b></p>
                                                 <div class="wizard-form-radio">
                                                     <input name="existing_illness_allergy" id="existing_illness_allergy1" value="Yes"
@@ -2016,7 +2017,7 @@
                                         <div id="functioning_at_age" class="col-sm">
                                             <div class="form-group">
                                                 <p><b>Does your think your child is functioning at age-level?
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </b></p>
                                                 <div class="wizard-form-radio">
                                                     <input name="functioning_at_age" id="functioning_at_age1" value="Yes" type="radio"
@@ -2043,7 +2044,7 @@
                                     <div class="row m-1 mb-4">
                                         <div id="able_to_walk" class="col-sm">
                                             <div class="form-group">
-                                                <p><b>Is your child able to walk?<span style="color:#ff0000;">*</span></b></p>
+                                                <p><b>Is your child able to walk?</b></p>
                                                 <div class="wizard-form-radio">
                                                     <input name="able_to_walk" id="able_to_walk1" value="Yes" type="radio" 
                                                     onclick="CustomChange(this.value,'explain_for_able_to_walk_div');">
@@ -2070,7 +2071,7 @@
                                         <div id="communicate_their_needs" class="col-sm">
                                             <div class="form-group">
                                                 <p><b>Is your child able to communicate their needs to others?
-                                                    <span style="color:#ff0000;">*</span>
+                                                    
                                                 </b></p>
                                                 <div class="wizard-form-radio">
                                                     <input name="communicate_their_needs" id="communicate_their_needs1" value="Yes"
@@ -2100,7 +2101,7 @@
                                             <div class="form-group">
                                                 <p><b>Does your child require any medication, therapy,
                                                         treatment, or medical assessment (example, blood
-                                                        sugar monitoring) while in childcare?<span style="color:#ff0000;">*</span></b>
+                                                        sugar monitoring) while in childcare?</b>
                                                 </p>
                                                 <div class="wizard-form-radio">
                                                     <input name="any_medication" id="any_medication1" value="Yes" type="radio" 
@@ -2129,7 +2130,7 @@
                                             <div class="form-group">
                                                 <p><b>Does your child utilize any special equipment(such as
                                                         a breathing machine, wheelchair, hearing aid, or
-                                                        braces)? <span style="color:#ff0000;">*</span></b>
+                                                        braces)? </b>
                                                 </p>
                                                 <div class="wizard-form-radio">
                                                     <input name="utilize_special_equipment" id="utilize_special_equipment1" value="Yes"
@@ -2157,7 +2158,7 @@
                                         <div id="significant periods" class="col-sm">
                                             <div class="form-group">
                                                 <p><b>Does your child require one-on-one supervision on a
-                                                        regular basis for significant periods of time?<span style="color:#ff0000;">*</span></b>
+                                                        regular basis for significant periods of time?</b>
                                                 </p>
                                                 <div class="wizard-form-radio">
                                                     <input name="significant_periods" id="significant_periods1" value="Yes" type="radio"
@@ -2187,7 +2188,7 @@
                                                 <p><b>Does your child require and/or desire any
                                                         accommodations or modifications in order to fully
                                                         and eually enjoy and participate in The Goddard
-                                                        School &reg; group setting?<span style="color:#ff0000;">*</span></b></p>
+                                                        School &reg; group setting?</b></p>
                                                 </p>
                                                 <div class="wizard-form-radio">
                                                     <input name="desire_any_accommodations" id="desire_any_accommodations1" value="Yes"
@@ -2215,7 +2216,7 @@
                                       <div class="col-sm">
                                           <div class="form-group"> 
                                               <label for="additional_information" class="form-label h-3"><b>Comments and additional information
-                                                  <span style="color:#ff0000;">*</span></b>
+                                                  </b>
                                               </label>
                                               <input type="text" class="form-control " id="additional_information" 
                                               name="additional_information">
@@ -2316,7 +2317,7 @@
                         <div class="col-sm">
                             <div class="form-group"> 
                                 <label for="child_password" class="form-label h-3"><b>Password</b>
-                                    <span style="color:#ff0000;">*</span>
+                                    
                                 </label>
                                 <input type="password" class="form-control " id="child_password" 
                                 name="child_password">
@@ -2363,7 +2364,7 @@
                                     <div class="col-sm">
                                         <div class="form-group"> 
                                             <label for="photo_usage" class="form-label"><b>Select One
-                                                <span style="color:#ff0000;">*</span></b>
+                                                </b>
                                             </label>
                                             <select class="form-control form-select-lg" aria-label=".form-control-lg example" id="photo_usage"
                                                 name="photo_usage">
@@ -3154,7 +3155,7 @@
                                                                             <div class="col-sm m-3">
                                                                                 <div class="form-group">
                                                                                     <label for="child_name" class="form-label"><b>Name of Child(ren):
-                                                                                        <!-- <span style="color:#ff0000;">*</span> -->
+                                                                                        <!--  -->
                                                                                     </b></label><br>
                                                                                     <input name="child_name" type="text" maxlength="20" 
                                                                                     class="form-control wizard-required" id="child_name">
@@ -3164,7 +3165,7 @@
                                                                             <div class="col-sm m-3">
                                                                                 <div class="form-group">
                                                                                     <label for="parent_name" class="form-label"><b>Name of Parent:
-                                                                                        <!-- <span style="color:#ff0000;">*</span> -->
+                                                                                        <!--  -->
                                                                                     </b></label><br>
                                                                                     <input name="parent_name" type="text" maxlength="20" 
                                                                                     class="form-control wizard-required" id="parent_name">
@@ -3176,7 +3177,7 @@
                                                                             <div class="col-sm m-3">       
                                                                                 <div class="form-group">
                                                                                     <label for="bank_routing" class="form-label"><b>Bank Routing #:
-                                                                                        <!-- <span style="color:#ff0000;">*</span> -->
+                                                                                        <!--  -->
                                                                                     </b></label><br>
                                                                                     <input name="bank_routing" type="text" maxlength="20" 
                                                                                     class="form-control wizard-required" id="bank_routing">
@@ -3185,7 +3186,7 @@
                                                                             <div class="col-sm m-3">  
                                                                                 <div class="form-group">
                                                                                     <label for="bank_account" class="form-label"><b>Bank Account #:
-                                                                                        <!-- <span style="color:#ff0000;">*</span> -->
+                                                                                        <!--  -->
                                                                                     </b></label><br>
                                                                                     <input name="bank_account" type="number" maxlength="20" 
                                                                                     class="form-control wizard-required" id="bank_account">
@@ -3196,7 +3197,7 @@
                                                                             <div class="col-sm m-3">
                                                                                 <div class="form-group">
                                                                                     <label for="driver_license" class="form-label"><b>Driver’s License #:
-                                                                                        <!-- <span style="color:#ff0000;">*</span> -->
+                                                                                        <!--  -->
                                                                                     </b></label><br>
                                                                                     <input name="driver_license" type="text" maxlength="20" 
                                                                                     class="form-control wizard-required" id="driver_license">
@@ -3205,7 +3206,7 @@
                                                                             <div class="col-sm m-3">    
                                                                                 <div class="form-group">
                                                                                     <label for="state" class="form-label"><b>State 
-                                                                                        <!-- <span style="color:#ff0000;">*</span> -->
+                                                                                        <!--  -->
                                                                                     </b></label>
                                                                                     <select class="form-control wizard-required" aria-label=".form-select-lg example" id="state" name="state" size="1">
                                                                                         <!-- <option selected disabled>Select</option> -->
@@ -3271,7 +3272,7 @@
                                                                             <div class="col-sm m-3">
                                                                                 <div class="form-group">
                                                                                     <label for="email" class="form-label"><b>Email #:
-                                                                                        <!-- <span style="color:#ff0000;">*</span> -->
+                                                                                        <!--  -->
                                                                                     </b></label><br>
                                                                                         <input type="email" class="form-control wizard-required" id="email" name="email"
                                                                                         onchange="emailValidation(this,'email_span')">
@@ -3353,7 +3354,7 @@
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="parent_sign" class="form-label"><b>Parent Signature</b>
-                                            <span style="color:#ff0000;">*</span>
+                                            
                                         </label>
                                         <input type="text" class="form-control " id="parent_sign"
                                         name="parent_sign">
@@ -3362,7 +3363,7 @@
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <label for="parent_sign_date"  class="form-label"><b>Date
-                                            <span style="color:#ff0000;">*</span></b>
+                                            </b>
                                         </label>
                                         <input type="date" class="form-control " id="parent_sign_date"
                                             name="parent_sign_date" onclick="dateValidation('parent_sign_date')">
@@ -3382,6 +3383,40 @@
             </div>
         </div>
     </div>
+    <script>
+        // Function to submit the form data
+        function saveForm(value) {
+            const form = document.getElementById("admission_form");
+            const formData = new FormData(form);
+            const obj = Object.fromEntries(formData);
+            // obj.child_id = "NCD0005"; 
+            // const logged_in_email = localStorage.getItem('logged_in_email');
+            obj.on_process = true;
+            // obj.parent_email_one = logged_in_email;
+            obj.parent_id = localStorage.getItem('parent_id');
+            obj.form_status = value;
+            const child_id_val = localStorage.getItem('child_id');
+            if (child_id_val !== null && child_id_val !== undefined) {
+                obj.child_id = child_id_val;
+            }
+            obj.year = new Date().getFullYear() + '';
+            console.log(obj);
+            $.ajax({
+                url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(obj),
+                success: function (response) {
+                    alert("Form saved successfully")
+                    localStorage.setItem('child_id', response.child_id);
+                    window.location.reload();
+                },
+                error: function (xhr, status, error) {
+                    alert("failed to save admission form");
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>

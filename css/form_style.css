@@ -212,13 +212,13 @@
 
             /*****Radio button Style*****/
 
-.wizard-form-radio {
+.form-wizard .wizard-form-radio {
     display: inline-block;
     margin-left: 5px;
     position: relative;
 }
 
-.wizard-form-radio input[type="radio"] {
+.form-wizard .wizard-form-radio input[type="radio"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
@@ -234,15 +234,15 @@
     cursor: pointer;
 }
 
-.wizard-form-radio input[type="radio"]:focus {
+.form-wizard .wizard-form-radio input[type="radio"]:focus {
     outline: 0;
 }
 
-.wizard-form-radio input[type="radio"]:checked {
+.form-wizard .wizard-form-radio input[type="radio"]:checked {
     background-color: #0F2D52;
 }
 
-.wizard-form-radio input[type="radio"]:checked::before {
+.form-wizard .wizard-form-radio input[type="radio"]:checked::before {
     content: "";
     position: absolute;
     width: 10px;
@@ -256,7 +256,7 @@
     top: 8px;
 }
 
-.wizard-form-radio input[type="radio"]:checked::after {
+.form-wizard .wizard-form-radio input[type="radio"]:checked::after {
     content: "";
     display: inline-block;
     -webkit-animation: click-radio-wave 0.65s;
@@ -270,7 +270,7 @@
     border-radius: 50%;
 }
 
-.wizard-form-radio input[type="radio"]~label {
+.form-wizard .wizard-form-radio input[type="radio"]~label {
     padding-left: 10px;
     cursor: pointer;
 }

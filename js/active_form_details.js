@@ -6,7 +6,7 @@ document.getElementById('btn-signout').addEventListener('click', signOut);
 
 $(document).ready(function () {
     if (!isAuthenticated()) {
-        window.location.href = '/login.html';
+        window.location.href = 'login.html';
     } else { 
         document.body.style.visibility = 'visible';
         

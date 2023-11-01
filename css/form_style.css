@@ -281,15 +281,30 @@
             /***Enrollment Agreement***/
 
 
-            span.initila_here {
-                display: block;
-                margin-bottom: 50px;
-                font-family: 'Roboto', sans-serif;
-                }
+span.initila_here {
+    display: block;
+    margin-bottom: 50px;
+    font-family: 'Roboto', sans-serif;
+    }
+
+    #initial{
+    text-align: right;
+    margin-top: -40px !important;
+    margin-bottom: 20px;
+    }
+
+input.inputBox
+{
+    display: inline-block !important;
+    width: 30% !important;
+}    
+
+
+
+/* input box focus style */
+.form-control:focus {
+    border-color: rgb(15, 45, 82) !important;
+    -webkit-box-shadow: 0 0 8px rgb(15, 45, 82, 0.6) !important;
+    box-shadow: 0 0 8px rgb(15, 45, 82, 0.6) !important;
+  }
     
-                #initial{
-                text-align: right;
-                margin-top: -40px !important;
-                margin-bottom: 20px;
-                }
-        

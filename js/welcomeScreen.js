@@ -11,10 +11,11 @@ function clearLocalStorageExcept(keysToKeep) {
 }
 
 function checkParentAuthentication(callback) {
+    console.log('parent login check');
     const logged_in_email = localStorage.getItem('logged_in_email');
     console.log(logged_in_email);
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=poo123@gmail.com'
-    // console.log(url + logged_in_email)
+    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email='
+    console.log(url + logged_in_email)
     $.ajax({
                url: url + logged_in_email,
                type: 'get',
@@ -38,7 +39,7 @@ function getAllInfo(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email')
     // const parent_id = localStorage.getItem('parent_id');
     const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email='
-    // console.log(url + logged_in_email)
+    console.log(url + logged_in_email)
     $.ajax({
         url: url + logged_in_email,
         type: 'get',
@@ -48,6 +49,8 @@ function getAllInfo(callback) {
             if (response && response.length > 0) {
                 // Iterate through all the child and store the response
                 child_response = response;
+                console.log(child_response);
+                console.log(response.length.toString());
                 localStorage.setItem('number_of_children', response.length.toString());
             }
             if (typeof callback === 'function') {
@@ -61,8 +64,10 @@ function responseToAuthenticationCheck() {
     const parentName = localStorage.getItem('logged_in_email');
     console.log(parentName);
     if (parentName !== 'undefined' && parentName !== null) {
+        console.log('if');
         document.body.style.visibility = 'visible';
     } else {
+        console.log('else');
         document.getElementById('welcomeText').innerHTML = 'Parent not found';
         window.alert("Parent Not found")
         window.history.back();
@@ -87,7 +92,7 @@ function loadDynamicCards() {
 
         if (on_process === true) {
             // Card is fulfilled
-            anchor.href = `admission_form.html?${child_response[i].child_id}`;
+            anchor.href = `/forms.html?${child_response[i].child_id}`;
             card.classList.add('card', 'dashboard_card_style_on_process');
         } else {
             // Need to be fulfilled

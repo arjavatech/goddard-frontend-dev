@@ -3,50 +3,11 @@ import {signOut,isAuthenticated} from "./authenticationVerify.js";
 // Signout button event listener
 document.getElementById('btn-signout').addEventListener('click', signOut);
 
-// Function to submit the form data
-// function saveForm() {
-//     const form = document.getElementById("admission_form");
-//     const formData = new FormData(form);
-//     const obj = Object.fromEntries(formData);
-//     obj.year = new Date().getFullYear() + '';
-//     // const json=  JSON.stringify(obj);
-//     // console.log(json);
-//     $.ajax({
-//         url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/add",
-//         type: "POST",
-//         contentType: "application/json",
-//         data: JSON.stringify(obj),
-//         success: function (response) {
-//             console.log(response);
-//             // window.location.href = "admin_dashboard.html";
-//             // ("form submitted successfully");
-//         },
-//         error: function (xhr, status, error) {
-//             alert("form submit failed");
-//         }
-//     });
-// }
-
-
-
 $(document).ready(function () {
     if (!isAuthenticated()) {
-        window.location.href = 'login.html';
+        window.location.href = '/login.html';
     } else {
         document.body.style.visibility = 'visible';
-        // $("#saveButton").on("click", function (e) {
-        //     e.preventDefault(); // Prevent the default form submission
-        //     const saveButton = document.getElementById("saveButton");
-        //     saveButton.disabled = 'true';
-        //     const emailButton = document.getElementById("emailButtonDiv");
-        //     emailButton.style.display ="block";
-        //     saveForm();
-        // });
-        // $("#active_form_list").on("click", function (e) {
-        //     e.preventDefault();
-        //     console.log('checking');
-        //      activeFormList();
-        // });
     }
     jQuery(document).ready(function () {
         // click on next button

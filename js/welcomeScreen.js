@@ -96,7 +96,7 @@ function loadDynamicCards() {
             card.classList.add('card', 'dashboard_card_style_on_process');
         } else {
             // Need to be fulfilled
-            anchor.href = 'parent_dashboard.html';
+            anchor.href = '/parent/parent_dashboard.html';
             card.classList.add('card', 'dashboard_card_style1');
         }
 

@@ -51,8 +51,13 @@
                             data-bs-parent="#accordionExampleone">
                             <div class="accordion-body accordion_body_style">
                                 <li class="nav-item" id="aaa">
-                                    <a class="nav-link active" data-bs-toggle="pill" href="#childinformation"
-                                    >Child Information</a>
+                                    <a class="nav-link active" data-bs-toggle="pill" 
+                                        href="#childinformation">Child Information
+                                        <span >
+                                            <img src="/image/tick.png" height="5%" width="5%" class="childinfo-tick" style="display: none;">
+                                            <img src="/image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="pill" href="#childandfamilyhistory">Child
@@ -125,7 +130,12 @@
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" 
                                         data-bs-target="#childifoCollapseOne" aria-expanded="true" aria-controls="childifoCollapseOne">
                                         Child Details
+                                        <span>
+                                        <img src="/image/tick.png" height="2%" width="2%" class="childinfo-tick-one" style="display: none;">
+                                        <img src="/image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
+                                    </span>
                                     </button>
+                                    
                                 </h2>
                                 <div id="childifoCollapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="childinfoHeadingOne" data-bs-parent="#childinfoAccordionExample">
@@ -136,7 +146,7 @@
                                                     <label for="child_full_name" class="form-label"><b>CHILD’S FULL NAME
                                                             </b></label><br>
                                                     <input name="child_full_name" type="text" maxlength="20"
-                                                        class="form-control " id="child_full_name" onchange="checking(this,'childinfoHeadingOne')">
+                                                        class="form-control " id="child_full_name">
                                                 </div>
                                             </div>
                                             <div class="col-sm">
@@ -191,7 +201,7 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="parent1_street_address" class="form-label"><b>STREET</b>
+                                                        <label for="parent_street_address" class="form-label"><b>STREET</b>
                                                         </label>
                                                         <input type="text" class="form-control" id="parent1_street_address"
                                                             name="parent1_street_address"
@@ -370,10 +380,10 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="emergency_contact_name1" class="form-label"><b>NAME</b>
+                                                        <label for="emergency_contact_name" class="form-label"><b>NAME</b>
                                                         </label>
                                                         <input type="text" class="form-control " aria-label="Emergency Name" id="emergency_contact_name1"
-                                                            name="emergency_contact_name1">
+                                                            name="emergency_contact_name">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
@@ -3067,24 +3077,24 @@
     </div>
      <!--Admission Form End-->
     <script>
-        function checking(val,id) {
-            console.log(val.value);
-            console.log(id);
-            var inputVal = document.getElementById("aaa");
-            console.log(inputVal);
-            if (val.value !== "") {
-                console.log('aadd');
-                inputVal.classList.remove('nav-item');
-                inputVal.classList.remove('nav-link');
-                inputVal.classList.add('accordion-button-one');
-                // inputVal.style.backgroundColor = "yellow";
-            }
-            else{
-                inputVal.classList.add('nav-item');
-                inputVal.classList.add('nav-link');
-                inputVal.classList.remove('accordion-button-one');
-            }
-        }
+        // function checking(val,id) {
+        //     console.log(val.value);
+        //     console.log(id);
+        //     var inputVal = document.getElementById("aaa");
+        //     console.log(inputVal);
+        //     if (val.value !== "") {
+        //         console.log('aadd');
+        //         inputVal.classList.remove('nav-item');
+        //         inputVal.classList.remove('nav-link');
+        //         inputVal.classList.add('accordion-button-one');
+        //         // inputVal.style.backgroundColor = "yellow";
+        //     }
+        //     else{
+        //         inputVal.classList.add('nav-item');
+        //         inputVal.classList.add('nav-link');
+        //         inputVal.classList.remove('accordion-button-one');
+        //     }
+        // }
     </script>
      <script>
         let editID = window.location.search.slice(1);
@@ -3101,8 +3111,20 @@
                     }
                     if (typeof response.nick_name !== "undefined")
                         document.getElementsByName('nick_name')[0].value = response.nick_name;
-                    if (typeof response.dob !== "undefined")
-                        document.getElementsByName('dob')[0].value = response.dob;
+                    // if (typeof response.dob !== "undefined")
+                    //     document.getElementsByName('dob')[0].value = response.dob;
+                    if(typeof response.child_full_name !== "undefined" && typeof response.nick_name !== "undefined" 
+                    && typeof response.dob !== "undefined"){
+                        console.log('if');
+                        // let tick = document.querySelector('.childinfo');
+                        document.querySelector('.childinfo-tick').style.display = 'block';
+                        document.querySelector('.childinfo-tick-one').style.display = 'block';
+                    }else{
+                        console.log('else');
+                        // let tick = document.querySelector('.childinfo');
+                        document.querySelector('.childinfo-circle').style.display = 'block';
+                        document.querySelector('.childinfo-circle-one').style.display = 'block';
+                    }
                     // if (typeof response.child_street_address !== "undefined")
                     //     document.getElementsByName('child_street_address')[0].value = response.child_street_address;
                     // if (typeof response.child_city_address !== "undefined")

@@ -14,11 +14,42 @@
                 color: #fff !important;
                 background-color: #0F2D52 !important;
                 box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+               
             }
-
-            .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+            .accordion-button-one {
+                color: #f1f5f2 !important;
+                background-color: #898ce0 !important;
+                box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+                font-size: 20px;
+                font-weight: bold;
+                text-align: left !important;
+               
+            }
+            .accordion-button-one a.nav-link
+            {
+                color: #f5f5f0;
+                border: 1px solid #4c4c4c !important;
+                background-color: #e7230e !important;
+            }
+            .accordion-button-one a.nav-link:hover
+            {
+                color: #1b1616;
+                background-color: #af5043 !important;
+                
+            }
+            /* .accordion-button-one:not(.collapsed) {
+                background-image: url('/image/down_white.png');
+                transform: rotate(-180deg);
+                background-repeat: no-repeat;
+                padding-top: 2px !important;
+                background-position-x: right;
+            } */
+            /* .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
                 background-color: #0F2D52 !important;
-            }
+            } */
+            /* .nav-pills .accordion-button-one.active, .nav-pills .show>.nav-link {
+                background-color: #be5021 !important;
+            } */
 
             .nav-pills .nav-link {
                 border-radius: 0rem !important;
@@ -30,16 +61,19 @@
                 border: 1px solid #0F2D52 !important;
                 background-color: #D8E9FF !important;
             }
-
+            /* .accordion-button-one a.nav-link
+            {
+                color: #eef1f4;
+                border: 1px solid #0F2D52 !important;
+                background-color: #D8E9FF !important;
+            } */
             a.nav-link:hover
             {
                 color: #fff;
                 background-color: #0F2D52 !important;
                 
             }
-
-            a 
-            {
+            a {
                 text-decoration: none !important;
                 list-style-type: none !important;
             }
@@ -212,13 +246,13 @@
 
             /*****Radio button Style*****/
 
-.form-wizard .wizard-form-radio {
+.wizard-form-radio {
     display: inline-block;
     margin-left: 5px;
     position: relative;
 }
 
-.form-wizard .wizard-form-radio input[type="radio"] {
+.wizard-form-radio input[type="radio"] {
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
@@ -234,15 +268,15 @@
     cursor: pointer;
 }
 
-.form-wizard .wizard-form-radio input[type="radio"]:focus {
+.wizard-form-radio input[type="radio"]:focus {
     outline: 0;
 }
 
-.form-wizard .wizard-form-radio input[type="radio"]:checked {
+.wizard-form-radio input[type="radio"]:checked {
     background-color: #0F2D52;
 }
 
-.form-wizard .wizard-form-radio input[type="radio"]:checked::before {
+.wizard-form-radio input[type="radio"]:checked::before {
     content: "";
     position: absolute;
     width: 10px;
@@ -256,7 +290,7 @@
     top: 8px;
 }
 
-.form-wizard .wizard-form-radio input[type="radio"]:checked::after {
+.wizard-form-radio input[type="radio"]:checked::after {
     content: "";
     display: inline-block;
     -webkit-animation: click-radio-wave 0.65s;
@@ -270,7 +304,7 @@
     border-radius: 50%;
 }
 
-.form-wizard .wizard-form-radio input[type="radio"]~label {
+.wizard-form-radio input[type="radio"]~label {
     padding-left: 10px;
     cursor: pointer;
 }

@@ -71,16 +71,18 @@ function saveForm() {
     const json = JSON.stringify(obj);
     console.log(json);
     $.ajax({
-        url: " https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/add",
-        type: "POST",
+        url: " https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/update",
+        type: "PUT",
         contentType: "application/json",
         data: json,
         success: function (response) {
-            alert("Form saved successfully")
+            alert(response.message)
             localStorage.setItem('child_id', response.child_id);
             window.location.reload();
         },
         error: function (xhr, status, error) {
+            console.log(error);
+            console.log(status);
             alert("failed to save admission form");
         }
     });

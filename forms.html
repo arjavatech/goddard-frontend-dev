@@ -254,11 +254,11 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="parent1_name" class="form-label"><b>PARENT’S / LEGAL
+                                                        <label for="parent_name" class="form-label"><b>PARENT’S / LEGAL
                                                                 GUARDIAN’S NAME</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="parent1_name"
-                                                            name="parent1_name">
+                                                        <input type="text" class="form-control " id="parent_name"
+                                                            name="parent_name">
                                                     </div>
                                                 </div>
                                             </div>
@@ -268,37 +268,37 @@
                                                     <div class="form-group">
                                                         <label for="parent_street_address" class="form-label"><b>STREET</b>
                                                         </label>
-                                                        <input type="text" class="form-control" id="parent1_street_address"
-                                                            name="parent1_street_address"
-                                                            onchange="autoPopulateAddress(this.value,'parent2_street_address')">
+                                                        <input type="text" class="form-control" id="parent_street_address"
+                                                            name="parent_street_address">
+                                                            <!-- onchange="autoPopulateAddress(this.value,'parent2_street_address')"> -->
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="parent1_city_address" class="form-label"><b>CITY</b>
+                                                        <label for="parent_city_address" class="form-label"><b>CITY</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="parent1_city_address"
-                                                            name="parent1_city_address"
-                                                            onchange="autoPopulateAddress(this.value,'parent2_city_address')">
+                                                        <input type="text" class="form-control " id="parent_city_address"
+                                                            name="parent_city_address">
+                                                            <!-- onchange="autoPopulateAddress(this.value,'parent2_city_address')"> -->
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="parent1_state_address" class="form-label"><b>STATE</b>
+                                                        <label for="parent_state_address" class="form-label"><b>STATE</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="parent1_state_address"
-                                                            name="parent1_state_address"
-                                                            onchange="autoPopulateAddress(this.value,'parent2_state_address')">
+                                                        <input type="text" class="form-control " id="parent_state_address"
+                                                            name="parent_state_address">
+                                                            <!-- onchange="autoPopulateAddress(this.value,'parent2_state_address')"> -->
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="parent1_zip_address" class="form-label"><b>ZIP</b>
+                                                        <label for="parent_zip_address" class="form-label"><b>ZIP</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="parent1_zip_address"
-                                                            name="parent1_zip_address"
-                                                            onchange="ValidatePincode (this,'parent1_zip_address_span'),autoPopulateAddress(this.value,'parent2_zip_address')">
-                                                        <span id="parent1_zip_address_span" style="color:red; display:none">
+                                                        <input type="text" class="form-control " id="parent_zip_address"
+                                                            name="parent_zip_address"
+                                                            onchange="ValidatePincode (this,'parent_zip_address_span'),autoPopulateAddress(this.value,'parent2_zip_address')">
+                                                        <span id="parent_zip_address_span" style="color:red; display:none">
                                                             Enter valid input [only numbers].</span>
                                                     </div>
                                                 </div>
@@ -306,13 +306,13 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm"><br>
                                                     <div class="form-group">
-                                                        <label for="home_telephone_number1" class="form-label"><b>TELEPHONE
+                                                        <label for="home_telephone_number" class="form-label"><b>TELEPHONE
                                                                 NUMBER</b>
                                                         </label>
                                                         <input type="text" class="form-control " aria-label="Telephone Number"
-                                                            id="home_telephone_number1" name="home_telephone_number1"
-                                                            onchange="validatePhone(this,'home_telephone_number1_span')">
-                                                        <span id="home_telephone_number1_span" style="color:red; display:none">
+                                                            id="home_telephone_number" name="home_telephone_number"
+                                                            onchange="validatePhone(this,'home_telephone_number_span')">
+                                                        <span id="home_telephone_number_span" style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
@@ -321,29 +321,29 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="business1_name" class="form-label"><b>BUSINESS NAME</b>
+                                                        <label for="business_name" class="form-label"><b>BUSINESS NAME</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="business1_name"
-                                                            name="business1_name">
+                                                        <input type="text" class="form-control " id="business_name"
+                                                            name="business_name">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="work_hours1" class="form-label"><b>WORK HOURS</b>
+                                                        <label for="work_hours" class="form-label"><b>WORK HOURS</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="work_hours1"
-                                                            name="work_hours1">
+                                                        <input type="text" class="form-control " id="work_hours"
+                                                            name="work_hours">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="business_telephone_number1" class="form-label"><b>BUSINESS
+                                                        <label for="business_telephone_number" class="form-label"><b>BUSINESS
                                                                 TELEPHONE NUMBER</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="business_telephone_number1"
-                                                            name="business_telephone_number1"
-                                                            onchange="validatePhone(this,'business_telephone_number1_span')">
-                                                        <span id="business_telephone_number1_span"
+                                                        <input type="text" class="form-control " id="business_telephone_number"
+                                                            name="business_telephone_number"
+                                                            onchange="validatePhone(this,'business_telephone_number_span')">
+                                                        <span id="business_telephone_number_span"
                                                             style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
@@ -359,39 +359,39 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="business_street_address1" class="form-label"><b>STREET</b>
+                                                        <label for="business_street_address" class="form-label"><b>STREET</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="business_street_address1"
-                                                            name="business_street_address1"
+                                                        <input type="text" class="form-control " id="business_street_address"
+                                                            name="business_street_address"
                                                             onchange="autoPopulateAddress(this.value,'business_street_address2')">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="business_city_address1" class="form-label"><b>CITY</b>
+                                                        <label for="business_city_address" class="form-label"><b>CITY</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="business_city_address1"
-                                                            name="business_city_address1"
+                                                        <input type="text" class="form-control " id="business_city_address"
+                                                            name="business_city_address"
                                                             onchange="autoPopulateAddress(this.value,'business_city_address2')">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="business_state_address1" class="form-label"><b>STATE</b>
+                                                        <label for="business_state_address" class="form-label"><b>STATE</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="business_state_address1"
-                                                            name="business_state_address1"
+                                                        <input type="text" class="form-control " id="business_state_address"
+                                                            name="business_state_address"
                                                             onchange="autoPopulateAddress(this.value,'business_state_address2')">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="business_zip_address1" class="form-label"><b>ZIP</b>
+                                                        <label for="business_zip_address" class="form-label"><b>ZIP</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="business_zip_address1"
-                                                            name="business_zip_address1"
-                                                            onchange="ValidatePincode (this,'business_zip_address1_span'),autoPopulateAddress(this.value,'business_zip_address2')">
-                                                        <span id="business_zip_address1_span" style="color:red; display:none">
+                                                        <input type="text" class="form-control " id="business_zip_address"
+                                                            name="business_zip_address"
+                                                            onchange="ValidatePincode (this,'business_zip_address_span'),autoPopulateAddress(this.value,'business_zip_address2')">
+                                                        <span id="business_zip_address_span" style="color:red; display:none">
                                                             Enter valid input [only numbers].</span>
                                                     </div>
                                                 </div>
@@ -401,23 +401,23 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="business_cell_number1" class="form-label"><b>CELL NUMBER</b>
+                                                        <label for="business_cell_number" class="form-label"><b>CELL NUMBER</b>
                                                         </label>
                                                         <input type="text" class="form-control " aria-label="Telephone Number"
-                                                            id="business_cell_number1" name="business_cell_number1"
-                                                            onchange="validatePhone(this,'business_cell_number1_span')">
-                                                        <span id="business_cell_number1_span" style="color:red; display:none">
+                                                            id="business_cell_number" name="business_cell_number"
+                                                            onchange="validatePhone(this,'business_cell_number_span')">
+                                                        <span id="business_cell_number_span" style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="parent_email_one" class="form-label"><b>EMAIL ADDRESS</b>
+                                                        <label for="parent_email_two" class="form-label"><b>EMAIL ADDRESS</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="parent_email_one"
-                                                            name="parent_email_one"
-                                                            onchange="emailValidation(this,'parent_email_one_span')">
-                                                        <span id="parent_email_one_span" style="color:red; display:none">
+                                                        <input type="text" class="form-control " id="parent_email_two"
+                                                            name="parent_email_two"
+                                                            onchange="emailValidation(this,'parent_email_two_span')">
+                                                        <span id="parent_email_two_span" style="color:red; display:none">
                                                             Enter valid input [should be in @ and .].</span>
                                                     </div>
                                                 </div>
@@ -445,38 +445,38 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="emergency_contact_name" class="form-label"><b>NAME</b>
+                                                        <label for="child_emergency_contact_name" class="form-label"><b>NAME</b>
                                                         </label>
-                                                        <input type="text" class="form-control " aria-label="Emergency Name" id="emergency_contact_name1"
-                                                            name="emergency_contact_name">
+                                                        <input type="text" class="form-control " aria-label="Emergency Name" id="child_emergency_contact_name"
+                                                            name="child_emergency_contact_name">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="emergency_contact_full_address1" class="form-label"><b>FULL ADDRESS</b>
+                                                        <label for="child_emergency_contact_full_address" class="form-label"><b>FULL ADDRESS</b>
                                                         </label>
                                                         <input type="text" class="form-control " aria-label="emergency_address"
-                                                            id="emergency_contact_full_address1" name="emergency_contact_full_address1">
+                                                            id="child_emergency_contact_full_address" name="child_emergency_contact_full_address">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="emergency_contact_relationship1" class="form-label"><b>RELATIONSHIP</b>
+                                                        <label for="child_emergency_contact_relationship" class="form-label"><b>RELATIONSHIP</b>
                                                         </label>
                                                         <input type="text" class="form-control " aria-label="Emergency Relationship"
-                                                            id="emergency_contact_relationship1" name="emergency_contact_relationship1">
+                                                            id="child_emergency_contact_relationship" name="child_emergency_contact_relationship">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="emergency_contact_telephone_number1" class="form-label"><b>TELEPHONE NUMBER</b>
+                                                        <label for="child_emergency_contact_telephone_number" class="form-label"><b>TELEPHONE NUMBER</b>
                                                         </label>
                                                         <input type="text" class="form-control " aria-label="Emergency Relationship"
-                                                            id="emergency_contact_telephone_number1" name="emergency_contact_telephone_number1"
-                                                            onchange="validatePhone(this,'emergency_contact_telephone_number1_span')">
-                                                        <span id="emergency_contact_telephone_number1_span" style="color:red; display:none">
+                                                            id="child_emergency_contact_telephone_number" name="child_emergency_contact_telephone_number"
+                                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')">
+                                                        <span id="child_emergency_contact_telephone_number_span" style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
@@ -512,36 +512,36 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="child_care_provider_name3" class="form-label"><b>NAME OF
+                                                        <label for="child_care_provider_name" class="form-label"><b>NAME OF
                                                                 CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="child_care_provider_name3"
-                                                            name="child_care_provider_name3">
+                                                        <input type="text" class="form-control " id="child_care_provider_name"
+                                                            name="child_care_provider_name">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="care_provider_telephone_number3"
+                                                        <label for="child_care_provider_telephone_number"
                                                             class="form-label"><b>TELEPHONE NUMBER</b>
                                                         </label>
                                                         <input type="text" class="form-control "
-                                                            id="care_provider_telephone_number3"
-                                                            name="care_provider_telephone_number3"
-                                                            onchange="validatePhone(this,'care_provider_telephone_number3_span')">
-                                                        <span id="care_provider_telephone_number3_span"
+                                                            id="child_care_provider_telephone_number"
+                                                            name="child_care_provider_telephone_number"
+                                                            onchange="validatePhone(this,'child_care_provider_telephone_number_span')">
+                                                        <span id="child_care_provider_telephone_number_span"
                                                             style="color:red; display:none">
                                                             Enter valid input [only numbers,+,-,()].</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="hospital_affiliation3" class="form-label"><b>HOSPITAL
+                                                        <label for="child_hospital_affiliation" class="form-label"><b>HOSPITAL
                                                                 AFFILIATION</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="hospital_affiliation3"
-                                                            name="hospital_affiliation3">
+                                                        <input type="text" class="form-control " id="child_hospital_affiliation"
+                                                            name="child_hospital_affiliation">
                                                     </div>
                                                 </div>
                                             </div>
@@ -759,9 +759,9 @@
 
                                             <div class="row m-1 mb-4">
                                                 <div class="form-group wizard-form-checkbox">
-                                                    <input type="checkbox" class="input-checkbox" id="parent_agree_one"
-                                                        name="parent_agree_one">
-                                                    <label class="form-check-label" for="parent_agree_one"><span>
+                                                    <input type="checkbox" class="input-checkbox" id="agree_all_above_information_is_correct"
+                                                        name="agree_all_above_information_is_correct">
+                                                    <label class="form-check-label" for="agree_all_above_information_is_correct"><span>
                                                             <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                             </svg></span>
@@ -1299,7 +1299,7 @@
                                                         <label for="relationship_with_father" class="form-label"><b>Relationship
                                                                 with father</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="relationship_with_father" \
+                                                        <input type="text" class="form-control " id="relationship_with_father"
                                                             name="relationship_with_father">
                                                     </div>
                                                 </div>
@@ -1459,9 +1459,9 @@
                                             <div class="row m-3">
                                                 <div class="col-sm">
                                                     <div class="form-group wizard-form-checkbox">
-                                                        <input type="checkbox" class="input-checkbox" id="parent_agree_two"
-                                                            name="parent_agree_two">
-                                                        <label class="form-check-label" for="parent_agree_two"><span>
+                                                        <input type="checkbox" class="input-checkbox" id="agree_all_above_info_is_correct"
+                                                            name="agree_all_above_info_is_correct">
+                                                        <label class="form-check-label" for="agree_all_above_info_is_correct"><span>
                                                                 <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                                     <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                                 </svg></span>
@@ -1510,9 +1510,9 @@
                                 </p>
                                 <div class="col-sm mb-2">
                                     <div class="form-group wizard-form-checkbox">
-                                        <input type="checkbox" class="input-checkbox" id="parent_agree_three"
-                                        name="parent_agree_three" >
-                                        <label class="form-check-label" for="parent_agree_three"><span>
+                                        <input type="checkbox" class="input-checkbox" id="do_you_agree_this_immunization_instructions"
+                                        name="do_you_agree_this_immunization_instructions" >
+                                        <label class="form-check-label" for="do_you_agree_this_immunization_instructions"><span>
                                             <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                             </svg></span>
@@ -2089,9 +2089,9 @@
                                             <div class="row m-1 mb-4">
                                             <div class="col-sm">
                                                 <div class="form-group wizard-form-checkbox">
-                                                    <input type="checkbox" class="input-checkbox" id="parent_agree_four"
-                                                    name="parent_agree_four" >
-                                                    <label class="form-check-label" for="parent_agree_four"><span>
+                                                    <input type="checkbox" class="input-checkbox" id="do_you_agree_this"
+                                                    name="do_you_agree_this" >
+                                                    <label class="form-check-label" for="do_you_agree_this"><span>
                                                         <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                             <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                         </svg></span>
@@ -2165,9 +2165,9 @@
                                         </div>
                                         <div class="col-sm">
                                             <div class="form-group wizard-form-checkbox">
-                                                <input type="checkbox" class="input-checkbox" id="parent_agree_thre"
-                                                name="parent_agree_thre" >
-                                                <label class="form-check-label" for="parent_agree_thre"><span>
+                                                <input type="checkbox" class="input-checkbox" id="do_you_agree_this_pick_up_password_form"
+                                                name="do_you_agree_this_pick_up_password_form" >
+                                                <label class="form-check-label" for="do_you_agree_this_pick_up_password_form"><span>
                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                         <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                     </svg></span>
@@ -2203,11 +2203,12 @@
                                                 <div class="row m-1 mb-4">
                                                     <div class="col-sm">
                                                         <div class="form-group"> 
-                                                            <label for="photo_usage" class="form-label"><b>Select One
+                                                            <label for="photo_usage_photo_video_permission_form" class="form-label"><b>Select One
                                                                 </b>
                                                             </label>
-                                                            <select class="form-control form-select-lg" aria-label=".form-control-lg example" id="photo_usage"
-                                                                name="photo_usage">
+                                                            <select class="form-control form-select-lg" aria-label=".form-control-lg example" 
+                                                            id="photo_usage_photo_video_permission_form"
+                                                                name="photo_usage_photo_video_permission_form">
                                                                 <option></option>
                                                                 <option value="1">Full Use</option>
                                                                 <option value="2">In-House Only</option>
@@ -2232,8 +2233,9 @@
                                                         <div class="col-sm">
                                                             <div class="form-group"> 
                                                                 <div class="wizard-form-checkbox">
-                                                                    <input type="checkbox" class="input-checkbox" id="photo_permission_agree" name="photo_permission_agree">
-                                                                    <label class="form-check-label" for="photo_permission_agree"><span>
+                                                                    <input type="checkbox" class="input-checkbox" id="photo_permission_agree_group_photos_electronic"
+                                                                     name="photo_permission_agree_group_photos_electronic">
+                                                                    <label class="form-check-label" for="photo_permission_agree_group_photos_electronic"><span>
                                                                             <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                                                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                                             </svg></span><span><b>I agree to have individual photos of my child and photos of group School’s electronic daily activity reports.</b></span>
@@ -2251,6 +2253,21 @@
                                                         electronic daily activity report. My agreement extends to photos or
                                                         videos taken by any member of my family or any visitors that I bring to
                                                         The Goddard School.</p>  
+                                                    <div class="row m-1 mb-4">
+                                                        <div class="col-sm">
+                                                            <div class="form-group"> 
+                                                                <div class="wizard-form-checkbox">
+                                                                    <input type="checkbox" class="input-checkbox" id="do_you_agree_this_photo_video_permission_form"
+                                                                     name="do_you_agree_this_photo_video_permission_form">
+                                                                    <label class="form-check-label" for="do_you_agree_this_photo_video_permission_form"><span>
+                                                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                                                            </svg></span><span><b>I agree to have individual photos video permisson.</b></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>  
                                             <div class="text-center">
                                                 <button class="save-btn">Save</button> 
                                             </div>
@@ -2293,9 +2310,9 @@
                                     <div class="row m-2 mb-4">
                                         <div class="col-sm">
                                             <div class="form-group wizard-form-checkbox">
-                                                <input type="checkbox" class="input-checkbox" id="parent_agree_seven"
-                                                name="parent_agree_seven" >
-                                                <label class="form-check-label" for="parent_agree_seven"><span>
+                                                <input type="checkbox" class="input-checkbox" id="do_you_agree_this_security_release_policy_form"
+                                                name="do_you_agree_this_security_release_policy_form" >
+                                                <label class="form-check-label" for="do_you_agree_this_security_release_policy_form"><span>
                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                         <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                     </svg></span>
@@ -2326,7 +2343,8 @@
                                             <div class="form-group">
                                             <p class="m-2">The undersigned authorizes
                                                 representatives of The Goddard School® to contact Emergency Medical Technicians to transport</p>
-                                                <input type="text" class="form-control " id="contact_emergency_medical_technicians" name="contact_emergency_medical_technicians">
+                                                <input type="text" class="form-control " id="contact_emergency_medical_technicians_medical_transportation_waiver"
+                                                 name="contact_emergency_medical_technicians_medical_transportation_waiver">
                                             </div>
                                         </div>
                                         <p>  (“Student”) to receive medical care, if such transportation/care is deemed necessary.</p>
@@ -2341,9 +2359,9 @@
                                             withdraws from The Goddard School®.</p>
                                         <div class="col-sm">
                                             <div class="form-group wizard-form-checkbox">
-                                                <input type="checkbox" class="input-checkbox" id="parent_agree_eight"
-                                                name="parent_agree_eight" >
-                                                <label class="form-check-label" for="parent_agree_eight"><span>
+                                                <input type="checkbox" class="input-checkbox" id="do_you_agree_this_medical_transportation_waiver"
+                                                name="do_you_agree_this_medical_transportation_waiver" >
+                                                <label class="form-check-label" for="do_you_agree_this_medical_transportation_waiver"><span>
                                                     <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                         <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                     </svg></span>
@@ -2490,9 +2508,9 @@
                                             </p>
                                             <div class="col-sm">
                                                 <div class="form-group wizard-form-checkbox">
-                                                    <input type="checkbox" class="input-checkbox" id="parent_agree_nine"
-                                                    name="parent_agree_nine" >
-                                                    <label class="form-check-label" for="parent_agree_nine"><span>
+                                                    <input type="checkbox" class="input-checkbox" id="do_you_agree_this_health_policies"
+                                                    name="do_you_agree_this_health_policies" >
+                                                    <label class="form-check-label" for="do_you_agree_this_health_policies"><span>
                                                         <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                             <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                         </svg></span>
@@ -2567,8 +2585,9 @@
                                         <div class="col-sm">
                                             <div class="form-group"> 
                                                 <div class="wizard-form-checkbox">
-                                                    <input type="checkbox" class="input-checkbox" id="outside_agree" name="outside_agree">
-                                                    <label class="form-check-label" for="outside_agree"><span>
+                                                    <input type="checkbox" class="input-checkbox" id="outside_waiver_parent_sign_outside_engagements_waiver" 
+                                                    name="outside_waiver_parent_sign_outside_engagements_waiver">
+                                                    <label class="form-check-label" for="outside_waiver_parent_sign_outside_engagements_waiver"><span>
                                                             <svg width="12px" height="10px" viewbox="0 0 12 10">
                                                                 <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
                                                             </svg></span><span><b>I have read this agreement and understand its terms.</b></span>
@@ -2978,21 +2997,21 @@
                                                                             <div class="row">
                                                                                 <div class="col-sm m-3">
                                                                                     <div class="form-group">
-                                                                                        <label for="child_name" class="form-label"><b>Name of Children
+                                                                                        <label for="child_name_ach" class="form-label"><b>Name of Children
                                                                                             <!--  -->
                                                                                         </b></label><br>
-                                                                                        <input name="child_name" type="text" maxlength="20" 
-                                                                                        class="form-control wizard-required" id="child_name">
+                                                                                        <input name="child_name_ach" type="text" maxlength="20" 
+                                                                                        class="form-control wizard-required" id="child_name_ach">
                                                                                         <div class="wizard-form-error"></div>
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-sm m-3">
                                                                                     <div class="form-group">
-                                                                                        <label for="parent_name" class="form-label"><b>Name of Parent
+                                                                                        <label for="parent_name_ach" class="form-label"><b>Name of Parent
                                                                                             <!--  -->
                                                                                         </b></label><br>
-                                                                                        <input name="parent_name" type="text" maxlength="20" 
-                                                                                        class="form-control wizard-required" id="parent_name">
+                                                                                        <input name="parent_name_ach" type="text" maxlength="20" 
+                                                                                        class="form-control wizard-required" id="parent_name_ach">
                                                                                         <div class="wizard-form-error"></div>
                                                                                     </div>
                                                                                 </div>
@@ -3122,7 +3141,7 @@
                                                                                             <div class="form-group">
                                                                                                 <!-- <p>I</p> -->
                                                                                                 <input type="text"
-                                                                                                class="form-control wizard-required" id="i">
+                                                                                                class="form-control wizard-required" id="i" name="i">
                                                                                                 <div class="wizard-form-error"></div>
                                                                                             </div>
                                                                                         </div>

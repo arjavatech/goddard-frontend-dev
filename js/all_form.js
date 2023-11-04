@@ -68,16 +68,15 @@ function saveForm() {
         obj.child_id = child_id_val; 
     }
     console.log(obj);
-    const json = JSON.stringify(obj);
-    console.log(json);
+    // const json = JSON.stringify(obj);
+    // console.log(json);
     $.ajax({
-        url: " https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/update",
+        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/update",
         type: "PUT",
         contentType: "application/json",
-        data: json,
+        data: JSON.stringify(obj),
         success: function (response) {
             alert(response.message)
-            localStorage.setItem('child_id', response.child_id);
             window.location.reload();
         },
         error: function (xhr, status, error) {
@@ -86,6 +85,20 @@ function saveForm() {
             alert("failed to save admission form");
         }
     });
+    // let xhr = new XMLHttpRequest();
+    // xhr.onload = () => {
+    //     if (xhr.status === 200) {
+    //         localStorage.setItem('child_id', response.child_id);
+    //         window.location.reload();
+    //     }else{
+    //         console.log(error);
+    //         console.log(status);
+    //         alert("failed to save admission form");
+    //     }
+    // };
+    // xhr.open("PUT", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/update");
+    // xhr.setRequestHeader("Content-Type", "application/json");
+    // xhr.send(json);
 }
 
 $(document).ready(function () {
@@ -93,7 +106,7 @@ $(document).ready(function () {
         window.location.href = 'login.html';
     } else {
         document.body.style.visibility = 'visible';
-
+ 
         // Add click event listener to the "Save" button
         $("#child_basic_info").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission

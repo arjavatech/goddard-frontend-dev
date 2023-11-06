@@ -9,15 +9,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <!-- <script type="module" src="js/all_form.js"></script> -->
+    <script type="module" src="js/all_form.js"></script>
     <script type="module" src="js/admission_form_validation.js"></script>
     <style>
         .accordion-button:not(.collapsed)::after {
-            background-image: url('/image/down_white.png');
+            background-image: url('image/down_white.png');
             transform: rotate(-180deg);
         }
         .accordion-button-one:not(.collapsed)::after {
-            background-image: url('/image/down_white.png');
+            background-image: url('image/down_white.png');
             transform: rotate(-180deg);
         }
 
@@ -25,7 +25,7 @@
        {
         position: absolute;
         z-index: 10;
-        background-image: url('/image/tick.png');
+        background-image: url('image/tick.png');
         background-repeat: no-repeat;
         width: 5%;
         height: 5%;
@@ -64,58 +64,104 @@
                                 <li class="nav-item" id="aaa">
                                     <a class="nav-link active" data-bs-toggle="pill" 
                                         href="#childinformation">
-                                        <span>
-                                        Child Information&nbsp;
-                                      
-                                            <img src="/image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
-                                            <img src="/image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
+                                        <span> Child Information
+                                            <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
                                         </span>
                                     </a>
                                 </span> 
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#childandfamilyhistory">Child
-                                        and Family History</a>
+                                    <a class="nav-link" data-bs-toggle="pill" href="#childandfamilyhistory">
+                                        <span>Child and Family History
+                                            <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="pill"
-                                        href="#immunizationinstructions">Immunization Instructions</a>
+                                        href="#immunizationinstructions">
+                                        <span>Immunization Instructions
+                                            <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#childprofile">Child Profile</a>
+                                    <a class="nav-link" data-bs-toggle="pill" href="#childprofile">
+                                        <span>Child Profile
+                                            <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#pickuppassword">Pick-up
-                                        Password</a>
+                                    <a class="nav-link" data-bs-toggle="pill" href="#pickuppassword">
+                                        <span>Pick-up Password
+                                            <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="pill"
-                                        href="#photovideopermission">Photo/Video Permission</a>
+                                        href="#photovideopermission">
+                                        <span>Photo/Video Permission
+                                            <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#securitypolicy">Security &
-                                        Policy</a>
+                                    <a class="nav-link" data-bs-toggle="pill" href="#securitypolicy">
+                                        <span>Security & Policy
+                                            <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#medicaltransportation">Medical
-                                        Transportation</a>
+                                    <a class="nav-link" data-bs-toggle="pill" href="#medicaltransportation">
+                                        <span>Medical Transportation
+                                            <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#healthpolicies">Health
-                                        Policies</a>
+                                    <a class="nav-link" data-bs-toggle="pill" href="#healthpolicies">
+                                        <span>Health Policies
+                                            <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#outsideengagements">Outside
-                                        Engagements</a>
+                                    <a class="nav-link" data-bs-toggle="pill" href="#outsideengagements">
+                                        <span>Outside Engagements
+                                            <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
+                                        </span>
+                                    </a>
                                 </li>
                             </div>
                         </div><br>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="pill" href="#enrollmentagreement">Enrollment
-                                Agreement</a>
+                            <a class="nav-link" data-bs-toggle="pill" href="#enrollmentagreement">
+                                <span>Enrollment Agreement
+                                    <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
+                                    <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
+                                </span>
+                            </a>
                         </li><br>
                         <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="pill" href="#authorization">Authorization</a>
+                            <a class="nav-link" data-bs-toggle="pill" href="#authorization">
+                                <span>Authorization
+                                    <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
+                                    <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
+                                </span>
+                            </a>
                         </li><br>
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="pill" href="#parentsignature"
@@ -124,10 +170,6 @@
                     </ul>
 
                 </div><br>
-                <!--Admission Form Tab End-->
-                <ul class="nav nav-pills flex-column" role="tablist">
-
-                </ul>
             </div>  
         </div>
         <div class="col-9">
@@ -144,8 +186,8 @@
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse" 
                                         data-bs-target="#childifoCollapseOne" aria-expanded="true" aria-controls="childifoCollapseOne">
                                         Child Details&nbsp;&nbsp;
-                                        <img src="/image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
-                                        <img src="/image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
+                                        <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                     </button>
                                     
                                 </h2>
@@ -233,7 +275,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button class="save-btn">Save</button>
+                                            <button class="save-btn" id="child_basic_info">Save</button>
                                         </div>
                                     </div>
                                     
@@ -245,7 +287,9 @@
                                     <h2 class="accordion-header shadow" id="parentDetailsHeadingTwo">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#parentDetailsCollapseTwo" aria-expanded="false" aria-controls="parentDetailsCollapseTwo">
-                                            Parent Details
+                                            Parent Details&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="parentDetailsCollapseTwo" class="accordion-collapse collapse" aria-labelledby="parentDetailsHeadingTwo"
@@ -424,7 +468,7 @@
                                             </div>
                                             <!-- Business info end-->
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="parent_info">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -436,7 +480,9 @@
                                     <h2 class="accordion-header shadow" id="emergencyHeadingThree">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#emergencyCollapseThree" aria-expanded="false" aria-controls="emergencyCollapseThree">
-                                            Emergency Contact
+                                            Emergency Contact&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="emergencyCollapseThree" class="accordion-collapse collapse" aria-labelledby="emergencyHeadingThree"
@@ -483,7 +529,7 @@
                                             </div>
                                             <!-- Additional Parent's or legal guardian's business info end -->
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="emergency_info">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -496,7 +542,9 @@
                                     <h2 class="accordion-header shadow" id="medicalcareHeadingFour">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#medicalcareCollapseFour" aria-expanded="false" aria-controls="medicalcareCollapseFour">
-                                            Medical Care Provider Details
+                                            Medical Care Provider Details&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="medicalcareCollapseFour" class="accordion-collapse collapse" aria-labelledby="medicalcareHeadingFour"
@@ -644,11 +692,11 @@
                                             <div class="row m-1 mb-4">
                                                 <div class="col-sm">
                                                     <div class="form-group">
-                                                        <label for="special_disabilities" class="form-label"><b>SPECIAL
+                                                        <label for="special_diabilities" class="form-label"><b>SPECIAL
                                                                 DIABILITIES (IF ANY)</b>
                                                         </label>
-                                                        <input type="text" class="form-control " id="special_disabilities"
-                                                            name="special_disabilities">
+                                                        <input type="text" class="form-control " id="special_diabilities"
+                                                            name="special_diabilities">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm">
@@ -707,7 +755,7 @@
                                             </div>
                                             <!-- Medical Information end -->
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="fourth_save">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -720,7 +768,9 @@
                                     <h2 class="accordion-header shadow" id="childinfoagreeHeadingFive">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#childinfoagreeCollapseFive" aria-expanded="false" aria-controls="childinfoagreeCollapseFive">
-                                            Parent Agreement
+                                            Parent Agreement&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="childinfoagreeCollapseFive" class="accordion-collapse collapse" aria-labelledby="childinfoagreeHeadingFive"
@@ -770,7 +820,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="fifth_save">Save</button>
                                             </div>
                                         </div>
                                         <!-- Parent's or guardian's signature end -->
@@ -790,7 +840,9 @@
                                 <h2 class="accordion-header shadow" id="historyHeadingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#historyCollapseOne" aria-expanded="true" aria-controls="historyCollapseOne">
-                                        Child History
+                                        Child History&nbsp;&nbsp;
+                                        <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                     </button>
                                 </h2>
                                 <div id="historyCollapseOne" class="accordion-collapse collapse show" aria-labelledby="historyHeadingOne"
@@ -819,7 +871,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button class="save-btn">Save</button>
+                                            <button class="save-btn" id="sixth_save">Save</button>
                                         </div>
                                     </div>
                                 </div>    
@@ -829,7 +881,9 @@
                                 <h2 class="accordion-header shadow" id="historyHeadingTwo">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#historyCollapseTwo" aria-expanded="false" aria-controls="historyCollapseTwo">
-                                        Medical History And Illnesses
+                                        Medical History And Illnesses&nbsp;&nbsp;
+                                        <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                     </button>
                                 </h2>
                                 <div id="historyCollapseTwo" class="accordion-collapse collapse" aria-labelledby="historyHeadingTwo"
@@ -989,7 +1043,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button class="save-btn">Save</button>
+                                            <button class="save-btn" id="seventh_save">Save</button>
                                         </div>
                                     </div>
                                 </div>   
@@ -1000,7 +1054,9 @@
                                 <h2 class="accordion-header shadow" id="historyHeadingThree">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#historyCollapseThree" aria-expanded="false" aria-controls="historyCollapseThree">
-                                        Pregnancy And Ifant History
+                                        Pregnancy And Ifant History&nbsp;&nbsp;
+                                        <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                     </button>
                                 </h2>
                                 <div id="historyCollapseThree" class="accordion-collapse collapse" aria-labelledby="historyHeadingThree"
@@ -1102,7 +1158,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button class="save-btn" id="child_basic_info">Save</button>
+                                            <button class="save-btn" id="eigth_save">Save</button>
                                         </div>
                                     </div>
                                 </div>
@@ -1113,7 +1169,9 @@
                                     <h2 class="accordion-header shadow" id="historyHeadingFour">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#historyCollapseFour" aria-expanded="false" aria-controls="historyCollapseFour">
-                                            Family History
+                                            Family History&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="historyCollapseFour" class="accordion-collapse collapse" aria-labelledby="historyHeadingFour"
@@ -1246,7 +1304,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="nine_save">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1258,7 +1316,9 @@
                                     <h2 class="accordion-header shadow" id="historyHeadingFive">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#historyCollapseFive" aria-expanded="false" aria-controls="historyCollapseFive">
-                                            Social Behavior
+                                            Social Behavior&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="historyCollapseFive" class="accordion-collapse collapse" aria-labelledby="historyHeadingFive"
@@ -1359,7 +1419,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="ten_save">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1371,7 +1431,9 @@
                                     <h2 class="accordion-header shadow" id="historyHeadingSix">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#historyCollapseSix" aria-expanded="false" aria-controls="historyCollapseSix">
-                                            Environmental Factors
+                                            Environmental Factors&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="historyCollapseSix" class="accordion-collapse collapse" aria-labelledby="historyHeadingSix"
@@ -1438,7 +1500,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="eleven_save">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1450,7 +1512,9 @@
                                     <h2 class="accordion-header shadow" id="historyHeadingSeven">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#historyCollapseSeven" aria-expanded="false" aria-controls="historyCollapseSeven">
-                                            Parent Agreement
+                                            Parent Agreement&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="historyCollapseSeven" class="accordion-collapse collapse" aria-labelledby="historyHeadingSeven"
@@ -1471,7 +1535,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button>
+                                                <button class="save-btn" id="twelve_save">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -1521,7 +1585,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button class="save-btn">Save</button> 
+                                    <button class="save-btn" id="thirteen_save">Save</button> 
                                 </div>
                             </div>
                             </div>
@@ -1538,7 +1602,9 @@
                                 <form>
                                     <h2 class="accordion-header shadow" id="childproHeadingOne">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseOne" aria-expanded="true" aria-controls="childproCollapseOne">
-                                        Child Profile Details
+                                        Child Profile Details&nbsp;&nbsp;
+                                        <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="childproCollapseOne" class="accordion-collapse collapse show" aria-labelledby="childproHeadingOne" data-bs-parent="#childproAccordionExample">
@@ -1631,7 +1697,7 @@
                                             </div>
                                         </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button> 
+                                                <button class="save-btn" id="fourteen_save">Save</button> 
                                             </div>
                                         </div>
                                     </div>
@@ -1644,7 +1710,9 @@
                                 <form>
                                     <h2 class="accordion-header shadow" id="childproHeadingTwo">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseTwo" aria-expanded="false" aria-controls="childproCollapseTwo">
-                                        Nutrition
+                                            Nutrition&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="childproCollapseTwo" class="accordion-collapse collapse" aria-labelledby="childproHeadingTwo" data-bs-parent="#childproAccordionExample">
@@ -1715,7 +1783,7 @@
                                             </div>
                                         </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button> 
+                                                <button class="save-btn" id="fifteen_save">Save</button> 
                                             </div>
                                         </div>  
                                     </div> 
@@ -1728,7 +1796,9 @@
                                 <form>
                                     <h2 class="accordion-header shadow" id="childproHeadingThree">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseThree" aria-expanded="false" aria-controls="childproCollapseThree">
-                                        Rest and Diapering/Toilet Learning
+                                        Rest and Diapering/Toilet Learning&nbsp;&nbsp;
+                                        <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="childproCollapseThree" class="accordion-collapse collapse" aria-labelledby="childproHeadingThree" data-bs-parent="#childproAccordionExample">
@@ -1802,7 +1872,7 @@
                                         </div>
                                         </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button> 
+                                                <button class="save-btn" id="sixteen_save">Save</button> 
                                             </div>
                                         </div> 
                                     </div>
@@ -1814,7 +1884,9 @@
                                 <form>
                                     <h2 class="accordion-header shadow" id="childproHeadingFour">
                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseFour" aria-expanded="false" aria-controls="childproCollapseFour">
-                                        Medical/General
+                                        Medical/General&nbsp;&nbsp;
+                                        <img src="image/tick.png" height="3%" width="3%" class="childinfo-tick-one float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle-one" style="display: none;">
                                         </button>
                                     </h2>
                                     <div id="childproCollapseFour" class="accordion-collapse collapse" aria-labelledby="childproHeadingFour" data-bs-parent="#childproAccordionExample">
@@ -2059,7 +2131,7 @@
                                             </div>
                                         </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button> 
+                                                <button class="save-btn" id="seventeen_save">Save</button> 
                                             </div>  
                                         </div>
                                     </div>    
@@ -2101,7 +2173,7 @@
                                             </div>
                                             </div>
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button> 
+                                                <button class="save-btn" id="eighteen_save">Save</button> 
                                             </div>
                                         </div>      
                                     </div>
@@ -2157,7 +2229,7 @@
                                                     <label for="child_password" class="form-label h-3"><b>Password</b>
                                                         
                                                     </label>
-                                                    <input type="password" class="form-control " id="child_password" 
+                                                    <input type="text" class="form-control " id="child_password" 
                                                     name="child_password">
                                                     <p class="pt-2"><b>(5 digits, alpha numeric characters)</b></p>
                                                 </div>
@@ -2176,7 +2248,7 @@
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button class="save-btn">Save</button> 
+                                            <button class="save-btn" id="nineteen_save">Save</button> 
                                         </div>
                                     </div>
                                 </form>    
@@ -2269,7 +2341,7 @@
                                                         </div>
                                                     </div>  
                                             <div class="text-center">
-                                                <button class="save-btn">Save</button> 
+                                                <button class="save-btn" id="twenty_save">Save</button> 
                                             </div>
                                     </div>
                                 </form>    
@@ -2323,7 +2395,7 @@
                                         </div>
                                     </div>    
                                     <div class="text-center mb-4">
-                                        <button class="save-btn">Save</button> 
+                                        <button class="save-btn" id="twentyone_save">Save</button> 
                                     </div>
                                 </form>    
                             </div>
@@ -2365,7 +2437,7 @@
                                         </div>
                                     </div>    
                                     <div class="text-center mb-4">
-                                        <button class="save-btn">Save</button> 
+                                        <button class="save-btn" id="twentytwo_save">Save</button> 
                                     </div>
                                 </form>     
                             </div>
@@ -2515,7 +2587,7 @@
                                     </div>
                                     <!-- Health Policies table end -->
                                     <div class="text-center mb-4">
-                                        <button class="save-btn">Save</button> 
+                                        <button class="save-btn" id="twentythree_save">Save</button> 
                                     </div>
                                 </form>    
                             </div>
@@ -2590,7 +2662,7 @@
                                         </div>
                                     </div>
                                     <div class="text-center mb-4">
-                                        <button class="save-btn">Save</button> 
+                                        <button class="save-btn" id="twentyfour_save">Save</button> 
                                     </div>
                                 </form>    
                             </div>
@@ -2956,7 +3028,7 @@
                                                 </span><br><br>
                                             </ol>
                                             <div class="text-center mb-4">
-                                                <button class="save-btn">Save</button> 
+                                                <button class="save-btn" id="twentyfive_save">Save</button> 
                                             </div>
                                         </form>
                                     </div>   
@@ -3133,7 +3205,7 @@
                                                                         </div>
                                                                         <p><b>Please provide us 10 days advance notice should you wish to put a stop to this authorization. An automatic electronic authorization of the monthly transaction will take place and an email-generated receipt will be automatically sent to the email address provided to us above. A copy of this document will be scanned and saved in an electronic file, the original will be shredded for your protection.</b></p>
                                                                         <div class="text-center mb-4">
-                                                                            <button class="save-btn">Save</button> 
+                                                                            <button class="save-btn" id="twentysix_save">Save</button> 
                                                                         </div>
                                                                     </div>      
                                                                 </div>
@@ -3221,51 +3293,39 @@
                 //this is used to get the response and return the result
                 success: function(response){
                     console.log(response);
-                    if (typeof response.child_full_name !== "undefined"){
+                    if (typeof response.child_full_name !== "undefined")
                         document.getElementsByName('child_full_name')[0].value = response.child_full_name;
-                    }
                     if (typeof response.nick_name !== "undefined")
                         document.getElementsByName('nick_name')[0].value = response.nick_name;
-                    // if (typeof response.dob !== "undefined")
-                    //     document.getElementsByName('dob')[0].value = response.dob;
-                    if(typeof response.child_full_name !== "undefined" && typeof response.nick_name !== "undefined" 
-                    && typeof response.dob !== "undefined"){
-                        console.log('if');
-                        // let tick = document.querySelector('.childinfo');
-                        document.querySelector('.childinfo-tick').style.display = 'block';
-                        document.querySelector('.childinfo-tick-one').style.display = 'block';
-                    }else{
-                        console.log('else');
-                        // let tick = document.querySelector('.childinfo');
-                        document.querySelector('.childinfo-circle').style.display = 'block';
-                        document.querySelector('.childinfo-circle-one').style.display = 'block';
-                    }
-                    // if (typeof response.child_street_address !== "undefined")
-                    //     document.getElementsByName('child_street_address')[0].value = response.child_street_address;
-                    // if (typeof response.child_city_address !== "undefined")
-                    //     document.getElementsByName('child_city_address')[0].value = response.child_city_address;
-                    // if (typeof response.child_state_address !== "undefined")
-                    //     document.getElementsByName('child_state_address')[0].value = response.child_state_address;
-                    // if (typeof response.child_zip_address !== "undefined")
-                    //     document.getElementsByName('child_zip_address')[0].value = response.child_zip_address;
+                    if (typeof response.dob !== "undefined")
+                        document.getElementsByName('dob')[0].value = response.dob;
                     if (typeof response.primary_language !== "undefined")
                         document.getElementsByName('primary_language')[0].value = response.primary_language;
                     if (typeof response.school_age_child_school !== "undefined")
                         document.getElementsByName('school_age_child_school')[0].value = response.school_age_child_school;
-                    // if(response.do_relevant_custody_papers_apply === "Yes" ){
-                    //     document.getElementById('do_relevant_custody_papers_apply1').checked = true;
-                    // }else{
-                    //     document.getElementById('do_relevant_custody_papers_apply2').checked = true;
-                    // }
-                    // if(response.gender == "Male" ){
-                    //     document.getElementById('gender1').checked = true;
-                    // }else if(response.gender == "Female"){
-                    //     document.getElementById('gender2').checked = true;
-                    // }else{
-                    //     document.getElementById('gender3').checked = true;
-                    // }
-                    if (typeof response.gender !== "undefined")
-                        document.getElementsByName('gender')[0].value = response.gender;
+                    if(response.do_relevant_custody_papers_apply === "Yes" ){
+                        document.getElementById('do_relevant_custody_papers_apply1').checked = true;
+                    }else{
+                        document.getElementById('do_relevant_custody_papers_apply2').checked = true;
+                    }
+                    if(response.gender == "Male" ){
+                        document.getElementById('gender1').checked = true;
+                    }else if(response.gender == "Female"){
+                        document.getElementById('gender2').checked = true;
+                    }else{
+                        document.getElementById('gender3').checked = true;
+                    }
+
+                    if(typeof response.child_full_name !== "undefined" && typeof response.nick_name !== "undefined" 
+                    && typeof response.dob !== "undefined"){
+                        document.querySelector('.childinfo-tick').style.display = 'block';
+                        document.querySelector('.childinfo-tick-one').style.display = 'block';
+                    }else{
+                        document.querySelector('.childinfo-circle').style.display = 'block';
+                        document.querySelector('.childinfo-circle-one').style.display = 'block';
+                    }
+
+
                     if (typeof response.parent_name !== "undefined")
                         document.getElementsByName('parent_name')[0].value = response.parent_name;
                     if (typeof response.parent_street_address !== "undefined")
@@ -3317,20 +3377,26 @@
                         
                     if (typeof response.child_care_provider_name !== "undefined")
                         document.getElementsByName('child_care_provider_name')[0].value = response.child_care_provider_name;
-                    if (typeof response.care_provider_telephone_number !== "undefined")
-                        document.getElementsByName('care_provider_telephone_number')[0].value = response.care_provider_telephone_number;
-                    if (typeof response.hospital_affiliation !== "undefined")
-                        document.getElementsByName('hospital_affiliation')[0].value = response.hospital_affiliation;
-                    if (typeof response.child_emergency_contact_telephone_number3 !== "undefined")
-                        document.getElementsByName('child_emergency_contact_telephone_number3')[0].value = response.child_emergency_contact_telephone_number3;
+                    if (typeof response.child_care_provider_telephone_number !== "undefined")
+                        document.getElementsByName('child_care_provider_telephone_number')[0].value = response.child_care_provider_telephone_number;
+                    if (typeof response.child_hospital_affiliation !== "undefined")
+                        document.getElementsByName('child_hospital_affiliation')[0].value = response.child_hospital_affiliation;
+                    if (typeof response.child_care_provider_street_address !== "undefined")
+                        document.getElementsByName('child_care_provider_street_address')[0].value = response.child_care_provider_street_address;
+                    if (typeof response.child_care_provider_city_address !== "undefined")
+                        document.getElementsByName('child_care_provider_city_address')[0].value = response.child_care_provider_city_address;
+                    if (typeof response.child_care_provider_state_address !== "undefined")
+                        document.getElementsByName('child_care_provider_state_address')[0].value = response.child_care_provider_state_address;
+                    if (typeof response.child_care_provider_zip_address !== "undefined")
+                        document.getElementsByName('child_care_provider_zip_address')[0].value = response.child_care_provider_zip_address;
                     if (typeof response.child_dentist_name !== "undefined")
                         document.getElementsByName('child_dentist_name')[0].value = response.child_dentist_name;
                     if (typeof response.dentist_telephone_number !== "undefined")
                         document.getElementsByName('dentist_telephone_number')[0].value = response.dentist_telephone_number;
                     if (typeof response.dentist_address !== "undefined")
                         document.getElementsByName('dentist_address')[0].value = response.dentist_address;
-                    if (typeof response.special_disabilities !== "undefined")
-                        document.getElementsByName('special_disabilities')[0].value = response.special_disabilities;
+                    if (typeof response.special_diabilities !== "undefined")
+                        document.getElementsByName('special_diabilities')[0].value = response.special_diabilities;
                     if (typeof response.allergies_medication_reaction !== "undefined")
                         document.getElementsByName('allergies_medication_reaction')[0].value = response.allergies_medication_reaction;
                     if (typeof response.additional_info !== "undefined")
@@ -3341,22 +3407,24 @@
                         document.getElementsByName('health_insurance')[0].value = response.health_insurance;
                     if (typeof response.policy_number !== "undefined")
                         document.getElementsByName('policy_number')[0].value = response.policy_number;
+                    
+
                     if (typeof response.obtaining_emergency_medical_care !== "undefined")
                         document.getElementsByName('obtaining_emergency_medical_care')[0].value = response.obtaining_emergency_medical_care;
                     if (typeof response.administration_first_aid_procedures !== "undefined")
                         document.getElementsByName('administration_first_aid_procedures')[0].value = response.administration_first_aid_procedures;
-                    if (typeof response.parent_sign !== "undefined")
-                        document.getElementsByName('parent_sign')[0].value = response.parent_sign;
-                    if (typeof response.sign_date !== "undefined")
-                        document.getElementsByName('sign_date')[0].value = response.sign_date;
-                    if (typeof response.Student_id !== "undefined")
-                        document.getElementsByName('Student_id')[0].value = response.Student_id;
-                    // if (typeof response.student_name !== "undefined")
-                    //     document.getElementsByName('student_name')[0].value = response.student_name;
+                    if( response.agree_all_above_information_is_correct == "on" ){
+                        document.getElementById('agree_all_above_information_is_correct').checked = true;
+                    }else{
+                        document.getElementById('agree_all_above_information_is_correct').checked = false;
+                    }
+
+
                     if (typeof response.physical_exam_last_date !== "undefined")
                         document.getElementsByName('physical_exam_last_date')[0].value = response.physical_exam_last_date;
                     if (typeof response.dental_exam_last_date !== "undefined")
                         document.getElementsByName('dental_exam_last_date')[0].value = response.dental_exam_last_date;
+
                     if (typeof response.allergies !== "undefined")
                         document.getElementsByName('allergies')[0].value = response.allergies;
                     if (typeof response.asthma !== "undefined")
@@ -3389,6 +3457,8 @@
                         document.getElementsByName('vision_problems')[0].value = response.vision_problems;
                     if (typeof response.medical_other !== "undefined")
                         document.getElementsByName('medical_other')[0].value = response.medical_other;
+
+
                     if (typeof response.illness_during_pregnancy !== "undefined")
                         document.getElementsByName('illness_during_pregnancy')[0].value = response.illness_during_pregnancy;
                     if (typeof response.condition_of_newborn !== "undefined")
@@ -3410,6 +3480,7 @@
                     if (typeof response.other_siblings_age !== "undefined")
                         document.getElementsByName('other_siblings_age')[0].value = response.other_siblings_age;
                    
+
                     if( response.family_history_allergies == "on" ){
                         document.getElementById('family_history_allergies').checked = true;
                     }else{
@@ -3455,6 +3526,8 @@
                     }else{
                         document.getElementById('family_history_epilepsy').checked = false;
                     }
+
+
                     if (typeof response.age_group_friends !== "undefined")
                         document.getElementsByName('age_group_friends')[0].value = response.age_group_friends;
                     if (typeof response.neighborhood_friends !== "undefined")
@@ -3473,6 +3546,8 @@
                         document.getElementsByName('child_response_frustration')[0].value = response.child_response_frustration;
                     if (typeof response.favorite_activities !== "undefined")
                         document.getElementsByName('favorite_activities')[0].value = response.favorite_activities;
+
+
                     if (typeof response.last_five_years_moved !== "undefined")
                         document.getElementsByName('last_five_years_moved')[0].value = response.last_five_years_moved;
                     if (typeof response.things_used_at_home !== "undefined")
@@ -3485,20 +3560,25 @@
                         document.getElementsByName('changes_at_home_situation')[0].value = response.changes_at_home_situation;
                     if (typeof response.educational_expectations_of_child !== "undefined")
                         document.getElementsByName('educational_expectations_of_child')[0].value = response.educational_expectations_of_child;
-                    if (typeof response.family_history_parent_sign !== "undefined")
-                        document.getElementsByName('family_history_parent_sign')[0].value = response.family_history_parent_sign;
-                    if (typeof response.family_history_parent_sign_date !== "undefined")
-                        document.getElementsByName('family_history_parent_sign_date')[0].value = response.family_history_parent_sign_date;
+                    
 
 
-                    // if (typeof response.child_profile_name !== "undefined")
-                    //     document.getElementsByName('child_profile_name')[0].value = response.child_profile_name;
-                    if (typeof response.child_nick_name !== "undefined")
-                        document.getElementsByName('child_nick_name')[0].value = response.child_nick_name;
                     if (typeof response.other_important_family_members !== "undefined")
                         document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
                     if (typeof response.about_family_celebrations !== "undefined")
                         document.getElementsByName('about_family_celebrations')[0].value = response.about_family_celebrations;
+                    if( response.agree_all_above_info_is_correct == "on" ){
+                        document.getElementById('agree_all_above_info_is_correct').checked = true;
+                    }else{
+                        document.getElementById('agree_all_above_info_is_correct').checked = false;
+                    }
+
+                    if( response.do_you_agree_this_immunization_instructions == "on" ){
+                        document.getElementById('do_you_agree_this_immunization_instructions').checked = true;
+                    }else{
+                        document.getElementById('do_you_agree_this_immunization_instructions').checked = false;
+                    }
+
 
                     if(response.childcare_before == "Yes" ){
                         document.getElementById('childcare_before').checked = true;
@@ -3516,6 +3596,7 @@
                     if (typeof response.pick_up_time !== "undefined")
                         document.getElementsByName('pick_up_time')[0].value = response.pick_up_time;
 
+
                     if(response.restricted_diet == "Yes" ){
                         document.getElementById('restricted_diet1').checked = true;
                         document.getElementById('restricted_diet_reason_div').style.display = "block";
@@ -3523,10 +3604,8 @@
                         document.getElementById('restricted_diet2').checked = true;
                         document.getElementById('restricted_diet_reason_div').style.display = "none";
                     }
-                       
                     if (typeof response.restricted_diet_reason !== "undefined")
                         document.getElementsByName('restricted_diet_reason')[0].value = response.restricted_diet_reason;
-
                     if(response.eat_own == "Yes" ){
                         document.getElementById('eat_own1').checked = true;
                         document.getElementById('eat_own_reason_div').style.display = "block";
@@ -3534,25 +3613,23 @@
                         document.getElementById('eat_own2').checked = true;
                         document.getElementById('eat_own_reason_div').style.display = "none";
                     }
-
                     if (typeof response.eat_own_reason !== "undefined")
                         document.getElementsByName('eat_own_reason')[0].value = response.eat_own_reason;
                     if (typeof response.favorite_foods !== "undefined")
                         document.getElementsByName('favorite_foods')[0].value = response.favorite_foods;
                     
-                    // if(response.rest_in_the_middle_day == "Yes" ){
-                    //     document.getElementById('rest_in_the_middle_day1').checked = true;
-                    //     document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "block";
-                    // }else{
-                    //     document.getElementById('rest_in_the_middle_day2').checked = true;
-                    //     document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "none";
-                    // }
 
+                    if(response.rest_in_the_middle_day == "Yes" ){
+                        document.getElementById('rest_in_the_middle_day1').checked = true;
+                        document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "block";
+                    }else{
+                        document.getElementById('rest_in_the_middle_day2').checked = true;
+                        document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "none";
+                    }
                     if (typeof response.reason_for_rest_in_the_middle_day !== "undefined")
                         document.getElementsByName('reason_for_rest_in_the_middle_day')[0].value = response.reason_for_rest_in_the_middle_day;
                     if (typeof response.rest_routine !== "undefined")
                         document.getElementsByName('rest_routine')[0].value = response.rest_routine;
-
                     if(response.toilet_trained == "Yes" ){
                         document.getElementById('toilet_trained1').checked = true;
                         document.getElementById('reason_for_toilet_trained_div').style.display = "block";
@@ -3562,6 +3639,7 @@
                     }
                     if (typeof response.reason_for_toilet_trained !== "undefined")
                         document.getElementsByName('reason_for_toilet_trained')[0].value = response.reason_for_toilet_trained;
+
 
                     if(response.existing_illness_allergy == "Yes" ){
                         document.getElementById('existing_illness_allergy1').checked = true;
@@ -3650,59 +3728,62 @@
                         document.getElementsByName('explain_for_desire_any_accommodations')[0].value = response.explain_for_desire_any_accommodations;
                     if (typeof response.additional_information !== "undefined")
                         document.getElementsByName('additional_information')[0].value = response.additional_information;
-                    if (typeof response.child_profile_parent_sign !== "undefined")
-                        document.getElementsByName('child_profile_parent_sign')[0].value = response.child_profile_parent_sign;
-                    if (typeof response.child_profile_parent_sign_date !== "undefined")
-                        document.getElementsByName('child_profile_parent_sign_date')[0].value = response.child_profile_parent_sign_date;
-                    
-                    
-                    // if (typeof response.emergency_info_child_name !== "undefined")
-                    // document.getElementsByName('emergency_info_child_name')[0].value = response.emergency_info_child_name;
+                    if( response.do_you_agree_this == "on" ){
+                        document.getElementById('do_you_agree_this').checked = true;
+                    }else{
+                        document.getElementById('do_you_agree_this').checked = false;
+                    }
+
+
+
                     if (typeof response.child_password !== "undefined")
                         document.getElementsByName('child_password')[0].value = response.child_password;
-                    if (typeof response.password_parent_sign !== "undefined")
-                        document.getElementsByName('password_parent_sign')[0].value = response.password_parent_sign;
-                    if (typeof response.password_parent_date !== "undefined")
-                        document.getElementsByName('password_parent_date')[0].value = response.password_parent_date;
-                    // if (typeof response.permission_child_name !== "undefined")
-                    //     document.getElementsByName('permission_child_name')[0].value = response.permission_child_name;
-                    if (typeof response.photo_usage !== "undefined")
-                        document.getElementsByName('photo_usage')[0].value = response.photo_usage;
-                    if( response.photo_permission_agree == "on" ){
-                        document.getElementById('photo_permission_agree').checked = true;
+                    if( response.do_you_agree_this_pick_up_password_form == "on" ){
+                        document.getElementById('do_you_agree_this_pick_up_password_form').checked = true;
                     }else{
-                        document.getElementById('photo_permission_agree').checked = false;
+                        document.getElementById('do_you_agree_this_pick_up_password_form').checked = false;
                     }
-                    // if (typeof response.photo_permission_agree !== "undefined")
-                    //     document.getElementsByName('photo_permission_agree')[0].value = response.photo_permission_agree;
-                    if (typeof response.photo_parent_sign !== "undefined")
-                        document.getElementsByName('photo_parent_sign')[0].value = response.photo_parent_sign;
-                    if (typeof response.photo_parent_date !== "undefined")
-                        document.getElementsByName('photo_parent_date')[0].value = response.photo_parent_date;
-                    // if (typeof response.security_release_child_name !== "undefined")
-                    //     document.getElementsByName('security_release_child_name')[0].value = response.security_release_child_name;
-                    if (typeof response.security_release_parent_sign !== "undefined")
-                        document.getElementsByName('security_release_parent_sign')[0].value = response.security_release_parent_sign;
-                    if (typeof response.security_release_parent_date !== "undefined")
-                        document.getElementsByName('security_release_parent_date')[0].value = response.security_release_parent_date;
-                    if (typeof response.policy_parent_sign !== "undefined")
-                        document.getElementsByName('policy_parent_sign')[0].value = response.policy_parent_sign;
-                    if (typeof response.policy_parent_date !== "undefined")
-                        document.getElementsByName('policy_parent_date')[0].value = response.policy_parent_date;
-                    if (typeof response.contact_emergency_medical_technicians !== "undefined")
-                        document.getElementsByName('contact_emergency_medical_technicians')[0].value = response.contact_emergency_medical_technicians;
-                    if (typeof response.medical_parent_sign !== "undefined")
-                        document.getElementsByName('medical_parent_sign')[0].value = response.medical_parent_sign;
-                    if (typeof response.medical_parent_date !== "undefined")
-                        document.getElementsByName('medical_parent_date')[0].value = response.medical_parent_date;
-                    if (typeof response.health_policy_parent_sign !== "undefined")
-                        document.getElementsByName('health_policy_parent_sign')[0].value = response.health_policy_parent_sign;
-                    if (typeof response.health_policy_parent_date !== "undefined")
-                        document.getElementsByName('health_policy_parent_date')[0].value = response.health_policy_parent_date;
-                    if (typeof response.outside_waiver_parent_sign !== "undefined")
-                        document.getElementsByName('outside_waiver_parent_sign')[0].value = response.outside_waiver_parent_sign;
-                    if (typeof response.outside_waiver_parent_date !== "undefined")
-                        document.getElementsByName('outside_waiver_parent_date')[0].value = response.outside_waiver_parent_date;
+
+
+
+                    if (typeof response.photo_usage_photo_video_permission_form !== "undefined")
+                        document.getElementsByName('photo_usage_photo_video_permission_form')[0].value = response.photo_usage_photo_video_permission_form;
+                    if( response.photo_permission_agree_group_photos_electronic == "on" ){
+                        document.getElementById('photo_permission_agree_group_photos_electronic').checked = true;
+                    }else{
+                        document.getElementById('photo_permission_agree_group_photos_electronic').checked = false;
+                    }
+                    if( response.do_you_agree_this_photo_video_permission_form == "on" ){
+                        document.getElementById('do_you_agree_this_photo_video_permission_form').checked = true;
+                    }else{
+                        document.getElementById('do_you_agree_this_photo_video_permission_form').checked = false;
+                    }
+                  
+
+                    if (typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined")
+                        document.getElementsByName('contact_emergency_medical_technicians_medical_transportation_waiver')[0].value = response.contact_emergency_medical_technicians_medical_transportation_waiver;
+                    if( response.do_you_agree_this_medical_transportation_waiver == "on" ){
+                        document.getElementById('do_you_agree_this_medical_transportation_waiver').checked = true;
+                    }else{
+                        document.getElementById('do_you_agree_this_medical_transportation_waiver').checked = false;
+                    }
+
+                    if( response.do_you_agree_this_security_release_policy_form == "on" ){
+                        document.getElementById('do_you_agree_this_security_release_policy_form').checked = true;
+                    }else{
+                        document.getElementById('do_you_agree_this_security_release_policy_form').checked = false;
+                    }
+                    if( response.do_you_agree_this_health_policies == "on" ){
+                        document.getElementById('do_you_agree_this_health_policies').checked = true;
+                    }else{
+                        document.getElementById('do_you_agree_this_health_policies').checked = false;
+                    }
+                    if( response.outside_waiver_parent_sign_outside_engagements_waiver == "on" ){
+                        document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = true;
+                    }else{
+                        document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = false;
+                    }
+                   
                 }
             });
         }

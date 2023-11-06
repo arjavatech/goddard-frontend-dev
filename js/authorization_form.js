@@ -1,7 +1,7 @@
 import {isAuthenticated} from "./authenticationVerify.js";
 
 
-export function ./forms/authorizationFormDetails(callback) {
+export function authorizationFormDetails(callback) {
     $.ajax({
         url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/bill_ach/fetch/${localStorage.getItem('child_id')}`,
         type: 'get',
@@ -81,7 +81,7 @@ function mainEntryPoint() {
             e.preventDefault(); // Prevent the default form submission
             submitForm();
         });
-        ./forms/authorizationFormDetails();
+        authorizationFormDetails();
        
     }
 }

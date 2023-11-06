@@ -68,13 +68,13 @@ function saveForm() {
         obj.child_id = child_id_val; 
     }
     console.log(obj);
-    // const json = JSON.stringify(obj);
-    // console.log(json);
+    const json = JSON.stringify(obj);
+    console.log(json);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/update",
-        type: "PUT",
+        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/additional",
+        type: "POST",
         contentType: "application/json",
-        data: JSON.stringify(obj),
+        data: json,
         success: function (response) {
             alert(response.message)
             window.location.reload();

@@ -59,24 +59,21 @@
                     <ul class="nav nav-pills flex-column" role="tablist">
                         <div id="admission" class="accordion-collapse collapse show"
                             data-bs-parent="#accordionExampleone">
-                            <div class="accordion-body accordion_body_style">
-                                
-                                <li class="nav-item" id="aaa">
+                            <div class="accordion-body accordion_body_style">        
+                                <li class="nav-item" >
                                     <a class="nav-link active" data-bs-toggle="pill" 
-                                        href="#childinformation">
+                                        href="#childinformation" id="aaa">
                                         Child Information&nbsp;&nbsp;
-                                            <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
-                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;">
-                                        
+                                            <!-- <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick" style="display: none;">
+                                            <img src="image/circle-with.png" height="5%" width="5%" class="childinfo-circle" style="display: none;"> -->
                                     </a>
-                                </span> 
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#childandfamilyhistory">
-                                        <span>Child and Family History
+                                    <a class="nav-link" data-bs-toggle="pill" href="#childandfamilyhistory" id="bbb">
+                                        Child and Family History
                                             <img src="image/tick.png" height="10%" width="10%" class="childhistory-tick" style="display: none;">
                                             <img src="image/circle-with.png" height="5%" width="5%" class="childhistory-circle" style="display: none;">
-                                        </span>
+                                        
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -181,11 +178,11 @@
                             <!--Child Details-->
                             <div class="accordion-item">
                                 <h2 class="accordion-header shadow" id="childinfoHeadingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" id="childDetailsId"
                                         data-bs-target="#childifoCollapseOne" aria-expanded="true" aria-controls="childifoCollapseOne">
                                         Child Details&nbsp;&nbsp;
-                                        <img src="image/tick.png" height="3%" width="3%" class="childdetails-tick float-right" style="display: none;">
-                                        <img src="image/circle-with.png" height="5%" width="5%" class="childdetails-circle" style="display: none;">
+                                        <!-- <img src="image/tick.png" height="3%" width="3%" class="childdetails-tick float-right" style="display: none;">
+                                        <img src="image/circle-with.png" height="5%" width="5%" class="childdetails-circle" style="display: none;"> -->
                                     </button>
                                     
                                 </h2>
@@ -283,7 +280,7 @@
                             <div class="accordion-item">
                                 <form>
                                     <h2 class="accordion-header shadow" id="parentDetailsHeadingTwo">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" id="parentDetails"
                                             data-bs-target="#parentDetailsCollapseTwo" aria-expanded="false" aria-controls="parentDetailsCollapseTwo">
                                             Parent Details&nbsp;&nbsp;
                                             <img src="image/tick.png" height="3%" width="3%" class="parentdetails-tick float-right" style="display: none;">
@@ -836,7 +833,7 @@
                             <!--Child History-->
                             <div class="accordion-item">
                                 <h2 class="accordion-header shadow" id="historyHeadingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" id="familyHistory"
                                         data-bs-target="#historyCollapseOne" aria-expanded="true" aria-controls="historyCollapseOne">
                                         Child History&nbsp;&nbsp;
                                         <img src="image/tick.png" height="3%" width="3%" class="childhistory-tick float-right" style="display: none;">
@@ -3313,16 +3310,30 @@
                     }else{
                         document.getElementById('gender3').checked = true;
                     }
-
+                    let inputVal = document.getElementById('aaa');
+                    let childDetailsId = document.getElementById('childDetailsId');
+                    console.log(childDetailsId);
+                    console.log(inputVal);
                     if(typeof response.child_full_name !== "undefined" && typeof response.nick_name !== "undefined" 
                     && typeof response.dob !== "undefined" &&  typeof response.primary_language !== "undefined"
                     && typeof response.school_age_child_school !== "undefined" &&  typeof response.gender !== "undefined"){
-                        document.querySelector('.childinfo-tick').style.display = 'block';
-                        document.querySelector('.childdetails-tick').style.display = 'block';
-                        
+                        // document.querySelector('.childinfo-tick').style.display = 'block';
+                        // document.querySelector('.childdetails-tick').style.display = 'block';
+                        // inputVal.classList.remove('nav-item');
+                        // console.log('if');
+                        inputVal.classList.add('active');
+                        inputVal.classList.remove('invalid');
+                        childDetailsId.classList.add('accordion-button');
+                        childDetailsId.classList.remove('accordion-button-invalid');
                     }else{
-                        document.querySelector('.childdetails-circle').style.display = 'block';
-                        document.querySelector('.childdetails-circle').style.display = 'block';
+                        // document.querySelector('.childdetails-circle').style.display = 'block';
+                        // document.querySelector('.childdetails-circle').style.display = 'block';
+                        // inputVal.classList.add('nav-item');
+                        console.log('else');
+                        inputVal.classList.remove('active');
+                        inputVal.classList.add('invalid');
+                        childDetailsId.classList.remove('accordion-button');
+                        childDetailsId.classList.add('accordion-button-invalid');
                     }
 
 
@@ -3424,7 +3435,27 @@
                         document.getElementsByName('physical_exam_last_date')[0].value = response.physical_exam_last_date;
                     if (typeof response.dental_exam_last_date !== "undefined")
                         document.getElementsByName('dental_exam_last_date')[0].value = response.dental_exam_last_date;
-
+                        let inputVal2 = document.getElementById('bbb');
+                    let familyHistory = document.getElementById('familyHistory');
+                    console.log(childDetailsId);
+                    console.log(inputVal);
+                    if(typeof response.child_full_name !== "undefined" && typeof response.nick_name !== "undefined" 
+                    && typeof response.dob !== "undefined" &&  typeof response.primary_language !== "undefined"
+                    && typeof response.school_age_child_school !== "undefined" &&  typeof response.gender !== "undefined"){
+                        inputVal2.classList.add('active');
+                        inputVal2.classList.remove('invalid');
+                        familyHistory.classList.add('accordion-button');
+                        familyHistory.classList.remove('accordion-button-invalid');
+                    }else{
+                        // document.querySelector('.childdetails-circle').style.display = 'block';
+                        // document.querySelector('.childdetails-circle').style.display = 'block';
+                        // inputVal2.classList.add('nav-item');
+                        // console.log('else');
+                        inputVal2.classList.remove('active');
+                        inputVal2.classList.add('invalid');
+                        familyHistory.classList.remove('accordion-button');
+                        familyHistory.classList.add('accordion-button-invalid');
+                    }
                     if (typeof response.allergies !== "undefined")
                         document.getElementsByName('allergies')[0].value = response.allergies;
                     if (typeof response.asthma !== "undefined")

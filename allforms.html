@@ -3303,6 +3303,12 @@
                 //this is used to get the response and return the result
                 success: function(response){
                     console.log(response);
+                    let childbasicInfo;
+                    let childparentInfo;
+                    let childEmergencyContact;
+                    let childMedicalcare;
+                    let childParentAgreementOne;
+                    let statuscall;
                     if (typeof response.child_full_name !== "undefined")
                         document.getElementsByName('child_full_name')[0].value = response.child_full_name;
                     if (typeof response.nick_name !== "undefined")
@@ -3329,12 +3335,12 @@
                     if(typeof response.child_full_name !== "undefined" && typeof response.nick_name !== "undefined" 
                     && typeof response.dob !== "undefined" &&  typeof response.primary_language !== "undefined"
                     && typeof response.school_age_child_school !== "undefined" &&  typeof response.gender !== "undefined"){
-                        // document.querySelector('.childinfo-tick').style.display = 'block';
                         document.querySelector('.childdetails-tick').style.display = 'block';
+                        childbasicInfo = true;
                         
                     }else{
-                        // document.querySelector('.childinfo-circle').style.display = 'block';
                         document.querySelector('.childdetails-circle').style.display = 'block';
+                        childbasicInfo = false;
                     }
 
 
@@ -3376,16 +3382,11 @@
                     && typeof response.business_telephone_number !== "undefined" &&  typeof response.business_street_address !== "undefined"
                     &&  typeof response.business_city_address !== "undefined" &&  typeof response.business_zip_address !== "undefined"
                     &&  typeof response.business_cell_number !== "undefined" &&  typeof response.parent_email_two !== "undefined"){
-                        // document.querySelector('.childinfo-tick').style.display = 'block';
-                        console.log('if');
                         document.querySelector('.parentdetails-tick').style.display = 'block';
-                        document.querySelector('.parentdetails-circle').style.display = 'none';
-                        
+                        childparentInfo = true;
                     }else{
-                        console.log('else');
-                        // document.querySelector('.childinfo-circle').style.display = 'block';
                         document.querySelector('.parentdetails-circle').style.display = 'block';
-                        document.querySelector('.parentdetails-tick').style.display = 'none';
+                        childparentInfo = false;
                     }
 
                     if (typeof response.child_emergency_contact_name !== "undefined")
@@ -3400,8 +3401,10 @@
                     if(typeof response.child_emergency_contact_name !== "undefined" && typeof response.child_emergency_contact_full_address !== "undefined" 
                     && typeof response.child_emergency_contact_relationship !== "undefined" &&  typeof response.child_emergency_contact_telephone_number !== "undefined"){
                         document.querySelector('.emergencycontact-tick').style.display = 'block';
+                        childEmergencyContact = true;
                     }else{
                         document.querySelector('.emergencycontact-circle').style.display = 'block';
+                        childEmergencyContact = false;
                     }
 
                     
@@ -3444,12 +3447,14 @@
                     && typeof response.child_care_provider_city_address !== "undefined" &&  typeof response.child_care_provider_state_address !== "undefined"
                     && typeof response.child_care_provider_zip_address !== "undefined" &&  typeof response.child_dentist_name !== "undefined"
                     && typeof response.dentist_telephone_number !== "undefined" &&  typeof response.dentist_address !== "undefined"
-                    &&  typeof response.special_diabilities !== "undefined" &&  typeof response.allergies_medication_reaction !== "undefined"
-                    &&  typeof response.additional_info !== "undefined" &&  typeof response.medication !== "undefined"
-                    &&  typeof response.health_insurance !== "undefined" &&  typeof response.policy_number !== "undefined"){
+                    && typeof response.special_diabilities !== "undefined" &&  typeof response.allergies_medication_reaction !== "undefined"
+                    && typeof response.additional_info !== "undefined" &&  typeof response.medication !== "undefined"
+                    && typeof response.health_insurance !== "undefined" &&  typeof response.policy_number !== "undefined"){
                          document.querySelector('.medicalcare-tick').style.display = 'block';
+                         childMedicalcare = true;
                     }else{
                         document.querySelector('.medicalcare-circle').style.display = 'block';
+                        childMedicalcare = false;
                     }
                     
 
@@ -3459,10 +3464,11 @@
                         document.getElementsByName('administration_first_aid_procedures')[0].value = response.administration_first_aid_procedures;
                     if( response.agree_all_above_information_is_correct == "on" ){
                         document.getElementById('agree_all_above_information_is_correct').checked = true;
+                        childParentAgreementOne = true;
                     }else{
                         document.getElementById('agree_all_above_information_is_correct').checked = false;
+                        childParentAgreementOne = false;
                     }
-
                     if(typeof response.obtaining_emergency_medical_care !== "undefined" && typeof response.administration_first_aid_procedures !== "undefined" 
                     && typeof response.agree_all_above_information_is_correct !== "undefined"){
                         document.querySelector('.parentagreement-tick').style.display = 'block';
@@ -3470,34 +3476,22 @@
                         document.querySelector('.parentagreement-circle').style.display = 'block';
                     }
 
-                    if(typeof response.child_full_name !== "undefined" && typeof response.nick_name !== "undefined" 
-                    && typeof response.dob !== "undefined" &&  typeof response.primary_language !== "undefined"
-                    && typeof response.school_age_child_school !== "undefined" &&  typeof response.gender !== "undefined"
-                    && typeof response.parent_name !== "undefined" && typeof response.parent_street_address !== "undefined" 
-                    && typeof response.parent_city_address !== "undefined" &&  typeof response.parent_state_address !== "undefined"
-                    && typeof response.parent_zip_address !== "undefined" &&  typeof response.home_telephone_number !== "undefined"
-                    && typeof response.business_name !== "undefined" &&  typeof response.work_hours !== "undefined"
-                    && typeof response.business_telephone_number !== "undefined" &&  typeof response.business_street_address !== "undefined"
-                    && typeof response.business_city_address !== "undefined" &&  typeof response.business_zip_address !== "undefined"
-                    && typeof response.business_cell_number !== "undefined" &&  typeof response.parent_email_two !== "undefined"
-                    && typeof response.child_emergency_contact_name !== "undefined" && typeof response.child_emergency_contact_full_address !== "undefined" 
-                    && typeof response.child_emergency_contact_relationship !== "undefined" &&  typeof response.child_emergency_contact_telephone_number !== "undefined"
-                    && typeof response.child_care_provider_name !== "undefined" && typeof response.child_care_provider_telephone_number !== "undefined" 
-                    && typeof response.child_hospital_affiliation !== "undefined" &&  typeof response.child_care_provider_street_address !== "undefined"
-                    && typeof response.child_care_provider_city_address !== "undefined" &&  typeof response.child_care_provider_state_address !== "undefined"
-                    && typeof response.child_care_provider_zip_address !== "undefined" &&  typeof response.child_dentist_name !== "undefined"
-                    && typeof response.dentist_telephone_number !== "undefined" &&  typeof response.dentist_address !== "undefined"
-                    && typeof response.special_diabilities !== "undefined" &&  typeof response.allergies_medication_reaction !== "undefined"
-                    && typeof response.additional_info !== "undefined" &&  typeof response.medication !== "undefined"
-                    && typeof response.health_insurance !== "undefined" &&  typeof response.policy_number !== "undefined"
-                    && typeof response.obtaining_emergency_medical_care !== "undefined" && typeof response.administration_first_aid_procedures !== "undefined" 
-                    && typeof response.agree_all_above_information_is_correct !== "undefined"){
+                    if(childbasicInfo == true && childparentInfo == true && childMedicalcare == true && childEmergencyContact == true
+                    && childParentAgreementOne == true){
                         document.querySelector('.childinfo-tick').style.display = 'block';
+                        statuscall = true;
                     }else{
                         document.querySelector('.childinfo-circle').style.display = 'block';
+                        statuscall = false;
                     }
 
-
+                    let childHistory;
+                    let medicalHistory;
+                    let pregnancyHistory;
+                    let familyHistroy;
+                    let socialBehavior;
+                    let environmentalFactor;
+                    let parentAgreementTwo;
                     if (typeof response.physical_exam_last_date !== "undefined")
                         document.getElementsByName('physical_exam_last_date')[0].value = response.physical_exam_last_date;
                     if (typeof response.dental_exam_last_date !== "undefined")
@@ -3505,8 +3499,10 @@
 
                     if(typeof response.physical_exam_last_date !== "undefined" && typeof response.dental_exam_last_date !== "undefined"){
                         document.querySelector('.childhistoryDetails-tick').style.display = 'block';
+                        childHistory = true;
                     }else{
                         document.querySelector('.childhistoryDetails-circle').style.display = 'block';
+                        childHistory = false;
                     }
 
                     if (typeof response.allergies !== "undefined")
@@ -3550,8 +3546,10 @@
                     &&  typeof response.serious_injuries_accidents !== "undefined" &&  typeof response.surgeries !== "undefined"
                     &&  typeof response.vision_problems !== "undefined" &&  typeof response.medical_other !== "undefined"){
                         document.querySelector('.medicalhistory-tick').style.display = 'block';
+                        medicalHistory = true;
                     }else{
                         document.querySelector('.medicalhistory-circle').style.display = 'block';
+                        medicalHistory = false;
                     }
 
 
@@ -3582,8 +3580,10 @@
                     && typeof response.bottle_fed !== "undefined" &&  typeof response.breast_fed !== "undefined"
                     && typeof response.other_siblings_name !== "undefined" &&  typeof response.other_siblings_age !== "undefined"){
                         document.querySelector('.pregnancyhistory-tick').style.display = 'block';
+                        pregnancyHistory = true;
                     }else{
                         document.querySelector('.pregnancyhistory-circle').style.display = 'block';
+                        pregnancyHistory = false;
                     }
                    
 
@@ -3639,8 +3639,10 @@
                     && typeof response.family_history_diabetes !== "undefined" &&  typeof response.family_history_hyperactivity !== "undefined"
                     && typeof response.family_history_epilepsy !== "undefined" ){
                         document.querySelector('.familyhistory-tick').style.display = 'block';
+                        familyHistroy = true;
                     }else{
                         document.querySelector('.familyhistory-circle').style.display = 'block';
+                        familyHistroy = false;
                     }
 
 
@@ -3669,8 +3671,10 @@
                     && typeof response.fears_conflicts !== "undefined" &&  typeof response.child_response_frustration !== "undefined"
                     && typeof response.favorite_activities !== "undefined" ){
                         document.querySelector('.socialbehavior-tick').style.display = 'block';
+                        socialBehavior = true;
                     }else{
                         document.querySelector('.socialbehavior-circle').style.display = 'block';
+                        socialBehavior = false;
                     }
 
 
@@ -3692,72 +3696,63 @@
                     && typeof response.changes_at_home_situation !== "undefined" &&  typeof response.educational_expectations_of_child !== "undefined"
                     ){
                         document.querySelector('.environmentalfactor-tick').style.display = 'block';
+                        environmentalFactor = true;
                     }else{
                         document.querySelector('.environmentalfactor-circle').style.display = 'block';
+                        environmentalFactor = false;
                     }
                     
 
-
-                    if (typeof response.other_important_family_members !== "undefined")
-                        document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
-                    if (typeof response.about_family_celebrations !== "undefined")
-                        document.getElementsByName('about_family_celebrations')[0].value = response.about_family_celebrations;
                     if( response.agree_all_above_info_is_correct == "on" ){
                         document.getElementById('agree_all_above_info_is_correct').checked = true;
                     }else{
                         document.getElementById('agree_all_above_info_is_correct').checked = false;
                     }
 
-                    if(typeof response.other_important_family_members !== "undefined" && typeof response.about_family_celebrations !== "undefined" 
-                    && typeof response.agree_all_above_info_is_correct !== "undefined" ){
+                    if(typeof response.agree_all_above_info_is_correct !== "undefined" ){
                         document.querySelector('.parentagreement-two-tick').style.display = 'block';
+                        parentAgreementTwo = true;
                     }else{
                         document.querySelector('.parentagreement-two-circle').style.display = 'block';
+                        parentAgreementTwo = false;
                     }
 
-                    if(typeof response.physical_exam_last_date !== "undefined" && typeof response.dental_exam_last_date !== "undefined"
-                    && typeof response.allergies !== "undefined" && typeof response.asthma !== "undefined" 
-                    && typeof response.bleeding_problems !== "undefined" &&  typeof response.diabetes !== "undefined"
-                    && typeof response.epilepsy !== "undefined" &&  typeof response.frequent_ear_infections !== "undefined"
-                    && typeof response.hearing_problems !== "undefined" &&  typeof response.hospitalization !== "undefined"
-                    && typeof response.rheumatic_fever !== "undefined" &&  typeof response.seizures_convulsions !== "undefined"
-                    &&  typeof response.serious_injuries_accidents !== "undefined" &&  typeof response.surgeries !== "undefined"
-                    &&  typeof response.vision_problems !== "undefined" &&  typeof response.medical_other !== "undefined"
-                    && typeof response.illness_during_pregnancy !== "undefined" && typeof response.condition_of_newborn !== "undefined" 
-                    && typeof response.duration_of_pregnancy !== "undefined" &&  typeof response.birth_weight_lbs !== "undefined"
-                    && typeof response.birth_weight_oz !== "undefined" &&  typeof response.complications !== "undefined"
-                    && typeof response.bottle_fed !== "undefined" &&  typeof response.breast_fed !== "undefined"
-                    && typeof response.other_siblings_name !== "undefined" &&  typeof response.other_siblings_age !== "undefined"
-                    && typeof response.family_history_allergies !== "undefined" && typeof response.family_history_heart_problems !== "undefined" 
-                    && typeof response.family_history_tuberculosis !== "undefined" &&  typeof response.family_history_asthma !== "undefined"
-                    && typeof response.family_history_high_blood_pressure !== "undefined" &&  typeof response.family_history_vision_problems !== "undefined"
-                    && typeof response.family_history_diabetes !== "undefined" &&  typeof response.family_history_hyperactivity !== "undefined"
-                    && typeof response.family_history_epilepsy !== "undefined" && typeof response.age_group_friends !== "undefined" && typeof response.neighborhood_friends !== "undefined" 
-                    && typeof response.relationship_with_mother !== "undefined" &&  typeof response.relationship_with_father !== "undefined"
-                    && typeof response.relationship_with_siblings !== "undefined" &&  typeof response.relationship_with_extended_family !== "undefined"
-                    && typeof response.fears_conflicts !== "undefined" &&  typeof response.child_response_frustration !== "undefined"
-                    && typeof response.favorite_activities !== "undefined" && typeof response.last_five_years_moved !== "undefined" && typeof response.things_used_at_home !== "undefined" 
-                    && typeof response.hours_of_television_daily !== "undefined" &&  typeof response.language_used_at_home !== "undefined"
-                    && typeof response.changes_at_home_situation !== "undefined" &&  typeof response.educational_expectations_of_child !== "undefined"
-                    && typeof response.other_important_family_members !== "undefined" && typeof response.about_family_celebrations !== "undefined" 
-                    && typeof response.agree_all_above_info_is_correct !== "undefined" ){
+                    if(childHistory == true && medicalHistory== true && pregnancyHistory== true &&
+                     familyHistroy== true && socialBehavior == true && environmentalFactor== true &&
+                    parentAgreementTwo== true ){
                         document.querySelector('.childhistory-tick').style.display = 'block';
+                        statuscall = true;
                     }else{
                         document.querySelector('.childhistory-circle').style.display = 'block';
+                        statuscall = false;
                     }
 
+                    let immunizationInstruction;
                     if( response.do_you_agree_this_immunization_instructions == "on" ){
                         document.getElementById('do_you_agree_this_immunization_instructions').checked = true;
+                        immunizationInstruction = true;
                     }else{
                         document.getElementById('do_you_agree_this_immunization_instructions').checked = false;
+                        immunizationInstruction = false;
                     }
-                    if(typeof response.other_important_family_members !== "undefined" ){
+                    if(immunizationInstruction == true){
                         document.querySelector('.immunization-tick').style.display = 'block';
+                        statuscall = true;
                     }else{
                         document.querySelector('.immunization-circle').style.display = 'block';
+                        statuscall = false;
                     }
 
 
+                    let childProfile;
+                    let nutritionDetails;
+                    let restDetails;
+                    let medicalDetails;
+                    let parentAgreementThree;
+                    if (typeof response.other_important_family_members !== "undefined")
+                        document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
+                    if (typeof response.about_family_celebrations !== "undefined")
+                        document.getElementsByName('about_family_celebrations')[0].value = response.about_family_celebrations;
                     if(response.childcare_before == "Yes" ){
                         document.getElementById('childcare_before').checked = true;
                         // document.getElementsByName('reason_for_childcare_before')[0].style.display = "block";
@@ -3774,12 +3769,15 @@
                     if (typeof response.pick_up_time !== "undefined")
                         document.getElementsByName('pick_up_time')[0].value = response.pick_up_time;
 
-                    if(typeof response.childcare_before !== "undefined" && typeof response.reason_for_childcare_before !== "undefined" 
+                    if(typeof response.other_important_family_members !== "undefined" && typeof response.about_family_celebrations !== "undefined" 
+                    && typeof response.childcare_before !== "undefined" && typeof response.reason_for_childcare_before !== "undefined" 
                     && typeof response.what_child_interests !== "undefined" &&  typeof response.drop_off_time !== "undefined"
                     && typeof response.pick_up_time !== "undefined"){
                         document.querySelector('.childprofiledetail-tick').style.display = 'block'; 
+                        childProfile = true;
                     }else{
                         document.querySelector('.childprofiledetail-circle').style.display = 'block';
+                        childProfile = false;
                     }
 
 
@@ -3807,8 +3805,10 @@
                     if(typeof response.restricted_diet !== "undefined" && typeof response.eat_own !== "undefined" 
                     && typeof response.favorite_foods !== "undefined"){
                         document.querySelector('.nutrition-tick').style.display = 'block'; 
+                        nutritionDetails = true;
                     }else{
                         document.querySelector('.nutrition-circle').style.display = 'block';
+                        nutritionDetails = false;
                     }
 
 
@@ -3836,8 +3836,10 @@
                     if(typeof response.rest_in_the_middle_day !== "undefined" && typeof response.rest_routine !== "undefined" 
                     && typeof response.toilet_trained !== "undefined"){
                         document.querySelector('.restdetails-tick').style.display = 'block'; 
+                        restDetails = true;
                     }else{
                         document.querySelector('.restdetails-circle').style.display = 'block';
+                        restDetails = false;
                     }
 
 
@@ -3935,8 +3937,10 @@
                     && typeof response.utilize_special_equipment !== "undefined" &&  typeof response.significant_periods !== "undefined"
                     && typeof response.desire_any_accommodations !== "undefined" &&  typeof response.additional_information !== "undefined"){
                         document.querySelector('.medicaldetails-tick').style.display = 'block'; 
+                        medicalDetails = true;
                     }else{
                         document.querySelector('.medicaldetails-circle').style.display = 'block';
+                        medicalDetails = false;
                     }
 
                     if( response.do_you_agree_this == "on" ){
@@ -3946,27 +3950,19 @@
                     }
                     if(typeof response.do_you_agree_this !== "undefined"){
                         document.querySelector('.parentagreement-three-tick').style.display = 'block'; 
+                        parentAgreementThree = true;
                     }else{
                         document.querySelector('.parentagreement-three-circle').style.display = 'block';
+                        parentAgreementThree = false;
                     }
-
-                    if(typeof response.childcare_before !== "undefined" && typeof response.reason_for_childcare_before !== "undefined" 
-                    && typeof response.what_child_interests !== "undefined" &&  typeof response.drop_off_time !== "undefined"
-                    && typeof response.pick_up_time !== "undefined" && typeof response.restricted_diet !== "undefined" && typeof response.eat_own !== "undefined" 
-                    && typeof response.favorite_foods !== "undefined"&& typeof response.rest_in_the_middle_day !== "undefined" 
-                    && typeof response.rest_routine !== "undefined" 
-                    && typeof response.toilet_trained !== "undefined" && typeof response.existing_illness_allergy !== "undefined"
-                    && typeof response.functioning_at_age !== "undefined" &&  typeof response.able_to_walk !== "undefined"
-                    && typeof response.communicate_their_needs !== "undefined" &&  typeof response.any_medication !== "undefined"
-                    && typeof response.utilize_special_equipment !== "undefined" &&  typeof response.significant_periods !== "undefined"
-                    && typeof response.desire_any_accommodations !== "undefined" &&  typeof response.additional_information !== "undefined"
-                     &&typeof response.do_you_agree_this !== "undefined"){
+                    if(childProfile == true && nutritionDetails== true && restDetails== true &&
+                     medicalDetails== true && parentAgreementThree == true ){
                         document.querySelector('.childprofile-tick').style.display = 'block'; 
                     }else{
                         document.querySelector('.childprofile-circle').style.display = 'block';
                     }
 
-
+                    let pickupPassword;
                     if (typeof response.child_password !== "undefined")
                         document.getElementsByName('child_password')[0].value = response.child_password;
                     if( response.do_you_agree_this_pick_up_password_form == "on" ){
@@ -3978,14 +3974,14 @@
                     if(typeof response.child_password !== "undefined" && 
                         typeof response.do_you_agree_this_pick_up_password_form !== "undefined"){
                         document.querySelector('.childpickup-tick').style.display = 'block'; 
+                        pickupPassword = true;
                     }else{
                         document.querySelector('.childpickup-circle').style.display = 'block';
+                        pickupPassword = false;
+                        
                     }
 
-
-
-                    // if (typeof response.photo_usage_photo_video_permission_form !== "undefined")
-                    //     document.getElementsByName('photo_usage_photo_video_permission_form')[0].value = response.photo_usage_photo_video_permission_form;
+                    let photoVideoPermission;
                     if (typeof response.caste  !== "undefined"){
                             $('#photo_usage_photo_video_permission_form').append($("<option></option>").attr("value", response.photo_usage_photo_video_permission_form).text(response.photo_usage_photo_video_permission_form));
                         }
@@ -4003,13 +3999,15 @@
                     if(typeof response.photo_usage_photo_video_permission_form !== "undefined" && 
                         typeof response.photo_permission_agree_group_photos_electronic !== "undefined" && 
                         typeof response.do_you_agree_this_photo_video_permission_form !== "undefined"){
-                            console.log('if check');
                         document.querySelector('.childphotopermission-tick').style.display = 'block'; 
+                        photoVideoPermission = true;
                     }else{
-                        console.log('else check');
                         document.querySelector('.childphotopermission-circle').style.display = 'block';
+                        photoVideoPermission = false;
                     }
-                  
+
+
+                    let securityPolicy;
                     if( response.do_you_agree_this_security_release_policy_form == "on" ){
                         document.getElementById('do_you_agree_this_security_release_policy_form').checked = true;
                     }else{
@@ -4017,11 +4015,13 @@
                     }
                     if(typeof response.do_you_agree_this_medical_transportation_waiver !== "undefined"){
                         document.querySelector('.childsecurity-tick').style.display = 'block'; 
+                        securityPolicy = true;
                     }else{
                         document.querySelector('.childsecurity-circle').style.display = 'block';
+                        securityPolicy = false;
                     }
 
-
+                    let medicaltransportationWeiver;
                     if (typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined")
                         document.getElementsByName('contact_emergency_medical_technicians_medical_transportation_waiver')[0].value = response.contact_emergency_medical_technicians_medical_transportation_waiver;
                     
@@ -4033,12 +4033,14 @@
                     if(typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined"
                     && typeof response.do_you_agree_this_medical_transportation_waiver !== "undefined"){
                         document.querySelector('.childmedical-tick').style.display = 'block'; 
+                        medicaltransportationWeiver = true;
                     }else{
                         document.querySelector('.childmedical-circle').style.display = 'block';
+                        medicaltransportationWeiver = false;
                     }
 
                   
-
+                    let healthPolicy;
                     if( response.do_you_agree_this_health_policies == "on" ){
                         document.getElementById('do_you_agree_this_health_policies').checked = true;
                     }else{
@@ -4046,11 +4048,14 @@
                     }
                     if(typeof response.do_you_agree_this_health_policies !== "undefined"){
                         document.querySelector('.childhealth-tick').style.display = 'block'; 
+                        healthPolicy = true;
                     }else{
                         document.querySelector('.childhealth-circle').style.display = 'block';
+                        healthPolicy = true;
                     }
 
 
+                    let outsideWeiver;
                     if( response.outside_waiver_parent_sign_outside_engagements_waiver == "on" ){
                         document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = true;
                     }else{
@@ -4058,11 +4063,14 @@
                     }
                     if(typeof response.outside_waiver_parent_sign_outside_engagements_waiver !== "undefined"){
                         document.querySelector('.childoutside-tick').style.display = 'block'; 
+                        outsideWeiver = true;
                     }else{
                         document.querySelector('.childoutside-circle').style.display = 'block';
+                        outsideWeiver = false;
                     }
 
                     //enrollment data
+                    let enrollmentDetails;
                     if (typeof response.point_one_field_one !== "undefined")
                         document.getElementsByName("point_one_field_one")[0].value = response.point_one_field_one;
                     if (typeof response.point_one_field_two !== "undefined")
@@ -4118,11 +4126,14 @@
                     && typeof response.point_seventeen_initial_here !== "undefined" && typeof response.point_eighteen_initial_here !== "undefined"
                     && typeof response.point_nineteen_initial_here !== "undefined" ){
                         document.querySelector('.childenrollment-tick').style.display = 'block'; 
+                        enrollmentDetails = true;
                     }else{
                         document.querySelector('.childenrollment-circle').style.display = 'block';
+                        enrollmentDetails = false;
                     }
 
                     //authorization form
+                    let authorizationDetails;
                     // if (typeof response.child_name !== "undefined")
                     //     document.getElementById("child_name").value = response.child_name;
                     // if (typeof response.parent_name !== "undefined")
@@ -4143,8 +4154,30 @@
                     && typeof response.driver_license !== "undefined" && typeof response.state !== "undefined"
                     && typeof response.i !== "undefined"){
                         document.querySelector('.childauthorization-tick').style.display = 'block'; 
+                        authorizationDetails = true;
                     }else{
                         document.querySelector('.childauthorization-circle').style.display = 'block';
+                        authorizationDetails = false;
+                    }
+
+                    if(childbasicInfo == true && childparentInfo== true && childEmergencyContact == true && 
+                        childMedicalcare == true && childParentAgreementOne == true &&
+                        childHistory== true && medicalHistory== true && pregnancyHistory== true &&
+                        familyHistroy== true && socialBehavior== true && environmentalFactor== true &&
+                        parentAgreementTwo== true && immunizationInstruction== true &&
+                        childProfile== true && nutritionDetails== true && restDetails== true &&
+                        medicalDetails== true && parentAgreementThree== true && pickupPassword== true &&
+                        photoVideoPermission== true && securityPolicy == true && medicaltransportationWeiver== true &&
+                        healthPolicy== true && outsideWeiver== true &&
+                        enrollmentDetails== true && authorizationDetails== true ){
+                            console.log('dfvbsdf');
+                         let parentFinalAgreement = document.getElementById('parentFinalAgreement');
+                         parentFinalAgreement.disabled = false;
+
+                    }else{
+                        console.log('elseee');
+                        let parentFinalAgreement = document.getElementById('parentFinalAgreement');
+                         parentFinalAgreement.disabled = true;
                     }
                 }
             });

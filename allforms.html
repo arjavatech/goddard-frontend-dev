@@ -4096,17 +4096,17 @@
                     if (typeof response.point_nineteen_initial_here !== "undefined")
                         document.getElementsByName("point_nineteen_initial_here")[0].value = response.point_nineteen_initial_here;
 
-                    if(typeof response.point_one_field_one !== "" && typeof response.point_one_field_two !== ""
-                    && typeof response.point_one_field_three !== "" && typeof response.point_two_initial_here !== ""
-                    && typeof response.point_three_initial_here !== "" && typeof response.point_four_initial_here !== ""
-                    && typeof response.point_five_initial_here !== "" && typeof response.point_six_initial_here !== ""
-                    && typeof response.point_seven_initial_here !== "" && typeof response.point_eight_initial_here !== ""
-                    && typeof response.point_nine_initial_here !== "" && typeof response.point_ten_initial_here !== ""
-                    && typeof response.point_eleven_initial_here !== "" && typeof response.point_twelve_initial_here !== ""
-                    && typeof response.point_thirteen_initial_here !== "" && typeof response.point_fourteen_initial_here !== ""
-                    && typeof response.point_fifteen_initial_here !== "" && typeof response.point_sixteen_initial_here !== ""
-                    && typeof response.point_seventeen_initial_here !== "" && typeof response.point_eighteen_initial_here !== ""
-                    && typeof response.point_nineteen_initial_here !== "" ){
+                    if(typeof response.point_one_field_one !== "undefined" && typeof response.point_one_field_two !== "undefined"
+                    && typeof response.point_one_field_three !== "undefined" && typeof response.point_two_initial_here !== "undefined"
+                    && typeof response.point_three_initial_here !== "undefined" && typeof response.point_four_initial_here !== "undefined"
+                    && typeof response.point_five_initial_here !== "undefined" && typeof response.point_six_initial_here !== "undefined"
+                    && typeof response.point_seven_initial_here !== "undefined" && typeof response.point_eight_initial_here !== "undefined"
+                    && typeof response.point_nine_initial_here !== "undefined" && typeof response.point_ten_initial_here !== "undefined"
+                    && typeof response.point_eleven_initial_here !== "undefined" && typeof response.point_twelve_initial_here !== "undefined"
+                    && typeof response.point_thirteen_initial_here !== "undefined" && typeof response.point_fourteen_initial_here !== "undefined"
+                    && typeof response.point_fifteen_initial_here !== "undefined" && typeof response.point_sixteen_initial_here !== "undefined"
+                    && typeof response.point_seventeen_initial_here !== "undefined" && typeof response.point_eighteen_initial_here !== "undefined"
+                    && typeof response.point_nineteen_initial_here !== "undefined" ){
                         document.querySelector('.childenrollment-tick').style.display = 'block'; 
                     }else{
                         document.querySelector('.childenrollment-circle').style.display = 'block';
@@ -4129,9 +4129,9 @@
                     //     document.getElementById("email").value = response.email;
                     if (typeof response.i !== "undefined")
                         document.getElementById("i").value = response.i;
-                    if(typeof response.bank_routing !== "" && typeof response.bank_account !== ""
-                    && typeof response.driver_license !== "" && typeof response.state !== ""
-                    && typeof response.i !== ""){
+                    if(typeof response.bank_routing !== "undefined" && typeof response.bank_account !== "undefined"
+                    && typeof response.driver_license !== "undefined" && typeof response.state !== "undefined"
+                    && typeof response.i !== "undefined"){
                         document.querySelector('.childauthorization-tick').style.display = 'block'; 
                     }else{
                         document.querySelector('.childauthorization-circle').style.display = 'block';

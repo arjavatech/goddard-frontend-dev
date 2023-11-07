@@ -164,8 +164,8 @@
                                 </span>
                             </a>
                         </li><br>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="pill" href="#parentsignature" disabled>Parent Signature</a>
+                        <li class="nav-item" title="Header" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Popover text">
+                            <a class="nav-link disabled" data-bs-toggle="pill" href="#parentsignature">Parent Signature</a>
                         </li>
                     </ul>
                 </div><br>
@@ -2296,7 +2296,7 @@
                                                 </div>    
                                                 <h4 class="text-center mb-4"><b>Group Photos in Electronic Daily
                                                     Activity Reports</b></h4>
-                                                <pgit>The Goddard School takes photos of individual children and
+                                                <p>The Goddard School takes photos of individual children and
                                                     groups of children for electronic daily activity reports. These photos
                                                     will not be used for any other purpose by The Goddard School or Goddard
                                                     Systems, Inc. Although we have a School policy against it, it is
@@ -3283,6 +3283,16 @@
         //     }
         // }
     </script>
+
+    <!--Tooltip-->
+
+    <script>
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+          return new bootstrap.Popover(popoverTriggerEl)
+        })
+    </script>
+
      <script>
         let editID = window.location.search.slice(1);
         if(editID != ''){

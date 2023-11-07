@@ -345,4 +345,45 @@ input.inputBox
   }
 
 
+  /***Dropdown style***/
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+select.input-lg {
+    height: 50px !important;
+    line-height: 25px !important;
+}
+
+select+i.fa {
+    float: right;
+    margin-top: -27px;
+    margin-right: 9px;
+    pointer-events: none;
+    color: #424242;
+    background-color: #FFF;
+    padding-right: 5px;
+}
+
+.input-inline {
+	display: inline;
+	width: auto;
+    border: none;
+    border-bottom: #000000 !important;
+}
+
+.input-inline:focus {
+    display: inline;
+	width: auto;
+    border: none;
+    border-bottom: #424242 !important;
+}
+
+/***Dropdown style end***/
+
+
   

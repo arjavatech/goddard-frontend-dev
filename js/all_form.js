@@ -5,49 +5,29 @@ function submitForm() {
     const form = document.getElementById("admission_form");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
-    // const enformData = new FormData(form);
-    // obj.child_id = "NCD0005";
-    // const logged_in_email = localStorage.getItem('logged_in_email');
-    obj.on_process = false;
-    // obj.parent_email_one = logged_in_email;
-    obj.form_status = "10";
-    obj.year = new Date().getFullYear() + '';
+    obj.on_process = false
+   obj.primary_parent_email = localStorage.getItem('logged_in_email');
     const child_id_val = localStorage.getItem('child_id');
+    console.log(child_id_val);
     if (child_id_val !== null && child_id_val !== undefined) {
-        obj.child_id = child_id_val;
-        // enformData.child_id = child_id_val;
+        obj.child_id = child_id_val; 
     }
     console.log(obj);
-    // enformData.year = new Date().getFullYear() + '';
-    // enformData.parent_id = localStorage.getItem('parent_id');
-    // const json=  JSON.stringify(obj);
+    const json = JSON.stringify(obj);
+    console.log(json);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
+        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
-        data: JSON.stringify(obj),
+        data: json,
         success: function (response) {
-            alert("Admission form submitted successfully");
-            window.location.href = "child_add.html";
-            // if(enformData.child_id === null || enformData.child_id === undefined) {
-                localStorage.setItem('child_id', response.child_id)
-            //     enformData.child_id = response.child_id;
-            // }
-            // $.ajax({
-            //     url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/add",
-            //     type: "POST",
-            //     contentType: "application/json",
-            //     data: JSON.stringify(enformData),
-            //     success: function (response1) {
-            //         window.location.href = "child_add.html";
-            //     },
-            //     error: function (xhr, status, error) {
-            //         alert("form submit failed");
-            //     }
-            // });
+            alert(response.message)
+            window.location.href = 'child_add.html';
         },
         error: function (xhr, status, error) {
-            alert("failed to submit admission form");
+            console.log(error);
+            console.log(status);
+            alert("failed to save admission form");
         }
     });
 }
@@ -57,10 +37,7 @@ function saveForm() {
     const form = document.getElementById("childInfo");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
-    // obj.child_id = "NCD0005"; 
-    // const logged_in_email = localStorage.getItem('logged_in_email');
     obj.on_process = true;
-    // obj.parent_email_one = logged_in_email;
     obj.primary_parent_email = localStorage.getItem('logged_in_email');
     const child_id_val = localStorage.getItem('child_id');
     console.log(child_id_val);
@@ -214,7 +191,7 @@ $(document).ready(function () {
         });
         $("#submit_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
-          
+            submitForm();
         });
 
     }

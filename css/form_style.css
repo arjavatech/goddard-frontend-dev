@@ -386,4 +386,17 @@ select+i.fa {
 /***Dropdown style end***/
 
 
+/***Popover style***/
+
+.bs-popover-auto[data-popper-placement^=right]>.popover-arrow::after, .bs-popover-end>.popover-arrow::after {
+    border-right-color: #ec2727 !important;
+}
+
+.popover-body {
+    background-color: #ec2727;
+    color: #fff !important;
+    font-weight: 500;
+}
+
+
   

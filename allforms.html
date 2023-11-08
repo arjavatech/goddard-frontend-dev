@@ -164,7 +164,7 @@
                                 </span>
                             </a>
                         </li><br>
-                        <li class="nav-item"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Sorry....You Have to fill all the missing fields">
+                        <li class="nav-item"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Sorry....You Have to fill all the missing fields.">
                             <a class="nav-link disabled" data-bs-toggle="pill" href="#parentsignature">Parent Signature</a>
                         </li>
                     </ul>
@@ -3263,7 +3263,8 @@
         </div>
     </div>
      <!--Admission Form End-->
-    <!--Tooltip-->
+
+    <!--Popover-->
 
     <script>
         var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
@@ -3271,6 +3272,8 @@
           return new bootstrap.Popover(popoverTriggerEl)
         })
     </script>
+
+    <!--Popover End-->
 
      <script>
         let editID = window.location.search.slice(1);

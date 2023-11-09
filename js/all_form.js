@@ -2,7 +2,7 @@ import {isAuthenticated} from "./authenticationVerify.js";
 
 // Function to submit the form data
 function submitForm() {
-    const form = document.getElementById("admission_form");
+    const form = document.getElementById("childInfo");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     obj.on_process = false

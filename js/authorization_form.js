@@ -51,7 +51,7 @@ export function authorizationFormDetails(callback) {
 
 // Function to submit the form data
 function submitForm() {
-    const form = document.getElementById("./forms/authorization_form");
+    const form = document.getElementById(".authorization_form");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     obj.child_id = localStorage.getItem('child_id');

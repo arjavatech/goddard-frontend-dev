@@ -52,7 +52,7 @@ function signupFunction(){
             data: JSON.stringify(obj),
             success: function (response) {
                 alert(response.message);
-                window.location.href = "login.html";
+                window.location.href = "../login.html";
             
             },
             error: function (xhr, status, error) {

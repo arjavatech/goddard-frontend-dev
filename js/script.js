@@ -2,7 +2,7 @@ import {isAuthenticated} from "./authenticationVerify.js";
 
 $(document).ready(function () {
     if(!isAuthenticated()) {
-        window.location.href = 'login.html';
+        window.location.href = '../login.html';
     } else {
         document.body.style.visibility = 'visible';
     }

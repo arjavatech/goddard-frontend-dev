@@ -2208,11 +2208,11 @@
                                             <div class="col-3"></div>
                                             <div class="col-6">
                                                 <div class="form-group"> 
-                                                    <label for="child_password" class="form-label h-3"><b>Password</b>
+                                                    <label for="child_password_pick_up_password_form" class="form-label h-3"><b>Password</b>
                                                         
                                                     </label>
-                                                    <input type="text" class="form-control " id="child_password" 
-                                                    name="child_password">
+                                                    <input type="text" class="form-control " id="child_password_pick_up_password_form" 
+                                                    name="child_password_pick_up_password_form">
                                                     <p class="pt-2"><b>(5 digits, alpha numeric characters)</b></p>
                                                 </div>
                                             </div>
@@ -2265,9 +2265,9 @@
                                                             id="photo_usage_photo_video_permission_form"
                                                                 name="photo_usage_photo_video_permission_form">
                                                                 <option></option>
-                                                                <option value="1">Full Use</option>
-                                                                <option value="2">In-House Only</option>
-                                                                <option value="3">No Photos</option>
+                                                                <option value="Full Use">Full Use</option>
+                                                                <option value="In-House Only">In-House Only</option>
+                                                                <option value="No Photos">No Photos</option>
                                                             </select>
                                                             <i class="fa fa-chevron-down"></i>
                                                         </div>
@@ -3915,16 +3915,16 @@
                     }
 
                     let pickupPassword;
-                    console.log(response.child_password);
-                    if (typeof response.child_password !== "undefined")
-                        document.getElementsByName('child_password')[0].value = response.child_password;
+                    console.log(response.child_password_pick_up_password_form);
+                    if (typeof response.child_password_pick_up_password_form !== "undefined")
+                        document.getElementsByName('child_password_pick_up_password_form')[0].value = response.child_password_pick_up_password_form;
                     if( response.do_you_agree_this_pick_up_password_form == "on" ){
                         document.getElementById('do_you_agree_this_pick_up_password_form').checked = true;
                     }else{
                         document.getElementById('do_you_agree_this_pick_up_password_form').checked = false;
                     }
 
-                    if(typeof response.child_password !== "undefined" && 
+                    if(typeof response.child_password_pick_up_password_form !== "undefined" && 
                         typeof response.do_you_agree_this_pick_up_password_form !== "undefined"){
                         document.querySelector('.childpickup-tick').style.display = 'block'; 
                         pickupPassword = true;

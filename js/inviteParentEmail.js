@@ -12,8 +12,8 @@ let obj = {
     "to": "noreply.goddard@gmail.com",
     "subject": "subject",
     "body": "",
-    "attachmentName": "AttachmentForm",
-    "attachmentKey": "attachment"
+    // "attachmentName": "AttachmentForm",
+    // "attachmentKey": "attachment"
 }
 
 
@@ -33,11 +33,11 @@ async function emailSend() {
         let email_to =  $('#parent_email').val();
         obj.to = email_to;
         obj.subject = 'Invite parents';
-        let messageData = $('#messageData').val();
+        // let messageData = $('#messageData').val();
         obj.body = "";
         console.log(obj.body);
-        obj.attachmentName ="AttachmentForm";
-        obj.attachmentKey ="attachment";
+        // obj.attachmentName ="AttachmentForm";
+        // obj.attachmentKey ="attachment";
         const json =JSON.stringify(obj);
         console.log(json);
 

@@ -1298,6 +1298,22 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="row">
+                                                <div class="col-sm m-4">
+                                                    <div class="wizard-form-checkbox">
+                                                        <input type="checkbox" class="input-checkbox"
+                                                            id="no_illnesses_for_this_child" name="no_illnesses_for_this_child">
+                                                        <label class="form-check-label" for="no_illnesses_for_this_child"><span>
+                                                                <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                                    <polyline points="1.5 6 4.5 9 10.5 1">
+                                                                    </polyline>
+                                                                </svg></span><span><b>Allergies</b></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm m-4"></div>
+                                                <div class="col-sm m-4"></div>
+                                            </div>
                                             <div class="text-center">
                                                 <button class="save-btn" id="nine_save">Save</button>
                                             </div>
@@ -3587,18 +3603,27 @@
                     }else{
                         document.getElementById('family_history_epilepsy').checked = false;
                     }
-
-                    if(typeof response.family_history_allergies !== "undefined" && typeof response.family_history_heart_problems !== "undefined" 
-                    && typeof response.family_history_tuberculosis !== "undefined" &&  typeof response.family_history_asthma !== "undefined"
-                    && typeof response.family_history_high_blood_pressure !== "undefined" &&  typeof response.family_history_vision_problems !== "undefined"
-                    && typeof response.family_history_diabetes !== "undefined" &&  typeof response.family_history_hyperactivity !== "undefined"
-                    && typeof response.family_history_epilepsy !== "undefined" ){
+                    if ( response.no_illnesses_for_this_child == "on"){
+                        document.getElementById('no_illnesses_for_this_child').checked = true;
                         document.querySelector('.familyhistory-tick').style.display = 'block';
                         familyHistroy = true;
                     }else{
+                        document.getElementById('no_illnesses_for_this_child').checked = false;
                         document.querySelector('.familyhistory-circle').style.display = 'block';
                         familyHistroy = false;
                     }
+
+                    // if(typeof response.family_history_allergies !== "undefined" && typeof response.family_history_heart_problems !== "undefined" 
+                    // && typeof response.family_history_tuberculosis !== "undefined" &&  typeof response.family_history_asthma !== "undefined"
+                    // && typeof response.family_history_high_blood_pressure !== "undefined" &&  typeof response.family_history_vision_problems !== "undefined"
+                    // && typeof response.family_history_diabetes !== "undefined" &&  typeof response.family_history_hyperactivity !== "undefined"
+                    // && typeof response.family_history_epilepsy !== "undefined" ){
+                    //     document.querySelector('.familyhistory-tick').style.display = 'block';
+                    //     familyHistroy = true;
+                    // }else{
+                    //     document.querySelector('.familyhistory-circle').style.display = 'block';
+                    //     familyHistroy = false;
+                    // }
 
 
                     if (typeof response.age_group_friends !== "undefined")
@@ -3973,7 +3998,7 @@
                     }else{
                         document.getElementById('do_you_agree_this_security_release_policy_form').checked = false;
                     }
-                    if(typeof response.do_you_agree_this_medical_transportation_waiver !== "undefined"){
+                    if(typeof response.do_you_agree_this_security_release_policy_form !== "undefined"){
                         document.querySelector('.childsecurity-tick').style.display = 'block'; 
                         securityPolicy = true;
                     }else{

@@ -165,7 +165,7 @@
                             </a>
                         </li><br>
                         <li class="nav-item"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Sorry....You Have to fill all the missing fields.">
-                            <a class="nav-link disabled" data-bs-toggle="pill" href="#parentsignature" id="parentFinalAgreement">Parent Signature</a>
+                            <a class="nav-link disabled" data-bs-toggle="pill" href="#parentsignature" id="parentFinalAgreement>Parent Signature</a>
                         </li>
                     </ul>
                 </div><br>
@@ -3262,8 +3262,8 @@
                     let childParentAgreementOne;
                     let statuscall;
 
-                    let parentFinalAgreement = document.getElementById('parentFinalAgreement');
-                         parentFinalAgreement.disabled = false;
+                    // let parentFinalAgreement = document.getElementById('parentFinalAgreement');
+                    //      parentFinalAgreement.disabled = false;
                     if (typeof response.child_full_name !== "undefined")
                         document.getElementsByName('child_full_name')[0].value = response.child_full_name;
                     if (typeof response.nick_name !== "undefined")
@@ -4127,13 +4127,13 @@
                         healthPolicy== true && outsideWeiver== true &&
                         enrollmentDetails== true && authorizationDetails== true ){
                             console.log('dfvbsdf');
-                        //  let parentFinalAgreement = document.getElementById('parentFinalAgreement');
-                         parentFinalAgreement.disabled = false;
+                         let parentFinalAgreement = document.getElementById('parentFinalAgreement');
+                         parentFinalAgreement.classList.remove('disabled');
 
                     }else{
                         console.log('elseee');
-                        // let parentFinalAgreement = document.getElementById('parentFinalAgreement');
-                         parentFinalAgreement.disabled = true;
+                        let parentFinalAgreement = document.getElementById('parentFinalAgreement');
+                         parentFinalAgreement.classList.add('disabled');
                     }
                 }
             });

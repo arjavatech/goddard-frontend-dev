@@ -165,7 +165,7 @@
                             </a>
                         </li><br>
                         <li class="nav-item"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Sorry....You Have to fill all the missing fields.">
-                            <a class="nav-link " data-bs-toggle="pill" href="#parentsignature">Parent Signature</a>
+                            <a class="nav-link " data-bs-toggle="pill" href="#parentsignature" disabled>Parent Signature</a>
                         </li>
                     </ul>
                 </div><br>
@@ -2264,7 +2264,7 @@
                                                             <select class="form-control" aria-label=".form-control-lg example" 
                                                             id="photo_usage_photo_video_permission_form"
                                                                 name="photo_usage_photo_video_permission_form">
-                                                                <!-- <option></option> -->
+                                                                <option selected disabled></option>
                                                                 <option value="Full Use">Full Use</option>
                                                                 <option value="In-House Only">In-House Only</option>
                                                                 <option value="No Photos">No Photos</option>
@@ -3221,7 +3221,7 @@
                                     </div>
                                     <!-- Parent's or guardian's signature end -->
                                     <div class="text-center">
-                                        <button class="cancel-btn">Cancel</button>
+                                        <button class="cancel-btn" id="cancelButton">Cancel</button>
                                         <button class="submit-btn mb-4" id="submit_button">submit</button> 
                                     </div>   
                             </div>

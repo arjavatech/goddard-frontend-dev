@@ -78,6 +78,10 @@ function saveForm() {
     // xhr.send(json);
 }
 
+function clearForm(){
+    window.location.reload();
+}
+
 $(document).ready(function () {
     if (!isAuthenticated()) {
         window.location.href = 'login.html';
@@ -192,6 +196,10 @@ $(document).ready(function () {
         $("#submit_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
             submitForm();
+        });
+        $("#cancelButton").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            clearForm();
         });
 
     }

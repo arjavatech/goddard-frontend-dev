@@ -3605,25 +3605,21 @@
                     }
                     if ( response.no_illnesses_for_this_child == "on"){
                         document.getElementById('no_illnesses_for_this_child').checked = true;
+                    }else{
+                        document.getElementById('no_illnesses_for_this_child').checked = false;
+                    }
+
+                    if(typeof response.family_history_allergies !== "undefined" || typeof response.family_history_heart_problems !== "undefined" 
+                    || typeof response.family_history_tuberculosis !== "undefined" ||  typeof response.family_history_asthma !== "undefined"
+                    || typeof response.family_history_high_blood_pressure !== "undefined" ||  typeof response.family_history_vision_problems !== "undefined"
+                    || typeof response.family_history_diabetes !== "undefined" ||  typeof response.family_history_hyperactivity !== "undefined"
+                    || typeof response.family_history_epilepsy !== "undefined" || typeof response.no_illnesses_for_this_child !== "undefined"){
                         document.querySelector('.familyhistory-tick').style.display = 'block';
                         familyHistroy = true;
                     }else{
-                        document.getElementById('no_illnesses_for_this_child').checked = false;
                         document.querySelector('.familyhistory-circle').style.display = 'block';
                         familyHistroy = false;
                     }
-
-                    // if(typeof response.family_history_allergies !== "undefined" && typeof response.family_history_heart_problems !== "undefined" 
-                    // && typeof response.family_history_tuberculosis !== "undefined" &&  typeof response.family_history_asthma !== "undefined"
-                    // && typeof response.family_history_high_blood_pressure !== "undefined" &&  typeof response.family_history_vision_problems !== "undefined"
-                    // && typeof response.family_history_diabetes !== "undefined" &&  typeof response.family_history_hyperactivity !== "undefined"
-                    // && typeof response.family_history_epilepsy !== "undefined" ){
-                    //     document.querySelector('.familyhistory-tick').style.display = 'block';
-                    //     familyHistroy = true;
-                    // }else{
-                    //     document.querySelector('.familyhistory-circle').style.display = 'block';
-                    //     familyHistroy = false;
-                    // }
 
 
                     if (typeof response.age_group_friends !== "undefined")

@@ -54,23 +54,25 @@
                     <!--        </div>-->
                 </div>
                 <!-- Add Child -->
-                <div class="col-2 m-3 mt-4" onclick="divShow()" id="showDiv">
+                <div class="col-2 m-3 mt-4" id="showDiv">
                     <!-- <a href="parent/child_basic_details.html" class="text-decoration-none"> -->
-                        <div class="card dashboard_card_style">
-                            <div class="card-body pt-4">
-                                <h5 class="card-title text-center dashboard_card_icon">
-                                    <!-- Add Child Icon -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="60"
-                                        height="60" fill="currentColor"
-                                        class="bi bi-plus-circle-fill"
-                                        viewBox="0 0 17 17">
-                                        <path
-                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-                                    </svg>
-                                </h5>
-                                <h5 class="text-center dashboard_card_icon pt-3 h4">Add Child</h5>
+                        <a href="#myBookmark" onclick="goToBookmark()">
+                            <div class="card dashboard_card_style">
+                                <div class="card-body pt-4">
+                                    <h5 class="card-title text-center dashboard_card_icon">
+                                        <!-- Add Child Icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="60"
+                                            height="60" fill="currentColor"
+                                            class="bi bi-plus-circle-fill"
+                                            viewBox="0 0 17 17">
+                                            <path
+                                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                        </svg>
+                                    </h5>
+                                    <h5 class="text-center dashboard_card_icon pt-3 h4">Add Child</h5>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     <!-- </a> -->
                 </div>
                 <!-- Add Child End -->
@@ -82,7 +84,7 @@
             <div id="child_basic_form"><br>
                 <div class="card_center">
                     <div class="card child_basic_card">
-                        <h2 class="text-center card_title p-4">Child Basic Information</h2><br>
+                        <h2 class="text-center card_title p-4" id="myBookmark">Child Basic Information</h2><br>
                         <div class="container" id="avf_form">
                             <section class="wizard-section">
                                 <div class="row no-gutters">
@@ -146,6 +148,26 @@
                 </div> 
             </div>
         </div>
+
+        <script>
+            function goToBookmark() {
+                // Set the hash to the ID of the bookmarked section
+                window.location.href = "#myBookmark";
+    
+                // Add a delay before scrolling to the bookmarked section
+                setTimeout(scrollToBookmark, 100);
+            }
+    
+            function scrollToBookmark() {
+                // Scroll to the bookmarked section
+                var element = document.getElementById("myBookmark");
+                if (element) {
+                    element.scrollIntoView({ behavior: "smooth" });
+                }
+            }
+        </script>
+
+
         <script>
             $(document).ready(function () {
           

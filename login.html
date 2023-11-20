@@ -42,7 +42,7 @@
                         </div>
                         <div class=" text-center"><img src="image/gs_logo_tab.png" type="image/png"></div><br>
                        
-                         <!-- Login -->
+                        <!-- Login -->
                         <div class="container">
                             <form id="login"><br>
                                 <div class="form-group">
@@ -96,47 +96,51 @@
             function loginFunction() {
                 const email_id = document.getElementById('login_email').value;
                 const password = document.getElementById('login_pswd').value;
+                const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+                console.log(hashedUserPassword);
                 console.log(password);
+                console.log(email_id);
                 
                 $.ajax({
-                    url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/all",
+                    url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/is_admin/${email_id}?password=${hashedUserPassword}`,
                     type: "GET",
                     success: function (response) {
                         console.log(response);
                         let isAuthenticated = false;
 
-                        for (let i = 0; i < response.length; i++) {
-                            if(email_id === 'goddard01arjava@gmail.com' || email_id === 'goddard02arjava@gmail.com'){
-                                if (email_id === response[i].email_id ) {
-                                    const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
-                                    console.log(storedPasswordHash);
+                        // for (let i = 0; i < response.length; i++) {
+                            console.log(response.admin);
+                            if(response.admin === true ){
+                                // if (email_id === response[i].email_id ) {
+                                //     const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
+                                //     console.log(storedPasswordHash);
 
-                                    // Hash the user-typed password using the same algorithm and parameters
-                                    const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-                                    console.log(hashedUserPassword);
-                                    if (hashedUserPassword === storedPasswordHash) {
+                                //     // Hash the user-typed password using the same algorithm and parameters
+                                //     const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+                                //     console.log(hashedUserPassword);
+                                //     if (hashedUserPassword === storedPasswordHash) {
                                         isAuthenticated = true;
                                         localStorage.setItem('logged_in_email', email_id);
                                         window.location.href = "./admin_dashboard.html";
-                                        break; // Exit the loop since we found a match
-                                    }
-                                }
-                            }else if (email_id === response[i].email_id ) {
-                                const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
-                                console.log(storedPasswordHash);
+                                        // break; // Exit the loop since we found a match
+                                //     }
+                                // }
+                            }else if (response.admin === false ) {
+                                // const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
+                                // console.log(storedPasswordHash);
 
-                                // Hash the user-typed password using the same algorithm and parameters
-                                const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-                                console.log(hashedUserPassword);
-                                if (hashedUserPassword === storedPasswordHash) {
+                                // // Hash the user-typed password using the same algorithm and parameters
+                                // const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+                                // console.log(hashedUserPassword);
+                                // if (hashedUserPassword === storedPasswordHash) {
                                     isAuthenticated = true;
                                     localStorage.setItem('logged_in_email', email_id);
                                     window.location.href = "./child_add.html";
-                                    break; // Exit the loop since we found a match
-                                }
+                                    // break; // Exit the loop since we found a match
+                                // }
                             }
 
-                        }
+                        // }
 
                         if (!isAuthenticated) {
                             // Authentication failed

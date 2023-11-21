@@ -101,11 +101,11 @@ function loadDynamicCards() {
         }
 
         let cardBody = document.createElement('div');
-        cardBody.classList.add('card-body');
+        cardBody.classList.add('card-body', 'pt-4');
 
         let childName = document.createElement('h5');
         childName.id = child_response[i].child_id;
-        childName.classList.add('text-center', 'dashboard_card_text','h4');
+        childName.classList.add('text-center', 'dashboard_card_text', 'pt-3','h4');
 
         // Set the child name from localStorage
         childName.innerHTML = child_response[i].child_full_name;

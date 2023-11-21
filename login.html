@@ -97,10 +97,6 @@
                 const email_id = document.getElementById('login_email').value;
                 const password = document.getElementById('login_pswd').value;
                 const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-                console.log(hashedUserPassword);
-                console.log(password);
-                console.log(email_id);
-                
                 $.ajax({
                     url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/is_admin/${email_id}?password=${hashedUserPassword}`,
                     type: "GET",

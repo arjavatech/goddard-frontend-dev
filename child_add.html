@@ -42,38 +42,32 @@
             <h4 class="h4 pt-2 text-center" id="welcomeText" name="welcomeText"></h4>
             <div class="row" id="additionalHtmlContainer">
                 <!-- Dynamic Child Cards -->
-                <div id="dynamicChildCards" class="row">
-                    <!--        <div class="col-2 m-3 mt-4">-->
-                    <!--            <a href="parent_dashboard.html" class="text-decoration-none">-->
-                    <!--                <div class="card dashboard_card_style1">-->
-                    <!--                    <div class="card-body pt-4">-->
-                    <!--                        <h5 id="childname" class="text-center dashboard_card_text pt-3 h4"></h5>-->
-                    <!--                    </div>-->
-                    <!--                </div>-->
-                    <!--            </a>-->
-                    <!--        </div>-->
-                </div>
-                <!-- Add Child -->
-                <div class="col-2 m-3 mt-4" id="showDiv">
-                    <!-- <a href="parent/child_basic_details.html" class="text-decoration-none"> -->
-                        <a href="#myBookmark" onclick="goToBookmark()">
-                            <div class="card dashboard_card_style">
-                                <div class="card-body pt-4">
-                                    <h5 class="card-title text-center dashboard_card_icon">
-                                        <!-- Add Child Icon -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="60"
-                                            height="60" fill="currentColor"
-                                            class="bi bi-plus-circle-fill"
-                                            viewBox="0 0 17 17">
-                                            <path
-                                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-                                        </svg>
-                                    </h5>
-                                    <h5 class="text-center dashboard_card_icon pt-3 h4">Add Child</h5>
+                <div  class="row">
+                    <div class="col-2" id="dynamicChildCards"></div>
+                
+                    <!-- Add Child -->
+                    <div class="col-2 m-3 mt-4" id="showDiv">
+                        <!-- <a href="parent/child_basic_details.html" class="text-decoration-none"> -->
+                            <a href="#myBookmark" onclick="goToBookmark()">
+                                <div class="card dashboard_card_style">
+                                    <div class="card-body pt-4">
+                                        <h5 class="card-title text-center dashboard_card_icon">
+                                            <!-- Add Child Icon -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30"
+                                                height="30" fill="currentColor"
+                                                class="bi bi-plus-circle-fill"
+                                                viewBox="0 0 17 17">
+                                                <path
+                                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                                            </svg>
+                                            Add Child
+                                        </h5>
+                                        <h5 class="text-center dashboard_card_icon pt-3 h4"></h5>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                    <!-- </a> -->
+                            </a>
+                        <!-- </a> -->
+                    </div>
                 </div>
                 <!-- Add Child End -->
             </div>

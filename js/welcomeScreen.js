@@ -105,7 +105,7 @@ function loadDynamicCards() {
 
         let childName = document.createElement('h5');
         childName.id = child_response[i].child_id;
-        childName.classList.add('text-center', 'dashboard_card_text', 'pt-3','h4');
+        childName.classList.add('text-center', 'dashboard_card_text', 'pt-3','h5');
 
         // Set the child name from localStorage
         childName.innerHTML = child_response[i].child_full_name;

@@ -108,12 +108,12 @@ function loadDynamicCards() {
         childName.classList.add('text-center', 'dashboard_card_text', 'pt-3','h5');
 
         // Set the child name from localStorage
-        childName.innerHTML = child_response[i].child_full_name;
+        childName.innerHTML = child_response[i].child_first_name;
 
         // Add event listener to the anchor tag
         anchor.addEventListener('click', function () {
             // Retrieve the child's name and ID
-            const selectedChildName = child_response[i].child_full_name;
+            const selectedChildName = child_response[i].child_first_name;
             const selectedChildId = child_response[i].child_id;
 
             // Store the child's name and ID in local storage

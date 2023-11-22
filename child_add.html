@@ -610,6 +610,197 @@
                                             </div>
                                         </div>    
                                 </div>
+                                <!--Additional Parent Details-->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header shadow" id="additionalParentDetailsHeadingTwo">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#additionalParentDetailsCollapseTwo" aria-expanded="false" aria-controls="additionalParentDetailsCollapseTwo">
+                                            Additional Parent Details&nbsp;&nbsp;
+                                            <img src="image/tick.png" height="3%" width="3%" class="parentdetails-tick float-end " style="display: none;">
+                                            <img src="image/circle-with.png" height="3%" width="3%" class="parentdetails-circle float-end" style="display: none;">
+                                        </button>
+                                    </h2>
+                                    <div id="additionalParentDetailsCollapseTwo" class="accordion-collapse collapse" aria-labelledby="additionalParentDetailsHeadingTwo"
+                                        data-bs-parent="#childinfoAccordionExample">
+                                        <div class="accordion-body">
+                                            <div class="row m-1 mb-4">
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="parent_two_name" class="form-label"><b>PARENT’S / LEGAL
+                                                                GUARDIAN’S NAME</b>
+                                                        </label>
+                                                        <input type="text" class="form-control " id="parent_two_name"
+                                                            name="parent_two_name">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h5 class="text-center mb-4"><b>HOME ADDRESS</b></h5>
+                                            <div class="row m-1 mb-4">
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="parent_two_street_address" class="form-label"><b>STREET</b>
+                                                        </label>
+                                                        <input type="text" class="form-control" id="parent_two_street_address"
+                                                            name="parent_two_street_address">
+                                                            <!-- onchange="autoPopulateAddress(this.value,'parent2_street_address')"> -->
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="parent_two_city_address" class="form-label"><b>CITY</b>
+                                                        </label>
+                                                        <input type="text" class="form-control " id="parent_two_city_address"
+                                                            name="parent_two_city_address">
+                                                            <!-- onchange="autoPopulateAddress(this.value,'parent2_city_address')"> -->
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="parent_two_state_address" class="form-label"><b>STATE</b>
+                                                        </label>
+                                                        <input type="text" class="form-control " id="parent_two_state_address"
+                                                            name="parent_two_state_address">
+                                                            <!-- onchange="autoPopulateAddress(this.value,'parent2_state_address')"> -->
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="parent_two_zip_address" class="form-label"><b>ZIP</b>
+                                                        </label>
+                                                        <input type="text" class="form-control " id="parent_two_zip_address"
+                                                            name="parent_two_zip_address"
+                                                            onchange="ValidatePincode (this,'parent_two_zip_address_span')">
+                                                        <span id="parent_two_zip_address_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers].</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row m-1 mb-4">
+                                                <div class="col-sm"><br>
+                                                    <div class="form-group">
+                                                        <label for="parent_two_home_telephone_number" class="form-label"><b>TELEPHONE
+                                                                NUMBER</b>
+                                                        </label>
+                                                        <input type="text" class="form-control " aria-label="Telephone Number"
+                                                            id="parent_two_home_telephone_number" name="parent_two_home_telephone_number"
+                                                            onchange="validatePhone(this,'parent_two_home_telephone_number_span')">
+                                                        <span id="parent_two_home_telephone_number_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Business info -->
+                                            <div class="row m-1 mb-4">
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="parent_two_business_name" class="form-label"><b>BUSINESS NAME</b>
+                                                        </label>
+                                                        <input type="text" class="form-control " id="parent_two_business_name"
+                                                            name="parent_two_business_name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="parent_two_work_hours" class="form-label"><b>WORK HOURS</b>
+                                                        </label>
+                                                        <input type="text" class="form-control " id="parent_two_work_hours"
+                                                            name="parent_two_work_hours">
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="parent_two_business_telephone_number" class="form-label"><b>BUSINESS
+                                                                TELEPHONE NUMBER</b>
+                                                        </label>
+                                                        <input type="text" class="form-control " id="parent_two_business_telephone_number"
+                                                            name="parent_two_business_telephone_number"
+                                                            onchange="validatePhone(this,'parent_two_business_telephone_number_span')">
+                                                        <span id="parent_two_business_telephone_number_span"
+                                                            style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Business address -->
+
+                                            <div class="panel-heading">
+                                                <h5 class="panel-title text-center mb-4"><b>BUSINESS ADDRESS</b></h5>
+                                            </div>
+
+                                            <div class="row m-1 mb-4">
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="parent_two_business_street_address" class="form-label"><b>STREET</b>
+                                                        </label>
+                                                        <input type="text" class="form-control " id="parent_two_business_street_address"
+                                                            name="parent_two_business_street_address"
+                                                           >
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="parent_two_business_city_address" class="form-label"><b>CITY</b>
+                                                        </label>
+                                                        <input type="text" class="form-control " id="parent_two_business_city_address"
+                                                            name="parent_two_business_city_address"
+                                                            >
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="parent_two_business_state_address" class="form-label"><b>STATE</b>
+                                                        </label>
+                                                        <input type="text" class="form-control " id="parent_two_business_state_address"
+                                                            name="parent_two_business_state_address"
+                                                            >
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="parent_two_business_zip_address" class="form-label"><b>ZIP</b>
+                                                        </label>
+                                                        <input type="text" class="form-control " id="parent_two_business_zip_address"
+                                                            name="parent_two_business_zip_address"
+                                                            onchange="ValidatePincode (this,'parent_two_business_zip_address_span')">
+                                                        <span id="parent_two_business_zip_address_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers].</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Business address end -->
+                                            <div class="row m-1 mb-4">
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="parent_two_business_cell_number" class="form-label"><b>CELL NUMBER</b>
+                                                        </label>
+                                                        <input type="text" class="form-control " aria-label="Telephone Number"
+                                                            id="parent_two_business_cell_number" name="parent_two_business_cell_number"
+                                                            onchange="validatePhone(this,'parent_two_business_cell_number_span')">
+                                                        <span id="parent_two_business_cell_number_span" style="color:red; display:none">
+                                                            Enter valid input [only numbers,+,-,()].</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="form-group">
+                                                        <label for="parent_two_email" class="form-label"><b>EMAIL ADDRESS</b>
+                                                        </label>
+                                                        <input type="text" class="form-control " id="parent_two_email"
+                                                            name="parent_two_email"
+                                                            onchange="emailValidation(this,'parent_two_email_span')">
+                                                        <span id="parent_two_email_span" style="color:red; display:none">
+                                                            Enter valid input [should be in @ and .].</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Business info end-->
+                                            <div class="text-center">
+                                                <button class="save-btn" id="parent_info">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>    
+                            </div>
                                 <!--Emergency Contact-->
                                 <div class="accordion-item">
                                     

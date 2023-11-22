@@ -54,7 +54,7 @@ function saveForm() {
         data: json,
         success: function (response) {
             alert(response.message)
-            window.location.reload();
+            // window.location.reload();
         },
         error: function (xhr, status, error) {
             console.log(error);

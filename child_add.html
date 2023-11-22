@@ -46,6 +46,9 @@
             .hide {
                 display: none;
             }
+            .display{
+                display: block;
+            }
         </style>
     </head>
     <body>
@@ -357,7 +360,7 @@
                                                         <label for="dob" class="form-label"><b>BIRTH DATE
                                                                 </b>
                                                         </label>
-                                                        <input name="dob" type="date" maxlength="50" class="form-control "
+                                                        <input name="dob" type="date" maxlength="50" class="form-control dob"
                                                             id="dob" onclick="dateValidation('dob')">
                                                     </div>
                                                 </div>
@@ -803,7 +806,7 @@
                                             </div>
                                         </div>
                                     </div>    
-                            </div>
+                                </div>
                                 <!--Emergency Contact-->
                                 <div class="accordion-item">
                                     
@@ -3607,6 +3610,9 @@
         </script>
 
         <script>
+             var formdiv = document.getElementById('formdiv');
+            //  formdiv.style.display = 'none';
+             var addChildDiv = document.getElementById('addChildDiv');
             $(document).ready(function () {
           
                 $("#showDiv").on("click", function (e) {
@@ -3619,12 +3625,15 @@
                 });
             });
             function divShow(){
-                let addChildDiv = document.getElementById('addChildDiv');
+             
                 if(addChildDiv){
                     addChildDiv.style.display = 'block';
+                    formdiv.classList.add('hide');
                 }else{
                     addChildDiv.style.display = 'none';
+                    formdiv.classList.remove('hide');
                 }
+                // formdiv.classList.remove('hide');
             }
             // Function to submit the form data
             function submitForm() {
@@ -3637,7 +3646,6 @@
                 localStorage.setItem('child_first_name', obj.child_first_name);
                 localStorage.setItem('child_last_name', obj.child_last_name);
                 localStorage.setItem('dob', obj.dob);
-                console.log(obj);
                 $.ajax({
                     url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/add",
                     type: "POST",
@@ -3645,7 +3653,6 @@
                     data: JSON.stringify(obj),
                     success: function (response) {
                         alert(response.message);
-                        console.log(response.message);
                         window.location.reload();
                     },
                     error: function (xhr, status, error) {
@@ -3665,14 +3672,16 @@
     <!--Popover End-->
 
     <script>
-         var formdiv = document.getElementById('formdiv');
+        
         
         function checking(editID){
-            formdiv.classList.remove('hide');
+           
+            // formdiv.classList.add('display');
             // formdiv.style.display = "block";
             // let editID = window.location.search.slice(1);
             if(editID != ''){
-             
+                formdiv.classList.remove('hide');
+                addChildDiv.style.display = 'none';
                 //for waking up the aws lambda server   
                 $.ajax({
                     url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
@@ -3686,9 +3695,6 @@
                         let childMedicalcare;
                         let childParentAgreementOne;
                         let statuscall;
-
-                        console.log(response.child_first_name);
-                        console.log(response.child_last_name);
                         // let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                         //      parentFinalAgreement.disabled = false;
                         // if (typeof response.child_full_name !== "undefined")
@@ -3700,7 +3706,7 @@
                         if (typeof response.nick_name !== "undefined")
                             document.getElementsByName('nick_name')[0].value = response.nick_name;
                         if (typeof response.dob !== "undefined")
-                            document.getElementsByName('dob')[0].value = response.dob;
+                            document.getElementsByClassName('dob')[0].value = response.dob;
                         if (typeof response.primary_language !== "undefined")
                             document.getElementsByName('primary_language')[0].value = response.primary_language;
                         if (typeof response.school_age_child_school !== "undefined")
@@ -3718,7 +3724,7 @@
                             document.getElementById('gender3').checked = true;
                         }
 
-                        if(typeof response.child_full_name !== "undefined" && typeof response.nick_name !== "undefined" 
+                        if(typeof response.child_first_name !== "undefined" && typeof response.child_last_name !== "undefined" && typeof response.nick_name !== "undefined" 
                         && typeof response.dob !== "undefined" &&  typeof response.primary_language !== "undefined"
                         && typeof response.school_age_child_school !== "undefined" &&  typeof response.gender !== "undefined"){
                             document.querySelector('.childdetails-tick').style.display = 'block';
@@ -3774,7 +3780,53 @@
                             document.querySelector('.parentdetails-circle').style.display = 'block';
                             childparentInfo = false;
                         }
-                        console.log(response.child_emergency_contact_name);
+
+                        if (typeof response.parent_two_name !== "undefined")
+                            document.getElementsByName('parent_two_name')[0].value = response.parent_two_name;
+                        if (typeof response.parent_two_street_address !== "undefined")
+                            document.getElementsByName('parent_two_street_address')[0].value = response.parent_two_street_address;
+                        if (typeof response.parent_two_city_address !== "undefined")
+                            document.getElementsByName('parent_two_city_address')[0].value = response.parent_two_city_address;
+                        if (typeof response.parent_two_state_address !== "undefined")
+                            document.getElementsByName('parent_two_state_address')[0].value = response.parent_two_state_address;
+                        if (typeof response.parent_two_zip_address !== "undefined")
+                            document.getElementsByName('parent_two_zip_address')[0].value = response.parent_two_zip_address;
+                        if (typeof response.parent_two_home_telephone_number !== "undefined")
+                            document.getElementsByName('parent_two_home_telephone_number')[0].value = response.parent_two_home_telephone_number;
+                        if (typeof response.parent_two_business_name !== "undefined")
+                            document.getElementsByName('parent_two_business_name')[0].value = response.parent_two_business_name;
+                        if (typeof response.parent_two_work_hours !== "undefined")
+                            document.getElementsByName('parent_two_work_hours')[0].value = response.parent_two_work_hours;
+                        if (typeof response.parent_two_business_telephone_number !== "undefined")
+                            document.getElementsByName('parent_two_business_telephone_number')[0].value = response.parent_two_business_telephone_number;
+                        if (typeof response.parent_two_business_street_address !== "undefined")
+                            document.getElementsByName('parent_two_business_street_address')[0].value = response.parent_two_business_street_address;
+                        if (typeof response.parent_two_business_city_address !== "undefined")
+                            document.getElementsByName('parent_two_business_city_address')[0].value = response.parent_two_business_city_address;
+                        if (typeof response.parent_two_business_state_address !== "undefined")
+                            document.getElementsByName('parent_two_business_state_address')[0].value = response.parent_two_business_state_address;
+                        if (typeof response.parent_two_business_zip_address !== "undefined")
+                            document.getElementsByName('parent_two_business_zip_address')[0].value = response.parent_two_business_zip_address;
+                        if (typeof response.parent_two_business_cell_number !== "undefined")
+                            document.getElementsByName('parent_two_business_cell_number')[0].value = response.parent_two_business_cell_number;
+                        if (typeof response.parent_two_parent_two_email_two !== "undefined")
+                            document.getElementsByName('parent_two_parent_two_email_two')[0].value = response.parent_two_parent_two_email_two;
+
+                        if(typeof response.parent_two_name !== "undefined" && typeof response.parent_two_street_address !== "undefined" 
+                        && typeof response.parent_two_city_address !== "undefined" &&  typeof response.parent_two_state_address !== "undefined"
+                        && typeof response.parent_two_zip_address !== "undefined" &&  typeof response.parent_two_home_telephone_number !== "undefined"
+                        && typeof response.parent_two_business_name !== "undefined" &&  typeof response.parent_two_work_hours !== "undefined"
+                        && typeof response.parent_two_business_telephone_number !== "undefined" &&  typeof response.parent_two_business_street_address !== "undefined"
+                        &&  typeof response.parent_two_business_city_address !== "undefined" &&  typeof response.parent_two_business_zip_address !== "undefined"
+                        &&  typeof response.parent_two_business_cell_number !== "undefined" &&  typeof response.parent_email_two !== "undefined"){
+                            document.querySelector('.parentdetails-tick').style.display = 'block';
+                            childparentInfo = true;
+                        }else{
+                            document.querySelector('.parentdetails-circle').style.display = 'block';
+                            childparentInfo = false;
+                        }
+
+
                         if (typeof response.child_emergency_contact_name !== "undefined")
                             document.getElementsByName('child_emergency_contact_name')[0].value = response.child_emergency_contact_name;
                         if (typeof response.child_emergency_contact_full_address !== "undefined")
@@ -4354,7 +4406,6 @@
                         }
 
                         let pickupPassword;
-                        console.log(response.child_password_pick_up_password_form);
                         if (typeof response.child_password_pick_up_password_form !== "undefined")
                             document.getElementsByName('child_password_pick_up_password_form')[0].value = response.child_password_pick_up_password_form;
                         if( response.do_you_agree_this_pick_up_password_form == "on" ){
@@ -4374,7 +4425,6 @@
                         }
 
                         let photoVideoPermission;
-                        console.log(response.photo_usage_photo_video_permission_form);
                         // if (typeof response.photo_usage_photo_video_permission_form  !== "undefined"){
                         //         $('#photo_usage_photo_video_permission_form').append($("<option></option>").attr("value", response.photo_usage_photo_video_permission_form).text(response.photo_usage_photo_video_permission_form));
                         //     }
@@ -4566,12 +4616,10 @@
                             photoVideoPermission== true && securityPolicy == true && medicaltransportationWeiver== true &&
                             healthPolicy== true && outsideWeiver== true &&
                             enrollmentDetails== true && authorizationDetails== true ){
-                                console.log('dfvbsdf');
                             let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                             parentFinalAgreement.classList.remove('disabled');
 
                         }else{
-                            console.log('elseee');
                             let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                             parentFinalAgreement.classList.add('disabled')
                         }
@@ -4579,6 +4627,8 @@
                 });
             }else{
                 formdiv.classList.add('hide');
+                // formdiv.classList.remove('display');
+                addChildDiv.style.display = 'block';
                 // formdiv.style.display = "none";
             }
         }

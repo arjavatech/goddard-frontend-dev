@@ -92,7 +92,8 @@ function loadDynamicCards() {
 
         if (on_process === true) {
             // Card is fulfilled
-            anchor.href =  `allforms.html?${child_response[i].child_id}`;
+            // anchor.href =  `allforms.html?${child_response[i].child_id}`;
+            anchor.setAttribute('onclick',`checking(${child_response[i].child_id})`);
             card.classList.add('card', 'dashboard_card_style_on_process');
         } else {
             // Need to be fulfilled

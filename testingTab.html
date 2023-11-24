@@ -21,6 +21,13 @@
         <script src="js/admission_form_validation.js"></script>
         <!-- <script type="module" src='/js/script.js'></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+        <!-- Add jQuery CDN link -->
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        <!-- Add jQuery UI CDN link -->
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <style>
             .accordion-button:not(.collapsed)::after {
                 background-image: url('image/down_white.png');
@@ -41,6 +48,17 @@
             .hide {
                 display: none;
             }
+            .tab {
+                padding: 10px;
+                background-color: #eee;
+                margin-right: 5px;
+                cursor: pointer;
+            }
+            .addtab
+            {
+                height: 40px;
+                width: auto;
+            }
         </style>
     </head>
     <body>
@@ -53,12 +71,18 @@
         </nav>
         <!-- Navigation Bar End -->
 
+       
         <!-- Welcome Screen -->
         <div class="p-3">
             <h2 class="parent_dashboard_title h2 pt-4 text-center">Parent Dashboard</h2>
             <!-- Welcome Text -->
             <h4 class="h4 pt-2 text-center" id="welcomeText" name="welcomeText"></h4>
             <div class="row" id="additionalHtmlContainer">
+                <!-- <div id="tabs">
+                    <ul>
+                        <input class="addtab" type="button" id="addTab" value="+ Add Tab" />
+                    </ul>
+                </div> -->
                 <!-- Dynamic Child Cards -->
                 <div id="dynamicChildCards" class="row">
                     <!-- Add Child -->
@@ -76,7 +100,15 @@
                                                     d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
                                         </svg>
                                     </h5>
-                                    <h5 class="text-center dashboard_card_icon h5">Add Child</h5>
+                                    <h5 class="text-center dashboard_card_icon h5">Add Child
+                                        <!-- <div id="tabs">
+                                            <ul>
+                                                <input class="addtab" type="button" id="addTab" value="+ Add Tab" />
+                                                
+                                            </ul>
+                                        </div> -->
+                                       
+                                    </h5>
                                 </div>
                             </div>
                         </a>
@@ -3655,10 +3687,8 @@
                 return new bootstrap.Popover(popoverTriggerEl)
             })
         </script>
-
-    <!--Popover End-->
-
-    <script>
+        <!--Popover End-->
+        <script>
         function checking(editID){
             var element = document.getElementById("childInfo");
             element.reset()
@@ -4619,5 +4649,30 @@
             }
         }
         </script>
+          <script>
+            $(function () {
+                $('#addTab').click(function () {
+                    var num_tabs = $('div#tabs ul li.tab').length + 1;  
+                    console.log(num_tabs);      
+                    $('div#tabs ul').append(
+                        '<li class="tab"><a href="#tab-' + num_tabs + '">Section ' + num_tabs + '</a></li>');
+            
+                    $('div#tabs').append(
+                        '<div id="tab-' + num_tabs + '"></div>');
+                    $('#tabs').tabs("refresh");
+                    $('#tabs').tabs("option", "active", -1); //makes the new tab active
+            
+                    // insertContent("asdf");
+                });
+            });
+            
+            //Insert content into the currently selected tab
+            function insertContent(content) {
+                var activeTab = $("#tabs").tabs('option', 'active');   
+                activeTab += 1;   
+                $("#tab-" + activeTab).append(content);
+            }
+            $('#tabs').tabs();
+          </script>
     </body>
 </html>

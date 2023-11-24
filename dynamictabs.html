@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Add jQuery CDN link -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <!-- Add jQuery UI CDN link -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <title>Dynamic Tabs</title>
+  <style>
+    /* Add your styles here */
+    /* .tabs {
+      display: flex;
+      list-style: none;
+    } */
+    .tab {
+      padding: 10px;
+      background-color: #eee;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    /* .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    } */
+    .addtab
+    {
+        height: 40px;
+        width: auto;
+    }
+  </style>
+</head>
+<body>
+   
+    <div id="tabs">
+        <ul>
+            <input class="addtab" type="button" id="addTab" value="+ Add Tab" />
+        </ul>
+        <!-- <div id="tab-1">Section Title:
+            <input class="sectionTitle" />
+            <br />
+            <p>Paragraph text 1</p>
+        </div>
+        <div id="tab-2">Section Title:
+            <input class="sectionTitle" />
+            <br />
+            <p>Paragraph text 2</p>
+        </div>
+        <div id="tab-3">Section Title:
+            <input class="sectionTitle" />
+            <br />
+            <p>Paragraph text 3</p>
+        </div> -->
+    </div>
+
+  <script>
+    $(function () {
+        $('#addTab').click(function () {
+            var num_tabs = $('div#tabs ul li.tab').length + 1;  
+            console.log(num_tabs);      
+            $('div#tabs ul').append(
+                '<li class="tab"><a href="#tab-' + num_tabs + '">Section ' + num_tabs + '</a></li>');
+    
+            $('div#tabs').append(
+                '<div id="tab-' + num_tabs + '"></div>');
+            $('#tabs').tabs("refresh");
+            $('#tabs').tabs("option", "active", -1); //makes the new tab active
+    
+            // insertContent("asdf");
+        });
+    });
+    
+    //Insert content into the currently selected tab
+    function insertContent(content) {
+        var activeTab = $("#tabs").tabs('option', 'active');   
+        activeTab += 1;   
+        $("#tab-" + activeTab).append(content);
+    }
+    $('#tabs').tabs();
+  </script>
+
+  <!-- <button onclick="addTab()">+ Add Tab</button> -->
+</body>
+</html>

@@ -62,12 +62,11 @@
                 <!-- Dynamic Child Cards -->
                 <div id="dynamicChildCards" class="row">
                     <!-- Add Child -->
-                    <div class="col-2 m-3 mt-4" id="showDiv" >
+                    <!-- <div class="col-2 m-3 mt-4" id="showDiv" >
                         <a href="#myBookmark" onclick="goToBookmark()">
                             <div class="card dashboard_card_style">
                                 <div class="card-body pt-3">
                                     <h5 class="card-title text-center dashboard_card_icon">
-                                        <!-- Add Child Icon -->
                                         <svg xmlns="http://www.w3.org/2000/svg" width="60"
                                             height="40" fill="currentColor"
                                             class="bi bi-plus-circle-fill"
@@ -80,7 +79,7 @@
                                 </div>
                             </div>
                         </a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <!-- Add Child End -->
@@ -3586,74 +3585,7 @@
         </div>
         <!--Admission Form End-->
         <script>
-            function goToBookmark() {
-                // Set the hash to the ID of the bookmarked section
-                window.location.href = "#myBookmark";
-    
-                // Add a delay before scrolling to the bookmarked section
-                setTimeout(scrollToBookmark, 2);
-            }
-    
-            function scrollToBookmark() {
-                // Scroll to the bookmarked section
-                var element = document.getElementById("myBookmark");
-                if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                }
-            }
-
-            var formdiv = document.getElementById('formdiv');
-             var addChildDiv = document.getElementById('addChildDiv');
-            $(document).ready(function () {
-                $("#showDiv").on("click", function (e) {
-                    e.preventDefault(); // Prevent the default form submission
-                    divShow();
-                });
-                $("#basic_child_button").on("click", function (e) {
-                    e.preventDefault(); // Prevent the default form submission
-                    submitForm();
-                });
-            });
-            function divShow(){
-                if(addChildDiv){
-                    addChildDiv.style.display = 'block';
-                    formdiv.classList.add('hide');
-                }else{
-                    addChildDiv.style.display = 'none';
-                    formdiv.classList.remove('hide');
-                }
-                // formdiv.classList.remove('hide');
-            }
-
-            // Function to submit the form data
-            function submitForm() {
-                const form = document.getElementById("childBasicForm");
-                const formData = new FormData(form);
-                const obj = Object.fromEntries(formData);
-                const logged_in_email = localStorage.getItem('logged_in_email');
-                obj.primary_parent_email = logged_in_email;
-                obj.on_process = true;
-                localStorage.setItem('child_first_name', obj.child_first_name);
-                localStorage.setItem('child_last_name', obj.child_last_name);
-                localStorage.setItem('dob', obj.dob);
-                $.ajax({
-                    url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/add",
-                    type: "POST",
-                    contentType: "application/json",
-                    data: JSON.stringify(obj),
-                    success: function (response) {
-                        alert(response.message);
-                        window.location.reload();
-                    },
-                    error: function (xhr, status, error) {
-                        alert("failed to submit admission form");
-                    }
-                });
-            }
-            var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-            var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-                return new bootstrap.Popover(popoverTriggerEl)
-            })
+          
         </script>
 
     <!--Popover End-->

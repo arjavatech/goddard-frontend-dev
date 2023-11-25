@@ -13,7 +13,7 @@
     color: #fff !important;
 }
 
-.card_style{
+.card_style, .tab-bg{
     background: #cadffa !important; 
 }
 
@@ -22,27 +22,21 @@
 }
 
 .dashboard_card_style1{
-    width: 200px !important;
-    height: 100px !important;
+    height: 50px !important;
     background: #0F2D52 !important;
-    border-radius: 10px !important;
+    border-radius: 0px !important;
     cursor: pointer;
 }
 
 .dashboard_card_style1:hover{
-    width: 200px !important;
-    height: 100px !important;
-    background: #375b86 !important;
-    border-radius: 10px !important;
-    cursor: pointer;
+    opacity: 0.8;
 }
 
 .dashboard_card_style {
-    width: 200px !important;
-    height: 100px !important;
+    height: 50px !important;
     background: #D8E9FF !important;
     border: 1px solid #0F2D52 !important;
-    border-radius: 10px !important;
+    border-radius: 0px !important;
     cursor: pointer;
 }
 
@@ -51,19 +45,14 @@
 }
 
 .dashboard_card_style_on_process{
-    width: 200px !important;
-    height: 100px !important;
+    height: 50px !important;
     background: #fa6d6d !important;
-    border-radius: 10px !important;
+    border-radius: 0px !important;
     cursor: pointer;
 }
 
 .dashboard_card_style_on_process:hover{
-    width: 200px !important;
-    height: 100px !important;
-    background: #cd5c5c !important;
-    border-radius: 10px !important;
-    cursor: pointer;
+    opacity: 0.8;
 }
 
 

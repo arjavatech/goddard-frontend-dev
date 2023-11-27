@@ -145,10 +145,8 @@
                                                             <div class="panel-footer">
                                                                 <div class="form-group clearfix m-3">
                                                                     <div class="text-center">
-                                                                        
-                                                                            <button class="cancel-btn">Cancel</button>
-                                                                            <button href="javascript:;" class="submit-btn" id="basic_child_button">Submit</button>
-                                                                        
+                                                                        <button class="cancel-btn">Cancel</button>
+                                                                        <button href="javascript:;" class="submit-btn" id="basic_child_button">Submit</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -3645,10 +3643,18 @@
                         if(typeof response.child_first_name !== "undefined" && typeof response.child_last_name !== "undefined" && typeof response.nick_name !== "undefined" 
                         && typeof response.dob !== "undefined" &&  typeof response.primary_language !== "undefined"
                         && typeof response.school_age_child_school !== "undefined" &&  typeof response.gender !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.medicalcare-tick').style.display = 'none';
+                            document.querySelector('.medicalcare-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childdetails-tick').style.display = 'block';
                             childbasicInfo = true;
                             
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.medicalcare-tick').style.display = 'none';
+                            document.querySelector('.medicalcare-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childdetails-circle').style.display = 'block';
                             childbasicInfo = false;
                         }
@@ -3692,9 +3698,17 @@
                         && typeof response.business_telephone_number !== "undefined" &&  typeof response.business_street_address !== "undefined"
                         &&  typeof response.business_city_address !== "undefined" &&  typeof response.business_zip_address !== "undefined"
                         &&  typeof response.business_cell_number !== "undefined" &&  typeof response.parent_email_two !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.medicalcare-tick').style.display = 'none';
+                            document.querySelector('.medicalcare-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.parentdetails-tick').style.display = 'block';
                             childparentInfo = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.medicalcare-tick').style.display = 'none';
+                            document.querySelector('.medicalcare-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.parentdetails-circle').style.display = 'block';
                             childparentInfo = false;
                         }
@@ -3807,9 +3821,17 @@
                         && typeof response.special_diabilities !== "undefined" &&  typeof response.allergies_medication_reaction !== "undefined"
                         && typeof response.additional_info !== "undefined" &&  typeof response.medication !== "undefined"
                         && typeof response.health_insurance !== "undefined" &&  typeof response.policy_number !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.medicalcare-tick').style.display = 'none';
+                            document.querySelector('.medicalcare-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.medicalcare-tick').style.display = 'block';
                             childMedicalcare = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.medicalcare-tick').style.display = 'none';
+                            document.querySelector('.medicalcare-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.medicalcare-circle').style.display = 'block';
                             childMedicalcare = false;
                         }

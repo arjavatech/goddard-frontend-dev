@@ -73,7 +73,7 @@ function loadDynamicCards() {
 
         // Create the elements for child card
         let div = document.createElement('div');
-        div.classList.add('col-2', 'm-3', 'mt-4');
+        div.classList.add('col-2','mt-4');
 
         let anchor = document.createElement('a');
         anchor.classList.add('text-decoration-none');
@@ -89,11 +89,11 @@ function loadDynamicCards() {
         }
 
         let cardBody = document.createElement('div');
-        cardBody.classList.add('card-body', 'pt-4');
+        cardBody.classList.add('card-body');
 
-        let childName = document.createElement('h5');
+        let childName = document.createElement('h6');
         childName.id = child_response[i].child_id;
-        childName.classList.add('text-center', 'dashboard_card_text', 'pt-3', 'h5');
+        childName.classList.add('text-center', 'dashboard_card_text', 'h6');
         childName.innerHTML = child_response[i].child_first_name;
 
         anchor.addEventListener('click', function () {
@@ -113,7 +113,7 @@ function loadDynamicCards() {
 
     // Create "Add Child" button
     let outerDiv = document.createElement('div');
-    outerDiv.classList.add('col-2', 'm-3', 'mt-4');
+    outerDiv.classList.add('col-2','m-4');
     outerDiv.setAttribute('id', 'showDiv');
     outerDiv.onclick = function(){
         divShow();
@@ -129,15 +129,15 @@ function loadDynamicCards() {
     card.classList.add('card', 'dashboard_card_style');
 
     let cardBody = document.createElement('div');
-    cardBody.classList.add('card-body', 'pt-3');
+    cardBody.classList.add('card-body');
 
-    let iconH5 = document.createElement('h5');
-    iconH5.classList.add('card-title', 'text-center', 'dashboard_card_icon');
+    let iconH5 = document.createElement('h6');
+    iconH5.classList.add('card-title', 'dashboard_card_icon');
 
     let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
     svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-    svg.setAttribute('width', '60');
-    svg.setAttribute('height', '40');
+    svg.setAttribute('width', '30');
+    svg.setAttribute('height', '30');
     svg.setAttribute('fill', 'currentColor');
     svg.setAttribute('class', 'bi bi-plus-circle-fill');
     svg.setAttribute('viewBox', '0 0 17 17');
@@ -145,8 +145,8 @@ function loadDynamicCards() {
     let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z');
 
-    let textH5 = document.createElement('h5');
-    textH5.classList.add('text-center', 'dashboard_card_icon', 'h5');
+    let textH5 = document.createElement('h6');
+    textH5.classList.add('text-center', 'dashboard_card_icon', 'h6');
     textH5.textContent = 'Add Child';
 
     iconH5.appendChild(svg);

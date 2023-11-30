@@ -1,14 +1,6 @@
 'use strict';
 
 let title, globalBase64;
-AWS.config.update({
-        accessKeyId: 'AKIATNZ4QAI6MX5LH34Q',
-        secretAccessKey: '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',
-        region: 'us-west-2'
-    });
-
-const s3 = new AWS.S3();
-
 let obj = {
     "from": "noreply.goddard@gmail.com",
     "to": "noreply.goddard@gmail.com",
@@ -33,18 +25,14 @@ async function emailSend(child_full_name,parent_name,
         obj.to = email_to;
         let randomID = Math.floor(Date.now() / 1000);
         obj.invite_id =randomID;
-        console.log(randomID);
         obj.subject = 'Invite parents';
         let messageData = 'https://arjavatech.github.io/goddard-frontend-dev/signup.html';
         obj.body = `${messageData}?id=${randomID}`;
-        console.log(obj.body);
         obj.attachmentName ="AttachmentForm";
         obj.attachmentKey ="attachment";
         const json =JSON.stringify(obj);
         console.log(json);
 
-        // const attachmentKey = await uploadBase64PDFToS3( title + ' CHILD_ID');
-        // obj.attachmentKey = attachmentKey;
         $.ajax({
             url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/email/send",
             type: "POST",

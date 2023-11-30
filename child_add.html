@@ -185,7 +185,7 @@
                                     data-bs-parent="#accordionExampleone">
                                     <div class="accordion-body accordion_body_style">
         
-                                        <li class="nav-item" >
+                                        <!-- <li class="nav-item" >
                                             <a class="nav-link active" data-bs-toggle="pill" 
                                                 href="#childinformation">
                                                 <span> Child Information
@@ -194,7 +194,7 @@
                                                 </span>
                                             </a>
                                         </span> 
-                                        </li>
+                                        </li> -->
                                         <li class="nav-item">
                                             <a class="nav-link" data-bs-toggle="pill" href="#childandfamilyhistory">
                                                 <span>Child and Family History
@@ -3606,7 +3606,7 @@
                 addChildDiv.style.display = 'none';
                 //for waking up the aws lambda server   
                 $.ajax({
-                    url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
+                    url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/fetch/${editID}`,
                     type: 'GET',
                     //this is used to get the response and return the result
                     success: function(response){
@@ -3651,16 +3651,16 @@
                         && typeof response.dob !== "undefined" &&  typeof response.primary_language !== "undefined"
                         && typeof response.school_age_child_school !== "undefined" &&  typeof response.gender !== "undefined"){
                             // Reset the display for both images
-                            document.querySelector('.medicalcare-tick').style.display = 'none';
-                            document.querySelector('.medicalcare-circle').style.display = 'none';
+                            document.querySelector('.childdetails-tick').style.display = 'none';
+                            document.querySelector('.childdetails-circle').style.display = 'none';
                             // Update the display for the clicked card
                             document.querySelector('.childdetails-tick').style.display = 'block';
                             childbasicInfo = true;
                             
                         }else{
                             // Reset the display for both images
-                            document.querySelector('.medicalcare-tick').style.display = 'none';
-                            document.querySelector('.medicalcare-circle').style.display = 'none';
+                            document.querySelector('.childdetails-tick').style.display = 'none';
+                            document.querySelector('.childdetails-circle').style.display = 'none';
                             // Update the display for the clicked card
                             document.querySelector('.childdetails-circle').style.display = 'block';
                             childbasicInfo = false;
@@ -3706,15 +3706,15 @@
                         &&  typeof response.business_city_address !== "undefined" &&  typeof response.business_zip_address !== "undefined"
                         &&  typeof response.business_cell_number !== "undefined" &&  typeof response.parent_email_two !== "undefined"){
                             // Reset the display for both images
-                            document.querySelector('.medicalcare-tick').style.display = 'none';
-                            document.querySelector('.medicalcare-circle').style.display = 'none';
+                            document.querySelector('.parentdetails-tick').style.display = 'none';
+                            document.querySelector('.parentdetails-circle').style.display = 'none';
                             // Update the display for the clicked card
                             document.querySelector('.parentdetails-tick').style.display = 'block';
                             childparentInfo = true;
                         }else{
                             // Reset the display for both images
-                            document.querySelector('.medicalcare-tick').style.display = 'none';
-                            document.querySelector('.medicalcare-circle').style.display = 'none';
+                            document.querySelector('.parentdetails-tick').style.display = 'none';
+                            document.querySelector('.parentdetails-circle').style.display = 'none';
                             // Update the display for the clicked card
                             document.querySelector('.parentdetails-circle').style.display = 'block';
                             childparentInfo = false;
@@ -3779,9 +3779,17 @@
 
                         if(typeof response.child_emergency_contact_name !== "undefined" && typeof response.child_emergency_contact_full_address !== "undefined" 
                         && typeof response.child_emergency_contact_relationship !== "undefined" &&  typeof response.child_emergency_contact_telephone_number !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.emergencycontact-tick').style.display = 'none';
+                            document.querySelector('.emergencycontact-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.emergencycontact-tick').style.display = 'block';
                             childEmergencyContact = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.emergencycontact-tick').style.display = 'none';
+                            document.querySelector('.emergencycontact-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.emergencycontact-circle').style.display = 'block';
                             childEmergencyContact = false;
                         }
@@ -3850,23 +3858,41 @@
                             document.getElementsByName('administration_first_aid_procedures')[0].value = response.administration_first_aid_procedures;
                         if( response.agree_all_above_information_is_correct == "on" ){
                             document.getElementById('agree_all_above_information_is_correct').checked = true;
-                            childParentAgreementOne = true;
+                           
                         }else{
                             document.getElementById('agree_all_above_information_is_correct').checked = false;
-                            childParentAgreementOne = false;
+                           
                         }
                         if(typeof response.obtaining_emergency_medical_care !== "undefined" && typeof response.administration_first_aid_procedures !== "undefined" 
                         && typeof response.agree_all_above_information_is_correct !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.parentagreement-tick').style.display = 'none';
+                            document.querySelector('.parentagreement-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.parentagreement-tick').style.display = 'block';
+                            childParentAgreementOne = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.parentagreement-tick').style.display = 'none';
+                            document.querySelector('.parentagreement-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.parentagreement-circle').style.display = 'block';
+                            childParentAgreementOne = false;
                         }
 
                         if(childbasicInfo == true && childparentInfo == true && childMedicalcare == true && childEmergencyContact == true
                         && childParentAgreementOne == true){
+                            // Reset the display for both images
+                            document.querySelector('.childinfo-tick').style.display = 'none';
+                            document.querySelector('.childinfo-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childinfo-tick').style.display = 'block';
                             statuscall = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.childinfo-tick').style.display = 'none';
+                            document.querySelector('.childinfo-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childinfo-circle').style.display = 'block';
                             statuscall = false;
                         }
@@ -3884,9 +3910,17 @@
                             document.getElementsByName('dental_exam_last_date')[0].value = response.dental_exam_last_date;
 
                         if(typeof response.physical_exam_last_date !== "undefined" && typeof response.dental_exam_last_date !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.childhistoryDetails-tick').style.display = 'none';
+                            document.querySelector('.childhistoryDetails-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childhistoryDetails-tick').style.display = 'block';
                             childHistory = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.childhistoryDetails-tick').style.display = 'none';
+                            document.querySelector('.childhistoryDetails-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childhistoryDetails-circle').style.display = 'block';
                             childHistory = false;
                         }
@@ -3931,9 +3965,17 @@
                         && typeof response.rheumatic_fever !== "undefined" &&  typeof response.seizures_convulsions !== "undefined"
                         &&  typeof response.serious_injuries_accidents !== "undefined" &&  typeof response.surgeries !== "undefined"
                         &&  typeof response.vision_problems !== "undefined" &&  typeof response.medical_other !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.medicalhistory-tick').style.display = 'none';
+                            document.querySelector('.medicalhistory-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.medicalhistory-tick').style.display = 'block';
                             medicalHistory = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.medicalhistory-tick').style.display = 'none';
+                            document.querySelector('.medicalhistory-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.medicalhistory-circle').style.display = 'block';
                             medicalHistory = false;
                         }
@@ -3965,9 +4007,17 @@
                         && typeof response.birth_weight_oz !== "undefined" &&  typeof response.complications !== "undefined"
                         && typeof response.bottle_fed !== "undefined" &&  typeof response.breast_fed !== "undefined"
                         && typeof response.other_siblings_name !== "undefined" &&  typeof response.other_siblings_age !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.pregnancyhistory-tick').style.display = 'none';
+                            document.querySelector('.pregnancyhistory-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.pregnancyhistory-tick').style.display = 'block';
                             pregnancyHistory = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.pregnancyhistory-tick').style.display = 'none';
+                            document.querySelector('.pregnancyhistory-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.pregnancyhistory-circle').style.display = 'block';
                             pregnancyHistory = false;
                         }
@@ -4029,9 +4079,17 @@
                         || typeof response.family_history_high_blood_pressure !== "undefined" ||  typeof response.family_history_vision_problems !== "undefined"
                         || typeof response.family_history_diabetes !== "undefined" ||  typeof response.family_history_hyperactivity !== "undefined"
                         || typeof response.family_history_epilepsy !== "undefined" || typeof response.no_illnesses_for_this_child !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.familyhistory-tick').style.display = 'none';
+                            document.querySelector('.familyhistory-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.familyhistory-tick').style.display = 'block';
                             familyHistroy = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.familyhistory-tick').style.display = 'none';
+                            document.querySelector('.familyhistory-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.familyhistory-circle').style.display = 'block';
                             familyHistroy = false;
                         }
@@ -4061,9 +4119,17 @@
                         && typeof response.relationship_with_siblings !== "undefined" &&  typeof response.relationship_with_extended_family !== "undefined"
                         && typeof response.fears_conflicts !== "undefined" &&  typeof response.child_response_frustration !== "undefined"
                         && typeof response.favorite_activities !== "undefined" ){
+                            // Reset the display for both images
+                            document.querySelector('.socialbehavior-tick').style.display = 'none';
+                            document.querySelector('.socialbehavior-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.socialbehavior-tick').style.display = 'block';
                             socialBehavior = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.socialbehavior-tick').style.display = 'none';
+                            document.querySelector('.socialbehavior-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.socialbehavior-circle').style.display = 'block';
                             socialBehavior = false;
                         }
@@ -4086,9 +4152,17 @@
                         && typeof response.hours_of_television_daily !== "undefined" &&  typeof response.language_used_at_home !== "undefined"
                         && typeof response.changes_at_home_situation !== "undefined" &&  typeof response.educational_expectations_of_child !== "undefined"
                         ){
+                            // Reset the display for both images
+                            document.querySelector('.environmentalfactor-tick').style.display = 'none';
+                            document.querySelector('.environmentalfactor-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.environmentalfactor-tick').style.display = 'block';
                             environmentalFactor = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.environmentalfactor-tick').style.display = 'none';
+                            document.querySelector('.environmentalfactor-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.environmentalfactor-circle').style.display = 'block';
                             environmentalFactor = false;
                         }
@@ -4101,9 +4175,17 @@
                         }
 
                         if(typeof response.agree_all_above_info_is_correct !== "undefined" ){
+                            // Reset the display for both images
+                            document.querySelector('.parentagreement-two-tick').style.display = 'none';
+                            document.querySelector('.parentagreement-two-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.parentagreement-two-tick').style.display = 'block';
                             parentAgreementTwo = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.parentagreement-two-tick').style.display = 'none';
+                            document.querySelector('.parentagreement-two-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.parentagreement-two-circle').style.display = 'block';
                             parentAgreementTwo = false;
                         }
@@ -4111,9 +4193,17 @@
                         if(childHistory == true && medicalHistory== true && pregnancyHistory== true &&
                         familyHistroy== true && socialBehavior == true && environmentalFactor== true &&
                         parentAgreementTwo== true ){
+                            // Reset the display for both images
+                            document.querySelector('.childhistory-tick').style.display = 'none';
+                            document.querySelector('.childhistory-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childhistory-tick').style.display = 'block';
                             statuscall = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.childhistory-tick').style.display = 'none';
+                            document.querySelector('.childhistory-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childhistory-circle').style.display = 'block';
                             statuscall = false;
                         }
@@ -4127,9 +4217,17 @@
                             immunizationInstruction = false;
                         }
                         if(immunizationInstruction == true){
+                            // Reset the display for both images
+                            document.querySelector('.immunization-tick').style.display = 'none';
+                            document.querySelector('.immunization-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.immunization-tick').style.display = 'block';
                             statuscall = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.immunization-tick').style.display = 'none';
+                            document.querySelector('.immunization-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.immunization-circle').style.display = 'block';
                             statuscall = false;
                         }
@@ -4164,9 +4262,17 @@
                         && typeof response.childcare_before !== "undefined" && typeof response.reason_for_childcare_before !== "undefined" 
                         && typeof response.what_child_interests !== "undefined" &&  typeof response.drop_off_time !== "undefined"
                         && typeof response.pick_up_time !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.childprofiledetail-tick').style.display = 'none';
+                            document.querySelector('.childprofiledetail-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childprofiledetail-tick').style.display = 'block'; 
                             childProfile = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.childprofiledetail-tick').style.display = 'none';
+                            document.querySelector('.childprofiledetail-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childprofiledetail-circle').style.display = 'block';
                             childProfile = false;
                         }
@@ -4195,9 +4301,17 @@
 
                         if(typeof response.restricted_diet !== "undefined" && typeof response.eat_own !== "undefined" 
                         && typeof response.favorite_foods !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.nutrition-tick').style.display = 'none';
+                            document.querySelector('.nutrition-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.nutrition-tick').style.display = 'block'; 
                             nutritionDetails = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.nutrition-tick').style.display = 'none';
+                            document.querySelector('.nutrition-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.nutrition-circle').style.display = 'block';
                             nutritionDetails = false;
                         }
@@ -4226,9 +4340,17 @@
 
                         if(typeof response.rest_in_the_middle_day !== "undefined" && typeof response.rest_routine !== "undefined" 
                         && typeof response.toilet_trained !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.restdetails-tick').style.display = 'none';
+                            document.querySelector('.restdetails-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.restdetails-tick').style.display = 'block'; 
                             restDetails = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.restdetails-tick').style.display = 'none';
+                            document.querySelector('.restdetails-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.restdetails-circle').style.display = 'block';
                             restDetails = false;
                         }
@@ -4327,9 +4449,17 @@
                         && typeof response.communicate_their_needs !== "undefined" &&  typeof response.any_medication !== "undefined"
                         && typeof response.utilize_special_equipment !== "undefined" &&  typeof response.significant_periods !== "undefined"
                         && typeof response.desire_any_accommodations !== "undefined" &&  typeof response.additional_information !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.medicaldetails-tick').style.display = 'none';
+                            document.querySelector('.medicaldetails-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.medicaldetails-tick').style.display = 'block'; 
                             medicalDetails = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.medicaldetails-tick').style.display = 'none';
+                            document.querySelector('.medicaldetails-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.medicaldetails-circle').style.display = 'block';
                             medicalDetails = false;
                         }
@@ -4340,16 +4470,32 @@
                             document.getElementById('do_you_agree_this').checked = false;
                         }
                         if(typeof response.do_you_agree_this !== "undefined"){
+                             // Reset the display for both images
+                             document.querySelector('.parentagreement-three-tick').style.display = 'none';
+                            document.querySelector('.parentagreement-three-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.parentagreement-three-tick').style.display = 'block'; 
                             parentAgreementThree = true;
                         }else{
+                             // Reset the display for both images
+                             document.querySelector('.parentagreement-three-tick').style.display = 'none';
+                            document.querySelector('.parentagreement-three-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.parentagreement-three-circle').style.display = 'block';
                             parentAgreementThree = false;
                         }
                         if(childProfile == true && nutritionDetails== true && restDetails== true &&
                         medicalDetails== true && parentAgreementThree == true ){
+                            // Reset the display for both images
+                            document.querySelector('.childprofile-tick').style.display = 'none';
+                            document.querySelector('.childprofile-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childprofile-tick').style.display = 'block'; 
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.childprofile-tick').style.display = 'none';
+                            document.querySelector('.childprofile-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childprofile-circle').style.display = 'block';
                         }
 
@@ -4364,9 +4510,17 @@
 
                         if(typeof response.child_password_pick_up_password_form !== "undefined" && 
                             typeof response.do_you_agree_this_pick_up_password_form !== "undefined"){
+                                // Reset the display for both images
+                            document.querySelector('.childpickup-tick').style.display = 'none';
+                            document.querySelector('.childpickup-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childpickup-tick').style.display = 'block'; 
                             pickupPassword = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.childpickup-tick').style.display = 'none';
+                            document.querySelector('.childpickup-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childpickup-circle').style.display = 'block';
                             pickupPassword = false;
                             
@@ -4393,9 +4547,17 @@
                         if(typeof response.photo_usage_photo_video_permission_form !== "undefined" && 
                             typeof response.photo_permission_agree_group_photos_electronic !== "undefined" && 
                             typeof response.do_you_agree_this_photo_video_permission_form !== "undefined"){
+                                // Reset the display for both images
+                            document.querySelector('.childphotopermission-tick').style.display = 'none';
+                            document.querySelector('.childphotopermission-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childphotopermission-tick').style.display = 'block'; 
                             photoVideoPermission = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.childphotopermission-tick').style.display = 'none';
+                            document.querySelector('.childphotopermission-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childphotopermission-circle').style.display = 'block';
                             photoVideoPermission = false;
                         }
@@ -4408,9 +4570,17 @@
                             document.getElementById('do_you_agree_this_security_release_policy_form').checked = false;
                         }
                         if(typeof response.do_you_agree_this_security_release_policy_form !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.childsecurity-tick').style.display = 'none';
+                            document.querySelector('.childsecurity-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childsecurity-tick').style.display = 'block'; 
                             securityPolicy = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.childsecurity-tick').style.display = 'none';
+                            document.querySelector('.childsecurity-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childsecurity-circle').style.display = 'block';
                             securityPolicy = false;
                         }
@@ -4426,9 +4596,17 @@
                         }
                         if(typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined"
                         && typeof response.do_you_agree_this_medical_transportation_waiver !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.childmedical-tick').style.display = 'none';
+                            document.querySelector('.childmedical-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childmedical-tick').style.display = 'block'; 
                             medicaltransportationWeiver = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.childmedical-tick').style.display = 'none';
+                            document.querySelector('.childmedical-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childmedical-circle').style.display = 'block';
                             medicaltransportationWeiver = false;
                         }
@@ -4441,9 +4619,17 @@
                             document.getElementById('do_you_agree_this_health_policies').checked = false;
                         }
                         if(typeof response.do_you_agree_this_health_policies !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.childhealth-tick').style.display = 'none';
+                            document.querySelector('.childhealth-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childhealth-tick').style.display = 'block'; 
                             healthPolicy = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.childhealth-tick').style.display = 'none';
+                            document.querySelector('.childhealth-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childhealth-circle').style.display = 'block';
                             healthPolicy = true;
                         }
@@ -4456,9 +4642,17 @@
                             document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = false;
                         }
                         if(typeof response.outside_waiver_parent_sign_outside_engagements_waiver !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.childoutside-tick').style.display = 'none';
+                            document.querySelector('.childoutside-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childoutside-tick').style.display = 'block'; 
                             outsideWeiver = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.childoutside-tick').style.display = 'none';
+                            document.querySelector('.childoutside-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childoutside-circle').style.display = 'block';
                             outsideWeiver = false;
                         }
@@ -4519,9 +4713,17 @@
                         && typeof response.point_fifteen_initial_here !== "undefined" && typeof response.point_sixteen_initial_here !== "undefined"
                         && typeof response.point_seventeen_initial_here !== "undefined" && typeof response.point_eighteen_initial_here !== "undefined"
                         && typeof response.point_nineteen_initial_here !== "undefined" ){
+                            // Reset the display for both images
+                            document.querySelector('.childenrollment-tick').style.display = 'none';
+                            document.querySelector('.childenrollment-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childenrollment-tick').style.display = 'block'; 
                             enrollmentDetails = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.childenrollment-tick').style.display = 'none';
+                            document.querySelector('.childenrollment-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childenrollment-circle').style.display = 'block';
                             enrollmentDetails = false;
                         }
@@ -4547,9 +4749,17 @@
                         if(typeof response.bank_routing !== "undefined" && typeof response.bank_account !== "undefined"
                         && typeof response.driver_license !== "undefined" && typeof response.state !== "undefined"
                         && typeof response.i !== "undefined"){
+                            // Reset the display for both images
+                            document.querySelector('.childauthorization-tick').style.display = 'none';
+                            document.querySelector('.childauthorization-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childauthorization-tick').style.display = 'block'; 
                             authorizationDetails = true;
                         }else{
+                            // Reset the display for both images
+                            document.querySelector('.childauthorization-tick').style.display = 'none';
+                            document.querySelector('.childauthorization-circle').style.display = 'none';
+                            // Update the display for the clicked card
                             document.querySelector('.childauthorization-circle').style.display = 'block';
                             authorizationDetails = false;
                         }

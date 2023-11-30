@@ -28,7 +28,7 @@ function validatePhone(inputtxtID, errorSpanId) {
 
 function activeFormList(){
     $.ajax({
-        url :'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=Active',
+        url :' https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/goddard_all_form/all/forms?status=Active',
         type : 'GET',
         success : function(response){
             console.log(response);

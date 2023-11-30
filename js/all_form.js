@@ -16,7 +16,7 @@ function submitForm() {
     const json = JSON.stringify(obj);
     console.log(json);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/additional",
+        url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
         data: json,
@@ -48,7 +48,7 @@ function saveForm() {
     const json = JSON.stringify(obj);
     console.log(json);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/additional",
+        url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
         data: json,
@@ -73,7 +73,7 @@ function saveForm() {
     //         alert("failed to save admission form");
     //     }
     // };
-    // xhr.open("PUT", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/update");
+    // xhr.open("PUT", " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/update");
     // xhr.setRequestHeader("Content-Type", "application/json");
     // xhr.send(json);
 }

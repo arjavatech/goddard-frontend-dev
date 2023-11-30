@@ -41,7 +41,7 @@
                             </div>
                         </div>
                         <div class=" text-center"><img src="image/gs_logo_tab.png" type="image/png"></div><br>
-                       
+                        
                         <!-- Login -->
                         <div class="container">
                             <form id="login"><br>
@@ -98,7 +98,7 @@
                 const password = document.getElementById('login_pswd').value;
                 const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
                 $.ajax({
-                    url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/is_admin/${email_id}?password=${hashedUserPassword}`,
+                    url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/sign_up/is_admin/${email_id}?password=${hashedUserPassword}`,
                     type: "GET",
                     success: function (response) {
                         console.log(response);

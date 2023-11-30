@@ -3,7 +3,7 @@ function enrollmentValueSend(status,id,year,form_name){
     var enrollmentValue={child_id : id,year:year,form_status:status,form_name:form_name};
     console.log(enrollmentValue);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/child_form/add",
+        url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/child_form/add",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(enrollmentValue),
@@ -21,7 +21,7 @@ function applicationStatusYear() {
     // let applicationStatusYear = document.getElementById("applicationStatusYear");
     // applicationStatusYear.textContent = val;
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/admission_status_info`,
+        url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission/admission_status_info`,
         type: 'get',
         success: function (response) {
             let responseValue = Object.values(response);
@@ -124,7 +124,7 @@ function applicationStatusYear() {
 //to display child's year
 function applicationStatusAllYear() {
     // const child_id = localStorage.getItem('child_id')
-    // const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/app_status/info'
+    // const url = ' https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission/app_status/info'
     // $.ajax({
     //     url: url,
     //     type: 'get',
@@ -172,12 +172,12 @@ function formdetails(val){
     tableBody.innerHTML = ''; // Clear existing content
 
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/${form_table_name}/all_form_status `,
+        url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/${form_table_name}/all_form_status `,
         type: 'get',
         success: function (response1) {
             console.log(response1);
             $.ajax({
-                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/admission_status_info`,
+                url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission/admission_status_info`,
                 type: 'get',
                 success: function (response) {
                     let responseValue = Object.values(response);
@@ -246,7 +246,7 @@ function formdetails(val){
 }
 function formNameDetails() {
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=true`,
+        url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/goddard_all_form/all/forms?status=true`,
         type: 'get',
         success: function (response) {
             console.log(response);

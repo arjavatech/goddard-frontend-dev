@@ -12,7 +12,7 @@ function clearLocalStorageExcept(keysToKeep) {
 
 function checkParentAuthentication(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email');
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email='
+    const url = ' https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/parent_email?email='
     $.ajax({
                url: url + logged_in_email,
                type: 'get',
@@ -34,7 +34,7 @@ function checkParentAuthentication(callback) {
 function getAllInfo(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email')
     // const parent_id = localStorage.getItem('parent_id');
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email='
+    const url = ' https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/parent_email?email='
     $.ajax({
         url: url + logged_in_email,
         type: 'get',
@@ -131,28 +131,29 @@ function loadDynamicCards() {
     let cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
 
-    let iconH5 = document.createElement('h6');
-    iconH5.classList.add('card-title', 'dashboard_card_icon');
+    // let iconH5 = document.createElement('h6');
+    // iconH5.classList.add('card-title', 'dashboard_card_icon');
 
-    let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-    svg.setAttribute('width', '30');
-    svg.setAttribute('height', '30');
-    svg.setAttribute('fill', 'currentColor');
-    svg.setAttribute('class', 'bi bi-plus-circle-fill');
-    svg.setAttribute('viewBox', '0 0 17 17');
+    // let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    // svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    // svg.setAttribute('width', '30');
+    // svg.setAttribute('height', '30');
+    // svg.setAttribute('fill', 'currentColor');
+    // svg.setAttribute('class', 'bi bi-plus-circle-fill');
+    // svg.setAttribute('viewBox', '0 0 17 17');
+    // // svg.setAttribute('value', 'Add child');
 
-    let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z');
+    // let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    // path.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z');
 
     let textH5 = document.createElement('h6');
-    textH5.classList.add('text-center', 'dashboard_card_icon', 'h6');
+    textH5.classList.add('text-center', 'dashboard_card_icon');
     textH5.textContent = 'Add Child';
 
-    iconH5.appendChild(svg);
-    svg.appendChild(path);
+    // iconH5.appendChild(svg);
+    // svg.appendChild(path);
 
-    cardBody.appendChild(iconH5);
+    // cardBody.appendChild(iconH5);
     cardBody.appendChild(textH5);
 
     card.appendChild(cardBody);
@@ -220,7 +221,7 @@ function submitForm() {
     localStorage.setItem('child_last_name', obj.child_last_name);
     localStorage.setItem('dob', obj.dob);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/add",
+        url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/add",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(obj),

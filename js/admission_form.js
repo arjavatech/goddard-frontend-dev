@@ -22,7 +22,7 @@ function submitForm() {
     // enformData.parent_id = localStorage.getItem('parent_id');
     // const json=  JSON.stringify(obj);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
+        url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission/add",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(obj),
@@ -34,7 +34,7 @@ function submitForm() {
             //     enformData.child_id = response.child_id;
             // }
             // $.ajax({
-            //     url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/add",
+            //     url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/enrollment_data/add",
             //     type: "POST",
             //     contentType: "application/json",
             //     data: JSON.stringify(enformData),
@@ -70,7 +70,7 @@ function saveForm(value) {
     obj.year = new Date().getFullYear() + '';
     console.log(obj);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission/add",
+        url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission/add",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(obj),

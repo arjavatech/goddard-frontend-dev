@@ -12,7 +12,7 @@ document.getElementById('btn-signout').addEventListener('click', signOut);
 //     // const json=  JSON.stringify(obj);
 //     // console.log(json);
 //     $.ajax({
-//         url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/add",
+//         url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/parent_invite_info/add",
 //         type: "POST",
 //         contentType: "application/json",
 //         data: JSON.stringify(obj),

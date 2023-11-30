@@ -151,7 +151,7 @@
         
             function fetchDataAndPopulateDropdown() {
                 $.ajax({
-                    url: 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all',
+                    url: ' https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/goddard_all_form/all',
                     type: 'GET',
                     success: function(response) {
                         console.log(response);
@@ -185,7 +185,7 @@
                 console.log(obj);
             
                 $.ajax({
-                    url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/add_form",
+                    url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/goddard_all_form/add_form",
                     type: "POST",
                     contentType: "application/json",
                     data: JSON.stringify(obj),

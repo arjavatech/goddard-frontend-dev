@@ -1,11 +1,10 @@
-let title, globalBase64;
 let obj = {
     "from": "noreply.goddard@gmail.com",
     "to": "noreply.goddard@gmail.com",
     "subject": "subject",
     "body": "",
 }
-async function emailSend() {
+function emailSend() {
     try {
         const form = document.getElementById("admission_form");
         const formData = new FormData(form);
@@ -27,14 +26,15 @@ async function emailSend() {
             contentType: "application/json",
             data: json,
             success: function (response) {
-                alert("Email Sent Successfully");
+                console.log(response);
+                alert(response.message);
                 window.location.reload();
             },
             error: function (xhr, status, error) {
                 console.log(xhr);
                 console.log(status);
                 console.log(error);
-                alert("Email sending failed");
+                alert(error);
             }
         });
     } catch (error) {

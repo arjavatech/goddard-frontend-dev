@@ -64,8 +64,6 @@ async function printForm(id) {
     };
 }
 
-let title, globalBase64;
-
 let obj = {
     "from": "noreply.goddard@gmail.com",
     "to": "noreply.goddard@gmail.com",
@@ -74,7 +72,7 @@ let obj = {
     "attachmentName": "AttachmentForm",
     "attachmentKey": "attachments/Test.pdf"
 }
-async function emailSend() {
+function emailSend() {
     try {
         let messageData = $('#messageData').val();
         obj.body = messageData;

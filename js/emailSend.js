@@ -1,7 +1,5 @@
 import {fetchEnrollmentFormTitle, fetchEnrollmentFormBody} from './enrollmentForm.js'
 
-let title, globalBase64;
-
 let obj = {
     "from": "noreply.goddard@gmail.com",
     "to": "noreply.goddard@gmail.com",
@@ -11,7 +9,7 @@ let obj = {
     "attachmentKey": "attachments/Test.pdf"
 }
 
-async function emailSend() {
+function emailSend() {
     try {
         let messageData = $('#messageData').val();
         obj.body = messageData;

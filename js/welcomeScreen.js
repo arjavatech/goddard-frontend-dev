@@ -73,7 +73,8 @@ function loadDynamicCards() {
 
         // Create the elements for child card
         let div = document.createElement('div');
-        div.classList.add('col-2','mt-4');
+        // div.classList.add('col-2','mt-4');
+        div.setAttribute('style','hight:50px;width:105');
 
         let anchor = document.createElement('a');
         anchor.classList.add('text-decoration-none');
@@ -113,7 +114,8 @@ function loadDynamicCards() {
 
     // Create "Add Child" button
     let outerDiv = document.createElement('div');
-    outerDiv.classList.add('col-2','m-4');
+    // outerDiv.classList.add('col-2','m-4');
+    outerDiv.setAttribute('style','hight:20px;width:105px;display:inline-flex;');
     outerDiv.setAttribute('id', 'showDiv');
     outerDiv.onclick = function(){
         divShow();

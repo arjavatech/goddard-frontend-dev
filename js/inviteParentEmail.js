@@ -16,7 +16,6 @@ function emailSend() {
         obj.subject = 'Invite parents';
         // let messageData = $('#messageData').val();
         obj.body = "";
-        console.log(obj.body);
         const json =JSON.stringify(obj);
         console.log(json);
 
@@ -26,7 +25,7 @@ function emailSend() {
             contentType: "application/json",
             data: json,
             success: function (response) {
-                console.log(response);
+                console.log(response.message);
                 alert(response.message);
                 window.location.reload();
             },

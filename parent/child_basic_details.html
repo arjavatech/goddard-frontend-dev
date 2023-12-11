@@ -154,7 +154,6 @@
                 // if (child_id_val !== null && child_id_val !== undefined) {
                 //     obj.child_id = child_id_val;
                 // }
-                console.log(obj);
                 $.ajax({
                     url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/add",
                     type: "POST",
@@ -162,7 +161,6 @@
                     data: JSON.stringify(obj),
                     success: function (response) {
                         alert(response);
-                        console.log(response);
                         window.location.href = "/child_add.html";
                     },
                     error: function (xhr, status, error) {

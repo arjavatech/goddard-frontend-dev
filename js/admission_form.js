@@ -17,7 +17,6 @@ function submitForm() {
         obj.child_id = child_id_val;
         // enformData.child_id = child_id_val;
     }
-    console.log(obj);
     // enformData.year = new Date().getFullYear() + '';
     // enformData.parent_id = localStorage.getItem('parent_id');
     // const json=  JSON.stringify(obj);
@@ -68,7 +67,6 @@ function saveForm(value) {
         obj.child_id = child_id_val;
     }
     obj.year = new Date().getFullYear() + '';
-    console.log(obj);
     $.ajax({
         url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission/add",
         type: "POST",

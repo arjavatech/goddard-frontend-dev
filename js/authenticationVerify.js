@@ -2,8 +2,6 @@ function checkGmailLoginState() {
     let value = localStorage.getItem('logged_in_email');
     if (value !== null && value !== undefined) {
         // Key has a valid value in localStorage
-        // console.log(value)
-        // console.log('Authenticated')
         return true;
     } else {
         // Key does not have a valid value in localStorage
@@ -48,9 +46,9 @@ export function signOut() {
     if (sessionStorage.length > 0) {
         // Clear the session
         sessionStorage.clear();
-        // console.log('Session cleared.');
+        console.log('Session cleared.');
     } else {
-        // console.log('No session found.');
+        console.log('No session found.');
     }
     // Clear cookies
     clearAllCookies();

@@ -6,9 +6,6 @@ export function authorizationFormDetails(callback) {
         url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/bill_ach/fetch/${localStorage.getItem('child_id')}`,
         type: 'get',
         success: function(response){
-            console.log(response);
-            console.log(response.child_name);
-
             // Set values of form fields
             if (typeof response.child_name !== "undefined"){
                 document.getElementById("child_name").value = response.child_name;
@@ -58,7 +55,6 @@ function submitForm() {
     obj.year = new Date().getFullYear() + '';
     obj.form_status = 'Reviewing';
     const json=  JSON.stringify(obj);
-    console.log(json);
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {

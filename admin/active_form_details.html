@@ -30,7 +30,6 @@
             }
         </style>
     </head>
-
     <body>
         <!-- Navigation Bar -->
         <nav class="navbar_bg">
@@ -154,17 +153,13 @@
                     url: ' https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/goddard_all_form/all',
                     type: 'GET',
                     success: function(response) {
-                        console.log(response);
                         let responsevalue = Object.values(response);
-                        console.log(responsevalue);
                         let optionsData = '';
                         let selectElement = document.querySelector('#main_topic');
                         selectElement.innerHTML = ''; // Clear existing options
-
                         for (let i = 0; i < responsevalue.length; i++) {
                             optionsData += '<option value="' + responsevalue[i].main_topic + '">' + responsevalue[i].main_topic + '</option>';
                         }
-
                         selectElement.innerHTML = optionsData;
 
                         // Update the Multiselect plugin to reflect the changes
@@ -176,14 +171,11 @@
             function submitAction() {
                 const form = document.getElementById("multiselectdata");
                 const selectedValues = $('#main_topic').val(); // Get the selected values as an array
-                console.log(selectedValues);
                 // Set the selected values in the hidden input field
                 const data =selectedValues.join(','); // Join the array into a comma-separated string
                 const formData = new FormData(form);
                 const obj = Object.fromEntries(formData);
                 obj.main_topic = data;
-                console.log(obj);
-            
                 $.ajax({
                     url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/goddard_all_form/add_form",
                     type: "POST",

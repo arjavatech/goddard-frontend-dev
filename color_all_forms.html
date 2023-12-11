@@ -3260,12 +3260,8 @@
      <!--Admission Form End-->
     <script>
         // function checking(val,id) {
-        //     console.log(val.value);
-        //     console.log(id);
         //     var inputVal = document.getElementById("aaa");
-        //     console.log(inputVal);
         //     if (val.value !== "") {
-        //         console.log('aadd');
         //         inputVal.classList.remove('nav-item');
         //         inputVal.classList.remove('nav-link');
         //         inputVal.classList.add('accordion-button-one');
@@ -3312,15 +3308,12 @@
                     }
                     let inputVal = document.getElementById('aaa');
                     let childDetailsId = document.getElementById('childDetailsId');
-                    console.log(childDetailsId);
-                    console.log(inputVal);
                     if(typeof response.child_full_name !== "undefined" && typeof response.nick_name !== "undefined" 
                     && typeof response.dob !== "undefined" &&  typeof response.primary_language !== "undefined"
                     && typeof response.school_age_child_school !== "undefined" &&  typeof response.gender !== "undefined"){
                         // document.querySelector('.childinfo-tick').style.display = 'block';
                         // document.querySelector('.childdetails-tick').style.display = 'block';
                         // inputVal.classList.remove('nav-item');
-                        // console.log('if');
                         inputVal.classList.add('active');
                         inputVal.classList.remove('invalid');
                         childDetailsId.classList.add('accordion-button');
@@ -3329,7 +3322,6 @@
                         // document.querySelector('.childdetails-circle').style.display = 'block';
                         // document.querySelector('.childdetails-circle').style.display = 'block';
                         // inputVal.classList.add('nav-item');
-                        console.log('else');
                         inputVal.classList.remove('active');
                         inputVal.classList.add('invalid');
                         childDetailsId.classList.remove('accordion-button');
@@ -3450,7 +3442,6 @@
                         // document.querySelector('.childdetails-circle').style.display = 'block';
                         // document.querySelector('.childdetails-circle').style.display = 'block';
                         // inputVal2.classList.add('nav-item');
-                        // console.log('else');
                         inputVal2.classList.remove('active');
                         inputVal2.classList.add('invalid');
                         familyHistory.classList.remove('accordion-button');

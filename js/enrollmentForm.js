@@ -6,15 +6,12 @@ export function fetchEnrollmentFormBody(callback) {
     //     url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/enrollment_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
     //     type: 'get',
     //     success: function(response){
-    //         console.log(response);
             // let editID = window.location.search.slice(4);
-            // console.log(editID);
             $.ajax({
                 // url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
                 url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
                 type: 'get',
                 success: function(response1){
-                    console.log(response1);
                     // if(typeof response.point_one !='undefined'){
                     //     let paragraph = document.querySelector('[name="apiResponsep1"]');
                     //     paragraph.textContent = response.point_one;
@@ -142,7 +139,6 @@ export function fetchEnrollmentFormBody(callback) {
                     if (typeof response1.parent_one_sign_date !== "undefined"){
                         document.getElementsByName("parent_one_sign_date")[0].value = response1.parent_one_sign_date;
                     }
-                    // console.log(response1[0].primary_parent_email);
                     if (typeof response1.primary_parent_email !== "undefined"){
                         document.getElementsByName("primary_parent_email")[0].value = response1.primary_parent_email;
                     }
@@ -177,7 +173,6 @@ export function fetchEnrollmentFormTitle(callback) {
         url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/enrollment_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
         type: 'get',
         success: function(response){
-            console.log(response);
             document.querySelector('[name="heading"]').innerHTML = response.title;
             if (typeof callback === 'function') {
                 callback();

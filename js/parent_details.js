@@ -31,7 +31,6 @@ async function emailSend(child_full_name,parent_name,
         obj.attachmentName ="AttachmentForm";
         obj.attachmentKey ="attachment";
         const json =JSON.stringify(obj);
-        console.log(json);
 
         $.ajax({
             url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/email/send",
@@ -62,9 +61,7 @@ function applicationStatusYear(val) {
         url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/parent_invite_info/all`,
         type: 'get',
         success: function (response) {
-            console.log(response);
             let responseValue = Object.values(response);
-            console.log(responseValue);
             if (Array.isArray(responseValue)) {
                 const tableBody = document.getElementById('tableBody');
                 tableBody.innerHTML = ''; // Clear existing content

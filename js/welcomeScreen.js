@@ -179,7 +179,6 @@ function welcomeText() {
 
 
 function goToBookmark() {
-    console.log('checking');
     // Set the hash to the ID of the bookmarked section
     window.location.href = "#myBookmark";
 
@@ -188,10 +187,8 @@ function goToBookmark() {
 }
 
 function scrollToBookmark() {
-    console.log('scrollToBookmark');
     // Scroll to the bookmarked section
     var element = document.getElementById("myBookmark");
-    console.log(element);
     if (element) {
         element.scrollIntoView({ behavior: "smooth" });
     }

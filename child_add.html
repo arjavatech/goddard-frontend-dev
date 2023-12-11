@@ -287,7 +287,15 @@
                                         </span>
                                     </a>
                                 </li><br>
-                                <li class="nav-item"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Sorry....You Have to fill all the missing fields.">
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="pill" href="#handbook">
+                                        <span>Authorization
+                                            <img src="image/tick.png" height="10%" width="10%" class="childauthorization-tick float-end" style="display: none;">
+                                            <img src="image/circle-with.png" height="10%" width="10%" class="childauthorization-circle float-end" style="display: none;">
+                                        </span>
+                                    </a>
+                                </li><br>
+                                <li class="nav-item"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="You Have to fill all the missing fields.">
                                     <a class="nav-link disabled" data-bs-toggle="pill" href="#parentsignature" id="parentFinalAgreement">Parent Signature</a>
                                 </li>
                             </ul>
@@ -2710,7 +2718,7 @@
                                                 </p>
                                             </div>
                                             <h4 class="text-center"><b>Policy Acknowledgement</b></h4>
-                                            <p class="m-4">My signature below confirms my understanding of the
+                                            <p class="m-4">My signature below confirms my understandi ng of the
                                                 Enrollment Agreement, school
                                                 policies, my tuition obligation, my responsibility for the payment
                                                 of fees, and confirms that
@@ -3547,6 +3555,29 @@
                                 </div>
                             </div>
                             <!--Authorization Form End-->
+
+                            <!--Handbook Form-->
+                            <div id="handbook" class="container tab-pane fade"><br>
+                                <div id="enrollmentForm"><br>
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="accordion-item accordion_items">
+                                            <h2 class="text-center title_bg">Authorization for Recurring Billing via ACH</h2>
+                                            <div class="container" id="avf_form">
+                                                <section class="wizard-section">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-lg-12 col-md-12">
+                                                            <div class="form-wizard">
+                                                               
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section> 
+                                            </div>   
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Handbook Form End-->
         
                             <!--Parent Signature Form-->
                             <div id="parentsignature" class="container tab-pane fade"><br>
@@ -3828,14 +3859,22 @@
                         if (typeof response.policy_number !== "undefined")
                             document.getElementsByName('policy_number')[0].value = response.policy_number;
 
-                        if(typeof response.child_care_provider_name !== "undefined" && typeof response.child_care_provider_telephone_number !== "undefined" 
-                        && typeof response.child_hospital_affiliation !== "undefined" &&  typeof response.child_care_provider_street_address !== "undefined"
-                        && typeof response.child_care_provider_city_address !== "undefined" &&  typeof response.child_care_provider_state_address !== "undefined"
-                        && typeof response.child_care_provider_zip_address !== "undefined" &&  typeof response.child_dentist_name !== "undefined"
-                        && typeof response.dentist_telephone_number !== "undefined" &&  typeof response.dentist_address !== "undefined"
-                        && typeof response.special_diabilities !== "undefined" &&  typeof response.allergies_medication_reaction !== "undefined"
-                        && typeof response.additional_info !== "undefined" &&  typeof response.medication !== "undefined"
-                        && typeof response.health_insurance !== "undefined" &&  typeof response.policy_number !== "undefined"){
+                        if(typeof response.child_care_provider_name !== "undefined" &&
+                            typeof response.child_care_provider_telephone_number !== "undefined" && 
+                            typeof response.child_hospital_affiliation !== "undefined" && 
+                            typeof response.child_care_provider_street_address !== "undefined"&& 
+                            typeof response.child_care_provider_city_address !== "undefined" &&  
+                            typeof response.child_care_provider_state_address !== "undefined"&& 
+                            typeof response.child_care_provider_zip_address !== "undefined" &&  
+                            typeof response.child_dentist_name !== "undefined"&& 
+                            typeof response.dentist_telephone_number !== "undefined" &&  
+                            typeof response.dentist_address !== "undefined"&& 
+                            typeof response.special_diabilities !== "undefined" &&  
+                            typeof response.allergies_medication_reaction !== "undefined"&& 
+                            typeof response.additional_info !== "undefined" &&  
+                            typeof response.medication !== "undefined"&& 
+                            typeof response.health_insurance !== "undefined" &&  
+                            typeof response.policy_number !== "undefined"){
                             // Reset the display for both images
                             document.querySelector('.medicalcare-tick').style.display = 'none';
                             document.querySelector('.medicalcare-circle').style.display = 'none';
@@ -3863,8 +3902,9 @@
                             document.getElementById('agree_all_above_information_is_correct').checked = false;
                            
                         }
-                        if(typeof response.obtaining_emergency_medical_care !== "undefined" && typeof response.administration_first_aid_procedures !== "undefined" 
-                        && typeof response.agree_all_above_information_is_correct !== "undefined"){
+                        if(typeof response.obtaining_emergency_medical_care !== "undefined" && 
+                            typeof response.administration_first_aid_procedures !== "undefined" && 
+                            typeof response.agree_all_above_information_is_correct !== "undefined"){
                             // Reset the display for both images
                             document.querySelector('.parentagreement-tick').style.display = 'none';
                             document.querySelector('.parentagreement-circle').style.display = 'none';
@@ -3880,8 +3920,8 @@
                             childParentAgreementOne = false;
                         }
 
-                        if(childbasicInfo == true && childparentInfo == true && childMedicalcare == true && childEmergencyContact == true
-                        && childParentAgreementOne == true){
+                        if(childbasicInfo == true && childparentInfo == true && childMedicalcare == true && 
+                            childEmergencyContact == true&& childParentAgreementOne == true){
                             // Reset the display for both images
                             document.querySelector('.childinfo-tick').style.display = 'none';
                             document.querySelector('.childinfo-circle').style.display = 'none';
@@ -3958,13 +3998,20 @@
                         if (typeof response.medical_other !== "undefined")
                             document.getElementsByName('medical_other')[0].value = response.medical_other;
 
-                        if(typeof response.allergies !== "undefined" && typeof response.asthma !== "undefined" 
-                        && typeof response.bleeding_problems !== "undefined" &&  typeof response.diabetes !== "undefined"
-                        && typeof response.epilepsy !== "undefined" &&  typeof response.frequent_ear_infections !== "undefined"
-                        && typeof response.hearing_problems !== "undefined" &&  typeof response.hospitalization !== "undefined"
-                        && typeof response.rheumatic_fever !== "undefined" &&  typeof response.seizures_convulsions !== "undefined"
-                        &&  typeof response.serious_injuries_accidents !== "undefined" &&  typeof response.surgeries !== "undefined"
-                        &&  typeof response.vision_problems !== "undefined" &&  typeof response.medical_other !== "undefined"){
+                        if(typeof response.allergies !== "undefined" && 
+                            typeof response.asthma !== "undefined" && 
+                            typeof response.bleeding_problems !== "undefined" &&  
+                            typeof response.diabetes !== "undefined"&& 
+                            typeof response.epilepsy !== "undefined" &&  
+                            typeof response.frequent_ear_infections !== "undefined"&& 
+                            typeof response.hearing_problems !== "undefined" &&  
+                            typeof response.hospitalization !== "undefined"&& 
+                            typeof response.rheumatic_fever !== "undefined" &&  
+                            typeof response.seizures_convulsions !== "undefined"&&  
+                            typeof response.serious_injuries_accidents !== "undefined" &&  
+                            typeof response.surgeries !== "undefined" &&  
+                            typeof response.vision_problems !== "undefined" &&  
+                            typeof response.medical_other !== "undefined"){
                             // Reset the display for both images
                             document.querySelector('.medicalhistory-tick').style.display = 'none';
                             document.querySelector('.medicalhistory-circle').style.display = 'none';
@@ -4002,11 +4049,16 @@
                         if (typeof response.other_siblings_age !== "undefined")
                             document.getElementsByName('other_siblings_age')[0].value = response.other_siblings_age;
 
-                        if(typeof response.illness_during_pregnancy !== "undefined" && typeof response.condition_of_newborn !== "undefined" 
-                        && typeof response.duration_of_pregnancy !== "undefined" &&  typeof response.birth_weight_lbs !== "undefined"
-                        && typeof response.birth_weight_oz !== "undefined" &&  typeof response.complications !== "undefined"
-                        && typeof response.bottle_fed !== "undefined" &&  typeof response.breast_fed !== "undefined"
-                        && typeof response.other_siblings_name !== "undefined" &&  typeof response.other_siblings_age !== "undefined"){
+                        if(typeof response.illness_during_pregnancy !== "undefined" && 
+                            typeof response.condition_of_newborn !== "undefined" && 
+                            typeof response.duration_of_pregnancy !== "undefined" &&  
+                            typeof response.birth_weight_lbs !== "undefined"&& 
+                            typeof response.birth_weight_oz !== "undefined" &&  
+                            typeof response.complications !== "undefined"&& 
+                            typeof response.bottle_fed !== "undefined" &&  
+                            typeof response.breast_fed !== "undefined"&& 
+                            typeof response.other_siblings_name !== "undefined" &&  
+                            typeof response.other_siblings_age !== "undefined"){
                             // Reset the display for both images
                             document.querySelector('.pregnancyhistory-tick').style.display = 'none';
                             document.querySelector('.pregnancyhistory-circle').style.display = 'none';
@@ -4074,11 +4126,16 @@
                             document.getElementById('no_illnesses_for_this_child').checked = false;
                         }
 
-                        if(typeof response.family_history_allergies !== "undefined" || typeof response.family_history_heart_problems !== "undefined" 
-                        || typeof response.family_history_tuberculosis !== "undefined" ||  typeof response.family_history_asthma !== "undefined"
-                        || typeof response.family_history_high_blood_pressure !== "undefined" ||  typeof response.family_history_vision_problems !== "undefined"
-                        || typeof response.family_history_diabetes !== "undefined" ||  typeof response.family_history_hyperactivity !== "undefined"
-                        || typeof response.family_history_epilepsy !== "undefined" || typeof response.no_illnesses_for_this_child !== "undefined"){
+                        if(typeof response.family_history_allergies !== "undefined" || 
+                            typeof response.family_history_heart_problems !== "undefined" || 
+                            typeof response.family_history_tuberculosis !== "undefined" ||  
+                            typeof response.family_history_asthma !== "undefined"|| 
+                            typeof response.family_history_high_blood_pressure !== "undefined" ||  
+                            typeof response.family_history_vision_problems !== "undefined"|| 
+                            typeof response.family_history_diabetes !== "undefined" ||  
+                            typeof response.family_history_hyperactivity !== "undefined"|| 
+                            typeof response.family_history_epilepsy !== "undefined" || 
+                            typeof response.no_illnesses_for_this_child !== "undefined"){
                             // Reset the display for both images
                             document.querySelector('.familyhistory-tick').style.display = 'none';
                             document.querySelector('.familyhistory-circle').style.display = 'none';
@@ -4114,11 +4171,14 @@
                         if (typeof response.favorite_activities !== "undefined")
                             document.getElementsByName('favorite_activities')[0].value = response.favorite_activities;
 
-                        if(typeof response.age_group_friends !== "undefined" && typeof response.neighborhood_friends !== "undefined" 
-                        && typeof response.relationship_with_mother !== "undefined" &&  typeof response.relationship_with_father !== "undefined"
-                        && typeof response.relationship_with_siblings !== "undefined" &&  typeof response.relationship_with_extended_family !== "undefined"
-                        && typeof response.fears_conflicts !== "undefined" &&  typeof response.child_response_frustration !== "undefined"
-                        && typeof response.favorite_activities !== "undefined" ){
+                        if(typeof response.age_group_friends !== "undefined" && 
+                            typeof response.neighborhood_friends !== "undefined" && 
+                            typeof response.relationship_with_mother !== "undefined" &&  
+                            typeof response.relationship_with_father !== "undefined" && 
+                            typeof response.relationship_with_siblings !== "undefined" &&  
+                            typeof response.relationship_with_extended_family !== "undefined" && 
+                            typeof response.fears_conflicts !== "undefined" &&  
+                            typeof response.child_response_frustration !== "undefined"&& typeof response.favorite_activities !== "undefined" ){
                             // Reset the display for both images
                             document.querySelector('.socialbehavior-tick').style.display = 'none';
                             document.querySelector('.socialbehavior-circle').style.display = 'none';
@@ -4148,9 +4208,12 @@
                         if (typeof response.educational_expectations_of_child !== "undefined")
                             document.getElementsByName('educational_expectations_of_child')[0].value = response.educational_expectations_of_child;
 
-                        if(typeof response.last_five_years_moved !== "undefined" && typeof response.things_used_at_home !== "undefined" 
-                        && typeof response.hours_of_television_daily !== "undefined" &&  typeof response.language_used_at_home !== "undefined"
-                        && typeof response.changes_at_home_situation !== "undefined" &&  typeof response.educational_expectations_of_child !== "undefined"
+                        if(typeof response.last_five_years_moved !== "undefined" && 
+                            typeof response.things_used_at_home !== "undefined" && 
+                            typeof response.hours_of_television_daily !== "undefined" &&  
+                            typeof response.language_used_at_home !== "undefined" && 
+                            typeof response.changes_at_home_situation !== "undefined" &&  
+                            typeof response.educational_expectations_of_child !== "undefined"
                         ){
                             // Reset the display for both images
                             document.querySelector('.environmentalfactor-tick').style.display = 'none';
@@ -4258,10 +4321,13 @@
                         if (typeof response.pick_up_time !== "undefined")
                             document.getElementsByName('pick_up_time')[0].value = response.pick_up_time;
 
-                        if(typeof response.other_important_family_members !== "undefined" && typeof response.about_family_celebrations !== "undefined" 
-                        && typeof response.childcare_before !== "undefined" && typeof response.reason_for_childcare_before !== "undefined" 
-                        && typeof response.what_child_interests !== "undefined" &&  typeof response.drop_off_time !== "undefined"
-                        && typeof response.pick_up_time !== "undefined"){
+                        if(typeof response.other_important_family_members !== "undefined" && 
+                            typeof response.about_family_celebrations !== "undefined" && 
+                            typeof response.childcare_before !== "undefined" && 
+                            typeof response.reason_for_childcare_before !== "undefined" && 
+                            typeof response.what_child_interests !== "undefined" &&  
+                            typeof response.drop_off_time !== "undefined" && 
+                            typeof response.pick_up_time !== "undefined"){
                             // Reset the display for both images
                             document.querySelector('.childprofiledetail-tick').style.display = 'none';
                             document.querySelector('.childprofiledetail-circle').style.display = 'none';
@@ -4444,11 +4510,15 @@
                         if (typeof response.additional_information !== "undefined")
                             document.getElementsByName('additional_information')[0].value = response.additional_information;
                     
-                        if(typeof response.existing_illness_allergy !== "undefined"
-                        && typeof response.functioning_at_age !== "undefined" &&  typeof response.able_to_walk !== "undefined"
-                        && typeof response.communicate_their_needs !== "undefined" &&  typeof response.any_medication !== "undefined"
-                        && typeof response.utilize_special_equipment !== "undefined" &&  typeof response.significant_periods !== "undefined"
-                        && typeof response.desire_any_accommodations !== "undefined" &&  typeof response.additional_information !== "undefined"){
+                        if(typeof response.existing_illness_allergy !== "undefined" && 
+                            typeof response.functioning_at_age !== "undefined" &&  
+                            typeof response.able_to_walk !== "undefined" && 
+                            typeof response.communicate_their_needs !== "undefined" &&  
+                            typeof response.any_medication !== "undefined" && 
+                            typeof response.utilize_special_equipment !== "undefined" &&  
+                            typeof response.significant_periods !== "undefined" && 
+                            typeof response.desire_any_accommodations !== "undefined" &&  
+                            typeof response.additional_information !== "undefined"){
                             // Reset the display for both images
                             document.querySelector('.medicaldetails-tick').style.display = 'none';
                             document.querySelector('.medicaldetails-circle').style.display = 'none';
@@ -4702,17 +4772,27 @@
                         if (typeof response.point_nineteen_initial_here !== "undefined")
                             document.getElementsByName("point_nineteen_initial_here")[0].value = response.point_nineteen_initial_here;
 
-                        if(typeof response.point_one_field_one !== "undefined" && typeof response.point_one_field_two !== "undefined"
-                        && typeof response.point_one_field_three !== "undefined" && typeof response.point_two_initial_here !== "undefined"
-                        && typeof response.point_three_initial_here !== "undefined" && typeof response.point_four_initial_here !== "undefined"
-                        && typeof response.point_five_initial_here !== "undefined" && typeof response.point_six_initial_here !== "undefined"
-                        && typeof response.point_seven_initial_here !== "undefined" && typeof response.point_eight_initial_here !== "undefined"
-                        && typeof response.point_nine_initial_here !== "undefined" && typeof response.point_ten_initial_here !== "undefined"
-                        && typeof response.point_eleven_initial_here !== "undefined" && typeof response.point_twelve_initial_here !== "undefined"
-                        && typeof response.point_thirteen_initial_here !== "undefined" && typeof response.point_fourteen_initial_here !== "undefined"
-                        && typeof response.point_fifteen_initial_here !== "undefined" && typeof response.point_sixteen_initial_here !== "undefined"
-                        && typeof response.point_seventeen_initial_here !== "undefined" && typeof response.point_eighteen_initial_here !== "undefined"
-                        && typeof response.point_nineteen_initial_here !== "undefined" ){
+                        if(typeof response.point_one_field_one !== "undefined" && 
+                            typeof response.point_one_field_two !== "undefined" && 
+                            typeof response.point_one_field_three !== "undefined" && 
+                            typeof response.point_two_initial_here !== "undefined" && 
+                            typeof response.point_three_initial_here !== "undefined" && 
+                            typeof response.point_four_initial_here !== "undefined" && 
+                            typeof response.point_five_initial_here !== "undefined" && 
+                            typeof response.point_six_initial_here !== "undefined" && 
+                            typeof response.point_seven_initial_here !== "undefined" && 
+                            typeof response.point_eight_initial_here !== "undefined" && 
+                            typeof response.point_nine_initial_here !== "undefined" && 
+                            typeof response.point_ten_initial_here !== "undefined" && 
+                            typeof response.point_eleven_initial_here !== "undefined" && 
+                            typeof response.point_twelve_initial_here !== "undefined" && 
+                            typeof response.point_thirteen_initial_here !== "undefined" && 
+                            typeof response.point_fourteen_initial_here !== "undefined" && 
+                            typeof response.point_fifteen_initial_here !== "undefined" && 
+                            typeof response.point_sixteen_initial_here !== "undefined" && 
+                            typeof response.point_seventeen_initial_here !== "undefined" && 
+                            typeof response.point_eighteen_initial_here !== "undefined" && 
+                            typeof response.point_nineteen_initial_here !== "undefined" ){
                             // Reset the display for both images
                             document.querySelector('.childenrollment-tick').style.display = 'none';
                             document.querySelector('.childenrollment-circle').style.display = 'none';
@@ -4774,9 +4854,9 @@
                             photoVideoPermission== true && securityPolicy == true && medicaltransportationWeiver== true &&
                             healthPolicy== true && outsideWeiver== true &&
                             enrollmentDetails== true && authorizationDetails== true ){
+
                             let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                             parentFinalAgreement.classList.remove('disabled');
-
                         }else{
                             let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                             parentFinalAgreement.classList.add('disabled')

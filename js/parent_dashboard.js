@@ -3,12 +3,10 @@ import {isAuthenticated} from "./authenticationVerify.js";
 import {authorizationFormDetails} from "./authorization_form.js";
 
 function getEnrollmentFormStatus(val, callback) {
-    console.log(val);
     $.ajax({
         url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/${val}/form_status/${localStorage.getItem('child_id')}`,
         type: 'get',
         success: function (form_status_resp) {
-            console.log(form_status_resp);
             callback(form_status_resp);
         }
     });
@@ -77,7 +75,6 @@ function emailSend() {
         let messageData = $('#messageData').val();
         obj.body = messageData;
         const json =JSON.stringify(obj);
-        console.log(json);
         $.ajax({
                url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/email/send",
                type: "POST",
@@ -100,15 +97,12 @@ function emailSend() {
 }
 
 function parentDashBoardDetails(val) {
-    console.log(val);
     localStorage.setItem('form_year_value', val);
     $.ajax({
         url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/goddard_all_form/all/forms?status=true`,
         type: 'get',
         success: function (response) {
-            console.log(response);
             if (Array.isArray(response) && response.length > 0) {
-                console.log(response);
                 // localStorage.setItem('form_name',  data.form_name)
                 const tableBody = document.getElementById('tableBody');
                 // Clear the existing table row
@@ -129,7 +123,7 @@ function parentDashBoardDetails(val) {
                     if (data.form_name == '2023-2024 Enrollment Agreement') {
                         let value = 'enrollment_data';
                         getEnrollmentFormStatus(value, function (formStatusResp) {
-                            console.log(formStatusResp); // Check the structure of formStatusResp
+
                             // Assuming formStatusResp contains a property called 'form_status'
                             let form_status = formStatusResp.form_status;
                             formStatusCell.innerHTML = form_status;
@@ -196,10 +190,8 @@ function parentDashBoardDetails(val) {
                     editLink.setAttribute('class','fa-stack');
                     var dynamicValue = localStorage.getItem('child_id');
                     if(data.form_name == '2023-2024 Enrollment Agreement'){
-                        console.log('enroll');
                         editLink.href = `form.html?id=${dynamicValue}`;
                     }else if(data.form_name == 'ACH Recurring payments form') {
-                        console.log('svg');
                         editLink.href = `./forms/authorization_form.html?id=${dynamicValue}`;
                     }
                     
@@ -410,7 +402,6 @@ function parentDashBoardDetails(val) {
 //         url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/dashboard_data/formByYear/${val}`,
 //         type: 'get',
 //         success: function (response) {
-//             console.log(response);
 //             if (Array.isArray(response) && response.length > 0) {
 //                 getEnrollmentFormStatus(val, function (formStatusResp) {
 //                     form_status = formStatusResp.form_status;
@@ -506,12 +497,10 @@ function parentDashBoardDetails(val) {
 function parentDashBoardYear() {
     // const child_id = localStorage.getItem('child_id')
     // const url = ' https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/enrollment_data/fetch/'
-    // // console.log(url + child_id)
     // $.ajax({
     //     url: url + child_id,
     //     type: 'get',
     //     success: function (response) {
-    //         console.log(response);
     //         let yearArray = []
     //         for (let i = 0; i < response.length; i++) {
     //             yearArray.push(response[i].year)

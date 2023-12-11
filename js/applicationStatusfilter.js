@@ -1,7 +1,6 @@
 'use strict';
 function enrollmentValueSend(status,id,year,form_name){
     var enrollmentValue={child_id : id,year:year,form_status:status,form_name:form_name};
-    console.log(enrollmentValue);
     $.ajax({
         url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/child_form/add",
         type: "POST",
@@ -25,7 +24,6 @@ function applicationStatusYear() {
         type: 'get',
         success: function (response) {
             let responseValue = Object.values(response);
-            // console.log(responseValue);
             if (Array.isArray(responseValue)) {
                 const tableBody = document.getElementById('tableBody');
                 tableBody.innerHTML = ''; // Clear existing content
@@ -33,8 +31,6 @@ function applicationStatusYear() {
                 // for (let i = 0; i < responseValue.length; i++) {
                 //     const rowData = responseValue[i];
                     for (let j = 0; j <responseValue.length; j++) {
-                        // console.log(responseValue[j].child_name);
-        
                         // Create a new row for each data set
                         const row = document.createElement('tr');
                         // Create cell for child name
@@ -160,7 +156,6 @@ function filterTableByEnrollmentStatus(selectedStatus) {
 
 
 function formdetails(val){
-    console.log(val);
     let form_table_name;
     if(val == 'ACH Recurring payments form'){
         form_table_name = 'enrollment_data';
@@ -175,13 +170,11 @@ function formdetails(val){
         url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/${form_table_name}/all_form_status `,
         type: 'get',
         success: function (response1) {
-            console.log(response1);
             $.ajax({
                 url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission/admission_status_info`,
                 type: 'get',
                 success: function (response) {
                     let responseValue = Object.values(response);
-                    console.log(responseValue);
                     if (Array.isArray(responseValue)) {
                         const tableBody = document.getElementById('tableBody');
                         tableBody.innerHTML = ''; // Clear existing content
@@ -189,8 +182,6 @@ function formdetails(val){
                         // for (let i = 0; i < responseValue.length; i++) {
                         //     const rowData = responseValue[i];
                             for (let j = 0; j <responseValue.length; j++) {
-                                console.log(responseValue[j].child_name);
-                
                                 // Create a new row for each data set
                                 const row = document.createElement('tr');
                                 // Create cell for child name
@@ -216,7 +207,6 @@ function formdetails(val){
                                 applicationStatusCell.textContent = responseValue[j].admission_form_status;
                                 row.appendChild(applicationStatusCell);
 
-                                console.log(response1[j].form_status);
                                 const enrollmentStatusCell = document.createElement('td');
                                 enrollmentStatusCell.textContent = response1[j].form_status;
                                 row.appendChild(enrollmentStatusCell);
@@ -249,7 +239,6 @@ function formNameDetails() {
         url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/goddard_all_form/all/forms?status=true`,
         type: 'get',
         success: function (response) {
-            console.log(response);
             if (Array.isArray(response) && response.length > 0) {
                 let optionsData = '';
                 document.querySelector('[name="form_name"]').innerHTML = '';
@@ -323,15 +312,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // // Function to update the table based on the current page
     // function updateTable() {
     //     const tableRows = document.querySelectorAll("#tableBody tr");
-    //     console.log(tableRows);
     //     const startIndex = (currentPage - 1) * rowsPerPage;
-    //     console.log(startIndex);
     //     const endIndex = currentPage * rowsPerPage;
-    //     console.log(endIndex);
     
     //     tableRows.forEach((row, index) => {
-    //         console.log(row);
-    //         console.log(index);
     //         if (index >= startIndex && index < endIndex) {
     //             row.style.display = "";
     //         } else {

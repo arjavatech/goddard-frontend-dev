@@ -52,6 +52,14 @@
     cursor: pointer;
     width: auto !important;
 }
+.dashboard_card_style_on_process_active{
+    height: 60px !important;
+    color:#0F2D52 !important;
+    border-radius: 0px !important;
+    cursor: pointer;
+    width: auto !important;
+    background-color: #D8E9FF !important;
+}
 
 .dashboard_card_style_on_process:hover{
     opacity: 0.8;

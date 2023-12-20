@@ -31,6 +31,7 @@ function checkParentAuthentication(callback) {
            });
 }
 
+
 function getAllInfo(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email')
     // const parent_id = localStorage.getItem('parent_id');
@@ -81,10 +82,12 @@ function loadDynamicCards() {
 
         let card = document.createElement('div');
         card.setAttribute('style','height:200px');
+        console.log(card.className);
 
         if (on_process === true) {
             anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
             card.classList.add('card', 'dashboard_card_style_on_process');
+            // card.classList.add('card', 'dashboard_card_style_on_process_active');
         } else {
             anchor.href = 'parent/parent_dashboard.html';
             card.classList.add('card', 'dashboard_card_style1');
@@ -99,12 +102,15 @@ function loadDynamicCards() {
         childName.innerHTML = child_response[i].child_first_name;
 
         anchor.addEventListener('click', function () {
+            card.classList.remove('card', 'dashboard_card_style_on_process');
+            card.classList.add('card', 'dashboard_card_style_on_process_active');
             const selectedChildName = child_response[i].child_first_name;
             const selectedChildId = child_response[i].child_id;
             localStorage.setItem('child_name', selectedChildName);
             localStorage.setItem('child_id', selectedChildId);
         });
-
+        // card.reset();
+        // card.classList.add('card', 'dashboard_card_style_on_process');
         cardBody.appendChild(childName);
         card.appendChild(cardBody);
         anchor.appendChild(card);
@@ -239,6 +245,7 @@ var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
     return new bootstrap.Popover(popoverTriggerEl)
 })
+
 
 $(document).ready(function () {
     if (!isAuthenticated()) {

@@ -85,7 +85,7 @@
                             </a>
                         </div> -->
                     </div>
-                </div>
+                </div> 
             </div>    
             <!-- Add Child End -->
             <!-- Welcome Screen End -->
@@ -4452,9 +4452,13 @@
                                 document.getElementById('gender3').checked = true;
                             }
 
-                            if(typeof response.child_first_name !== "undefined" && typeof response.child_last_name !== "undefined" && typeof response.nick_name !== "undefined" 
-                            && typeof response.dob !== "undefined" &&  typeof response.primary_language !== "undefined"
-                            && typeof response.school_age_child_school !== "undefined" &&  typeof response.gender !== "undefined"){
+                            if(typeof response.child_first_name !== "undefined" && 
+                                typeof response.child_last_name !== "undefined" && 
+                                typeof response.nick_name !== "undefined"  && 
+                                typeof response.dob !== "undefined"  && 
+                                typeof response.primary_language !== "undefined" && 
+                                typeof response.school_age_child_school !== "undefined" && 
+                                typeof response.gender !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.childdetails-tick').style.display = 'none';
                                 document.querySelector('.childdetails-circle').style.display = 'none';
@@ -4503,13 +4507,21 @@
                             if (typeof response.parent_email_two !== "undefined")
                                 document.getElementsByName('parent_email_two')[0].value = response.parent_email_two;
 
-                            if(typeof response.parent_name !== "undefined" && typeof response.parent_street_address !== "undefined" 
-                            && typeof response.parent_city_address !== "undefined" &&  typeof response.parent_state_address !== "undefined"
-                            && typeof response.parent_zip_address !== "undefined" &&  typeof response.home_telephone_number !== "undefined"
-                            && typeof response.business_name !== "undefined" &&  typeof response.work_hours !== "undefined"
-                            && typeof response.business_telephone_number !== "undefined" &&  typeof response.business_street_address !== "undefined"
-                            &&  typeof response.business_city_address !== "undefined" &&  typeof response.business_zip_address !== "undefined"
-                            &&  typeof response.business_cell_number !== "undefined" &&  typeof response.parent_email_two !== "undefined"){
+                            if(typeof response.parent_name !== "undefined" && 
+                                typeof response.parent_street_address !== "undefined" && 
+                                typeof response.parent_city_address !== "undefined" &&  
+                                typeof response.parent_state_address !== "undefined" && 
+                                typeof response.parent_zip_address !== "undefined" &&  
+                                typeof response.home_telephone_number !== "undefined" && 
+                                typeof response.business_name !== "undefined" &&  
+                                typeof response.work_hours !== "undefined" && 
+                                typeof response.business_telephone_number !== "undefined" &&  
+                                typeof response.business_street_address !== "undefined" && 
+                                typeof response.business_city_address !== "undefined" &&  
+                                typeof response.business_zip_address !== "undefined" && 
+                                typeof response.business_cell_number !== "undefined" &&  
+                                typeof response.parent_email_two !== "undefined"
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.parentdetails-tick').style.display = 'none';
                                 document.querySelector('.parentdetails-circle').style.display = 'none';
@@ -4582,8 +4594,11 @@
                             if (typeof response.child_emergency_contact_telephone_number !== "undefined")
                                 document.getElementsByName('child_emergency_contact_telephone_number')[0].value = response.child_emergency_contact_telephone_number;
 
-                            if(typeof response.child_emergency_contact_name !== "undefined" && typeof response.child_emergency_contact_full_address !== "undefined" 
-                            && typeof response.child_emergency_contact_relationship !== "undefined" &&  typeof response.child_emergency_contact_telephone_number !== "undefined"){
+                            if(typeof response.child_emergency_contact_name !== "undefined" && 
+                                typeof response.child_emergency_contact_full_address !== "undefined" && 
+                                typeof response.child_emergency_contact_relationship !== "undefined" &&  
+                                typeof response.child_emergency_contact_telephone_number !== "undefined"
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.emergencycontact-tick').style.display = 'none';
                                 document.querySelector('.emergencycontact-circle').style.display = 'none';
@@ -4648,7 +4663,8 @@
                                 typeof response.additional_info !== "undefined" &&  
                                 typeof response.medication !== "undefined"&& 
                                 typeof response.health_insurance !== "undefined" &&  
-                                typeof response.policy_number !== "undefined"){
+                                typeof response.policy_number !== "undefined"
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.medicalcare-tick').style.display = 'none';
                                 document.querySelector('.medicalcare-circle').style.display = 'none';
@@ -4678,7 +4694,8 @@
                             }
                             if(typeof response.obtaining_emergency_medical_care !== "undefined" && 
                                 typeof response.administration_first_aid_procedures !== "undefined" && 
-                                typeof response.agree_all_above_information_is_correct !== "undefined"){
+                                typeof response.agree_all_above_information_is_correct !== "undefined"
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.parentagreement-tick').style.display = 'none';
                                 document.querySelector('.parentagreement-circle').style.display = 'none';
@@ -4695,7 +4712,8 @@
                             }
 
                             if(childbasicInfo == true && childparentInfo == true && childMedicalcare == true && 
-                                childEmergencyContact == true&& childParentAgreementOne == true){
+                                childEmergencyContact == true&& childParentAgreementOne == true
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.childinfo-tick').style.display = 'none';
                                 document.querySelector('.childinfo-circle').style.display = 'none';
@@ -4723,7 +4741,9 @@
                             if (typeof response.dental_exam_last_date !== "undefined")
                                 document.getElementsByName('dental_exam_last_date')[0].value = response.dental_exam_last_date;
 
-                            if(typeof response.physical_exam_last_date !== "undefined" && typeof response.dental_exam_last_date !== "undefined"){
+                            if(typeof response.physical_exam_last_date !== "undefined" && 
+                                typeof response.dental_exam_last_date !== "undefined"
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.childhistoryDetails-tick').style.display = 'none';
                                 document.querySelector('.childhistoryDetails-circle').style.display = 'none';
@@ -4785,7 +4805,8 @@
                                 typeof response.serious_injuries_accidents !== "undefined" &&  
                                 typeof response.surgeries !== "undefined" &&  
                                 typeof response.vision_problems !== "undefined" &&  
-                                typeof response.medical_other !== "undefined"){
+                                typeof response.medical_other !== "undefined"
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.medicalhistory-tick').style.display = 'none';
                                 document.querySelector('.medicalhistory-circle').style.display = 'none';
@@ -4832,7 +4853,8 @@
                                 typeof response.bottle_fed !== "undefined" &&  
                                 typeof response.breast_fed !== "undefined"&& 
                                 typeof response.other_siblings_name !== "undefined" &&  
-                                typeof response.other_siblings_age !== "undefined"){
+                                typeof response.other_siblings_age !== "undefined"
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.pregnancyhistory-tick').style.display = 'none';
                                 document.querySelector('.pregnancyhistory-circle').style.display = 'none';
@@ -4909,7 +4931,8 @@
                                 typeof response.family_history_diabetes !== "undefined" ||  
                                 typeof response.family_history_hyperactivity !== "undefined"|| 
                                 typeof response.family_history_epilepsy !== "undefined" || 
-                                typeof response.no_illnesses_for_this_child !== "undefined"){
+                                typeof response.no_illnesses_for_this_child !== "undefined"
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.familyhistory-tick').style.display = 'none';
                                 document.querySelector('.familyhistory-circle').style.display = 'none';
@@ -4952,7 +4975,9 @@
                                 typeof response.relationship_with_siblings !== "undefined" &&  
                                 typeof response.relationship_with_extended_family !== "undefined" && 
                                 typeof response.fears_conflicts !== "undefined" &&  
-                                typeof response.child_response_frustration !== "undefined"&& typeof response.favorite_activities !== "undefined" ){
+                                typeof response.child_response_frustration !== "undefined"&& 
+                                typeof response.favorite_activities !== "undefined" 
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.socialbehavior-tick').style.display = 'none';
                                 document.querySelector('.socialbehavior-circle').style.display = 'none';
@@ -5027,9 +5052,10 @@
                                 parentAgreementTwo = false;
                             }
 
-                            if(childHistory == true && medicalHistory== true && pregnancyHistory== true &&
-                            familyHistroy== true && socialBehavior == true && environmentalFactor== true &&
-                            parentAgreementTwo== true ){
+                            if(childHistory == true && medicalHistory == true && pregnancyHistory == true &&
+                                familyHistroy == true && socialBehavior == true && environmentalFactor == true &&
+                                parentAgreementTwo == true 
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.childhistory-tick').style.display = 'none';
                                 document.querySelector('.childhistory-circle').style.display = 'none';
@@ -5101,7 +5127,8 @@
                                 typeof response.reason_for_childcare_before !== "undefined" && 
                                 typeof response.what_child_interests !== "undefined" &&  
                                 typeof response.drop_off_time !== "undefined" && 
-                                typeof response.pick_up_time !== "undefined"){
+                                typeof response.pick_up_time !== "undefined"
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.childprofiledetail-tick').style.display = 'none';
                                 document.querySelector('.childprofiledetail-circle').style.display = 'none';
@@ -5139,8 +5166,10 @@
                             if (typeof response.favorite_foods !== "undefined")
                                 document.getElementsByName('favorite_foods')[0].value = response.favorite_foods;
 
-                            if(typeof response.restricted_diet !== "undefined" && typeof response.eat_own !== "undefined" 
-                            && typeof response.favorite_foods !== "undefined"){
+                            if(typeof response.restricted_diet !== "undefined" && 
+                                typeof response.eat_own !== "undefined" && 
+                                typeof response.favorite_foods !== "undefined"
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.nutrition-tick').style.display = 'none';
                                 document.querySelector('.nutrition-circle').style.display = 'none';
@@ -5178,8 +5207,10 @@
                             if (typeof response.reason_for_toilet_trained !== "undefined")
                                 document.getElementsByName('reason_for_toilet_trained')[0].value = response.reason_for_toilet_trained;
 
-                            if(typeof response.rest_in_the_middle_day !== "undefined" && typeof response.rest_routine !== "undefined" 
-                            && typeof response.toilet_trained !== "undefined"){
+                            if(typeof response.rest_in_the_middle_day !== "undefined" && 
+                                typeof response.rest_routine !== "undefined"  && 
+                                typeof response.toilet_trained !== "undefined"
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.restdetails-tick').style.display = 'none';
                                 document.querySelector('.restdetails-circle').style.display = 'none';
@@ -5292,7 +5323,8 @@
                                 typeof response.utilize_special_equipment !== "undefined" &&  
                                 typeof response.significant_periods !== "undefined" && 
                                 typeof response.desire_any_accommodations !== "undefined" &&  
-                                typeof response.additional_information !== "undefined"){
+                                typeof response.additional_information !== "undefined"
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.medicaldetails-tick').style.display = 'none';
                                 document.querySelector('.medicaldetails-circle').style.display = 'none';
@@ -5329,7 +5361,8 @@
                                 parentAgreementThree = false;
                             }
                             if(childProfile == true && nutritionDetails== true && restDetails== true &&
-                            medicalDetails== true && parentAgreementThree == true ){
+                                medicalDetails== true && parentAgreementThree == true 
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.childprofile-tick').style.display = 'none';
                                 document.querySelector('.childprofile-circle').style.display = 'none';
@@ -5353,7 +5386,8 @@
                             }
 
                             if(typeof response.child_password_pick_up_password_form !== "undefined" && 
-                                typeof response.do_you_agree_this_pick_up_password_form !== "undefined"){
+                                typeof response.do_you_agree_this_pick_up_password_form !== "undefined"
+                            ){
                                     // Reset the display for both images
                                 document.querySelector('.childpickup-tick').style.display = 'none';
                                 document.querySelector('.childpickup-circle').style.display = 'none';
@@ -5390,7 +5424,8 @@
 
                             if(typeof response.photo_usage_photo_video_permission_form !== "undefined" && 
                                 typeof response.photo_permission_agree_group_photos_electronic !== "undefined" && 
-                                typeof response.do_you_agree_this_photo_video_permission_form !== "undefined"){
+                                typeof response.do_you_agree_this_photo_video_permission_form !== "undefined"
+                            ){
                                     // Reset the display for both images
                                 document.querySelector('.childphotopermission-tick').style.display = 'none';
                                 document.querySelector('.childphotopermission-circle').style.display = 'none';
@@ -5438,8 +5473,8 @@
                             }else{
                                 document.getElementById('do_you_agree_this_medical_transportation_waiver').checked = false;
                             }
-                            if(typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined"
-                            && typeof response.do_you_agree_this_medical_transportation_waiver !== "undefined"){
+                            if(typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined" && 
+                                typeof response.do_you_agree_this_medical_transportation_waiver !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.childmedical-tick').style.display = 'none';
                                 document.querySelector('.childmedical-circle').style.display = 'none';
@@ -6007,8 +6042,8 @@
                                 affiliation_policy_agreement == true && 
                                 security_issue_agreement == true && 
                                 addressing_individual_child_agreement == true &&
-                                finalword_agreement == true ){
-
+                                finalword_agreement == true 
+                            ){
                                 // Reset the display for both images
                                 document.querySelector('.parentHandBook-tick').style.display = 'none';
                                 document.querySelector('.parentHandBook-circle').style.display = 'none';
@@ -6037,8 +6072,8 @@
                                 securityPolicy == true && medicaltransportationWeiver == true &&
                                 healthPolicy == true && outsideWeiver == true &&
                                 enrollmentDetails == true && authorizationDetails == true && 
-                                parentHandBook == true){
-
+                                parentHandBook == true
+                            ){
                                 let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                                 parentFinalAgreement.classList.remove('disabled');
                             }else{

@@ -39,14 +39,12 @@ function signupFunction(){
         const password = formData.get("password");
         // Hash the password
         const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-        console.log(hashedPassword);
         
         // Replace the original password with the hashed password in the form data
         formData.set("password", hashedPassword);
         const obj = Object.fromEntries(formData);
-        console.log(obj);
         $.ajax({
-            url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/add",
+            url: "http://localhost:8080/sign_up/add",
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(obj),

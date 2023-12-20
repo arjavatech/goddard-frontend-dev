@@ -3,12 +3,10 @@ import {isAuthenticated} from "./authenticationVerify.js";
 import {authorizationFormDetails} from "./authorization_form.js";
 
 function getEnrollmentFormStatus(val, callback) {
-    console.log(val);
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/${val}/form_status/${localStorage.getItem('child_id')}`,
+        url: ` http://localhost:8080/${val}/form_status/${localStorage.getItem('child_id')}`,
         type: 'get',
         success: function (form_status_resp) {
-            console.log(form_status_resp);
             callback(form_status_resp);
         }
     });
@@ -64,15 +62,6 @@ async function printForm(id) {
     };
 }
 
-let title, globalBase64;
-AWS.config.update({
-    accessKeyId: 'AKIATNZ4QAI6MX5LH34Q',
-    secretAccessKey: '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',
-    region: 'us-west-2'
-});
-
-const s3 = new AWS.S3();
-
 let obj = {
     "from": "noreply.goddard@gmail.com",
     "to": "noreply.goddard@gmail.com",
@@ -81,70 +70,13 @@ let obj = {
     "attachmentName": "AttachmentForm",
     "attachmentKey": "attachments/Test.pdf"
 }
-
-async function uploadBase64PDFToS3(base64String, fileName) {
-    const byteCharacters = atob(base64String);
-    const byteNumbers = new Array(byteCharacters.length);
-    for (let i = 0; i < byteCharacters.length; i++) {
-        byteNumbers[i] = byteCharacters.charCodeAt(i);
-    }
-    const byteArray = new Uint8Array(byteNumbers);
-    const blob = new Blob([byteArray], { type: 'application/pdf' });
-
-    const params = {
-        Bucket: 'goddard-form',
-        Key: 'attachments/' + fileName,
-        Body: blob,
-        ContentType: 'application/pdf'
-    };
-
+function emailSend() {
     try {
-        const data = await s3.upload(params).promise();
-        return data.Key;
-    } catch (error) {
-        throw new Error('Error uploading attachment: ' + error.message);
-    }
-}
-
-async function getPDFBase64Data() {
-    // console.log("Base64");
-    const {jsPDF} = window.jspdf;
-    const doc = new jsPDF('p', 'mm', [1500, 1400]);
-    let formContent = document.querySelector('#formContent');
-    formContent.style.display = 'block';
-
-    const headingElement = document.querySelector('#heading');
-    title = headingElement.textContent;
-
-    return new Promise((resolve, reject) => {
-        doc.html(formContent, {
-            callback: function (doc) {
-                const pdfData = doc.output('datauristring');
-                const base64Data = pdfData.split(',')[1];
-                resolve(base64Data);
-            },
-            x: 12,
-            y: 12
-        });
-    }).finally(() => {
-        formContent.style.display = 'none';
-    })
-}
-
-async function emailSend() {
-    try {
-        const base64Data = await getPDFBase64Data();
-        obj.attachmentName = "AttachmentForm";
-        obj.subject = 'Query on ' + title;
         let messageData = $('#messageData').val();
         obj.body = messageData;
-
-        const attachmentKey = await uploadBase64PDFToS3(base64Data, title + ' CHILD_ID');
-        obj.attachmentKey = attachmentKey;
         const json =JSON.stringify(obj);
-        console.log(json);
         $.ajax({
-               url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
+               url: "http://localhost:8080/email/send",
                type: "POST",
                contentType: "application/json",
                data: json,
@@ -165,15 +97,12 @@ async function emailSend() {
 }
 
 function parentDashBoardDetails(val) {
-    console.log(val);
     localStorage.setItem('form_year_value', val);
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=true`,
+        url: ` http://localhost:8080/goddard_all_form/all/forms?status=true`,
         type: 'get',
         success: function (response) {
-            console.log(response);
             if (Array.isArray(response) && response.length > 0) {
-                console.log(response);
                 // localStorage.setItem('form_name',  data.form_name)
                 const tableBody = document.getElementById('tableBody');
                 // Clear the existing table row
@@ -194,7 +123,7 @@ function parentDashBoardDetails(val) {
                     if (data.form_name == '2023-2024 Enrollment Agreement') {
                         let value = 'enrollment_data';
                         getEnrollmentFormStatus(value, function (formStatusResp) {
-                            console.log(formStatusResp); // Check the structure of formStatusResp
+
                             // Assuming formStatusResp contains a property called 'form_status'
                             let form_status = formStatusResp.form_status;
                             formStatusCell.innerHTML = form_status;
@@ -261,10 +190,8 @@ function parentDashBoardDetails(val) {
                     editLink.setAttribute('class','fa-stack');
                     var dynamicValue = localStorage.getItem('child_id');
                     if(data.form_name == '2023-2024 Enrollment Agreement'){
-                        console.log('enroll');
                         editLink.href = `form.html?id=${dynamicValue}`;
                     }else if(data.form_name == 'ACH Recurring payments form') {
-                        console.log('svg');
                         editLink.href = `./forms/authorization_form.html?id=${dynamicValue}`;
                     }
                     
@@ -472,10 +399,9 @@ function parentDashBoardDetails(val) {
 //     localStorage.setItem('form_year_value', val);
 //     let form_status = 'unknown'
 //     $.ajax({
-//         url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/dashboard_data/formByYear/${val}`,
+//         url: ` http://localhost:8080/dashboard_data/formByYear/${val}`,
 //         type: 'get',
 //         success: function (response) {
-//             console.log(response);
 //             if (Array.isArray(response) && response.length > 0) {
 //                 getEnrollmentFormStatus(val, function (formStatusResp) {
 //                     form_status = formStatusResp.form_status;
@@ -570,13 +496,11 @@ function parentDashBoardDetails(val) {
 //to display child's year
 function parentDashBoardYear() {
     // const child_id = localStorage.getItem('child_id')
-    // const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/'
-    // // console.log(url + child_id)
+    // const url = ' http://localhost:8080/enrollment_data/fetch/'
     // $.ajax({
     //     url: url + child_id,
     //     type: 'get',
     //     success: function (response) {
-    //         console.log(response);
     //         let yearArray = []
     //         for (let i = 0; i < response.length; i++) {
     //             yearArray.push(response[i].year)

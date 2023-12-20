@@ -28,15 +28,13 @@ function validatePhone(inputtxtID, errorSpanId) {
 
 function activeFormList(){
     $.ajax({
-        url :'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all/forms?status=Active',
+        url :' http://localhost:8080/goddard_all_form/all/forms?status=Active',
         type : 'GET',
         success : function(response){
-            console.log(response);
             let responsevalue = Object.values(response);
             let optionsData = '';
             document.querySelector('[name="active_form_list"]').value ='';
             for (let i = 0; i <= responsevalue.length; i++) {
-                console.log(responsevalue[i].form_name);
                 optionsData += '<option value="' + responsevalue[i] + '">' + responsevalue[i]+ '</option>';
                 document.querySelector('[name="active_form_list"]').value =optionsData;
             }

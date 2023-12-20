@@ -36,7 +36,6 @@ function WelcomeScreen(){
 
 // $(document).ready(function() {
 //     $("#sendButton").click(function() {
-//       console.log('hi')
 //       let messageData = $("#messageData").val();
 
 //       let obj ={
@@ -54,10 +53,8 @@ function WelcomeScreen(){
 //         contentType: "application/json",
 //         data: JSON.stringify(obj),
 //         success: function(response) {
-//           console.log(response)
 //         },
 //         error: function(xhr, status, error) {
-//           console.log(status)
 //         }
 //       });
 //     });

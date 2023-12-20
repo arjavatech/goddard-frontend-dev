@@ -38,8 +38,10 @@
                     <div class="card-body">
                         <div class="row" id="errorMessageDiv" style="background-color: #fff ;height: 50px;display: none;">
                             <div class="col-sm-12">
-                                <span id="errorMessage" style="display: none;color: #ff0000;padding-top: 10px;text-align: center;">
+                                <span id="errorMessage" style="display: none;color: #ff0000;padding-top: 10px;text-align: center;font-size: 24px;">
                                     <b>Password Mismatched</b></span>
+                                    <span id="successMessage" style="display: none;color: rgb(15, 155, 89);padding-top: 10px;text-align: center;font-size: 24px;">
+                                        <b>Signed up Successfully</b></span>
                             </div>
                         </div>
                         <div class=" text-center"><img src="image/gs_logo_tab.png" type="image/png"></div><br>
@@ -100,6 +102,7 @@
         <script>
             // document.getElementById('reset_password_span').style.display = "none";
             let spanMsg = document.getElementById("errorMessage");
+            let spanSuccessMsg = document.getElementById("successMessage");
             let spanMsgDiv = document.getElementById("errorMessageDiv");
             function validatePassword() {
                 // Retrieve password input values
@@ -135,7 +138,6 @@
                     spanMsg.style.display = "none";
                     const form = document.getElementById("signup");
                     const formData = new FormData(form);
-                    console.log(formData);
                     const password = formData.get("password");
 
                     // Hash the password
@@ -153,17 +155,22 @@
                     }
 
                     $.ajax({
-                        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/add",
+                        url: "http://localhost:8080/sign_up/add",
                         type: "POST",
                         contentType: "application/json",
                         data: JSON.stringify(obj),
                         success: function (response) {
-                            alert(response.message);
+                            spanMsgDiv.style.display = "block";
+                            spanSuccessMsg.style.display = "block";
                             window.location.href = "login.html";
+                            alert(response.message);
+
                         },
                         error: function (xhr, status, error) {
+                            spanMsg.innerHTML = "Failed to Signup";
+                            spanMsgDiv.style.display = "block";
+                            spanMsg.style.display = "block";
                             console.log(error);
-                            alert("failed to sign up");
                         }
                     });
                 }else{

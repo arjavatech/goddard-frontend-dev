@@ -91,7 +91,6 @@ function autoPopulateAddress(inputtxtId,copyAddressId){
 }
 
 function parentSignValidation(val){
-    console.log('checking');
     alert(`${val},This Signature will be taken as your signature forever.`)
 }
 

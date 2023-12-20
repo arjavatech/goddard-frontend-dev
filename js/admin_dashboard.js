@@ -10,14 +10,12 @@ document.getElementById('btn-signout').addEventListener('click', signOut);
 //     const obj = Object.fromEntries(formData);
 //     obj.year = new Date().getFullYear() + '';
 //     // const json=  JSON.stringify(obj);
-//     // console.log(json);
 //     $.ajax({
-//         url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/add",
+//         url: "http://localhost:8080/parent_invite_info/add",
 //         type: "POST",
 //         contentType: "application/json",
 //         data: JSON.stringify(obj),
 //         success: function (response) {
-//             console.log(response);
 //             // window.location.href = "admin_dashboard.html";
 //             // ("form submitted successfully");
 //         },
@@ -44,7 +42,6 @@ $(document).ready(function () {
         // });
         // $("#active_form_list").on("click", function (e) {
         //     e.preventDefault();
-        //     console.log('checking');
         //      activeFormList();
         // });
     }

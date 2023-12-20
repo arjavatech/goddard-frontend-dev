@@ -8,15 +8,12 @@ function submitForm() {
     obj.on_process = false
    obj.primary_parent_email = localStorage.getItem('logged_in_email');
     const child_id_val = localStorage.getItem('child_id');
-    console.log(child_id_val);
     if (child_id_val !== null && child_id_val !== undefined) {
         obj.child_id = child_id_val; 
     }
-    console.log(obj);
     const json = JSON.stringify(obj);
-    console.log(json);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/additional",
+        url: "http://localhost:8080/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
         data: json,
@@ -40,15 +37,12 @@ function saveForm() {
     obj.on_process = true;
     obj.primary_parent_email = localStorage.getItem('logged_in_email');
     const child_id_val = localStorage.getItem('child_id');
-    console.log(child_id_val);
     if (child_id_val !== null && child_id_val !== undefined) {
         obj.child_id = child_id_val; 
     }
-    console.log(obj);
     const json = JSON.stringify(obj);
-    console.log(json);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/additional",
+        url: "http://localhost:8080/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
         data: json,
@@ -68,12 +62,10 @@ function saveForm() {
     //         localStorage.setItem('child_id', response.child_id);
     //         window.location.reload();
     //     }else{
-    //         console.log(error);
-    //         console.log(status);
     //         alert("failed to save admission form");
     //     }
     // };
-    // xhr.open("PUT", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/update");
+    // xhr.open("PUT", "http://localhost:8080/admission_child_personal/update");
     // xhr.setRequestHeader("Content-Type", "application/json");
     // xhr.send(json);
 }

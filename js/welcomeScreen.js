@@ -12,7 +12,7 @@ function clearLocalStorageExcept(keysToKeep) {
 
 function checkParentAuthentication(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email');
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email='
+    const url = ' http://localhost:8080/admission_child_personal/parent_email?email='
     $.ajax({
                url: url + logged_in_email,
                type: 'get',
@@ -34,7 +34,7 @@ function checkParentAuthentication(callback) {
 function getAllInfo(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email')
     // const parent_id = localStorage.getItem('parent_id');
-    const url = 'https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email='
+    const url = ' http://localhost:8080/admission_child_personal/parent_email?email='
     $.ajax({
         url: url + logged_in_email,
         type: 'get',
@@ -73,12 +73,14 @@ function loadDynamicCards() {
 
         // Create the elements for child card
         let div = document.createElement('div');
-        div.classList.add('col-2','mt-4');
+        div.classList.add('class','mt-4');
+        div.setAttribute('style','width:10%;');
 
         let anchor = document.createElement('a');
         anchor.classList.add('text-decoration-none');
 
         let card = document.createElement('div');
+        card.setAttribute('style','height:200px');
 
         if (on_process === true) {
             anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
@@ -113,7 +115,9 @@ function loadDynamicCards() {
 
     // Create "Add Child" button
     let outerDiv = document.createElement('div');
-    outerDiv.classList.add('col-2','m-4');
+    outerDiv.classList.add('class','m-4');
+    outerDiv.setAttribute('style','width:10%;hight:50px;');
+    // outerDiv.setAttribute('style','hight:30px;display:inline-flex;');
     outerDiv.setAttribute('id', 'showDiv');
     outerDiv.onclick = function(){
         divShow();
@@ -131,28 +135,29 @@ function loadDynamicCards() {
     let cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
 
-    let iconH5 = document.createElement('h6');
-    iconH5.classList.add('card-title', 'dashboard_card_icon');
+    // let iconH5 = document.createElement('h6');
+    // iconH5.classList.add('card-title', 'dashboard_card_icon');
 
-    let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-    svg.setAttribute('width', '30');
-    svg.setAttribute('height', '30');
-    svg.setAttribute('fill', 'currentColor');
-    svg.setAttribute('class', 'bi bi-plus-circle-fill');
-    svg.setAttribute('viewBox', '0 0 17 17');
+    // let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    // svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    // svg.setAttribute('width', '30');
+    // svg.setAttribute('height', '30');
+    // svg.setAttribute('fill', 'currentColor');
+    // svg.setAttribute('class', 'bi bi-plus-circle-fill');
+    // svg.setAttribute('viewBox', '0 0 17 17');
+    // // svg.setAttribute('value', 'Add child');
 
-    let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z');
+    // let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    // path.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z');
 
     let textH5 = document.createElement('h6');
-    textH5.classList.add('text-center', 'dashboard_card_icon', 'h6');
+    textH5.classList.add('text-center', 'dashboard_card_icon');
     textH5.textContent = 'Add Child';
 
-    iconH5.appendChild(svg);
-    svg.appendChild(path);
+    // iconH5.appendChild(svg);
+    // svg.appendChild(path);
 
-    cardBody.appendChild(iconH5);
+    // cardBody.appendChild(iconH5);
     cardBody.appendChild(textH5);
 
     card.appendChild(cardBody);
@@ -176,7 +181,6 @@ function welcomeText() {
 
 
 function goToBookmark() {
-    console.log('checking');
     // Set the hash to the ID of the bookmarked section
     window.location.href = "#myBookmark";
 
@@ -185,10 +189,8 @@ function goToBookmark() {
 }
 
 function scrollToBookmark() {
-    console.log('scrollToBookmark');
     // Scroll to the bookmarked section
     var element = document.getElementById("myBookmark");
-    console.log(element);
     if (element) {
         element.scrollIntoView({ behavior: "smooth" });
     }
@@ -220,7 +222,7 @@ function submitForm() {
     localStorage.setItem('child_last_name', obj.child_last_name);
     localStorage.setItem('dob', obj.dob);
     $.ajax({
-        url: "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/add",
+        url: "http://localhost:8080/admission_child_personal/add",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(obj),

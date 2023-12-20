@@ -61,8 +61,7 @@
   <script>
     $(function () {
         $('#addTab').click(function () {
-            var num_tabs = $('div#tabs ul li.tab').length + 1;  
-            console.log(num_tabs);      
+            var num_tabs = $('div#tabs ul li.tab').length + 1;       
             $('div#tabs ul').append(
                 '<li class="tab"><a href="#tab-' + num_tabs + '">Section ' + num_tabs + '</a></li>');
     

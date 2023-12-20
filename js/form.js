@@ -29,7 +29,7 @@ function submitForm() {
             window.location.reload();
         }
     };
-    xhr.open("POST", "https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/add");
+    xhr.open("POST", "http://localhost:8080/enrollment_data/add");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }

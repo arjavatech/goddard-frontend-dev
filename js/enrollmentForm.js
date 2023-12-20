@@ -3,18 +3,15 @@ import {isAuthenticated} from "./authenticationVerify.js";
 export function fetchEnrollmentFormBody(callback) {
     let arr =[];
     // $.ajax({
-    //     url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
+    //     url: ` http://localhost:8080/enrollment_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
     //     type: 'get',
     //     success: function(response){
-    //         console.log(response);
             // let editID = window.location.search.slice(4);
-            // console.log(editID);
             $.ajax({
-                // url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
-                url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
+                // url: ` http://localhost:8080/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
+                url: ` http://localhost:8080/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
                 type: 'get',
                 success: function(response1){
-                    console.log(response1);
                     // if(typeof response.point_one !='undefined'){
                     //     let paragraph = document.querySelector('[name="apiResponsep1"]');
                     //     paragraph.textContent = response.point_one;
@@ -43,7 +40,7 @@ export function fetchEnrollmentFormBody(callback) {
                     //     // textBox.setAttribute('class', 'form-control');
                     //     textBox.setAttribute('style', 'border: none; border-bottom: 1px solid black;');
                     //     // let textBoxs = document.body.appendChild(textBox);
-                    //     // Replace the target text with the textbox in the paragraph
+                    //     // Replace the target text with the textbox in the paragraph 
                     //     paragraph.innerHTML = paragraph.innerHTML.replace(targetText, targetText + textBox.outerHTML);
                     //     }
                     // //    document.querySelector('[name="apiResponsep1"]').innerHTML = response.point_one;
@@ -142,7 +139,6 @@ export function fetchEnrollmentFormBody(callback) {
                     if (typeof response1.parent_one_sign_date !== "undefined"){
                         document.getElementsByName("parent_one_sign_date")[0].value = response1.parent_one_sign_date;
                     }
-                    // console.log(response1[0].primary_parent_email);
                     if (typeof response1.primary_parent_email !== "undefined"){
                         document.getElementsByName("primary_parent_email")[0].value = response1.primary_parent_email;
                     }
@@ -174,10 +170,9 @@ export function fetchEnrollmentFormBody(callback) {
 
 export function fetchEnrollmentFormTitle(callback) {
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
+        url: ` http://localhost:8080/enrollment_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
         type: 'get',
         success: function(response){
-            console.log(response);
             document.querySelector('[name="heading"]').innerHTML = response.title;
             if (typeof callback === 'function') {
                 callback();
@@ -188,7 +183,7 @@ export function fetchEnrollmentFormTitle(callback) {
 
 export function fetchEnrollmentPointEight(callback) {
     $.ajax({
-        url: `https://y4jyv8n3cj.execute-api.us-west-2.amazonaws.com/goddard_test/holidays_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
+        url: ` http://localhost:8080/holidays_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
         type: 'get',
         success: function(response){
             document.querySelector('[id="R1C1"]').innerHTML = response.year_one_leave_one;

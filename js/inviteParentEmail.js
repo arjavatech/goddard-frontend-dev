@@ -20,7 +20,7 @@ function emailSend() {
         console.log(json);
 
         $.ajax({
-            url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/email/send",
+            url: "http://localhost:8080/email/send",
             type: "POST",
             contentType: "application/json",
             data: json,

@@ -4411,7 +4411,7 @@
                     addChildDiv.style.display = 'none';
                     //for waking up the aws lambda server   
                     $.ajax({
-                        url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/fetch/${editID}`,
+                        url: ` http://localhost:8080/admission_child_personal/fetch/${editID}`,
                         type: 'GET',
                         //this is used to get the response and return the result
                         success: function(response){

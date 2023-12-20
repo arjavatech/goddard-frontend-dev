@@ -44,7 +44,7 @@ function signupFunction(){
         formData.set("password", hashedPassword);
         const obj = Object.fromEntries(formData);
         $.ajax({
-            url: " https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/sign_up/add",
+            url: "http://localhost:8080/sign_up/add",
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify(obj),

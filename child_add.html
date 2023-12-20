@@ -171,7 +171,17 @@
             </div>
             <div class="row m-3 tab_bg hide" id="formdiv" >
                 <div class="col-3 p-3 side_tab_bg"><br>
-                    <div class="accordion" id="accordionExampleone">
+
+                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                              Incomplete Forms
+                            </button>
+                          </h2>
+                          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                            <div class="accordion-body">
+                                 <div class="accordion" id="accordionExampleone">
                         <!--Admission Form Tab-->
                         <div class="accordion-item accordio_style">
                             <h2 class="accordion-header shadow">
@@ -206,7 +216,7 @@
                                         <li class="nav-item">
                                             <a class="nav-link" data-bs-toggle="pill"
                                                 href="#immunizationinstructions">
-                                                <span>Immunization Instructions
+                                                <span>Immunization
                                                     <img src="image/tick.png" height="10%" width="10%" class="immunization-tick float-end" style="display: none;">
                                                     <img src="image/circle-with.png" height="10%" width="10%" class="immunization-circle float-end" style="display: none;">
                                                 </span>
@@ -289,9 +299,9 @@
                                 </li><br>
                                 <li class="nav-item">
                                     <a class="nav-link" data-bs-toggle="pill" href="#handbook">
-                                        <span>Goddard Parent Handbook
-                                            <img src="image/tick.png" height="10%" width="10%" class="parentHandBook-tick float-end" style="display: none;">
-                                            <img src="image/circle-with.png" height="10%" width="10%" class="parentHandBook-circle float-end" style="display: none;">
+                                        <span>Parent Handbook
+                                            <img src="image/tick.png" height="10%" width="10%" class="handbook-tick float-end" style="display: none;">
+                                            <img src="image/circle-with.png" height="10%" width="10%" class="handbook-circle float-end" style="display: none;">
                                         </span>
                                     </a>
                                 </li><br>
@@ -301,6 +311,20 @@
                             </ul>
                         </div><br>
                     </div>  
+                            </div>
+                          </div>
+                        </div>
+                    </div><br>
+                    <ul class="nav nav-pills flex-column" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <span>Completed Forms
+                                    <img src="image/tick.png" height="10%" width="10%" class="completedforms-tick float-end" style="display: none;">
+                                    <img src="image/circle-with.png" height="10%" width="10%" class="completedforms-circle float-end" style="display: none;">
+                                </span>
+                            </a>
+                        </li><br>
+                    </ul>
                 </div>
                 <div class="col-9">
                     <!-- Tab panes -->
@@ -3556,10 +3580,10 @@
                             </div>
                             <!--Authorization Form End-->
 
-                            <!--Goddard Parent Handbook Form-->
+                            <!--Parent Handbook Form-->
                             <div id="handbook" class="container tab-pane fade"><br>
                                 <div class="accordion pt-4" id="handbookAccordionExample">
-                                    <h2 class="text-center title_bg mb-4">Goddard Parent Handbook</h2>
+                                    <h2 class="text-center title_bg mb-4">Parent Handbook</h2>
                                     <!--welcome goddard-->
                                     <div class="accordion-item">
                                         <h2 class="accordion-header shadow" id="handbookHeadingOne">
@@ -4350,7 +4374,7 @@
 
                                 </div>
                             </div><br>
-                            <!--Goddard Parent Handbook Form End-->
+                            <!--Parent Handbook Form End-->
         
                             <!--Parent Signature Form-->
                             <div id="parentsignature" class="container tab-pane fade"><br>

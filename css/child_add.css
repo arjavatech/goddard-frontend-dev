@@ -14,7 +14,7 @@
 }
 
 .card_style, .tab-bg{
-    background: #cadffa !important; 
+    background: #0F2D52 !important; 
 }
 
 .card_style:hover{
@@ -23,7 +23,7 @@
 
 .dashboard_card_style1{
     height: 50px !important;
-    background: #0F2D52 !important;
+    background: #2aa956 !important;
     border-radius: 0px !important;
     cursor: pointer;
 }
@@ -45,10 +45,12 @@
 }
 
 .dashboard_card_style_on_process{
-    height: 50px !important;
+    height: 60px !important;
     background: #fa6d6d !important;
+    /* background: #2aa956 !important; */
     border-radius: 0px !important;
     cursor: pointer;
+    width: auto !important;
 }
 
 .dashboard_card_style_on_process:hover{

@@ -73,13 +73,14 @@ function loadDynamicCards() {
 
         // Create the elements for child card
         let div = document.createElement('div');
-        // div.classList.add('col-2','mt-4');
-        div.setAttribute('style','hight:50px;width:105');
+        div.classList.add('class','mt-4');
+        div.setAttribute('style','width:10%;');
 
         let anchor = document.createElement('a');
         anchor.classList.add('text-decoration-none');
 
         let card = document.createElement('div');
+        card.setAttribute('style','height:200px');
 
         if (on_process === true) {
             anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
@@ -114,8 +115,9 @@ function loadDynamicCards() {
 
     // Create "Add Child" button
     let outerDiv = document.createElement('div');
-    // outerDiv.classList.add('col-2','m-4');
-    outerDiv.setAttribute('style','hight:20px;width:105px;display:inline-flex;');
+    outerDiv.classList.add('class','m-4');
+    outerDiv.setAttribute('style','width:10%;hight:50px;');
+    // outerDiv.setAttribute('style','hight:30px;display:inline-flex;');
     outerDiv.setAttribute('id', 'showDiv');
     outerDiv.onclick = function(){
         divShow();

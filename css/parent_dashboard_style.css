@@ -5,9 +5,7 @@
    
 }
 
-
 /***** Table style *****/
-
 
 .parent_dashboard_title
 {
@@ -36,7 +34,6 @@
 .table>:not(caption)>*>*{
     padding: 21px !important;
     border-collapse: collapse !important;
-    
 }
 
 .table-head, .table-footer{
@@ -48,7 +45,6 @@
     color: red;
     font-weight:bold;
 }
-
 
 .action-icons
 {
@@ -83,6 +79,7 @@
 .btn-secondary:focus{
     box-shadow: none !important;
 }
+
 .form-control {
     color: #0F2D52 !important;
     font-weight: 700 !important;
@@ -99,6 +96,7 @@
 #formContent {
     display: none;
 }
+
 #avf_form{
     display: none;
 }

@@ -76,8 +76,6 @@ body {
     border-bottom: 1px solid black;
 }
 
-
-
 .form-control{
     color: #0F2D52 !important;
     font-weight: 700 !important;
@@ -118,15 +116,16 @@ select+i.fa {
     border-bottom: 1px solid black;
     height: 30px;
     width: 300px;
-  }
-  .signblock{
+}
+
+.signblock{
     white-space: nowrap;
     margin-left: 20%;
-  }
+}
 
-  .div1{
+.div1{
     display: inline-block;
-  }
+}
 
 .divSpan{
     text-align:left;

@@ -89,7 +89,6 @@
             </div>    
             <!-- Add Child End -->
             <!-- Welcome Screen End -->
-
             <div class="row m-3" style="display: none;" id="addChildDiv">
                 <!--Child and Family History Form-->
                 <div id="child_basic_form"><br>
@@ -143,16 +142,13 @@
                                                                                     <div class="wizard-form-error"></div>
                                                                             </div>
                                                                         </div> 
-                                                                        
                                                                     </div>         
                                                                 </div>                                             
                                                                 <div class="panel-footer">
                                                                     <div class="form-group clearfix m-3">
                                                                         <div class="text-center">
-                                                                            
-                                                                                <button class="cancel-btn">Cancel</button>
-                                                                                <button href="javascript:;" class="submit-btn" id="basic_child_button">Submit</button>
-                                                                            
+                                                                            <button class="cancel-btn">Cancel</button>
+                                                                            <button href="javascript:;" class="submit-btn" id="basic_child_button">Submit</button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -6041,39 +6037,39 @@
                                 finalword_agreement = false;
                             }
 
-                            let parentHandBook;
-                            if(welcome_goddard_agreement == true && 
-                                mission_statement_agreement == true &&
-                                general_information_agreement == true && 
-                                medical_care_provider_agreement == true && 
-                                parent_access_agreement == true &&
-                                release_of_children_agreement == true && 
-                                registration_fees_agreement == true && 
-                                outside_engagements_agreement == true &&
-                                health_policies_agreement == true && 
-                                medication_procedures_agreement == true && 
-                                bring_to_school_agreement == true &&
-                                rest_time_agreement == true && 
-                                training_philosophy_agreement == true &&
-                                affiliation_policy_agreement == true && 
-                                security_issue_agreement == true && 
-                                addressing_individual_child_agreement == true &&
-                                finalword_agreement == true 
-                            ){
-                                // Reset the display for both images
-                                document.querySelector('.parentHandBook-tick').style.display = 'none';
-                                document.querySelector('.parentHandBook-circle').style.display = 'none';
-                                // Update the display for the clicked card
-                                document.querySelector('.parentHandBook-tick').style.display = 'block'; 
-                                parentHandBook = true;
-                            }else{
-                                // Reset the display for both images
-                                document.querySelector('.parentHandBook-tick').style.display = 'none';
-                                document.querySelector('.parentHandBook-circle').style.display = 'none';
-                                // Update the display for the clicked card
-                                document.querySelector('.parentHandBook-circle').style.display = 'block';
-                                parentHandBook = false;
-                            }
+                            // let parentHandBook;
+                            // if(welcome_goddard_agreement == true && 
+                            //     mission_statement_agreement == true &&
+                            //     general_information_agreement == true && 
+                            //     medical_care_provider_agreement == true && 
+                            //     parent_access_agreement == true &&
+                            //     release_of_children_agreement == true && 
+                            //     registration_fees_agreement == true && 
+                            //     outside_engagements_agreement == true &&
+                            //     health_policies_agreement == true && 
+                            //     medication_procedures_agreement == true && 
+                            //     bring_to_school_agreement == true &&
+                            //     rest_time_agreement == true && 
+                            //     training_philosophy_agreement == true &&
+                            //     affiliation_policy_agreement == true && 
+                            //     security_issue_agreement == true && 
+                            //     addressing_individual_child_agreement == true &&
+                            //     finalword_agreement == true 
+                            // ){
+                            //     // Reset the display for both images
+                            //     document.querySelector('.parentHandBook-tick').style.display = 'none';
+                            //     document.querySelector('.parentHandBook-circle').style.display = 'none';
+                            //     // Update the display for the clicked card
+                            //     document.querySelector('.parentHandBook-tick').style.display = 'block'; 
+                            //     parentHandBook = true;
+                            // }else{
+                            //     // Reset the display for both images
+                            //     document.querySelector('.parentHandBook-tick').style.display = 'none';
+                            //     document.querySelector('.parentHandBook-circle').style.display = 'none';
+                            //     // Update the display for the clicked card
+                            //     document.querySelector('.parentHandBook-circle').style.display = 'block';
+                            //     parentHandBook = false;
+                            // }
 
                             if(childbasicInfo == true && childparentInfo == true && 
                                 childEmergencyContact == true && childMedicalcare == true && 

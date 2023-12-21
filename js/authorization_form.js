@@ -3,7 +3,7 @@ import {isAuthenticated} from "./authenticationVerify.js";
 
 export function authorizationFormDetails(callback) {
     $.ajax({
-        url: ` http://localhost:8080/bill_ach/fetch/${localStorage.getItem('child_id')}`,
+        url: `http://localhost:8080/bill_ach/fetch/${localStorage.getItem('child_id')}`,
         type: 'get',
         success: function(response){
             // Set values of form fields
@@ -37,7 +37,6 @@ export function authorizationFormDetails(callback) {
             if (typeof response.date !== "undefined"){
                 document.getElementById("date").value = response.date;
             }
-
             if (typeof callback === 'function') {
                 callback();
             }
@@ -78,7 +77,6 @@ function mainEntryPoint() {
             submitForm();
         });
         authorizationFormDetails();
-       
     }
 }
 // Check if this script is the main entry point and call the main function
@@ -96,7 +94,6 @@ jQuery(document).ready(function () {
         var nextWizardStep = true;
         parentFieldset.find('.wizard-required').each(function () {
             var thisValue = jQuery(this).val();
-
             if (thisValue == "") {
                 jQuery(this).siblings(".wizard-form-error").slideDown();
                 nextWizardStep = false;

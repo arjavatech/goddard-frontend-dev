@@ -51,7 +51,7 @@ button.nav-link
     border-color: rgb(15, 45, 82) !important;
     -webkit-box-shadow: 0 0 8px rgb(15, 45, 82, 0.6) !important;
     box-shadow: 0 0 8px rgb(15, 45, 82, 0.6) !important;
-  }
+}
 
 .login_btn {
     padding: 10px !important;
@@ -69,7 +69,6 @@ button.nav-link
     border: none !important;
 }
 
-
 .signup_btn {
     padding: 10px !important;
     color: #fff !important;
@@ -85,7 +84,6 @@ button.nav-link
 .signup_btn:focus {
     border: none !important;
 }
-
 
 .for_pwd:hover
 {

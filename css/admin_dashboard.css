@@ -143,7 +143,7 @@
     border-color: #66afe9 !important;
     -webkit-box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
     box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
-  }
+}
 
 a{
     text-decoration: none !important;
@@ -156,30 +156,30 @@ a{
 
 
 
-  .active_form_modal
-  {
+.active_form_modal
+{
     height: 500px !important;
     width: 500px !important;
-  }
+}
 
-  .form-multi-select.show
-  {
+.form-multi-select.show
+{
     border-color: #66afe9 !important;
     -webkit-box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
     box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
-  }
+}
 
-  .form-multi-select-option.form-multi-selected::before {
+.form-multi-select-option.form-multi-selected::before {
     background-color:#0F2D52 !important;
     border: none !important;
-   }
+}
 
-   .modal_center
-   {
+.modal_center
+{
     display: flex;
     justify-content: center;
     align-items: center;
-   }
+}
 
 /* number input default icon restriction code */
 input[type=number]::-webkit-inner-spin-button, 

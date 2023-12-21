@@ -41,33 +41,34 @@ function saveForm() {
         obj.child_id = child_id_val; 
     }
     const json = JSON.stringify(obj);
-    $.ajax({
-        url: "http://localhost:8080/admission_child_personal/additional",
-        type: "POST",
-        contentType: "application/json",
-        data: json,
-        success: function (response) {
-            alert(response.message)
-            window.location.reload();
-        },
-        error: function (xhr, status, error) {
-            console.log(error);
-            console.log(status);
-            alert("failed to save admission form");
-        }
-    });
-    // let xhr = new XMLHttpRequest();
-    // xhr.onload = () => {
-    //     if (xhr.status === 200) {
-    //         localStorage.setItem('child_id', response.child_id);
+    console.log(json);
+    // $.ajax({
+    //     url: "http://localhost:8080/admission_child_personal/additional",
+    //     type: "POST",
+    //     contentType: "application/json",
+    //     data: JSON.stringify(obj),
+    //     success: function (response) {
+    //         alert(response.message)
     //         window.location.reload();
-    //     }else{
+    //     },
+    //     error: function (xhr, status, error) {
+    //         console.log(error);
+    //         console.log(status);
     //         alert("failed to save admission form");
     //     }
-    // };
-    // xhr.open("PUT", "http://localhost:8080/admission_child_personal/update");
-    // xhr.setRequestHeader("Content-Type", "application/json");
-    // xhr.send(json);
+    // });
+    let xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+            // localStorage.setItem('child_id', response.child_id);
+            window.location.reload();
+        }else{
+            alert("failed to save admission form");
+        }
+    };
+    xhr.open("POST", "http://localhost:8080/admission_child_personal/additional");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(json);
 }
 
 function clearForm(){

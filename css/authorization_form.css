@@ -10,10 +10,7 @@ select+i.fa {
     padding-right: 5px;
 }
 
-
-
 /***Form button style***/
-
 
 .form-wizard .cancel-btn,
 .form-wizard .submit-btn {
@@ -35,8 +32,6 @@ select+i.fa {
     opacity: 0.6;
     text-decoration: none;
 }
-
-
 
 .form-wizard .cancel-btn {
     background-color: #0F2D52;

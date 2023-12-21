@@ -14,28 +14,28 @@ function checkParentAuthentication(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email');
     const url = ' http://localhost:8080/admission_child_personal/parent_email?email='
     $.ajax({
-               url: url + logged_in_email,
-               type: 'get',
-               success: function (response) {
-                   let keysToKeep = ['logged_in_email'];
-                   clearLocalStorageExcept(keysToKeep);
-                   // localStorage.clear()
-                   if (response && response.length > 0) {
-                       localStorage.setItem('parent_name', response[0].parent_name)
-                    //    localStorage.setItem('parent_id', response[0].id)
-                   }
-                   if (typeof callback === 'function') {
-                       callback();
-                   }
-               }
-           });
+        url: url + logged_in_email,
+        type: 'get',
+        success: function (response) {
+            let keysToKeep = ['logged_in_email'];
+            clearLocalStorageExcept(keysToKeep);
+            // localStorage.clear()
+            if (response && response.length > 0) {
+                localStorage.setItem('parent_name', response[0].parent_name)
+            //    localStorage.setItem('parent_id', response[0].id)
+            }
+            if (typeof callback === 'function') {
+                callback();
+            }
+        }
+    });
 }
 
 
 function getAllInfo(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email')
     // const parent_id = localStorage.getItem('parent_id');
-    const url = ' http://localhost:8080/admission_child_personal/parent_email?email='
+    const url = 'http://localhost:8080/admission_child_personal/parent_email?email='
     $.ajax({
         url: url + logged_in_email,
         type: 'get',
@@ -189,7 +189,6 @@ function welcomeText() {
 function goToBookmark() {
     // Set the hash to the ID of the bookmarked section
     window.location.href = "#myBookmark";
-
     // Add a delay before scrolling to the bookmarked section
     setTimeout(scrollToBookmark, 2);
 }
@@ -227,11 +226,13 @@ function submitForm() {
     localStorage.setItem('child_first_name', obj.child_first_name);
     localStorage.setItem('child_last_name', obj.child_last_name);
     localStorage.setItem('dob', obj.dob);
+    const json =JSON.stringify(obj);
+    console.log(json);
     $.ajax({
         url: "http://localhost:8080/admission_child_personal/add",
         type: "POST",
         contentType: "application/json",
-        data: JSON.stringify(obj),
+        data: json,
         success: function (response) {
             alert(response.message);
             window.location.reload();

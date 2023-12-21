@@ -98,40 +98,20 @@
                 const password = document.getElementById('login_pswd').value;
                 const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
                 $.ajax({
-                    url: ` http://localhost:8080/sign_up/is_admin/${email_id}?password=${hashedUserPassword}`,
+                    url: `http://localhost:8080/sign_up/is_admin/${email_id}?password=${hashedUserPassword}`,
                     type: "GET",
                     success: function (response) {
                         console.log(response);
                         let isAuthenticated = false;
-
-                        // for (let i = 0; i < response.length; i++) {
-                            if(response.admin === true ){
-                                // if (email_id === response[i].email_id ) {
-                                //     const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
-
-                                //     // Hash the user-typed password using the same algorithm and parameters
-                                //     const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-                                //     if (hashedUserPassword === storedPasswordHash) {
-                                        isAuthenticated = true;
-                                        localStorage.setItem('logged_in_email', email_id);
-                                        window.location.href = "./admin_dashboard.html";
-                                        // break; // Exit the loop since we found a match
-                                //     }
-                                // }
-                            }else if (response.admin === false ) {
-                                // const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
-
-                                // // Hash the user-typed password using the same algorithm and parameters
-                                // const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-                                // if (hashedUserPassword === storedPasswordHash) {
-                                    isAuthenticated = true;
-                                    localStorage.setItem('logged_in_email', email_id);
-                                    window.location.href = "./child_add.html";
-                                    // break; // Exit the loop since we found a match
-                                // }
-                            }
-
-                        // }
+                        if(response.admin === true ){
+                            isAuthenticated = true;
+                            localStorage.setItem('logged_in_email', email_id);
+                            window.location.href = "./admin_dashboard.html";  
+                        }else if (response.admin === false ) {
+                            isAuthenticated = true;
+                            localStorage.setItem('logged_in_email', email_id);
+                            window.location.href = "./child_add.html";
+                        }
 
                         if (!isAuthenticated) {
                             // Authentication failed
@@ -149,23 +129,8 @@
                         spanMsg.style.display = "block";
                     }
                 });
-                // if (email_id === 'goddard01arjava@gmail.com' || email_id === 'goddard01arjava@gmail.com'){
-                //     const storedPasswordHash = response[i].password; // Retrieve the hashed password from the database
-                //         // Hash the user-typed password using the same algorithm and parameters
-                //         const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-                //     if (hashedUserPassword === storedPasswordHash) {
-                //         // isAuthenticated = true;
-                //         localStorage.setItem('logged_in_email', email_id);
-                //         window.location.href = "./admin_dashboard.html";
-                //         // break; // Exit the loop since we found a match
-                //     }else{
-                //         let spanMsg = document.getElementById("errorMessage");
-                //             let spanMsgDiv = document.getElementById("errorMessageDiv");
-                //             spanMsgDiv.style.display = "block";
-                //             spanMsg.style.display = "block";
-                //     }
-                // }
             }
+            
             $(document).ready(function () {
                 $("#loginButton").on("click", function (e) {
                     e.preventDefault(); // Prevent the default form submission

@@ -19,12 +19,13 @@ function submitForm() {
     }
     // enformData.year = new Date().getFullYear() + '';
     // enformData.parent_id = localStorage.getItem('parent_id');
-    // const json=  JSON.stringify(obj);
+    const json=  JSON.stringify(obj);
+    console.log(json);
     $.ajax({
-        url: "http://localhost:8080/admission/add",
+        url: "http://localhost:8080/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
-        data: JSON.stringify(obj),
+        data: json,
         success: function (response) {
             alert("Admission form submitted successfully");
             window.location.href = "child_add.html";
@@ -69,7 +70,7 @@ function saveForm(value) {
     obj.year = new Date().getFullYear() + '';
     $.ajax({
         // url: "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission/add",
-        url: "http://localhost:8080/admission/add",
+        url: "http://localhost:8080/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(obj),

@@ -39,9 +39,11 @@
                         <div class="row" id="errorMessageDiv" style="background-color: #fff ;height: 50px;display: none;">
                             <div class="col-sm-12">
                                 <span id="errorMessage" style="display: none;color: #ff0000;padding-top: 10px;text-align: center;font-size: 24px;">
-                                    <b>Password Mismatched</b></span>
-                                    <span id="successMessage" style="display: none;color: rgb(15, 155, 89);padding-top: 10px;text-align: center;font-size: 24px;">
-                                        <b>Signed up Successfully</b></span>
+                                    <b>Password Mismatched</b>
+                                </span>
+                                <span id="successMessage" style="display: none;color: rgb(15, 155, 89);padding-top: 10px;text-align: center;font-size: 24px;">
+                                    <b>Signed up Successfully</b>
+                                </span>
                             </div>
                         </div>
                         <div class=" text-center"><img src="image/gs_logo_tab.png" type="image/png"></div><br>
@@ -109,7 +111,6 @@
                 let password1 = document.getElementById('signup_pswd').value;
                 let password2 = document.getElementById('password').value;
                 if (password1 === password2) {
-                  
                     spanMsgDiv.style.display = "none";
                     spanMsg.style.display = "none";
                     // return true; // Allow form submission

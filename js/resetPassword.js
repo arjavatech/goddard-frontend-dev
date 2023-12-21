@@ -62,7 +62,6 @@ function signupFunction(){
         document.getElementById("errorMessageDiv").style.display = "block";
         // Display an error message
         // alert("Passwords do not match!");
-        
     }
 
 }

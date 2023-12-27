@@ -13,9 +13,9 @@
     color: #fff !important;
 }
 
-/* .card_style, .tab-bg{
+.card_style, .tab-bg{
     background: #0F2D52 !important; 
-} */
+}
 
 .card_style:hover{
     opacity: 0.6;
@@ -54,11 +54,11 @@
 }
 .dashboard_card_style_on_process_active{
     height: 60px !important;
-    /* color:#0F2D52 !important; */
+    color:#0F2D52 !important;
     border-radius: 0px !important;
     cursor: pointer;
     width: auto !important;
-    background-color: #0F2D52 !important;
+    background-color: #D8E9FF !important;
 }
 
 .dashboard_card_style_on_process:hover{

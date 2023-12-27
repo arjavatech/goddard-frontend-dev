@@ -11,8 +11,9 @@ function emailSend() {
         const obj = Object.fromEntries(formData);
 
         obj.from = "noreply.goddard@gmail.com";
-        let email_to =  $('#parent_email').val();
+        let email_to = $('#parent_email').val();
         obj.to = email_to;
+        console.log(obj.to);
         obj.subject = 'Invite parents';
         // let messageData = $('#messageData').val();
         obj.body = "";

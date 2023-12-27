@@ -65,7 +65,7 @@
 
             .label:focus {
                 border-radius: 15px 15px 0 0;
-                }
+            }
 
             .input:focus + .label {
                 z-index: 1;
@@ -97,24 +97,24 @@
     </head>
     <body>
         <div class="tabs">
-            <!-- <input class="input" name="tabs" type="radio" id="tab-1" checked="checked"/>
+            <input class="input" name="tabs" type="radio" id="tab-1" checked="checked"/>
             <label class="label" for="tab-1">Vikram</label>
-            <div class="panel">
+            <div class="panel" id="panel">
                 <p>You, the parent, are very important to The Goddard staff because you know your child best. We encourage you to contact the school about any questions or concerns you might have. Please review the daily reports highlighting your child’s activities. If there is anything we can do to make your child’s experiences more meaningful, please let us know.</p>
             </div>
             <input class="input" name="tabs" type="radio" id="tab-2"/>
             <label class="label" for="tab-2">Kumar</label>
-            <div class="panel">
+            <!-- <div class="panel">
                 <p>The educational goal of The Goddard School® is to utilize fun and creativity to foster a love of learning. We challenge our students by promoting inquiry and discovery through exploring the world around them.</p>
-            </div>
+            </div> -->
             <input class="input" name="tabs" type="radio" id="tab-3"/>
             <label class="label" for="tab-3">Saran</label>
-            <div class="panel">
+            <!-- <div class="panel">
                 <p>You, the parent, are very important to The Goddard staff because you know your child best. We encourage you to contact the school about any questions or concerns you might have. Please review the daily reports highlighting your child’s activities. If there is anything we can do to make your child’s experiences more meaningful, please let us know.</p>
-            </div>
+            </div> -->
             <input class="input" name="tabs" type="radio" id="tab-4"/>
             <label class="label" for="tab-4">+Add Child</label>
-            <div class="panel">
+            <!-- <div class="panel">
                 <p>You, the parent, are very important to The Goddard staff because you know your child best. We encourage you to contact the school about any questions or concerns you might have. Please review the daily reports highlighting your child’s activities. If there is anything we can do to make your child’s experiences more meaningful, please let us know.</p>
                 <p>You, the parent, are very important to The Goddard staff.</p>
             </div> -->
@@ -122,13 +122,17 @@
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 const tabs = document.querySelectorAll('.input');
-                const panels = document.querySelectorAll('.panel');
+                console.log(tabs);
+                const panels = document.getElementById('panel');
+                console.log(panels);
 
                 tabs.forEach((tab, index) => {
-                    tab.addEventListener('change', function () {
-                        panels.forEach(panel => panel.style.display = 'none');
-                        panels[index].style.display = 'block';
-                    });
+                    console.log(tab);
+                    console.log(index);
+                    // tab.addEventListener('change', function () {
+                        // panels.forEach(panel => panel.style.display = 'none');
+                        panels.style.display = 'block';
+                    // });
                 });
             });
         </script>

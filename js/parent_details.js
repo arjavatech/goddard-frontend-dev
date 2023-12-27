@@ -192,67 +192,67 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //for pagination code
     // Number of rows to display per page
-     const rowsPerPage = 5;
-     let currentPage = 1;
+    const rowsPerPage = 5;
+    let currentPage = 1;
      
      // Function to update the table based on the current page
-     function updateTable() {
-         const tableRows = document.querySelectorAll("#tableBody tr");
-         const startIndex = (currentPage - 1) * rowsPerPage;
-         const endIndex = currentPage * rowsPerPage;
+    function updateTable() {
+        const tableRows = document.querySelectorAll("#tableBody tr");
+        const startIndex = (currentPage - 1) * rowsPerPage;
+        const endIndex = currentPage * rowsPerPage;
+    
+        tableRows.forEach((row, index) => {
+            if (index >= startIndex && index < endIndex) {
+                row.style.display = "";
+            } else {
+                row.style.display = "none";
+            }
+        });
      
-         tableRows.forEach((row, index) => {
-             if (index >= startIndex && index < endIndex) {
-                 row.style.display = "";
-             } else {
-                 row.style.display = "none";
-             }
-         });
+        // Update the pagination buttons
+        updatePaginationButtons();
+    }
      
-         // Update the pagination buttons
-         updatePaginationButtons();
-     }
+    // Function to update the pagination buttons
+    function updatePaginationButtons() {
+        const tableRows = document.querySelectorAll("#tableBody tr");
+        const totalPages = Math.ceil(tableRows.length / rowsPerPage);
+    
+        const prevPageButton = document.getElementById("prevPage");
+        const nextPageButton = document.getElementById("nextPage");
+    
+        prevPageButton.classList.remove("disabled");
+        nextPageButton.classList.remove("disabled");
+    
+        if (currentPage === 1) {
+            prevPageButton.classList.add("disabled");
+        }
+    
+        if (currentPage === totalPages) {
+            nextPageButton.classList.add("disabled");
+        }
+    }
      
-     // Function to update the pagination buttons
-     function updatePaginationButtons() {
-         const tableRows = document.querySelectorAll("#tableBody tr");
-         const totalPages = Math.ceil(tableRows.length / rowsPerPage);
+    // Event listener for previous page button
+    document.getElementById("prevPage").addEventListener("click", () => {
+        if (currentPage > 1) {
+            currentPage--;
+            updateTable();
+        }
+    });
      
-         const prevPageButton = document.getElementById("prevPage");
-         const nextPageButton = document.getElementById("nextPage");
+    // Event listener for next page button
+    document.getElementById("nextPage").addEventListener("click", () => {
+        const tableRows = document.querySelectorAll("#tableBody tr");
+        const totalPages = Math.ceil(tableRows.length / rowsPerPage);
+    
+        if (currentPage < totalPages) {
+            currentPage++;
+            updateTable();
+        }
+    });
      
-         prevPageButton.classList.remove("disabled");
-         nextPageButton.classList.remove("disabled");
-     
-         if (currentPage === 1) {
-             prevPageButton.classList.add("disabled");
-         }
-     
-         if (currentPage === totalPages) {
-             nextPageButton.classList.add("disabled");
-         }
-     }
-     
-     // Event listener for previous page button
-     document.getElementById("prevPage").addEventListener("click", () => {
-         if (currentPage > 1) {
-             currentPage--;
-             updateTable();
-         }
-     });
-     
-     // Event listener for next page button
-     document.getElementById("nextPage").addEventListener("click", () => {
-         const tableRows = document.querySelectorAll("#tableBody tr");
-         const totalPages = Math.ceil(tableRows.length / rowsPerPage);
-     
-         if (currentPage < totalPages) {
-             currentPage++;
-             updateTable();
-         }
-     });
-     
-     // Initial table update
-     updateTable();
+    // Initial table update
+    updateTable();
 });
 

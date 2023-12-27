@@ -61,6 +61,8 @@ function saveForm() {
     xhr.onload = () => {
         if (xhr.status === 200) {
             // localStorage.setItem('child_id', response.child_id);
+            console.log('checking');
+            alert('checking submit');
             window.location.reload();
         }else{
             alert("failed to save admission form");
@@ -183,6 +185,10 @@ $(document).ready(function () {
             saveForm();
         });
         $("#twentysix_save").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+        $(".handbook_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
             saveForm();
         });

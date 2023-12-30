@@ -60,36 +60,18 @@
             <h4 class="h4 pt-2 text-center" id="welcomeText" name="welcomeText"></h4>
         </div>
         <div class="tab-bg m-2">
-            <div class="m-4">
-                <div class="row" id="additionalHtmlContainer">
-                    <!-- Dynamic Child Cards -->
-                    <div id="dynamicChildCards" class="row">
-                        <!-- Add Child -->
-                        <!-- <div class="col-2 m-3 mt-4" id="showDiv" >
-                            <a href="#myBookmark" onclick="goToBookmark()">
-                                <div class="card dashboard_card_style">
-                                    <div class="card-body pt-3">
-                                        <h5 class="card-title text-center dashboard_card_icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="60"
-                                                height="40" fill="currentColor"
-                                                class="bi bi-plus-circle-fill"
-                                                viewBox="0 0 17 17">
-                                                <path
-                                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-                                            </svg>
-                                            Add Child
-                                        </h5>
-                                        <h5 class="text-center dashboard_card_icon h5"></h5>
-                                    </div>
-                                </div>
-                            </a>
-                        </div> -->
-                    </div>
-                </div> 
-            </div>    
+            <!-- <div class="m-4"> -->
+                <!-- <div class="row" id="additionalHtmlContainer"> -->
+                    <!-- <div id="dynamicChildCards" class="row">
+                    </div> -->
+                    <ul class="nav nav-tabs" role="tablist" id="dynamicChildCards">
+
+                    </ul>
+                <!-- </div>  -->
+                
             <!-- Add Child End -->
             <!-- Welcome Screen End -->
-            <div class="row m-3" style="display: none;" id="addChildDiv">
+            <div class="row m-2" style="display: none;" id="addChildDiv">
                 <!--Child and Family History Form-->
                 <div id="child_basic_form"><br>
                     <div class="card_center">
@@ -165,150 +147,149 @@
                     </div> 
                 </div>
             </div>
-            <div class="row m-3 tab_bg hide" id="formdiv" >
+            <div class="row m-2 tab_bg hide" id="formdiv" >
                 <div class="col-3 p-3 side_tab_bg"><br>
-
                     <div class="accordion" id="accordionPanelsStayOpenExample">
                         <div class="accordion-item">
-                          <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                              Incomplete Forms
-                            </button>
-                          </h2>
-                          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
-                            <div class="accordion-body">
-                                 <div class="accordion" id="accordionExampleone">
-                        <!--Admission Form Tab-->
-                        <div class="accordion-item accordio_style">
-                            <h2 class="accordion-header shadow">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#admission" aria-expanded="true" aria-controls="collapseOne">
-                                    Admission Forms
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                Incomplete Forms
                                 </button>
                             </h2>
-                            <ul class="nav nav-pills flex-column" role="tablist">
-                                <div id="admission" class="accordion-collapse collapse show"
-                                    data-bs-parent="#accordionExampleone">
-                                    <div class="accordion-body accordion_body_style">
-        
-                                        <li class="nav-item" >
-                                            <a class="nav-link active" data-bs-toggle="pill" 
-                                                href="#childinformation">
-                                                <span> Child Information
-                                                    <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick float-end" style="display: none;">
-                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childinfo-circle float-end" style="display: none;">
-                                                </span>
-                                            </a>
-                                        </span> 
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="pill" href="#childandfamilyhistory">
-                                                <span>Child and Family History
-                                                    <img src="image/tick.png" height="10%" width="10%" class="childhistory-tick float-end" style="display: none;">
-                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childhistory-circle float-end" style="display: none;">
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="pill"
-                                                href="#immunizationinstructions">
-                                                <span>Immunization
-                                                    <img src="image/tick.png" height="10%" width="10%" class="immunization-tick float-end" style="display: none;">
-                                                    <img src="image/circle-with.png" height="10%" width="10%" class="immunization-circle float-end" style="display: none;">
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="pill" href="#childprofile">
-                                                <span>Child Profile
-                                                    <img src="image/tick.png" height="10%" width="10%" class="childprofile-tick float-end" style="display: none;">
-                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childprofile-circle float-end" style="display: none;">
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="pill" href="#pickuppassword">
-                                                <span>Pick-up Password
-                                                    <img src="image/tick.png" height="10%" width="10%" class="childpickup-tick float-end" style="display: none;">
-                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childpickup-circle float-end" style="display: none;">
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="pill"
-                                                href="#photovideopermission">
-                                                <span>Photo/Video Permission
-                                                    <img src="image/tick.png" height="10%" width="10%" class="childphotopermission-tick float-end" style="display: none;">
-                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childphotopermission-circle float-end" style="display: none;">
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="pill" href="#securitypolicy">
-                                                <span>Security & Policy
-                                                    <img src="image/tick.png" height="10%" width="10%" class="childsecurity-tick float-end" style="display: none;">
-                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childsecurity-circle float-end" style="display: none;">
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="pill" href="#medicaltransportation">
-                                                <span>Medical Transportation
-                                                    <img src="image/tick.png" height="10%" width="10%" class="childmedical-tick float-end" style="display: none;">
-                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childmedical-circle float-end" style="display: none;">
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="pill" href="#healthpolicies">
-                                                <span>Health Policies
-                                                    <img src="image/tick.png" height="10%" width="10%" class="childhealth-tick float-end" style="display: none;">
-                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childhealth-circle float-end" style="display: none;">
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="pill" href="#outsideengagements">
-                                                <span>Outside Engagements
-                                                    <img src="image/tick.png" height="10%" width="10%" class="childoutside-tick float-end" style="display: none;">
-                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childoutside-circle float-end" style="display: none;">
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </div>
-                                </div><br>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#enrollmentagreement">
-                                        <span>Enrollment Agreement
-                                            <img src="image/tick.png" height="10%" width="10%" class="childenrollment-tick float-end" style="display: none;">
-                                            <img src="image/circle-with.png" height="10%" width="10%" class="childenrollment-circle float-end" style="display: none;">
-                                        </span>
-                                    </a>
-                                </li><br>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#authorization">
-                                        <span>Authorization
-                                            <img src="image/tick.png" height="10%" width="10%" class="childauthorization-tick float-end" style="display: none;">
-                                            <img src="image/circle-with.png" height="10%" width="10%" class="childauthorization-circle float-end" style="display: none;">
-                                        </span>
-                                    </a>
-                                </li><br>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-bs-toggle="pill" href="#handbook">
-                                        <span>Parent Handbook
-                                            <img src="image/tick.png" height="10%" width="10%" class="handbook-tick float-end" style="display: none;">
-                                            <img src="image/circle-with.png" height="10%" width="10%" class="handbook-circle float-end" style="display: none;">
-                                        </span>
-                                    </a>
-                                </li><br>
-                                <li class="nav-item"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Sorry....You Have to fill all the missing fields.">
-                                    <a class="nav-link disabled" data-bs-toggle="pill" href="#parentsignature" id="parentFinalAgreement">Parent Signature</a>
-                                </li>
-                            </ul>
-                        </div><br>
-                    </div>  
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                                <div class="accordion-body">
+                                    <div class="accordion" id="accordionExampleone">
+                                        <!--Admission Form Tab-->
+                                        <div class="accordion-item accordio_style">
+                                            <h2 class="accordion-header shadow">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#admission" aria-expanded="true" aria-controls="collapseOne">
+                                                    Admission Forms
+                                                </button>
+                                            </h2>
+                                            <ul class="nav nav-pills flex-column" role="tablist">
+                                                <div id="admission" class="accordion-collapse collapse show"
+                                                    data-bs-parent="#accordionExampleone">
+                                                    <div class="accordion-body accordion_body_style">
+                        
+                                                        <li class="nav-item" >
+                                                            <a class="nav-link active" data-bs-toggle="pill" 
+                                                                href="#childinformation">
+                                                                <span> Child Information
+                                                                    <img src="image/tick.png" height="10%" width="10%" class="childinfo-tick float-end" style="display: none;">
+                                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childinfo-circle float-end" style="display: none;">
+                                                                </span>
+                                                            </a>
+                                                        </span> 
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="pill" href="#childandfamilyhistory">
+                                                                <span>Child and Family History
+                                                                    <img src="image/tick.png" height="10%" width="10%" class="childhistory-tick float-end" style="display: none;">
+                                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childhistory-circle float-end" style="display: none;">
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="pill"
+                                                                href="#immunizationinstructions">
+                                                                <span>Immunization
+                                                                    <img src="image/tick.png" height="10%" width="10%" class="immunization-tick float-end" style="display: none;">
+                                                                    <img src="image/circle-with.png" height="10%" width="10%" class="immunization-circle float-end" style="display: none;">
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="pill" href="#childprofile">
+                                                                <span>Child Profile
+                                                                    <img src="image/tick.png" height="10%" width="10%" class="childprofile-tick float-end" style="display: none;">
+                                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childprofile-circle float-end" style="display: none;">
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="pill" href="#pickuppassword">
+                                                                <span>Pick-up Password
+                                                                    <img src="image/tick.png" height="10%" width="10%" class="childpickup-tick float-end" style="display: none;">
+                                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childpickup-circle float-end" style="display: none;">
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="pill"
+                                                                href="#photovideopermission">
+                                                                <span>Photo/Video Permission
+                                                                    <img src="image/tick.png" height="10%" width="10%" class="childphotopermission-tick float-end" style="display: none;">
+                                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childphotopermission-circle float-end" style="display: none;">
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="pill" href="#securitypolicy">
+                                                                <span>Security & Policy
+                                                                    <img src="image/tick.png" height="10%" width="10%" class="childsecurity-tick float-end" style="display: none;">
+                                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childsecurity-circle float-end" style="display: none;">
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="pill" href="#medicaltransportation">
+                                                                <span>Medical Transportation
+                                                                    <img src="image/tick.png" height="10%" width="10%" class="childmedical-tick float-end" style="display: none;">
+                                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childmedical-circle float-end" style="display: none;">
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="pill" href="#healthpolicies">
+                                                                <span>Health Policies
+                                                                    <img src="image/tick.png" height="10%" width="10%" class="childhealth-tick float-end" style="display: none;">
+                                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childhealth-circle float-end" style="display: none;">
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" data-bs-toggle="pill" href="#outsideengagements">
+                                                                <span>Outside Engagements
+                                                                    <img src="image/tick.png" height="10%" width="10%" class="childoutside-tick float-end" style="display: none;">
+                                                                    <img src="image/circle-with.png" height="10%" width="10%" class="childoutside-circle float-end" style="display: none;">
+                                                                </span>
+                                                            </a>
+                                                        </li>
+                                                    </div>
+                                                </div><br>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-bs-toggle="pill" href="#enrollmentagreement">
+                                                        <span>Enrollment Agreement
+                                                            <img src="image/tick.png" height="10%" width="10%" class="childenrollment-tick float-end" style="display: none;">
+                                                            <img src="image/circle-with.png" height="10%" width="10%" class="childenrollment-circle float-end" style="display: none;">
+                                                        </span>
+                                                    </a>
+                                                </li><br>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-bs-toggle="pill" href="#authorization">
+                                                        <span>Authorization
+                                                            <img src="image/tick.png" height="10%" width="10%" class="childauthorization-tick float-end" style="display: none;">
+                                                            <img src="image/circle-with.png" height="10%" width="10%" class="childauthorization-circle float-end" style="display: none;">
+                                                        </span>
+                                                    </a>
+                                                </li><br>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" data-bs-toggle="pill" href="#handbook">
+                                                        <span>Parent Handbook
+                                                            <img src="image/tick.png" height="10%" width="10%" class="handbook-tick float-end" style="display: none;">
+                                                            <img src="image/circle-with.png" height="10%" width="10%" class="handbook-circle float-end" style="display: none;">
+                                                        </span>
+                                                    </a>
+                                                </li><br>
+                                                <li class="nav-item"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="You Have to fill all the missing fields.">
+                                                    <a class="nav-link disabled" data-bs-toggle="pill" href="#parentsignature" id="parentFinalAgreement">Parent Signature</a>
+                                                </li>
+                                            </ul>
+                                        </div><br>
+                                    </div>  
+                                </div>
                             </div>
-                          </div>
                         </div>
                     </div><br>
                     <ul class="nav nav-pills flex-column" role="tablist">
@@ -4440,8 +4421,7 @@
                                             </div>
                                             <div class="col-sm">
                                                 <div class="form-group"> 
-                                                    <label for="parent_sign_date"  class="form-label"><b>Date
-                                                        </b>
+                                                    <label for="parent_sign_date"  class="form-label"><b>Date</b>
                                                     </label>
                                                     <input type="date" class="form-control " id="parent_sign_date"
                                                         name="parent_sign_date" onclick="dateValidation('parent_sign_date')">
@@ -4461,7 +4441,7 @@
                     </form> 
                 </div>
             </div>
-        </div>    
+        </div>
         <!--Admission Form End-->
         <script>
             function checking(editID){
@@ -4469,12 +4449,19 @@
                 element.reset()
                 // formdiv.style.display = "block";
                 // let editID = window.location.search.slice(1);
+                // let active = document.querySelector('.active div');
+                // console.log(active);
+                // // let card = document.querySelector('.dashboard_card_style_on_process');
+                // // // console.log(aa);
+                // active.classList.add('card', 'dashboard_card_style_on_process_active');
+                // active.classList.remove('card', 'dashboard_card_style_on_process');
+               
                 if(editID != ''){
                     formdiv.classList.remove('hide');
                     addChildDiv.style.display = 'none';
                     //for waking up the aws lambda server   
                     $.ajax({
-                        url: ` http://localhost:8080/admission_child_personal/fetch/${editID}`,
+                        url: `http://localhost:8080/admission_child_personal/fetch/${editID}`,
                         type: 'GET',
                         //this is used to get the response and return the result
                         success: function(response){

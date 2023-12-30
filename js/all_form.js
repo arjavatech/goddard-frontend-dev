@@ -62,7 +62,7 @@ function saveForm() {
         if (xhr.status === 200) {
             // localStorage.setItem('child_id', response.child_id);
             console.log('checking');
-            alert('checking submit');
+            // alert('checking submit');
             window.location.reload();
         }else{
             alert("failed to save admission form");

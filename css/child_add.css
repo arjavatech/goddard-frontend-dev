@@ -10,7 +10,7 @@
 {
     position: relative;
     /* top: px; */
-    color: #fff !important;
+    color: #0f0f0f !important;
 }
 
 .card_style, .tab-bg{
@@ -45,7 +45,7 @@
 }
 
 .dashboard_card_style_on_process{
-    height: 60px !important;
+    height: 50px !important;
     background: #fa6d6d !important;
     /* background: #2aa956 !important; */
     border-radius: 0px !important;
@@ -53,8 +53,16 @@
     width: auto !important;
 }
 .dashboard_card_style_on_process_active{
-    height: 60px !important;
-    color:#0F2D52 !important;
+    height: 50px !important;
+    /* color:#0F2D52 !important;
+    color: aqua !important; */
+    border-radius: 0px !important;
+    cursor: pointer;
+    width: auto !important;
+    background-color: #D8E9FF !important;
+}
+div.card-bodys{
+    height: 50px !important;
     border-radius: 0px !important;
     cursor: pointer;
     width: auto !important;
@@ -66,13 +74,13 @@
 }
 
 .child_basic_card
-    {
+{
     width: 450px;
     background: #D8E9FF !important;
     box-shadow: 0px 4px 15px rgba(83, 53, 73, 0.25);
     border-radius: 10px !important;
     border: none !important;
-    }
+}
 
 .card_title
 {
@@ -86,6 +94,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}            
+}  
+
 
 /*****Parent Dashboard Style End*****/

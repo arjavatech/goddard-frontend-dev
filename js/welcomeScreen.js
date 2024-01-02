@@ -85,7 +85,6 @@ function loadDynamicCards() {
 
         let card = document.createElement('div');
         card.setAttribute('style','height:200px');
-        console.log(card.className);
 
         if (on_process === true) {
             anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
@@ -108,8 +107,8 @@ function loadDynamicCards() {
         childName.innerHTML = child_response[i].child_first_name;
 
         anchor.addEventListener('click', function () {
-            card.classList.remove('card', 'dashboard_card_style_on_process');
-            card.classList.add('card', 'dashboard_card_style_on_process_active');
+            // card.classList.remove('card', 'dashboard_card_style_on_process');
+            // card.classList.add('card', 'dashboard_card_style_on_process_active');
             const selectedChildName = child_response[i].child_first_name;
             const selectedChildId = child_response[i].child_id;
             localStorage.setItem('child_name', selectedChildName);
@@ -122,6 +121,8 @@ function loadDynamicCards() {
                 card.classList.remove('card', 'dashboard_card_style_on_process_active');
                 card.classList.add('card', 'dashboard_card_style1');
             }
+            // card.classList.remove('card', 'dashboard_card_style_on_process');
+            // card.classList.add('card', 'dashboard_card_style_on_process_active');
             
         });
         // card.reset();
@@ -218,27 +219,34 @@ function submitForm() {
     const form = document.getElementById("childBasicForm");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
-    const logged_in_email = localStorage.getItem('logged_in_email');
-    obj.primary_parent_email = logged_in_email;
-    obj.on_process = true;
-    localStorage.setItem('child_first_name', obj.child_first_name);
-    localStorage.setItem('child_last_name', obj.child_last_name);
-    localStorage.setItem('dob', obj.dob);
-    const json =JSON.stringify(obj);
-    console.log(json);
-    $.ajax({
-        url: "http://localhost:8080/admission_child_personal/add",
-        type: "POST",
-        contentType: "application/json",
-        data: json,
-        success: function (response) {
-            alert(response.message);
-            window.location.reload();
-        },
-        error: function (xhr, status, error) {
-            alert("failed to submit admission form");
-        }
-    });
+    if(obj.child_first_name != '' && obj.child_last_name !='' && obj.dob !=''){
+        const logged_in_email = localStorage.getItem('logged_in_email');
+        obj.primary_parent_email = logged_in_email;
+        obj.on_process = true;
+        localStorage.setItem('child_first_name', obj.child_first_name);
+        localStorage.setItem('child_last_name', obj.child_last_name);
+        localStorage.setItem('dob', obj.dob);
+        const json =JSON.stringify(obj);
+        console.log(json);
+        $.ajax({
+            url: "http://localhost:8080/admission_child_personal/add",
+            type: "POST",
+            contentType: "application/json",
+            data: json,
+            success: function (response) {
+                alert(response.message);
+                window.location.reload();
+            },
+            error: function (xhr, status, error) {
+                alert("failed to submit admission form");
+            }
+        });
+    }else{
+        window.location.reload();
+        alert('you have to fill all the fields');
+    }
+    
+    
 }
 var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {

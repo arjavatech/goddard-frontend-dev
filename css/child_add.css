@@ -87,6 +87,7 @@ div.card-bodys{
     background-color:#0F2D52; 
     color: #fff;
     border-radius: 10px 10px 0 0 !important;
+    border: 2px solid #D8E9FF !important;
 }    
             
 .card_center

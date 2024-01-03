@@ -76,7 +76,7 @@ function loadDynamicCards() {
         let div = document.createElement('li');
         div.setAttribute('class','nav-item');
         // div.classList.add('class','mt-4');
-        // div.setAttribute('style','width:10%;');
+        div.setAttribute('style','width:10%;');
 
         let anchor = document.createElement('a');
         anchor.setAttribute('class','nav-link ');
@@ -121,9 +121,6 @@ function loadDynamicCards() {
                 card.classList.remove('card', 'dashboard_card_style_on_process_active');
                 card.classList.add('card', 'dashboard_card_style1');
             }
-            // card.classList.remove('card', 'dashboard_card_style_on_process');
-            // card.classList.add('card', 'dashboard_card_style_on_process_active');
-            
         });
         // card.reset();
         // card.classList.add('card', 'dashboard_card_style_on_process');
@@ -139,6 +136,7 @@ function loadDynamicCards() {
     div.setAttribute('class','nav-item');
     // Create "Add Child" button
     let outerDiv = document.createElement('li');
+    outerDiv.setAttribute('style','width:10%;');
     // outerDiv.classList.add('class','m-4');
     // outerDiv.setAttribute('style','width:10%;hight:50px;');
     // outerDiv.setAttribute('style','hight:30px;display:inline-flex;');

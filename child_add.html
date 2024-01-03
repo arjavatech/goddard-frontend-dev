@@ -152,7 +152,8 @@
                     <div class="accordion" id="accordionPanelsStayOpenExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" 
+                                data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
                                 Incomplete Forms
                                 </button>
                             </h2>
@@ -4415,7 +4416,7 @@
                                                 <div class="form-group"> 
                                                     <label for="parent_sign" class="form-label"><b>Parent Signature</b>
                                                     </label>
-                                                    <input type="text" class="form-control " id="parent_sign"
+                                                    <input type="text" class="form-control" id="parent_sign"
                                                     name="parent_sign">
                                                 </div>
                                             </div>
@@ -4423,7 +4424,7 @@
                                                 <div class="form-group"> 
                                                     <label for="parent_sign_date"  class="form-label"><b>Date</b>
                                                     </label>
-                                                    <input type="date" class="form-control " id="parent_sign_date"
+                                                    <input type="date" class="form-control" id="parent_sign_date"
                                                         name="parent_sign_date" onclick="dateValidation('parent_sign_date')">
                                                 </div>
                                             </div>
@@ -6133,8 +6134,8 @@
                                 parentHandBook == true
                             ){
                                 console.log('if con');
-                                let navbarremoved = document.getElementsByClassName('nav-item');
-                                parentFinalAgreement.classList.remove('disabled');
+                                // let navbarremoved = document.getElementsByClassName('nav-item');
+                                // parentFinalAgreement.classList.remove('disabled');
                                 let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                                 parentFinalAgreement.classList.remove('disabled');
                             }else{

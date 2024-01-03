@@ -61,7 +61,7 @@ function saveForm() {
     xhr.onload = () => {
         if (xhr.status === 200) {
             // localStorage.setItem('child_id', response.child_id);
-            console.log('checking');
+           alert('checking');
             // alert('checking submit');
             window.location.reload();
         }else{
@@ -188,6 +188,11 @@ $(document).ready(function () {
             e.preventDefault(); // Prevent the default form submission
             saveForm();
         });
+        $("#parent_two_info").on("click", function (e) {
+            e.preventDefault(); // Prevent the default form submission
+            saveForm();
+        });
+       
         $(".handbook_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
             saveForm();

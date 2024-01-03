@@ -242,7 +242,7 @@ function submitForm() {
             }
         });
     }else{
-        window.location.reload();
+        // window.location.reload();
         alert('you have to fill all the fields');
     }
     

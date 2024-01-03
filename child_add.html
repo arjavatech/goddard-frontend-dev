@@ -605,12 +605,12 @@
                                                         </div>
                                                         <div class="col-sm">
                                                             <div class="form-group">
-                                                                <label for="parent_email_two" class="form-label"><b>EMAIL ADDRESS</b>
+                                                                <label for="parent_email" class="form-label"><b>EMAIL ADDRESS</b>
                                                                 </label>
-                                                                <input type="text" class="form-control " id="parent_email_two"
-                                                                    name="parent_email_two"
-                                                                    onchange="emailValidation(this,'parent_email_two_span')">
-                                                                <span id="parent_email_two_span" style="color:red; display:none">
+                                                                <input type="text" class="form-control " id="parent_email"
+                                                                    name="parent_email"
+                                                                    onchange="emailValidation(this,'parent_email_span')">
+                                                                <span id="parent_email_span" style="color:red; display:none">
                                                                     Enter valid input [should be in @ and .].</span>
                                                             </div>
                                                         </div>
@@ -798,7 +798,7 @@
                                                         <div class="form-group">
                                                             <label for="parent_two_email" class="form-label"><b>EMAIL ADDRESS</b>
                                                             </label>
-                                                            <input type="text" class="form-control " id="parent_two_email"
+                                                            <input type="text" class="form-control" id="parent_two_email"
                                                                 name="parent_two_email"
                                                                 onchange="emailValidation(this,'parent_two_email_span')">
                                                             <span id="parent_two_email_span" style="color:red; display:none">
@@ -808,7 +808,7 @@
                                                 </div>
                                                 <!-- Business info end-->
                                                 <div class="text-center">
-                                                    <button class="save-btn" id="parent_info">Save</button>
+                                                    <button class="save-btn" id="parent_two_info">Save</button>
                                                 </div>
                                             </div>
                                         </div>    
@@ -4554,8 +4554,8 @@
                                 document.getElementsByName('business_zip_address')[0].value = response.business_zip_address;
                             if (typeof response.business_cell_number !== "undefined")
                                 document.getElementsByName('business_cell_number')[0].value = response.business_cell_number;
-                            if (typeof response.parent_email_two !== "undefined")
-                                document.getElementsByName('parent_email_two')[0].value = response.parent_email_two;
+                            if (typeof response.parent_email !== "undefined")
+                                document.getElementsByName('parent_email')[0].value = response.parent_email;
 
                             if(typeof response.parent_name !== "undefined" && 
                                 typeof response.parent_street_address !== "undefined" && 
@@ -4570,7 +4570,7 @@
                                 typeof response.business_city_address !== "undefined" &&  
                                 typeof response.business_zip_address !== "undefined" && 
                                 typeof response.business_cell_number !== "undefined" &&  
-                                typeof response.parent_email_two !== "undefined"
+                                typeof response.parent_email !== "undefined"
                             ){
                                 // Reset the display for both images
                                 document.querySelector('.parentdetails-tick').style.display = 'none';
@@ -4616,16 +4616,24 @@
                                 document.getElementsByName('parent_two_business_zip_address')[0].value = response.parent_two_business_zip_address;
                             if (typeof response.parent_two_business_cell_number !== "undefined")
                                 document.getElementsByName('parent_two_business_cell_number')[0].value = response.parent_two_business_cell_number;
-                            if (typeof response.parent_two_parent_two_email_two !== "undefined")
-                                document.getElementsByName('parent_two_parent_two_email_two')[0].value = response.parent_two_parent_two_email_two;
+                            if (typeof response.parent_two_email !== "undefined")
+                                document.getElementsByName('parent_two_email')[0].value = response.parent_two_email;
 
-                            if(typeof response.parent_two_name !== "undefined" && typeof response.parent_two_street_address !== "undefined" 
-                            && typeof response.parent_two_city_address !== "undefined" &&  typeof response.parent_two_state_address !== "undefined"
-                            && typeof response.parent_two_zip_address !== "undefined" &&  typeof response.parent_two_home_telephone_number !== "undefined"
-                            && typeof response.parent_two_business_name !== "undefined" &&  typeof response.parent_two_work_hours !== "undefined"
-                            && typeof response.parent_two_business_telephone_number !== "undefined" &&  typeof response.parent_two_business_street_address !== "undefined"
-                            &&  typeof response.parent_two_business_city_address !== "undefined" &&  typeof response.parent_two_business_zip_address !== "undefined"
-                            &&  typeof response.parent_two_business_cell_number !== "undefined" &&  typeof response.parent_email_two !== "undefined"){
+                            if(typeof response.parent_two_name !== "undefined" && 
+                                typeof response.parent_two_street_address !== "undefined" && 
+                                typeof response.parent_two_city_address !== "undefined" &&  
+                                typeof response.parent_two_state_address !== "undefined"&& 
+                                typeof response.parent_two_zip_address !== "undefined" &&  
+                                typeof response.parent_two_home_telephone_number !== "undefined"&& 
+                                typeof response.parent_two_business_name !== "undefined" &&  
+                                typeof response.parent_two_work_hours !== "undefined"&& 
+                                typeof response.parent_two_business_telephone_number !== "undefined" &&  
+                                typeof response.parent_two_business_street_address !== "undefined"&&  
+                                typeof response.parent_two_business_city_address !== "undefined" &&  
+                                typeof response.parent_two_business_zip_address !== "undefined" &&  
+                                typeof response.parent_two_business_cell_number !== "undefined" &&  
+                                typeof response.parent_two_email !== "undefined")
+                            {
                                 document.querySelector('.parent_twodetails-tick').style.display = 'block';
                                 additionalChildparentInfo = true;
                             }else{
@@ -6124,12 +6132,20 @@
                                 enrollmentDetails == true && authorizationDetails == true && 
                                 parentHandBook == true
                             ){
+                                console.log('if con');
+                                let navbarremoved = document.getElementsByClassName('nav-item');
+                                parentFinalAgreement.classList.remove('disabled');
                                 let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                                 parentFinalAgreement.classList.remove('disabled');
                             }else{
+                                console.log('else con');
                                 let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                                 parentFinalAgreement.classList.add('disabled')
                             }
+                            if (typeof response.parent_sign !== "undefined")
+                                document.getElementsByName('parent_sign')[0].value = response.parent_sign;
+                            if (typeof response.parent_sign_date !== "undefined")
+                                document.getElementsByName('parent_sign_date')[0].value = response.parent_sign_date;
                         }
                     });
                 }else{

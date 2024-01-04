@@ -75,7 +75,7 @@ function loadDynamicCards() {
         // Create the elements for child card
         let div = document.createElement('li');
         div.setAttribute('class','nav-item');
-        // div.classList.add('class','mt-4');
+        // div.classList.add('class','mt-2');
         div.setAttribute('style','width:10%;');
 
         let anchor = document.createElement('a');

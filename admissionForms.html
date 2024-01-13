@@ -22,7 +22,7 @@
                                     <label for="child_first_name" class="form-label"><b>FIRST NAME
                                     </b></label><br>
                                     <input name="child_first_name" type="text" maxlength="20" 
-                                    class="form-control wizard-required child_first_name" id="child_first_name">
+                                    class="form-control wizard-required child_first_name" id="child_first_name" placeholder="e.g. Johnson">
                                     <div class="wizard-form-error"></div>
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                                     <label for="child_last_name" class="form-label"><b>LAST NAME
                                     </b></label><br>
                                     <input name="child_last_name" type="text" maxlength="20" 
-                                    class="form-control wizard-required child_last_name" id="child_last_name">
+                                    class="form-control wizard-required child_last_name" id="child_last_name" placeholder="e.g. David">
                                     <div class="wizard-form-error"></div>
                                 </div>
                             </div>
@@ -49,14 +49,14 @@
                                 <div class="form-group">
                                     <label for="nick_name" class="form-label"><b>NICKNAME</b></label>
                                     <input name="nick_name" type="text" maxlength="50" class="form-control"
-                                        id="nick_name">
+                                        id="nick_name" placeholder="e.g. John">
                                 </div>
                             </div>
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="dob" class="form-label"><b>BIRTH DATE</b></label>
                                     <input name="dob" type="date" maxlength="50" class="form-control dob"
-                                        id="dob" onclick="dateValidation('dob')">
+                                        id="dob" onclick="dateValidation('dob')" placeholder="e.g. 12/06/2000">
                                 </div>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                                 <div class="form-group">
                                     <label for="primary_language" class="form-label"><b>PRIMARY LANGUAGE</b></label>
                                     <input type="text" class="form-control " aria-label="Telephone Number"
-                                        id="primary_language" name="primary_language">
+                                        id="primary_language" name="primary_language" placeholder="e.g. English">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -140,7 +140,7 @@
                                             GUARDIAN’S NAME</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_name"
-                                        name="parent_name">
+                                        name="parent_name" placeholder="e.g. David Hussey">
                                 </div>
                             </div>
                         </div>
@@ -151,7 +151,7 @@
                                     <label for="parent_street_address" class="form-label"><b>STREET</b>
                                     </label>
                                     <input type="text" class="form-control" id="parent_street_address"
-                                        name="parent_street_address">
+                                        name="parent_street_address" placeholder="e.g. 132, My Street">
                                         <!-- onchange="autoPopulateAddress(this.value,'parent2_street_address')"> -->
                                 </div>
                             </div>
@@ -160,7 +160,7 @@
                                     <label for="parent_city_address" class="form-label"><b>CITY</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_city_address"
-                                        name="parent_city_address">
+                                        name="parent_city_address" placeholder="e.g. Kingston">
                                         <!-- onchange="autoPopulateAddress(this.value,'parent2_city_address')"> -->
                                 </div>
                             </div>
@@ -169,7 +169,7 @@
                                     <label for="parent_state_address" class="form-label"><b>STATE</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_state_address"
-                                        name="parent_state_address">
+                                        name="parent_state_address" placeholder="e.g. New York">
                                         <!-- onchange="autoPopulateAddress(this.value,'parent2_state_address')"> -->
                                 </div>
                             </div>
@@ -179,7 +179,7 @@
                                     </label>
                                     <input type="text" class="form-control " id="parent_zip_address"
                                         name="parent_zip_address"
-                                        onchange="ValidatePincode (this,'parent_zip_address_span')">
+                                        onchange="ValidatePincode (this,'parent_zip_address_span')" placeholder="e.g. 12401">
                                     <span id="parent_zip_address_span" style="color:red; display:none">
                                         Enter valid input [only numbers].</span>
                                 </div>
@@ -193,7 +193,7 @@
                                     </label>
                                     <input type="text" class="form-control " aria-label="Telephone Number"
                                         id="home_telephone_number" name="home_telephone_number"
-                                        onchange="validatePhone(this,'home_telephone_number_span')">
+                                        onchange="validatePhone(this,'home_telephone_number_span')" placeholder=" e.g. (555) 555-1234">
                                     <span id="home_telephone_number_span" style="color:red; display:none">
                                         Enter valid input [only numbers,+,-,()].</span>
                                 </div>
@@ -206,7 +206,7 @@
                                     <label for="business_name" class="form-label"><b>BUSINESS NAME</b>
                                     </label>
                                     <input type="text" class="form-control " id="business_name"
-                                        name="business_name">
+                                        name="business_name" placeholder=" e.g. Digital Marketing">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -214,7 +214,7 @@
                                     <label for="work_hours" class="form-label"><b>WORK HOURS</b>
                                     </label>
                                     <input type="text" class="form-control " id="work_hours"
-                                        name="work_hours">
+                                        name="work_hours" placeholder=" e.g. 10">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -224,7 +224,7 @@
                                     </label>
                                     <input type="text" class="form-control " id="business_telephone_number"
                                         name="business_telephone_number"
-                                        onchange="validatePhone(this,'business_telephone_number_span')">
+                                        onchange="validatePhone(this,'business_telephone_number_span')" placeholder=" e.g. (555) 555-0123">
                                     <span id="business_telephone_number_span"
                                         style="color:red; display:none">
                                         Enter valid input [only numbers,+,-,()].</span>

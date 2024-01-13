@@ -15,6 +15,7 @@
 
 .card_style, .tab-bg{
     background: #0F2D52 !important; 
+    margin-top: 2px;
 }
 
 .card_style:hover{
@@ -88,6 +89,7 @@ div.card-bodys{
     color: #fff;
     border-radius: 10px 10px 0 0 !important;
     border: 2px solid #D8E9FF !important;
+    align-items: center !important;
 }    
             
 .card_center
@@ -96,6 +98,15 @@ div.card-bodys{
     align-items: center;
     justify-content: center;
 }  
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 2px;
+    margin-bottom: 0;
+    list-style: none;
+    padding-top: 9px;
+}
 
 
 /*****Parent Dashboard Style End*****/

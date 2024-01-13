@@ -317,30 +317,40 @@
         <script>
            
             $(document).ready(function () {
-                let samplejson = {}
+                let samplejson = {};
                 $.ajax({
                     url: `http://localhost:8080/goddard_all_form/all_active_forms`,
                     type: 'GET',
-                    //this is used to get the response and return the result
                     success: function(response){
-                        console.log(response);
-                        for(res in response){
-                            console.log(response[res].main_topic);
-                            let trimValues = response[res].main_topic.replace(/\s+/g,'').toLowerCase();
-                            console.log(trimValues);
-                            $.get(trimValues+"ListItem.html", function(data) {
+                        // Extract main_topic values and store them in an array
+                        let mainTopics = [];
+                        for (let res in response) {
+                            mainTopics.push(response[res].main_topic);
+                        }
+
+                        // Sort the array alphabetically
+                        mainTopics.sort();
+                        console.log(mainTopics);
+
+                        // Iterate through the sorted array
+                        for (let i = 0; i < mainTopics.length; i++) {
+                            let mainTopic = mainTopics[i];
+                            let trimValues = mainTopic.replace(/\s+/g,'').toLowerCase();
+
+                            $.get(trimValues + "ListItem.html", function(data) {
                                 $("#menu").append(data);
                             });
-                            $.get(trimValues+".html", function(data) {
+
+                            $.get(trimValues + ".html", function(data) {
                                 $(".tab-content").append(data);
                             });
-                            continue;
                         }
                     }
                 });
+
                 // alert('page reload');
                 // $('#menu').append(enrollmentAgreementHtml)
-                // $.get("enrollmentAgreementListItem.html", function(data) {
+                // $.get("enrollmentAgreementListItem.html", function(data) { 
                 //     $("#menu").append(data);
                 // });
                 // $.get("enrollmentAgreement.html", function(data) {
@@ -348,6 +358,7 @@
                 // });
             });
             function checking(editID){
+                console.log(editID);
                 var element = document.getElementById("childInfo");
                 element.reset();
                 // formdiv.style.display = "block";

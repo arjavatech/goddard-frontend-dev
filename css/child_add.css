@@ -4,6 +4,9 @@
 
 .parent_dashboard_title, .dashboard_card_icon {
     color: #0F2D52 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 .dashboard_card_text
@@ -94,9 +97,9 @@ div.card-bodys{
             
 .card_center
 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }  
 
 .nav {

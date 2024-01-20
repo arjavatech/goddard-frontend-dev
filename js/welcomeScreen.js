@@ -70,6 +70,7 @@ function loadDynamicCards() {
 
     // Loop through the response size and create the child divs
     for (let i = 0; i < responseSize; i++) {
+        console.log(child_response[i]);
         let on_process = child_response[i].on_process;
 
         // Create the elements for child card
@@ -85,17 +86,20 @@ function loadDynamicCards() {
 
         let card = document.createElement('div');
         card.setAttribute('style','height:200px');
-
+        console.log(child_response[0].child_id);
+        checking(child_response[0].child_id);
         if (on_process === true) {
             anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
             anchor.setAttribute('class','active');
-            card.classList.add('card', 'dashboard_card_style_on_process');
+            // card.classList.add('card', 'dashboard_card_style_on_process');
             // card.classList.add('card', 'dashboard_card_style_on_process_active');
+            card.classList.add('card', 'dashboard_card_style');
         } else {
             anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
             // anchor.href = 'parent/parent_dashboard.html';
             anchor.setAttribute('class','active');
-            card.classList.add('card', 'dashboard_card_style1');
+            // card.classList.add('card', 'dashboard_card_style1');
+            card.classList.add('card', 'dashboard_card_style');
         }
 
         let cardBody = document.createElement('div');
@@ -115,10 +119,12 @@ function loadDynamicCards() {
             localStorage.setItem('child_id', selectedChildId); 
             if (on_process === true) {
                 // active.classList.remove('active');
-                card.classList.remove('card', 'dashboard_card_style_on_process_active');
-                card.classList.add('card', 'dashboard_card_style_on_process');
+                // card.classList.remove('card', 'dashboard_card_style_on_process_active');
+                // card.classList.add('card', 'dashboard_card_style_on_process');
+                card.classList.add('card', 'dashboard_card_style');
             }else{
-                card.classList.remove('card', 'dashboard_card_style_on_process_active');
+                // card.classList.remove('card', 'dashboard_card_style_on_process_active');
+                // card.classList.add('card', 'dashboard_card_style1');
                 card.classList.add('card', 'dashboard_card_style1');
             }
         });
@@ -157,11 +163,32 @@ function loadDynamicCards() {
     let cardBody = document.createElement('div');
     cardBody.classList.add('card-body');
 
-    let textH5 = document.createElement('h6');
-    textH5.classList.add('text-center', 'dashboard_card_icon');
-    textH5.textContent = 'Add Child';
+    let iconH5 = document.createElement('h6');
+    iconH5.classList.add('card-title', 'dashboard_card_icon');
 
-    cardBody.appendChild(textH5);
+    let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+    svg.setAttribute('width', '30');
+    svg.setAttribute('height', '30');
+    svg.setAttribute('fill', 'currentColor');
+    svg.setAttribute('class', 'bi bi-plus-circle-fill');
+    svg.setAttribute('viewBox', '0 0 17 17');
+   
+    // svg.setAttribute('value', 'Add child');
+
+    let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute('d', 'M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z');
+    // path.setAttribute('style','align-items: center')
+    // let textH5 = document.createElement('h6');
+    // textH5.classList.add('text-center', 'dashboard_card_icon');
+    // textH5.textContent = 'Add Child';
+
+    iconH5.appendChild(svg);
+    svg.appendChild(path);
+
+    cardBody.appendChild(iconH5);
+
+    // iconH5.appendChild(textH5); 
 
     card.appendChild(cardBody);
 
@@ -217,7 +244,7 @@ function submitForm() {
     const form = document.getElementById("childBasicForm");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
-    if(obj.child_first_name != '' && obj.child_last_name !='' && obj.dob !=''){
+    if(obj.child_first_name != ''&& obj.child_first_name != ' ' && obj.child_last_name !='' && obj.dob !=''){
         const logged_in_email = localStorage.getItem('logged_in_email');
         obj.primary_parent_email = logged_in_email;
         obj.on_process = true;

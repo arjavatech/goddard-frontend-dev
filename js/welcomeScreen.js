@@ -244,7 +244,7 @@ function submitForm() {
     const form = document.getElementById("childBasicForm");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
-    if(obj.child_first_name != '' && obj.child_last_name !='' && obj.dob !=''){
+    if(obj.child_first_name != ''&& obj.child_first_name != ' ' && obj.child_last_name !='' && obj.dob !=''){
         const logged_in_email = localStorage.getItem('logged_in_email');
         obj.primary_parent_email = logged_in_email;
         obj.on_process = true;

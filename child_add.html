@@ -330,20 +330,46 @@
 
                         // Sort the array alphabetically
                         mainTopics.sort();
-                        console.log(mainTopics);
+                        // console.log(mainTopics);
 
                         // Iterate through the sorted array
                         for (let i = 0; i < mainTopics.length; i++) {
                             let mainTopic = mainTopics[i];
                             let trimValues = mainTopic.replace(/\s+/g,'').toLowerCase();
-
+                            console.log(trimValues)
                             $.get(trimValues + "ListItem.html", function(data) {
                                 $("#menu").append(data);
                             });
 
-                            $.get(trimValues + ".html", function(data) {
-                                $(".tab-content").append(data);
-                            });
+                            if(trimValues == 'admissionforms'){
+                                $.get(trimValues + "1.html", function(data) {
+                                    $(".tab-content").append(data);
+                                    $.get(trimValues + "2.html", function(data) {
+                                        $(".tab-content").append(data);
+                                        $.get(trimValues + "3.html", function(data) {
+                                        $(".tab-content").append(data);
+                                    });
+                                    });
+                                });
+                            }
+
+                            if(trimValues != 'admissionforms' && trimValues != 'parenthandbook'){
+                                $.get(trimValues + ".html", function(data) {
+                                    $(".tab-content").append(data);
+                                });
+                            }
+                            if(trimValues == 'parenthandbook'){
+                                $.get(trimValues + "1.html", function(data) {
+                                    $(".tab-content").append(data);
+                                    $.get(trimValues + "2.html", function(data) {
+                                        console.log('bbbb')
+                                        $(".tab-content").append(data);
+                                    });
+                                    $.get(trimValues + "3.html", function(data) {
+                                        $(".tab-content").append(data);
+                                    });
+                                });
+                            }
                         }
                     }
                 });
@@ -358,17 +384,9 @@
                 // });
             });
             function checking(editID){
-                console.log(editID);
+                // console.log(editID);
                 var element = document.getElementById("childInfo");
                 element.reset();
-                // formdiv.style.display = "block";
-                // let editID = window.location.search.slice(1);
-                // let active = document.querySelector('.active div');
-                // console.log(active);
-                // // let card = document.querySelector('.dashboard_card_style_on_process');
-                // // // console.log(aa);
-                // active.classList.add('card', 'dashboard_card_style_on_process_active');
-                // active.classList.remove('card', 'dashboard_card_style_on_process');
                 if(editID != ''){
                     formdiv.classList.remove('hide');
                     addChildDiv.style.display = 'none';
@@ -378,7 +396,7 @@
                         type: 'GET',
                         //this is used to get the response and return the result
                         success: function(response){
-                            console.log(response);
+                            // console.log(response);
                             let childbasicInfo;
                             let childparentInfo;
                             let additionalChildparentInfo;
@@ -2029,6 +2047,31 @@
                                 document.querySelector('.handbook-circle').style.display = 'block';
                                 parentHandBook = false;
                             }
+                            if(childbasicInfo == true && childparentInfo == true && 
+                                childEmergencyContact == true && childMedicalcare == true && 
+                                childParentAgreementOne == true && childHistory== true && 
+                                medicalHistory == true && pregnancyHistory == true &&
+                                familyHistroy == true && socialBehavior == true && 
+                                environmentalFactor == true && parentAgreementTwo == true && 
+                                immunizationInstruction == true && childProfile == true && 
+                                nutritionDetails == true && restDetails == true &&
+                                medicalDetails == true && parentAgreementThree == true && 
+                                pickupPassword == true && photoVideoPermission == true && 
+                                securityPolicy == true && medicaltransportationWeiver == true &&
+                                healthPolicy == true && outsideWeiver == true
+                            ){
+                                // Reset the display for both images
+                                document.querySelector('.admission-tick').style.display = 'none';
+                                document.querySelector('.admission-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.admission-tick').style.display = 'block'; 
+                            }else{
+                                 // Reset the display for both images
+                                 document.querySelector('.admission-tick').style.display = 'none';
+                                document.querySelector('.admission-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.admission-circle').style.display = 'block';
+                            }
 
                             if(childbasicInfo == true && childparentInfo == true && 
                                 childEmergencyContact == true && childMedicalcare == true && 
@@ -2045,12 +2088,9 @@
                                 enrollmentDetails == true && authorizationDetails == true && 
                                 parentHandBook == true
                             ){
-                                console.log('if con');
                                 let parentFinalAgreement = document.getElementById('parentFinalAgreement');
-                                console.log(parentFinalAgreement);
                                 parentFinalAgreement.classList.remove('disabled');
                             }else{
-                                console.log('else con');
                                 let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                                 parentFinalAgreement.classList.add('disabled')
                             }

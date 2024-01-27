@@ -70,7 +70,7 @@ function loadDynamicCards() {
 
     // Loop through the response size and create the child divs
     for (let i = 0; i < responseSize; i++) {
-        console.log(child_response[i]);
+        // console.log(child_response[i]);
         let on_process = child_response[i].on_process;
 
         // Create the elements for child card
@@ -86,7 +86,7 @@ function loadDynamicCards() {
 
         let card = document.createElement('div');
         card.setAttribute('style','height:200px');
-        console.log(child_response[0].child_id);
+        // console.log(child_response[0].child_id);
         checking(child_response[0].child_id);
         if (on_process === true) {
             anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
@@ -252,7 +252,7 @@ function submitForm() {
         localStorage.setItem('child_last_name', obj.child_last_name);
         localStorage.setItem('dob', obj.dob);
         const json =JSON.stringify(obj);
-        console.log(json);
+        // console.log(json);
         $.ajax({
             url: "http://localhost:8080/admission_child_personal/add",
             type: "POST",

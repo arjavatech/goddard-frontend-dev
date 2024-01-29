@@ -1,3 +1,671 @@
+<!--Child Profile Form-->
+<div id="childprofile" class="container tab-pane fade"><br>
+    <div class="card m-3">
+        <h2 class="text-center title_bg">Child Profile</h2>
+        <div class="accordion p-4" id="childproAccordionExample">
+            <!--Child Profile Details-->
+            <div class="accordion-item">
+                    <h2 class="accordion-header shadow" id="childproHeadingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseOne" aria-expanded="true" aria-controls="childproCollapseOne">
+                        Child Profile Details&nbsp;&nbsp;
+                        <img src="image/tick.png" height="3%" width="3%" class="childprofiledetail-tick float-end " style="display: none;">
+                        <img src="image/circle-with.png" height="3%" width="3%" class="childprofiledetail-circle float-end" style="display: none;">
+                        </button>
+                    </h2>
+                    <div id="childproCollapseOne" class="accordion-collapse collapse show" aria-labelledby="childproHeadingOne" data-bs-parent="#childproAccordionExample">
+                        <div class="accordion-body">
+                        <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="other_important_family_members" class="form-label"><b>Other
+                                        important Family Members (Siblings, Grandparent, Pets, etc)</b>
+                                        </label>
+                                    <input type="text" class="form-control " id="other_important_family_members"
+                                        name="other_important_family_members" placeholder="List names and relationships of other important family members.">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="about_family_celebrations" class="form-label"><b>Tell us about
+                                        your family traditions or important celebrations</b>
+                                        </label>
+                                    <input type="text" class="form-control " id="about_family_celebrations"
+                                        name="about_family_celebrations" placeholder="Describe family traditions and celebrations.">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-1 mb-4">
+                            <div id="childcare_before" class="col-sm">
+                                <div class="form-group">
+                                    <p><b>Has your child been in childcare before?</b></p>
+                                    <div class="wizard-form-radio">
+                                        <input name="childcare_before" id="childcare_before1"
+                                            value="Yes" type="radio">
+                                        <label for="childcare_before1">Yes</label>
+                                    </div>
+                                    <div class="wizard-form-radio">
+                                        <input name="childcare_before" id="childcare_before2"
+                                            type="radio" value="No" checked>
+                                        <label for="childcare_before2">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="reason_for_childcare_before" class="form-label"><b>If so, what kind?</b>
+                                        
+                                    </label>
+                                    <select class="form-control form-select-lg" aria-label=".form-control-lg example"
+                                        id="reason_for_childcare_before" name="reason_for_childcare_before">
+                                        <option></option>
+                                        <option value="1">Relative’s Care</option>
+                                        <option value="2">Home Care</option>
+                                        <option value="3">Church Care</option>
+                                        <option value="4">Other</option>
+                                    </select>
+                                    <i class="fa fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="what_child_interests" class="form-label"><b>What are you child’s interests</b>
+                                        
+                                    </label>
+                                    <input type="text" class="form-control " id="what_child_interests" name="what_child_interests" placeholder="List or describe your child’s interests.">
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <h5 class="text-center">
+                            <b>What will be your child’s typical time?</b>
+                        </h5>
+                        <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="drop_off_time" class="form-label"><b>Drop off time?</b>
+                                        
+                                    </label>
+                                    <input type="time" class="form-control " id="drop_off_time" name="drop_off_time">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="pick_up_time" class="form-label"><b>Pick up time?</b>
+                                        
+                                    </label>
+                                    <input type="time" class="form-control " id="pick_up_time" name="pick_up_time">
+                                </div>
+                            </div>
+                        </div>
+                            <div class="text-center">
+                                <button class="save-btn" id="fourteen_save">Save</button> 
+                            </div>
+                        </div>
+                    </div>    
+            </div>
+
+            <!--Nutrition Details-->
+
+            <div class="accordion-item">
+                
+                    <h2 class="accordion-header shadow" id="childproHeadingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseTwo" aria-expanded="false" aria-controls="childproCollapseTwo">
+                            Nutrition&nbsp;&nbsp;
+                            <img src="image/tick.png" height="3%" width="3%" class="nutrition-tick float-end " style="display: none;">
+                            <img src="image/circle-with.png" height="3%" width="3%" class="nutrition-circle float-end" style="display: none;">
+                        </button>
+                    </h2>
+                    <div id="childproCollapseTwo" class="accordion-collapse collapse" aria-labelledby="childproHeadingTwo" data-bs-parent="#childproAccordionExample">
+                        <div class="accordion-body">
+                            <div class="row m-1 mb-4">
+                            <div id="restricted_diet" class="col-sm">
+                                <div class="form-group">
+                                    <p><b>Does your child have a special or restricted diet?
+                                        
+                                    </b></p>
+                                    <div class="wizard-form-radio">
+                                        <input name="restricted_diet" id="restricted_diet1" value="Yes" type="radio"
+                                        onclick="CustomChange(this.value,'restricted_diet_reason_div');" >
+                                        <label for="restricted_diet1">Yes</label>
+                                    </div>
+                                    <div class="wizard-form-radio">
+                                        <input name="restricted_diet" id="restricted_diet2" type="radio" value="No"
+                                        onclick="CustomChange(this.value,'restricted_diet_reason_div');" checked>
+                                        <label for="restricted_diet2">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="row m-1 mb-4" id="restricted_diet_reason_div" style="display: none;">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="restricted_diet_reason" class="form-label">Explain</label>
+                                    <input type="text" class="form-control" id="restricted_diet_reason" name="restricted_diet_reason" placeholder="Specify details.">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-1 mb-4">
+                            <div id="eat_own" class="col-sm">
+                                <div class="form-group">
+                                    <p><b>Does your child eat on their own?
+                                        
+                                    </b></p>
+                                    <div class="wizard-form-radio">
+                                        <input name="eat_own" id="eat_own1" value="Yes" type="radio" 
+                                        onclick="CustomChange(this.value,'eat_own_reason_div');">
+                                        <label for="eat_own1">Yes</label>
+                                    </div>
+                                    <div class="wizard-form-radio">
+                                        <input name="eat_own" id="eat_own2" type="radio" value="No"
+                                        onclick="CustomChange(this.value,'eat_own_reason_div');" checked>
+                                        <label for="eat_own2">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-1 mb-4" id="eat_own_reason_div" style="display: none;">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="eat_own_reason" class="form-label">Explain</label>
+                                    <input type="text" class="form-control " id="eat_own_reason" name="eat_own_reason" placeholder="Indicate if the child eats independently.">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="favorite_foods" class="form-label"><b>What are your child’s favorite foods?
+                                        </b>
+                                    </label>
+                                    <input type="text" class="form-control " id="favorite_foods" name="favorite_foods" placeholder="List or describe the child's favorite foods.">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                            <div class="text-center">
+                                <button class="save-btn" id="fifteen_save">Save</button> 
+                            </div>
+                        </div>  
+                    </div> 
+                    
+            </div>
+
+            <!--Rest and Diapering/Toilet Learning-->
+        
+            <div class="accordion-item">
+                    <h2 class="accordion-header shadow" id="childproHeadingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseThree" aria-expanded="false" aria-controls="childproCollapseThree">
+                        Rest and Diapering/Toilet Learning&nbsp;&nbsp;
+                        <img src="image/tick.png" height="3%" width="3%" class="restdetails-tick float-end " style="display: none;">
+                        <img src="image/circle-with.png" height="3%" width="3%" class="restdetails-circle float-end" style="display: none;">
+                        </button>
+                    </h2>
+                    <div id="childproCollapseThree" class="accordion-collapse collapse" aria-labelledby="childproHeadingThree" data-bs-parent="#childproAccordionExample">
+                        <div class="accordion-body"> 
+                            <div class="row m-1 mb-4">
+                                <div id="rest_in_the_middle_day" class="col-sm">
+                                    <div class="form-group">
+                                        <p><b>Does your child rest in the middle of the day?
+                                            
+                                        </b></p>
+                                        <div class="wizard-form-radio">
+                                            <input name="rest_in_the_middle_day" id="rest_in_the_middle_day1" value="Yes"
+                                                type="radio" onclick="CustomChange(this.value,'reason_for_rest_in_the_middle_day_div');">
+                                            <label for="rest_in_the_middle_day1">Yes</label>
+                                        </div>
+                                        <div class="wizard-form-radio">
+                                            <input name="rest_in_the_middle_day" id="rest_in_the_middle_day2" type="radio"
+                                                value="No" onclick="CustomChange(this.value,'reason_for_rest_in_the_middle_day_div');" checked>
+                                            <label for="rest_in_the_middle_day2">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4" id="reason_for_rest_in_the_middle_day_div" style="display: none;">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="reason_for_rest_in_the_middle_day" class="form-label">Explain</label>
+                                        <input type="text" class="form-control " id="reason_for_rest_in_the_middle_day"
+                                        name="reason_for_rest_in_the_middle_day" placeholder="Indicate if the child takes a midday rest.">
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        <div class="row m-1 mb-4">
+                        <div class="col-sm">
+                            <div class="form-group"> 
+                                <label for="rest_routine" class="form-label"><b>What is their nap/rest routine?
+                                    </b>
+                                </label>
+                                <input type="text" class="form-control " id="rest_routine" name="rest_routine" placeholder="Describe the child's nap or rest routine.">
+                                
+                                </div>
+                        </div>
+                        </div>
+                        <div class="row m-1 mb-4">
+                            <div id="toilet_trained" class="col-sm">
+                            <div class="form-group">
+                                <p><b>Is your child toilet trained?
+                                    
+                                </b></p>
+                                <div class="wizard-form-radio">
+                                    <input name="toilet_trained" id="toilet_trained1" value="Yes" type="radio" 
+                                    onclick="CustomChange(this.value,'reason_for_toilet_trained_div');">
+                                    <label for="toilet_trained1">Yes</label>
+                                </div>
+                                <div class="wizard-form-radio">
+                                    <input name="toilet_trained" id="toilet_trained2" type="radio" value="No"
+                                    onclick="CustomChange(this.value,'reason_for_toilet_trained_div');" checked>
+                                    <label for="toilet_trained2">No</label>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    <div class="row m-1 mb-4" id="reason_for_toilet_trained_div" style="display: none;">
+                        <div class="col-sm">
+                            <div class="form-group"> 
+                                <label for="reason_for_toilet_trained" class="form-label">Explain</label>
+                                <input type="text" class="form-control " id="reason_for_toilet_trained"
+                                name="reason_for_toilet_trained" placeholder="Indicate if the child is toilet trained.">
+                            </div>
+                        </div>
+                        </div>
+                            <div class="text-center">
+                                <button class="save-btn" id="sixteen_save">Save</button> 
+                            </div>
+                        </div> 
+                    </div>    
+            </div> 
+            <!--Medical Details-->
+            
+            <div class="accordion-item">
+                    <h2 class="accordion-header shadow" id="childproHeadingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseFour" aria-expanded="false" aria-controls="childproCollapseFour">
+                        Medical/General&nbsp;&nbsp;
+                        <img src="image/tick.png" height="3%" width="3%" class="medicaldetails-tick float-end " style="display: none;">
+                        <img src="image/circle-with.png" height="3%" width="3%" class="medicaldetails-circle float-end" style="display: none;">
+                        </button>
+                    </h2>
+                    <div id="childproCollapseFour" class="accordion-collapse collapse" aria-labelledby="childproHeadingFour" data-bs-parent="#childproAccordionExample">
+                            <div class="accordion-body">
+                            <div class="row m-1 mb-4">
+                                <div id="existing_illness_allergy" class="col-sm">
+                                    <div class="form-group">
+                                        <p><b>Does your child have an existing illness/allergy/condition?
+                                            
+                                        </b></p>
+                                        <div class="wizard-form-radio">
+                                            <input name="existing_illness_allergy" id="existing_illness_allergy1" value="Yes"
+                                                type="radio" onclick="CustomChange(this.value,'explain_for_existing_illness_allergy_div');">
+                                            <label for="existing_illness_allergy1">Yes</label>
+                                        </div>
+                                        <div class="wizard-form-radio">
+                                            <input name="existing_illness_allergy" id="existing_illness_allergy2" type="radio"
+                                                value="No" onclick="CustomChange(this.value,'explain_for_existing_illness_allergy_div');" checked>
+                                            <label for="existing_illness_allergy2">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4" id="explain_for_existing_illness_allergy_div" style="display: none;">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="explain_for_existing_illness_allergy"  
+                                        class="form-label">Explain</label>
+                                        <input type="text" class="form-control" id="explain_for_existing_illness_allergy"
+                                            name="explain_for_existing_illness_allergy" placeholder="Specify details if applicable.">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4">
+                                <div id="functioning_at_age" class="col-sm">
+                                    <div class="form-group">
+                                        <p><b>Does your think your child is functioning at age-level?
+                                            
+                                        </b></p>
+                                        <div class="wizard-form-radio">
+                                            <input name="functioning_at_age" id="functioning_at_age1" value="Yes" type="radio"
+                                            onclick="CustomChange(this.value,'explain_for_functioning_at_age_div');">
+                                            <label for="functioning_at_age1">Yes</label>
+                                        </div>
+                                        <div class="wizard-form-radio">
+                                            <input name="functioning_at_age" id="functioning_at_age2" type="radio" value="No"
+                                            onclick="CustomChange(this.value,'explain_for_functioning_at_age_div');" checked>
+                                            <label for="functioning_at_age2">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4" id="explain_for_functioning_at_age_div" style="display: none;">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="explain_for_functioning_at_age" class="form-label">Explain</label>
+                                        <input type="text" class="form-control " id="explain_for_functioning_at_age"
+                                        name="explain_for_functioning_at_age" placeholder="Provide comments if necessary.">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4">
+                                <div id="able_to_walk" class="col-sm">
+                                    <div class="form-group">
+                                        <p><b>Is your child able to walk?</b></p>
+                                        <div class="wizard-form-radio">
+                                            <input name="able_to_walk" id="able_to_walk1" value="Yes" type="radio" 
+                                            onclick="CustomChange(this.value,'explain_for_able_to_walk_div');">
+                                            <label for="able_to_walk1">Yes</label>
+                                        </div>
+                                        <div class="wizard-form-radio">
+                                            <input name="able_to_walk" id="able_to_walk2" type="radio" value="No"
+                                            onclick="CustomChange(this.value,'explain_for_able_to_walk_div');" checked>
+                                            <label for="able_to_walk2">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4" id="explain_for_able_to_walk_div" style="display: none;">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="explain_for_able_to_walk" class="form-label">Explain</label>
+                                        <input type="text" class="form-control" id="explain_for_able_to_walk"
+                                        name="explain_for_able_to_walk" placeholder="Indicate the child's mobility.">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4">
+                                <div id="communicate_their_needs" class="col-sm">
+                                    <div class="form-group">
+                                        <p><b>Is your child able to communicate their needs to others?
+                                            
+                                        </b></p>
+                                        <div class="wizard-form-radio">
+                                            <input name="communicate_their_needs" id="communicate_their_needs1" value="Yes"
+                                                type="radio" onclick="CustomChange(this.value,'explain_for_communicate_their_needs_div');">
+                                            <label for="communicate_their_needs1">Yes</label>
+                                        </div>
+                                        <div class="wizard-form-radio">
+                                            <input name="communicate_their_needs"
+                                                id="communicate_their_needs2" type="radio" value="No"
+                                                onclick="CustomChange(this.value,'explain_for_communicate_their_needs_div');" checked>
+                                            <label for="communicate_their_needs2">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4" id="explain_for_communicate_their_needs_div" style="display: none;">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="explain_for_communicate_their_needs" class="form-label">Explain</label>
+                                        <input type="text" class="form-control " id="explain_for_communicate_their_needs"
+                                            name="explain_for_communicate_their_needs" placeholder="Indicate the child's communication abilities.">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4">
+                                <div id="any_medication" class="col-sm">
+                                    <div class="form-group">
+                                        <p><b>Does your child require any medication, therapy,
+                                                treatment, or medical assessment (example, blood
+                                                sugar monitoring) while in childcare?</b>
+                                        </p>
+                                        <div class="wizard-form-radio">
+                                            <input name="any_medication" id="any_medication1" value="Yes" type="radio" 
+                                            onclick="CustomChange(this.value,'explain_for_any_medication_div');">
+                                            <label for="any_medication1">Yes</label>
+                                        </div>
+                                        <div class="wizard-form-radio">
+                                            <input name="any_medication" id="any_medication2" type="radio" value="No"
+                                            onclick="CustomChange(this.value,'explain_for_any_medication_div');" checked>
+                                            <label for="any_medication2">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4" id="explain_for_any_medication_div" style="display: none;">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="explain_for_any_medication" class="form-label">Explain</label>
+                                        <input type="text" class="form-control " id="explain_for_any_medication"
+                                        name="explain_for_any_medication" placeholder="Provide details if applicable.">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4">
+                                <div id="utilize_special_equipment" class="col-sm">
+                                    <div class="form-group">
+                                        <p><b>Does your child utilize any special equipment(such as
+                                                a breathing machine, wheelchair, hearing aid, or
+                                                braces)? </b>
+                                        </p>
+                                        <div class="wizard-form-radio">
+                                            <input name="utilize_special_equipment" id="utilize_special_equipment1" value="Yes"
+                                                type="radio" onclick="CustomChange(this.value,'explain_for_utilize_special_equipment_div');">
+                                            <label for="utilize_special_equipment1">Yes</label>
+                                        </div>
+                                        <div class="wizard-form-radio">
+                                            <input name="utilize_special_equipment" id="utilize_special_equipment2" type="radio"
+                                                value="No" onclick="CustomChange(this.value,'explain_for_utilize_special_equipment_div');" checked>
+                                            <label for="utilize_special_equipment2">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4" id="explain_for_utilize_special_equipment_div" style="display: none;">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="explain_for_utilize_special_equipment" class="form-label">Explain</label>
+                                        <input type="text" class="form-control" id="explain_for_utilize_special_equipment"
+                                        name="explain_for_utilize_special_equipment" placeholder="Specify the equipment if applicable.">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4">
+                                <div id="significant periods" class="col-sm">
+                                    <div class="form-group">
+                                        <p><b>Does your child require one-on-one supervision on a
+                                                regular basis for significant periods of time?</b>
+                                        </p>
+                                        <div class="wizard-form-radio">
+                                            <input name="significant_periods" id="significant_periods1" value="Yes" type="radio"
+                                            onclick="CustomChange(this.value,'explain_for_significant_periods_div');">
+                                            <label for="significant_periods1">Yes</label>
+                                        </div>
+                                        <div class="wizard-form-radio">
+                                            <input name="significant_periods" id="significant_periods2" type="radio" value="No"
+                                            onclick="CustomChange(this.value,'explain_for_significant_periods_div');" checked>
+                                            <label for="significant_periods2">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4" id="explain_for_significant_periods_div" style="display: none;">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="explain_for_significant_periods" class="form-label">Explain</label>
+                                        <input type="text" class="form-control" id="explain_for_significant_periods"
+                                        name="explain_for_significant_periods" placeholder="Indicate the need for one-on-one supervision.">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4">
+                                <div id="desire_any_accommodations" class="col-sm">
+                                    <div class="form-group">
+                                        <p><b>Does your child require and/or desire any
+                                                accommodations or modifications in order to fully
+                                                and eually enjoy and participate in The Goddard
+                                                School &reg; group setting?</b></p>
+                                        </p>
+                                        <div class="wizard-form-radio">
+                                            <input name="desire_any_accommodations" id="desire_any_accommodations1" value="Yes"
+                                                type="radio" onclick="CustomChange(this.value,'explain_for_desire_any_accommodations_div');">
+                                            <label for="desire_any_accommodations1">Yes</label>
+                                        </div>
+                                        <div class="wizard-form-radio">
+                                            <input name="desire_any_accommodations" id="desire_any_accommodations2" type="radio"
+                                                value="No" onclick="CustomChange(this.value,'explain_for_desire_any_accommodations_div');" checked>
+                                            <label for="desire_any_accommodations2">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-1 mb-4" id="explain_for_desire_any_accommodations_div" style="display: none;">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="explain_for_desire_any_accommodations" class="form-label">Explain</label>
+                                        <input type="text" class="form-control" id="explain_for_desire_any_accommodations"
+                                        name="explain_for_desire_any_accommodations" placeholder="Provide details if necessary.">
+                                    </div>
+                                </div>
+                            </div>      
+                            <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="additional_information" class="form-label h-3"><b>Comments and additional information
+                                        </b>
+                                    </label>
+                                    <input type="text" class="form-control " id="additional_information" 
+                                    name="additional_information" placeholder="Provide any additional comments or information.">
+                                </div>
+                            </div>
+                        </div>
+                            <div class="text-center">
+                                <button class="save-btn" id="seventeen_save">Save</button> 
+                            </div>  
+                        </div>
+                    </div>       
+            </div>     
+
+            <!--Parent Agreement--> 
+            <div class="accordion-item">
+                    <h2 class="accordion-header shadow" id="childproHeadingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseFive" aria-expanded="false" aria-controls="childproCollapseFive">
+                        Parent Agreement&nbsp;&nbsp;
+                        <img src="image/tick.png" height="3%" width="3%" class="parentagreement-three-tick float-end " style="display: none;">
+                        <img src="image/circle-with.png" height="3%" width="3%" class="parentagreement-three-circle float-end" style="display: none;">
+                    </button>
+                    </h2>
+                    <div id="childproCollapseFive" class="accordion-collapse collapse" aria-labelledby="childproHeadingFive" data-bs-parent="#childproAccordionExample">
+                        <div class="accordion-body">
+                            <h3 class="panel-title text-center"><b>Correct and Complete
+                            Information</b></h3>
+                
+                            <p class="m-1 mb-4">To the best of my knowledge, the information I have provided and the
+                            statements I have made in this profile are correct and complete. I
+                            understand that false information provided herein or in connection
+                            with the enrollment process may result in disenrollment of my child.
+                            I further agree to update the information in this Health and Social
+                            Record as circumstances may require at Goddard School’s request.
+                            </p>
+                            <div class="row m-1 mb-4">
+                            <div class="col-sm">
+                                <div class="form-group wizard-form-checkbox">
+                                    <input type="checkbox" class="input-checkbox" id="do_you_agree_this"
+                                    name="do_you_agree_this" >
+                                    <label class="form-check-label" for="do_you_agree_this">
+                                        <span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg>
+                                        </span>
+                                        <span>
+                                            <b>I agree all the above information is correct.</b>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="text-center">
+                                <button class="save-btn" id="eighteen_save">Save</button> 
+                            </div>
+                        </div>      
+                    </div>   
+            </div>            
+            
+        </div>
+    </div>    
+</div>   
+<!--Child Profile Form End-->
+
+<!--Pick-up Password Form-->
+<div id="pickuppassword" class="container tab-pane fade"><br>
+    <div class="accordion pt-3" id="accordionExample">
+        <div class="accordion-item accordion_items">
+            
+                <h2 class="text-center title_bg">Pick-up Password</h2>
+                <div class="p-4">
+                    <h5>It is part of The Goddard School® security policy to have a password
+                        that is
+                        given to anyone whom you designate as an authorized pick-up for your
+                        child.
+                        Your child will be released to this authorized person only if the
+                        following
+                        conditions have been met:</h5>
+                    <ol class="number">
+                        <li>The Director must be notified in writing, either at the time of
+                            enrollment, or inadvance of the pick-up, that you are authorizing
+                            someone other than yourself topick-up your child. If you telephone
+                            the
+                            school to authorize a pick-up, be preparedto receive a return phone
+                            call
+                            to verify the information.</li>
+                        <li>At the time of notification, you will need to give us the authorized
+                            individual’s fullname and his/her approximate time of arrival so we
+                            can
+                            then notify the staff.</li>
+                        <li>The authorized individual must show two forms of identification (one
+                            must be aphoto ID) and tell the Owner or Director the password you
+                            have
+                            designated below.</li>
+                        <li>The authorized individual will be responsible for signing your child
+                            out
+                            of thebuilding.</li>
+                    </ol>
+                    <h5>The password is an added measure
+                                of security for your family and will be kept with your child’s
+                                emergency information.
+                    </h5><br>
+                    <div class="row">
+                        <div class="col-3"></div>
+                        <div class="col-6">
+                            <div class="form-group"> 
+                                <label for="child_password_pick_up_password_form" class="form-label h-3"><b>Password</b>
+                                    
+                                </label>
+                                <input type="text" class="form-control" id="child_password_pick_up_password_form" 
+                                name="child_password_pick_up_password_form" placeholder="(5 digits, alpha numeric characters)">
+                            </div>
+                        </div>
+                        <div class="col-3"></div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="form-group wizard-form-checkbox">
+                            <input type="checkbox" class="input-checkbox" id="do_you_agree_this_pick_up_password_form"
+                            name="do_you_agree_this_pick_up_password_form" >
+                            <label class="form-check-label" for="do_you_agree_this_pick_up_password_form">
+                                <span>
+                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                    </svg>
+                                </span>
+                                <span>
+                                    <b>I agree pick-up password instructions.</b>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button class="save-btn" id="nineteen_save">Save</button> 
+                    </div>
+                </div>
+                
+        </div>
+    </div>   
+</div>
+<!--Pick-up Password Form End-->
+
 <!--Photo and Video Permission Form--> 
 <div id="photovideopermission" class="container tab-pane fade"><br>
     <div class="accordion pt-3" id="accordionExample">
@@ -194,8 +862,9 @@
 </div>
 <!--Medical transportation Form End-->
 
+<!-- unwanted files need to remove this. -->
 <!--Health policies Form-->
-<div id="healthpolicies" class="container tab-pane fade"><br>
+<div id="healthpolicies1" class="container tab-pane fade"><br>
     <div class="accordion pt-3" id="accordionExample">
         <div class="accordion-item accordion_items">
                 <h2 class="text-center title_bg">Health Policies</h2>
@@ -342,3 +1011,143 @@
 </div>
 <!--Health policies Form End-->
 
+<!--Outside engagements Form-->
+<div id="outsideengagements1" class="container tab-pane fade"><br>
+    <div class="accordion pt-3" id="accordionExample">
+        <div class="accordion-item accordion_items">
+                <h2 class="text-center title_bg">Outside Engagements
+                    Release & Waiver
+                </h2>
+                <div class="row m-3 mb-4">
+                    <div class="col-sm">
+                        <p>Parent(s) of student(s) enrolled at The Goddard School Redmond II may
+                            request one or more employees of
+                            the The Goddard School Redmond II to provide childcare services
+                            (baby-sitting/transportation) outside of
+                            school premises and school hours.</p>
+                        <h3>Parents and employees agree as follows:</h3>
+                        <ul>
+                            <li>Parents acknowledge that they have requested that Employee
+                                provide Babysitting
+                                Services/Transportation solely for Parents' convenience and
+                                benefit , and not for the convenience or
+                                benefit of the School.</li>
+                            <li>Parents acknowledge that, in providing Transportation and/or
+                                Babysitting Services, Employee is acting as
+                                an independent contractor and not as an employee of the School.
+                                Parents acknowledge that
+                                providing Transportation and Babysitting Services is not part of
+                                Employee's job with the School and that
+                                the School is not requesting that Employee provide these
+                                services.
+                            </li>
+                            <li>Parents acknowledge that the School has not reviewed Employee's
+                                driving record and makes
+                                no representations regarding Employee's driving history or
+                                ability or the existence or scope of
+                                Employee's insurance.</li>
+                            <li>Parents interested in hiring a teacher(s) for outside services
+                                must ask if the teacher is interested. The
+                                admin team will not aid in finding someone to facilitate
+                                before/after hour care.</li>
+                            <li>When hiring for outside engagements, parents ensure that staff
+                                work hours at school are not disturbed.</li>
+                            <li>If there is a matter of contention between the staff hired and
+                                the family, management is not
+                                liable to mediate or take disciplinary actions against the staff
+                                based on what happened outside the
+                                school.</li>
+                        </ul>
+                    </div>  
+                </div>      
+                    
+                <div class="row m-3 mb-4">
+                    <div class="col-sm">
+                        <div class="form-group"> 
+                            <div class="wizard-form-checkbox">
+                                <input type="checkbox" class="input-checkbox" id="outside_waiver_parent_sign_outside_engagements_waiver" 
+                                name="outside_waiver_parent_sign_outside_engagements_waiver">
+                                <label class="form-check-label" for="outside_waiver_parent_sign_outside_engagements_waiver"><span>
+                                        <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                        </svg></span><span><b>I have read this agreement and understand its terms.</b></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mb-4">
+                    <button class="save-btn" id="twentyfour_save">Save</button> 
+                </div> 
+        </div>
+    </div>
+</div>
+<!--Outside engagements Form End-->
+
+<!--Parent Signature Form-->
+ <div id="parentsignature1" class="container tab-pane fade"><br>
+    <div class="accordion pt-3" id="accordionExample">
+        <div class="accordion-item accordion_items">
+            <h2 class="text-center title_bg">Parent Signature</h2>
+            <!-- Parent's or guardian's signature -->
+            <div class="row m-3">
+                <div class="col-sm">
+                    <div class="form-group"> 
+                        <label for="parent_sign" class="form-label"><b>Parent Signature</b>
+                        </label>
+                        <input type="text" class="form-control" id="parent_sign"
+                        name="parent_sign">
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group"> 
+                        <label for="parent_sign_date"  class="form-label"><b>Date</b>
+                        </label>
+                        <input type="date" class="form-control" id="parent_sign_date"
+                            name="parent_sign_date" onclick="dateValidation('parent_sign_date')">
+                    </div>
+                </div>
+            </div>
+            <!-- Parent's or guardian's signature end -->
+            <div class="text-center">
+                <button class="cancel-btn" id="cancelButton">Cancel</button>
+                <button class="submit-btn mb-4" id="submit_button">submit</button> 
+            </div>   
+        </div>
+    </div> 
+</div>
+<!--Parent Signature Form End-->
+
+<!--Admin Signature Form-->
+<div id="adminsignature1" class="container tab-pane fade"><br>
+    <div class="accordion pt-3" id="accordionExample">
+        <div class="accordion-item accordion_items">
+            <h2 class="text-center title_bg">Admin Signature</h2>
+            <!-- Admin's or guardian's signature -->
+            <div class="row m-3">
+                <div class="col-sm">
+                    <div class="form-group"> 
+                        <label for="admin_sign" class="form-label"><b>Admin Signature</b>
+                        </label>
+                        <input type="text" class="form-control" id="admin_sign"
+                        name="admin_sign">
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="form-group"> 
+                        <label for="admin_sign_date"  class="form-label"><b>Date</b>
+                        </label>
+                        <input type="date" class="form-control" id="admin_sign_date"
+                            name="admin_sign_date" onclick="dateValidation('admin_sign_date')">
+                    </div>
+                </div>
+            </div>
+            <!-- Admin's or guardian's signature end -->
+            <div class="text-center">
+                <button class="cancel-btn" id="cancelButton">Cancel</button>
+                <button class="submit-btn mb-4" id="submit_button">submit</button> 
+            </div>   
+        </div>
+    </div> 
+</div>
+<!--Admin Signature Form End-->

@@ -22,7 +22,7 @@
                                     <label for="child_first_name" class="form-label"><b>FIRST NAME
                                     </b></label><br>
                                     <input name="child_first_name" type="text" maxlength="20" 
-                                    class="form-control wizard-required child_first_name" id="child_first_name" placeholder="Enter First Name, e.g., Johnson">
+                                    class="form-control wizard-required child_first_name" id="child_first_name" placeholder="e.g. Johnson">
                                     <div class="wizard-form-error"></div>
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                                     <label for="child_last_name" class="form-label"><b>LAST NAME
                                     </b></label><br>
                                     <input name="child_last_name" type="text" maxlength="20" 
-                                    class="form-control wizard-required child_last_name" id="child_last_name" placeholder="Enter Last Name, e.g., David">
+                                    class="form-control wizard-required child_last_name" id="child_last_name" placeholder="e.g. David">
                                     <div class="wizard-form-error"></div>
                                 </div>
                             </div>
@@ -49,14 +49,14 @@
                                 <div class="form-group">
                                     <label for="nick_name" class="form-label"><b>NICKNAME</b></label>
                                     <input name="nick_name" type="text" maxlength="50" class="form-control"
-                                        id="nick_name" placeholder="Enter Nickname, e.g., John">
+                                        id="nick_name" placeholder="e.g. John">
                                 </div>
                             </div>
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="dob" class="form-label"><b>BIRTH DATE</b></label>
                                     <input name="dob" type="date" maxlength="50" class="form-control dob"
-                                        id="dob" onclick="dateValidation('dob')" placeholder="e.g., 12/06/2000">
+                                        id="dob" onclick="dateValidation('dob')" placeholder="e.g. 12/06/2000">
                                 </div>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                                 <div class="form-group">
                                     <label for="primary_language" class="form-label"><b>PRIMARY LANGUAGE</b></label>
                                     <input type="text" class="form-control " aria-label="Telephone Number"
-                                        id="primary_language" name="primary_language" placeholder="Enter Primary Language, e.g., English">
+                                        id="primary_language" name="primary_language" placeholder="e.g. English">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -73,7 +73,7 @@
                                     <label for="school_age_child_school" class="form-label"><b>SCHOOL-AGE CHILD’S SCHOOL</b>
                                     </label>
                                     <input type="text" class="form-control " id="school_age_child_school"
-                                        name="school_age_child_school" placeholder="Enter School Name">
+                                        name="school_age_child_school">
                                 </div>
                             </div>
                         </div>
@@ -2193,11 +2193,15 @@
                                 <div class="form-group wizard-form-checkbox">
                                     <input type="checkbox" class="input-checkbox" id="do_you_agree_this"
                                     name="do_you_agree_this" >
-                                    <label class="form-check-label" for="do_you_agree_this"><span>
-                                        <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                        </svg></span>
-                                        <span><b>I agree all the above information is correct.</b></span>
+                                    <label class="form-check-label" for="do_you_agree_this">
+                                        <span>
+                                            <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                            </svg>
+                                        </span>
+                                        <span>
+                                            <b>I agree all the above information is correct.</b>
+                                        </span>
                                     </label>
                                 </div>
                             </div>
@@ -2269,11 +2273,15 @@
                         <div class="form-group wizard-form-checkbox">
                             <input type="checkbox" class="input-checkbox" id="do_you_agree_this_pick_up_password_form"
                             name="do_you_agree_this_pick_up_password_form" >
-                            <label class="form-check-label" for="do_you_agree_this_pick_up_password_form"><span>
-                                <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                </svg></span>
-                                <span><b>I agree pick-up password instructions.</b></span>
+                            <label class="form-check-label" for="do_you_agree_this_pick_up_password_form">
+                                <span>
+                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
+                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
+                                    </svg>
+                                </span>
+                                <span>
+                                    <b>I agree pick-up password instructions.</b>
+                                </span>
                             </label>
                         </div>
                     </div>
@@ -2287,442 +2295,3 @@
 </div>
 <!--Pick-up Password Form End-->
 
-<!--Photo and Video Permission Form-->
-<div id="photovideopermission" class="container tab-pane fade"><br>
-    <div class="accordion pt-3" id="accordionExample">
-        <div class="accordion-item accordion_items">
-                <h2 class="text-center title_bg">Photo/Video Permission</h2>
-                <div class="p-4">
-                        <h4 class="text-center mb-4"><b>Consent to Photograph</b></h4>
-                        <p>I consent to The Goddard School® taking photographs and
-                            videos of my child, who are identified below. For value received and
-                            without additional consideration, I agree that all photographs and video
-                            footage of my child taken at The Goddard School may be used at any time
-                            by The Goddard School or Goddard Systems, Inc. for the purposes of
-                            illustration, advertising and publicity, in any manner or in any form,
-                            including in broadcast, print, electronic and social media.</p>
-                            <div class="row m-1 mb-4">
-                                <div class="col-3"></div>
-                                <div class="col-6">
-                                    <div class="form-group"> 
-                                        <label for="photo_usage_photo_video_permission_form" class="form-label"><b>Select One
-                                            </b>
-                                        </label>
-                                        <select class="form-control" aria-label=".form-control-lg example" 
-                                        id="photo_usage_photo_video_permission_form"
-                                            name="photo_usage_photo_video_permission_form">
-                                            <option selected disabled></option>
-                                            <option value="Full Use">Full Use</option>
-                                            <option value="In-House Only">In-House Only</option>
-                                            <option value="No Photos">No Photos</option>
-                                        </select>
-                                        <i class="fa fa-chevron-down"></i>
-                                    </div>
-                                </div>
-                                <div class="col-3"></div>
-                            </div>    
-                            <h4 class="text-center mb-4"><b>Group Photos in Electronic Daily
-                                Activity Reports</b></h4>
-                            <p>The Goddard School takes photos of individual children and
-                                groups of children for electronic daily activity reports. These photos
-                                will not be used for any other purpose by The Goddard School or Goddard
-                                Systems, Inc. Although we have a School policy against it, it is
-                                possible for individuals who receive group photos in an electronic daily
-                                activity reports to share these group photos through their personal
-                                social media accounts. For this reason, we ask that you specifically
-                                authorize whether we can include your child in any group photos shared
-                                through the electronic daily activity reports.</p>
-                                <div class="row m-1 mb-4">
-                                    <div class="col-sm">
-                                        <div class="form-group"> 
-                                            <div class="wizard-form-checkbox">
-                                                <input type="checkbox" class="input-checkbox" id="photo_permission_agree_group_photos_electronic"
-                                                name="photo_permission_agree_group_photos_electronic">
-                                                <label class="form-check-label" for="photo_permission_agree_group_photos_electronic"><span>
-                                                        <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                                        </svg></span><span>I agree to have individual photos of my child and photos of group School’s electronic daily activity reports.</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                                <h4 class="text-center mb-4"><b>Agreement Not to Post Photos of
-                                    Other Children</b></h4>
-                                <div class="row m-1 mb-4">
-                                    <div class="col-sm">
-                                        <div class="form-group"> 
-                                            <div class="wizard-form-checkbox">
-                                                <input type="checkbox" class="input-checkbox" id="do_you_agree_this_photo_video_permission_form"
-                                                name="do_you_agree_this_photo_video_permission_form">
-                                                <label class="form-check-label" for="do_you_agree_this_photo_video_permission_form"><span>
-                                                        <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                                        </svg></span><span>I agree that I will not post or use any photographs or
-                                                            videos that I receive from or take at The Goddard School</span>
-                                                            that include
-                                    children other than my own child in print, electronic or social media or
-                                    any other form. This includes group photos that I receive as part of an
-                                    electronic daily activity report. My agreement extends to photos or
-                                    videos taken by any member of my family or any visitors that I bring to
-                                    The Goddard School.
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>  
-                        <div class="text-center">
-                            <button class="save-btn" id="twenty_save">Save</button> 
-                        </div>
-                </div>   
-        </div>
-    </div> 
-</div>
-<!--Photo and Video Permission Form End-->
-
-<!--Security Policy Form-->
-<div id="securitypolicy" class="container tab-pane fade"><br>
-    <div class="accordion pt-3" id="accordionExample">
-        <div class="accordion-item accordion_items">
-                <h2 class="text-center title_bg">Security Release & Policy
-                    Acknowledgement</h2>
-                <div class="row m-3 mb-4">
-                    <p>I understand that The Goddard School® has installed security
-                        cameras in
-                        the
-                        foyer and around the outside perimeter of the building. I also
-                        understand that while attending The Goddard School®, my child may be
-                        videotaped by a security camera.</p>
-                    <p>I recognize that I may also be videotaped by a security
-                        camera while at
-                        or around the
-                        school premises. I will notify each person listed on the Application for
-                        Admission that he
-                        or she may be also videotaped while at or around the school premises.
-                    </p>
-                </div>
-                <h4 class="text-center"><b>Policy Acknowledgement</b></h4>
-                <p class="m-4">My signature below confirms my understandi ng of the
-                    Enrollment Agreement, school
-                    policies, my tuition obligation, my responsibility for the payment
-                    of fees, and confirms that
-                    I have received and read a copy of the parent handbook.
-                </p>
-                <div class="row m-2 mb-4">
-                    <div class="col-sm">
-                        <div class="form-group wizard-form-checkbox">
-                            <input type="checkbox" class="input-checkbox" id="do_you_agree_this_security_release_policy_form"
-                            name="do_you_agree_this_security_release_policy_form" >
-                            <label class="form-check-label" for="do_you_agree_this_security_release_policy_form"><span>
-                                <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                    <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                </svg></span>
-                                <span><b>I agree Security Release & Policy
-                                    Acknowledgement.</b></span>
-                            </label>
-                        </div>
-                    </div>
-                </div>    
-                <div class="text-center mb-4">
-                    <button class="save-btn" id="twentyone_save">Save</button> 
-                </div>  
-        </div>
-    </div> 
-</div>
-<!-- Security Policy Form Form End-->
-
-<!--Medical transportation Form-->
-<div id="medicaltransportation" class="container tab-pane fade"><br>
-    <div class="accordion pt-3" id="accordionExample">
-        <div class="accordion-item accordion_items">
-                <h2 class="text-center title_bg">Medical Transportation Waiver</h2>
-                <div class="m-4">    
-                    <span>
-                        <p>The undersigned authorizes representatives of The Goddard School® to contact Emergency Medical Technicians to transport
-                        <input type="text" class="form-control inputBox" id="contact_emergency_medical_technicians_medical_transportation_waiver" 
-                        name="contact_emergency_medical_technicians_medical_transportation_waiver">
-                        (“Student”) to receive medical care, if such transportation/care is deemed necessary.</p>
-                        <p>The undersigned irrevocably release any claims, demands, actions or
-                            causes of
-                            action against The Goddard School®, its franchisor, Goddard Systems,
-                            Inc., and their
-                            respective representatives and employees, which arise out of or
-                            relate to the
-                            transportation of Student and any medical care provided.</p>
-                        <p>This authorization and waiver shall remain effective until Student
-                            withdraws from The Goddard School®.</p>
-                    </span><br>
-                    <div class="form-group wizard-form-checkbox">
-                        <input type="checkbox" class="input-checkbox" id="do_you_agree_this_medical_transportation_waiver"
-                        name="do_you_agree_this_medical_transportation_waiver" placeholder="Enter Student's Full Name">
-                        <label class="form-check-label" for="do_you_agree_this_medical_transportation_waiver"><span>
-                            <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                            </svg></span>
-                            <span><b>I agree medical transportation
-                                waiver.</b></span>
-                        </label>
-                    </div>
-                </div>    
-                <div class="text-center mb-4">
-                    <button class="save-btn" id="twentytwo_save">Save</button> 
-                </div>
-        </div>
-    </div> 
-</div>
-<!--Medical transportation Form End-->
-
-<!--Health policies Form-->
-<div id="healthpolicies" class="container tab-pane fade"><br>
-    <div class="accordion pt-3" id="accordionExample">
-        <div class="accordion-item accordion_items">
-                <h2 class="text-center title_bg">Health Policies</h2>
-                <div class="row m-4">
-                    <div class="col-sm">
-                        <p>The owners and staff at The Goddard School® do all we can to promote
-                            a healthy environment for your children.
-                            Our teachers make sure children wash their hands before meals, after
-                            art projects, after toileting and diapering,
-                            after coming in from outside, and after wiping one's nose. Our
-                            teachers are required to wash their hands before
-                            serving meals or snacks and are sure to wear latex gloves while
-                            diapering or assisting a child with toileting and
-                            when coming into contact with any bodily fluids. In addition, we
-                            disinfect infant and toddler toys on a daily basis.
-                            Our preschool toys are disinfected weekly.</p>
-                        <p>The health of the children is very important to the staff at The
-                            Goddard School®. Children who are ill cannot be
-                            appropriately cared for in a childcare setting. A child who is
-                            unable to participate due to illness should not be in
-                            attendance. The Goddard School® staff understands that it may be
-                            difficult to make alternate arrangements
-                            when a child may be too ill to attend the program. However,
-                            cooperation in keeping a child home when they
-                            are showing symptoms of illness will be greatly appreciated by the
-                            teachers and all the children who would
-                            normally be in contact with that child. By establishing and
-                            maintaining a healthy environment and reasonable
-                            health policies, all of our children will benefit.</p>
-                        <p>If a child does arrive in the morning showing signs of ill health, we
-                            will be unable to accept him/her. The
-                            exception to this requirement would be that a licensed physician has
-                            examined the child and indicated, in
-                            writing, that there would be no health risk to your child or others,
-                            and the child is capable of participating in all
-                            activities, including outdoor play. </p>
-                        <h4>Examples of health symptoms that require exclusion from the program
-                            include, but are not limited to:</h4>
-                        <ul>
-                            <li>Severe pain or discomfort particularly in joints, abdomen, or
-                                ears</li>
-                            <li> Vomiting or diarrhea (2 or more incidents within a 24 hour
-                                period)</li>
-                            <li> Severe coughing or sore throat</li>
-                            <li>Temperature of 100 ° or more and/or accompanied by other
-                                behavior changes/ symptoms</li>
-                            <li>Jaundice (yellow) skin or eyes</li>
-                            <li>Eye discharge or conjunctivitis (pink eye) until clear or until
-                                24 hours of antibiotic treatment</li>
-                            <li> Infected, untreated skin patches/lesions or severe itching of
-                                body/scalp</li>
-                            <li> Difficult or rapid breathing</li>
-                            <li>Skin rashes (excluding diaper rash) especially with fever or
-                                itching</li>
-                            <li> Swollen joints, visibly enlarged lymph nodes, or stiff neck
-                            </li>
-                            <li> Blood/pus from ears, skin, urine, stool</li>
-                            <li>Unusual behavior characterized by listlessness, loss of normal
-                                appetite, or confusion</li>
-                            <li> Symptoms of chicken pox, impetigo, lice, scabies, or strep
-                                throat</li>
-                        </ul>
-                        <p>If a child becomes ill during the day, a parent will be advised
-                            immediately. The child will be given the opportunity
-                            to rest or have other activities in a separated, supervised area
-                            until a designated release person can pick up the
-                            child. If the child is not picked up within one hour from the time
-                            of notification, the emergency contact person
-                            will be called. Children who are sent home due to illness will not
-                            be readmitted to the school until all signs of
-                            illness have been gone for 24 hours. Therefore, a child who is sent
-                            home ill cannot return to school the following
-                            day. The exception to this requirement would be that a licensed
-                            physician has examined the child and has
-                            indicated in writing that the child does not present a health threat
-                            to him/her or others and is able to participate
-                            in all school activities, including outdoor play.</p>
-                        <p>In cases of certain communicable diseases, The Goddard School® is
-                            required to file a report with the Department
-                            of Health within 24 hours, so control measures can be used. Parents
-                            and staff are reminded to notify The
-                            Goddard School® within 24 hours if a child or family member has
-                            developed a known or suspected
-                            communicable disease. If a child has not been fully immunized for
-                            these diseases (due to the child's age, medical
-                            condition, or religious belief) they will be excluded from the
-                            school during the outbreak of a vaccine-preventable
-                            disease, as directed by Washington State Department of Health.
-                            Examples of "Reportable Diseases" include (but
-                            are not limited to):</p>
-                    </div>
-                </div>
-                <!-- Health Policies table -->
-                <div class="row m-4">
-                    <div class="col-sm">
-                        <table>
-                            <tr>
-                                <th>COVID19</th>
-                                <th>Spinal Meningitis</th>
-                                <th>Hepatitis A</th>
-                            </tr>
-                            <tr>
-                                <td>RSV(respiratory syncytial virus)</td>
-                                <td>Flu A/Flu B</td>
-                                <td>Varicella/Chicken Pox</td>
-                            </tr>
-                            <tr>
-                                <td>Measles/Mumps/Rubella</td>
-                                <td>Pinkeye/Conjunctivitis</td>
-                                <td>Giardiasis</td>
-                            </tr>
-                            <tr>
-                                <td>Strep Throat</td>
-                                <td>Salmonellosis</td>
-                                <td>Shigellosis</td>
-                            </tr>
-                        </table><br>
-                        <p>All parents will be informed in writing if a communicable disease is
-                            reported. The Goddard School® follows the
-                            reporting guidelines as established by Washington State Department
-                            of Health. A copy of these guidelines is on
-                            file in the Director's office and is available for your review.
-                        </p>
-                        <div class="col-sm">
-                            <div class="form-group wizard-form-checkbox">
-                                <input type="checkbox" class="input-checkbox" id="do_you_agree_this_health_policies"
-                                name="do_you_agree_this_health_policies" >
-                                <label class="form-check-label" for="do_you_agree_this_health_policies"><span>
-                                    <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                        <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                    </svg></span>
-                                    <span><b>I agree health policies.</b></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Health Policies table end -->
-                <div class="text-center mb-4">
-                    <button class="save-btn" id="twentythree_save">Save</button> 
-                </div>
-        </div>
-    </div> 
-</div>
-<!--Health policies Form End-->
-
-<!--Outside engagements Form-->
-<div id="outsideengagements" class="container tab-pane fade"><br>
-    <div class="accordion pt-3" id="accordionExample">
-        <div class="accordion-item accordion_items">
-                <h2 class="text-center title_bg">Outside Engagements
-                    Release & Waiver
-                </h2>
-                <div class="row m-3 mb-4">
-                    <div class="col-sm">
-                        <p>Parent(s) of student(s) enrolled at The Goddard School Redmond II may
-                            request one or more employees of
-                            the The Goddard School Redmond II to provide childcare services
-                            (baby-sitting/transportation) outside of
-                            school premises and school hours.</p>
-                        <h3>Parents and employees agree as follows:</h3>
-                        <ul>
-                            <li>Parents acknowledge that they have requested that Employee
-                                provide Babysitting
-                                Services/Transportation solely for Parents' convenience and
-                                benefit , and not for the convenience or
-                                benefit of the School.</li>
-                            <li>Parents acknowledge that, in providing Transportation and/or
-                                Babysitting Services, Employee is acting as
-                                an independent contractor and not as an employee of the School.
-                                Parents acknowledge that
-                                providing Transportation and Babysitting Services is not part of
-                                Employee's job with the School and that
-                                the School is not requesting that Employee provide these
-                                services.
-                            </li>
-                            <li>Parents acknowledge that the School has not reviewed Employee's
-                                driving record and makes
-                                no representations regarding Employee's driving history or
-                                ability or the existence or scope of
-                                Employee's insurance.</li>
-                            <li>Parents interested in hiring a teacher(s) for outside services
-                                must ask if the teacher is interested. The
-                                admin team will not aid in finding someone to facilitate
-                                before/after hour care.</li>
-                            <li>When hiring for outside engagements, parents ensure that staff
-                                work hours at school are not disturbed.</li>
-                            <li>If there is a matter of contention between the staff hired and
-                                the family, management is not
-                                liable to mediate or take disciplinary actions against the staff
-                                based on what happened outside the
-                                school.</li>
-                        </ul>
-                    </div>  
-                </div>      
-                    
-                <div class="row m-3 mb-4">
-                    <div class="col-sm">
-                        <div class="form-group"> 
-                            <div class="wizard-form-checkbox">
-                                <input type="checkbox" class="input-checkbox" id="outside_waiver_parent_sign_outside_engagements_waiver" 
-                                name="outside_waiver_parent_sign_outside_engagements_waiver">
-                                <label class="form-check-label" for="outside_waiver_parent_sign_outside_engagements_waiver"><span>
-                                        <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                        </svg></span><span><b>I have read this agreement and understand its terms.</b></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center mb-4">
-                    <button class="save-btn" id="twentyfour_save">Save</button> 
-                </div> 
-        </div>
-    </div>
-</div>
-<!--Outside engagements Form End-->
-
-<!--Parent Signature Form-->
- <div id="parentsignature" class="container tab-pane fade"><br>
-    <div class="accordion pt-3" id="accordionExample">
-        <div class="accordion-item accordion_items">
-            <h2 class="text-center title_bg">Parent Signature</h2>
-            <!-- Parent's or guardian's signature -->
-            <div class="row m-3">
-                <div class="col-sm">
-                    <div class="form-group"> 
-                        <label for="parent_sign" class="form-label"><b>Parent Signature</b>
-                        </label>
-                        <input type="text" class="form-control" id="parent_sign"
-                        name="parent_sign">
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="form-group"> 
-                        <label for="parent_sign_date"  class="form-label"><b>Date</b>
-                        </label>
-                        <input type="date" class="form-control" id="parent_sign_date"
-                            name="parent_sign_date" onclick="dateValidation('parent_sign_date')">
-                    </div>
-                </div>
-            </div>
-            <!-- Parent's or guardian's signature end -->
-            <div class="text-center">
-                <button class="cancel-btn" id="cancelButton">Cancel</button>
-                <button class="submit-btn mb-4" id="submit_button">submit</button> 
-            </div>   
-        </div>
-    </div> 
-</div>
-<!--Parent Signature Form End-->

@@ -362,12 +362,12 @@
                                 $.get(trimValues + "1.html", function(data) {
                                     $(".tab-content").append(data);
                                     $.get(trimValues + "2.html", function(data) {
-                                        console.log('bbbb')
+                                        $(".tab-content").append(data);
+                                        $.get(trimValues + "3.html", function(data) {
                                         $(".tab-content").append(data);
                                     });
-                                    $.get(trimValues + "3.html", function(data) {
-                                        $(".tab-content").append(data);
                                     });
+                                    
                                 });
                             }
                         }

@@ -259,8 +259,13 @@ function submitForm() {
             contentType: "application/json",
             data: json,
             success: function (response) {
-                alert(response.message);
-                window.location.reload();
+                // alert(response.message);
+                $(".success-msg").show();
+                    setTimeout(function(){
+                    $(".success-msg").hide();
+                    window.location.reload();
+                }, 3000);     
+
             },
             error: function (xhr, status, error) {
                 alert("failed to submit admission form");
@@ -268,7 +273,11 @@ function submitForm() {
         });
     }else{
         // window.location.reload();
-        alert('you have to fill all the fields');
+        // alert('you have to fill all the fields');
+        $(".error-msg").show();
+            setTimeout(function(){
+            $(".error-msg").hide(); 
+        }, 3000);
     }
     
     

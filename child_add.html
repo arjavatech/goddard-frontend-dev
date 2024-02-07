@@ -21,6 +21,8 @@
         <script src="js/admission_form_validation.js"></script>
         <!-- <script type="module" src='/js/script.js'></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
         <style>
             .accordion-button:not(.collapsed)::after {
                 background-image: url('image/down_white.png');
@@ -40,6 +42,43 @@
             }
             .hide {
                 display: none;
+            }
+
+
+            .success-msg{
+                position: fixed;
+                top: 5px; 
+                left:2%;
+                width: 96%;
+            }
+            .error-msg{
+                position: fixed;
+                top: 5px; 
+                left:2%;
+                width: 96%;
+            }
+            
+            .alert{
+                display: none;
+                padding: 15px;
+                margin-bottom: 20px;
+                border: 1px solid transparent;
+                border-radius: 4px;
+            }  
+          
+            .close {
+                float: right;
+                font-size: 22px;
+                font-weight: 700;
+                line-height: 1;
+                color: #000;
+                text-shadow: 0 1px 0 #fff;
+                opacity: .2;
+              }
+            
+            a {
+              color: #337ab7;
+              text-decoration: none;
             }
         </style>
     </head>
@@ -76,6 +115,18 @@
                 <div id="child_basic_form"><br>
                     <div class="card_center">
                         <div class="card child_basic_card">
+                            <div class="success-msg alert alert-success">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Success!</strong> Child basic information saved successfully!
+                            </div>   
+                            <div class="error-msg alert alert-danger">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Oops!</strong> You have to fill all the fields!
+                            </div> 
+                            <div class="success-msg-save alert alert-success">
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                <strong>Success!</strong> Child information saved successfully!
+                            </div>   
                             <h2 class="text-center card_title p-4" id="myBookmark">Child Basic Information</h2><br>
                             <div class="container" id="avf_form">
                                 <section class="wizard-section">

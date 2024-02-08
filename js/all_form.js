@@ -1,5 +1,6 @@
 import {isAuthenticated} from "./authenticationVerify.js";
 
+
 // Function to submit the form data
 function submitForm() {
     const form = document.getElementById("childInfo");
@@ -22,8 +23,6 @@ function submitForm() {
             window.location.href = 'child_add.html';
         },
         error: function (xhr, status, error) {
-            console.log(error);
-            console.log(status);
             alert("failed to save admission form");
         }
     });
@@ -31,7 +30,10 @@ function submitForm() {
 
 // Function to submit the form data
 function saveForm() {
+    e.preventDefault(); 
+    alert("hiii");
     const form = document.getElementById("childInfo");
+    
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     obj.on_process = true;
@@ -41,36 +43,33 @@ function saveForm() {
         obj.child_id = child_id_val; 
     }
     const json = JSON.stringify(obj);
-    console.log(json);
-    // $.ajax({
-    //     url: "http://localhost:8080/admission_child_personal/additional",
-    //     type: "POST",
-    //     contentType: "application/json",
-    //     data: JSON.stringify(obj),
-    //     success: function (response) {
-    //         alert(response.message)
-    //         window.location.reload();
-    //     },
-    //     error: function (xhr, status, error) {
-    //         console.log(error);
-    //         console.log(status);
-    //         alert("failed to save admission form");
-    //     }
-    // });
-    let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        if (xhr.status === 200) {
-            // localStorage.setItem('child_id', response.child_id);
-           alert('checking');
-            // alert('checking submit');
+    $.ajax({
+        url: "http://localhost:8080/admission_child_personal/additional",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(obj),
+        success: function (response) {
+            alert(response.message)
             window.location.reload();
-        }else{
+        },
+        error: function (xhr, status, error) {
             alert("failed to save admission form");
         }
-    };
-    xhr.open("POST", "http://localhost:8080/admission_child_personal/additional");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(json);
+    });
+    // let xhr = new XMLHttpRequest();
+    // xhr.onload = () => {
+    //     if (xhr.status === 200) {
+    //         // localStorage.setItem('child_id', response.child_id);
+    //        alert('checking');
+    //         // alert('checking submit');
+    //         window.location.reload();
+    //     }else{
+    //         alert("failed to save admission form");
+    //     }
+    // };
+    // xhr.open("POST", "http://localhost:8080/admission_child_personal/additional");
+    // xhr.setRequestHeader("Content-Type", "application/json");
+    // xhr.send(json);
 }
 
 function clearForm(){
@@ -78,121 +77,182 @@ function clearForm(){
 }
 
 $(document).ready(function () {
+    // alert('456')
     if (!isAuthenticated()) {
         window.location.href = 'login.html';
     } else {
         document.body.style.visibility = 'visible';
- 
+        let samplejson = {};
+        $.ajax({
+            url: `http://localhost:8080/goddard_all_form/all_active_forms`,
+            type: 'GET',
+            success: function(response){
+                console.log(response);
+                // extract main_topic values and store them in an array
+                let mainTopics = [];
+                for (let res in response) {
+                    mainTopics.push(response[res].main_topic);
+                }
+                // sort the array alphabetically
+                mainTopics.sort();
+                // iterate through the sorted array
+                for (let i = 0; i < mainTopics.length; i++) {
+                    let mainTopic = mainTopics[i];
+                    let trimValues = mainTopic.replace(/\s+/g,'').toLowerCase();
+                    $.get(trimValues + "ListItem.html", function(data) {
+                        $("#menu").append(data);
+                    });
+
+                    if(trimValues == 'admissionforms'){
+                        $.get(trimValues + "1.html", function(data) {
+                            console.log(data);
+                            $(data).appendTo("#childinformation");
+                            // $(".tab-content").append(data);
+                            
+                        }); 
+                        $.get(trimValues + "2.html", function(data) {
+                            // $(".tab-content").append(data);
+                            $(data).appendTo("#childandfamilyhistory");
+                        });                   
+                    }
+
+                    if(trimValues != 'admissionforms' && trimValues != 'parenthandbook'){
+                        $.get(trimValues + ".html", function(data) {
+                            $(".tab-content").append(data);
+                        });
+                    }
+                    // if(trimValues == 'parenthandbook'){
+                    //     $.get(trimValues + "1.html", function(data) {
+                    //         $(".tab-content").append(data);
+                    //         $.get(trimValues + "2.html", function(data) {
+                    //             $(".tab-content").append(data);
+                    //             $.get(trimValues + "3.html", function(data) {
+                    //                 $(".tab-content").append(data);
+                    //             });
+                    //         });
+                            
+                    //     });
+                    // }
+                }
+            }
+        });
         // Add click event listener to the "Save" button
-        $("#child_basic_info").on("click", function (e) {
+        $(".save-btn").on("click", function (e) {
+            alert("sdvsdfvbsdfbsd");
             e.preventDefault(); // Prevent the default form submission
             saveForm();
         });
-        $("#parent_info").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#emergency_info").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#fourth_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#fifth_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#sixth_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#seventh_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#eigth_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#nine_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#ten_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#eleven_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#twelve_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#thirteen_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#fourteen_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#fifteen_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#sixteen_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#seventeen_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#eighteen_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#nineteen_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#twenty_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#twentyone_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#twentytwo_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#twentythree_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#twentyfour_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#twentyfive_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#twentysix_save").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-        $("#parent_two_info").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            saveForm();
-        });
-       
+
+        // $("#child_basic_info").on("click", function (e) {
+        //     alert("sdvsdfvbsdfbsd");
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#parent_info").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#emergency_info").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#fourth_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#fifth_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#sixth_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#seventh_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#eigth_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#nine_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#ten_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#eleven_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#twelve_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#thirteen_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#fourteen_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#fifteen_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#sixteen_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#seventeen_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#eighteen_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#nineteen_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#twenty_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#twentyone_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#twentytwo_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#twentythree_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#twentyfour_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#twentyfive_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#twentysix_save").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // $("#parent_two_info").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+    
         $(".handbook_button").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
             saveForm();
@@ -205,7 +265,7 @@ $(document).ready(function () {
             e.preventDefault(); // Prevent the default form submission
             clearForm();
         });
-
+       
     }
 });
 

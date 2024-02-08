@@ -87,15 +87,15 @@ function loadDynamicCards() {
         let card = document.createElement('div');
         card.setAttribute('style','height:200px');
         // console.log(child_response[0].child_id);
-        checking(child_response[0].child_id);
+        // checking(child_response[0].child_id);
         if (on_process === true) {
-            anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
+            // anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
             anchor.setAttribute('class','active');
             // card.classList.add('card', 'dashboard_card_style_on_process');
             // card.classList.add('card', 'dashboard_card_style_on_process_active');
             card.classList.add('card', 'dashboard_card_style');
         } else {
-            anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
+            // anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
             // anchor.href = 'parent/parent_dashboard.html';
             anchor.setAttribute('class','active');
             // card.classList.add('card', 'dashboard_card_style1');
@@ -231,10 +231,12 @@ var addChildDiv = document.getElementById('addChildDiv');
 function divShow(){
     if(addChildDiv){
         addChildDiv.style.display = 'block';
-        formdiv.classList.add('hide');
+        formdiv.style.display = 'none';;
+        // formdiv.classList.add('hide1');
     }else{
         addChildDiv.style.display = 'none';
-        formdiv.classList.remove('hide');
+        formdiv.style.display = 'block';
+        // formdiv.classList.remove('hide1');
     }
     // formdiv.classList.remove('hide');
 }

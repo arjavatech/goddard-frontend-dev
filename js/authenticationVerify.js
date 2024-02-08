@@ -13,7 +13,7 @@ function checkGmailLoginState() {
                 window.alert("Please login")
             }
         } else {
-            window.alert("Please login")
+            // window.alert("Please login")
         }
         return false;
     }

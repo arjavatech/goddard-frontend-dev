@@ -22,8 +22,32 @@
         <script src="js/login.js" ></script>
         <script src="js/password_show_hide.js" async></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
+         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <style>
+            .success-msg{
+                position: fixed;
+                top: 5px; 
+                left:2%;
+                width: 96%;
+            }
+            .error-msg{
+                position: fixed;
+                top: 5px; 
+                left:2%;
+                width: 96%;
+            }
+            
+            .alert{
+                display: none;
+            }
+            .alert1{
+                display: none;
+            }  
+        </style>
     </head>
-    <body>
+    <body> 
         <!-- Navigation Bar -->
         <nav class="navbar_bg d-flex justify-content-center">
             <img src="image/gs_logo_branch.png" alt="gs_logo_branch" type="image/png" width="476px" height="112px">
@@ -34,6 +58,14 @@
             <div class="card_position">
                 <div class="card login_card_style">
                     <div class="card-body">
+                        <div class="success-msg alert alert-success">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Success!</strong> You have been signed in successfully!
+                        </div>   
+                        <div class="error-msg alert1 alert-danger">
+                            <a href="#" class="close" data-dismiss="alert1" aria-label="close">&times;</a>
+                            <strong>Oops!</strong> Incorrect UserName or Password!
+                        </div> 
                         <div class="row" id="errorMessageDiv" style="background-color: #fff ;height: 50px;display: none;">
                             <div class="col-sm-12">
                                 <span id="errorMessage" style="display: none;color: #ff0000;padding-top: 10px;text-align: center;">
@@ -79,7 +111,7 @@
             </div>
         </div>
         <!-- Login Card End -->
-        <script>
+        <script>      
             //email validation with particular format
             function emailValidation(inputtxtID,errorSpanID) {
                 var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -96,39 +128,61 @@
             function loginFunction() {
                 const email_id = document.getElementById('login_email').value;
                 const password = document.getElementById('login_pswd').value;
-                const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-                $.ajax({
+                if(email_id != '' && password !=''){
+                    const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+                    $.ajax({
                     url: `http://localhost:8080/sign_up/is_admin/${email_id}?password=${hashedUserPassword}`,
                     type: "GET",
                     success: function (response) {
                         console.log(response);
                         let isAuthenticated = false;
                         if(response.admin === true ){
-                            isAuthenticated = true;
-                            localStorage.setItem('logged_in_email', email_id);
-                            window.location.href = "./admin_dashboard.html";  
+                            $(".success-msg").show();
+                                setTimeout(function(){
+                               $(".success-msg").hide(); 
+                                isAuthenticated = true;
+                                localStorage.setItem('logged_in_email', email_id);
+                                window.location.href = "./admin_dashboard.html"; 
+                            }, 3000);
+                            
                         }else if (response.admin === false ) {
-                            isAuthenticated = true;
-                            localStorage.setItem('logged_in_email', email_id);
-                            window.location.href = "./child_add.html";
+                            $(".success-msg").show();
+                            setTimeout(function(){
+                             $(".success-msg").hide(); 
+                                isAuthenticated = true;
+                                localStorage.setItem('logged_in_email', email_id);
+                                window.location.href = "./child_add.html";
+                            }, 3000);
+                           
                         }
 
                         if (!isAuthenticated) {
                             // Authentication failed
-                            let spanMsg = document.getElementById("errorMessage");
-                            let spanMsgDiv = document.getElementById("errorMessageDiv");
-                            spanMsgDiv.style.display = "block";
-                            spanMsg.style.display = "block";
+                            $(".error-msg").show();
+                                setTimeout(function(){
+                                $(".error-msg").hide(); 
+                            }, 3000);
+                            // let spanMsg = document.getElementById("errorMessage");
+                            // let spanMsgDiv = document.getElementById("errorMessageDiv");
+                            // spanMsgDiv.style.display = "block";
+                            // spanMsg.style.display = "block";
                         }
                     },
                     error: function (xhr, status, error) {
-                        console.log(error);
-                        let spanMsg = document.getElementById("errorMessage");
-                        let spanMsgDiv = document.getElementById("errorMessageDiv");
-                        spanMsgDiv.style.display = "block";
-                        spanMsg.style.display = "block";
+                        $(".error-msg").show();
+                        setTimeout(function(){ 
+                        $(".error-msg").hide(); 
+                        }, 3000);
+                        // console.log(error);
+                        // let spanMsg = document.getElementById("errorMessage");
+                        // let spanMsgDiv = document.getElementById("errorMessageDiv");
+                        // spanMsgDiv.style.display = "block";
+                        // spanMsg.style.display = "block";
                     }
                 });
+                }else{
+                    alert('fill the form');
+                }
             }
             
             $(document).ready(function () {

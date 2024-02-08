@@ -20,7 +20,7 @@ function applicationStatusYear() {
     // let applicationStatusYear = document.getElementById("applicationStatusYear");
     // applicationStatusYear.textContent = val;
     $.ajax({
-        url: ` http://localhost:8080/admission/admission_status_info`,
+        url: `http://localhost:8080/admission_child_personal/all_child_status`,
         type: 'get',
         success: function (response) {
             let responseValue = Object.values(response);
@@ -33,6 +33,15 @@ function applicationStatusYear() {
                     for (let j = 0; j <responseValue.length; j++) {
                         // Create a new row for each data set
                         const row = document.createElement('tr');
+
+                        const childIdCell = document.createElement('td');
+                        // childIdCell.textContent = responseValue[j].child_id;
+                        row.appendChild(childIdCell);
+                        let anchor = document.createElement('a');
+                        anchor.setAttribute('class','nav-link ');
+                        anchor.textContent = responseValue[j].child_id;
+                        anchor.setAttribute('href', `checking(${responseValue[j].child_id})`);
+                        childIdCell.appendChild(anchor);
                         // Create cell for child name
                         const childNameCell = document.createElement('td');
                         childNameCell.textContent = responseValue[j].child_name;
@@ -45,7 +54,7 @@ function applicationStatusYear() {
                         row.appendChild(parentNameCell);
 
                         const applicationStatusCell = document.createElement('td');
-                        applicationStatusCell.textContent = responseValue[j].admission_form_status;
+                        applicationStatusCell.textContent = responseValue[j]. form_status;
                         row.appendChild(applicationStatusCell);
             
                         // const enrollmentStatusCell = document.createElement('td');
@@ -54,59 +63,59 @@ function applicationStatusYear() {
                         // enrollmentStatusCell.textContent = responseValue[j].enrollment_form_status_level;
                         // row.appendChild(enrollmentStatusCell);
 
-                        const enrollmentStatusCell = document.createElement('td');
-                        enrollmentStatusCell.setAttribute('id', 'enrollment_form_status');
-                        enrollmentStatusCell.setAttribute('name', 'enrollment_form_status');
-                        enrollmentStatusCell.setAttribute('style', 'border: none;');
+                        // const enrollmentStatusCell = document.createElement('td');
+                        // enrollmentStatusCell.setAttribute('id', 'enrollment_form_status');
+                        // enrollmentStatusCell.setAttribute('name', 'enrollment_form_status');
+                        // enrollmentStatusCell.setAttribute('style', 'border: none;');
 
-                        // Create a <select> element
-                        const statusSelect = document.createElement('select');
-                        statusSelect.style.color = "red";
-                        statusSelect.setAttribute('style', 'border: none;');
+                        // // Create a <select> element
+                        // const statusSelect = document.createElement('select');
+                        // statusSelect.style.color = "red";
+                        // statusSelect.setAttribute('style', 'border: none;');
 
-                        // Create <option> elements for each status option
-                        const completedOption = document.createElement('option');
-                        completedOption.value = 'Completed';
-                        completedOption.textContent = 'Completed';
-                        completedOption.style.color = 'green';
+                        // // Create <option> elements for each status option
+                        // const completedOption = document.createElement('option');
+                        // completedOption.value = 'Completed';
+                        // completedOption.textContent = 'Completed';
+                        // completedOption.style.color = 'green';
 
 
-                        const reviewingOption = document.createElement('option');
-                        reviewingOption.value = 'Reviewing';
-                        reviewingOption.textContent = 'Reviewing';
-                        reviewingOption.style.color = '#a5a202';
+                        // const reviewingOption = document.createElement('option');
+                        // reviewingOption.value = 'Reviewing';
+                        // reviewingOption.textContent = 'Reviewing';
+                        // reviewingOption.style.color = '#a5a202';
 
-                        const incompleteOption = document.createElement('option');
-                        incompleteOption.value = 'Incomplete';
-                        incompleteOption.textContent = 'Incomplete';
-                        incompleteOption.style.color = 'red';
+                        // const incompleteOption = document.createElement('option');
+                        // incompleteOption.value = 'Incomplete';
+                        // incompleteOption.textContent = 'Incomplete';
+                        // incompleteOption.style.color = 'red';
 
-                        // Append the <option> elements to the <select> element
-                        statusSelect.appendChild(incompleteOption);
-                        statusSelect.appendChild(reviewingOption);
-                        statusSelect.appendChild(completedOption);
-                        statusSelect.addEventListener('change',function(){
-                           enrollmentValueSend(statusSelect.value, responseValue[j].child_id, responseValue[j].year,responseValue[j].form_name);
-                        });
+                        // // Append the <option> elements to the <select> element
+                        // statusSelect.appendChild(incompleteOption);
+                        // statusSelect.appendChild(reviewingOption);
+                        // statusSelect.appendChild(completedOption);
+                        // statusSelect.addEventListener('change',function(){
+                        //    enrollmentValueSend(statusSelect.value, responseValue[j].child_id, responseValue[j].year,responseValue[j].form_name);
+                        // });
                        
-                        enrollmentStatusCell.appendChild(statusSelect);
-                        row.appendChild(enrollmentStatusCell);
+                        // enrollmentStatusCell.appendChild(statusSelect);
+                        // row.appendChild(enrollmentStatusCell);
 
-                        // Set the default selected option based on responseValue[j].
+                        // // Set the default selected option based on responseValue[j].
 
 
 
-                        // Apply styles based on enrollment status
-                        if (responseValue[j].enrollment_form_status_level === "Completed") {
-                            enrollmentStatusCell.style.color = 'green';
-                            enrollmentStatusCell.style.fontWeight = 'bold';
-                        } else if (responseValue[j].enrollment_form_status_level === "Incomplete") {
-                            enrollmentStatusCell.style.color = 'red';
-                            enrollmentStatusCell.style.fontWeight = 'bold';
-                        } else {
-                            enrollmentStatusCell.style.color = '#a5a202';
-                            enrollmentStatusCell.style.fontWeight = 'bold';
-                        }
+                        // // Apply styles based on enrollment status
+                        // if (responseValue[j].enrollment_form_status_level === "Completed") {
+                        //     enrollmentStatusCell.style.color = 'green';
+                        //     enrollmentStatusCell.style.fontWeight = 'bold';
+                        // } else if (responseValue[j].enrollment_form_status_level === "Incomplete") {
+                        //     enrollmentStatusCell.style.color = 'red';
+                        //     enrollmentStatusCell.style.fontWeight = 'bold';
+                        // } else {
+                        //     enrollmentStatusCell.style.color = '#a5a202';
+                        //     enrollmentStatusCell.style.fontWeight = 'bold';
+                        // }
             
                         // Append the row to the table body
                         tableBody.appendChild(row);

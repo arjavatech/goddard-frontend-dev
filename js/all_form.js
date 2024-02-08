@@ -19,10 +19,17 @@ function submitForm() {
         contentType: "application/json",
         data: json,
         success: function (response) {
-            alert(response.message)
-            window.location.href = 'child_add.html';
+            // alert(response.message)
+            $(".success-msg-save").show();
+                setTimeout(function(){
+                $(".success-msg-save").hide();
+                // window.location.reload();
+                // window.location.href = 'child_add.html';
+            }, 3000);  
         },
         error: function (xhr, status, error) {
+            // console.log(error);
+            // console.log(status);
             alert("failed to save admission form");
         }
     });

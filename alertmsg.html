@@ -1,37 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <style>
-        .myAlert-msg{
-            position: fixed;
-            top: 5px; 
-            left:2%;
-            width: 96%;
-        }
-        
-        .alert{
-            display: none;
-        }  
-    </style>
-    <script>
-        function myAlertMsg(){
-            $(".myAlert-msg").show();
-            setTimeout(function(){
-              $(".myAlert-msg").hide(); 
-            }, 5000);
-          }          
-    </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <style>
+    .myAlert-top {
+      position: fixed;
+      top: 5px; 
+      left:2%;
+      width: 96%;
+    }
+    
+    .myAlert-bottom {
+      position: fixed;
+      bottom: 5px;
+      left:2%;
+      width: 96%;
+    }
+    
+    div.fullscreen {
+      position: absolute;
+      width:100%; 
+      height:960px; 
+      top: 0; 
+      left: 0; 
+      background-color: lightblue;
+    }
+
+    .alert {
+      display: none;
+    } 
+
+    .alert-success {
+      color: #3c763d;
+      background-color: #dff0d8;
+      border-color: #d6e9c6;
+    }
+
+    .alert-danger {
+      color: #a94442;
+      background-color: #f2dede;
+      border-color: #ebccd1;
+    }
+
+    .close {
+      float: right;
+      font-size: 25px;
+      font-weight: 700;
+      line-height: 1;
+      color: #000;
+      text-shadow: 0 1px 0 #fff;
+      opacity: .2;
+    }
+
+    a {
+      color: #337ab7;
+      text-decoration: none;
+    }
+
+    .alert {
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+    }
+  </style>
+  <script>
+    $(document).ready(function() {
+      $('.fullscreen button').click(function() {
+        var alertType = $(this).data('alert-type');
+        $('.myAlert-' + alertType).fadeIn();
+        setTimeout(function() {
+          $('.myAlert-' + alertType).fadeOut(); 
+        }, 10000);
+      });
+    });
+  </script>
 </head>
 <body>
-      <div class="col-sm-6">
-        <button class="form-contro" onclick="myAlertMsg()">Alert Message</button>
-      </div>
-      <div class="myAlert-msg alert alert-success">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Success!</strong> You have been signed in successfully!
-      </div>   
+  <div class="fullscreen">
+    <div class="col-sm-6">
+      <button class="form-control" data-alert-type="top">show alert top</button>
+    </div>
+    <div class="col-sm-6">
+      <button class="form-control" data-alert-type="bottom">show alert bottom</button>
+    </div>
+  </div>
+  <div class="myAlert-top alert alert-success">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Success!</strong> Indicates a successful or positive action.
+  </div>
+  <div class="myAlert-bottom alert alert-danger">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+  </div>    
 </body>
-</html>    
+</html>
+
+

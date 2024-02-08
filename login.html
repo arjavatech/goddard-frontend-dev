@@ -32,7 +32,7 @@
                 left:2%;
                 width: 96%;
             }
-            .error-msg{
+            .error-msg, .error-msg-empty{
                 position: fixed;
                 top: 5px; 
                 left:2%;
@@ -41,11 +41,28 @@
             
             .alert{
                 display: none;
-            }
-            .alert1{
-                display: none;
+                padding: 15px;
+                margin-bottom: 20px;
+                border: 1px solid transparent;
+                border-radius: 4px;
             }  
-        </style>
+          
+            .close {
+                float: right;
+                font-size: 22px;
+                font-weight: 700;
+                line-height: 1;
+                color: #000;
+                text-shadow: 0 1px 0 #fff;
+                opacity: .2;
+              }
+            
+            a {
+              color: #337ab7;
+              text-decoration: none;
+            }
+          
+          </style>
     </head>
     <body> 
         <!-- Navigation Bar -->
@@ -62,9 +79,13 @@
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                             <strong>Success!</strong> You have been signed in successfully!
                         </div>   
-                        <div class="error-msg alert1 alert-danger">
-                            <a href="#" class="close" data-dismiss="alert1" aria-label="close">&times;</a>
+                        <div class="error-msg alert alert-danger">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                             <strong>Oops!</strong> Incorrect UserName or Password!
+                        </div> 
+                        <div class="error-msg-empty alert alert-danger">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Oops!</strong> You have to fill all the fields!
                         </div> 
                         <div class="row" id="errorMessageDiv" style="background-color: #fff ;height: 50px;display: none;">
                             <div class="col-sm-12">
@@ -181,7 +202,11 @@
                     }
                 });
                 }else{
-                    alert('fill the form');
+                    // alert('fill the form');
+                    $(".error-msg-empty").show();
+                        setTimeout(function(){
+                        $(".error-msg-empty").hide(); 
+                    }, 3000);
                 }
             }
             

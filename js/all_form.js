@@ -114,12 +114,12 @@ $(document).ready(function () {
                         // $.get(trimValues + "1.html", function(data) {
                             // $(data).appendTo("#childinformation");
                             // $(".tab-content").append(data);
-                            $('#childinformation').load("admissionForms1.html");
+                            $('.tab-content').load("admissionForms.html");
                         // }); 
                         // $.get(trimValues + "2.html", function(data) {
                             // $(".tab-content").append(data);
                             // $(data).appendTo("#childandfamilyhistory");
-                            $('#childandfamilyhistory').load("admissionForms2.html")
+                            // $('#childandfamilyhistory').load("admissionForms1.html")
                         // });                   
                     }
 

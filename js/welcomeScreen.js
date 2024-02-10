@@ -12,7 +12,7 @@ function clearLocalStorageExcept(keysToKeep) {
 
 function checkParentAuthentication(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email');
-    const url = ' https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/parent_email?email='
+    const url = ' http://localhost:8080/admission_child_personal/parent_email?email='
     $.ajax({
         url: url + logged_in_email,
         type: 'get',
@@ -34,7 +34,7 @@ function checkParentAuthentication(callback) {
 function getAllInfo(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email')
     // const parent_id = localStorage.getItem('parent_id');
-    const url = 'https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/parent_email?email='
+    const url = 'http://localhost:8080/admission_child_personal/parent_email?email='
     $.ajax({
         url: url + logged_in_email,
         type: 'get',
@@ -255,7 +255,7 @@ function submitForm() {
         const json =JSON.stringify(obj);
         // console.log(json);
         $.ajax({
-            url: "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/add",
+            url: "http://localhost:8080/admission_child_personal/add",
             type: "POST",
             contentType: "application/json",
             data: json,

@@ -3,13 +3,13 @@ import {isAuthenticated} from "./authenticationVerify.js";
 export function fetchEnrollmentFormBody(callback) {
     let arr =[];
     // $.ajax({
-    //     url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/enrollment_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
+    //     url: ` http://localhost:8080/enrollment_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
     //     type: 'get',
     //     success: function(response){
             // let editID = window.location.search.slice(4);
             $.ajax({
-                // url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
-                url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
+                // url: ` http://localhost:8080/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
+                url: ` http://localhost:8080/enrollment_data/fetch/${localStorage.getItem('child_id')}`,
                 type: 'get',
                 success: function(response1){
                     // if(typeof response.point_one !='undefined'){
@@ -170,7 +170,7 @@ export function fetchEnrollmentFormBody(callback) {
 
 export function fetchEnrollmentFormTitle(callback) {
     $.ajax({
-        url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/enrollment_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
+        url: ` http://localhost:8080/enrollment_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
         type: 'get',
         success: function(response){
             document.querySelector('[name="heading"]').innerHTML = response.title;
@@ -183,7 +183,7 @@ export function fetchEnrollmentFormTitle(callback) {
 
 export function fetchEnrollmentPointEight(callback) {
     $.ajax({
-        url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/holidays_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
+        url: ` http://localhost:8080/holidays_raw_data/fetch/${localStorage.getItem('form_year_value')}`,
         type: 'get',
         success: function(response){
             document.querySelector('[id="R1C1"]').innerHTML = response.year_one_leave_one;

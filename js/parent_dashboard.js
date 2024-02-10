@@ -4,7 +4,7 @@ import {authorizationFormDetails} from "./authorization_form.js";
 
 function getEnrollmentFormStatus(val, callback) {
     $.ajax({
-        url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/${val}/form_status/${localStorage.getItem('child_id')}`,
+        url: ` http://localhost:8080/${val}/form_status/${localStorage.getItem('child_id')}`,
         type: 'get',
         success: function (form_status_resp) {
             callback(form_status_resp);
@@ -76,7 +76,7 @@ function emailSend() {
         obj.body = messageData;
         const json =JSON.stringify(obj);
         $.ajax({
-               url: "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/email/send",
+               url: "http://localhost:8080/email/send",
                type: "POST",
                contentType: "application/json",
                data: json,
@@ -99,7 +99,7 @@ function emailSend() {
 function parentDashBoardDetails(val) {
     localStorage.setItem('form_year_value', val);
     $.ajax({
-        url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/goddard_all_form/all/forms?status=true`,
+        url: ` http://localhost:8080/goddard_all_form/all/forms?status=true`,
         type: 'get',
         success: function (response) {
             if (Array.isArray(response) && response.length > 0) {
@@ -399,7 +399,7 @@ function parentDashBoardDetails(val) {
 //     localStorage.setItem('form_year_value', val);
 //     let form_status = 'unknown'
 //     $.ajax({
-//         url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/dashboard_data/formByYear/${val}`,
+//         url: ` http://localhost:8080/dashboard_data/formByYear/${val}`,
 //         type: 'get',
 //         success: function (response) {
 //             if (Array.isArray(response) && response.length > 0) {
@@ -496,7 +496,7 @@ function parentDashBoardDetails(val) {
 //to display child's year
 function parentDashBoardYear() {
     // const child_id = localStorage.getItem('child_id')
-    // const url = ' https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/enrollment_data/fetch/'
+    // const url = ' http://localhost:8080/enrollment_data/fetch/'
     // $.ajax({
     //     url: url + child_id,
     //     type: 'get',

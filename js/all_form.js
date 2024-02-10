@@ -14,7 +14,7 @@ function submitForm() {
     }
     const json = JSON.stringify(obj);
     $.ajax({
-        url: "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/additional",
+        url: "http://localhost:8080/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
         data: json,
@@ -51,7 +51,7 @@ function saveForm() {
     }
     const json = JSON.stringify(obj);
     $.ajax({
-        url: "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/additional",
+        url: "http://localhost:8080/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(obj),
@@ -74,7 +74,7 @@ function saveForm() {
     //         alert("failed to save admission form");
     //     }
     // };
-    // xhr.open("POST", "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/additional");
+    // xhr.open("POST", "http://localhost:8080/admission_child_personal/additional");
     // xhr.setRequestHeader("Content-Type", "application/json");
     // xhr.send(json);
 }
@@ -91,7 +91,7 @@ $(document).ready(function () {
         document.body.style.visibility = 'visible';
         let samplejson = {};
         $.ajax({
-            url: `https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/goddard_all_form/all_active_forms`,
+            url: `http://localhost:8080/goddard_all_form/all_active_forms`,
             type: 'GET',
             success: function(response){
                 console.log(response);
@@ -110,36 +110,8 @@ $(document).ready(function () {
                         $("#menu").append(data);
                     });
 
-                    if(trimValues == 'admissionforms'){
-                        // $.get(trimValues + "1.html", function(data) {
-                            // $(data).appendTo("#childinformation");
-                            // $(".tab-content").append(data);
-                            $('.tab-content').load("admissionForms.html");
-                        // }); 
-                        // $.get(trimValues + "2.html", function(data) {
-                            // $(".tab-content").append(data);
-                            // $(data).appendTo("#childandfamilyhistory");
-                            // $('#childandfamilyhistory').load("admissionForms1.html")
-                        // });                   
-                    }
-
-                    if(trimValues != 'admissionforms' && trimValues != 'parenthandbook'){
-                        $.get(trimValues + ".html", function(data) {
-                            $(".tab-content").append(data);
-                        });
-                    }
-                    // if(trimValues == 'parenthandbook'){
-                    //     $.get(trimValues + "1.html", function(data) {
-                    //         $(".tab-content").append(data);
-                    //         $.get(trimValues + "2.html", function(data) {
-                    //             $(".tab-content").append(data);
-                    //             $.get(trimValues + "3.html", function(data) {
-                    //                 $(".tab-content").append(data);
-                    //             });
-                    //         });
-                            
-                    //     });
-                    // }
+                    $('.tab-content').load(trimValues+".html");
+                    $('.svg').innerHTML('<svg width="12px" height="10px" viewbox="0 0 12 10"><polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg>')
                 }
             }
         });

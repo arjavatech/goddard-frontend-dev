@@ -3050,7 +3050,7 @@
             if(editID != ''){
                 //for waking up the aws lambda server   
                 $.ajax({
-                    url: `https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission/fetch/${editID}`,
+                    url: `http://localhost:8080/admission/fetch/${editID}`,
                     type: 'get',
                     //this is used to get the response and return the result
                     success: function(response){

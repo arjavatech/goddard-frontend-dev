@@ -29,7 +29,7 @@ function submitForm() {
             window.location.reload();
         }
     };
-    xhr.open("POST", "http://localhost:8080/enrollment_data/add");
+    xhr.open("POST", "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/enrollment_data/add");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }

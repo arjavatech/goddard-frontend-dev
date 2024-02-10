@@ -2,7 +2,7 @@
 function enrollmentValueSend(status,id,year,form_name){
     var enrollmentValue={child_id : id,year:year,form_status:status,form_name:form_name};
     $.ajax({
-        url: "http://localhost:8080/child_form/add",
+        url: "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/child_form/add",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(enrollmentValue),
@@ -20,7 +20,7 @@ function applicationStatusYear() {
     // let applicationStatusYear = document.getElementById("applicationStatusYear");
     // applicationStatusYear.textContent = val;
     $.ajax({
-        url: `http://localhost:8080/admission_child_personal/all_child_status`,
+        url: `https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/all_child_status`,
         type: 'get',
         success: function (response) {
             let responseValue = Object.values(response);
@@ -129,7 +129,7 @@ function applicationStatusYear() {
 //to display child's year
 function applicationStatusAllYear() {
     // const child_id = localStorage.getItem('child_id')
-    // const url = ' http://localhost:8080/admission/app_status/info'
+    // const url = ' https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission/app_status/info'
     // $.ajax({
     //     url: url,
     //     type: 'get',
@@ -176,11 +176,11 @@ function formdetails(val){
     tableBody.innerHTML = ''; // Clear existing content
 
     $.ajax({
-        url: ` http://localhost:8080/${form_table_name}/all_form_status `,
+        url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/${form_table_name}/all_form_status `,
         type: 'get',
         success: function (response1) {
             $.ajax({
-                url: ` http://localhost:8080/admission/admission_status_info`,
+                url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission/admission_status_info`,
                 type: 'get',
                 success: function (response) {
                     let responseValue = Object.values(response);
@@ -245,7 +245,7 @@ function formdetails(val){
 }
 function formNameDetails() {
     $.ajax({
-        url: ` http://localhost:8080/goddard_all_form/all/forms?status=true`,
+        url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/goddard_all_form/all/forms?status=true`,
         type: 'get',
         success: function (response) {
             if (Array.isArray(response) && response.length > 0) {

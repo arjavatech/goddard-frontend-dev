@@ -136,7 +136,7 @@
                 if(email_id != '' && password !=''){
                     const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
                     $.ajax({
-                    url: `http://localhost:8080/sign_up/is_admin/${email_id}?password=${hashedUserPassword}`,
+                    url: `https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/sign_up/is_admin/${email_id}?password=${hashedUserPassword}`,
                     type: "GET",
                     success: function (response) {
                         console.log(response);

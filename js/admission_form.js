@@ -22,7 +22,7 @@ function submitForm() {
     const json=  JSON.stringify(obj);
     console.log(json);
     $.ajax({
-        url: "http://localhost:8080/admission_child_personal/additional",
+        url: "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
         data: json,
@@ -34,7 +34,7 @@ function submitForm() {
             //     enformData.child_id = response.child_id;
             // }
             // $.ajax({
-            //     url: "http://localhost:8080/enrollment_data/add",
+            //     url: "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/enrollment_data/add",
             //     type: "POST",
             //     contentType: "application/json",
             //     data: JSON.stringify(enformData),
@@ -70,7 +70,7 @@ function saveForm(value) {
     obj.year = new Date().getFullYear() + '';
     $.ajax({
         // url: "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission/add",
-        url: "http://localhost:8080/admission_child_personal/additional",
+        url: "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(obj),

@@ -14,7 +14,7 @@ function submitForm() {
     }
     const json = JSON.stringify(obj);
     $.ajax({
-        url: "http://localhost:8080/admission_child_personal/additional",
+        url: "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
         data: json,
@@ -51,7 +51,7 @@ function saveForm() {
     }
     const json = JSON.stringify(obj);
     $.ajax({
-        url: "http://localhost:8080/admission_child_personal/additional",
+        url: "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(obj),
@@ -74,7 +74,7 @@ function saveForm() {
     //         alert("failed to save admission form");
     //     }
     // };
-    // xhr.open("POST", "http://localhost:8080/admission_child_personal/additional");
+    // xhr.open("POST", "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/admission_child_personal/additional");
     // xhr.setRequestHeader("Content-Type", "application/json");
     // xhr.send(json);
 }
@@ -91,7 +91,7 @@ $(document).ready(function () {
         document.body.style.visibility = 'visible';
         let samplejson = {};
         $.ajax({
-            url: `http://localhost:8080/goddard_all_form/all_active_forms`,
+            url: `https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/goddard_all_form/all_active_forms`,
             type: 'GET',
             success: function(response){
                 console.log(response);
@@ -111,16 +111,16 @@ $(document).ready(function () {
                     });
 
                     if(trimValues == 'admissionforms'){
-                        $.get(trimValues + "1.html", function(data) {
-                            console.log(data);
-                            $(data).appendTo("#childinformation");
+                        // $.get(trimValues + "1.html", function(data) {
+                            // $(data).appendTo("#childinformation");
                             // $(".tab-content").append(data);
-                            
-                        }); 
-                        $.get(trimValues + "2.html", function(data) {
+                            $('#childinformation').load("admissionForms1.html");
+                        // }); 
+                        // $.get(trimValues + "2.html", function(data) {
                             // $(".tab-content").append(data);
-                            $(data).appendTo("#childandfamilyhistory");
-                        });                   
+                            // $(data).appendTo("#childandfamilyhistory");
+                            $('#childandfamilyhistory').load("admissionForms2.html")
+                        // });                   
                     }
 
                     if(trimValues != 'admissionforms' && trimValues != 'parenthandbook'){

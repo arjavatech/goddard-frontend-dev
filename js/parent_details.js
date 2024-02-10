@@ -33,7 +33,7 @@ async function emailSend(child_full_name,parent_name,
         const json =JSON.stringify(obj);
 
         $.ajax({
-            url: "http://localhost:8080/email/send",
+            url: "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/email/send",
             type: "POST",
             contentType: "application/json",
             data: json,
@@ -58,7 +58,7 @@ function applicationStatusYear(val) {
     let applicationStatusYear = document.getElementById("applicationStatusYear");
     applicationStatusYear.textContent = val;
     $.ajax({
-        url: ` http://localhost:8080/parent_invite_info/all`,
+        url: ` https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/parent_invite_info/all`,
         type: 'get',
         success: function (response) {
             let responseValue = Object.values(response);
@@ -125,7 +125,7 @@ function applicationStatusYear(val) {
 //to display child's year
 function applicationStatusAllYear() {
     const child_id = localStorage.getItem('child_id')
-    const url = ' http://localhost:8080/parent_invite_info/all'
+    const url = ' https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/parent_invite_info/all'
     $.ajax({
         url: url,
         type: 'get',

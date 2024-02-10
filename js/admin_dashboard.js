@@ -11,7 +11,7 @@ document.getElementById('btn-signout').addEventListener('click', signOut);
 //     obj.year = new Date().getFullYear() + '';
 //     // const json=  JSON.stringify(obj);
 //     $.ajax({
-//         url: "http://localhost:8080/parent_invite_info/add",
+//         url: "https://6flxkkqvr4.execute-api.us-west-2.amazonaws.com/dev/parent_invite_info/add",
 //         type: "POST",
 //         contentType: "application/json",
 //         data: JSON.stringify(obj),

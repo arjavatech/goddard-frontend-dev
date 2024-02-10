@@ -32,6 +32,8 @@ function checkParentAuthentication(callback) {
 }
 
 
+
+
 function getAllInfo(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email')
     // const parent_id = localStorage.getItem('parent_id');
@@ -87,15 +89,15 @@ function loadDynamicCards() {
         let card = document.createElement('div');
         card.setAttribute('style','height:200px');
         // console.log(child_response[0].child_id);
-        // checking(child_response[0].child_id);
+        checking(child_response[0].child_id);
         if (on_process === true) {
-            // anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
+            anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
             anchor.setAttribute('class','active');
             // card.classList.add('card', 'dashboard_card_style_on_process');
             // card.classList.add('card', 'dashboard_card_style_on_process_active');
             card.classList.add('card', 'dashboard_card_style');
         } else {
-            // anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
+            anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
             // anchor.href = 'parent/parent_dashboard.html';
             anchor.setAttribute('class','active');
             // card.classList.add('card', 'dashboard_card_style1');

@@ -46,17 +46,7 @@
                 border: 1px solid transparent;
                 border-radius: 4px;
             }  
-          
-            .close {
-                float: right;
-                font-size: 22px;
-                font-weight: 700;
-                line-height: 1;
-                color: #000;
-                text-shadow: 0 1px 0 #fff;
-                opacity: .2;
-              }
-            
+    
             a {
               color: #337ab7;
               text-decoration: none;
@@ -76,23 +66,17 @@
                 <div class="card login_card_style">
                     <div class="card-body">
                         <div class="success-msg alert alert-success">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <a href="#" class="close" data-dismiss="alert"></a>
                             <strong>Success!</strong> You have been signed in successfully!
                         </div>   
                         <div class="error-msg alert alert-danger">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <a href="#" class="close" data-dismiss="alert"></a>
                             <strong>Oops!</strong> Incorrect UserName or Password!
                         </div> 
                         <div class="error-msg-empty alert alert-danger">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
                             <strong>Oops!</strong> You have to fill all the fields!
                         </div> 
-                        <div class="row" id="errorMessageDiv" style="background-color: #fff ;height: 50px;display: none;">
-                            <div class="col-sm-12">
-                                <span id="errorMessage" style="display: none;color: #ff0000;padding-top: 10px;text-align: center;">
-                                    <b>Incorrect UserName or Password</b></span>
-                            </div >
-                        </div>
                         <div class=" text-center"><img src="image/gs_logo_tab.png" type="image/png"></div><br>
                         
                         <!-- Login -->
@@ -161,7 +145,7 @@
                             $(".success-msg").show();
                                 setTimeout(function(){
                                $(".success-msg").hide(); 
-                                isAuthenticated = true;
+                                // isAuthenticated = true;
                                 localStorage.setItem('logged_in_email', email_id);
                                 window.location.href = "./admin_dashboard.html"; 
                             }, 3000);
@@ -170,24 +154,29 @@
                             $(".success-msg").show();
                             setTimeout(function(){
                              $(".success-msg").hide(); 
-                                isAuthenticated = true;
+                                // isAuthenticated = true;
                                 localStorage.setItem('logged_in_email', email_id);
                                 window.location.href = "./child_add.html";
                             }, 3000);
                            
-                        }
-
-                        if (!isAuthenticated) {
-                            // Authentication failed
+                        }else{
                             $(".error-msg").show();
-                                setTimeout(function(){
+                            setTimeout(function(){ 
                                 $(".error-msg").hide(); 
                             }, 3000);
-                            // let spanMsg = document.getElementById("errorMessage");
-                            // let spanMsgDiv = document.getElementById("errorMessageDiv");
-                            // spanMsgDiv.style.display = "block";
-                            // spanMsg.style.display = "block";
                         }
+
+                        // if (!isAuthenticated) {
+                        //     // Authentication failed
+                        //     $(".error-msg").show();
+                        //         setTimeout(function(){
+                        //         $(".error-msg").hide(); 
+                        //     }, 3000);
+                        //     // let spanMsg = document.getElementById("errorMessage");
+                        //     // let spanMsgDiv = document.getElementById("errorMessageDiv");
+                        //     // spanMsgDiv.style.display = "block";
+                        //     // spanMsg.style.display = "block";
+                        // }
                     },
                     error: function (xhr, status, error) {
                         $(".error-msg").show();

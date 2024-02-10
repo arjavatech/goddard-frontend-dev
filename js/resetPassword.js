@@ -3,12 +3,16 @@ function validatePassword() {
     var password1 = document.getElementById('reset_pswd').value;
     var password2 = document.getElementById('password').value;
     // Retrieve password input values
-    if (password1 === password2) {
-        document.getElementById("errorMessage").style.display = "none";
-        document.getElementById("errorMessageDiv").style.display = "none";
-    }else{
-        document.getElementById("errorMessage").style.display = "block";
-        document.getElementById("errorMessageDiv").style.display = "block";
+    if (password1 !== password2) {
+        $(".error-msg-mismatch").show();
+        setTimeout(function(){ 
+            $(".error-msg-mismatch").hide(); 
+        }, 3000);
+    //     document.getElementById("errorMessage").style.display = "none";
+    //     document.getElementById("errorMessageDiv").style.display = "none";
+    // }else{
+    //     document.getElementById("errorMessage").style.display = "block";
+    //     document.getElementById("errorMessageDiv").style.display = "block";
     }
 }
 
@@ -27,41 +31,56 @@ function emailValidation(inputtxtID,errorSpanID) {
 }
 
 function signupFunction(){
+    let email_id = document.getAnimations('email_id').value;
     var password1 = document.getElementById('reset_pswd').value;
     var password2 = document.getElementById('password').value;
 
-    // Check if passwords match
-    if (password1 === password2) {
-        document.getElementById("errorMessage").style.display = "none";
-        document.getElementById("errorMessageDiv").style.display = "none";
-        const form = document.getElementById("reset_password");
-        const formData = new FormData(form);
-        const password = formData.get("password");
-        // Hash the password
-        const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-        
-        // Replace the original password with the hashed password in the form data
-        formData.set("password", hashedPassword);
-        const obj = Object.fromEntries(formData);
-        $.ajax({
-            url: "http://localhost:8080/sign_up/add",
-            type: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(obj),
-            success: function (response) {
-                alert(response.message);
-                window.location.href = "../login.html";
+    if (email_id != '' && password1 !='' && password2 !=''){
+        // Check if passwords match
+        if (password1 === password2) {
+            // document.getElementById("errorMessage").style.display = "none";
+            // document.getElementById("errorMessageDiv").style.display = "none";
+            const form = document.getElementById("reset_password");
+            const formData = new FormData(form);
+            const password = formData.get("password");
+            // Hash the password
+            const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
             
-            },
-            error: function (xhr, status, error) {
-                alert("failed to reset");
-            }
-        });
-    } else {
-        document.getElementById("errorMessage").style.display = "block";
-        document.getElementById("errorMessageDiv").style.display = "block";
-        // Display an error message
-        // alert("Passwords do not match!");
+            // Replace the original password with the hashed password in the form data
+            formData.set("password", hashedPassword);
+            const obj = Object.fromEntries(formData);
+            $.ajax({
+                url: "http://localhost:8080/sign_up/add",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(obj),
+                success: function (response) {
+                    alert(response.message);
+                    window.location.href = "../login.html";
+                
+                },
+                error: function (xhr, status, error) {
+                    $(".error-msg-mismatch").show();
+                    setTimeout(function(){ 
+                        $(".error-msg-mismatch").hide(); 
+                    }, 3000);
+                }
+            });
+        } else {
+            $(".error-msg-empty").show();
+            setTimeout(function(){ 
+                $(".error-msg-empty").hide(); 
+            }, 3000);
+            // document.getElementById("errorMessage").style.display = "block";
+            // document.getElementById("errorMessageDiv").style.display = "block";
+            // Display an error message
+            // alert("Passwords do not match!");
+        }
+    }else{
+        $(".error-msg-empty").show();
+        setTimeout(function(){ 
+            $(".error-msg-empty").hide(); 
+        }, 3000);
     }
 
 }

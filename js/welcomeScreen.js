@@ -88,13 +88,13 @@ function loadDynamicCards() {
         // console.log(child_response[0].child_id);
         // checking(child_response[0].child_id);
         if (on_process === true) {
-            // anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
+            anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
             anchor.setAttribute('class','active');
             // card.classList.add('card', 'dashboard_card_style_on_process');
             // card.classList.add('card', 'dashboard_card_style_on_process_active');
             card.classList.add('card', 'dashboard_card_style');
         } else {
-            // anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
+            anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
             // anchor.href = 'parent/parent_dashboard.html';
             anchor.setAttribute('class','active');
             // card.classList.add('card', 'dashboard_card_style1');

@@ -1,5 +1,5 @@
 <!--Authorization Form-->
-<div id="authorization" class="container tab-pane fade"><br>
+<div id="authorizationach" class="container tab-pane fade"><br>
     <div id="authorizationForm"><br>
         <div class="accordion pt-4" id="authorizationAccordionExample">
             <h2 class="text-center title_bg mb-4">Authorization</h2>
@@ -187,40 +187,75 @@
                     </div>
                 </div>
             </div>
-            <!--Parent Agreement-->
-            <div class="accordion-item">                              
-                <h2 class="accordion-header shadow" id="authorizationagreeHeadingFive">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#authorizationagreeCollapseFive" aria-expanded="false" aria-controls="authorizationagreeCollapseFive">
-                        Parent Agreement&nbsp;&nbsp;
-                        <img src="image/tick.png" height="3%" width="3%" class="parentagreement-tick float-end " style="display: none;">
-                        <img src="image/circle-with.png" height="3%" width="3%" class="parentagreement-circle float-end" style="display: none;">
-                    </button>
-                </h2>
-                <div id="authorizationagreeCollapseFive" class="accordion-collapse collapse" aria-labelledby="authorizationagreeHeadingFive"
-                    data-bs-parent="#authorizationAccordionExample">
-                    <div class="accordion-body">
-                        <!-- Parent's agreement -->
-                        <div class="row m-1 mb-4">
-                            <div class="form-group wizard-form-checkbox">
-                                <input type="checkbox" class="input-checkbox" id="agree_all_above_information_is_correct_ach"
-                                    name="agree_all_above_information_is_correct_ach">
-                                <label class="form-check-label" for="agree_all_above_information_is_correct_ach"><span>
-                                        <svg width="12px" height="10px" viewbox="0 0 12 10">
-                                            <polyline points="1.5 6 4.5 9 10.5 1"></polyline>
-                                        </svg></span>
-                                    <span><b>I agree all the above information is correct.</b></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <button class="save-btn">Save</button>
-                        </div>
-                    </div>
-                    <!-- Parent's or guardian's signature end -->
-                </div>
-            </div>
         </div>                
     </div>
 </div>
 <!--Authorization Form End-->
+
+<!--Parent Signature Form-->
+<div id="authorizationparentsign" class="container tab-pane fade"><br>
+    <div class="accordion pt-3" id="accordionExample">
+    <div class="accordion-item accordion_items">
+    <h2 class="text-center title_bg">Parent Signature</h2>
+    <!-- Parent's or guardian's signature -->
+    <div class="row m-3">
+    <div class="col-sm">
+        <div class="form-group"> 
+            <label for="parent_sign" class="form-label"><b>Parent Signature</b>
+            </label>
+            <input type="text" class="form-control" id="parent_sign"
+            name="parent_sign">
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="form-group"> 
+            <label for="parent_sign_date"  class="form-label"><b>Date</b>
+            </label>
+            <input type="date" class="form-control" id="parent_sign_date"
+                name="parent_sign_date" onclick="dateValidation('parent_sign_date')">
+        </div>
+    </div>
+    </div>
+    <!-- Parent's or guardian's signature end -->
+    <div class="text-center">
+    <button class="cancel-btn" id="cancelButton">Cancel</button>
+    <button class="submit-btn mb-4" id="submit_button">submit</button> 
+    </div>   
+    </div>
+    </div> 
+</div>
+<!--Parent Signature Form End-->
+
+<!--Admin Signature Form-->
+<div id="authorizationadminsign" class="container tab-pane fade"><br>
+<div class="accordion pt-3" id="accordionExample">
+<div class="accordion-item accordion_items">
+<h2 class="text-center title_bg">Admin Signature</h2>
+<!-- Admin's or guardian's signature -->
+<div class="row m-3">
+<div class="col-sm">
+    <div class="form-group"> 
+        <label for="admin_sign" class="form-label"><b>Admin Signature</b>
+        </label>
+        <input type="text" class="form-control" id="admin_sign"
+        name="admin_sign">
+    </div>
+</div>
+<div class="col-sm">
+    <div class="form-group"> 
+        <label for="admin_sign_date"  class="form-label"><b>Date</b>
+        </label>
+        <input type="date" class="form-control" id="admin_sign_date"
+            name="admin_sign_date" onclick="dateValidation('admin_sign_date')">
+    </div>
+</div>
+</div>
+<!-- Admin's or guardian's signature end -->
+<div class="text-center">
+<button class="cancel-btn" id="cancelButton">Cancel</button>
+<button class="submit-btn mb-4" id="submit_button">submit</button> 
+</div>   
+</div>
+</div> 
+</div>
+<!--Admin Signature Form End-->

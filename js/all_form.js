@@ -37,37 +37,39 @@ function submitForm() {
 
 // Function to submit the form data
 function saveForm() {
-    e.preventDefault(); 
-    alert("hiii");
+    console.log(localStorage.getItem('child_id'));
     const form = document.getElementById("childInfo");
-    
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
+   
+    console.log(obj);
     obj.on_process = true;
     obj.primary_parent_email = localStorage.getItem('logged_in_email');
     const child_id_val = localStorage.getItem('child_id');
+
     if (child_id_val !== null && child_id_val !== undefined) {
         obj.child_id = child_id_val; 
     }
     const json = JSON.stringify(obj);
+    console.log(json)
     $.ajax({
         url: "http://localhost:8080/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
-        data: JSON.stringify(obj),
+        data: json,
         success: function (response) {
             alert(response.message)
             window.location.reload();
         },
         error: function (xhr, status, error) {
-            alert("failed to save admission form");
+            console.log(status);
+            console.log(error);
         }
     });
     // let xhr = new XMLHttpRequest();
     // xhr.onload = () => {
     //     if (xhr.status === 200) {
-    //         // localStorage.setItem('child_id', response.child_id);
-    //        alert('checking');
+    //         localStorage.setItem('child_id', response.child_id);
     //         // alert('checking submit');
     //         window.location.reload();
     //     }else{
@@ -94,7 +96,6 @@ $(document).ready(function () {
             url: `http://localhost:8080/goddard_all_form/all_active_forms`,
             type: 'GET',
             success: function(response){
-                console.log(response);
                 // extract main_topic values and store them in an array
                 let mainTopics = [];
                 for (let res in response) {
@@ -109,16 +110,26 @@ $(document).ready(function () {
                     $.get(trimValues + "ListItem.html", function(data) {
                         $("#menu").append(data);
                     });
-
-                    $('.tab-content').load(trimValues+".html");
-                    $('.svg').innerHTML('<svg width="12px" height="10px" viewbox="0 0 12 10"><polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg>')
+                    if (trimValues == 'admissionforms' || trimValues == 'authorization' || trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
+                        $(`.tab-content.${trimValues}`).load(trimValues + ".html"); // Assuming classes like 'admissionforms', 'authorization', etc.
+                        $('.svg').append('<svg width="12px" height="10px" viewbox="0 0 12 10"><polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg>');
+                    }
                 }
             }
         });
         // Add click event listener to the "Save" button
-        $(".save-btn").on("click", function (e) {
-            alert("sdvsdfvbsdfbsd");
-            e.preventDefault(); // Prevent the default form submission
+        // $(".save-btn").on("click", function (e) {
+        //     console.log(document.getElementsByClassName('save-btn'));
+ 
+        //     e.preventDefault(); // Prevent the default form submission
+        //     saveForm();
+        // });
+        // document.querySelector(".save-btn").addEventListener("click", function (e) {
+        //     e.preventDefault();
+        //     saveForm();
+        // });
+        $("#childInfo").on("submit", function (e) {
+            e.preventDefault();
             saveForm();
         });
 

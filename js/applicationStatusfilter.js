@@ -165,94 +165,86 @@ function filterTableByEnrollmentStatus(selectedStatus) {
 
 
 function formdetails(val){
-    let form_table_name;
-    if(val == 'ACH Recurring payments form'){
-        form_table_name = 'enrollment_data';
-    }else if(val == '2023-2024 Enrollment Agreement'){
-        form_table_name = 'bill_ach';
-    }
+    // let form_table_name;
+    // if(val == 'ACH Recurring payments form'){
+    //     form_table_name = 'enrollment_data';
+    // }else if(val == '2023-2024 Enrollment Agreement'){
+    //     form_table_name = 'bill_ach';
+    // }
     document.querySelector('[id="applicationStatusLabel"]').innerHTML = `${val} :`;
     const tableBody = document.getElementById('tableBody');
     tableBody.innerHTML = ''; // Clear existing content
 
     $.ajax({
-        url: ` http://localhost:8080/${form_table_name}/all_form_status `,
+       url: `http://localhost:8080/admission_child_personal/form_status?formName=${val}`,
+        // url: ` http://localhost:8080/${form_table_name}/all_form_status `,
         type: 'get',
-        success: function (response1) {
-            $.ajax({
-                url: ` http://localhost:8080/admission/admission_status_info`,
-                type: 'get',
-                success: function (response) {
-                    let responseValue = Object.values(response);
-                    if (Array.isArray(responseValue)) {
-                        const tableBody = document.getElementById('tableBody');
-                        tableBody.innerHTML = ''; // Clear existing content
-                
-                        // for (let i = 0; i < responseValue.length; i++) {
-                        //     const rowData = responseValue[i];
-                            for (let j = 0; j <responseValue.length; j++) {
-                                // Create a new row for each data set
-                                const row = document.createElement('tr');
-                                // Create cell for child name
-                                const childNameCell = document.createElement('td');
-                                const childNameaCell = document.createElement('a');
-                                childNameaCell.textContent = responseValue[j].child_name;
-                               
-                                if(val == 'ACH Recurring payments form'){
-                                    childNameaCell.href = `./forms/authorization_form.html?id=${responseValue[j].child_id}`;
-                                }else{
-                                    childNameaCell.href = `form.html?id=${responseValue[j].child_id}`;
-                                }
-                                childNameCell.appendChild(childNameaCell);
-                                row.appendChild(childNameaCell);
-                                
+        success: function (response) {
+            const tableBody = document.getElementById('tableBody');
+            tableBody.innerHTML = ''; // Clear existing content
+    
+            // for (let i = 0; i < responseValue.length; i++) {
+            //     const rowData = responseValue[i];
+                for (let j = 0; j <response.length; j++) {
+                    // Create a new row for each data set
+                    const row = document.createElement('tr');
+                    // Create cell for child name
+                    const childNameCell = document.createElement('td');
+                    const childNameaCell = document.createElement('a');
+                    childNameaCell.textContent = response[j].child_name;
                     
-                                // Create cell for parent name
-                                const parentNameCell = document.createElement('td');
-                                parentNameCell.textContent = responseValue[j].parent_name;
-                                row.appendChild(parentNameCell);
-        
-                                const applicationStatusCell = document.createElement('td');
-                                applicationStatusCell.textContent = responseValue[j].admission_form_status;
-                                row.appendChild(applicationStatusCell);
-
-                                const enrollmentStatusCell = document.createElement('td');
-                                enrollmentStatusCell.textContent = response1[j].form_status;
-                                row.appendChild(enrollmentStatusCell);
-        
-                                // Apply styles based on enrollment status
-                                if (response1[j].form_status === "Completed") {
-                                    enrollmentStatusCell.style.color = 'green';
-                                    enrollmentStatusCell.style.fontWeight = 'bold';
-                                } else if (response1[j].form_status === "Incomplete") {
-                                    enrollmentStatusCell.style.color = 'red';
-                                    enrollmentStatusCell.style.fontWeight = 'bold';
-                                } else {
-                                    enrollmentStatusCell.style.color = '#FFCC00';
-                                    enrollmentStatusCell.style.fontWeight = 'bold';
-                                }
-                    
-                                // Append the row to the table body
-                                tableBody.appendChild(row);
-                            }
-                        // }
+                    if(val == 'ACH Recurring payments form'){
+                        childNameaCell.href = `./forms/authorization_form.html?id=${response[j].child_id}`;
+                    }else{
+                        childNameaCell.href = `form.html?id=${response[j].child_id}`;
                     }
+                    childNameCell.appendChild(childNameaCell);
+                    row.appendChild(childNameaCell);
+                    
+        
+                    // Create cell for parent name
+                    const parentNameCell = document.createElement('td');
+                    parentNameCell.textContent = response[j].parent_name;
+                    row.appendChild(parentNameCell);
+
+                    const applicationStatusCell = document.createElement('td');
+                    applicationStatusCell.textContent = response[j].admission_form_status;
+                    row.appendChild(applicationStatusCell);
+
+                    const enrollmentStatusCell = document.createElement('td');
+                    enrollmentStatusCell.textContent = response[j].form_status;
+                    row.appendChild(enrollmentStatusCell);
+
+                    // Apply styles based on enrollment status
+                    if (response[j].form_status === "Completed") {
+                        enrollmentStatusCell.style.color = 'green';
+                        enrollmentStatusCell.style.fontWeight = 'bold';
+                    } else if (response[j].form_status === "Incomplete") {
+                        enrollmentStatusCell.style.color = 'red';
+                        enrollmentStatusCell.style.fontWeight = 'bold';
+                    } else {
+                        enrollmentStatusCell.style.color = '#FFCC00';
+                        enrollmentStatusCell.style.fontWeight = 'bold';
+                    }
+        
+                    // Append the row to the table body
+                    tableBody.appendChild(row);
                 }
-            });
+            // }
         }
     });
 
 }
 function formNameDetails() {
     $.ajax({
-        url: ` http://localhost:8080/goddard_all_form/all/forms?status=true`,
+        url: `http://localhost:8080/goddard_all_form/all_active_forms`,
         type: 'get',
         success: function (response) {
             if (Array.isArray(response) && response.length > 0) {
                 let optionsData = '';
                 document.querySelector('[name="form_name"]').innerHTML = '';
                 for (let i = 0; i < response.length; i++) {
-                    optionsData += '<option value="' + response[i].form_name + '" onchange="formdetails(this.value)">' + response[i].form_name
+                    optionsData += '<option value="' + response[i].main_topic + '" onchange="formdetails(this.value)">' + response[i].main_topic
                                     + '</option>';
                     document.querySelector('[name="form_name"]').innerHTML =
                         optionsData;

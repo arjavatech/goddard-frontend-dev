@@ -372,7 +372,8 @@
                         type: 'GET',
                         //this is used to get the response and return the result
                         success: function(response){
-                            console.log(response);
+                            // console.log(response);
+
                             //child information details
                             let childbasicInfo;
                             let childparentInfo;
@@ -1520,59 +1521,76 @@
                                 document.querySelector('.childoutside-circle').style.display = 'block';
                                 outsideWeiver = false;
                             }
-
-                            //  if(childbasicInfo == true && childparentInfo == true && 
-                            //     childEmergencyContact == true && childMedicalcare == true && 
-                            //     childParentAgreementOne == true && childHistory== true && 
-                            //     medicalHistory == true && pregnancyHistory == true &&
-                            //     familyHistroy == true && socialBehavior == true && 
-                            //     environmentalFactor == true && parentAgreementTwo == true && 
-                            //     immunizationInstruction == true && childProfile == true && 
-                            //     nutritionDetails == true && restDetails == true &&
-                            //     medicalDetails == true && parentAgreementThree == true && 
-                            //     pickupPassword == true && photoVideoPermission == true && 
-                            //     securityPolicy == true && medicaltransportationWeiver == true &&
-                            //     healthPolicy == true && outsideWeiver == true
-                               
-                            // ){
-                            //     // enrollmentDetails == true && authorizationDetails == true && 
-                            //     // parentHandBook == true
-                            //     document.querySelector('.childparent-tick').style.display = 'none';
-                            //     document.querySelector('.childparent-circle').style.display = 'none';
-                            //     // Update the display for the clicked card
-                            //     document.querySelector('.childparent-tick').style.display = 'block'; 
-                            //     let parentFinalAgreement = document.getElementById('parentsignature');
-                            //     parentFinalAgreement.classList.remove('disabled');
-                            // }else{
-                            //      // Reset the display for both images
-                            //      document.querySelector('.childparent-tick').style.display = 'none';
-                            //     document.querySelector('.childparent-circle').style.display = 'none';
-                            //     // Update the display for the clicked card
-                            //     document.querySelector('.childparent-circle').style.display = 'block';
-                            //     let parentFinalAgreement = document.getElementById('parentFinalAgreement');
-                            //     parentFinalAgreement.classList.add('disabled')
-                            // }
-
-                            let admissionParentAgreement;
-                            if( response.do_you_agree_this_health_policies == "on" ){
-                                document.getElementById('do_you_agree_this_health_policies').checked = true;
-                            }else{
-                                document.getElementById('do_you_agree_this_health_policies').checked = false;
+                            if( response.parent_sign_admission !== "undefined" ){
+                                document.getElementsByName('parent_sign_admission')[0].value = response.parent_sign_admission;
                             }
-                            if(typeof response.do_you_agree_this_health_policies !== "undefined"){
+                            if( response.parent_sign_date_admission !== "undefined" ){
+                                document.getElementsByName('parent_sign_date_admission')[0].value = response.parent_sign_date_admission;
+                            }
+                            let admissionparentsign;
+                            if(typeof response.parent_sign_admission !== "undefined" &&
+                            typeof response.parent_sign_date_admission !== "undefined"){
                                 // Reset the display for both images
-                                document.querySelector('.childhealth-tick').style.display = 'none';
-                                document.querySelector('.childhealth-circle').style.display = 'none';
+                                document.querySelector('.childparent-tick').style.display = 'none';
+                                document.querySelector('.childparent-circle').style.display = 'none';
                                 // Update the display for the clicked card
-                                document.querySelector('.childhealth-tick').style.display = 'block'; 
-                                healthPolicy = true;
+                                document.querySelector('.childparent-tick').style.display = 'block'; 
+                                admissionparentsign = true;
+                             
                             }else{
                                 // Reset the display for both images
-                                document.querySelector('.childhealth-tick').style.display = 'none';
-                                document.querySelector('.childhealth-circle').style.display = 'none';
+                                document.querySelector('.childparent-tick').style.display = 'none';
+                                document.querySelector('.childparent-circle').style.display = 'none';
                                 // Update the display for the clicked card
-                                document.querySelector('.childhealth-circle').style.display = 'block';
-                                healthPolicy = true;
+                                document.querySelector('.childparent-circle').style.display = 'block';
+                                admissionparentsign = false;
+                            }
+
+                             if(childbasicInfo == true && childparentInfo == true && 
+                                childEmergencyContact == true && childMedicalcare == true && 
+                                childParentAgreementOne == true && childHistory== true && 
+                                medicalHistory == true && pregnancyHistory == true &&
+                                familyHistroy == true && socialBehavior == true && 
+                                environmentalFactor == true && parentAgreementTwo == true && 
+                                immunizationInstruction == true && childProfile == true && 
+                                nutritionDetails == true && restDetails == true &&
+                                medicalDetails == true && parentAgreementThree == true && 
+                                pickupPassword == true && photoVideoPermission == true && 
+                                securityPolicy == true && medicaltransportationWeiver == true &&
+                                healthPolicy == true && outsideWeiver == true
+                               
+                            ){
+                                let parentFinalAgreement = document.getElementById('parentsignature');
+                                parentFinalAgreement.classList.remove('disabled');
+                            } else {
+                                let parentFinalAgreement = document.getElementById('parentsignature');
+                                parentFinalAgreement.classList.add('disabled');
+                            }
+
+                            if(childbasicInfo == true && childparentInfo == true && 
+                                childEmergencyContact == true && childMedicalcare == true && 
+                                childParentAgreementOne == true && childHistory== true && 
+                                medicalHistory == true && pregnancyHistory == true &&
+                                familyHistroy == true && socialBehavior == true && 
+                                environmentalFactor == true && parentAgreementTwo == true && 
+                                immunizationInstruction == true && childProfile == true && 
+                                nutritionDetails == true && restDetails == true &&
+                                medicalDetails == true && parentAgreementThree == true && 
+                                pickupPassword == true && photoVideoPermission == true && 
+                                securityPolicy == true && medicaltransportationWeiver == true &&
+                                healthPolicy == true && outsideWeiver == true && admissionparentsign == true
+                            ){
+                                // Reset the display for both images
+                                document.querySelector('.admission-tick').style.display = 'none';
+                                document.querySelector('.admission-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.admission-tick').style.display = 'block'; 
+                            }else{
+                                    // Reset the display for both images
+                                    document.querySelector('.admission-tick').style.display = 'none';
+                                document.querySelector('.admission-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.admission-circle').style.display = 'block';
                             }
 
                             //enrollment data
@@ -1642,10 +1660,10 @@
                                 typeof response.point_eighteen_initial_here !== "undefined" && 
                                 typeof response.point_nineteen_initial_here !== "undefined" ){
                                 // Reset the display for both images
-                                document.querySelector('.childenrollment-tick').style.display = 'none';
-                                document.querySelector('.childenrollment-circle').style.display = 'none';
+                                document.querySelector('.childenrollmentagreement-tick').style.display = 'none';
+                                document.querySelector('.childenrollmentagreement-circle').style.display = 'none';
                                 // Update the display for the clicked card
-                                document.querySelector('.childenrollment-tick').style.display = 'block'; 
+                                document.querySelector('.childenrollmentagreement-tick').style.display = 'block'; 
                                 enrollmentDetails = true;
                             }else{
                                 // Reset the display for both images
@@ -1654,6 +1672,44 @@
                                 // Update the display for the clicked card
                                 document.querySelector('.childenrollment-circle').style.display = 'block';
                                 enrollmentDetails = false;
+                            }
+
+                            if( response.parent_sign_enroll !== "undefined" ){
+                                document.getElementsByName('parent_sign_enroll')[0].value = response.parent_sign_enroll;
+                            }
+                            if( response.parent_sign_date_enroll !== "undefined" ){
+                                document.getElementsByName('parent_sign_date_enroll')[0].value = response.parent_sign_date_enroll;
+                            }
+                            let enrollmentparent;
+                            if(typeof response.parent_sign_enroll !== "undefined" &&
+                            typeof response.parent_sign_date_enroll !== "undefined"){
+                                // Reset the display for both images
+                                document.querySelector('.childenrollmentagreementparentsign-tick').style.display = 'none';
+                                document.querySelector('.childenrollmentagreementparentsign-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.childenrollmentagreementparentsign-tick').style.display = 'block'; 
+                                enrollmentparent =true;
+                            }else{
+                                // Reset the display for both images
+                                document.querySelector('.childenrollmentagreementparentsign-tick').style.display = 'none';
+                                document.querySelector('.childenrollmentagreementparentsign-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.childenrollmentagreementparentsign-circle').style.display = 'block';
+                                enrollmentparent = false;
+                            }
+                            if(enrollmentDetails == true && enrollmentparent == true 
+                            ){
+                                // Reset the display for both images
+                                document.querySelector('.childenrollment-tick').style.display = 'none';
+                                document.querySelector('.childenrollment-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.childenrollment-tick').style.display = 'block'; 
+                            }else{
+                                    // Reset the display for both images
+                                    document.querySelector('.childenrollment-tick').style.display = 'none';
+                                document.querySelector('.childenrollment-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.childenrollment-circle').style.display = 'block';
                             }
 
                             //authorization form
@@ -1674,32 +1730,70 @@
                             //     document.getElementById("email").value = response.email;
                             if (typeof response.i !== "undefined")
                                 document.getElementById("i").value = response.i;
+
                             if(typeof response.bank_routing !== "undefined" && typeof response.bank_account !== "undefined"
                             && typeof response.driver_license !== "undefined" && typeof response.state !== "undefined"
                             && typeof response.i !== "undefined"){
                                 // Reset the display for both images
-                                document.querySelector('.childauthorization-tick').style.display = 'none';
-                                document.querySelector('.childauthorization-circle').style.display = 'none';
+                                document.querySelector('.authorizationach-tick').style.display = 'none';
+                                document.querySelector('.authorizationach-circle').style.display = 'none';
                                 // Update the display for the clicked card
-                                document.querySelector('.childauthorization-tick').style.display = 'block'; 
+                                document.querySelector('.authorizationach-tick').style.display = 'block'; 
                                 authorizationDetails = true;
                             }else{
                                 // Reset the display for both images
-                                document.querySelector('.childauthorization-tick').style.display = 'none';
-                                document.querySelector('.childauthorization-circle').style.display = 'none';
+                                document.querySelector('.authorizationach-tick').style.display = 'none';
+                                document.querySelector('.authorizationach-circle').style.display = 'none';
                                 // Update the display for the clicked card
-                                document.querySelector('.childauthorization-circle').style.display = 'block';
+                                document.querySelector('.authorizationach-circle').style.display = 'block';
                                 authorizationDetails = false;
+                            }
+                            if( response.parent_sign_ach !== "undefined" ){
+                                document.getElementsByName('parent_sign_ach')[0].value = response.parent_sign_ach;
+                            }
+                            if( response.parent_sign_date_ach !== "undefined" ){
+                                document.getElementsByName('parent_sign_date_ach')[0].value = response.parent_sign_date_ach;
+                            }
+                            let achparentsign;
+                            if(typeof response.parent_sign_ach !== "undefined" &&
+                            typeof response.parent_sign_date_ach !== "undefined"){
+                                // Reset the display for both images
+                                document.querySelector('.authorizationparentsign-tick').style.display = 'none';
+                                document.querySelector('.authorizationparentsign-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.authorizationparentsign-tick').style.display = 'block'; 
+                                achparentsign = true;
+                            }else{
+                                // Reset the display for both images
+                                document.querySelector('.authorizationparentsign-tick').style.display = 'none';
+                                document.querySelector('.authorizationparentsign-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.authorizationparentsign-circle').style.display = 'block';
+                                achparentsign = false;
+                            }
+                            if(authorizationDetails == true && achparentsign == true 
+                            ){
+                                // Reset the display for both images
+                                document.querySelector('.authorization-tick').style.display = 'none';
+                                document.querySelector('.authorization-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.authorization-tick').style.display = 'block'; 
+                            }else{
+                                    // Reset the display for both images
+                                    document.querySelector('.authorization-tick').style.display = 'none';
+                                document.querySelector('.authorization-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.authorization-circle').style.display = 'block';
                             }
 
                             let welcome_goddard_agreement;
-                            if( response.welcome_goddard_agreement == "on" ){
+                            if( response.parent_hand_book['welcome_goddard_agreement'] == "on" ){
                                 document.getElementById('welcome_goddard_agreement').checked = true;
                             }else{
                                 document.getElementById('welcome_goddard_agreement').checked = false;
                             }
                             
-                            if(typeof response.welcome_goddard_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['welcome_goddard_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.goddard-tick').style.display = 'none';
                                 document.querySelector('.goddard-circle').style.display = 'none';
@@ -1716,12 +1810,12 @@
                             }
 
                             let mission_statement_agreement;
-                            if( response.mission_statement_agreement == "on" ){
+                            if( response.parent_hand_book['mission_statement_agreement'] == "on" ){
                                 document.getElementById('mission_statement_agreement').checked = true;
                             }else{
                                 document.getElementById('mission_statement_agreement').checked = false;
                             }
-                            if(typeof response.mission_statement_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['mission_statement_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.mission-tick').style.display = 'none';
                                 document.querySelector('.mission-circle').style.display = 'none';
@@ -1738,12 +1832,12 @@
                             }
 
                             let general_information_agreement;
-                            if( response.general_information_agreement == "on" ){
+                            if( response.parent_hand_book['general_information_agreement'] == "on" ){
                                 document.getElementById('general_information_agreement').checked = true;
                             }else{
                                 document.getElementById('general_information_agreement').checked = false;
                             }
-                            if(typeof response.general_information_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['general_information_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.generalinfo-tick').style.display = 'none';
                                 document.querySelector('.generalinfo-circle').style.display = 'none';
@@ -1759,32 +1853,14 @@
                                 general_information_agreement = false;
                             }
 
-                            if(typeof response.welcome_goddard_agreement !== "undefined" &&
-                            typeof response.mission_statement_agreement !== "undefined" &&
-                            typeof response.general_information_agreement !== "undefined"){
-                                // Reset the display for both images
-                                document.querySelector('.goddardschool1-tick').style.display = 'none';
-                                document.querySelector('.goddardschool1-circle').style.display = 'none';
-                                // Update the display for the clicked card
-                                document.querySelector('.goddardschool1-tick').style.display = 'block'; 
-                                general_information_agreement = true;
-                            }else{
-                                // Reset the display for both images
-                                document.querySelector('.goddardschool1-tick').style.display = 'none';
-                                document.querySelector('.goddardschool1-circle').style.display = 'none';
-                                // Update the display for the clicked card
-                                document.querySelector('.goddardschool1-circle').style.display = 'block';
-                                general_information_agreement = false;
-                            }
-
 
                             let medical_care_provider_agreement;
-                            if( response.medical_care_provider_agreement == "on" ){
+                            if( response.parent_hand_book['medical_care_provider_agreement'] == "on" ){
                                 document.getElementById('medical_care_provider_agreement').checked = true;
                             }else{
                                 document.getElementById('medical_care_provider_agreement').checked = false;
                             }
-                            if(typeof response.medical_care_provider_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['medical_care_provider_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.statement-tick').style.display = 'none';
                                 document.querySelector('.statement-circle').style.display = 'none';
@@ -1801,12 +1877,12 @@
                             }
 
                             let parent_access_agreement;
-                            if( response.parent_access_agreement == "on" ){
+                            if( response.parent_hand_book['parent_access_agreement'] == "on" ){
                                 document.getElementById('parent_access_agreement').checked = true;
                             }else{
                                 document.getElementById('parent_access_agreement').checked = false;
                             }
-                            if(typeof response.parent_access_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['parent_access_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.parentaccess-tick').style.display = 'none';
                                 document.querySelector('.parentaccess-circle').style.display = 'none';
@@ -1822,12 +1898,12 @@
                                 parent_access_agreement = false;
                             }
                             let release_of_children_agreement;
-                            if( response.release_of_children_agreement == "on" ){
+                            if( response.parent_hand_book['release_of_children_agreement'] == "on" ){
                                 document.getElementById('release_of_children_agreement').checked = true;
                             }else{
                                 document.getElementById('release_of_children_agreement').checked = false;
                             }
-                            if(typeof response.release_of_children_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['release_of_children_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.releasechild-tick').style.display = 'none';
                                 document.querySelector('.releasechild-circle').style.display = 'none';
@@ -1843,33 +1919,14 @@
                                 release_of_children_agreement = false;
                             }
 
-                            if(typeof response.medical_care_provider_agreement !== "undefined" &&
-                            typeof response.parent_access_agreement !== "undefined" &&
-                            typeof response.release_of_children_agreement !== "undefined"){
-                                // Reset the display for both images
-                                document.querySelector('.goddardschool2-tick').style.display = 'none';
-                                document.querySelector('.goddardschool2-circle').style.display = 'none';
-                                // Update the display for the clicked card
-                                document.querySelector('.goddardschool2-tick').style.display = 'block'; 
-                                general_information_agreement = true;
-                            }else{
-                                // Reset the display for both images
-                                document.querySelector('.goddardschool2-tick').style.display = 'none';
-                                document.querySelector('.goddardschool2-circle').style.display = 'none';
-                                // Update the display for the clicked card
-                                document.querySelector('.goddardschool2-circle').style.display = 'block';
-                                general_information_agreement = false;
-                            }
-
-
                            
                             let registration_fees_agreement;
-                            if( response.registration_fees_agreement == "on" ){
+                            if( response.parent_hand_book['registration_fees_agreement'] == "on" ){
                                 document.getElementById('registration_fees_agreement').checked = true;
                             }else{
                                 document.getElementById('registration_fees_agreement').checked = false;
                             }
-                            if(typeof response.registration_fees_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['registration_fees_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.fees-tick').style.display = 'none';
                                 document.querySelector('.fees-circle').style.display = 'none';
@@ -1886,12 +1943,12 @@
                             }
 
                             let outside_engagements_agreement;
-                            if( response.outside_engagements_agreement == "on" ){
+                            if( response.parent_hand_book['outside_engagements_agreement'] == "on" ){
                                 document.getElementById('outside_engagements_agreement').checked = true;
                             }else{
                                 document.getElementById('outside_engagements_agreement').checked = false;
                             }
-                            if(typeof response.outside_engagements_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['outside_engagements_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.outsideengagement-tick').style.display = 'none';
                                 document.querySelector('.outsideengagement-circle').style.display = 'none';
@@ -1908,12 +1965,12 @@
                             }
 
                             let health_policies_agreement;
-                            if( response.health_policies_agreement == "on" ){
+                            if( response.parent_hand_book['health_policies_agreement'] == "on" ){
                                 document.getElementById('health_policies_agreement').checked = true;
                             }else{
                                 document.getElementById('health_policies_agreement').checked = false;
                             }
-                            if(typeof response.health_policies_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['health_policies_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.healthpolicies-tick').style.display = 'none';
                                 document.querySelector('.healthpolicies-circle').style.display = 'none';
@@ -1929,31 +1986,14 @@
                                 health_policies_agreement = false;
                             }
 
-                            if(typeof response.registration_fees_agreement !== "undefined" &&
-                            typeof response.outside_engagements_agreement !== "undefined" &&
-                            typeof response.health_policies_agreement !== "undefined"){
-                                // Reset the display for both images
-                                document.querySelector('.goddardschool3-tick').style.display = 'none';
-                                document.querySelector('.goddardschool3-circle').style.display = 'none';
-                                // Update the display for the clicked card
-                                document.querySelector('.goddardschool3-tick').style.display = 'block'; 
-                                general_information_agreement = true;
-                            }else{
-                                // Reset the display for both images
-                                document.querySelector('.goddardschool3-tick').style.display = 'none';
-                                document.querySelector('.goddardschool3-circle').style.display = 'none';
-                                // Update the display for the clicked card
-                                document.querySelector('.goddardschool3-circle').style.display = 'block';
-                                general_information_agreement = false;
-                            }
-
+            
                             let medication_procedures_agreement;
-                            if( response.medication_procedures_agreement == "on" ){
+                            if( response.parent_hand_book['medication_procedures_agreement'] == "on" ){
                                 document.getElementById('medication_procedures_agreement').checked = true;
                             }else{
                                 document.getElementById('medication_procedures_agreement').checked = false;
                             }
-                            if(typeof response.medication_procedures_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['medication_procedures_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.medicationprocedures-tick').style.display = 'none';
                                 document.querySelector('.medicationprocedures-circle').style.display = 'none';
@@ -1971,12 +2011,12 @@
                           
 
                             let bring_to_school_agreement;
-                            if( response.bring_to_school_agreement == "on" ){
+                            if( response.parent_hand_book['bring_to_school_agreement'] == "on" ){
                                 document.getElementById('bring_to_school_agreement').checked = true;
                             }else{
                                 document.getElementById('bring_to_school_agreement').checked = false;
                             }
-                            if(typeof response.bring_to_school_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['bring_to_school_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.toysfromhome-tick').style.display = 'none';
                                 document.querySelector('.toysfromhome-circle').style.display = 'none';
@@ -1993,12 +2033,12 @@
                             }
 
                             let rest_time_agreement;
-                            if( response.rest_time_agreement == "on" ){
+                            if(response.parent_hand_book['rest_time_agreement'] == "on" ){
                                 document.getElementById('rest_time_agreement').checked = true;
                             }else{
                                 document.getElementById('rest_time_agreement').checked = false;
                             }
-                            if(typeof response.rest_time_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['rest_time_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.restmealssnacks-tick').style.display = 'none';
                                 document.querySelector('.restmealssnacks-circle').style.display = 'none';
@@ -2015,12 +2055,12 @@
                             }
                             
                             let training_philosophy_agreement;
-                            if( response.training_philosophy_agreement == "on" ){
+                            if(response.parent_hand_book['training_philosophy_agreement'] == "on" ){
                                 document.getElementById('training_philosophy_agreement').checked = true;
                             }else{
                                 document.getElementById('training_philosophy_agreement').checked = false;
                             }
-                            if(typeof response.training_philosophy_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['training_philosophy_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.transition-tick').style.display = 'none';
                                 document.querySelector('.transition-circle').style.display = 'none';
@@ -2035,33 +2075,14 @@
                                 document.querySelector('.transition-circle').style.display = 'block';
                                 training_philosophy_agreement = false;
                             }
-                            if(typeof response.medication_procedures_agreement !== "undefined" &&
-                            typeof response.bring_to_school_agreement !== "undefined" &&
-                            typeof response.rest_time_agreement !== "undefined" && 
-                            typeof response.training_philosophy_agreement !== "undefined" &&
-                            typeof response.training_philosophy_agreement !== "undefined"){
-                                // Reset the display for both images
-                                document.querySelector('.goddardschool4-tick').style.display = 'none';
-                                document.querySelector('.goddardschool4-circle').style.display = 'none';
-                                // Update the display for the clicked card
-                                document.querySelector('.goddardschool4-tick').style.display = 'block'; 
-                                general_information_agreement = true;
-                            }else{
-                                // Reset the display for both images
-                                document.querySelector('.goddardschool4-tick').style.display = 'none';
-                                document.querySelector('.goddardschool4-circle').style.display = 'none';
-                                // Update the display for the clicked card
-                                document.querySelector('.goddardschool4-circle').style.display = 'block';
-                                general_information_agreement = false;
-                            }
 
                             let affiliation_policy_agreement;
-                            if( response.affiliation_policy_agreement == "on" ){
+                            if( response.parent_hand_book['affiliation_policy_agreement'] == "on" ){
                                 document.getElementById('affiliation_policy_agreement').checked = true;
                             }else{
                                 document.getElementById('affiliation_policy_agreement').checked = false;
                             }
-                            if(typeof response.affiliation_policy_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['affiliation_policy_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.emergencyclosings-tick').style.display = 'none';
                                 document.querySelector('.emergencyclosings-circle').style.display = 'none';
@@ -2078,12 +2099,12 @@
                             }
 
                             let security_issue_agreement;
-                            if( response.security_issue_agreement == "on" ){
+                            if( response.parent_hand_book['security_issue_agreement'] == "on" ){
                                 document.getElementById('security_issue_agreement').checked = true;
                             }else{
                                 document.getElementById('security_issue_agreement').checked = false;
                             }
-                            if(typeof response.security_issue_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['security_issue_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.websitesblogs-tick').style.display = 'none';
                                 document.querySelector('.websitesblogs-circle').style.display = 'none';
@@ -2100,12 +2121,12 @@
                             }
 
                             let addressing_individual_child_agreement;
-                            if( response.addressing_individual_child_agreement == "on" ){
+                            if( response.parent_hand_book['addressing_individual_child_agreement'] == "on" ){
                                 document.getElementById('addressing_individual_child_agreement').checked = true;
                             }else{
                                 document.getElementById('addressing_individual_child_agreement').checked = false;
                             }
-                            if(typeof response.addressing_individual_child_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['addressing_individual_child_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.addressing-tick').style.display = 'none';
                                 document.querySelector('.addressing-circle').style.display = 'none';
@@ -2122,12 +2143,12 @@
                             }
 
                             let finalword_agreement;
-                            if( response.finalword_agreement == "on" ){
+                            if( response.parent_hand_book['finalword_agreement'] == "on" ){
                                 document.getElementById('finalword_agreement').checked = true;
                             }else{
                                 document.getElementById('finalword_agreement').checked = false;
                             }
-                            if(typeof response.finalword_agreement !== "undefined"){
+                            if(typeof response.parent_hand_book['finalword_agreement'] !== "undefined"){
                                 // Reset the display for both images
                                 document.querySelector('.finalword-tick').style.display = 'none';
                                 document.querySelector('.finalword-circle').style.display = 'none';
@@ -2141,23 +2162,6 @@
                                 // Update the display for the clicked card
                                 document.querySelector('.finalword-circle').style.display = 'block';
                                 finalword_agreement = false;
-                            }
-                            if(typeof response.security_issue_agreement !== "undefined" &&
-                            typeof response.addressing_individual_child_agreement !== "undefined" &&
-                            typeof response.finalword_agreement !== "undefined" ){
-                                // Reset the display for both images
-                                document.querySelector('.goddardschool5-tick').style.display = 'none';
-                                document.querySelector('.goddardschool5-circle').style.display = 'none';
-                                // Update the display for the clicked card
-                                document.querySelector('.goddardschool5-tick').style.display = 'block'; 
-                                general_information_agreement = true;
-                            }else{
-                                // Reset the display for both images
-                                document.querySelector('.goddardschool5-tick').style.display = 'none';
-                                document.querySelector('.goddardschool5-circle').style.display = 'none';
-                                // Update the display for the clicked card
-                                document.querySelector('.goddardschool5-circle').style.display = 'block';
-                                general_information_agreement = false;
                             }
 
 
@@ -2181,44 +2185,58 @@
                                 finalword_agreement == true 
                             ){
                                 // Reset the display for both images
+                                document.querySelector('.goddardschool1-tick').style.display = 'none';
+                                document.querySelector('.goddardschool1-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.goddardschool1-tick').style.display = 'block'; 
+                                parentHandBook = true;
+                            }else{
+                                // Reset the display for both images
+                                document.querySelector('.goddardschool1-tick').style.display = 'none';
+                                document.querySelector('.goddardschool1-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.goddardschool1-circle').style.display = 'block';
+                                parentHandBook = false;
+                            }
+
+                            if(response.parent_hand_book['parent_sign_handbook'] !== "undefined" ){
+                                document.getElementsByName('parent_sign_handbook')[0].value =response.parent_hand_book['parent_sign_handbook'];
+                            }
+                            if(response.parent_hand_book['parent_sign_date_handbook'] !== "undefined" ){
+                                document.getElementsByName('parent_sign_date_handbook')[0].value =response.parent_hand_book['parent_sign_date_handbook'];
+                            }
+                            let parenthandbookparentsign;
+                            if(typeof response.parent_hand_book['parent_sign_handbook'] !== "undefined" &&
+                            typeof response.parent_hand_book['parent_sign_date_handbook'] !== "undefined"){
+                                // Reset the display for both images
+                                document.querySelector('.childparenthandbook-tick').style.display = 'none';
+                                document.querySelector('.childparenthandbook-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.childparenthandbook-tick').style.display = 'block'; 
+                                parenthandbookparentsign =true;
+                            }else{
+                                // Reset the display for both images
+                                document.querySelector('.childparenthandbook-tick').style.display = 'none';
+                                document.querySelector('.childparenthandbook-circle').style.display = 'none';
+                                // Update the display for the clicked card
+                                document.querySelector('.childparenthandbook-circle').style.display = 'block';
+                                parenthandbookparentsign = false;
+                            }
+                            if(parentHandBook == true && parenthandbookparentsign == true 
+                            ){
+                                // Reset the display for both images
                                 document.querySelector('.handbook-tick').style.display = 'none';
                                 document.querySelector('.handbook-circle').style.display = 'none';
                                 // Update the display for the clicked card
                                 document.querySelector('.handbook-tick').style.display = 'block'; 
-                                parentHandBook = true;
                             }else{
                                 // Reset the display for both images
                                 document.querySelector('.handbook-tick').style.display = 'none';
                                 document.querySelector('.handbook-circle').style.display = 'none';
                                 // Update the display for the clicked card
                                 document.querySelector('.handbook-circle').style.display = 'block';
-                                parentHandBook = false;
                             }
-                            if(childbasicInfo == true && childparentInfo == true && 
-                                childEmergencyContact == true && childMedicalcare == true && 
-                                childParentAgreementOne == true && childHistory== true && 
-                                medicalHistory == true && pregnancyHistory == true &&
-                                familyHistroy == true && socialBehavior == true && 
-                                environmentalFactor == true && parentAgreementTwo == true && 
-                                immunizationInstruction == true && childProfile == true && 
-                                nutritionDetails == true && restDetails == true &&
-                                medicalDetails == true && parentAgreementThree == true && 
-                                pickupPassword == true && photoVideoPermission == true && 
-                                securityPolicy == true && medicaltransportationWeiver == true &&
-                                healthPolicy == true && outsideWeiver == true
-                            ){
-                                // Reset the display for both images
-                                document.querySelector('.admission-tick').style.display = 'none';
-                                document.querySelector('.admission-circle').style.display = 'none';
-                                // Update the display for the clicked card
-                                document.querySelector('.admission-tick').style.display = 'block'; 
-                            }else{
-                                    // Reset the display for both images
-                                    document.querySelector('.admission-tick').style.display = 'none';
-                                document.querySelector('.admission-circle').style.display = 'none';
-                                // Update the display for the clicked card
-                                document.querySelector('.admission-circle').style.display = 'block';
-                            }
+                          
                             
                         }
                     });

@@ -40,7 +40,8 @@ function applicationStatusYear() {
                         let anchor = document.createElement('a');
                         anchor.setAttribute('class','nav-link ');
                         anchor.textContent = responseValue[j].child_id;
-                        anchor.setAttribute('href', `checking(${responseValue[j].child_id})`);
+                        anchor.setAttribute('href', '/child_add.html');
+                        // checking(${responseValue[j].child_id})`);
                         childIdCell.appendChild(anchor);
                         // Create cell for child name
                         const childNameCell = document.createElement('td');
@@ -193,11 +194,7 @@ function formdetails(val){
                     const childNameaCell = document.createElement('a');
                     childNameaCell.textContent = response[j].child_name;
                     
-                    if(val == 'ACH Recurring payments form'){
-                        childNameaCell.href = `./forms/authorization_form.html?id=${response[j].child_id}`;
-                    }else{
-                        childNameaCell.href = `form.html?id=${response[j].child_id}`;
-                    }
+                    childNameaCell.href = `/chid_add.html?id=${response[j].child_id}`;
                     childNameCell.appendChild(childNameaCell);
                     row.appendChild(childNameaCell);
                     

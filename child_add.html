@@ -96,7 +96,7 @@
 
         <!-- Welcome Screen -->
         <div class="p-3">
-            <h2 class="parent_dashboard_title h2 pt-4 text-center">Parent Dashboard</h2>
+            <h2 class="parent_dashboard_title h2 pt-4 text-center">Dashboard</h2>
             <!-- Welcome Text -->
             <h4 class="h4 pt-2 text-center" id="welcomeText" name="welcomeText"></h4>
         </div>
@@ -1546,7 +1546,7 @@
                                 admissionparentsign = false;
                             }
 
-                             if(childbasicInfo == true && childparentInfo == true && 
+                            if(childbasicInfo == true && childparentInfo == true && 
                                 childEmergencyContact == true && childMedicalcare == true && 
                                 childParentAgreementOne == true && childHistory== true && 
                                 medicalHistory == true && pregnancyHistory == true &&
@@ -1560,10 +1560,34 @@
                                 healthPolicy == true && outsideWeiver == true
                                
                             ){
+                                console.log('ifff')
                                 let parentFinalAgreement = document.getElementById('parentsignature');
                                 parentFinalAgreement.classList.remove('disabled');
                             } else {
+                                console.log('else');
                                 let parentFinalAgreement = document.getElementById('parentsignature');
+                                parentFinalAgreement.classList.add('disabled');
+                            }
+
+
+                            if(childbasicInfo == true && childparentInfo == true && 
+                                childEmergencyContact == true && childMedicalcare == true && 
+                                childParentAgreementOne == true && childHistory== true && 
+                                medicalHistory == true && pregnancyHistory == true &&
+                                familyHistroy == true && socialBehavior == true && 
+                                environmentalFactor == true && parentAgreementTwo == true && 
+                                immunizationInstruction == true && childProfile == true && 
+                                nutritionDetails == true && restDetails == true &&
+                                medicalDetails == true && parentAgreementThree == true && 
+                                pickupPassword == true && photoVideoPermission == true && 
+                                securityPolicy == true && medicaltransportationWeiver == true &&
+                                healthPolicy == true && outsideWeiver == true
+                            
+                            ){
+                                let parentFinalAgreement = document.getElementById('parentFinalAgreement');
+                                parentFinalAgreement.classList.remove('disabled');
+                            } else {
+                                let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                                 parentFinalAgreement.classList.add('disabled');
                             }
 

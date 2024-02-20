@@ -23,6 +23,7 @@ function applicationStatusYear() {
         url: `http://localhost:8080/admission_child_personal/all_child_status`,
         type: 'get',
         success: function (response) {
+            console.log(response)
             let responseValue = Object.values(response);
             if (Array.isArray(responseValue)) {
                 const tableBody = document.getElementById('tableBody');
@@ -40,14 +41,25 @@ function applicationStatusYear() {
                         let anchor = document.createElement('a');
                         anchor.setAttribute('class','nav-link ');
                         anchor.textContent = responseValue[j].child_id;
-                        anchor.setAttribute('href', `checking(${responseValue[j].child_id})`);
+                        anchor.setAttribute('href', '/child_add.html');
+                        // checking(${responseValue[j].child_id})`);
                         childIdCell.appendChild(anchor);
+
                         // Create cell for child name
                         const childNameCell = document.createElement('td');
                         childNameCell.textContent = responseValue[j].child_name;
                         row.appendChild(childNameCell);
                         
-            
+                        const parentEmaildCell = document.createElement('td');
+                        // childIdCell.textContent = responseValue[j].child_id;
+                        row.appendChild(childIdCell);
+                        let parentemailanchor = document.createElement('a');
+                        parentemailanchor.setAttribute('class','nav-link ');
+                        parentemailanchor.textContent = responseValue[j].parent_email;
+                        parentemailanchor.setAttribute('href', `/child_add.html?id=${ responseValue[j].parent_email}`);
+                        // checking(${responseValue[j].child_id})`);
+                        parentEmaildCell.appendChild(parentemailanchor);
+                        row.appendChild(parentEmaildCell);
                         // Create cell for parent name
                         const parentNameCell = document.createElement('td');
                         parentNameCell.textContent = responseValue[j].parent_name;
@@ -56,66 +68,6 @@ function applicationStatusYear() {
                         const applicationStatusCell = document.createElement('td');
                         applicationStatusCell.textContent = responseValue[j]. form_status;
                         row.appendChild(applicationStatusCell);
-            
-                        // const enrollmentStatusCell = document.createElement('td');
-                        // enrollmentStatusCell.setAttribute('id', 'enrollment_form_status');
-                        // enrollmentStatusCell.setAttribute('name', 'enrollment_form_status');
-                        // enrollmentStatusCell.textContent = responseValue[j].enrollment_form_status_level;
-                        // row.appendChild(enrollmentStatusCell);
-
-                        // const enrollmentStatusCell = document.createElement('td');
-                        // enrollmentStatusCell.setAttribute('id', 'enrollment_form_status');
-                        // enrollmentStatusCell.setAttribute('name', 'enrollment_form_status');
-                        // enrollmentStatusCell.setAttribute('style', 'border: none;');
-
-                        // // Create a <select> element
-                        // const statusSelect = document.createElement('select');
-                        // statusSelect.style.color = "red";
-                        // statusSelect.setAttribute('style', 'border: none;');
-
-                        // // Create <option> elements for each status option
-                        // const completedOption = document.createElement('option');
-                        // completedOption.value = 'Completed';
-                        // completedOption.textContent = 'Completed';
-                        // completedOption.style.color = 'green';
-
-
-                        // const reviewingOption = document.createElement('option');
-                        // reviewingOption.value = 'Reviewing';
-                        // reviewingOption.textContent = 'Reviewing';
-                        // reviewingOption.style.color = '#a5a202';
-
-                        // const incompleteOption = document.createElement('option');
-                        // incompleteOption.value = 'Incomplete';
-                        // incompleteOption.textContent = 'Incomplete';
-                        // incompleteOption.style.color = 'red';
-
-                        // // Append the <option> elements to the <select> element
-                        // statusSelect.appendChild(incompleteOption);
-                        // statusSelect.appendChild(reviewingOption);
-                        // statusSelect.appendChild(completedOption);
-                        // statusSelect.addEventListener('change',function(){
-                        //    enrollmentValueSend(statusSelect.value, responseValue[j].child_id, responseValue[j].year,responseValue[j].form_name);
-                        // });
-                       
-                        // enrollmentStatusCell.appendChild(statusSelect);
-                        // row.appendChild(enrollmentStatusCell);
-
-                        // // Set the default selected option based on responseValue[j].
-
-
-
-                        // // Apply styles based on enrollment status
-                        // if (responseValue[j].enrollment_form_status_level === "Completed") {
-                        //     enrollmentStatusCell.style.color = 'green';
-                        //     enrollmentStatusCell.style.fontWeight = 'bold';
-                        // } else if (responseValue[j].enrollment_form_status_level === "Incomplete") {
-                        //     enrollmentStatusCell.style.color = 'red';
-                        //     enrollmentStatusCell.style.fontWeight = 'bold';
-                        // } else {
-                        //     enrollmentStatusCell.style.color = '#a5a202';
-                        //     enrollmentStatusCell.style.fontWeight = 'bold';
-                        // }
             
                         // Append the row to the table body
                         tableBody.appendChild(row);
@@ -193,11 +145,7 @@ function formdetails(val){
                     const childNameaCell = document.createElement('a');
                     childNameaCell.textContent = response[j].child_name;
                     
-                    if(val == 'ACH Recurring payments form'){
-                        childNameaCell.href = `./forms/authorization_form.html?id=${response[j].child_id}`;
-                    }else{
-                        childNameaCell.href = `form.html?id=${response[j].child_id}`;
-                    }
+                    childNameaCell.href = `/chid_add.html?id=${response[j].child_id}`;
                     childNameCell.appendChild(childNameaCell);
                     row.appendChild(childNameaCell);
                     

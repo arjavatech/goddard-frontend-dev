@@ -37,13 +37,39 @@ function submitForm() {
 
 // Function to submit the form data
 function saveForm() {
-    console.log(localStorage.getItem('child_id'));
     const form = document.getElementById("childInfo");
     const formData = new FormData(form);
+    console.log(formData);
     const obj = Object.fromEntries(formData);
+
    
-    console.log(obj);
     obj.on_process = true;
+    const parenthanbook_details = {
+        welcome_goddard_agreement : obj.welcome_goddard_agreement,
+        medical_care_provider_agreement :obj.medical_care_provider_agreement,
+        parent_access_agreement :obj.parent_access_agreement,
+        release_of_children_agreement :obj.release_of_children_agreement,
+        registration_fees_agreement :obj.registration_fees_agreement,
+        outside_engagements_agreement :obj.outside_engagements_agreement,
+        health_policies_agreement :obj.health_policies_agreement,
+        medication_procedures_agreement :obj.medication_procedures_agreement,
+        bring_to_school_agreement :obj.bring_to_school_agreement,
+        rest_time_agreement :obj.rest_time_agreement,
+        training_philosophy_agreement :obj.training_philosophy_agreement,
+        affiliation_policy_agreement :obj.affiliation_policy_agreement,
+        security_issue_agreement :obj.security_issue_agreement,
+        addressing_individual_child_agreement :obj.addressing_individual_child_agreement,
+        finalword_agreement :obj.finalword_agreement,
+        mission_statement_agreement : obj.mission_statement_agreement,
+        general_information_agreement : obj.general_information_agreement,
+        parent_sign_handbook : obj.parent_sign_handbook,
+        parent_sign_date_handbook : obj.parent_sign_date_handbook,
+        admin_sign_handbook : obj.admin_sign_handbook,
+        admin_sign_date_handbook : obj.admin_sign_date_handbook
+    }
+    // const handbook_string = JSON.stringify(parenthanbook_details);
+    // console.log(handbook_string);
+    obj.parent_hand_book= parenthanbook_details;
     obj.primary_parent_email = localStorage.getItem('logged_in_email');
     const child_id_val = localStorage.getItem('child_id');
 
@@ -51,7 +77,7 @@ function saveForm() {
         obj.child_id = child_id_val; 
     }
     const json = JSON.stringify(obj);
-    console.log(json)
+    console.log(json);
     $.ajax({
         url: "http://localhost:8080/admission_child_personal/additional",
         type: "POST",

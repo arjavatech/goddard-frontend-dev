@@ -10,22 +10,13 @@ function clearLocalStorageExcept(keysToKeep) {
     }
 }
 
-function checkParentAuthentication(editID,callback) {
+function checkParentAuthentication(callback) {
     const logged_in_email = localStorage.getItem('logged_in_email');
-    let url;
-    if(editID != ''){
-        console.log(editID);
-        url = `http://localhost:8080/admission_child_personal/parent_email?email=${editID}`
-    }else{
-        console.log(logged_in_email);
-        url = `http://localhost:8080/admission_child_personal/parent_email?email=${logged_in_email}`
-    }
-   
+    const url = ' http://localhost:8080/admission_child_personal/parent_email?email='
     $.ajax({
-        url: url,
+        url: url + logged_in_email,
         type: 'get',
         success: function (response) {
-            console.log(response);
             let keysToKeep = ['logged_in_email'];
             clearLocalStorageExcept(keysToKeep);
             // localStorage.clear()
@@ -40,19 +31,12 @@ function checkParentAuthentication(editID,callback) {
     });
 }
 
-function getAllInfo(editID,callback) {
-    const logged_in_email = localStorage.getItem('logged_in_email');
-    let url;
-    if(editID != ''){
-        console.log(editID);
-        url = `http://localhost:8080/admission_child_personal/parent_email?email=${editID}`
-    }else{
-        console.log(logged_in_email);
-        url = `http://localhost:8080/admission_child_personal/parent_email?email=${logged_in_email}`
-    }
-   
+function getAllInfo(callback) {
+    const logged_in_email = localStorage.getItem('logged_in_email')
+    // const parent_id = localStorage.getItem('parent_id');
+    const url = 'http://localhost:8080/admission_child_personal/parent_email?email='
     $.ajax({
-        url: url,
+        url: url + logged_in_email,
         type: 'get',
         success: function (response) {
             // localStorage.clear()
@@ -309,13 +293,11 @@ $(document).ready(function () {
     if (!isAuthenticated()) {
         window.location.href = 'login.html';
     } else {
-        let editID = window.location.search.slice(4);
-        console.log(editID);
         // Checks the parent info table to see if parent entry is present
-        checkParentAuthentication(editID,function () {
+        checkParentAuthentication(function () {
             responseToAuthenticationCheck();
             // Checks the admission info table
-            getAllInfo(editID,function () {
+            getAllInfo(function () {
                 welcomeText();
             });
         });

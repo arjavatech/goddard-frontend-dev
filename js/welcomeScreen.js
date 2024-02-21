@@ -14,10 +14,8 @@ function checkParentAuthentication(editID,callback) {
     const logged_in_email = localStorage.getItem('logged_in_email');
     let url;
     if(editID != ''){
-        console.log(editID);
         url = `http://localhost:8080/admission_child_personal/parent_email?email=${editID}`
     }else{
-        console.log(logged_in_email);
         url = `http://localhost:8080/admission_child_personal/parent_email?email=${logged_in_email}`
     }
    
@@ -25,7 +23,6 @@ function checkParentAuthentication(editID,callback) {
         url: url,
         type: 'get',
         success: function (response) {
-            console.log(response);
             let keysToKeep = ['logged_in_email'];
             clearLocalStorageExcept(keysToKeep);
             // localStorage.clear()
@@ -85,7 +82,6 @@ function loadDynamicCards() {
 
     // Loop through the response size and create the child divs
     for (let i = 0; i < responseSize; i++) {
-        // console.log(child_response[i]);
         let on_process = child_response[i].on_process;
 
         // Create the elements for child card
@@ -214,7 +210,6 @@ function loadDynamicCards() {
     parentContainer.appendChild(outerDiv);
 }
 
-
 function welcomeText() {
     const parentName = localStorage.getItem('logged_in_email');
     document.getElementById('welcomeText').innerHTML = 'Welcome ' + parentName;
@@ -222,8 +217,6 @@ function welcomeText() {
     // createAddChildButton();
     // additionalHtmlContainer.style.display = 'block';
 }
-
-
 
 function goToBookmark() {
     // Set the hash to the ID of the bookmarked section
@@ -310,7 +303,6 @@ $(document).ready(function () {
         window.location.href = 'login.html';
     } else {
         let editID = window.location.search.slice(4);
-        console.log(editID);
         // Checks the parent info table to see if parent entry is present
         checkParentAuthentication(editID,function () {
             responseToAuthenticationCheck();

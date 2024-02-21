@@ -2,24 +2,30 @@ import {isAuthenticated} from "./authenticationVerify.js";
 
 
 // Function to submit the form data
-function submitForm() {
+function submitForm(editID) {
+    console.log(editID);
     const form = document.getElementById("childInfo");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     obj.on_process = false
-   obj.primary_parent_email = localStorage.getItem('logged_in_email');
+    if(editID != ''){
+        obj.primary_parent_email = editID;
+    }else{
+        obj.primary_parent_email = localStorage.getItem('logged_in_email');
+    }
     const child_id_val = localStorage.getItem('child_id');
     if (child_id_val !== null && child_id_val !== undefined) {
         obj.child_id = child_id_val; 
     }
     const json = JSON.stringify(obj);
+    console.log(json);
     $.ajax({
         url: "http://localhost:8080/admission_child_personal/additional",
         type: "POST",
         contentType: "application/json",
         data: json,
         success: function (response) {
-            // alert(response.message)
+            alert(response.message)
             $(".success-msg-save").show();
                 setTimeout(function(){
                 $(".success-msg-save").hide();
@@ -36,13 +42,12 @@ function submitForm() {
 }
 
 // Function to submit the form data
-function saveForm() {
+function saveForm(editID) {
+    console.log(editID);
     const form = document.getElementById("childInfo");
     const formData = new FormData(form);
     console.log(formData);
     const obj = Object.fromEntries(formData);
-
-   
     obj.on_process = true;
     const parenthanbook_details = {
         welcome_goddard_agreement : obj.welcome_goddard_agreement,
@@ -70,7 +75,11 @@ function saveForm() {
     // const handbook_string = JSON.stringify(parenthanbook_details);
     // console.log(handbook_string);
     obj.parent_hand_book= parenthanbook_details;
-    obj.primary_parent_email = localStorage.getItem('logged_in_email');
+    if(editID != ''){
+        obj.primary_parent_email = editID;
+    }else{
+        obj.primary_parent_email = localStorage.getItem('logged_in_email');
+    }
     const child_id_val = localStorage.getItem('child_id');
 
     if (child_id_val !== null && child_id_val !== undefined) {
@@ -129,10 +138,12 @@ $(document).ready(function () {
                 }
                 // sort the array alphabetically
                 mainTopics.sort();
+                console.log(mainTopics);
                 // iterate through the sorted array
                 for (let i = 0; i < mainTopics.length; i++) {
                     let mainTopic = mainTopics[i];
                     let trimValues = mainTopic.replace(/\s+/g,'').toLowerCase();
+
                     $.get(trimValues + "ListItem.html", function(data) {
                         $("#menu").append(data);
                     });
@@ -143,20 +154,20 @@ $(document).ready(function () {
                 }
             }
         });
-        // Add click event listener to the "Save" button
-        // $(".save-btn").on("click", function (e) {
-        //     console.log(document.getElementsByClassName('save-btn'));
- 
-        //     e.preventDefault(); // Prevent the default form submission
-        //     saveForm();
-        // });
-        // document.querySelector(".save-btn").addEventListener("click", function (e) {
-        //     e.preventDefault();
-        //     saveForm();
-        // });
-        $("#childInfo").on("submit", function (e) {
+        let editID = window.location.search.slice(4);
+        console.log(editID);
+        $(document).on("click", ".save-btn", function(e) {
             e.preventDefault();
-            saveForm();
+            saveForm(editID);
+        });
+        $(document).on("click", ".submit-btn", function(e) {
+            console.log('submitcall')
+            e.preventDefault();
+            submitForm(editID);
+        });
+        $(document).on("click", ".cancel-btn", function(e) {
+            e.preventDefault();
+            clearForm();
         });
 
         // $("#child_basic_info").on("click", function (e) {

@@ -127,33 +127,33 @@ $(document).ready(function () {
     } else {
         document.body.style.visibility = 'visible';
         let samplejson = {};
-        $.ajax({
-            url: `http://localhost:8080/goddard_all_form/all_active_forms`,
-            type: 'GET',
-            success: function(response){
-                // extract main_topic values and store them in an array
-                let mainTopics = [];
-                for (let res in response) {
-                    mainTopics.push(response[res].main_topic);
-                }
-                // sort the array alphabetically
-                mainTopics.sort();
-                console.log(mainTopics);
-                // iterate through the sorted array
-                for (let i = 0; i < mainTopics.length; i++) {
-                    let mainTopic = mainTopics[i];
-                    let trimValues = mainTopic.replace(/\s+/g,'').toLowerCase();
+        // $.ajax({
+        //     url: `http://localhost:8080/goddard_all_form/all_active_forms`,
+        //     type: 'GET',
+        //     success: function(response){
+        //         // extract main_topic values and store them in an array
+        //         let mainTopics = [];
+        //         for (let res in response) {
+        //             mainTopics.push(response[res].main_topic);
+        //         }
+        //         // sort the array alphabetically
+        //         mainTopics.sort();
+        //         console.log(mainTopics);
+        //         // iterate through the sorted array
+        //         for (let i = 0; i < mainTopics.length; i++) {
+        //             let mainTopic = mainTopics[i];
+        //             let trimValues = mainTopic.replace(/\s+/g,'').toLowerCase();
 
-                    $.get(trimValues + "ListItem.html", function(data) {
-                        $("#menu").append(data);
-                    });
-                    if (trimValues == 'admissionforms' || trimValues == 'authorization' || trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
-                        $(`.tab-content.${trimValues}`).load(trimValues + ".html"); // Assuming classes like 'admissionforms', 'authorization', etc.
-                        $('.svg').append('<svg width="12px" height="10px" viewbox="0 0 12 10"><polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg>');
-                    }
-                }
-            }
-        });
+        //             $.get(trimValues + "ListItem.html", function(data) {
+        //                 $("#menu").append(data);
+        //             });
+        //             if (trimValues == 'admissionforms' || trimValues == 'authorization' || trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
+        //                 $(`.tab-content.${trimValues}`).load(trimValues + ".html"); // Assuming classes like 'admissionforms', 'authorization', etc.
+        //                 $('.svg').append('<svg width="12px" height="10px" viewbox="0 0 12 10"><polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg>');
+        //             }
+        //         }
+        //     }
+        // });
         let editID = window.location.search.slice(4);
         console.log(editID);
         $(document).on("click", ".save-btn", function(e) {

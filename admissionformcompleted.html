@@ -12,7 +12,8 @@
         .text-box
         {
             border-radius: 0 !important;
-            border: 2px solid #0F2D52 !important;
+            border: none !important;
+            border-bottom: 2px solid #0F2D52 !important;
         }
 
         .card-style
@@ -50,13 +51,141 @@
                 </div>    
                 <div class="p-4">
                     <!--Child Details-->
-                    <div class="form-bod">
-                        <h4 class="text-center"><b>Child Details</b></h4><br>
-                        <div class="row m-1 mb-4">
+                    <div class="form-inline">
+
+                        <div class="row m-1 mb-3">
+                            <div class="col-auto"><label for="child_first_name" class="form-label"><b>FIRST NAME
+                            </b></label></div>
+                            <div class="col"> <input name="child_first_name" type="text" maxlength="20" 
+                                class="form-control text-box form-body  wizard-required child_first_name" id="child_first_name"></div>
+                            <div class="col-auto"> <label for="child_last_name" class="form-label"><b>LAST NAME
+                            </b></label></div>
+                            <div class="col"><input name="child_last_name" type="text" maxlength="20" 
+                                class="form-control text-box wizard-required child_last_name" id="child_last_name"></div>
+                            <div class="col-auto"><label for="nick_name" class="form-label"><b>NICKNAME</b></label></div>
+                            <div class="col"><input name="nick_name" type="text" maxlength="50" class="form-control text-box text-box"
+                                id="nick_name"></div>
+                        </div>
+                        <div class="row m-1 mb-3">
+                            <div class="col-auto"><label for="dob" class="form-label"><b>BIRTH DATE</b></label></div>
+                            <div class="col"><input name="dob" type="date" maxlength="50" class="form-control text-box dob"
+                                id="dob" onclick="dateValidation('dob')"></div>
+                            <div class="col-auto"><label for="primary_language" class="form-label"><b>PRIMARY LANGUAGE</b></label></div>
+                            <div class="col"><input type="text" class="form-control text-box " aria-label="Telephone Number"
+                                id="primary_language" name="primary_language"></div>
+                        </div>
+                        <div class="row m-1 mb-3">
+                            <div class="col-auto"><label for="school_age_child_school" class="form-label"><b>SCHOOL-AGE CHILD’S SCHOOL</b>
+                            </label></div>
+                            <div class="col"><input type="text" class="form-control text-box " id="school_age_child_school"
+                                name="school_age_child_school"></div>
+                        </div>
+                        <div class="row m-1 mb-3">
+                            <div id="do_relevant_custody_papers_apply" class="col-sm">
+                                <div class="form-group">
+                                    <p><b>DO RELEVANT CUSTODY PAPERS APPLY?</b></p>
+                                    <div class="wizard-form-radio">
+                                        <input name="do_relevant_custody_papers_apply"
+                                            id="do_relevant_custody_papers_apply1" value="Yes"
+                                            type="radio">
+                                        <label for="do_relevant_custody_papers_apply1">Yes</label>
+                                    </div>
+                                    <div class="wizard-form-radio">
+                                        <input name="do_relevant_custody_papers_apply"
+                                            id="do_relevant_custody_papers_apply2" type="radio"
+                                            value="No" checked>
+                                        <label for="do_relevant_custody_papers_apply2">No</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="gender" class="col-sm">
+                                <div class="form-group">
+                                    <p><b>GENDER</b></p>
+                                    <div class="wizard-form-radio">
+                                        <input name="gender" id="gender1" value="Male" type="radio" checked>
+                                        <label for="gender1">Male</label>
+                                    </div>
+                                    <div class="wizard-form-radio">
+                                        <input name="gender" id="gender2" type="radio" value="Female">
+                                        <label for="gender2">Female</label>
+                                    </div>
+                                    <div class="wizard-form-radio">
+                                        <input name="gender" id="gender3" type="radio" value="Others">
+                                        <label for="gender3">Others</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                        <div class="row m-1 mb-3">
+                            <div class="col-auto"><label for="parent_name" class="form-label"><b>PARENT’S / LEGAL GUARDIAN’S NAME</b></label></div>
+                            <div class="col"><input type="text" class="form-control text-box " id="parent_name" name="parent_name"></div>
+                            <div class="col-auto"><label for="home_telephone_number" class="form-label"><b>TELEPHONE
+                                NUMBER</b>
+                        </label></div>
+                            <div class="col"><input type="text" class="form-control text-box " aria-label="Telephone Number"
+                                id="home_telephone_number" name="home_telephone_number"
+                                onchange="validatePhone(this,'home_telephone_number_span')"></div>
+                        </div>
+                        <div class="row m-1 mb-3">
+                            <div class="col-auto"><label for="parent_street_address" class="form-label"><b>STREET</b>
+                            </label></div>
+                            <div class="col"><input type="text" class="form-control text-box" id="parent_street_address"
+                                name="parent_street_address"></div>
+                            <div class="col-auto"><label for="parent_city_address" class="form-label"><b>CITY</b>
+                            </label></div>
+                            <div class="col"><input type="text" class="form-control text-box " id="parent_city_address"
+                                name="parent_city_address"></div>
+                            <div class="col-auto"><label for="parent_state_address" class="form-label"><b>STATE</b>
+                            </label></div>
+                            <div class="col"><input type="text" class="form-control text-box " id="parent_state_address"
+                                name="parent_state_address"></div>
+                            <div class="col-auto"> <label for="parent_zip_address" class="form-label"><b>ZIP</b>
+                            </label></div>
+                            <div class="col"><input type="text" class="form-control text-box " id="parent_zip_address"
+                                name="parent_zip_address"
+                                onchange="ValidatePincode (this,'parent_zip_address_span')"></div>
+                            <div class="col-auto"></div>
+                            <div class="col-auto"></div>
+                        </div>
+                        <!-- Business info -->
+                        <!-- <h4 class="text-center mb-3"><b>Business Details</b></h4> -->
+                        <div class="row m-1 mb-3">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="business_name" class="form-label"><b>NAME</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box " id="business_name"
+                                        name="business_name">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="work_hours" class="form-label"><b>WORK HOURS</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box " id="work_hours"
+                                        name="work_hours">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="business_telephone_number" class="form-label"><b>TELEPHONE NUMBER</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box " id="business_telephone_number"
+                                        name="business_telephone_number"
+                                        onchange="validatePhone(this,'business_telephone_number_span')">
+                                    <span id="business_telephone_number_span"
+                                        style="color:red; display:none">
+                                        Enter valid input [only numbers,+,-,()].</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <h4 class="text-center"><b>Child Details</b></h4><br>    -->
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="child_first_name" class="form-label"><b>FIRST NAME
-                                    </b></label><br>
+                                    </b></label>
                                     <input name="child_first_name" type="text" maxlength="20" 
                                     class="form-control text-box form-body  wizard-required child_first_name" id="child_first_name">
                                     <div class="wizard-form-error"></div>
@@ -71,8 +200,6 @@
                                     <div class="wizard-form-error"></div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row m-1 mb-4">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="nick_name" class="form-label"><b>NICKNAME</b></label>
@@ -87,8 +214,6 @@
                                         id="dob" onclick="dateValidation('dob')">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row m-1 mb-4">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="primary_language" class="form-label"><b>PRIMARY LANGUAGE</b></label>
@@ -96,6 +221,8 @@
                                         id="primary_language" name="primary_language">
                                 </div>
                             </div>
+                        </div>
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="school_age_child_school" class="form-label"><b>SCHOOL-AGE CHILD’S SCHOOL</b>
@@ -104,8 +231,6 @@
                                         name="school_age_child_school">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row m-1 mb-4">
                             <div id="do_relevant_custody_papers_apply" class="col-sm">
                                 <div class="form-group">
                                     <p><b>DO RELEVANT CUSTODY PAPERS APPLY?</b></p>
@@ -143,8 +268,8 @@
                         </div> 
                     
                         <!--Parent Details-->
-                        <h4 class="text-center mb-4"><b>Parent Details</b></h4>
-                        <div class="row m-1 mb-4">
+                        <!-- <h4 class="text-center mb-3"><b>Parent Details</b></h4> -->
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="parent_name" class="form-label"><b>PARENT’S / LEGAL
@@ -154,9 +279,21 @@
                                         name="parent_name">
                                 </div>
                             </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="home_telephone_number" class="form-label"><b>TELEPHONE
+                                            NUMBER</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box " aria-label="Telephone Number"
+                                        id="home_telephone_number" name="home_telephone_number"
+                                        onchange="validatePhone(this,'home_telephone_number_span')">
+                                    <span id="home_telephone_number_span" style="color:red; display:none">
+                                        Enter valid input [only numbers,+,-,()].</span>
+                                </div>
+                            </div>
                         </div>
-                        <h4 class="text-center mb-4"><b>Home Address</b></h4>
-                        <div class="row m-1 mb-4">
+                        <!-- <h4 class="text-center"><b>Home Address</b></h4> -->
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="parent_street_address" class="form-label"><b>STREET</b>
@@ -196,23 +333,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
-                            <div class="col-sm"><br>
-                                <div class="form-group">
-                                    <label for="home_telephone_number" class="form-label"><b>TELEPHONE
-                                            NUMBER</b>
-                                    </label>
-                                    <input type="text" class="form-control text-box " aria-label="Telephone Number"
-                                        id="home_telephone_number" name="home_telephone_number"
-                                        onchange="validatePhone(this,'home_telephone_number_span')">
-                                    <span id="home_telephone_number_span" style="color:red; display:none">
-                                        Enter valid input [only numbers,+,-,()].</span>
-                                </div>
-                            </div>
-                        </div>
                         <!-- Business info -->
-                        <h4 class="text-center mb-4"><b>Business Details</b></h4>
-                        <div class="row m-1 mb-4">
+                        <!-- <h4 class="text-center mb-3"><b>Business Details</b></h4> -->
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="business_name" class="form-label"><b>NAME</b>
@@ -245,8 +368,8 @@
 
                         <!-- Business address -->
 
-                        <h4 class="text-center mb-4"><b>Business Address</b></h4>
-                        <div class="row m-1 mb-4">
+                        <!-- <h4 class="text-center mb-3"><b>Business Address</b></h4> -->
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="business_street_address" class="form-label"><b>STREET</b>
@@ -285,7 +408,7 @@
                         </div>
 
                         <!-- Business address end -->
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="business_cell_number" class="form-label"><b>CELL NUMBER</b>
@@ -311,8 +434,8 @@
                         </div>
                         <!-- Business info end-->
                         <!--Additional Parent Details-->
-                        <h4 class="text-center mb-4"><b>Additional Parent Details</b></h4>
-                        <div class="row m-1 mb-4">
+                        <!-- <h4 class="text-center mb-3"><b>Additional Parent Details</b></h4> -->
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="parent_two_name" class="form-label"><b>PARENT’S / LEGAL
@@ -323,8 +446,8 @@
                                 </div>
                             </div>
                         </div>
-                        <h4 class="text-center mb-4"><b>Home Address</b></h4>
-                        <div class="row m-1 mb-4">
+                        <!-- <h4 class="text-center mb-3"><b>Home Address</b></h4> -->
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="parent_two_street_address" class="form-label"><b>STREET</b>
@@ -364,7 +487,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm"><br>
                                 <div class="form-group">
                                     <label for="parent_two_home_telephone_number" class="form-label"><b>TELEPHONE
@@ -379,8 +502,8 @@
                             </div>
                         </div>
                         <!-- Business info -->
-                        <h4 class="text-center mb-4"><b>Business Details</b></h4>
-                        <div class="row m-1 mb-4">
+                        <!-- <h4 class="text-center mb-3"><b>Business Details</b></h4> -->
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="parent_two_business_name" class="form-label"><b>NAME</b>
@@ -412,9 +535,9 @@
                         </div>
 
                         <!-- Business address -->
-                        <h4 class="panel-title text-center mb-4"><b>Business Address</b></h4>
+                        <!-- <h4 class="panel-title text-center mb-3"><b>Business Address</b></h4> -->
 
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="parent_two_business_street_address" class="form-label"><b>STREET</b>
@@ -453,7 +576,7 @@
                         </div>
 
                         <!-- Business address end -->
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="parent_two_business_cell_number" class="form-label"><b>CELL NUMBER</b>
@@ -478,8 +601,8 @@
                             </div>
                         </div>
                         <!--Emergency Contact-->
-                        <h4 class="panel-title text-center mb-4"><b>Emergency Contact</b></h4>
-                        <div class="row m-1 mb-4">
+                        <!-- <h4 class="panel-title text-center mb-3"><b>Emergency Contact</b></h4> -->
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="child_emergency_contact_name" class="form-label"><b>NAME</b>
@@ -497,7 +620,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <h4 class="panel-title text-center mb-3"><b>TO WHOM THE CHILD MAY BE RELEASED IN THE EVENT OF AN EMERGENCY</b></h4>
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="child_emergency_contact_relationship" class="form-label"><b>RELATIONSHIP</b>
@@ -519,9 +643,9 @@
                             </div>
                         </div>
                         <!--Medical Care Provider Details-->
-                        <h4 class="panel-title text-center mb-4"><b>Physician/Medical Care Provider Details</b></h4>
+                        <!-- <h4 class="panel-title text-center mb-3"><b>Physician/Medical Care Provider Details</b></h4> -->
                         <!-- Medical care provider details -->
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="child_care_provider_name" class="form-label"><b>NAME OF
@@ -532,7 +656,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="child_care_provider_telephone_number"
@@ -560,8 +684,8 @@
                         <!-- Medical care provider details end-->
 
                         <!-- Medical care provider address -->
-                        <h4 class="text-center mb-4"><b>Address</b></h4>
-                        <div class="row m-1 mb-4">
+                        <!-- <h4 class="text-center mb-3"><b>Address</b></h4> -->
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="child_care_provider_street_address"
@@ -610,8 +734,8 @@
                         <!-- Medical care provider address end -->
 
                         <!-- Dentist details -->
-                        <h4 class="panel-title text-center mb-4"><b>Dentist Details</b></h4>
-                        <div class="row m-1 mb-4">
+                        <!-- <h4 class="panel-title text-center mb-3"><b>Dentist Details</b></h4> -->
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="child_dentist_name" class="form-label"><b>NAME OF CHILD'S
@@ -635,7 +759,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="dentist_address" class="form-label"><b>DENTIST ADDRESS</b>
@@ -647,7 +771,7 @@
                         </div>
 
                         <!-- Dentist details end -->
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="special_diabilities" class="form-label"><b>SPECIAL
@@ -668,7 +792,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="additional_info" class="form-label"><b>ADDITIONAL
@@ -679,7 +803,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="medication" class="form-label"><b>MEDICATION, SPECIAL
@@ -690,7 +814,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="health_insurance" class="form-label"><b>HEALTH INSURANCE
@@ -701,7 +825,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="policy_number" class="form-label"><b>POLICY NUMBER</b>
@@ -713,11 +837,11 @@
                         </div>
                         <!--Parent Agreement-->
 
-                        <h4 class="text-center mb-4"><b>Parent Agreement</b></h4>
+                        <!-- <h4 class="text-center mb-3"><b>Parent Agreement</b></h4> -->
                         <!-- Parent's or guardian's signature -->
 
-                        <h4 class="text-center mb-4"><b>Parent's/Legal Guardian's agreement</b></h4>
-                        <div class="row m-1 mb-4">
+                        <h4 class="text-center mb-3"><b>PARENT’S / LEGAL GUARDIAN’S SIGNATURE IS REQUIRED TO INDICATE CONSENT</b></h4>
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="obtaining_emergency_medical_care"
@@ -729,7 +853,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="administration_first_aid_procedures"
@@ -742,7 +866,7 @@
                             </div>
                         </div>
 
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="form-group wizard-form-checkbox">
                                 <input type="checkbox" class="input-checkbox" id="agree_all_above_information_is_correct"
                                     name="agree_all_above_information_is_correct">
@@ -765,14 +889,14 @@
                 <div class="form-body">
                     <div class="card">
                         <div class="row">
-                            <div class="col-6"><div class="logo-style"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
-                            <div class="col-6"><div class="title_bg title_style"><h2>Child and Family History</h2></div></div>
+                            <div class="col-6"><div class="logo-style p-4"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
+                            <div class="col-6"><div class="title_bg title_style"><h2 class="m-4">Child and Family History</h2></div></div>
                         </div>
                     </div>
                     <div class="pt-4">
                         <!--Child History-->
                         <h4 class="text-center"><b>Child History</b></h4><br>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="physical_exam_last_date" class="form-label"><b>Date of Last
@@ -795,9 +919,9 @@
                             </div>
                         </div>
                         <!--Medical History-->
-                        <h4 class="text-center"><b>Medical History And Illnesses</b></h4><br>
+                        <h4 class="text-center"><b>Medical History And Illnesses</b></h4>
                         <h3 class="text-center">Does your child have a history of : (please describe)</h3>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="allergies" class="form-label"><b>Allergies (food/drug)</b>
@@ -813,8 +937,6 @@
                                     <input type="text" class="form-control text-box " id="asthma" name="asthma">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row m-1 mb-4">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="bleeding_problems" class="form-label"><b>Bleeding
@@ -832,7 +954,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="epilepsy" class="form-label"><b>Epilepsy</b>
@@ -849,8 +971,6 @@
                                         name="frequent_ear_infections">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row m-1 mb-4">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="frequent_illnesses" class="form-label"><b>Frequent
@@ -869,7 +989,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="high_fevers" class="form-label"><b>High Fevers</b>
@@ -886,9 +1006,6 @@
                                         name="hospitalization">
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row m-1 mb-4">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="rheumatic_fever" class="form-label"><b>Rheumatic Fever</b>
@@ -907,8 +1024,7 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="serious_injuries_accidents" class="form-label"><b>Serious
@@ -926,9 +1042,6 @@
                                         name="surgeries">
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row m-1 mb-4">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="vision_problems" class="form-label"><b>Vision Problems</b>
@@ -948,7 +1061,7 @@
                         </div>
                         <!--Pregnancy and Ifant History-->
                         <h4 class="text-center"><b>Pregnancy And Ifant History</b></h4><br>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="illness_during_pregnancy" class="form-label"><b>Illness
@@ -968,7 +1081,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="duration_of_pregnancy" class="form-label"><b>Duration of
@@ -1002,7 +1115,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="complications" class="form-label"><b>Complications</b>
@@ -1025,7 +1138,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <h3 class="text-center">Other Siblings</h3>
                             <div class="col-sm">
                                 <div class="form-group"> 
@@ -1186,7 +1299,7 @@
                         </div>  
                         <!--Social Behavior-->  
                         <h4 class="text-center"><b>Social Behavior</b></h4><br>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="age_group_friends" class="form-label"><b>Age group of
@@ -1206,7 +1319,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="relationship_with_mother" class="form-label"><b>Relationship
@@ -1227,7 +1340,7 @@
                             </div>
                         </div>
 
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="relationship_with_siblings"
@@ -1248,7 +1361,7 @@
                             </div>
                         </div>
 
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="fears_conflicts" class="form-label"><b>Fears and
@@ -1269,7 +1382,7 @@
                             </div>
                         </div>
 
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="favorite_activities" class="form-label"><b>Favorite
@@ -1282,7 +1395,7 @@
                         </div>
                         <!--Environmental Factors-->
                         <h4 class="text-center"><b>Environmental Factors</b></h4><br>
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="last_five_years_moved" class="form-label">
@@ -1292,7 +1405,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">   
+                        <div class="row m-1 mb-3">   
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="things_used_at_home" class="form-label">
@@ -1313,7 +1426,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">    
+                        <div class="row m-1 mb-3">    
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="language_used_at_home" class="form-label">
@@ -1324,7 +1437,7 @@
                             </div>
                         </div>
 
-                        <div class="row m-1 mb-4">
+                        <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="changes_at_home_situation" class="form-label"><b>Have
@@ -1335,7 +1448,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">    
+                        <div class="row m-1 mb-3">    
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="educational_expectations_of_child"
@@ -1376,8 +1489,8 @@
                 <div class="form-body">
                     <div class="card">
                         <div class="row">
-                            <div class="col-6"><div class="logo-style"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
-                            <div class="col-6"><div class="title_bg title_style"><h2>Immunization Instructions</h2></div></div>
+                            <div class="col-6"><div class="logo-style p-4"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
+                            <div class="col-6"><div class="title_bg title_style"><h2 class="m-4">Immunization Instructions</h2></div></div>
                         </div>
                     </div>
                     <div class="pt-4">
@@ -1403,7 +1516,7 @@
                                 know and we
                                 will help provide the proper form to fill out.
                             </p>
-                            <div class="col-sm mb-2">
+                            <div class="col-sm mb-3">
                                 <div class="form-group wizard-form-checkbox">
                                     <input type="checkbox" class="input-checkbox" id="do_you_agree_this_immunization_instructions"
                                     name="do_you_agree_this_immunization_instructions" >
@@ -1428,14 +1541,14 @@
                 <div class="form-body">
                     <div class="card">
                         <div class="row">
-                            <div class="col-6"><div class="logo-style"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
-                            <div class="col-6"><div class="title_bg title_style"><h2>Child Profile</h2></div></div>
+                            <div class="col-6"><div class="logo-style p-4"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
+                            <div class="col-6"><div class="title_bg title_style"><h2 class="m-4">Child Profile</h2></div></div>
                         </div>
                     </div>
                     <div class="pt-4">
                         <!--Child Profile Details-->
                         <h4 class="text-center"><b>Child Profile Details</b></h4><br>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="other_important_family_members" class="form-label"><b>Other
@@ -1446,7 +1559,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="about_family_celebrations" class="form-label"><b>Tell us about
@@ -1457,7 +1570,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div id="childcare_before" class="col-sm">
                                 <div class="form-group">
                                     <p><b>Has your child been in childcare before?</b></p>
@@ -1474,7 +1587,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="reason_for_childcare_before" class="form-label"><b>If so, what kind?</b>
@@ -1501,7 +1614,7 @@
                             </div>
                         </div>
                         <h4 class="text-center"><b>What will be your child’s typical time?</b></h4><br>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="drop_off_time" class="form-label"><b>Drop off time?</b>
@@ -1522,7 +1635,7 @@
 
                         <!--Nutrition Details-->
                         <h4 class="text-center"><b>Nutrition</b></h4><br>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div id="restricted_diet" class="col-sm">
                                 <div class="form-group">
                                     <p><b>Does your child have a special or restricted diet?
@@ -1541,7 +1654,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4" id="restricted_diet_reason_div" style="display: none;">
+                        <div class="row m-4 mb-3" id="restricted_diet_reason_div" style="display: none;">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="restricted_diet_reason" class="form-label">Explain</label>
@@ -1549,7 +1662,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div id="eat_own" class="col-sm">
                                 <div class="form-group">
                                     <p><b>Does your child eat on their own?
@@ -1568,7 +1681,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4" id="eat_own_reason_div" style="display: none;">
+                        <div class="row m-4 mb-3" id="eat_own_reason_div" style="display: none;">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="eat_own_reason" class="form-label">Explain</label>
@@ -1576,7 +1689,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="favorite_foods" class="form-label"><b>What are your child’s favorite foods?
@@ -1590,7 +1703,7 @@
 
                         <!--Rest and Diapering/Toilet Learning-->
                         <h4 class="text-center"><b>Rest and Diapering/Toilet Learning</b></h4><br>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div id="rest_in_the_middle_day" class="col-sm">
                                 <div class="form-group">
                                     <p><b>Does your child rest in the middle of the day?
@@ -1609,7 +1722,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4" id="reason_for_rest_in_the_middle_day_div" style="display: none;">
+                        <div class="row m-4 mb-3" id="reason_for_rest_in_the_middle_day_div" style="display: none;">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="reason_for_rest_in_the_middle_day" class="form-label">Explain</label>
@@ -1618,7 +1731,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="rest_routine" class="form-label"><b>What is their nap/rest routine?
@@ -1629,7 +1742,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div id="toilet_trained" class="col-sm">
                                 <div class="form-group">
                                     <p><b>Is your child toilet trained?
@@ -1648,7 +1761,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4" id="reason_for_toilet_trained_div" style="display: none;">
+                        <div class="row m-4 mb-3" id="reason_for_toilet_trained_div" style="display: none;">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="reason_for_toilet_trained" class="form-label">Explain</label>
@@ -1660,7 +1773,7 @@
 
                         <!--Medical Details-->
                         <h4 class="text-center"><b>Medical/General</b></h4><br>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div id="existing_illness_allergy" class="col-sm">
                                 <div class="form-group">
                                     <p><b>Does your child have an existing illness/allergy/condition?
@@ -1679,7 +1792,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4" id="explain_for_existing_illness_allergy_div" style="display: none;">
+                        <div class="row m-4 mb-3" id="explain_for_existing_illness_allergy_div" style="display: none;">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="explain_for_existing_illness_allergy"  
@@ -1689,7 +1802,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div id="functioning_at_age" class="col-sm">
                                 <div class="form-group">
                                     <p><b>Does your think your child is functioning at age-level?
@@ -1708,7 +1821,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4" id="explain_for_functioning_at_age_div" style="display: none;">
+                        <div class="row m-4 mb-3" id="explain_for_functioning_at_age_div" style="display: none;">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="explain_for_functioning_at_age" class="form-label">Explain</label>
@@ -1717,7 +1830,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div id="able_to_walk" class="col-sm">
                                 <div class="form-group">
                                     <p><b>Is your child able to walk?</b></p>
@@ -1734,7 +1847,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4" id="explain_for_able_to_walk_div" style="display: none;">
+                        <div class="row m-4 mb-3" id="explain_for_able_to_walk_div" style="display: none;">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="explain_for_able_to_walk" class="form-label">Explain</label>
@@ -1743,7 +1856,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div id="communicate_their_needs" class="col-sm">
                                 <div class="form-group">
                                     <p><b>Is your child able to communicate their needs to others?
@@ -1763,7 +1876,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4" id="explain_for_communicate_their_needs_div" style="display: none;">
+                        <div class="row m-4 mb-3" id="explain_for_communicate_their_needs_div" style="display: none;">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="explain_for_communicate_their_needs" class="form-label">Explain</label>
@@ -1772,7 +1885,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div id="any_medication" class="col-sm">
                                 <div class="form-group">
                                     <p><b>Does your child require any medication, therapy,
@@ -1792,7 +1905,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4" id="explain_for_any_medication_div" style="display: none;">
+                        <div class="row m-4 mb-3" id="explain_for_any_medication_div" style="display: none;">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="explain_for_any_medication" class="form-label">Explain</label>
@@ -1801,7 +1914,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div id="utilize_special_equipment" class="col-sm">
                                 <div class="form-group">
                                     <p><b>Does your child utilize any special equipment(such as
@@ -1821,7 +1934,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4" id="explain_for_utilize_special_equipment_div" style="display: none;">
+                        <div class="row m-4 mb-3" id="explain_for_utilize_special_equipment_div" style="display: none;">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="explain_for_utilize_special_equipment" class="form-label">Explain</label>
@@ -1830,7 +1943,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div id="significant periods" class="col-sm">
                                 <div class="form-group">
                                     <p><b>Does your child require one-on-one supervision on a
@@ -1849,7 +1962,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4" id="explain_for_significant_periods_div" style="display: none;">
+                        <div class="row m-4 mb-3" id="explain_for_significant_periods_div" style="display: none;">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="explain_for_significant_periods" class="form-label">Explain</label>
@@ -1858,7 +1971,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div id="desire_any_accommodations" class="col-sm">
                                 <div class="form-group">
                                     <p><b>Does your child require and/or desire any
@@ -1879,7 +1992,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-4 mb-4" id="explain_for_desire_any_accommodations_div" style="display: none;">
+                        <div class="row m-4 mb-3" id="explain_for_desire_any_accommodations_div" style="display: none;">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <label for="explain_for_desire_any_accommodations" class="form-label">Explain</label>
@@ -1888,7 +2001,7 @@
                                 </div>
                             </div>
                         </div>      
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                         <div class="col-sm">
                             <div class="form-group"> 
                                 <label for="additional_information" class="form-label h-3"><b>Comments and additional information
@@ -1903,14 +2016,14 @@
                         <!--Parent Agreement--> 
                         <h4 class="text-center"><b>Parent Agreement</b></h4><br>
                         <h5 class="text-center"><b>Correct and Complete Information</b></h5>
-                        <p class="m-4 mb-4">To the best of my knowledge, the information I have provided and the
+                        <p class="m-4 mb-3">To the best of my knowledge, the information I have provided and the
                             statements I have made in this profile are correct and complete. I
                             understand that false information provided herein or in connection
                             with the enrollment process may result in disenrollment of my child.
                             I further agree to update the information in this Health and Social
                             Record as circumstances may require at Goddard School’s request.
                         </p>
-                        <div class="row m-4 mb-4">
+                        <div class="row m-4 mb-3">
                             <div class="col-sm">
                                 <div class="form-group wizard-form-checkbox">
                                     <input type="checkbox" class="input-checkbox" id="do_you_agree_this"
@@ -1936,8 +2049,8 @@
                 <div class="form-body">
                     <div class="card">
                         <div class="row">
-                            <div class="col-6"><div class="logo-style"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
-                            <div class="col-6"><div class="title_bg title_style"><h2>Pick-up Password</h2></div></div>
+                            <div class="col-6"><div class="logo-style p-4"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
+                            <div class="col-6"><div class="title_bg title_style"><h2 class="m-4">Pick-up Password</h2></div></div>
                         </div>
                     </div>
                     <div class="pt-4">
@@ -2010,12 +2123,12 @@
                 <div class="form-body">
                     <div class="card">
                         <div class="row">
-                            <div class="col-6"><div class="logo-style"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
-                            <div class="col-6"><div class="title_bg title_style"><h2>Photo/Video Permission</h2></div></div>
+                            <div class="col-6"><div class="logo-style p-4"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
+                            <div class="col-6"><div class="title_bg title_style"><h2 class="m-4">Photo/Video Permission</h2></div></div>
                         </div>
                     </div>
                     <div class="p-4">
-                        <h4 class="text-center mb-4"><b>Consent to Photograph</b></h4>
+                        <h4 class="text-center mb-3"><b>Consent to Photograph</b></h4>
                         <p>I consent to The Goddard School® taking photographs and
                             videos of my child, who are identified below. For value received and
                             without additional consideration, I agree that all photographs and video
@@ -2023,7 +2136,7 @@
                             by The Goddard School or Goddard Systems, Inc. for the purposes of
                             illustration, advertising and publicity, in any manner or in any form,
                             including in broadcast, print, electronic and social media.</p>
-                            <div class="row m-1 mb-4">
+                            <div class="row m-1 mb-3">
                                 <div class="col-3"></div>
                                 <div class="col-6">
                                     <div class="form-group"> 
@@ -2043,7 +2156,7 @@
                                 </div>
                                 <div class="col-3"></div>
                             </div>    
-                            <h4 class="text-center mb-4"><b>Group Photos in Electronic Daily
+                            <h4 class="text-center mb-3"><b>Group Photos in Electronic Daily
                                 Activity Reports</b></h4>
                             <p>The Goddard School takes photos of individual children and
                                 groups of children for electronic daily activity reports. These photos
@@ -2054,7 +2167,7 @@
                                 social media accounts. For this reason, we ask that you specifically
                                 authorize whether we can include your child in any group photos shared
                                 through the electronic daily activity reports.</p>
-                            <div class="row m-1 mb-4">
+                            <div class="row m-1 mb-3">
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <div class="wizard-form-checkbox">
@@ -2069,9 +2182,9 @@
                                     </div>
                                 </div>
                             </div>  
-                            <h4 class="text-center mb-4"><b>Agreement Not to Post Photos of
+                            <h4 class="text-center mb-3"><b>Agreement Not to Post Photos of
                                 Other Children</b></h4>
-                            <div class="row m-1 mb-4">
+                            <div class="row m-1 mb-3">
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <div class="wizard-form-checkbox">
@@ -2105,12 +2218,12 @@
                 <div class="form-body">
                     <div class="card">
                         <div class="row">
-                            <div class="col-6"><div class="logo-style"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
-                            <div class="col-6"><div class="title_bg title_style"><h2>Security Release & Policy Acknowledgement</h2></div></div>
+                            <div class="col-6"><div class="logo-style p-4"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
+                            <div class="col-6"><div class="title_bg title_style"><h2 class="m-4">Security Release & Policy Acknowledgement</h2></div></div>
                         </div>
                     </div>
                     <div class="pt-4">
-                        <div class="row m-3 mb-4">
+                        <div class="row m-3 mb-3">
                             <p>I understand that The Goddard School® has installed security
                                 cameras in
                                 the
@@ -2132,7 +2245,7 @@
                             of fees, and confirms that
                             I have received and read a copy of the parent handbook.
                         </p>
-                        <div class="row m-2 mb-4">
+                        <div class="row m-2 mb-3">
                             <div class="col-sm">
                                 <div class="form-group wizard-form-checkbox">
                                     <input type="checkbox" class="input-checkbox" id="do_you_agree_this_security_release_policy_form"
@@ -2159,9 +2272,10 @@
                 <div class="form-body">
                     <div class="card">
                         <div class="row">
-                            <div class="col-6"><div class="logo-style"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
-                            <div class="col-6"><div class="title_bg title_style"><h2>Medical Transportation</h2></div></div>
+                            <div class="col-6"><div class="logo-style p-4"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
+                            <div class="col-6"><div class="title_bg title_style"><h2 class="m-4">Medical Transportation</h2></div></div>
                         </div>
+                    </div>    
                     <div class="pt-4">
                         <div class="m-4">    
                             <span>
@@ -2203,9 +2317,10 @@
                 <div class="form-body">
                     <div class="card">
                         <div class="row">
-                            <div class="col-6"><div class="logo-style"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
-                            <div class="col-6"><div class="title_bg title_style"><h2>Health Policies</h2></div></div>
+                            <div class="col-6"><div class="logo-style p-4"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
+                            <div class="col-6"><div class="title_bg title_style"><h2 class="m-4">Health Policies</h2></div></div>
                         </div>
+                    </div>   
                     <div class="pt-4">
                         <div class="row m-4">
                             <div class="col-sm">
@@ -2354,12 +2469,12 @@
                 <div class="form-body">
                     <div class="card">
                         <div class="row">
-                            <div class="col-6"><div class="logo-style"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
-                            <div class="col-6"><div class="title_bg title_style"><h2>Outside Engagements Release & Waiver</h2></div></div>
+                            <div class="col-6"><div class="logo-style p-4"><img src="image/gs_logo_branch.png" class="img-fluid" alt="gs_logo_branch" type="image/png" ></div></div>
+                            <div class="col-6"><div class="title_bg title_style"><h2 class="m-4">Outside Engagements Release & Waiver</h2></div></div>
                         </div>
-                    <h2 class="text-center title_bg"></h2>
+                    </div>    
                     <div class="pt-4">
-                        <div class="row m-3 mb-4">
+                        <div class="row m-3 mb-3">
                             <div class="col-sm">
                                 <p>Parent(s) of student(s) enrolled at The Goddard School Redmond II may
                                     request one or more employees of
@@ -2402,7 +2517,7 @@
                             </div>  
                         </div>      
                             
-                        <div class="row m-3 mb-4">
+                        <div class="row m-3 mb-3">
                             <div class="col-sm">
                                 <div class="form-group"> 
                                     <div class="wizard-form-checkbox">

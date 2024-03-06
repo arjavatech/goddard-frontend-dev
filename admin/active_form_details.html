@@ -23,11 +23,52 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <script type="module" src="../js/active_form_details.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
         <style>
             html
             {
                 font-size: medium;
             }
+
+            /***Dropdown style***/
+
+            select {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+            }
+
+            select.input-lg {
+                height: 50px !important;
+                line-height: 25px !important;
+            }
+
+            select+i.fa {
+                float: right;
+                margin-top: -27px;
+                margin-right: 9px;
+                pointer-events: none;
+                color: #424242;
+                background-color: #FFF;
+                padding-right: 5px;
+            }
+
+            .input-inline {
+                display: inline;
+                width: auto;
+                border: none;
+                border-bottom: #000000 !important;
+            }
+
+            .input-inline:focus {
+                display: inline;
+                width: auto;
+                border: none;
+                border-bottom: #424242 !important;
+            }
+
+            /***Dropdown style end***/
         </style>
     </head>
     <body>
@@ -101,7 +142,7 @@
                                 <form id="multiselectdata">
                                     <div class="row">
                                         <div class="col-sm-4">
-                                            <div class="form-group pt-5"> 
+                                            <div class="form-group"> 
                                                 <label class="col-form-label text-center">Child ID:</label>
                                                 <select class="form-control float-end">
                                                     <option selected disabled>Select ID</option>
@@ -121,7 +162,7 @@
                                             </div>
                                         </div>
                                         <div class="col-sm-4">
-                                            <div class="form-group pt-3"> 
+                                            <div class="form-group"> 
                                                 <label class="col-form-label text-center">Class Room:</label>
                                                 <select class="form-control float-end">
                                                     <option selected disabled>Select Room</option>
@@ -134,11 +175,11 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-sm-7"></div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-4"></div>
+                                        <div class="col-sm-4 text-center">
                                             <button id="submitButton" type="button" class="btn btn-primary btn-bg">Submit</button>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <div class="col-sm-4">
                                             <!-- <button id="submitButton" type="button" class="btn btn-primary btn-bg">Submit</button> -->
                                         </div>
                                     </div>

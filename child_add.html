@@ -248,19 +248,23 @@
         <script>
             function checking(editID){
                 console.log(editID);
+
                 // var formdiv = document.getElementById("formdiv");
                 // formdiv.reset();
-                var element = document.getElementById("childInfo");
-                element.reset();
+                // var element = document.getElementById("side_tab_bg");
+                // element.reset();
+                // var tab_content = document.querySelector(".tab-content");
+                // tab_content.reset();
                 $.ajax({
                     url: `http://localhost:8080/admission_child_personal/Incomplete_form_status/${editID}`,
                     type: 'GET',
                     dataType:'json',
                     success: function(response) {
                         console.log(response);
+                        
                         let mainTopics = [];
                         
-                        // Iterate over the values of inCompletedFormStatus
+                        // Iterate over the values of incompletedformstatus
                         for (let value of Object.values(response['inCompletedFormStatus'])) {
                             mainTopics.push(value);
                         }
@@ -278,7 +282,8 @@
                                 $("#menu").append(data);
                             });
 
-                            if (trimValues == 'admissionforms' || trimValues == 'authorization' || trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
+                            if (trimValues == 'admissionforms' || trimValues == 'authorization' || 
+                            trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
                                 $(`.tab-content.${trimValues}`).load(trimValues + ".html");
                                 $('.svg').append('<svg width="12px" height="10px" viewbox="0 0 12 10"><polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg>');
                             }

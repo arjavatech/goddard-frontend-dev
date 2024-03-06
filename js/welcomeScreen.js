@@ -26,8 +26,8 @@ function checkParentAuthentication(editID,callback) {
             let keysToKeep = ['logged_in_email'];
             clearLocalStorageExcept(keysToKeep);
             // localStorage.clear()
-            if (response && response.length > 0) {
-                localStorage.setItem('parent_name', response[0].parent_name)
+            if (response['parent_name']) {
+                localStorage.setItem('parent_name',response['parent_name'])
             //    localStorage.setItem('parent_id', response[0].id)
             }
             if (typeof callback === 'function') {
@@ -52,11 +52,15 @@ function getAllInfo(editID,callback) {
         url: url,
         type: 'get',
         success: function (response) {
+            console.log(response);
+            console.log(response['children']);
             // localStorage.clear()
-            if (response && response.length > 0) {
+            if (response['children']) {
+                console.log(response['children'].length)
                 // Iterate through all the child and store the response
-                child_response = response;
-                localStorage.setItem('number_of_children', response.length.toString());
+                child_response = response['children'];
+                console.log(child_response);
+                localStorage.setItem('number_of_children', response['children'].length.toString());
             }
             if (typeof callback === 'function') {
                 callback();
@@ -67,6 +71,7 @@ function getAllInfo(editID,callback) {
 
 function responseToAuthenticationCheck() {
     const parentName = localStorage.getItem('logged_in_email');
+    console.log(parentName);
     if (parentName !== 'undefined' && parentName !== null) {
         document.body.style.visibility = 'visible';
     } else {
@@ -86,33 +91,43 @@ function loadDynamicCards() {
 
         // Create the elements for child card
         let div = document.createElement('li');
-        div.setAttribute('class','nav-item');
-        // div.classList.add('class','mt-2');
-        div.setAttribute('style','width:10%;');
+        div.setAttribute('class', 'nav-item');
+        // div.setAttribute('style', 'width:10%;');
 
         let anchor = document.createElement('a');
-        anchor.setAttribute('class','nav-link ');
-        // anchor.setAttribute('class',''); 
-        // anchor.classList.add('text-decoration-none');
+        anchor.setAttribute('class', 'nav-link');
+        
+        // Add an identifier to the anchor element
+        anchor.setAttribute('data-child-id', child_response[i].child_id);
 
         let card = document.createElement('div');
-        card.setAttribute('style','height:200px');
-        // console.log(child_response[0].child_id);
-        // checking(child_response[0].child_id);
-        if (on_process === true) {
-            anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
-            anchor.setAttribute('class','active');
-            // card.classList.add('card', 'dashboard_card_style_on_process');
-            // card.classList.add('card', 'dashboard_card_style_on_process_active');
-            card.classList.add('card', 'dashboard_card_style');
-        } else {
-            anchor.setAttribute('onclick', `checking(${child_response[i].child_id})`);
-            // anchor.href = 'parent/parent_dashboard.html';
-            anchor.setAttribute('class','active');
-            // card.classList.add('card', 'dashboard_card_style1');
-            card.classList.add('card', 'dashboard_card_style');
-        }
+        card.setAttribute('style', 'height:40px');
+        // card.classList.add('card', 'dashboard_card_style');
 
+        anchor.addEventListener('click', function () {
+            // Remove 'active' class from all tabs
+            let allTabs = document.querySelectorAll('.nav-link');
+            allTabs.forEach(tab => tab.classList.remove('active'));
+
+            // Add 'active' class to the clicked tab
+            anchor.classList.add('active');
+
+            const selectedChildName = child_response[i].child_first_name;
+            const selectedChildId = child_response[i].child_id;
+            localStorage.setItem('child_name', selectedChildName);
+            localStorage.setItem('child_id', selectedChildId);
+
+            // Update the styles for the clicked tab
+           
+
+            // Call your checking function
+            checking(selectedChildId);
+        });
+        // if (on_process === true) {
+            // card.classList.add('card', 'dashboard_card_style');
+        // } else {
+        //     card.classList.add('card', 'dashboard_card_style1');
+        // }
         let cardBody = document.createElement('div');
         cardBody.classList.add('card-body');
 
@@ -121,31 +136,10 @@ function loadDynamicCards() {
         childName.classList.add('text-center', 'dashboard_card_text', 'h6');
         childName.innerHTML = child_response[i].child_first_name;
 
-        anchor.addEventListener('click', function () {
-            // card.classList.remove('card', 'dashboard_card_style_on_process');
-            // card.classList.add('card', 'dashboard_card_style_on_process_active');
-            const selectedChildName = child_response[i].child_first_name;
-            const selectedChildId = child_response[i].child_id;
-            localStorage.setItem('child_name', selectedChildName);
-            localStorage.setItem('child_id', selectedChildId); 
-            if (on_process === true) {
-                // active.classList.remove('active');
-                // card.classList.remove('card', 'dashboard_card_style_on_process_active');
-                // card.classList.add('card', 'dashboard_card_style_on_process');
-                card.classList.add('card', 'dashboard_card_style');
-            }else{
-                // card.classList.remove('card', 'dashboard_card_style_on_process_active');
-                // card.classList.add('card', 'dashboard_card_style1');
-                card.classList.add('card', 'dashboard_card_style1');
-            }
-        });
-        // card.reset();
-        // card.classList.add('card', 'dashboard_card_style_on_process');
         cardBody.appendChild(childName);
         card.appendChild(cardBody);
         anchor.appendChild(card);
         div.appendChild(anchor);
-
         parentContainer.appendChild(div);
     }
 
@@ -211,7 +205,7 @@ function loadDynamicCards() {
 }
 
 function welcomeText() {
-    const parentName = localStorage.getItem('logged_in_email');
+    const parentName = localStorage.getItem('parent_name');
     document.getElementById('welcomeText').innerHTML = 'Welcome ' + parentName;
     loadDynamicCards();
     // createAddChildButton();

@@ -37,7 +37,7 @@
 }
 
 .dashboard_card_style {
-    height: 50px !important;
+    height: 58px !important;
     background: #D8E9FF !important;
     border: 1px solid #0F2D52 !important;
     border-radius: 0px !important;
@@ -110,6 +110,8 @@ div.card-bodys{
     list-style: none;
     padding-top: 9px;
 }
-
+.nav-link.active {
+    border-color: #D8E9FF !important;
+}
 
 /*****Parent Dashboard Style End*****/

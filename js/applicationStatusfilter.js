@@ -35,24 +35,28 @@ function applicationStatusYear() {
                         // Create a new row for each data set
                         const row = document.createElement('tr');
 
-                        const childIdCell = document.createElement('td');
-                        // childIdCell.textContent = responseValue[j].child_id;
-                        row.appendChild(childIdCell);
-                        let anchor = document.createElement('a');
-                        anchor.setAttribute('class','nav-link ');
-                        anchor.textContent = responseValue[j].child_id;
-                        anchor.setAttribute('href', '/child_add.html');
-                        // checking(${responseValue[j].child_id})`);
-                        childIdCell.appendChild(anchor);
+                        // const childIdCell = document.createElement('td');
+                        // // childIdCell.textContent = responseValue[j].child_id;
+                        // row.appendChild(childIdCell);
+                        // let anchor = document.createElement('a');
+                        // anchor.setAttribute('class','nav-link ');
+                        // anchor.textContent = responseValue[j].child_id;
+                        // anchor.setAttribute('href', '/child_add.html');
+                        // // checking(${responseValue[j].child_id})`);
+                        // childIdCell.appendChild(anchor);
 
                         // Create cell for child name
                         const childNameCell = document.createElement('td');
                         childNameCell.textContent = responseValue[j].child_name;
                         row.appendChild(childNameCell);
+                          // Create cell for child name
+                          const childClassNameCell = document.createElement('td');
+                        //   childClassNameCell.textContent = responseValue[j].child_name;
+                          row.appendChild(childClassNameCell);
                         
                         const parentEmaildCell = document.createElement('td');
                         // childIdCell.textContent = responseValue[j].child_id;
-                        row.appendChild(childIdCell);
+                        // row.appendChild(childIdCell);
                         let parentemailanchor = document.createElement('a');
                         parentemailanchor.setAttribute('class','nav-link ');
                         parentemailanchor.textContent = responseValue[j].parent_email;
@@ -61,9 +65,9 @@ function applicationStatusYear() {
                         parentEmaildCell.appendChild(parentemailanchor);
                         row.appendChild(parentEmaildCell);
                         // Create cell for parent name
-                        const parentNameCell = document.createElement('td');
-                        parentNameCell.textContent = responseValue[j].parent_name;
-                        row.appendChild(parentNameCell);
+                        const SecondaryParentEmail = document.createElement('td');
+                        SecondaryParentEmail.textContent = responseValue[j].parent_two_email;
+                        row.appendChild(SecondaryParentEmail);
 
                         const applicationStatusCell = document.createElement('td');
                         applicationStatusCell.textContent = responseValue[j]. form_status;
@@ -151,9 +155,9 @@ function formdetails(val){
                     
         
                     // Create cell for parent name
-                    const parentNameCell = document.createElement('td');
-                    parentNameCell.textContent = response[j].parent_name;
-                    row.appendChild(parentNameCell);
+                    const SecondaryParentEmail = document.createElement('td');
+                    SecondaryParentEmail.textContent = response[j].parent_two_email;
+                    row.appendChild(SecondaryParentEmail);
 
                     const applicationStatusCell = document.createElement('td');
                     applicationStatusCell.textContent = response[j].admission_form_status;

@@ -3,7 +3,6 @@ import {isAuthenticated} from "./authenticationVerify.js";
 
 // Function to submit the form data
 function submitForm(editID) {
-    console.log(editID);
     const form = document.getElementById("childInfo");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
@@ -18,7 +17,6 @@ function submitForm(editID) {
         obj.child_id = child_id_val; 
     }
     const json = JSON.stringify(obj);
-    console.log(json);
     $.ajax({
         url: "http://localhost:8080/admission_child_personal/additional",
         type: "POST",
@@ -29,13 +27,11 @@ function submitForm(editID) {
             $(".success-msg-save").show();
                 setTimeout(function(){
                 $(".success-msg-save").hide();
-                // window.location.reload();
+                 window.location.reload();
                 // window.location.href = 'child_add.html';
             }, 3000);  
         },
         error: function (xhr, status, error) {
-            // console.log(error);
-            // console.log(status);
             alert("failed to save admission form");
         }
     });
@@ -43,10 +39,8 @@ function submitForm(editID) {
 
 // Function to submit the form data
 function saveForm(editID) {
-    console.log(editID);
     const form = document.getElementById("childInfo");
     const formData = new FormData(form);
-    console.log(formData);
     const obj = Object.fromEntries(formData);
     obj.on_process = true;
     const parenthanbook_details = {
@@ -86,7 +80,6 @@ function saveForm(editID) {
         obj.child_id = child_id_val; 
     }
     const json = JSON.stringify(obj);
-    console.log(json);
     $.ajax({
         url: "http://localhost:8080/admission_child_personal/additional",
         type: "POST",
@@ -154,16 +147,15 @@ $(document).ready(function () {
         //         }
         //     }
         // });
-        let editID = window.location.search.slice(4);
-        console.log(editID);
+        let editChildID = window.location.search.slice(4);
+        
         $(document).on("click", ".save-btn", function(e) {
             e.preventDefault();
-            saveForm(editID);
+            saveForm(editChildID);
         });
         $(document).on("click", ".submit-btn", function(e) {
-            console.log('submitcall')
             e.preventDefault();
-            submitForm(editID);
+            submitForm(editChildID);
         });
         $(document).on("click", ".cancel-btn", function(e) {
             e.preventDefault();

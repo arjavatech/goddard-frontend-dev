@@ -89,9 +89,9 @@ function applicationStatusYear(val) {
                     row.appendChild(parentOneEmailCell);
 
                     // Create cell for parent one email
-                    const parentOnemobileCell = document.createElement('td');
-                    parentOnemobileCell.textContent = rowData.parent_mobile;
-                    row.appendChild(parentOnemobileCell);
+                    // const parentOnemobileCell = document.createElement('td');
+                    // parentOnemobileCell.textContent = rowData.parent_mobile;
+                    // row.appendChild(parentOnemobileCell);
 
                     // Create cell for parent one email
                     const parentOneInviteStatus = document.createElement('td');
@@ -123,33 +123,34 @@ function applicationStatusYear(val) {
 }
 
 //to display child's year
-function applicationStatusAllYear() {
-    const child_id = localStorage.getItem('child_id')
-    const url = ' http://localhost:8080/parent_invite_info/all'
-    $.ajax({
-        url: url,
-        type: 'get',
-        success: function (response) {
-            let yearArray = Object.keys(response);
-            yearArray.sort().reverse();
-            let optionsData = '';
-            document.querySelector('[name="form_year"]').innerHTML = '';
-            for (let i = 0; i < yearArray.length; i++) {
-                optionsData += '<option value="' + yearArray[i] + '">' + yearArray[i]
-                                + '</option>';
-                document.querySelector('[name="form_year"]').innerHTML =
-                    optionsData;
-            }
-        }
-    });
-}
+// function applicationStatusAllYear() {
+//     const child_id = localStorage.getItem('child_id')
+//     const url = ' http://localhost:8080/parent_invite_info/all'
+//     $.ajax({
+//         url: url,
+//         type: 'get',
+//         success: function (response) {
+//             console.log(response);
+//             let yearArray = Object.keys(response);
+//             yearArray.sort().reverse();
+//             let optionsData = '';
+//             document.querySelector('[name="form_year"]').innerHTML = '';
+//             for (let i = 0; i < yearArray.length; i++) {
+//                 optionsData += '<option value="' + yearArray[i] + '">' + yearArray[i]
+//                                 + '</option>';
+//                 document.querySelector('[name="form_year"]').innerHTML =
+//                     optionsData;
+//             }
+//         }
+//     });
+// }
 
 document.addEventListener("DOMContentLoaded", function () {
     document.body.style.visibility = 'visible';
     let defaultdate = new Date().getFullYear();
     // parentDashBoardDetails(defaultdate);
     applicationStatusYear(defaultdate);
-    applicationStatusAllYear();
+    // applicationStatusAllYear();
 
     // Function to filter table data based on the search input
     function filterTable() {

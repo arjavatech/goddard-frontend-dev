@@ -25,6 +25,7 @@ function checkParentAuthentication(editID,callback) {
         success: function (response) {
             let keysToKeep = ['logged_in_email'];
             clearLocalStorageExcept(keysToKeep);
+            console.log(response['parent_name']);
             // localStorage.clear()
             if (response['parent_name']) {
                 localStorage.setItem('parent_name',response['parent_name'])
@@ -41,10 +42,8 @@ function getAllInfo(editID,callback) {
     const logged_in_email = localStorage.getItem('logged_in_email');
     let url;
     if(editID != ''){
-        console.log(editID);
         url = `http://localhost:8080/admission_child_personal/parent_email?email=${editID}`
     }else{
-        console.log(logged_in_email);
         url = `http://localhost:8080/admission_child_personal/parent_email?email=${logged_in_email}`
     }
    
@@ -52,14 +51,10 @@ function getAllInfo(editID,callback) {
         url: url,
         type: 'get',
         success: function (response) {
-            console.log(response);
-            console.log(response['children']);
             // localStorage.clear()
             if (response['children']) {
-                console.log(response['children'].length)
                 // Iterate through all the child and store the response
                 child_response = response['children'];
-                console.log(child_response);
                 localStorage.setItem('number_of_children', response['children'].length.toString());
             }
             if (typeof callback === 'function') {
@@ -71,7 +66,6 @@ function getAllInfo(editID,callback) {
 
 function responseToAuthenticationCheck() {
     const parentName = localStorage.getItem('logged_in_email');
-    console.log(parentName);
     if (parentName !== 'undefined' && parentName !== null) {
         document.body.style.visibility = 'visible';
     } else {
@@ -206,8 +200,14 @@ function loadDynamicCards() {
 
 function welcomeText() {
     const parentName = localStorage.getItem('parent_name');
-    document.getElementById('welcomeText').innerHTML = 'Welcome ' + parentName;
-    loadDynamicCards();
+   
+    if(localStorage.getItem('logged_in_email') == 'goddard01arjava@gmail.com'){
+        document.getElementById('welcomeText').innerHTML = 'Welcome Admin';
+        loadDynamicCards();
+    }else{
+        document.getElementById('welcomeText').innerHTML = 'Welcome ' + parentName;
+        loadDynamicCards();
+    }
     // createAddChildButton();
     // additionalHtmlContainer.style.display = 'block';
 }

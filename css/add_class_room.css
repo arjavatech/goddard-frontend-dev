@@ -1,0 +1,142 @@
+
+/*Styles*/
+
+
+.classroom-add-btn
+{
+    background-color: #0F2D52;
+    color: #fff;
+    padding: 8px 25px;
+    border: none;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.search-input {
+    width: 100%;
+    padding: 6px;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    color: #0F2D52 !important;
+    border: 2px solid #0F2D52 !important;
+}
+
+/* Search Icon */
+.search-icon {
+    background-color: #0F2D52;
+    color: #fff;
+    border: 2px solid #0F2D52;
+    border-radius: 0 3px 3px 0;
+    padding: 6px;
+    margin-left: -35px;
+    cursor: pointer;
+}
+
+/* Hover Effect */
+.search-button:hover,
+.search-icon:hover {
+    background-color: #21446f;
+    border: 2px solid #21446f;
+}
+
+
+.table-container {
+    max-height: 300px; /* Adjust the height as needed */
+    overflow-y: auto;
+    margin-bottom: 20px; /* Add margin to separate pagination controls */
+}
+
+.pagination {
+    text-align: center;
+}
+
+.pagination button {
+    margin: 5px;
+}
+
+.page-item.active .page-link {
+    background-color: #0F2D52 !important;
+    border-color: #0F2D52 !important;
+}
+
+a.page-link{
+    color: #0F2D52;
+}
+
+
+.table>:not(caption)>*>*{
+    padding: 21px !important;
+    border-collapse: collapse !important;
+    
+}
+
+.table-head, .table-footer{
+    background-color: #D8E9FF !important;
+    color: #0F2D52 !important;
+}
+.action-icons
+{
+    color: #0F2D52 !important;
+    cursor: pointer;
+}
+
+.action-icons:hover
+{
+    color: #3c5472;
+    cursor: pointer;
+}
+
+
+  /***Dropdown style***/
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+}
+
+select.input-lg {
+    height: 50px !important;
+    line-height: 25px !important;
+}
+
+select+i.fa {
+    float: right;
+    margin-top: -27px;
+    margin-right: 9px;
+    pointer-events: none;
+    color: #424242;
+    background-color: #FFF;
+    padding-right: 5px;
+}
+
+.input-inline {
+	display: inline;
+	width: auto;
+    border: none;
+    border-bottom: #000000 !important;
+}
+
+.input-inline:focus {
+    display: inline;
+	width: auto;
+    border: none;
+    border-bottom: #424242 !important;
+}
+
+/***Dropdown style end***/
+
+
+
+
+
+
+
+

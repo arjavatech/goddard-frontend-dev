@@ -240,15 +240,23 @@
                 </div>
                 <div class="col-9">
                     <!-- Tab panes -->
-                    <form id="childInfo"> 
+                    
                         <div class="tab-content">
                            <!--Child Information -->
-                           <div class="tab-content admissionforms" id="admissionforms"></div>
-                           <div class="tab-content authorization" id="authorization"></div>
-                           <div class="tab-content enrollmentagreement" id="enrollmentagreement"></div>
-                           <div class="tab-content parenthandbook" id="parenthandbook"></div>
-                        </div>
-                    </form> 
+                           <form id="childInfoAdmission"> 
+                                <div class="tab-content admissionforms" id="admissionforms"></div>
+                           </form>
+                           <form id="childInfoAuthorization"> 
+                                <div class="tab-content authorization" id="authorization"></div>
+                            </form>
+                            <form id="childInfoEnrollment"> 
+                                <div class="tab-content enrollmentagreement" id="enrollmentagreement"></div>
+                            </form>
+                            <form id="childInfoHandbook"> 
+                                <div class="tab-content parenthandbook" id="parenthandbook"></div>
+                            </form>
+                        </div><br>
+                    <!-- </form>  -->
                     <div  id="completedFormDetails"  class="container tab-pane fade">
                         <h2 class="text-center title_bg">Completed Forms</h2>
                         <div class="row">
@@ -327,6 +335,7 @@
                         }
                         // sort the array alphabetically
                         mainTopics.sort();
+                        console.log(mainTopics);
 
                         // iterate through the sorted array
                         for (let i = 0; i < mainTopics.length; i++) {
@@ -380,22 +389,29 @@
                         url: `http://localhost:8080/admission_child_personal/fetch/${editID}`,
                         type: 'GET',
                         //this is used to get the response and return the result
-                        success: function(response){
-                                let childbasicInfo;
-                                let childparentInfo;
-                                let additionalChildparentInfo;
-                                let childEmergencyContact;
-                                let childMedicalcare;
-                                let childParentAgreementOne;
-                                let statuscall;
+                        success: function(response)
+                        {
+                            let childbasicInfo;
+                            let childparentInfo;
+                            let additionalChildparentInfo;
+                            let childEmergencyContact;
+                            let childMedicalcare;
+                            let childParentAgreementOne;
+                            let statuscall;
                             if(document.getElementById('childinformation') !== null ) 
                             {
                                 //child information details
+                                if (typeof response.child_first_name !== "undefined")
                                 document.getElementsByClassName('child_first_name')[0].value = response.child_first_name;
+                                if (typeof response.child_last_name !== "undefined")
                                 document.getElementsByClassName('child_last_name')[0].value = response.child_last_name;
+                                if (typeof response.nick_name !== "undefined")
                                 document.getElementsByName('nick_name')[0].value = response.nick_name;
+                                if (typeof response.dob !== "undefined")
                                 document.getElementsByClassName('dob')[0].value = response.dob;
+                                if (typeof response.primary_language !== "undefined")
                                 document.getElementsByName('primary_language')[0].value = response.primary_language;
+                                if (typeof response.school_age_child_school !== "undefined")
                                 document.getElementsByName('school_age_child_school')[0].value = response.school_age_child_school;
                                 if(response.do_relevant_custody_papers_apply === "Yes" ){
                                     document.getElementById('do_relevant_custody_papers_apply1').checked = true;
@@ -434,20 +450,35 @@
                                 }
 
                                 // parent one details div
+                                if (typeof response.parent_name !== "undefined")
                                 document.getElementsByName('parent_name')[0].value = response.parent_name;
+                                if (typeof response.parent_street_address !== "undefined")
                                 document.getElementsByName('parent_street_address')[0].value = response.parent_street_address;
+                                if (typeof response.parent_city_address !== "undefined")
                                 document.getElementsByName('parent_city_address')[0].value = response.parent_city_address;
+                                if (typeof response.parent_state_address !== "undefined")
                                 document.getElementsByName('parent_state_address')[0].value = response.parent_state_address;
+                                if (typeof response.parent_zip_address !== "undefined")
                                 document.getElementsByName('parent_zip_address')[0].value = response.parent_zip_address;
+                                if (typeof response.home_telephone_number !== "undefined")
                                 document.getElementsByName('home_telephone_number')[0].value = response.home_telephone_number;
+                                if (typeof response.business_name !== "undefined")
                                 document.getElementsByName('business_name')[0].value = response.business_name;
+                                if (typeof response.work_hours !== "undefined")
                                 document.getElementsByName('work_hours')[0].value = response.work_hours;
+                                if (typeof response.business_telephone_number !== "undefined")
                                 document.getElementsByName('business_telephone_number')[0].value = response.business_telephone_number;
+                                if (typeof response.business_street_address !== "undefined")
                                 document.getElementsByName('business_street_address')[0].value = response.business_street_address;
+                                if (typeof response.business_city_address !== "undefined")
                                 document.getElementsByName('business_city_address')[0].value = response.business_city_address;
+                                if (typeof response.business_state_address !== "undefined")
                                 document.getElementsByName('business_state_address')[0].value = response.business_state_address;
+                                if (typeof response.business_zip_address !== "undefined")
                                 document.getElementsByName('business_zip_address')[0].value = response.business_zip_address;
+                                if (typeof response.business_cell_number !== "undefined")
                                 document.getElementsByName('business_cell_number')[0].value = response.business_cell_number;
+                                if (typeof response.primary_parent_email !== "undefined")
                                 document.getElementsByName('primary_parent_email')[0].value = response.primary_parent_email;
 
                                 if(typeof response.parent_name !== "undefined" && 
@@ -481,20 +512,35 @@
                                 }
 
                                 // additional parent details div
+                                if (typeof response.parent_two_name !== "undefined")
                                 document.getElementsByName('parent_two_name')[0].value = response.parent_two_name;
+                                if (typeof response.parent_two_street_address !== "undefined")
                                 document.getElementsByName('parent_two_street_address')[0].value = response.parent_two_street_address;
+                                if (typeof response.parent_two_city_address !== "undefined")
                                 document.getElementsByName('parent_two_city_address')[0].value = response.parent_two_city_address;
+                                if (typeof response.parent_two_state_address !== "undefined")
                                 document.getElementsByName('parent_two_state_address')[0].value = response.parent_two_state_address;
+                                if (typeof response.parent_two_zip_address !== "undefined")
                                 document.getElementsByName('parent_two_zip_address')[0].value = response.parent_two_zip_address;
+                                if (typeof response.parent_two_home_telephone_number !== "undefined")
                                 document.getElementsByName('parent_two_home_telephone_number')[0].value = response.parent_two_home_telephone_number;
+                                if (typeof response.parent_two_business_name !== "undefined")
                                 document.getElementsByName('parent_two_business_name')[0].value = response.parent_two_business_name;
+                                if (typeof response.parent_two_work_hours !== "undefined")
                                 document.getElementsByName('parent_two_work_hours')[0].value = response.parent_two_work_hours;
+                                if (typeof response.parent_two_business_telephone_number !== "undefined")
                                 document.getElementsByName('parent_two_business_telephone_number')[0].value = response.parent_two_business_telephone_number;
+                                if (typeof response.parent_two_business_street_address !== "undefined")
                                 document.getElementsByName('parent_two_business_street_address')[0].value = response.parent_two_business_street_address;
+                                if (typeof response.parent_two_business_city_address !== "undefined")
                                 document.getElementsByName('parent_two_business_city_address')[0].value = response.parent_two_business_city_address;
+                                if (typeof response.parent_two_business_state_address !== "undefined")
                                 document.getElementsByName('parent_two_business_state_address')[0].value = response.parent_two_business_state_address;
+                                if (typeof response.parent_two_business_zip_address !== "undefined")
                                 document.getElementsByName('parent_two_business_zip_address')[0].value = response.parent_two_business_zip_address;
+                                if (typeof response.parent_two_business_cell_number !== "undefined")
                                 document.getElementsByName('parent_two_business_cell_number')[0].value = response.parent_two_business_cell_number;
+                                if (typeof response.parent_two_email !== "undefined")
                                 document.getElementsByName('parent_two_email')[0].value = response.parent_two_email;
 
                                 if(typeof response.parent_two_name !== "undefined" && 
@@ -520,11 +566,14 @@
                                 }
 
                                 // emergency Contact Information
+                                if (typeof response.child_emergency_contact_name !== "undefined")
                                 document.getElementsByName('child_emergency_contact_name')[0].value = response.child_emergency_contact_name;
+                                if (typeof response.child_emergency_contact_full_address !== "undefined")
                                 document.getElementsByName('child_emergency_contact_full_address')[0].value = response.child_emergency_contact_full_address;
+                                if (typeof response.child_emergency_contact_relationship !== "undefined")
                                 document.getElementsByName('child_emergency_contact_relationship')[0].value = response.child_emergency_contact_relationship;
+                                if (typeof response.child_emergency_contact_telephone_number !== "undefined")
                                 document.getElementsByName('child_emergency_contact_telephone_number')[0].value = response.child_emergency_contact_telephone_number;
-
                                 if(typeof response.child_emergency_contact_name !== "undefined" && 
                                     typeof response.child_emergency_contact_full_address !== "undefined" && 
                                     typeof response.child_emergency_contact_relationship !== "undefined" &&  
@@ -546,21 +595,37 @@
                                 }
 
                                 // Child care provider Information
+                                if (typeof response.child_care_provider_name !== "undefined")
                                 document.getElementsByName('child_care_provider_name')[0].value = response.child_care_provider_name;
+                                if (typeof response.child_care_provider_telephone_number !== "undefined")
                                 document.getElementsByName('child_care_provider_telephone_number')[0].value = response.child_care_provider_telephone_number;
+                                if (typeof response.child_hospital_affiliation !== "undefined")
                                 document.getElementsByName('child_hospital_affiliation')[0].value = response.child_hospital_affiliation;
+                                if (typeof response.child_care_provider_street_address !== "undefined")
                                 document.getElementsByName('child_care_provider_street_address')[0].value = response.child_care_provider_street_address;
+                                if (typeof response.child_care_provider_city_address !== "undefined")
                                 document.getElementsByName('child_care_provider_city_address')[0].value = response.child_care_provider_city_address;
+                                if (typeof response.child_care_provider_state_address !== "undefined")
                                 document.getElementsByName('child_care_provider_state_address')[0].value = response.child_care_provider_state_address;
+                                if (typeof response.child_care_provider_zip_address !== "undefined")
                                 document.getElementsByName('child_care_provider_zip_address')[0].value = response.child_care_provider_zip_address;
+                                if (typeof response.child_dentist_name !== "undefined")
                                 document.getElementsByName('child_dentist_name')[0].value = response.child_dentist_name;
+                                if (typeof response.dentist_telephone_number !== "undefined")
                                 document.getElementsByName('dentist_telephone_number')[0].value = response.dentist_telephone_number;
+                                if (typeof response.dentist_address !== "undefined")
                                 document.getElementsByName('dentist_address')[0].value = response.dentist_address;
+                                if (typeof response.special_diabilities !== "undefined")
                                 document.getElementsByName('special_diabilities')[0].value = response.special_diabilities;
+                                if (typeof response.allergies_medication_reaction !== "undefined")
                                 document.getElementsByName('allergies_medication_reaction')[0].value = response.allergies_medication_reaction;
+                                if (typeof response.additional_info !== "undefined")
                                 document.getElementsByName('additional_info')[0].value = response.additional_info;
+                                if (typeof response.medication !== "undefined")
                                 document.getElementsByName('medication')[0].value = response.medication;
+                                if (typeof response.health_insurance !== "undefined")
                                 document.getElementsByName('health_insurance')[0].value = response.health_insurance;
+                                if (typeof response.policy_number !== "undefined")
                                 document.getElementsByName('policy_number')[0].value = response.policy_number;
 
                                 if(typeof response.child_care_provider_name !== "undefined" &&
@@ -596,7 +661,9 @@
                                 }
 
                                 // parent agreement one information
+                                if (typeof response.obtaining_emergency_medical_care !== "undefined")
                                 document.getElementsByName('obtaining_emergency_medical_care')[0].value = response.obtaining_emergency_medical_care;
+                                if (typeof response.administration_first_aid_procedures !== "undefined")
                                 document.getElementsByName('administration_first_aid_procedures')[0].value = response.administration_first_aid_procedures;
                                 if( response.agree_all_above_information_is_correct == "on" ){
                                     document.getElementById('agree_all_above_information_is_correct').checked = true;
@@ -2200,6 +2267,9 @@
                                     document.querySelector('.handbook-circle').style.display = 'block';
                                 }
                             }
+                            
+                            //to set all response value into local storage variable
+                            window.localStorage.setItem("responseData",JSON.stringify(response));
                         }
                     });
                 }else{

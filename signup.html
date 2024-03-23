@@ -238,8 +238,8 @@
                 // If invite_id is not present, redirect the user
                 if (!inviteId) {
                     window.location.href = 'login.html';
-                }else if(inviteId.match(regex)[0]){
-                    console.log(inviteId.match(regex)[0]);
+                }else if(!(inviteId.match(regex)[0])){
+                    window.location.href = 'login.html';
                 }
                 $("#signupButton").on("click", function (e) {
                     e.preventDefault(); // Prevent the default form submission

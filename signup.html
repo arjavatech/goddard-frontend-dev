@@ -232,9 +232,7 @@
                 // alert($.param('invite_id'));
                 const urlParams = new URLSearchParams(window.location.search);
                 const inviteId = urlParams.get('invite_id');
-                console.log(inviteId);
                 let regex = /^([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})+$/i;
-                console.log(inviteId.match(regex)[0]);
                 // If invite_id is not present, redirect the user
                 if (!inviteId) {
                     window.location.href = 'login.html';

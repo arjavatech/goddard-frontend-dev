@@ -96,7 +96,6 @@ function saveForm(editID) {
         
         // form.removeEventListener("submit", addStudent);
         var old = form;
-        //The cloneNode() method allows you to create a duplicate of an existing DOM element
         var new_element = old.cloneNode(true);
         //replace the element
         old.parentNode.replaceChild(new_element,old);
@@ -105,8 +104,8 @@ function saveForm(editID) {
             const formData = new FormData(form);
             const obj = Object.fromEntries(formData);
             //to get values from local storage variable and stored it into response1 variable.
-            var response1=JSON.parse(window.localStorage.getItem("responseData"));
-            console.log(response1);
+            var response=JSON.parse(window.localStorage.getItem("responseData"));
+            console.log(response);
             var outputobject ={};
             //to set local response variable id value for outputobject id value.
             if(editID != ''){
@@ -120,12 +119,17 @@ function saveForm(editID) {
                 outputobject.child_id = child_id_val; 
             }
             var keys = Object.keys(obj);
+            console.log(keys);
+            
             //compare new date with old data
             keys.forEach(function (key) {
-                if(obj[key] != response1[key] && obj[key] !=="" ){
+                if(obj[key] != response[key] && obj[key] !=="" ){
                     outputobject[key]=obj[key];
+                    console.log( outputobject[key]);
+                    console.log( obj[key]);
                 }
             })
+            console.log( outputobject);
             const json=JSON.stringify(outputobject); 
             console.log(json);   
             let xhr = new XMLHttpRequest();
@@ -253,7 +257,7 @@ $(document).ready(function () {
             e.preventDefault();
             saveForm(editChildID);
         });
-        $(document).on("click", ".submit-btn", function(e) {
+        $(document).on("click", ".admission-submit-btn", function(e) {
             e.preventDefault();
             submitForm(editChildID);
         });

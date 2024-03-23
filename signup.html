@@ -229,6 +229,7 @@
                 }
             }
             $(document).ready(function () {
+                alert($.param('invite_id'));
                 $("#signupButton").on("click", function (e) {
                     e.preventDefault(); // Prevent the default form submission
                     signupFunction();

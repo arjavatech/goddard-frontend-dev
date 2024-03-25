@@ -83,6 +83,12 @@
               color: #337ab7;
               text-decoration: none;
             }
+
+            .accordion-fixed
+            {
+                position: sticky;
+                top:0; 
+            }
         </style>
     </head>
     <body>
@@ -192,7 +198,7 @@
             </div>
             <div class="row m-1 tab_bg "  id="formdiv" >
                 <div class="col-3 p-3 side_tab_bg"><br>
-                    <div class="accordion" id="accordionExample">
+                    <div class="accordion accordion-fixed" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" 

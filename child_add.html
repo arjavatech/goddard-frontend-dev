@@ -192,7 +192,7 @@
             </div>
             <div class="row m-1 tab_bg "  id="formdiv" >
                 <div class="col-3 p-3 side_tab_bg"><br>
-                    <div class="accordion" id="accordionPanelsStayOpenExample">
+                    <div class="accordion" id="accordionExample">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" 
@@ -200,7 +200,7 @@
                                 Incomplete Forms
                                 </button>
                             </h2>
-                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show">
+                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     <div class="accordion" id="accordionExampleone">
                                         <!--Admission Form Tab-->
@@ -224,19 +224,32 @@
                                     </div>  
                                 </div>
                             </div>
-                        </div>
+                        </div><br>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Comleted Forms
+                              </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                              <div class="accordion-body">
+                                <ul class="nav nav-pills flex-column" role="tablist">
+                                    <li>
+                                        <div>
+                                            <a class="nav-link completedforms" data-bs-toggle="pill" 
+                                            href="#completedFormDetails">
+                                                <span>Forms
+                                                    <img src="image/tick.png" height="10%" width="10%" class="completedforms-tick float-end" style="display: none;">
+                                                    <img src="image/circle-with.png" height="10%" width="10%" class="completedforms-circle float-end" style="display: none;">
+                                                </span>
+                                            </a> 
+                                        </div>    
+                                    </li><br>
+                                </ul> 
+                              </div>
+                            </div>
+                          </div>
                     </div><br>  
-                    <ul class="nav nav-pills flex-column" role="tablist">
-                        <li>
-                            <a class="nav-link completedforms" data-bs-toggle="pill" 
-                            href="#completedFormDetails">
-                                <span>Completed Forms
-                                    <img src="image/tick.png" height="10%" width="10%" class="completedforms-tick float-end" style="display: none;">
-                                    <img src="image/circle-with.png" height="10%" width="10%" class="completedforms-circle float-end" style="display: none;">
-                                </span>
-                            </a> 
-                        </li><br>
-                    </ul>
                 </div>
                 <div class="col-9">
                     <!-- Tab panes -->

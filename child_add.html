@@ -370,18 +370,6 @@
                                 $('.svg').append('<svg width="12px" height="10px" viewbox="0 0 12 10"><polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg>');
                             }
                         }
-
-                        // let admin_admission_nav = document.getElementById('admin_admission');
-                        // let admin_admission = document.getElementById('adminsignature');
-                        // if (admin_admission_nav && admin_admission) { // Check if elements exist
-                        //     if (localStorage.getItem('logged_in_email') === 'goddard01arjava@gmail.com') {
-                        //         admin_admission_nav.style.display = 'block';
-                        //         admin_admission.style.display = 'block';
-                        //     } else {
-                        //         admin_admission_nav.style.display = 'none';
-                        //         admin_admission.style.display = 'none';
-                        //     }
-                        // }
                     }
                 });
                 let childName = localStorage.getItem('child_name');
@@ -1595,40 +1583,59 @@
                                 ){
                                     let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                                     parentFinalAgreement.classList.remove('disabled');
+                                     // Reset the display for both images
+                                     document.querySelector('.admission-tick').style.display = 'none';
+                                    document.querySelector('.admission-circle').style.display = 'none';
+                                    // Update the display for the clicked card
+                                    document.querySelector('.admission-tick').style.display = 'block';
                                 } else { 
                                     let parentFinalAgreement = document.getElementById('parentFinalAgreement');
                                     parentFinalAgreement.classList.add('disabled');
-                                }
-                            }
-
-                            // Admission form admin restriction
-                            if(document.getElementById('adminsignature') !== null ){
-                                if(childbasicInfo == true && childparentInfo == true && 
-                                    childEmergencyContact == true && childMedicalcare == true && 
-                                    childParentAgreementOne == true && childHistory== true && 
-                                    medicalHistory == true && pregnancyHistory == true &&
-                                    familyHistroy == true && socialBehavior == true && 
-                                    environmentalFactor == true && parentAgreementTwo == true && 
-                                    immunizationInstruction == true && childProfile == true && 
-                                    nutritionDetails == true && restDetails == true &&
-                                    medicalDetails == true && parentAgreementThree == true && 
-                                    pickupPassword == true && photoVideoPermission == true && 
-                                    securityPolicy == true && medicaltransportationWeiver == true &&
-                                    healthPolicy == true && outsideWeiver == true && admissionparentsign == true
-                                ){
-                                    // Reset the display for both images
-                                    document.querySelector('.admission-tick').style.display = 'none';
-                                    document.querySelector('.admission-circle').style.display = 'none';
-                                    // Update the display for the clicked card
-                                    document.querySelector('.admission-tick').style.display = 'block'; 
-                                } else{
-                                    // Reset the display for both images
-                                    document.querySelector('.admission-tick').style.display = 'none';
+                                      // Reset the display for both images
+                                      document.querySelector('.admission-tick').style.display = 'none';
                                     document.querySelector('.admission-circle').style.display = 'none';
                                     // Update the display for the clicked card
                                     document.querySelector('.admission-circle').style.display = 'block';
                                 }
                             }
+                            
+                            console.log(localStorage.getItem('logged_in_email'))
+                            if (localStorage.getItem('logged_in_email') !== 'goddard01arjava@gmail.com') {
+                                let adminFinalAgreement = document.getElementById('adminFinalAgreement');
+                                adminFinalAgreement.classList.add('disabled');
+                            } else {
+                                let adminFinalAgreement = document.getElementById('adminFinalAgreement');
+                                adminFinalAgreement.classList.remove('disabled');
+                            }
+
+                            // Admission form admin restriction
+                            // if(document.getElementById('adminsignature') !== null ){
+                            //     if(childbasicInfo == true && childparentInfo == true && 
+                            //         childEmergencyContact == true && childMedicalcare == true && 
+                            //         childParentAgreementOne == true && childHistory== true && 
+                            //         medicalHistory == true && pregnancyHistory == true &&
+                            //         familyHistroy == true && socialBehavior == true && 
+                            //         environmentalFactor == true && parentAgreementTwo == true && 
+                            //         immunizationInstruction == true && childProfile == true && 
+                            //         nutritionDetails == true && restDetails == true &&
+                            //         medicalDetails == true && parentAgreementThree == true && 
+                            //         pickupPassword == true && photoVideoPermission == true && 
+                            //         securityPolicy == true && medicaltransportationWeiver == true &&
+                            //         healthPolicy == true && outsideWeiver == true && admissionparentsign == true
+                            //     ){
+                            //         // Reset the display for both images
+                            //         document.querySelector('.admission-tick').style.display = 'none';
+                            //         document.querySelector('.admission-circle').style.display = 'none';
+                            //         // Update the display for the clicked card
+                            //         document.querySelector('.admission-tick').style.display = 'block'; 
+                            //     } else{
+                            //         // Reset the display for both images
+                            //         document.querySelector('.admission-tick').style.display = 'none';
+                            //         document.querySelector('.admission-circle').style.display = 'none';
+                            //         // Update the display for the clicked card
+                            //         document.querySelector('.admission-circle').style.display = 'block';
+                            //     }
+                            // }
 
                             //enrollment data
                             let enrollmentDetails;

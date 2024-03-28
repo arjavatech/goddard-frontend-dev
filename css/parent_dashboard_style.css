@@ -80,12 +80,13 @@
     box-shadow: none !important;
 }
 
-.form-control {
+/* .form-control {
     color: #0F2D52 !important;
     font-weight: 700 !important;
     width: 70% !important;
     border: 2px solid #0F2D52 !important;
-}
+} */
+
 .selectDropdown{
     color: #0F2D52 !important;
     font-weight: 700 !important;

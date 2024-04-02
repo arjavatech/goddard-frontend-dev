@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Forms Repository</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="../image/gs_logo_tab.png" type="image/png">
+        <link rel="stylesheet" href="../css/navbar_signout_style.css">
+        <link rel="stylesheet" href="../css/admin_dashboard.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+        <style>
+            html
+            {
+                font-size: medium;
+            }
+
+            /***Dropdown style***/
+
+            select {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                -o-appearance: none;
+                appearance: none;
+            }
+
+            select.input-lg {
+                height: 50px !important;
+                line-height: 25px !important;
+            }
+
+            select+i.fa {
+                float: right;
+                margin-top: -27px;
+                margin-right: 9px;
+                pointer-events: none;
+                color: #424242;
+                background-color: #FFF;
+                padding-right: 5px;
+            }
+
+            .input-inline {
+                display: inline;
+                width: auto;
+                border: none;
+                border-bottom: #000000 !important;
+            }
+
+            .input-inline:focus {
+                display: inline;
+                width: auto;
+                border: none;
+                border-bottom: #424242 !important;
+            }
+
+            /***Dropdown style end***/
+        </style>
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar_bg">
+            <!--Side Menu Bar-->
+            <div class="row">
+                <div class="col-2">
+                    <button class="btn btn-primary m-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </button>
+                    
+                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                        <div class="offcanvas-header p-3">
+                            <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" style="color:#0F2D52">Admin Menu</h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="nav nav-pills flex-column mb-auto">
+                                <li class="nav-item">
+                                    <a href="../admin_dashboard.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-bar-chart-fill p-2" viewBox="0 0 16 16">
+                                        <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"/>
+                                        </svg>Dashboard</a>
+                                    <a href="../admin/invite_parent.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                        class="bi bi-plus-circle-fill p-2" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>Invite Parent</a>
+                                    <a href="../admin/application_status.html" class="nav-link"> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                        class="bi bi-file-text-fill p-2" viewBox="0 0 16 16">
+                                        <path
+                                            d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z" />
+                                    </svg>Application Status</a>
+                                    <a href="../admin/parent_details.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-people-fill p-2" viewBox="0 0 16 16">
+                                        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                                    </svg>Parent Details</a>
+                                    <a href="../admin/formsrepository.html" class="nav-link active"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-file-earmark-text-fill p-2" viewBox="0 0 16 16">
+                                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z"/>
+                                    </svg>Forms Repository</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Side Menu Bar End -->
+                <div class="col-8">
+                    <div class="text-center m-2">
+                        <img src="../image/gs_logo_lynnwood.png" alt="gs_logo_lynnwood" type="image/png" width="476px" height="112px">
+                    </div>
+                </div>
+                <div class="col-2">   
+                    <div id="btn-signout" class="btn signout">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Sign Out</b>
+                    </div>
+                </div>            
+            </div>
+        </nav><br>
+        <!-- Navigation Bar End -->
+        <!-- Admin dashboard -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-8 form_details">
+                    <div class="card" style="background: #D8E9FF;">
+                        <h2 class="admin_dashboard_title h2 pt-4 text-center">Forms Repository</h2>       
+                        <div class="container">
+                            <div class="row m-5">
+                                <div class="col-sm-4">
+                                    <div class="form-group"> 
+                                        <label class="col-form-label">Inactive Forms</label>
+                                        <select class="form-control float-end" size="6" multiple>
+                                            <option value="admission">Admission</option>
+                                            <option value="enrollment">Enrollment</option>
+                                            <option value="authorization">Authorization</option>
+                                            <option value="parenthandbook">Parent Handbook</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 text-center">
+                                    <div class="col-sm pt-5 mb-3"><button type="button" class="btn btn-primary btn-bg">></button></div>
+                                    <div class="col-sm mb-3"><button type="button" class="btn btn-primary btn-bg"><</button></div>
+                                    <div class="col-sm"><button id="submitButton" type="button" class="btn btn-primary btn-bg">Submit</button></div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group"> 
+                                        <label class="col-form-label">Active Forms</label>
+                                        <select class="form-control float-end" size="6" multiple>
+                                            <option value="admission">Admission</option>
+                                            <option value="enrollment">Enrollment</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row m-4">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label class="col-form-label">Active Forms</label>
+                                        <select class="form-control">
+                                            <option selected disabled>Select Form</option>
+                                            <option value="Form 1">Form 1</option>
+                                            <option value="Form 2">Form 2</option>
+                                            <option value="Form 3">Form 3</option>
+                                        </select>
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group"> 
+                                        <label class="col-form-label">Class Room</label>
+                                        <select class="form-control">
+                                            <option selected disabled>Select Room</option>
+                                            <option value="room 1">Room 1</option>
+                                            <option value="room 2">Room 2</option>
+                                            <option value="room 3">Room 3</option>
+                                        </select>
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group"> 
+                                        <label class="col-form-label">Child Name</label>
+                                        <select class="form-control">
+                                            <option selected disabled>Select Name</option>
+                                            <option value="Name 1">Name 1</option>
+                                            <option value="Name 2">Name 2</option>
+                                            <option value="Name 3">Name 3</option>
+                                        </select>
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center m-5">
+                                <button id="sendButton" type="button" class="btn btn-primary btn-bg">Send</button>
+                            </div>
+                        </div>  
+                    </div>    
+                </div>
+            </div>         
+        </div>
+    </body>
+</html>

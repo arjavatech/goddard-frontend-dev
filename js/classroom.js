@@ -3,14 +3,14 @@ import {isAuthenticated} from "./authenticationVerify.js";
 
 // Function to submit the form data
 function submitForm() {
-    const form = document.getElementById("childInfoAdmission");
+    const form = document.getElementById("classRoomForm");
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     const json = JSON.stringify(obj);
     console.log(json);
     $.ajax({
-        url: "http://localhost:8080/admission_child_personal/modify",
-        type: "PUT",
+        url: "http://localhost:8080/ClassId_ClassName_info/add",
+        type: "POST",
         contentType: "application/json",
         data: json,
         success: function (response) {
@@ -29,15 +29,15 @@ function submitForm() {
 }
 
 $(document).ready(function () {
-    if (!isAuthenticated()) {
-        window.location.href = 'login.html';
-    } else {
-        document.body.style.visibility = 'visible';
-        $(document).on("click", ".submit-btn", function(e) {
+    // if (!isAuthenticated()) {
+    //     window.location.href = 'login.html';
+    // } else {
+    //     document.body.style.visibility = 'visible';
+        $(document).on("click", "#classroonbtn", function(e) {
             e.preventDefault();
-            submitForm(editChildID);
+            submitForm();
         });
-    }
+    // }
 });
 
 

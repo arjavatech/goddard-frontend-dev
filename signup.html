@@ -180,6 +180,7 @@
                         // Replace the original password with the hashed password in the form data
                         formData.set("password", hashedPassword);
                         const obj = Object.fromEntries(formData);
+                        obj.invite_id = window.localStorage.getItem('inviteData');
                         console.log(obj);
                         if(obj.email_id === 'goddard01arjava@gmail.com' || obj.email_id === 'goddard02arjava@gmail.com'){
                             obj.admin = true;
@@ -229,11 +230,27 @@
                 }
             }
             $(document).ready(function () {
+                // Check if the URL contains an invite_id parameter
+                const urlParams = new URLSearchParams(window.location.search);
+                const inviteId = urlParams.get('invite_id');
+                let regex = /^([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})+$/i;
+                // If invite_id is not present, redirect the user
+                if (!inviteId) {
+                    window.location.href = 'login.html';
+                }else if(!(inviteId.match(regex))){
+                    window.location.href = 'login.html';
+                }else{
+                    window.localStorage.setItem('inviteData',inviteId)
+                }
                 $("#signupButton").on("click", function (e) {
                     e.preventDefault(); // Prevent the default form submission
                     signupFunction();
                 });
             });
+        </script>
+        <script>
+            // Check if the URL contains an invite_id parameter
+           
         </script>
     </body>
 </html>

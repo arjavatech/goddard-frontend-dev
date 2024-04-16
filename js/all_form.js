@@ -43,11 +43,193 @@ function submitForm(editID) {
             alert("failed to save admission form");
         }
     };
-    xhr.open("PUT", "http://localhost:8080/admission_child_personal/modify");
+    xhr.open("PUT", "http://localhost:8080/admission_child_additional/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
 
+function childPersonalsubmitForm(editID) {
+    const form = document.getElementById("childInfoAdmission");
+    var old = form;
+    var new_element = old.cloneNode(true);
+    //replace the element
+    old.parentNode.replaceChild(new_element,old);
+    const formData = new FormData(form);
+    const obj = Object.fromEntries(formData);
+    obj.form_year_admission = year;
+    //to get values from local storage variable and stored it into response1 variable.
+    var response=JSON.parse(window.localStorage.getItem("responseData"));
+    var outputobject ={};
+    //to set local response variable id value for outputobject id value.
+    if(editID != ''){
+        outputobject.primary_parent_email = editID;
+    }else{
+        outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
+    }
+    const child_id_val = localStorage.getItem('child_id');
+
+    if (child_id_val !== null && child_id_val !== undefined) {
+        outputobject.child_id = child_id_val; 
+    }
+    var keys = Object.keys(obj);
+    
+    //compare new date with old data
+    keys.forEach(function (key) {
+        if(obj[key] != response[key] && obj[key] !=="" ){
+            outputobject[key]=obj[key];
+        }
+    })
+    const json=JSON.stringify(outputobject); 
+    let xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+            // alert(response.message)
+            window.location.reload();
+        }else{
+            alert("failed to save admission form");
+        }
+    };
+    xhr.open("PUT", "http://localhost:8080/admission_child_personal/modify");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(json);
+}
+function childParentsubmitForm(editID) {
+    console.log('king')
+    const form = document.getElementById("childInfoAdmission");
+    var old = form;
+    var new_element = old.cloneNode(true);
+    //replace the element
+    old.parentNode.replaceChild(new_element,old);
+    const formData = new FormData(form);
+    const obj = Object.fromEntries(formData);
+    obj.form_year_admission = year;
+    //to get values from local storage variable and stored it into response1 variable.
+    var response=JSON.parse(window.localStorage.getItem("responseData"));
+    var outputobject ={};
+    //to set local response variable id value for outputobject id value.
+    if(editID != ''){
+        outputobject.primary_parent_email = editID;
+    }else{
+        outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
+    }
+    const child_id_val = localStorage.getItem('child_id');
+
+    if (child_id_val !== null && child_id_val !== undefined) {
+        outputobject.child_id = child_id_val; 
+    }
+    var keys = Object.keys(obj);
+    
+    //compare new date with old data
+    keys.forEach(function (key) {
+        if(obj[key] != response[key] && obj[key] !=="" ){
+            outputobject[key]=obj[key];
+        }
+    })
+    const json=JSON.stringify(outputobject); 
+    console.log(json)
+    let xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+            alert(response.message);
+            window.location.reload();
+        }else{
+            alert("failed to save admission form");
+        }
+    };
+    xhr.open("PUT", "http://localhost:8080/admission_parent_info/update");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(json);
+}
+function childHistorysubmitForm(editID) {
+    const form = document.getElementById("childInfoAdmission");
+    var old = form;
+    var new_element = old.cloneNode(true);
+    //replace the element
+    old.parentNode.replaceChild(new_element,old);
+    const formData = new FormData(form);
+    const obj = Object.fromEntries(formData);
+    obj.form_year_admission = year;
+    //to get values from local storage variable and stored it into response1 variable.
+    var response=JSON.parse(window.localStorage.getItem("responseData"));
+    var outputobject ={};
+    //to set local response variable id value for outputobject id value.
+    if(editID != ''){
+        outputobject.primary_parent_email = editID;
+    }else{
+        outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
+    }
+    const child_id_val = localStorage.getItem('child_id');
+
+    if (child_id_val !== null && child_id_val !== undefined) {
+        outputobject.child_id = child_id_val; 
+    }
+    var keys = Object.keys(obj);
+    
+    //compare new date with old data
+    keys.forEach(function (key) {
+        if(obj[key] != response[key] && obj[key] !=="" ){
+            outputobject[key]=obj[key];
+        }
+    })
+    const json=JSON.stringify(outputobject); 
+    let xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+            // alert(response.message)
+            window.location.reload();
+        }else{
+            alert("failed to save admission form");
+        }
+    };
+    xhr.open("PUT", " http://localhost:8080/admission_child_health/update");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(json);
+}
+function childProfilesubmitForm(editID) {
+    const form = document.getElementById("childInfoAdmission");
+    var old = form;
+    var new_element = old.cloneNode(true);
+    //replace the element
+    old.parentNode.replaceChild(new_element,old);
+    const formData = new FormData(form);
+    const obj = Object.fromEntries(formData);
+    obj.form_year_admission = year;
+    //to get values from local storage variable and stored it into response1 variable.
+    var response=JSON.parse(window.localStorage.getItem("responseData"));
+    var outputobject ={};
+    //to set local response variable id value for outputobject id value.
+    if(editID != ''){
+        outputobject.primary_parent_email = editID;
+    }else{
+        outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
+    }
+    const child_id_val = localStorage.getItem('child_id');
+
+    if (child_id_val !== null && child_id_val !== undefined) {
+        outputobject.child_id = child_id_val; 
+    }
+    var keys = Object.keys(obj);
+    
+    //compare new date with old data
+    keys.forEach(function (key) {
+        if(obj[key] != response[key] && obj[key] !=="" ){
+            outputobject[key]=obj[key];
+        }
+    })
+    const json=JSON.stringify(outputobject); 
+    let xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+            // alert(response.message)
+            window.location.reload();
+        }else{
+            alert("failed to save admission form");
+        }
+    };
+    xhr.open("PUT", "http://localhost:8080/admission_child_profile/update");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(json);
+}
 // Function to submit the form data
 // function saveForm(editID) {
 //     const form = document.getElementById("childInfoAdmission");
@@ -141,7 +323,7 @@ function saveForm(editID) {
             alert("failed to save admission form");
         }
     };
-    xhr.open("PUT", "http://localhost:8080/admission_child_personal/modify");
+    xhr.open("PUT", "http://localhost:8080/admission_child_additional/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -472,35 +654,25 @@ $(document).ready(function () {
     } else {
         document.body.style.visibility = 'visible';
         let samplejson = {};
-        // $.ajax({
-        //     url: `http://localhost:8080/goddard_all_form/all_active_forms`,
-        //     type: 'GET',
-        //     success: function(response){
-        //         // extract main_topic values and store them in an array
-        //         let mainTopics = [];
-        //         for (let res in response) {
-        //             mainTopics.push(response[res].main_topic);
-        //         }
-        //         // sort the array alphabetically
-        //         mainTopics.sort();
-        //         console.log(mainTopics);
-        //         // iterate through the sorted array
-        //         for (let i = 0; i < mainTopics.length; i++) {
-        //             let mainTopic = mainTopics[i];
-        //             let trimValues = mainTopic.replace(/\s+/g,'').toLowerCase();
-
-        //             $.get(trimValues + "ListItem.html", function(data) {
-        //                 $("#menu").append(data);
-        //             });
-        //             if (trimValues == 'admissionforms' || trimValues == 'authorization' || trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
-        //                 $(`.tab-content.${trimValues}`).load(trimValues + ".html"); // Assuming classes like 'admissionforms', 'authorization', etc.
-        //                 $('.svg').append('<svg width="12px" height="10px" viewbox="0 0 12 10"><polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg>');
-        //             }
-        //         }
-        //     }
-        // });
         let editChildID = window.location.search.slice(4);
         console.log(editChildID);
+        $(document).on("click", ".child_personal_admission", function(e) {
+            e.preventDefault();
+            childPersonalsubmitForm(editChildID);
+        });
+        $(document).on("click", ".child_parent_info", function(e) {
+            e.preventDefault();
+            console.log('chec')
+            childParentsubmitForm(editChildID);
+        });
+        $(document).on("click", ".child_health", function(e) {
+            e.preventDefault();
+            childHistorysubmitForm(editChildID);
+        });
+        $(document).on("click", ".child-profile-btn", function(e) {
+            e.preventDefault();
+            childProfilesubmitForm(editChildID);
+        });
         $(document).on("click", ".save-btn", function(e) {
             e.preventDefault();
             saveForm(editChildID);

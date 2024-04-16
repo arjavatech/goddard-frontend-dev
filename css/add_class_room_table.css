@@ -383,7 +383,7 @@ table.dataTable td {
 }
 
 .dataTables_wrapper .dataTables_length select {
-    border: 1px solid #aaa;
+    border: 1px solid #999999;
     border-radius: 3px;
     padding: 5px;
     background-color: transparent;
@@ -396,7 +396,7 @@ table.dataTable td {
 }
 
 .dataTables_wrapper .dataTables_filter input {
-    border: 2px solid #0F2D52;
+    border: 1px solid #999999;
     border-radius: 3px;
     padding: 5px;
     background-color: transparent;

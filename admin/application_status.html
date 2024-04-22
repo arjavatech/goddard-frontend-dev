@@ -212,7 +212,7 @@
             <div class="row">
                 <!-- Year dynamic dropdown End -->
                 <div class="col-3">
-                    <div class="form-group"> 
+                    <!-- <div class="form-group"> 
                         <select class="form-control">
                             <option selected disabled>Class Name</option>
                             <option value="Full Use">Name 1</option>
@@ -220,7 +220,7 @@
                             <option value="No Photos">Name 3</option>
                         </select>
                         <i class="fa fa-chevron-down"></i>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- <div class="col-4 search-container">
                     <input type="text" id="searchInput" class=" search-input" 
@@ -245,18 +245,33 @@
                     <div class="table-wrapper">
                         <!-- Form Action Table -->
                         <table id="example" class="display nowrap" style="width:100%" frame ="box" rules ="all">  
-                            <thead class="table-head">
-                                    
-                                    <th>child_name</th>
-                                    <th>child_class_name</th>
-                                    <th>parent_email</th>
-                                    <th>parent_two_email</th>
-                                    <th>form_status</th>
+                            <thead>
+                                <th>child_name</th>
+                                <th>child_class_name</th>
+                                <th>parent_email</th>
+                                <th>parent_two_email</th>
+                                <th>form_status</th>
+                                <th>Action</th>
                             </thead>
                             <tbody></tbody>
                         </table>
                         <!-- Form Action Table End -->
                     </div>
+                
+                    <!-- <div class="position-relative p-4">
+                        <div class="position-absolute top-50 start-50 translate-middle">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item disabled" id="prevPage">
+                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                    </li>
+                                    <li class="page-item" id="nextPage">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -289,11 +304,26 @@
                     },
                     //it is used to define and configure the individual columns of the table.
                     columns: [
-                        { data: 'child_name'},
+                        { data: 'child_name',
+                            render: function ( data, type, full, meta ) {
+                                console.log(full);
+                                window.location.replace = `${window.location.origin}/child_add.html?id=${full.parent_email}`;
+                                let url =`${window.location.origin}/child_add.html?id=${full.parent_email} ` //Question
+                               return `<a href="${url}">${full.child_name}</a>`;
+                            },
+                        },
                         { data: 'child_class_name'},
                         { data: 'parent_email'},
                         { data: 'parent_two_email'},
                         { data: 'form_status'},
+                        { data: 'edit',
+                            render: function ( data, type, full, meta ) {
+                                window.location.replace = `${window.location.origin}/admin/addclassroom.html?id=${full.id} `;
+                                let url =`${window.location.origin}/admin/addclassroom.html?id=${full.id}` //Question
+                               return '<a href="'+ url +'"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="17" height="17" class="action-icons m-2" id="editbutton" name="editbutton"><path fill="#0F2D52" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="17" height="17" class="action-icons m-2" id="deletebutton"  name="deletebutton"><path fill="#bb1b1b" d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/></svg></a>';
+                               //return '<a href="'+ url +'"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9RvaUyBbAGaB9dcdAZxQvJJHKnd8vqQpsqgJpRuNrFCwk2ZY5vl5RgEj_b2wcGXW8OwE&usqp=CAU" id="editbutton"  name="editbutton"  height="20px;" style="text-align:right !important;"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton"  name="deletebutton"  height="20px;" style="text-align:right !important;cursor: pointer !important;"></a>';
+                            },
+                        },
                     ],
                     "pageLength": 5,
                 });

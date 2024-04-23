@@ -276,7 +276,7 @@
                             </form>
                         </div><br>
                     <!-- </form>  -->
-                    <div  id="completedFormDetails"  class="container tab-pane fade">
+                    <div  id="completedFormDetails"  class="container tab-pane fade"> 6;
                         <h2 class="text-center title_bg">Completed Forms</h2>
                         <div class="row">
                             <div class="col-1"></div>
@@ -336,6 +336,8 @@
         <!--Admission Form End-->
         <script>
             function checking(editID){
+                console.log(editID);
+                window.localStorage.setItem('editChildId',editID);
                 // var tab_content = document.querySelector(".tab-content");
                 // tab_content.reset();
                 $.ajax({
@@ -377,11 +379,12 @@
                 let childName = localStorage.getItem('child_name');
                 // Find the anchor tag with class "nav-link"
                 var link = document.querySelector(".completedforms");
+                let year = new Date().getFullYear();
                 // Add click event listener
                 link.addEventListener("click", function(event) {
                     // Prevent the default behavior of the anchor tag
                     event.preventDefault();
-                    parentDashBoardDetails(editID,childName);
+                    parentDashBoardDetails(editID,year);
                 });
 
                 if(editID != ''){
@@ -2308,10 +2311,12 @@
                 }
             }
             
-            function parentDashBoardDetails(editID,childName) {
-                document.querySelector('[id="childName"]').innerHTML =childName;
+            function parentDashBoardDetails(editID,year) {
+                console.log(editID);
+                console.log(year);
+                document.querySelector('[id="childName"]').innerHTML = localStorage.getItem('child_name');;
                 // localStorage.setItem('form_year_value', val);
-                let year = new Date().getFullYear();
+                // let year = new Date().getFullYear();
                 $.ajax({
                     url: `http://localhost:8080/admission_child_personal/completed_form_status/${editID}?year${year}`,
                     type: 'get',
@@ -2363,10 +2368,10 @@
                 for (i = endYear; i > startYear; i--)
                 {
                     // $(val).append($('<option />').val(i).html(i));
-                    $(val).append($('<option onclick=""/>').val(`${i}`).html(`${i}`));
+                    $(val).append($(`<option onclick="parentDashBoardDetails(${localStorage.getItem('editChildId')},this.value)"/>`).val(`${i}`).html(`${i}`));
                 }
                 //restrict future data
-                document.getElementById(val).max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+                // document.getElementById(val).max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
             }
         </script>
     </body>

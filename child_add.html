@@ -286,13 +286,9 @@
                             <div class="col-2"></div>
                             <div class="col-4"></div>
                             <div class="col-2">
-                                <div class="form-group pt-3"> 
-                                    <select class="form-control float-end">
-                                        <option selected disabled>Year</option>
-                                        <option value="Full Use">2023</option>
-                                        <option value="In-House Only">2022</option>
-                                        <option value="No Photos">2021</option>
-                                    </select>
+                                <div class="form-group pt-3">
+                                    <label for="year" class="wizard-form"> <b>Year </b></label>
+                                    <select name="year" id="year" class="form-control float-end" onclick="yearBasedFormDetails(this)" required></select>
                                     <i class="fa fa-chevron-down"></i>
                                 </div>
                             </div>
@@ -2315,14 +2311,13 @@
             function parentDashBoardDetails(editID,childName) {
                 document.querySelector('[id="childName"]').innerHTML =childName;
                 // localStorage.setItem('form_year_value', val);
+                let year = new Date().getFullYear();
                 $.ajax({
-                    url: `http://localhost:8080/admission_child_personal/completed_form_status/${editID}`,
+                    url: `http://localhost:8080/admission_child_personal/completed_form_status/${editID}?year${year}`,
                     type: 'get',
                     success: function (response) {
                         console.log(response);
                             const tableBody = document.getElementById('tableBody');
-                            // Clear the existing table row
-                            // tableBody.innerHTML = '';
                             response.completedFormStatus.forEach(data => {
                                 const newRow = document.createElement('tr');
 
@@ -2361,8 +2356,17 @@
                 });
             }
         
-            function yearBasedFormDetails(){
-                
+            function yearBasedFormDetails(val){
+               //this function is uesd to restrict future year 
+                let startYear = 2021;
+                let endYear = new Date().getFullYear();
+                for (i = endYear; i > startYear; i--)
+                {
+                    // $(val).append($('<option />').val(i).html(i));
+                    $(val).append($('<option onclick=""/>').val(`${i}`).html(`${i}`));
+                }
+                //restrict future data
+                document.getElementById(val).max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
             }
         </script>
     </body>

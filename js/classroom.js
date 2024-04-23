@@ -33,7 +33,7 @@ $(document).ready(function () {
     //     window.location.href = 'login.html';
     // } else {
     //     document.body.style.visibility = 'visible';
-        $(document).on("click", "#classroonbtn", function(e) {
+        $(document).on("click", "#classroombtn", function(e) {
             e.preventDefault();
             submitForm();
         });

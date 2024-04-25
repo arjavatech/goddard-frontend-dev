@@ -89,6 +89,12 @@
                 position: sticky;
                 top:0; 
             }
+
+            .side-menu
+            {
+                background: #0F2D52;
+                color: #fff;
+            }
         </style>
     </head>
     <body>
@@ -195,7 +201,7 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" 
                                 data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                Incomplete Forms
+                                Forms Status
                                 </button>
                             </h2>
                             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -210,20 +216,31 @@
                                                 </button>
                                             </h2> -->
                                             <ul class="nav nav-pills flex-column tab-content menu" role="tablist" id="menu">
+                                                <h4 class="text-center p-2 side-menu">Incomplete</h4>
                                                 <div class="menu">
                                                     <!--Child Information -->
                                                     <div class="menu admissionforms"></div>
                                                     <div class="menu authorization"></div>
                                                     <div class="menu enrollmentagreement"></div>
                                                     <div class="menu parenthandbook"></div>
-                                                 </div>
+                                                </div><br>
+                                                <h4 class="text-center p-2 side-menu">Completed</h4>
+                                                <li>
+                                                    <a class="nav-link completedforms" data-bs-toggle="pill" 
+                                                    href="#completedFormDetails">
+                                                        <span>Forms
+                                                            <img src="image/tick.png" height="10%" width="10%" class="completedforms-tick float-end" style="display: none;">
+                                                            <img src="image/circle-with.png" height="10%" width="10%" class="completedforms-circle float-end" style="display: none;">
+                                                        </span>
+                                                    </a>    
+                                                </li>
                                             </ul>
                                         </div><br>
                                     </div>  
                                 </div>
                             </div>
                         </div><br>
-                        <div class="accordion-item">
+                        <!-- <div class="accordion-item">
                             <h2 class="accordion-header">
                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 Comleted Forms
@@ -246,7 +263,7 @@
                                 </ul> 
                               </div>
                             </div>
-                          </div>
+                        </div> -->
                     </div><br>  
                 </div>
                 <div class="col-9">
@@ -268,63 +285,65 @@
                             </form>
                         </div><br>
                     <!-- </form>  -->
-                    <div  id="completedFormDetails"  class="container tab-pane fade">
-                        <h2 class="text-center title_bg">Completed Forms</h2>
-                        <div class="row">
-                            <div class="col-1"></div>
-                            <div class="col-2 p-3">
-                                <h4>Child :<span id="childName"></span></h4>
-                            </div>
-                            <div class="col-2"></div>
-                            <div class="col-4"></div>
-                            <div class="col-2">
-                                <div class="form-group pt-3"> 
-                                    <select class="form-control float-end">
-                                        <option selected disabled>Year</option>
-                                        <option value="Full Use">2023</option>
-                                        <option value="In-House Only">2022</option>
-                                        <option value="No Photos">2021</option>
-                                    </select>
-                                    <i class="fa fa-chevron-down"></i>
+                    <div  id="completedFormDetails"  class="container tab-pane fade pt-3">
+                        <div class="card">
+                            <h2 class="text-center title_bg">Completed Forms</h2>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-2 p-3">
+                                    <h4>Child :<span id="childName"></span></h4>
                                 </div>
+                                <div class="col-2"></div>
+                                <div class="col-4"></div>
+                                <div class="col-2">
+                                    <div class="form-group pt-3"> 
+                                        <select class="form-control float-end">
+                                            <option selected disabled>Year</option>
+                                            <option value="Full Use">2023</option>
+                                            <option value="In-House Only">2022</option>
+                                            <option value="No Photos">2021</option>
+                                        </select>
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                                <div class="col-2"></div>
                             </div>
-                            <div class="col-2"></div>
-                        </div>
-                        <div class="d-flex justify-content-center">
-                            <div class="container" style="margin-top: 20px;">
-                                <div class="table-wrapper">
-                                    <table class="table">
-                                        <thead class="table-head">
-                                            <tr>
-                                                <th>Form Name</th>
-                                                <th>Form Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tableBody"></tbody>
-                                        <tfoot class="table-footer">
-                                            <tr>
-                                                
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                    <div class="position-relative p-4">
-                                        <div class="position-absolute top-50 start-50 translate-middle">
-                                            <nav aria-label="Page navigation example">
-                                                <ul class="pagination justify-content-end">
-                                                    <li class="page-item disabled" id="prevPage">
-                                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                                    </li>
-                                                    <li class="page-item" id="nextPage">
-                                                        <a class="page-link" href="#">Next</a>
-                                                    </li>
-                                                </ul>
-                                            </nav>
+                            <div class="d-flex justify-content-center">
+                                <div class="container" style="margin-top: 20px;">
+                                    <div class="table-wrapper">
+                                        <table class="table">
+                                            <thead class="table-head">
+                                                <tr>
+                                                    <th>Form Name</th>
+                                                    <th>Form Actions</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tableBody"></tbody>
+                                            <tfoot class="table-footer">
+                                                <tr>
+                                                    
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                        <div class="position-relative p-4">
+                                            <div class="position-absolute top-50 start-50 translate-middle">
+                                                <nav aria-label="Page navigation example">
+                                                    <ul class="pagination justify-content-end">
+                                                        <li class="page-item disabled" id="prevPage">
+                                                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                                        </li>
+                                                        <li class="page-item" id="nextPage">
+                                                            <a class="page-link" href="#">Next</a>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                    
                             </div>
-                
-                        </div>
+                        </div>    
                     </div> 
                 </div>
             </div>

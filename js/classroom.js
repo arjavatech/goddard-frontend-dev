@@ -85,6 +85,7 @@ form.addEventListener("submit", (e) => {
     });
 });
 
+
 $(document).ready(function () {
     // if (!isAuthenticated()) {
     //     window.location.href = 'login.html';

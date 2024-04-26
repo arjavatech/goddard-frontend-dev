@@ -111,6 +111,13 @@
                 text-decoration: none;
                 border: none;
             }
+
+            .card_center
+            {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
         </style>
     </head>
     <body>
@@ -118,29 +125,72 @@
         <nav class="navbar_bg">
             <!--Side Menu Bar-->
             <div class="row">
-                
-                <!-- Side Menu Bar End -->
-                <div class="col-10">
-                    <div class="text-center m-2">
-                        <img src="../image/gs_logo_lynnwood.png" alt="gs_logo_lynnwood" type="image/png" width="476px"
-                            height="112px">
+                <div class="col-2">
+                    <button class="btn btn-primary m-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </button>
+                    
+                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                        <div class="offcanvas-header p-3">
+                            <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" style="color:#0F2D52">Admin Menu</h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body">
+                            <ul class="nav nav-pills flex-column mb-auto">
+                                <li class="nav-item">
+                                    <a href="../admin_dashboard.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-bar-chart-fill p-2" viewBox="0 0 16 16">
+                                        <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"/>
+                                        </svg>Dashboard</a>
+                                    <a href="../admin/invite_parent.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                        class="bi bi-plus-circle-fill p-2" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>Invite Parent</a>
+                                    <a href="../admin/addchild.html" class="nav-link active"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="p-2" viewBox="0 0 576 512"><path d="M112 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm40 304V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V256.9L59.4 304.5c-9.1 15.1-28.8 20-43.9 10.9s-20-28.8-10.9-43.9l58.3-97c17.4-28.9 48.6-46.6 82.3-46.6h29.7c33.7 0 64.9 17.7 82.3 46.6l44.9 74.7c-16.1 17.6-28.6 38.5-36.6 61.5c-1.9-1.8-3.5-3.9-4.9-6.3L232 256.9V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352H152zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm16 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v48H368c-8.8 0-16 7.2-16 16s7.2 16 16 16h48v48c0 8.8 7.2 16 16 16s16-7.2 16-16V384h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H448V304z"/></svg>Add Child</a>
+                                    <a href="../admin/application_status.html" class="nav-link"> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                        class="bi bi-file-text-fill p-2" viewBox="0 0 16 16">
+                                        <path
+                                            d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z" />
+                                    </svg>Application Status</a>
+                                    <a href="../admin/parent_details.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-people-fill p-2" viewBox="0 0 16 16">
+                                        <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                                    </svg>Parent Details</a>
+                                    <a href="../admin/formsrepository.html" class="nav-link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                            class="bi bi-file-earmark-text-fill p-2" viewBox="0 0 16 16">
+                                            <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z" />
+                                        </svg>Forms Repository
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="col-2">
+
+                <!-- Side Menu Bar End -->
+                <div class="col-8">
+                    <div class="text-center m-2">
+                        <img src="../image/gs_logo_lynnwood.png" alt="gs_logo_lynnwood" type="image/png" width="476px" height="112px">
+                    </div>
+                </div>
+                <div class="col-2">   
                     <div id="btn-signout" class="btn signout">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Sign Out</b>
                     </div>
-                </div>
+                </div>            
             </div>
-        </nav><br><br>
+        </nav><br>
         <!-- Navigation Bar End -->
 
         <form>
-            <div class="row p-5" id="addChildDiv">
+            <div class="row" id="addChildDiv">
                 <!--Child basi info Form-->
                 <div id="child_basic_form"><br>
                     <div class="card_center">
                         <div class="card child_basic_card" style="background: #D8E9FF;">
+                            <h2 class="text-center card_title p-4 admin_dashboard_title">Child Basic Information</h2><br>
                             <div class="success-msg alert alert-success">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                 <strong>Success!</strong> Child basic information saved successfully!
@@ -153,7 +203,6 @@
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                 <strong>Success!</strong> Child information saved successfully!
                             </div>   
-                            <h2 class="text-center card_title p-4 admin_dashboard_title">Child Basic Information</h2><br>
                             <div class="container" id="avf_form">
                                 <form id="childBasicForm">
                                     <fieldset class="wizard-fieldset">
@@ -219,8 +268,8 @@
                                                 <div class="panel-footer">
                                                     <div class="form-group clearfix m-5">
                                                         <div class="text-center">
-                                                            <button class="cancel-btn">Cancel</button>
-                                                            <button href="javascript:;" class="add-btn" id="basic_child_button">Add</button>
+                                                            <button class="btn cancel-btn">Cancel</button>
+                                                            <button class="btn add-btn" id="basic_child_button">Add</button>
                                                         </div>
                                                     </div>
                                                 </div>

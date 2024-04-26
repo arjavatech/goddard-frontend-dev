@@ -118,7 +118,7 @@
             <ul class="nav" role="tablist" id="dynamicChildCards"></ul>
 
             <div class="row p-5" style="display: none;" id="addChildDiv">
-                <!--Child and Family History Form-->
+                <!--Child basi info Form-->
                 <div id="child_basic_form"><br>
                     <div class="card_center">
                         <div class="card child_basic_card">
@@ -145,38 +145,60 @@
                                                     <div class="row">
                                                         <div class="col-sm m-3">
                                                             <div class="form-group">
-                                                                <label for="child_first_name" class="form-label"><b>FIRST NAME
+                                                                <label for="child_first_name" class="form-label"><b>First Name
                                                                 </b></label><br>
                                                                 <input name="child_first_name" type="text" maxlength="20" 
                                                                 class="form-control wizard-required" id="child_first_name">
                                                                 <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
-                                                    </div> 
-                                                    <div class="row">
                                                         <div class="col-sm m-3">
                                                             <div class="form-group">
-                                                                <label for="child_last_name" class="form-label"><b>LAST NAME
+                                                                <label for="child_last_name" class="form-label"><b>Last Name
                                                                 </b></label><br>
                                                                 <input name="child_last_name" type="text" maxlength="20" 
                                                                 class="form-control wizard-required" id="child_last_name">
                                                                 <div class="wizard-form-error"></div>
                                                             </div>
                                                         </div>
-                                                    </div> 
-                                                    <div class="row">
                                                         <div class="col-sm m-3">
                                                             <div class="form-group"> 
-                                                                <label for="dob" class="form-label"><b>DATE OF BIRTH</b></label>
+                                                                <label for="dob" class="form-label"><b>Date of Birth</b></label>
                                                                 <input type="date" class="form-control wizard-required" id="dob"
                                                                     name="dob"/>
                                                                     <div class="wizard-form-error"></div>
                                                             </div>
-                                                        </div> 
-                                                    </div>         
+                                                        </div>
+                                                    </div> 
+                                                    <div class="row">
+                                                        <div class="col-sm m-3">
+                                                            <div class="form-group"> 
+                                                                <label class="col-form-label"><b>Class Room</b></label>
+                                                                <select class="form-control">
+                                                                    <option selected disabled>Select Class Room</option>
+                                                                    <option value="room 1">Room 1</option>
+                                                                    <option value="room 2">Room 2</option>
+                                                                    <option value="room 3">Room 3</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div> 
+                                                        </div>
+                                                        <div class="col-sm m-3">
+                                                            <div class="form-group"> 
+                                                                <label class="col-form-label"><b>Parent Email</b></label>
+                                                                <select class="form-control">
+                                                                    <option selected disabled>Select Email</option>
+                                                                    <option value="Email 1">Email 1</option>
+                                                                    <option value="Email 2">Email 2</option>
+                                                                    <option value="Email 3">Email 3</option>
+                                                                </select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>          
                                                 </div>                                             
                                                 <div class="panel-footer">
-                                                    <div class="form-group clearfix m-3">
+                                                    <div class="form-group clearfix m-5">
                                                         <div class="text-center">
                                                             <button class="cancel-btn">Cancel</button>
                                                             <button href="javascript:;" class="submit-btn" id="basic_child_button">Submit</button>
@@ -283,33 +305,24 @@
                             </form>
                         </div><br>
                     <!-- </form>  -->
-                    <div  id="completedFormDetails"  class="container tab-pane fade"> 6;
-                        <h2 class="text-center title_bg">Completed Forms</h2>
-                        <div class="row">
-                            <div class="col-1"></div>
-                            <div class="col-2 p-3">
-                                <h4>Child :<span id="childName"></span></h4>
-                            </div>
-                            <div class="col-2"></div>
-                            <div class="col-4"></div>
-                            <div class="col-2">
-                                <div class="form-group pt-3">
-                                    <label for="year" class="wizard-form"> <b>Year </b></label>
-                                    <select name="year" id="year" class="form-control float-end" onclick="yearBasedFormDetails(this)" required></select>
-                                    <i class="fa fa-chevron-down"></i>
+                    <div  id="completedFormDetails"  class="container tab-pane fade pt-3">
+                        <div class="card">
+                            <h2 class="text-center title_bg">Completed Forms</h2>
+                            <div class="row">
+                                <div class="col-1"></div>
+                                <div class="col-2 p-3">
+                                    <h4>Child :<span id="childName"></span></h4>
                                 </div>
                                 <div class="col-2"></div>
                                 <div class="col-4"></div>
                                 <div class="col-2">
-                                    <div class="form-group pt-3"> 
-                                        <select class="form-control float-end">
-                                            <option selected disabled>Year</option>
-                                            <option value="Full Use">2023</option>
-                                            <option value="In-House Only">2022</option>
-                                            <option value="No Photos">2021</option>
-                                        </select>
+                                    <div class="form-group pt-3">
+                                        <label for="year" class="wizard-form"> <b>Year</b></label>
+                                        <select name="year" id="year" class="form-control float-end" onclick="yearBasedFormDetails(this)" required></select>
                                         <i class="fa fa-chevron-down"></i>
                                     </div>
+                                    <div class="col-2"></div>
+                                    <div class="col-4"></div>
                                 </div>
                                 <div class="col-2"></div>
                             </div>
@@ -363,10 +376,10 @@
                                             </nav>
                                         </div>
                                     </div>
+                        
                                 </div>
-                    
-                            </div>
-                        </div>    
+                            </div>  
+                        </div>      
                     </div> 
                 </div>
             </div>

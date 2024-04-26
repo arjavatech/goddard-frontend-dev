@@ -89,6 +89,12 @@
                 position: sticky;
                 top:0; 
             }
+
+            .side-menu
+            {
+                background: #0F2D52;
+                color: #fff;
+            }
         </style>
     </head>
     <body>
@@ -130,76 +136,57 @@
                             </div>   
                             <h2 class="text-center card_title p-4" id="myBookmark">Child Basic Information</h2><br>
                             <div class="container" id="avf_form">
-                                <section class="wizard-section">
-                                    <div class="row no-gutters">
-                                        <div class="col-lg-12 col-md-12">
-                                            <div class="form-wizard">
-                                                <form id="childBasicForm">
-                                                    <fieldset class="wizard-fieldset">
-                                                        <div class="container">
-                                                            <div class="panel panel-info">
-                                                                <!-- Admission form body -->
-                                                                <div class="panel-body">
-                                                                    <div class="row">
-                                                                        <div class="col-sm m-3">
-                                                                            <div class="form-group">
-                                                                                <label for="child_first_name" class="form-label"><b>FIRST NAME
-                                                                                </b></label><br>
-                                                                                <input name="child_first_name" type="text" maxlength="20" 
-                                                                                class="form-control wizard-required" id="child_first_name">
-                                                                                <div class="wizard-form-error"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div> 
-                                                                    <div class="row">
-                                                                        <div class="col-sm m-3">
-                                                                            <div class="form-group">
-                                                                                <label for="child_last_name" class="form-label"><b>LAST NAME
-                                                                                </b></label><br>
-                                                                                <input name="child_last_name" type="text" maxlength="20" 
-                                                                                class="form-control wizard-required" id="child_last_name">
-                                                                                <div class="wizard-form-error"></div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div> 
-                                                                    <div class="row">
-                                                                        <div class="col-sm m-3">
-                                                                            <div class="form-group"> 
-                                                                                <label for="dob" class="form-label"><b>DATE OF BIRTH</b></label>
-                                                                                <input type="date" class="form-control wizard-required" id="dob"
-                                                                                    name="dob"/>
-                                                                                    <div class="wizard-form-error"></div>
-                                                                            </div>
-                                                                        </div> 
-                                                                    </div> 
-                                                                    <div class="row">   
-                                                                        <div class="col-sm m-3">
-                                                                            <div class="form-group"> 
-                                                                                <label for="class_room" class="form-label"><b>Class Room</b></label>
-                                                                                <select type="date" class="form-control" id="class_room"
-                                                                                    name="class_room">
-                                                                                </select>
-                                                                                    <div class="wizard-form-error"></div>
-                                                                            </div>
-                                                                        </div> 
-                                                                    </div>         
-                                                                </div>                                             
-                                                                <div class="panel-footer">
-                                                                    <div class="form-group clearfix m-3">
-                                                                        <div class="text-center">
-                                                                            <button class="cancel-btn">Cancel</button>
-                                                                            <button href="javascript:;" class="submit-btn" id="basic_child_button">Submit</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>      
+                                <form id="childBasicForm">
+                                    <fieldset class="wizard-fieldset">
+                                        <div class="container">
+                                            <div class="panel panel-info">
+                                                <!-- Admission form body -->
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-sm m-3">
+                                                            <div class="form-group">
+                                                                <label for="child_first_name" class="form-label"><b>FIRST NAME
+                                                                </b></label><br>
+                                                                <input name="child_first_name" type="text" maxlength="20" 
+                                                                class="form-control wizard-required" id="child_first_name">
+                                                                <div class="wizard-form-error"></div>
+                                                            </div>
                                                         </div>
-                                                    </fieldset>               
-                                                </form>
-                                            </div>
+                                                    </div> 
+                                                    <div class="row">
+                                                        <div class="col-sm m-3">
+                                                            <div class="form-group">
+                                                                <label for="child_last_name" class="form-label"><b>LAST NAME
+                                                                </b></label><br>
+                                                                <input name="child_last_name" type="text" maxlength="20" 
+                                                                class="form-control wizard-required" id="child_last_name">
+                                                                <div class="wizard-form-error"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                    <div class="row">
+                                                        <div class="col-sm m-3">
+                                                            <div class="form-group"> 
+                                                                <label for="dob" class="form-label"><b>DATE OF BIRTH</b></label>
+                                                                <input type="date" class="form-control wizard-required" id="dob"
+                                                                    name="dob"/>
+                                                                    <div class="wizard-form-error"></div>
+                                                            </div>
+                                                        </div> 
+                                                    </div>         
+                                                </div>                                             
+                                                <div class="panel-footer">
+                                                    <div class="form-group clearfix m-3">
+                                                        <div class="text-center">
+                                                            <button class="cancel-btn">Cancel</button>
+                                                            <button href="javascript:;" class="submit-btn" id="basic_child_button">Submit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>      
                                         </div>
-                                    </div>
-                                </section> 
+                                    </fieldset>               
+                                </form>
                             </div>
                         </div>
                     </div> 
@@ -212,7 +199,7 @@
                             <h2 class="accordion-header">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" 
                                 data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-                                Incomplete Forms
+                                Forms Status
                                 </button>
                             </h2>
                             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
@@ -227,20 +214,31 @@
                                                 </button>
                                             </h2> -->
                                             <ul class="nav nav-pills flex-column tab-content menu" role="tablist" id="menu">
+                                                <h4 class="text-center p-2 side-menu">Incomplete</h4>
                                                 <div class="menu">
                                                     <!--Child Information -->
                                                     <div class="menu admissionforms"></div>
                                                     <div class="menu authorization"></div>
                                                     <div class="menu enrollmentagreement"></div>
                                                     <div class="menu parenthandbook"></div>
-                                                 </div>
+                                                </div><br>
+                                                <h4 class="text-center p-2 side-menu">Completed</h4>
+                                                <li>
+                                                    <a class="nav-link completedforms" data-bs-toggle="pill" 
+                                                    href="#completedFormDetails">
+                                                        <span>Forms
+                                                            <img src="image/tick.png" height="10%" width="10%" class="completedforms-tick float-end" style="display: none;">
+                                                            <img src="image/circle-with.png" height="10%" width="10%" class="completedforms-circle float-end" style="display: none;">
+                                                        </span>
+                                                    </a>    
+                                                </li>
                                             </ul>
                                         </div><br>
                                     </div>  
                                 </div>
                             </div>
                         </div><br>
-                        <div class="accordion-item">
+                        <!-- <div class="accordion-item">
                             <h2 class="accordion-header">
                               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 Comleted Forms
@@ -263,7 +261,7 @@
                                 </ul> 
                               </div>
                             </div>
-                          </div>
+                        </div> -->
                     </div><br>  
                 </div>
                 <div class="col-9">
@@ -300,6 +298,20 @@
                                     <select name="year" id="year" class="form-control float-end" onclick="yearBasedFormDetails(this)" required></select>
                                     <i class="fa fa-chevron-down"></i>
                                 </div>
+                                <div class="col-2"></div>
+                                <div class="col-4"></div>
+                                <div class="col-2">
+                                    <div class="form-group pt-3"> 
+                                        <select class="form-control float-end">
+                                            <option selected disabled>Year</option>
+                                            <option value="Full Use">2023</option>
+                                            <option value="In-House Only">2022</option>
+                                            <option value="No Photos">2021</option>
+                                        </select>
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                </div>
+                                <div class="col-2"></div>
                             </div>
                             <div class="col-2"></div>
                         </div>
@@ -352,9 +364,9 @@
                                         </div>
                                     </div>
                                 </div>
+                    
                             </div>
-                
-                        </div> -->
+                        </div>    
                     </div> 
                 </div>
             </div>

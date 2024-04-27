@@ -1631,6 +1631,9 @@
                                     typeof response.point_seventeen_initial_here !== "undefined" && 
                                     typeof response.point_eighteen_initial_here !== "undefined" && 
                                     typeof response.point_nineteen_initial_here !== "undefined" ){
+
+                                    let enrollmentFinalAgreement = document.getElementById('enrollmentFinalAgreement');
+                                    enrollmentFinalAgreement.classList.remove('disabled');
                                     // Reset the display for both images
                                     document.querySelector('.childenrollmentagreement-tick').style.display = 'none';
                                     document.querySelector('.childenrollmentagreement-circle').style.display = 'none';
@@ -1638,6 +1641,8 @@
                                     document.querySelector('.childenrollmentagreement-tick').style.display = 'block'; 
                                     enrollmentDetails = true;
                                 }else{
+                                    let enrollmentFinalAgreement = document.getElementById('enrollmentFinalAgreement');
+                                    enrollmentFinalAgreement.classList.add('disabled');
                                     // Reset the display for both images
                                     document.querySelector('.childenrollmentagreement-tick').style.display = 'none';
                                     document.querySelector('.childenrollmentagreement-circle').style.display = 'none';
@@ -1758,14 +1763,18 @@
                                 }
                                 if(authorizationDetails == true && achparentsign == true 
                                 ){
+                                    let achFinalAgreement = document.getElementById('achFinalAgreement');
+                                    achFinalAgreement.classList.remove('disabled');
                                     // Reset the display for both images
                                     document.querySelector('.authorization-tick').style.display = 'none';
                                     document.querySelector('.authorization-circle').style.display = 'none';
                                     // Update the display for the clicked card
                                     document.querySelector('.authorization-tick').style.display = 'block'; 
                                 }else{
-                                        // Reset the display for both images
-                                        document.querySelector('.authorization-tick').style.display = 'none';
+                                    let achFinalAgreement = document.getElementById('achFinalAgreement');
+                                    achFinalAgreement.classList.add('disabled');
+                                    // Reset the display for both images
+                                    document.querySelector('.authorization-tick').style.display = 'none';
                                     document.querySelector('.authorization-circle').style.display = 'none';
                                     // Update the display for the clicked card
                                     document.querySelector('.authorization-circle').style.display = 'block';
@@ -2223,12 +2232,16 @@
                                 }
                                 if(parentHandBook == true && parenthandbookparentsign == true 
                                 ){
+                                    let handbookFinalAgreement = document.getElementById('handbookFinalAgreement');
+                                    handbookFinalAgreement.classList.remove('disabled');
                                     // Reset the display for both images
                                     document.querySelector('.handbook-tick').style.display = 'none';
                                     document.querySelector('.handbook-circle').style.display = 'none';
                                     // Update the display for the clicked card
                                     document.querySelector('.handbook-tick').style.display = 'block'; 
                                 }else{
+                                    let handbookFinalAgreement = document.getElementById('handbookFinalAgreement');
+                                    handbookFinalAgreement.classList.add('disabled');
                                     // Reset the display for both images
                                     document.querySelector('.handbook-tick').style.display = 'none';
                                     document.querySelector('.handbook-circle').style.display = 'none';

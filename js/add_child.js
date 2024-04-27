@@ -3,6 +3,7 @@ import {isAuthenticated} from "./authenticationVerify.js";
  // Function to submit the form data
  function submitForm() {
     const form = document.getElementById("childBasicForm");
+    console.log(form);
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     if(obj.child_first_name != ''&& obj.child_last_name != '' 

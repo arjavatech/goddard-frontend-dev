@@ -184,106 +184,102 @@
         </nav><br>
         <!-- Navigation Bar End -->
 
-        <form>
-            <div class="row" id="addChildDiv">
-                <!--Child basi info Form-->
-                <div id="child_basic_form"><br>
-                    <div class="card_center">
-                        <div class="card child_basic_card" style="background: #D8E9FF;">
-                            <h2 class="card_title">Child Basic Information</h2><br>
-                            <div class="success-msg alert alert-success">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>Success!</strong> Child basic information saved successfully!
-                            </div>   
-                            <div class="error-msg alert alert-danger">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>Oops!</strong> You have to fill all the fields!
-                            </div> 
-                            <div class="success-msg-save alert alert-success">
-                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                <strong>Success!</strong> Child information saved successfully!
-                            </div>   
-                            <div class="container" id="avf_form">
-                                <form id="childBasicForm">
-                                    <fieldset class="wizard-fieldset">
-                                        <div class="container">
-                                            <div class="panel panel-info">
-                                                <!-- Admission form body -->
-                                                <div class="panel-body">
-                                                    <div class="row">
-                                                        <div class="col-sm m-3">
-                                                            <div class="form-group">
-                                                                <label for="child_first_name" class="form-label"><b>First Name
-                                                                </b></label><br>
-                                                                <input name="child_first_name" type="text" maxlength="20" 
-                                                                class="form-control wizard-required" id="child_first_name">
-                                                                <div class="wizard-form-error"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm m-3">
-                                                            <div class="form-group">
-                                                                <label for="child_last_name" class="form-label"><b>Last Name
-                                                                </b></label><br>
-                                                                <input name="child_last_name" type="text" maxlength="20" 
-                                                                class="form-control wizard-required" id="child_last_name">
-                                                                <div class="wizard-form-error"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm m-3">
-                                                            <div class="form-group"> 
-                                                                <label for="dob" class="form-label"><b>Date of Birth</b></label>
-                                                                <input type="date" class="form-control wizard-required" id="dob"
-                                                                    name="dob"/>
-                                                                    <div class="wizard-form-error"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div> 
-                                                    <div class="row">
-                                                        <div class="col-sm m-3">
-                                                            <div class="form-group"> 
-                                                                <label class="col-form-label"><b>Class Room</b></label>
-                                                                <select class="form-control" name="class_name" id="class_name">
-                                                                    <!-- <option selected disabled>Select Class Room</option>
-                                                                    <option value="room 1">Room 1</option>
-                                                                    <option value="room 2">Room 2</option>
-                                                                    <option value="room 3">Room 3</option> -->
-                                                                </select>
-                                                                <i class="fa fa-chevron-down"></i>
-                                                            </div> 
-                                                        </div>
-                                                        <div class="col-sm m-3">
-                                                            <div class="form-group"> 
-                                                                <label class="col-form-label"><b>Parent Email</b></label>
-                                                                <select class="form-control" name="primary_parent_email" id="primary_parent_email">
-                                                                    <!-- <option selected disabled>Select Email</option>
-                                                                    <option value="Email 1">Email 1</option>
-                                                                    <option value="Email 2">Email 2</option>
-                                                                    <option value="Email 3">Email 3</option> -->
-                                                                </select>
-                                                                <i class="fa fa-chevron-down"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>          
-                                                </div>                                             
-                                                <div class="panel-footer">
-                                                    <div class="form-group clearfix m-5">
-                                                        <div class="text-center">
-                                                            <button class="cancel-btn">Cancel</button>
-                                                            <button class="add-btn" id="basic_child_button">Add</button>
+        <div class="row" id="addChildDiv">
+            <!--Child basi info Form-->
+            <div id="child_basic_form"><br>
+                <div class="card_center">
+                    <div class="card child_basic_card" style="background: #D8E9FF;">
+                        <h2 class="card_title">Child Basic Information</h2><br>
+                        <div class="success-msg alert alert-success">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Success!</strong> Child basic information saved successfully!
+                        </div>   
+                        <div class="error-msg alert alert-danger">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Oops!</strong> You have to fill all the fields!
+                        </div> 
+                        <div class="success-msg-save alert alert-success">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <strong>Success!</strong> Child information saved successfully!
+                        </div>   
+                        <div class="container" id="avf_form">
+                            <form id="childBasicForm">
+                                <fieldset class="wizard-fieldset">
+                                    <div class="container">
+                                        <div class="panel panel-info">
+                                            <!-- Admission form body -->
+                                            <div class="panel-body">
+                                                <div class="row">
+                                                    <div class="col-sm m-3">
+                                                        <div class="form-group">
+                                                            <label for="child_first_name" class="form-label"><b>First Name
+                                                            </b></label><br>
+                                                            <input name="child_first_name" type="text" maxlength="20" 
+                                                            class="form-control wizard-required" id="child_first_name">
+                                                            <div class="wizard-form-error"></div>
                                                         </div>
                                                     </div>
+                                                    <div class="col-sm m-3">
+                                                        <div class="form-group">
+                                                            <label for="child_last_name" class="form-label"><b>Last Name
+                                                            </b></label><br>
+                                                            <input name="child_last_name" type="text" maxlength="20" 
+                                                            class="form-control wizard-required" id="child_last_name">
+                                                            <div class="wizard-form-error"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm m-3">
+                                                        <div class="form-group"> 
+                                                            <label for="dob" class="form-label"><b>Date of Birth</b></label>
+                                                            <input type="date" class="form-control wizard-required" id="dob"
+                                                                name="dob"/>
+                                                                <div class="wizard-form-error"></div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="row">
+                                                    <div class="col-sm m-3">
+                                                        <div class="form-group"> 
+                                                            <label class="col-form-label"><b>Class Room</b></label>
+                                                            <select class="form-control" name="class_name" id="class_name">
+                                                                <!-- <option selected disabled>Select Class Room</option>
+                                                                <option value="room 1">Room 1</option>
+                                                                <option value="room 2">Room 2</option>
+                                                                <option value="room 3">Room 3</option> -->
+                                                            </select>
+                                                            <i class="fa fa-chevron-down"></i>
+                                                        </div> 
+                                                    </div>
+                                                    <div class="col-sm m-3">
+                                                        <div class="form-group"> 
+                                                            <label class="col-form-label"><b>Parent Email</b></label>
+                                                            <select class="form-control" name="primary_parent_email" id="primary_parent_email">
+                                                                <!-- <option selected disabled>Select Email</option>
+                                                                <option value="Email 1">Email 1</option>
+                                                                <option value="Email 2">Email 2</option>
+                                                                <option value="Email 3">Email 3</option> -->
+                                                            </select>
+                                                            <i class="fa fa-chevron-down"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>          
+                                            </div>                                             
+                                            <div class="panel-footer">
+                                                <div class="form-group clearfix m-5">
+                                                    <div class="text-center">
+                                                        <button class="cancel-btn">Cancel</button>
+                                                        <button class="add-btn" id="basic_child_button">Add</button>
+                                                    </div>
                                                 </div>
-                                            </div>      
-                                        </div>
-                                    </fieldset>               
-                                </form>
-                            </div>
+                                            </div>
+                                        </div>      
+                                    </div>
+                                </fieldset>               
+                            </form>
                         </div>
-                    </div> 
-                </div>
+                    </div>
+                </div> 
             </div>
-        </form>
-        <script>
-            </script>
+        </div>
     </body>
 </html>

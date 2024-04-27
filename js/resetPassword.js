@@ -31,13 +31,16 @@ function emailValidation(inputtxtID,errorSpanID) {
 }
 
 function signupFunction(){
+    console.log('che')
     let email_id = document.getAnimations('email_id').value;
     var password1 = document.getElementById('reset_pswd').value;
     var password2 = document.getElementById('password').value;
 
     if (email_id != '' && password1 !='' && password2 !=''){
+        console.log('king')
         // Check if passwords match
         if (password1 === password2) {
+            console.log('pas')
             // document.getElementById("errorMessage").style.display = "none";
             // document.getElementById("errorMessageDiv").style.display = "none";
             const form = document.getElementById("reset_password");
@@ -49,6 +52,7 @@ function signupFunction(){
             // Replace the original password with the hashed password in the form data
             formData.set("password", hashedPassword);
             const obj = Object.fromEntries(formData);
+            console.log(obj);
             $.ajax({
                 url: "http://localhost:8080/sign_up/add",
                 type: "POST",
@@ -60,6 +64,8 @@ function signupFunction(){
                 
                 },
                 error: function (xhr, status, error) {
+                    console.log(status);
+                    console.log(error);
                     $(".error-msg-mismatch").show();
                     setTimeout(function(){ 
                         $(".error-msg-mismatch").hide(); 
@@ -67,6 +73,7 @@ function signupFunction(){
                 }
             });
         } else {
+            console.log('else')
             $(".error-msg-empty").show();
             setTimeout(function(){ 
                 $(".error-msg-empty").hide(); 

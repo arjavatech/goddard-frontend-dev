@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Invite Parent</title>
+        <title>Add Child</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="../image/gs_logo_tab.png" type="image/png">
         <link rel="stylesheet" href="../css/navbar_signout_style.css">
@@ -12,9 +12,9 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <!-- <script type="module" src='../js/invite_parent.js'></script> -->
-        <!-- <script src='../js/inviteParentEmail.js'></script> -->
-        <!-- <script src='../js/admin_dashboard_validation.js'></script> -->
+        <script type="module" src='../js/invite_parent.js'></script>
+        <script src='../js/inviteParentEmail.js'></script>
+        <script src='../js/admin_dashboard_validation.js'></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
         <style>
             /* input box focus style */
@@ -190,7 +190,7 @@
                 <div id="child_basic_form"><br>
                     <div class="card_center">
                         <div class="card child_basic_card" style="background: #D8E9FF;">
-                            <h2 class="text-center card_title p-4 admin_dashboard_title">Child Basic Information</h2><br>
+                            <h2 class="card_title">Child Basic Information</h2><br>
                             <div class="success-msg alert alert-success">
                                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                                 <strong>Success!</strong> Child basic information saved successfully!
@@ -268,8 +268,8 @@
                                                 <div class="panel-footer">
                                                     <div class="form-group clearfix m-5">
                                                         <div class="text-center">
-                                                            <button class="btn cancel-btn">Cancel</button>
-                                                            <button class="btn add-btn" id="basic_child_button">Add</button>
+                                                            <button class="cancel-btn">Cancel</button>
+                                                            <button class="add-btn" id="basic_child_button">Add</button>
                                                         </div>
                                                     </div>
                                                 </div>

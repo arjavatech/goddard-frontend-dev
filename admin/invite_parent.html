@@ -33,19 +33,6 @@
                 align-items: center !important;
                 justify-content: center !important;
             }  
-
-            .send-btn
-            {
-                background-color: #0F2D52 !important;
-                color: #ffffff;
-                display: inline-block;
-                min-width: 100px;
-                min-width: 120px;
-                padding: 10px;
-                text-align: center;
-                text-decoration: none;
-                border: none;
-            }
         </style>
     </head>
     <body>
@@ -127,9 +114,9 @@
         </nav><br><br>
         <!-- Navigation Bar End -->
 
-        <div class="container card_center">
+        <div class="container card_center p-3">
             <div class="card card_style" style="background: #D8E9FF;">
-                <h2 class="admin_dashboard_title h2 pt-4 text-center">Invite mail send to parent</h2>
+                <h2 class="card_title">Invite mail send to parent</h2>
                 <div class="row m-5">
                     <section class="wizard-section">
                         <div class="form-wizard">
@@ -171,35 +158,13 @@
                                                 <div class="wizard-form-error"></div>
                                             </div>
                                         </div>
-                                    </div><br>
-                                    <!-- <div class="row">
-                                        <div class="col-sm mb-3">
-                                            <div class="form-group">
-                                                <label for="parent_mobile" class="col-form-label">Mobile Number</label>
-                                                <input type="number" class="form-control" id="parent_mobile"
-                                                    name="parent_mobile"
-                                                    onchange="validatePhone(this,'parent_mobile_span')">
-                                                <span id="parent_mobile_span" style="color:red; display:none">
-                                                    Enter valid input [only numbers,+,-,()].</span>
-                                                <div class="wizard-form-error"></div>
+                                    </div><br> 
+                                    <div class="form-group clearfix">
+                                            <div class="text-center">
+                                                <button class="cancel-btn">Cancel</button>
+                                                <button id="sendButton" type="button" class="send-btn">Send</button>
                                             </div>
-                                        </div>
-                                        <div class="col-sm mb-3"></div>
-                                    </div> -->
-                                    <div class="panel-footer">
-                                        <div class="form-group clearfix">
-                                            <div class="position-relative">
-                                                <!-- <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Cancel</button> -->
-
-                                                <div class="text-center">
-                                                    <button id="sendButton" type="button"
-                                                        class="btn btn-primary send-btn">Send</button>
-                                                    <!-- <a href="javascript:;" class="form-wizard-submit" id="submit_button">Submit</a> -->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div><br><br>
+                                    </div>
                                 </fieldset>
                             </form>
                         </div>

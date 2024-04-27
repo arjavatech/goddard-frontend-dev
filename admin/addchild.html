@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
         <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <!-- <script type="module" src='../js/invite_parent.js'></script> -->
+        <script type="module" src='../js/add_child.js'></script>
         <!-- <script src='../js/inviteParentEmail.js'></script> -->
         <!-- <script src='../js/admin_dashboard_validation.js'></script> -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
@@ -193,11 +193,11 @@
                                                         <div class="col-sm m-3">
                                                             <div class="form-group"> 
                                                                 <label class="col-form-label"><b>Class Room</b></label>
-                                                                <select class="form-control">
-                                                                    <option selected disabled>Select Class Room</option>
+                                                                <select class="form-control" name="class_name" id="class_name">
+                                                                    <!-- <option selected disabled>Select Class Room</option>
                                                                     <option value="room 1">Room 1</option>
                                                                     <option value="room 2">Room 2</option>
-                                                                    <option value="room 3">Room 3</option>
+                                                                    <option value="room 3">Room 3</option> -->
                                                                 </select>
                                                                 <i class="fa fa-chevron-down"></i>
                                                             </div> 
@@ -205,11 +205,11 @@
                                                         <div class="col-sm m-3">
                                                             <div class="form-group"> 
                                                                 <label class="col-form-label"><b>Parent Email</b></label>
-                                                                <select class="form-control">
-                                                                    <option selected disabled>Select Email</option>
+                                                                <select class="form-control" name="primary_parent_email" id="primary_parent_email">
+                                                                    <!-- <option selected disabled>Select Email</option>
                                                                     <option value="Email 1">Email 1</option>
                                                                     <option value="Email 2">Email 2</option>
-                                                                    <option value="Email 3">Email 3</option>
+                                                                    <option value="Email 3">Email 3</option> -->
                                                                 </select>
                                                                 <i class="fa fa-chevron-down"></i>
                                                             </div>
@@ -234,5 +234,7 @@
                 </div>
             </div>
         </form>
+        <script>
+            </script>
     </body>
 </html>

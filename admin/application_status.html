@@ -204,78 +204,80 @@
 
         <!-- Parent Dashboard -->
         <div class="container">
-            <!-- Child Name -->
-            <h2 class="parent_dashboard_title h2 pt-4 text-center">
-                <span id="applicationStatusLabel">Application Status for :</span><span id="applicationStatusYear"></span>
-                <span class="child-name fs-2" id="applicationStatusyear" name="applicationStatusyear"></span>
-            </h2><br><br>
-            <!-- Year -->
-            <div class="row">
-                <!-- Year dynamic dropdown End -->
-                <div class="col-3">
-                    <!-- <div class="form-group"> 
-                        <select class="form-control">
-                            <option selected disabled>Class Name</option>
-                            <option value="Full Use">Name 1</option>
-                            <option value="In-House Only">Name 2</option>
-                            <option value="No Photos">Name 3</option>
-                        </select>
-                        <i class="fa fa-chevron-down"></i>
-                    </div> -->
-                </div>
-                <!-- <div class="col-4 search-container">
-                    <input type="text" id="searchInput" class=" search-input" 
-                    placeholder="Search the content...">
-                    <div class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                      </svg></div> 
-                </div> -->
-                <div class="col-2">
-                    <h4>All Forms :</h4>
-                </div>
-                <div class="col-3 dropdown">
-                    <!-- <select name="form_name" class="allform" id="form_name" onclick="formdetails(this.value)"> -->
-                    <select name="form_name" class="allform form-control" id="form_name" ></select>
-                        <!-- <i id="form_name" class="fa fa-chevron-down form_status_dropdown"></i> -->
-                        <!-- <option>Application Status</option> -->
-                    </select>
-                </div>
-            </div>
-            <!-- Year End -->
-            <div class="d-flex justify-content-center">
-                <div class="container" style="margin-top: 20px;">
-                    <div class="table-wrapper">
-                        <!-- Form Action Table -->
-                        <table id="example" class="display nowrap" style="width:100%" frame ="" rules ="all">  
-                            <thead class="table-head">
-                                <th>child_name</th>
-                                <th>child_class_name</th>
-                                <th>parent_email</th>
-                                <th>parent_two_email</th>
-                                <th>form_status</th>
-                                <th>Action</th>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                        <!-- Form Action Table End -->
+            <div class="card m-3">
+                <!-- Child Name -->
+                <h2 class="parent_dashboard_title h2 pt-4 text-center">
+                    <span id="applicationStatusLabel">Application Status for :</span><span id="applicationStatusYear"></span>
+                    <span class="child-name fs-2" id="applicationStatusyear" name="applicationStatusyear"></span>
+                </h2><br><br>
+                <!-- Year -->
+                <div class="row">
+                    <!-- Year dynamic dropdown End -->
+                    <div class="col-3">
+                        <!-- <div class="form-group"> 
+                            <select class="form-control">
+                                <option selected disabled>Class Name</option>
+                                <option value="Full Use">Name 1</option>
+                                <option value="In-House Only">Name 2</option>
+                                <option value="No Photos">Name 3</option>
+                            </select>
+                            <i class="fa fa-chevron-down"></i>
+                        </div> -->
                     </div>
-                
-                    <!-- <div class="position-relative p-4">
-                        <div class="position-absolute top-50 start-50 translate-middle">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-end">
-                                    <li class="page-item disabled" id="prevPage">
-                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                    </li>
-                                    <li class="page-item" id="nextPage">
-                                        <a class="page-link" href="#">Next</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                    <!-- <div class="col-4 search-container">
+                        <input type="text" id="searchInput" class=" search-input" 
+                        placeholder="Search the content...">
+                        <div class="search-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg></div> 
                     </div> -->
+                    <div class="col-2">
+                        <h4>All Forms :</h4>
+                    </div>
+                    <div class="col-3 dropdown">
+                        <!-- <select name="form_name" class="allform" id="form_name" onclick="formdetails(this.value)"> -->
+                        <select name="form_name" class="allform form-control" id="form_name" ></select>
+                            <!-- <i id="form_name" class="fa fa-chevron-down form_status_dropdown"></i> -->
+                            <!-- <option>Application Status</option> -->
+                        </select>
+                    </div>
                 </div>
-            </div>
+                <!-- Year End -->
+                <div class="d-flex justify-content-center m-3">
+                    <div class="container" style="margin-top: 20px;">
+                        <div class="table-wrapper">
+                            <!-- Form Action Table -->
+                            <table id="example" class="display nowrap" style="width:100%" frame ="" rules ="all">  
+                                <thead class="table-head">
+                                    <th>child_name</th>
+                                    <th>child_class_name</th>
+                                    <th>parent_email</th>
+                                    <th>parent_two_email</th>
+                                    <th>form_status</th>
+                                    <th>Action</th>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <!-- Form Action Table End -->
+                        </div>
+                    
+                        <!-- <div class="position-relative p-4">
+                            <div class="position-absolute top-50 start-50 translate-middle">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-end">
+                                        <li class="page-item disabled" id="prevPage">
+                                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                        </li>
+                                        <li class="page-item" id="nextPage">
+                                            <a class="page-link" href="#">Next</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>    
         </div>
 
         <!--Data Table-->

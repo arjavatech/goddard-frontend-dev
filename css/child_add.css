@@ -114,4 +114,9 @@ div.card-bodys{
     cursor: pointer;
 }
 
+.nav-link:hover {
+    border-color: #D8E9FF !important;
+    cursor: pointer;
+}
+
 /*****Parent Dashboard Style End*****/

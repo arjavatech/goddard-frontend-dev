@@ -21,13 +21,12 @@
         </nav>
         <!-- Navigation Bar End -->
 
-         <!-- Welcome Screen -->
+         <!-- Add class  -->
          <div class="p-3">
             <h2 class="parent_dashboard_title h2 pt-4 text-center">Add Class Room</h2>
             <!-- Welcome Text -->
             <h4 class="h4 pt-2 text-center" id="welcomeText" name="welcomeText"></h4>
         </div>
-        <!-- Welcome Screen End -->
         <form id="classRoomForm">
             <div class="row">
                 <div class="col-4 d-flex justify-content-center">
@@ -41,9 +40,6 @@
                 <div class="col-1 mt-4">
                     <button  class="classroom-add-btn submit-btn" id="classroombtn" type="submit">Add</button>
                 </div>
-                <!-- <div class="form-group clearfix">
-                    <button id="caste_btn" href="javascript:;" class="form-wizard-submit float-right"  type="submit">Submit</button>
-                </div><br><br> -->
             </div>
         </form>
         <div class="d-flex justify-content-center">
@@ -51,7 +47,7 @@
                 <div class="table-wrapper">
                     <!-- Form Action Table -->
                     <table id="example" class="display nowrap" style="width:100%" frame ="box" rules ="all">  
-                        <thead>
+                        <thead class="table-head">
                             <tr>
                                 <th>Class Room</th>
                                 <th>Edit</th>
@@ -104,8 +100,8 @@
                         { data: 'class_name'},
                         { data: 'edit',
                             render: function ( data, type, full, meta ) {
-                                window.location.replace = `${window.location.origin}/admin/addclassroom.html?id=${full.class_id} `;
-                                let url =`${window.location.origin}/admin/addclassroom.html?id=${full.class_id}` //Question
+                                window.location.replace = `${window.location.origin}/admin/formsrepository.html?id=${full.class_id} `;
+                                let url =`${window.location.origin}/admin/formsrepository.html?id=${full.class_id}` //Question
                             //    return `<a href="'+ url +'"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="17" height="17" class="action-icons m-2" id="editbutton" name="editbutton"><path fill="#0F2D52" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg></a>`;
                                return '<a href="'+ url +'"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9RvaUyBbAGaB9dcdAZxQvJJHKnd8vqQpsqgJpRuNrFCwk2ZY5vl5RgEj_b2wcGXW8OwE&usqp=CAU" id="editbutton"  name="editbutton"  height="20px;" style="text-align:right !important;"></a>';
                             },

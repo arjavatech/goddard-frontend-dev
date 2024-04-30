@@ -87,13 +87,18 @@
             .accordion-fixed
             {
                 position: sticky;
-                top:0; 
+                top:0;
             }
 
-            .side-menu
+            .side-menu, a.completedforms
             {
-                background: #0F2D52;
-                color: #fff;
+                background: #0F2D52 !important;
+                color: #fff !important;
+            }
+
+            a.completedforms:hover
+            {
+                opacity: 0.7;
             }
         </style>
     </head>
@@ -146,11 +151,10 @@
                                                     <div class="menu enrollmentagreement"></div>
                                                     <div class="menu parenthandbook"></div>
                                                 </div><br>
-                                                <h4 class="text-center p-2 side-menu">Completed</h4>
                                                 <li>
                                                     <a class="nav-link completedforms" data-bs-toggle="pill" 
                                                     href="#completedFormDetails">
-                                                        <span>Forms
+                                                        <span>Completed Forms
                                                             <img src="image/tick.png" height="10%" width="10%" class="completedforms-tick float-end" style="display: none;">
                                                             <img src="image/circle-with.png" height="10%" width="10%" class="completedforms-circle float-end" style="display: none;">
                                                         </span>
@@ -162,28 +166,25 @@
                                 </div>
                             </div>
                         </div><br>
-                        
                     </div><br>  
                 </div>
                 <div class="col-9">
                     <!-- Tab panes -->
-                    
-                        <div class="tab-content">
-                           <!--Child Information -->
-                           <form id="childInfoAdmission"> 
-                                <div class="tab-content admissionforms" id="admissionforms"></div>
-                           </form>
-                           <form id="childInfoAuthorization"> 
-                                <div class="tab-content authorization" id="authorization"></div>
-                            </form>
-                            <form id="childInfoEnrollment"> 
-                                <div class="tab-content enrollmentagreement" id="enrollmentagreement"></div>
-                            </form>
-                            <form id="childInfoHandbook"> 
-                                <div class="tab-content parenthandbook" id="parenthandbook"></div>
-                            </form>
-                        </div><br>
-                    <!-- </form>  -->
+                    <div class="tab-content">
+                        <!--Child Information -->
+                        <form id="childInfoAdmission"> 
+                            <div class="tab-content admissionforms" id="admissionforms"></div>
+                        </form>
+                        <form id="childInfoAuthorization"> 
+                            <div class="tab-content authorization" id="authorization"></div>
+                        </form>
+                        <form id="childInfoEnrollment"> 
+                            <div class="tab-content enrollmentagreement" id="enrollmentagreement"></div>
+                        </form>
+                        <form id="childInfoHandbook"> 
+                            <div class="tab-content parenthandbook" id="parenthandbook"></div>
+                        </form>
+                    </div><br>
                     <div  id="completedFormDetails"  class="container tab-pane fade pt-3">
                         <div class="card">
                             <h2 class="text-center title_bg">Completed Forms</h2>
@@ -205,7 +206,6 @@
                                 </div>
                                 <div class="col-2"></div>
                             </div>
-                            <!-- </div> -->
                             <div class="d-flex justify-content-center">
                                 <div class="container" style="margin-top: 20px;">
                                     <div class="table-wrapper">
@@ -222,53 +222,18 @@
                                         <!-- Form Action Table End -->
                                     </div>
                                 </div>
-                            </div>
+                            </div>    
                         </div>
-                    </div>
-                        <!-- <div class="d-flex justify-content-center">
-                            <div class="container" style="margin-top: 20px;">
-                                <div class="table-wrapper">
-                                    <table class="table">
-                                        <thead class="table-head">
-                                            <tr>
-                                                <th>Form Name</th>
-                                                <th>Form Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="tableBody"></tbody>
-                                        <tfoot class="table-footer">
-                                            <tr>
-                                                
-                                            </tr>
-                                        </tfoot>
-                                    </table>
-                                    <div class="position-relative p-4">
-                                        <div class="position-absolute top-50 start-50 translate-middle">
-                                            <nav aria-label="Page navigation example">
-                                                <ul class="pagination justify-content-end">
-                                                    <li class="page-item disabled" id="prevPage">
-                                                        <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                                    </li>
-                                                    <li class="page-item" id="nextPage">
-                                                        <a class="page-link" href="#">Next</a>
-                                                    </li>
-                                                </ul>
-                                            </nav>
-                                        </div>
-                                    </div>
-                        
-                                </div>
-                            </div>  
-                        </div>      
-                    </div> 
+                    </div>   
                 </div>
             </div>
-        </div>-->
+        </div>                  
+                        
         <!--Admission Form End-->
         <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"> -->
         <!-- <link href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap5.css" rel="stylesheet"> -->
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script> -->
         <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
         <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.js"></script>
 

@@ -146,10 +146,10 @@
                                                 <h6 class="p-3 side-menu"><b>Incomplete</b></h6>
                                                 <div class="menu">
                                                     <!--Child Information -->
-                                                    <div class="menu admissionforms"></div>
-                                                    <div class="menu authorization"></div>
-                                                    <div class="menu enrollmentagreement"></div>
-                                                    <div class="menu parenthandbook"></div>
+                                                    <div class="menu admissionforms" id="admissionFormMenu"></div>
+                                                    <div class="menu authorization" id="authorizationMenu"></div>
+                                                    <div class="menu enrollmentagreement" id="enrollmentMenu"></div>
+                                                    <div class="menu parenthandbook" id="parentHandbookMenu"></div>
                                                 </div><br>
                                                 <li>
                                                     <a class="nav-link completedforms" data-bs-toggle="pill" 
@@ -249,7 +249,6 @@
        
         <script>
             function checking(editID){
-                console.log(editID);
                 window.localStorage.setItem('editChildId',editID);
                 // var tab_content = document.querySelector(".tab-content");
                 // tab_content.reset();
@@ -258,6 +257,7 @@
                     type: 'GET',
                     dataType:'json',
                     success: function(response) {
+                        console.log(response);
                         let mainTopics = [];
                         // iterate over the values of incompletedformstatus
                         for (let value of Object.values(response['inCompletedFormStatus'])) {
@@ -265,9 +265,16 @@
                         }
                         // sort the array alphabetically
                         mainTopics.sort();
-                        console.log(mainTopics);
 
                         // iterate through the sorted array
+                        // let admissionforms = false;
+                        // let authorization = false;
+                        // let enrollmentagreement = false;
+                        // let parenthandbook = false;
+                        document.getElementById('admissionFormMenu').innerHTML ='';
+                        document.getElementById('authorizationMenu').innerHTML ='';
+                        document.getElementById('enrollmentMenu').innerHTML ='';
+                        document.getElementById('parentHandbookMenu').innerHTML ='';
                         for (let i = 0; i < mainTopics.length; i++) {
                             let mainTopic = mainTopics[i];
                             let trimValues = mainTopic.replace(/\s+/g, '').toLowerCase();
@@ -275,11 +282,35 @@
                             // $.get(trimValues + "ListItem.html", function(data) {
                             //     $("#menu").append(data);
                             // });
+
                             if (trimValues == 'admissionforms' || trimValues == 'authorization' || 
                             trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
+                                console.log('in');
                                 // $('.menu').load(trimValues + "ListItem.html");
                                 $(`.menu.${trimValues}`).load(trimValues + "ListItem.html");
+                                
                             }
+
+                            // if (trimValues == 'admissionforms' ) {
+                            //     admissionforms = true;
+                            //     // $('.menu').load(trimValues + "ListItem.html");
+                            //     $(`.menu.${trimValues}`).load(trimValues + "ListItem.html");
+                            // }
+                            // if (trimValues == 'authorization' ) {
+                            //     authorization = true;
+                            //     // $('.menu').load(trimValues + "ListItem.html");
+                            //     $(`.menu.${trimValues}`).load(trimValues + "ListItem.html");
+                            // }
+                            // if (trimValues == 'enrollmentagreement' ) {
+                            //     enrollmentagreement = true;
+                            //     // $('.menu').load(trimValues + "ListItem.html");
+                            //     $(`.menu.${trimValues}`).load(trimValues + "ListItem.html");
+                            // }
+                            // if (trimValues == 'parenthandbook' ) {
+                            //     parenthandbook = true;
+                            //     // $('.menu').load(trimValues + "ListItem.html");
+                            //     $(`.menu.${trimValues}`).load(trimValues + "ListItem.html");
+                            // }
 
                             if (trimValues == 'admissionforms' || trimValues == 'authorization' || 
                             trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
@@ -643,13 +674,9 @@
                                     document.getElementsByName('physical_exam_last_date')[0].value = response.physical_exam_last_date;
                                 if (typeof response.dental_exam_last_date !== "undefined")
                                     document.getElementsByName('dental_exam_last_date')[0].value = response.dental_exam_last_date;
-
-                                    console.log(response.physical_exam_last_date);
-                                    console.log(response.dental_exam_last_date);
                                 if(typeof response.physical_exam_last_date !== "undefined" && 
                                     typeof response.dental_exam_last_date !== "undefined"
                                 ){
-                                    console.log('if his');
                                     // Reset the display for both images
                                     document.querySelector('.childhistoryDetails-tick').style.display = 'none';
                                     document.querySelector('.childhistoryDetails-circle').style.display = 'none';
@@ -657,7 +684,6 @@
                                     document.querySelector('.childhistoryDetails-tick').style.display = 'block';
                                     childHistory = true;
                                 }else{
-                                    console.log('else his');
                                     // Reset the display for both images
                                     document.querySelector('.childhistoryDetails-tick').style.display = 'none';
                                     document.querySelector('.childhistoryDetails-circle').style.display = 'none';
@@ -1466,7 +1492,6 @@
                             
                             // Admission form parent agreement
                             let admissionparentsign;
-                            console.log(response.parent_sign_admission);
                             if(document.getElementById('parentsignature') !== null ){
                                 if( response.parent_sign_admission !== "undefined" ){
                                     document.getElementsByName('parent_sign_admission')[0].value = response.parent_sign_admission;
@@ -1697,7 +1722,6 @@
                                 if(typeof response.bank_routing !== "undefined" && typeof response.bank_account !== "undefined"
                                 && typeof response.driver_license !== "undefined" && typeof response.state !== "undefined"
                                 && typeof response.i !== "undefined"){
-                                    console.log('if ach');
                                     let achFinalAgreement = document.getElementById('achFinalAgreement');
                                     achFinalAgreement.classList.remove('disabled');
                                     // Reset the display for both images
@@ -1707,7 +1731,6 @@
                                     document.querySelector('.authorizationach-tick').style.display = 'block'; 
                                     authorizationDetails = true;
                                 }else{
-                                    console.log('else ach');
                                     let achFinalAgreement = document.getElementById('achFinalAgreement');
                                     achFinalAgreement.classList.add('disabled');
                                     // Reset the display for both images
@@ -2262,9 +2285,6 @@
         </script>
          <script>
             function parentDashBoardDetails(editID,year) {
-                console.log(editID);
-                console.log(year);
-
                 //for avoid datatable error popup messages//
                 $.fn.dataTable.ext.errMode = 'none';
 
@@ -2284,14 +2304,12 @@
                     columns: [
                         { data: 'form_name',
                         render: function ( data, type, full, meta ) {
-                                console.log(full);
                                 return full; 
                                 //return '<a href="'+ url +'"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9RvaUyBbAGaB9dcdAZxQvJJHKnd8vqQpsqgJpRuNrFCwk2ZY5vl5RgEj_b2wcGXW8OwE&usqp=CAU" id="editbutton"  name="editbutton"  height="20px;" style="text-align:right !important;"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton"  name="deletebutton"  height="20px;" style="text-align:right !important;cursor: pointer !important;"></a>';
                             },
                         },
                         { data: 'edit',
                             render: function ( data, type, full, meta ) {
-                                console.log(full);
                                 window.location.replace = `${window.location.origin}/admin/addclassroom.html?id=${full.class_id} `;
                                 let url =`${window.location.origin}/admin/addclassroom.html?id=${full.class_id}` //Question
                                return '<a href="'+ url +'"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="17" height="17" class="action-icons m-2" id="editbutton" name="editbutton"><path fill="#0F2D52" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="17" height="17" class="action-icons m-2" id="deletebutton"  name="deletebutton"><path fill="#bb1b1b" d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/></svg></a>';

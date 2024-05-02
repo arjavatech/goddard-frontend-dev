@@ -34,10 +34,11 @@ function submitForm(editID) {
         }
     })
     const json=JSON.stringify(outputobject); 
+    console.log(json);
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            // alert(response.message)
+            alert(response.message)
             window.location.reload();
         }else{
             alert("failed to save admission form");
@@ -80,6 +81,7 @@ function childPersonalsubmitForm(editID) {
         }
     })
     const json=JSON.stringify(outputobject); 
+    console.log(json);
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
@@ -103,14 +105,22 @@ function childParentsubmitForm(editID) {
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     obj.form_year_admission = year;
+    const parent_one_email =obj.primary_parent_email;
+    obj.parent_email = parent_one_email;
+    const email_two_parent = obj.parent_two_email;
+    console.log(obj.parent_email);
+    obj.parent_email_two = email_two_parent;
+    console.log(obj);
     //to get values from local storage variable and stored it into response1 variable.
     var response=JSON.parse(window.localStorage.getItem("responseData"));
     var outputobject ={};
     //to set local response variable id value for outputobject id value.
     if(editID != ''){
         outputobject.primary_parent_email = editID;
+        outputobject.parent_email = editID;
     }else{
         outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
+        outputobject.parent_email = localStorage.getItem('logged_in_email');
     }
     const child_id_val = localStorage.getItem('child_id');
 
@@ -121,6 +131,7 @@ function childParentsubmitForm(editID) {
     
     //compare new date with old data
     keys.forEach(function (key) {
+        console.log(obj[key]);
         if(obj[key] != response[key] && obj[key] !=="" ){
             outputobject[key]=obj[key];
         }

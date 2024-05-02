@@ -631,22 +631,25 @@
                             }
 
                             // child family and history
+                            let childHistory;
+                            let medicalHistory;
+                            let pregnancyHistory;
+                            let familyHistroy;
+                            let socialBehavior;
+                            let environmentalFactor;
+                            let parentAgreementTwo;
                             if(document.getElementById('childandfamilyhistory') !== null ){
-                                let childHistory;
-                                let medicalHistory;
-                                let pregnancyHistory;
-                                let familyHistroy;
-                                let socialBehavior;
-                                let environmentalFactor;
-                                let parentAgreementTwo;
                                 if (typeof response.physical_exam_last_date !== "undefined")
                                     document.getElementsByName('physical_exam_last_date')[0].value = response.physical_exam_last_date;
                                 if (typeof response.dental_exam_last_date !== "undefined")
                                     document.getElementsByName('dental_exam_last_date')[0].value = response.dental_exam_last_date;
 
+                                    console.log(response.physical_exam_last_date);
+                                    console.log(response.dental_exam_last_date);
                                 if(typeof response.physical_exam_last_date !== "undefined" && 
                                     typeof response.dental_exam_last_date !== "undefined"
                                 ){
+                                    console.log('if his');
                                     // Reset the display for both images
                                     document.querySelector('.childhistoryDetails-tick').style.display = 'none';
                                     document.querySelector('.childhistoryDetails-circle').style.display = 'none';
@@ -654,6 +657,7 @@
                                     document.querySelector('.childhistoryDetails-tick').style.display = 'block';
                                     childHistory = true;
                                 }else{
+                                    console.log('else his');
                                     // Reset the display for both images
                                     document.querySelector('.childhistoryDetails-tick').style.display = 'none';
                                     document.querySelector('.childhistoryDetails-circle').style.display = 'none';
@@ -973,10 +977,10 @@
                                     statuscall = false;
                                 }
                             }
-
+                           
                             //immunization details
+                            let immunizationInstruction;
                             if(document.getElementById('immunizationinstructions') !== null ){
-                                let immunizationInstruction;
                                 if( response.do_you_agree_this_immunization_instructions == "on" ){
                                     document.getElementById('do_you_agree_this_immunization_instructions').checked = true;
                                     immunizationInstruction = true;
@@ -1001,13 +1005,14 @@
                                 }
                             }
 
+                            let childProfile;
+                            let nutritionDetails;
+                            let restDetails;
+                            let medicalDetails;
+                            let parentAgreementThree;
                             //child profile details
                             if(document.getElementById('childprofile') !== null ){
-                                let childProfile;
-                                let nutritionDetails;
-                                let restDetails;
-                                let medicalDetails;
-                                let parentAgreementThree;
+                                
                                 if (typeof response.other_important_family_members !== "undefined")
                                     document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
                                 if (typeof response.about_family_celebrations !== "undefined")
@@ -1285,8 +1290,8 @@
                             }
 
                             //pickup password details
-                            if(document.getElementById('pickuppassword') !== null ){
-                                let pickupPassword;
+                            let pickupPassword;
+                            if(document.getElementById('pickuppassword') !== null ){                          
                                 if (typeof response.child_password_pick_up_password_form !== "undefined")
                                     document.getElementsByName('child_password_pick_up_password_form')[0].value = response.child_password_pick_up_password_form;
                                 if( response.do_you_agree_this_pick_up_password_form == "on" ){
@@ -1316,8 +1321,8 @@
                             }
 
                             //photo video permisiion details
+                            let photoVideoPermission;
                             if(document.getElementById('photovideopermission') !== null ){
-                                let photoVideoPermission;
                                 // if (typeof response.photo_usage_photo_video_permission_form  !== "undefined"){
                                 //         $('#photo_usage_photo_video_permission_form').append($("<option></option>").attr("value", response.photo_usage_photo_video_permission_form).text(response.photo_usage_photo_video_permission_form));
                                 //     }
@@ -1356,8 +1361,8 @@
                             }
 
                             // security policy details
+                            let securityPolicy;
                             if(document.getElementById('securitypolicy') !== null ){
-                                let securityPolicy;
                                 if( response.do_you_agree_this_security_release_policy_form == "on" ){
                                     document.getElementById('do_you_agree_this_security_release_policy_form').checked = true;
                                 }else{
@@ -1381,8 +1386,8 @@
                             }
 
                             //medical transportation details
+                            let medicaltransportationWeiver;
                             if(document.getElementById('medicaltransportation') !== null ){
-                                let medicaltransportationWeiver;
                                 if (typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined")
                                     document.getElementsByName('contact_emergency_medical_technicians_medical_transportation_waiver')[0].value = response.contact_emergency_medical_technicians_medical_transportation_waiver;
                                 
@@ -1410,8 +1415,8 @@
                             }
 
                             // health policy details
+                            let healthPolicy;
                             if(document.getElementById('healthpolicies') !== null ){
-                                let healthPolicy;
                                 if( response.do_you_agree_this_health_policies == "on" ){
                                     document.getElementById('do_you_agree_this_health_policies').checked = true;
                                 }else{
@@ -1435,8 +1440,8 @@
                             }
 
                             // outside weiver details
+                            let outsideWeiver;
                             if(document.getElementById('outsideengagements') !== null ){
-                                let outsideWeiver;
                                 if( response.outside_waiver_parent_sign_outside_engagements_waiver == "on" ){
                                     document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = true;
                                 }else{
@@ -1460,6 +1465,8 @@
                             }
                             
                             // Admission form parent agreement
+                            let admissionparentsign;
+                            console.log(response.parent_sign_admission);
                             if(document.getElementById('parentsignature') !== null ){
                                 if( response.parent_sign_admission !== "undefined" ){
                                     document.getElementsByName('parent_sign_admission')[0].value = response.parent_sign_admission;
@@ -1467,7 +1474,7 @@
                                 if( response.parent_sign_date_admission !== "undefined" ){
                                     document.getElementsByName('parent_sign_date_admission')[0].value = response.parent_sign_date_admission;
                                 }
-                                let admissionparentsign;
+                                
                                 if(typeof response.parent_sign_admission !== "undefined" &&
                                 typeof response.parent_sign_date_admission !== "undefined"){
                                     // Reset the display for both images
@@ -1488,10 +1495,10 @@
 
                                 if(childbasicInfo == true && childparentInfo == true && 
                                     childEmergencyContact == true && childMedicalcare == true && 
-                                    childParentAgreementOne == true && childHistory== true && 
+                                    childParentAgreementOne == true && childHistory == true &&
                                     medicalHistory == true && pregnancyHistory == true &&
-                                    familyHistroy == true && socialBehavior == true && 
-                                    environmentalFactor == true && parentAgreementTwo == true && 
+                                    familyHistroy == true && socialBehavior == true &&
+                                    environmentalFactor == true && parentAgreementTwo == true &&
                                     immunizationInstruction == true && childProfile == true && 
                                     nutritionDetails == true && restDetails == true &&
                                     medicalDetails == true && parentAgreementThree == true && 
@@ -1532,6 +1539,7 @@
 
                             //enrollment data
                             let enrollmentDetails;
+                            let enrollmentparent;
                             if(document.getElementById('childenrollmentagreement') !== null ){
                                 if (typeof response.point_one_field_one !== "undefined")
                                     document.getElementsByName("point_one_field_one")[0].value = response.point_one_field_one;
@@ -1625,7 +1633,7 @@
                                 if( response.parent_sign_date_enroll !== "undefined" ){
                                     document.getElementsByName('parent_sign_date_enroll')[0].value = response.parent_sign_date_enroll;
                                 }
-                                let enrollmentparent;
+                               
                                 if(typeof response.parent_sign_enroll !== "undefined" &&
                                     typeof response.parent_sign_date_enroll !== "undefined"){
                                     // Reset the display for both images
@@ -1671,6 +1679,7 @@
 
                             //authorization form
                             let authorizationDetails;
+                            let achparentsign;
                             if(document.getElementById('authorizationach') !== null ){
                                 if (typeof response.bank_routing !== "undefined")
                                     document.getElementById("bank_routing").value = response.bank_routing;
@@ -1716,7 +1725,7 @@
                                 if( response.parent_sign_date_ach !== "undefined" ){
                                     document.getElementsByName('parent_sign_date_ach')[0].value = response.parent_sign_date_ach;
                                 }
-                                let achparentsign;
+                                
                                 if(typeof response.parent_sign_ach !== "undefined" &&
                                 typeof response.parent_sign_date_ach !== "undefined"){
                                     // Reset the display for both images
@@ -2159,6 +2168,8 @@
                                 addressing_individual_child_agreement == true &&
                                 finalword_agreement == true 
                             ){
+                                let handbookFinalAgreement = document.getElementById('handbookFinalAgreement');
+                                handbookFinalAgreement.classList.remove('disabled');
                                 // Reset the display for both images
                                 document.querySelector('.goddardschool1-tick').style.display = 'none';
                                 document.querySelector('.goddardschool1-circle').style.display = 'none';
@@ -2166,6 +2177,8 @@
                                 document.querySelector('.goddardschool1-tick').style.display = 'block'; 
                                 parentHandBook = true;
                             }else{
+                                let handbookFinalAgreement = document.getElementById('handbookFinalAgreement');
+                                handbookFinalAgreement.classList.add('disabled');
                                 // Reset the display for both images
                                 document.querySelector('.goddardschool1-tick').style.display = 'none';
                                 document.querySelector('.goddardschool1-circle').style.display = 'none';
@@ -2200,16 +2213,14 @@
                                 }
                                 if(parentHandBook == true && parenthandbookparentsign == true 
                                 ){
-                                    let handbookFinalAgreement = document.getElementById('handbookFinalAgreement');
-                                    handbookFinalAgreement.classList.remove('disabled');
+                                    
                                     // Reset the display for both images
                                     document.querySelector('.handbook-tick').style.display = 'none';
                                     document.querySelector('.handbook-circle').style.display = 'none';
                                     // Update the display for the clicked card
                                     document.querySelector('.handbook-tick').style.display = 'block'; 
                                 }else{
-                                    let handbookFinalAgreement = document.getElementById('handbookFinalAgreement');
-                                    handbookFinalAgreement.classList.add('disabled');
+                                    
                                     // Reset the display for both images
                                     document.querySelector('.handbook-tick').style.display = 'none';
                                     document.querySelector('.handbook-circle').style.display = 'none';
@@ -2232,63 +2243,10 @@
                             window.localStorage.setItem("responseData",JSON.stringify(response));
                         }
                     });
-                }else{
-                    // formdiv.classList.add('hide');
-                    // addChildDiv.style.display = 'block';
-                    // formdiv.style.display = "none";
                 }
             }
             
-            // function parentDashBoardDetails(editID,year) {
-            //     console.log(editID);
-            //     console.log(year);
-            //     document.querySelector('[id="childName"]').innerHTML = localStorage.getItem('child_name');;
-            //     // localStorage.setItem('form_year_value', val);
-            //     // let year = new Date().getFullYear();
-            //     $.ajax({
-            //         url: `http://localhost:8080/admission_child_personal/completed_form_status/${editID}?year${year}`,
-            //         type: 'get',
-            //         success: function (response) {
-            //             console.log(response);
-            //                 const tableBody = document.getElementById('tableBody');
-            //                 response.completedFormStatus.forEach(data => {
-            //                     const newRow = document.createElement('tr');
-
-            //                     // Create and append cells for each data point
-            //                     const formNameCell = document.createElement('td');
-            //                     formNameCell.innerText = data;
-            //                     localStorage.setItem('form_name',  data)
-
-            //                     // Create a cell for action items
-            //                     const actionCell = document.createElement('td');
-                                
-            //                     const downloadIcon = document.createElement('i');
-            //                     downloadIcon.setAttribute('id', 'downloadFormAsPDF');
-            //                     downloadIcon.setAttribute('name', 'downloadForm');
-            //                     downloadIcon.className = 'fa-solid fa-circle-arrow-down p-2 action-icons';
-
-            //                     const printIcon = document.createElement('i');
-            //                     printIcon.setAttribute('id','printFormBtn');
-            //                     printIcon.className = 'fa-solid fa-print p-2 action-icons';
-                            
-            //                     actionCell.appendChild(downloadIcon);
-            //                     actionCell.appendChild(printIcon);
-
-            //                     // Append cells to the row
-            //                     newRow.appendChild(formNameCell);
-            //                     newRow.appendChild(actionCell);
-
-            //                     // Append the row to the table
-            //                     tableBody.appendChild(newRow);
-
-            //                     // Apply styling based on form status here as needed
-            //                 });
-            //                 // });
-            //             // }
-            //         }
-            //     });
-            // }
-        
+                    
             // function yearBasedFormDetails(val){
             //    //this function is uesd to restrict future year 
             //     let startYear = 2021;
@@ -2320,13 +2278,20 @@
                     //for waking up the aws lambda server
                     ajax: {
                         url:`http://localhost:8080/admission_child_personal/completed_form_status/${editID}?year${year}`,
-                        dataSrc: '',
+                        dataSrc: 'completedFormStatus',
                     },
                     //it is used to define and configure the individual columns of the table.
                     columns: [
-                        { data: 'form_name'},
+                        { data: 'form_name',
+                        render: function ( data, type, full, meta ) {
+                                console.log(full);
+                                return full; 
+                                //return '<a href="'+ url +'"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9RvaUyBbAGaB9dcdAZxQvJJHKnd8vqQpsqgJpRuNrFCwk2ZY5vl5RgEj_b2wcGXW8OwE&usqp=CAU" id="editbutton"  name="editbutton"  height="20px;" style="text-align:right !important;"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton"  name="deletebutton"  height="20px;" style="text-align:right !important;cursor: pointer !important;"></a>';
+                            },
+                        },
                         { data: 'edit',
                             render: function ( data, type, full, meta ) {
+                                console.log(full);
                                 window.location.replace = `${window.location.origin}/admin/addclassroom.html?id=${full.class_id} `;
                                 let url =`${window.location.origin}/admin/addclassroom.html?id=${full.class_id}` //Question
                                return '<a href="'+ url +'"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="17" height="17" class="action-icons m-2" id="editbutton" name="editbutton"><path fill="#0F2D52" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="17" height="17" class="action-icons m-2" id="deletebutton"  name="deletebutton"><path fill="#bb1b1b" d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z"/></svg></a>';

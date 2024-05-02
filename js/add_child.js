@@ -22,7 +22,6 @@ import {isAuthenticated} from "./authenticationVerify.js";
                     $(".success-msg").hide();
                     window.location.reload();
                 }, 3000);     
-
             },
             error: function (xhr, status, error) {
                 alert("failed to submit admission form");

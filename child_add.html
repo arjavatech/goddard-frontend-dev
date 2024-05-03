@@ -42,7 +42,27 @@
         /**.content {
             display: none;
           } **/
-          
+          .success-msg{
+                position: fixed;
+                top: 5px; 
+                left:2%;
+                width: 96%;
+            }
+            .error-msg, .error-msg-empty, .error-msg-mismatch{
+                position: fixed;
+                top: 5px; 
+                left:2%;
+                width: 96%;
+            }
+            
+            .alert{
+                display: none;
+                padding: 15px;
+                margin-bottom: 20px;
+                border: 1px solid transparent;
+                border-radius: 4px;
+            }  
+    
     
         </style>
     </head>
@@ -62,6 +82,14 @@
             <!-- Welcome Text -->
             <h4 class="h4 pt-2 text-center" id="welcomeText" name="welcomeText"></h4>
         </div>
+        <div class="success-msg alert alert-success" style="display: none;">
+            <a href="#" data-dismiss="alert"></a>
+            <strong>Success!</strong> Data saved successfully!
+        </div>   
+        <div class="error-msg alert alert-danger" style="display: none;">
+            <a href="#" data-dismiss="alert" aria-label="close"></a>
+            <strong>Oops!</strong> Failed to save admission form!
+        </div>  
          <!-- Welcome Screen End -->
         <div class="tab-bg m-2">
             <span onclick="toggleContent('completedFormDetails')"><ul class="nav" role="tablist" id="dynamicChildCards"></ul></span>
@@ -75,14 +103,7 @@
                                 Forms Status
                                 </button>
                             </h2>
-                            <div class="success-msg alert alert-success">
-                                <a href="#" data-dismiss="alert"></a>
-                                <strong>Success!</strong> Data saved successfully!
-                            </div>   
-                            <div class="error-msg alert alert-danger">
-                                <a href="#" data-dismiss="alert" aria-label="close"></a>
-                                <strong>Oops!</strong> Failed to save admission form!
-                            </div>  
+                           
                             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
                                     <div class="accordion" id="accordionExampleone">

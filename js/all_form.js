@@ -38,7 +38,7 @@ function submitForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            alert(response.message)
+            // alert(response.message)
             window.location.reload();
         }else{
             alert("failed to save admission form");
@@ -57,6 +57,7 @@ function childPersonalsubmitForm(editID) {
     old.parentNode.replaceChild(new_element,old);
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
+    console.log(obj);
     obj.form_year_admission = year;
     //to get values from local storage variable and stored it into response1 variable.
     var response=JSON.parse(window.localStorage.getItem("responseData"));
@@ -73,7 +74,7 @@ function childPersonalsubmitForm(editID) {
         outputobject.child_id = child_id_val; 
     }
     var keys = Object.keys(obj);
-    
+    // alert('hi');
     //compare new date with old data
     keys.forEach(function (key) {
         if(obj[key] != response[key] && obj[key] !=="" ){
@@ -85,7 +86,7 @@ function childPersonalsubmitForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            // alert(response.message)
+            // alert('hlo');
             window.location.reload();
         }else{
             alert("failed to save admission form");
@@ -94,6 +95,28 @@ function childPersonalsubmitForm(editID) {
     xhr.open("PUT", "http://localhost:8080/admission_child_personal/modify");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
+    // $.ajax({
+    //     url: "http://localhost:8080/admission_child_personal/modify",
+    //     type: "PUT",
+    //     contentType: "application/json",
+    //     data:json,
+    //     success: function (response) {
+    //         console.log(response);
+    //         if(response.message == "Sign-up not allowed"){
+    //             $(".error-msg").show();
+    //             setTimeout(function(){ 
+    //                 $(".error-msg").hide(); 
+    //             }, 3000);
+    //         }else{
+    //             $(".success-msg").show();
+    //             setTimeout(function(){ 
+    //                 $(".success-msg").hide(); 
+    //                 window.location.href = "login.html";
+    //             }, 3000);
+    //         }
+        
+    //     },
+    // });
 }
 function childParentsubmitForm(editID) {
     console.log('king')
@@ -228,6 +251,7 @@ function childProfilesubmitForm(editID) {
         }
     })
     const json=JSON.stringify(outputobject); 
+    console.log(json);
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
@@ -241,51 +265,6 @@ function childProfilesubmitForm(editID) {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
-// Function to submit the form data
-// function saveForm(editID) {
-//     const form = document.getElementById("childInfoAdmission");
-//     const formData = new FormData(form);
-//     const obj = Object.fromEntries(formData);
-   
-//     if(editID != ''){
-//         obj.primary_parent_email = editID;
-//     }else{
-//         obj.primary_parent_email = localStorage.getItem('logged_in_email');
-//     }
-//     const child_id_val = localStorage.getItem('child_id');
-
-//     if (child_id_val !== null && child_id_val !== undefined) {
-//         obj.child_id = child_id_val; 
-//     }
-//     const json = JSON.stringify(obj);
-//     // $.ajax({
-//     //     url: "http://localhost:8080/admission_child_personal/update",
-//     //     type: "PUT",
-//     //     contentType: "application/json",
-//     //     data: json,
-//     //     success: function (response) {
-//     //         alert(response.message)
-//     //         window.location.reload();
-//     //     },
-//     //     error: function (xhr, status, error) {
-//     //     }
-//     // });
-//     let xhr = new XMLHttpRequest();
-//     xhr.onload = () => {
-//         if (xhr.status === 200) {
-//             // alert(response.message)
-//             window.location.reload();
-//         }else{
-//             alert("failed to save admission form");
-//         }
-//     };
-//     xhr.open("POST", "http://localhost:8080/admission_child_personal/modify");
-//     xhr.setRequestHeader("Content-Type", "application/json");
-//     xhr.send(json);
-// }
-
-// Function to submit the form data
-
 
 function saveForm(editID) {
     //to get values from local storage variable.
@@ -433,7 +412,7 @@ function authorizationSaveForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            alert(response.message)
+            // alert(response.message)
             window.location.reload();
         }else{
             alert("failed to save admission form");
@@ -682,7 +661,7 @@ $(document).ready(function () {
         });
         $(document).on("click", ".child-profile-btn", function(e) {
             e.preventDefault();
-            childProfilesubmitForm(editChildID);
+            childPersonalsubmitForm(editChildID);
         });
         $(document).on("click", ".save-btn", function(e) {
             e.preventDefault();
@@ -690,7 +669,7 @@ $(document).ready(function () {
         });
         $(document).on("click", ".admission-submit-btn", function(e) {
             e.preventDefault();
-            submitForm(editChildID);
+            childPersonalsubmitForm(editChildID);
         });
         $(document).on("click", ".ach-save-btn", function(e) {
             e.preventDefault();

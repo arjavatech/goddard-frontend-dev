@@ -16,7 +16,7 @@
                 </span>
             </a> 
         </li>
-        <li class="nav-item">
+        <li class="nav-item" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="You Have to fill all the missing fields.">
             <a class="nav-link" data-bs-toggle="pill" href="#authorizationparentsign" id="achFinalAgreement">
                 <span>Parent Signature
                     <img src="image/tick.png" height="10%" width="10%" class="authorizationparentsign-tick float-end" style="display: none;">
@@ -34,3 +34,12 @@
         </li>
     </div>
 </div><br>
+
+<!--- Popover Script-->
+<script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+    })
+</script>
+<!--- Popover Script-->

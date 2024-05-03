@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Welcome-Dashboard</title>
+        <title>Parent Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
         <link rel="stylesheet" href="css/form_style.css">
@@ -27,79 +27,23 @@
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
         <style>
-            .accordion-button:not(.collapsed)::after {
-                background-image: url('image/down_white.png');
-                transform: rotate(-180deg);
-            }
-            .accordion-button-one:not(.collapsed)::after {
-                background-image: url('image/down_white.png');
-                transform: rotate(-180deg);
-            }
-            span.icon{
-                position: absolute;
-                z-index: 10;
-                background-image: url('image/tick.png');
-                background-repeat: no-repeat;
-                width: 5%;
-                height: 5%;
-            }
-            .hide {
-                display: none;
-            }
 
+        /****** Accordion Icon ******/
+        .accordion-button:not(.collapsed)::after {
+            background-image: url('image/down_white.png') !important;
+            transform: rotate(-180deg) !important;
+        }
+        .accordion-button-one:not(.collapsed)::after {
+            background-image: url('image/down_white.png') !important;
+            transform: rotate(-180deg) !important;
+        }
+        /****** Accordion Icon ******/
 
-            .success-msg{
-                position: fixed;
-                top: 5px; 
-                left:2%;
-                width: 96%;
-            }
-            .error-msg{
-                position: fixed;
-                top: 5px; 
-                left:2%;
-                width: 96%;
-            }
-            
-            .alert{
-                display: none;
-                padding: 15px;
-                margin-bottom: 20px;
-                border: 1px solid transparent;
-                border-radius: 4px;
-            }  
+        /**.content {
+            display: none;
+          } **/
           
-            .close {
-                float: right;
-                font-size: 22px;
-                font-weight: 700;
-                line-height: 1;
-                color: #000;
-                text-shadow: 0 1px 0 #fff;
-                opacity: .2;
-              }
-            
-            a {
-              color: #337ab7;
-              text-decoration: none;
-            }
-
-            .accordion-fixed
-            {
-                position: sticky;
-                top:0;
-            }
-
-            .side-menu, a.completedforms
-            {
-                background: #0F2D52 !important;
-                color: #fff !important;
-            }
-
-            a.completedforms:hover
-            {
-                opacity: 0.7;
-            }
+    
         </style>
     </head>
     <body>
@@ -114,13 +58,13 @@
 
         <!-- Welcome Screen -->
         <div class="p-3">
-            <h2 class="parent_dashboard_title h2 pt-4 text-center">Dashboard</h2>
+            <h2 class="parent_dashboard_title h2 pt-4 text-center">Parent Dashboard</h2>
             <!-- Welcome Text -->
             <h4 class="h4 pt-2 text-center" id="welcomeText" name="welcomeText"></h4>
         </div>
          <!-- Welcome Screen End -->
         <div class="tab-bg m-2">
-            <ul class="nav" role="tablist" id="dynamicChildCards"></ul>
+            <span onclick="toggleContent('completedFormDetails')"><ul class="nav" role="tablist" id="dynamicChildCards"></ul></span>
             <div class="row m-1 tab_bg "  id="formdiv" >
                 <div class="col-3 p-3 side_tab_bg"><br>
                     <div class="accordion accordion-fixed" id="accordionExample">
@@ -144,12 +88,6 @@
                                     <div class="accordion" id="accordionExampleone">
                                         <!--Admission Form Tab-->
                                         <div class="accordion-item accordio_style">
-                                            <!-- <h2 class="accordion-header shadow">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#admission" aria-expanded="true" aria-controls="collapseOne">
-                                                    Admission Forms
-                                                </button>
-                                            </h2> -->
                                             <ul class="nav nav-pills flex-column tab-content menu" role="tablist" id="menu">
                                                 <h6 class="p-3 side-menu"><b>Incomplete</b></h6>
                                                 <div class="menu">
@@ -159,15 +97,17 @@
                                                     <div class="menu enrollmentagreement" id="enrollmentMenu"></div>
                                                     <div class="menu parenthandbook" id="parentHandbookMenu"></div>
                                                 </div><br>
-                                                <li>
-                                                    <a class="nav-link completedforms" data-bs-toggle="pill" 
-                                                    href="#completedFormDetails">
-                                                        <span>Completed Forms
-                                                            <img src="image/tick.png" height="10%" width="10%" class="completedforms-tick float-end" style="display: none;">
-                                                            <img src="image/circle-with.png" height="10%" width="10%" class="completedforms-circle float-end" style="display: none;">
-                                                        </span>
-                                                    </a>    
-                                                </li>
+                                                <span onclick="toggleContent('completedFormDetails')">
+                                                    <li>
+                                                        <a class="nav-link completedforms" data-bs-toggle="pill" 
+                                                        href="#completedFormDetails">
+                                                            <span>Completed Forms
+                                                                <img src="image/tick.png" height="10%" width="10%" class="completedforms-tick float-end" style="display: none;">
+                                                                <img src="image/circle-with.png" height="10%" width="10%" class="completedforms-circle float-end" style="display: none;">
+                                                            </span>
+                                                        </a>    
+                                                    </li>
+                                                </span>
                                             </ul>
                                         </div><br>
                                     </div>  
@@ -193,7 +133,7 @@
                             <div class="tab-content parenthandbook" id="parenthandbook"></div>
                         </form>
                     </div><br>
-                    <div  id="completedFormDetails"  class="container tab-pane fade pt-3">
+                    <div  id="completedFormDetails"  class="container tab-pane fade pt-3 content" onclick="toggleContent('dynamicChildCards')">
                         <div class="card">
                             <h2 class="text-center title_bg">Completed Forms</h2>
                             <div class="row">
@@ -232,10 +172,31 @@
                                 </div>
                             </div>    
                         </div>
-                    </div>   
+                    </div> 
                 </div>
             </div>
-        </div>                  
+        </div>  
+        
+        <script>
+            
+            function toggleContent(contentId) {
+                var content = document.getElementById(contentId);
+                if (!content) return; // Check if element exists
+                var display = window.getComputedStyle(content).display;
+                if (display === "block") {
+                    content.style.display = "none";
+                } else {
+                    // Hide all active content
+                    var activeContents = document.querySelectorAll('.content[style="display: block;"]');
+                    activeContents.forEach(function(activeContent) {
+                        activeContent.style.display = "none";
+                    });
+                    // Show the clicked content
+                    content.style.display = "block";
+                }
+            }             
+        </script>
+            
                         
         <!--Admission Form End-->
         <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet"> -->

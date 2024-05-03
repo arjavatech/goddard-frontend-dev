@@ -79,10 +79,10 @@
                                                 <h6 class="p-3 side-menu"><b>Incomplete</b></h6>
                                                 <div class="menu">
                                                     <!--Child Information -->
-                                                    <div class="menu admissionforms"></div>
-                                                    <div class="menu authorization"></div>
-                                                    <div class="menu enrollmentagreement"></div>
-                                                    <div class="menu parenthandbook"></div>
+                                                    <div class="menu admissionforms" id="admissionFormMenu"></div>
+                                                    <div class="menu authorization" id="authorizationMenu"></div>
+                                                    <div class="menu enrollmentagreement" id="enrollmentMenu"></div>
+                                                    <div class="menu parenthandbook" id="parentHandbookMenu"></div>
                                                 </div><br>
                                                 <li>
                                                     <a class="nav-link completedforms" data-bs-toggle="pill" 
@@ -182,7 +182,6 @@
        
         <script>
             function checking(editID){
-                console.log(editID);
                 window.localStorage.setItem('editChildId',editID);
                 // var tab_content = document.querySelector(".tab-content");
                 // tab_content.reset();
@@ -191,6 +190,7 @@
                     type: 'GET',
                     dataType:'json',
                     success: function(response) {
+                        console.log(response);
                         let mainTopics = [];
                         // iterate over the values of incompletedformstatus
                         for (let value of Object.values(response['inCompletedFormStatus'])) {
@@ -198,9 +198,16 @@
                         }
                         // sort the array alphabetically
                         mainTopics.sort();
-                        console.log(mainTopics);
 
                         // iterate through the sorted array
+                        // let admissionforms = false;
+                        // let authorization = false;
+                        // let enrollmentagreement = false;
+                        // let parenthandbook = false;
+                        document.getElementById('admissionFormMenu').innerHTML ='';
+                        document.getElementById('authorizationMenu').innerHTML ='';
+                        document.getElementById('enrollmentMenu').innerHTML ='';
+                        document.getElementById('parentHandbookMenu').innerHTML ='';
                         for (let i = 0; i < mainTopics.length; i++) {
                             let mainTopic = mainTopics[i];
                             let trimValues = mainTopic.replace(/\s+/g, '').toLowerCase();
@@ -208,11 +215,35 @@
                             // $.get(trimValues + "ListItem.html", function(data) {
                             //     $("#menu").append(data);
                             // });
+
                             if (trimValues == 'admissionforms' || trimValues == 'authorization' || 
                             trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
+                                console.log('in');
                                 // $('.menu').load(trimValues + "ListItem.html");
                                 $(`.menu.${trimValues}`).load(trimValues + "ListItem.html");
+                                
                             }
+
+                            // if (trimValues == 'admissionforms' ) {
+                            //     admissionforms = true;
+                            //     // $('.menu').load(trimValues + "ListItem.html");
+                            //     $(`.menu.${trimValues}`).load(trimValues + "ListItem.html");
+                            // }
+                            // if (trimValues == 'authorization' ) {
+                            //     authorization = true;
+                            //     // $('.menu').load(trimValues + "ListItem.html");
+                            //     $(`.menu.${trimValues}`).load(trimValues + "ListItem.html");
+                            // }
+                            // if (trimValues == 'enrollmentagreement' ) {
+                            //     enrollmentagreement = true;
+                            //     // $('.menu').load(trimValues + "ListItem.html");
+                            //     $(`.menu.${trimValues}`).load(trimValues + "ListItem.html");
+                            // }
+                            // if (trimValues == 'parenthandbook' ) {
+                            //     parenthandbook = true;
+                            //     // $('.menu').load(trimValues + "ListItem.html");
+                            //     $(`.menu.${trimValues}`).load(trimValues + "ListItem.html");
+                            // }
 
                             if (trimValues == 'admissionforms' || trimValues == 'authorization' || 
                             trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
@@ -564,19 +595,18 @@
                             }
 
                             // child family and history
+                            let childHistory;
+                            let medicalHistory;
+                            let pregnancyHistory;
+                            let familyHistroy;
+                            let socialBehavior;
+                            let environmentalFactor;
+                            let parentAgreementTwo;
                             if(document.getElementById('childandfamilyhistory') !== null ){
-                                let childHistory;
-                                let medicalHistory;
-                                let pregnancyHistory;
-                                let familyHistroy;
-                                let socialBehavior;
-                                let environmentalFactor;
-                                let parentAgreementTwo;
                                 if (typeof response.physical_exam_last_date !== "undefined")
                                     document.getElementsByName('physical_exam_last_date')[0].value = response.physical_exam_last_date;
                                 if (typeof response.dental_exam_last_date !== "undefined")
                                     document.getElementsByName('dental_exam_last_date')[0].value = response.dental_exam_last_date;
-
                                 if(typeof response.physical_exam_last_date !== "undefined" && 
                                     typeof response.dental_exam_last_date !== "undefined"
                                 ){
@@ -906,10 +936,10 @@
                                     statuscall = false;
                                 }
                             }
-
+                           
                             //immunization details
+                            let immunizationInstruction;
                             if(document.getElementById('immunizationinstructions') !== null ){
-                                let immunizationInstruction;
                                 if( response.do_you_agree_this_immunization_instructions == "on" ){
                                     document.getElementById('do_you_agree_this_immunization_instructions').checked = true;
                                     immunizationInstruction = true;
@@ -934,13 +964,14 @@
                                 }
                             }
 
+                            let childProfile;
+                            let nutritionDetails;
+                            let restDetails;
+                            let medicalDetails;
+                            let parentAgreementThree;
                             //child profile details
                             if(document.getElementById('childprofile') !== null ){
-                                let childProfile;
-                                let nutritionDetails;
-                                let restDetails;
-                                let medicalDetails;
-                                let parentAgreementThree;
+                                
                                 if (typeof response.other_important_family_members !== "undefined")
                                     document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
                                 if (typeof response.about_family_celebrations !== "undefined")
@@ -1218,8 +1249,8 @@
                             }
 
                             //pickup password details
-                            if(document.getElementById('pickuppassword') !== null ){
-                                let pickupPassword;
+                            let pickupPassword;
+                            if(document.getElementById('pickuppassword') !== null ){                          
                                 if (typeof response.child_password_pick_up_password_form !== "undefined")
                                     document.getElementsByName('child_password_pick_up_password_form')[0].value = response.child_password_pick_up_password_form;
                                 if( response.do_you_agree_this_pick_up_password_form == "on" ){
@@ -1249,8 +1280,8 @@
                             }
 
                             //photo video permisiion details
+                            let photoVideoPermission;
                             if(document.getElementById('photovideopermission') !== null ){
-                                let photoVideoPermission;
                                 // if (typeof response.photo_usage_photo_video_permission_form  !== "undefined"){
                                 //         $('#photo_usage_photo_video_permission_form').append($("<option></option>").attr("value", response.photo_usage_photo_video_permission_form).text(response.photo_usage_photo_video_permission_form));
                                 //     }
@@ -1289,8 +1320,8 @@
                             }
 
                             // security policy details
+                            let securityPolicy;
                             if(document.getElementById('securitypolicy') !== null ){
-                                let securityPolicy;
                                 if( response.do_you_agree_this_security_release_policy_form == "on" ){
                                     document.getElementById('do_you_agree_this_security_release_policy_form').checked = true;
                                 }else{
@@ -1314,8 +1345,8 @@
                             }
 
                             //medical transportation details
+                            let medicaltransportationWeiver;
                             if(document.getElementById('medicaltransportation') !== null ){
-                                let medicaltransportationWeiver;
                                 if (typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined")
                                     document.getElementsByName('contact_emergency_medical_technicians_medical_transportation_waiver')[0].value = response.contact_emergency_medical_technicians_medical_transportation_waiver;
                                 
@@ -1343,8 +1374,8 @@
                             }
 
                             // health policy details
+                            let healthPolicy;
                             if(document.getElementById('healthpolicies') !== null ){
-                                let healthPolicy;
                                 if( response.do_you_agree_this_health_policies == "on" ){
                                     document.getElementById('do_you_agree_this_health_policies').checked = true;
                                 }else{
@@ -1368,8 +1399,8 @@
                             }
 
                             // outside weiver details
+                            let outsideWeiver;
                             if(document.getElementById('outsideengagements') !== null ){
-                                let outsideWeiver;
                                 if( response.outside_waiver_parent_sign_outside_engagements_waiver == "on" ){
                                     document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = true;
                                 }else{
@@ -1393,6 +1424,7 @@
                             }
                             
                             // Admission form parent agreement
+                            let admissionparentsign;
                             if(document.getElementById('parentsignature') !== null ){
                                 if( response.parent_sign_admission !== "undefined" ){
                                     document.getElementsByName('parent_sign_admission')[0].value = response.parent_sign_admission;
@@ -1400,7 +1432,7 @@
                                 if( response.parent_sign_date_admission !== "undefined" ){
                                     document.getElementsByName('parent_sign_date_admission')[0].value = response.parent_sign_date_admission;
                                 }
-                                let admissionparentsign;
+                                
                                 if(typeof response.parent_sign_admission !== "undefined" &&
                                 typeof response.parent_sign_date_admission !== "undefined"){
                                     // Reset the display for both images
@@ -1421,10 +1453,10 @@
 
                                 if(childbasicInfo == true && childparentInfo == true && 
                                     childEmergencyContact == true && childMedicalcare == true && 
-                                    childParentAgreementOne == true && childHistory== true && 
+                                    childParentAgreementOne == true && childHistory == true &&
                                     medicalHistory == true && pregnancyHistory == true &&
-                                    familyHistroy == true && socialBehavior == true && 
-                                    environmentalFactor == true && parentAgreementTwo == true && 
+                                    familyHistroy == true && socialBehavior == true &&
+                                    environmentalFactor == true && parentAgreementTwo == true &&
                                     immunizationInstruction == true && childProfile == true && 
                                     nutritionDetails == true && restDetails == true &&
                                     medicalDetails == true && parentAgreementThree == true && 
@@ -1465,6 +1497,7 @@
 
                             //enrollment data
                             let enrollmentDetails;
+                            let enrollmentparent;
                             if(document.getElementById('childenrollmentagreement') !== null ){
                                 if (typeof response.point_one_field_one !== "undefined")
                                     document.getElementsByName("point_one_field_one")[0].value = response.point_one_field_one;
@@ -1558,7 +1591,7 @@
                                 if( response.parent_sign_date_enroll !== "undefined" ){
                                     document.getElementsByName('parent_sign_date_enroll')[0].value = response.parent_sign_date_enroll;
                                 }
-                                let enrollmentparent;
+                               
                                 if(typeof response.parent_sign_enroll !== "undefined" &&
                                     typeof response.parent_sign_date_enroll !== "undefined"){
                                     // Reset the display for both images
@@ -1604,6 +1637,7 @@
 
                             //authorization form
                             let authorizationDetails;
+                            let achparentsign;
                             if(document.getElementById('authorizationach') !== null ){
                                 if (typeof response.bank_routing !== "undefined")
                                     document.getElementById("bank_routing").value = response.bank_routing;
@@ -1621,7 +1655,6 @@
                                 if(typeof response.bank_routing !== "undefined" && typeof response.bank_account !== "undefined"
                                 && typeof response.driver_license !== "undefined" && typeof response.state !== "undefined"
                                 && typeof response.i !== "undefined"){
-                                    console.log('if ach');
                                     let achFinalAgreement = document.getElementById('achFinalAgreement');
                                     achFinalAgreement.classList.remove('disabled');
                                     // Reset the display for both images
@@ -1631,7 +1664,6 @@
                                     document.querySelector('.authorizationach-tick').style.display = 'block'; 
                                     authorizationDetails = true;
                                 }else{
-                                    console.log('else ach');
                                     let achFinalAgreement = document.getElementById('achFinalAgreement');
                                     achFinalAgreement.classList.add('disabled');
                                     // Reset the display for both images
@@ -1649,7 +1681,7 @@
                                 if( response.parent_sign_date_ach !== "undefined" ){
                                     document.getElementsByName('parent_sign_date_ach')[0].value = response.parent_sign_date_ach;
                                 }
-                                let achparentsign;
+                                
                                 if(typeof response.parent_sign_ach !== "undefined" &&
                                 typeof response.parent_sign_date_ach !== "undefined"){
                                     // Reset the display for both images
@@ -2092,6 +2124,8 @@
                                 addressing_individual_child_agreement == true &&
                                 finalword_agreement == true 
                             ){
+                                let handbookFinalAgreement = document.getElementById('handbookFinalAgreement');
+                                handbookFinalAgreement.classList.remove('disabled');
                                 // Reset the display for both images
                                 document.querySelector('.goddardschool1-tick').style.display = 'none';
                                 document.querySelector('.goddardschool1-circle').style.display = 'none';
@@ -2099,6 +2133,8 @@
                                 document.querySelector('.goddardschool1-tick').style.display = 'block'; 
                                 parentHandBook = true;
                             }else{
+                                let handbookFinalAgreement = document.getElementById('handbookFinalAgreement');
+                                handbookFinalAgreement.classList.add('disabled');
                                 // Reset the display for both images
                                 document.querySelector('.goddardschool1-tick').style.display = 'none';
                                 document.querySelector('.goddardschool1-circle').style.display = 'none';
@@ -2133,16 +2169,14 @@
                                 }
                                 if(parentHandBook == true && parenthandbookparentsign == true 
                                 ){
-                                    let handbookFinalAgreement = document.getElementById('handbookFinalAgreement');
-                                    handbookFinalAgreement.classList.remove('disabled');
+                                    
                                     // Reset the display for both images
                                     document.querySelector('.handbook-tick').style.display = 'none';
                                     document.querySelector('.handbook-circle').style.display = 'none';
                                     // Update the display for the clicked card
                                     document.querySelector('.handbook-tick').style.display = 'block'; 
                                 }else{
-                                    let handbookFinalAgreement = document.getElementById('handbookFinalAgreement');
-                                    handbookFinalAgreement.classList.add('disabled');
+                                    
                                     // Reset the display for both images
                                     document.querySelector('.handbook-tick').style.display = 'none';
                                     document.querySelector('.handbook-circle').style.display = 'none';
@@ -2165,63 +2199,10 @@
                             window.localStorage.setItem("responseData",JSON.stringify(response));
                         }
                     });
-                }else{
-                    // formdiv.classList.add('hide');
-                    // addChildDiv.style.display = 'block';
-                    // formdiv.style.display = "none";
                 }
             }
             
-            // function parentDashBoardDetails(editID,year) {
-            //     console.log(editID);
-            //     console.log(year);
-            //     document.querySelector('[id="childName"]').innerHTML = localStorage.getItem('child_name');;
-            //     // localStorage.setItem('form_year_value', val);
-            //     // let year = new Date().getFullYear();
-            //     $.ajax({
-            //         url: `http://localhost:8080/admission_child_personal/completed_form_status/${editID}?year${year}`,
-            //         type: 'get',
-            //         success: function (response) {
-            //             console.log(response);
-            //                 const tableBody = document.getElementById('tableBody');
-            //                 response.completedFormStatus.forEach(data => {
-            //                     const newRow = document.createElement('tr');
-
-            //                     // Create and append cells for each data point
-            //                     const formNameCell = document.createElement('td');
-            //                     formNameCell.innerText = data;
-            //                     localStorage.setItem('form_name',  data)
-
-            //                     // Create a cell for action items
-            //                     const actionCell = document.createElement('td');
-                                
-            //                     const downloadIcon = document.createElement('i');
-            //                     downloadIcon.setAttribute('id', 'downloadFormAsPDF');
-            //                     downloadIcon.setAttribute('name', 'downloadForm');
-            //                     downloadIcon.className = 'fa-solid fa-circle-arrow-down p-2 action-icons';
-
-            //                     const printIcon = document.createElement('i');
-            //                     printIcon.setAttribute('id','printFormBtn');
-            //                     printIcon.className = 'fa-solid fa-print p-2 action-icons';
-                            
-            //                     actionCell.appendChild(downloadIcon);
-            //                     actionCell.appendChild(printIcon);
-
-            //                     // Append cells to the row
-            //                     newRow.appendChild(formNameCell);
-            //                     newRow.appendChild(actionCell);
-
-            //                     // Append the row to the table
-            //                     tableBody.appendChild(newRow);
-
-            //                     // Apply styling based on form status here as needed
-            //                 });
-            //                 // });
-            //             // }
-            //         }
-            //     });
-            // }
-        
+                    
             // function yearBasedFormDetails(val){
             //    //this function is uesd to restrict future year 
             //     let startYear = 2021;
@@ -2237,9 +2218,6 @@
         </script>
          <script>
             function parentDashBoardDetails(editID,year) {
-                console.log(editID);
-                console.log(year);
-
                 //for avoid datatable error popup messages//
                 $.fn.dataTable.ext.errMode = 'none';
 
@@ -2253,11 +2231,16 @@
                     //for waking up the aws lambda server
                     ajax: {
                         url:`http://localhost:8080/admission_child_personal/completed_form_status/${editID}?year${year}`,
-                        dataSrc: '',
+                        dataSrc: 'completedFormStatus',
                     },
                     //it is used to define and configure the individual columns of the table.
                     columns: [
-                        { data: 'form_name'},
+                        { data: 'form_name',
+                        render: function ( data, type, full, meta ) {
+                                return full; 
+                                //return '<a href="'+ url +'"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9RvaUyBbAGaB9dcdAZxQvJJHKnd8vqQpsqgJpRuNrFCwk2ZY5vl5RgEj_b2wcGXW8OwE&usqp=CAU" id="editbutton"  name="editbutton"  height="20px;" style="text-align:right !important;"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton"  name="deletebutton"  height="20px;" style="text-align:right !important;cursor: pointer !important;"></a>';
+                            },
+                        },
                         { data: 'edit',
                             render: function ( data, type, full, meta ) {
                                 window.location.replace = `${window.location.origin}/admin/addclassroom.html?id=${full.class_id} `;

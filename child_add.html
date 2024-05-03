@@ -332,6 +332,8 @@
                 });
 
                 if(editID != ''){
+                    // let aa =document.getElementById("parent_sign_admission").value;
+                    // console.log(aa);
                     // formdiv.classList.remove('hide');
                     // addChildDiv.style.display = 'none';
                     //for waking up the aws lambda server   
@@ -369,9 +371,9 @@
                                 }else {
                                     document.getElementById('do_relevant_custody_papers_apply2').checked = true;
                                 }
-                                if(response.gender == "Male" ){
+                                if(typeof response.gender == "Male" ){
                                     document.getElementById('gender1').checked = true;
-                                }else if(response.gender == "Female"){
+                                }else if(typeof response.gender == "Female"){
                                     document.getElementById('gender2').checked = true;
                                 }else{
                                     document.getElementById('gender3').checked = true;
@@ -804,52 +806,52 @@
                                 }
                             
 
-                                if( response.family_history_allergies == "on" ){
+                                if(typeof  response.family_history_allergies == "on" ){
                                     document.getElementById('family_history_allergies').checked = true;
                                 }else{
                                     document.getElementById('family_history_allergies').checked = false;
                                 }
-                                if ( response.family_history_heart_problems == "on"){
+                                if (typeof response.family_history_heart_problems == "on"){
                                     document.getElementById('family_history_heart_problems').checked = true;
                                 }else{
                                     document.getElementById('family_history_heart_problems').checked = false;
                                 }
-                                if ( response.family_history_tuberculosis == "on"){
+                                if (typeof response.family_history_tuberculosis == "on"){
                                     document.getElementById('family_history_tuberculosis').checked = true;
                                 }else{
                                     document.getElementById('family_history_tuberculosis').checked = false;
                                 }
-                                if ( response.family_history_asthma == "on"){
+                                if (typeof response.family_history_asthma == "on"){
                                     document.getElementById('family_history_asthma').checked = true;
                                 }else{
                                     document.getElementById('family_history_asthma').checked = false;
                                 }
-                                if ( response.family_history_high_blood_pressure == "on"){
+                                if (typeof response.family_history_high_blood_pressure == "on"){
                                     document.getElementById('family_history_high_blood_pressure').checked = true;
                                 }else{
                                     document.getElementById('family_history_high_blood_pressure').checked = false;
                                 }
-                                if ( response.family_history_vision_problems == "on"){
+                                if (typeof response.family_history_vision_problems == "on"){
                                     document.getElementById('family_history_vision_problems').checked = true;
                                 }else{
                                     document.getElementById('family_history_vision_problems').checked = false;
                                 }
-                                if ( response.family_history_diabetes == "on"){
+                                if (typeof response.family_history_diabetes == "on"){
                                     document.getElementById('family_history_diabetes').checked = true;
                                 }else{
                                     document.getElementById('family_history_diabetes').checked = false;
                                 }
-                                if ( response.family_history_hyperactivity == "on"){
+                                if (typeof response.family_history_hyperactivity == "on"){
                                     document.getElementById('family_history_hyperactivity').checked = true;
                                 }else{
                                     document.getElementById('family_history_hyperactivity').checked = false;
                                 }
-                                if ( response.family_history_epilepsy == "on"){
+                                if (typeof response.family_history_epilepsy == "on"){
                                     document.getElementById('family_history_epilepsy').checked = true;
                                 }else{
                                     document.getElementById('family_history_epilepsy').checked = false;
                                 }
-                                if ( response.no_illnesses_for_this_child == "on"){
+                                if (typeof response.no_illnesses_for_this_child == "on"){
                                     document.getElementById('no_illnesses_for_this_child').checked = true;
                                 }else{
                                     document.getElementById('no_illnesses_for_this_child').checked = false;
@@ -962,7 +964,7 @@
                                     environmentalFactor = false;
                                 }   
 
-                                if( response.agree_all_above_info_is_correct == "on" ){
+                                if(typeof response.agree_all_above_info_is_correct == "on" ){
                                     document.getElementById('agree_all_above_info_is_correct').checked = true;
                                 }else{
                                     document.getElementById('agree_all_above_info_is_correct').checked = false;
@@ -1006,8 +1008,9 @@
                            
                             //immunization details
                             let immunizationInstruction;
+                            console.log(response.do_you_agree_this_immunization_instructions);
                             if(document.getElementById('immunizationinstructions') !== null ){
-                                if( response.do_you_agree_this_immunization_instructions == "on" ){
+                                if(response.do_you_agree_this_immunization_instructions == "on" ){
                                     document.getElementById('do_you_agree_this_immunization_instructions').checked = true;
                                     immunizationInstruction = true;
                                 }else{
@@ -1043,7 +1046,7 @@
                                     document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
                                 if (typeof response.about_family_celebrations !== "undefined")
                                     document.getElementsByName('about_family_celebrations')[0].value = response.about_family_celebrations;
-                                if(response.childcare_before == "Yes" ){
+                                if(typeof response.childcare_before == "Yes" ){
                                     document.getElementById('childcare_before').checked = true;
                                     // document.getElementsByName('reason_for_childcare_before')[0].style.display = "block";
                                 }else{
@@ -1083,7 +1086,7 @@
                                 }
 
 
-                                if(response.restricted_diet == "Yes" ){
+                                if(typeof response.restricted_diet == "Yes" ){
                                     document.getElementById('restricted_diet1').checked = true;
                                     document.getElementById('restricted_diet_reason_div').style.display = "block";
                                 }else{
@@ -1092,7 +1095,7 @@
                                 }
                                 if (typeof response.restricted_diet_reason !== "undefined")
                                     document.getElementsByName('restricted_diet_reason')[0].value = response.restricted_diet_reason;
-                                if(response.eat_own == "Yes" ){
+                                if(typeof response.eat_own == "Yes" ){
                                     document.getElementById('eat_own1').checked = true;
                                     document.getElementById('eat_own_reason_div').style.display = "block";
                                 }else{
@@ -1124,7 +1127,7 @@
                                 }
 
 
-                                if(response.rest_in_the_middle_day == "Yes" ){
+                                if(typeof response.rest_in_the_middle_day == "Yes" ){
                                     document.getElementById('rest_in_the_middle_day1').checked = true;
                                     document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "block";
                                 }else{
@@ -1135,7 +1138,7 @@
                                     document.getElementsByName('reason_for_rest_in_the_middle_day')[0].value = response.reason_for_rest_in_the_middle_day;
                                 if (typeof response.rest_routine !== "undefined")
                                     document.getElementsByName('rest_routine')[0].value = response.rest_routine;
-                                if(response.toilet_trained == "Yes" ){
+                                if(typeof response.toilet_trained == "Yes" ){
                                     document.getElementById('toilet_trained1').checked = true;
                                     document.getElementById('reason_for_toilet_trained_div').style.display = "block";
                                 }else{
@@ -1165,7 +1168,7 @@
                                 }
 
 
-                                if(response.existing_illness_allergy == "Yes" ){
+                                if(typeof response.existing_illness_allergy == "Yes" ){
                                     document.getElementById('existing_illness_allergy1').checked = true;
                                     document.getElementById('explain_for_existing_illness_allergy_div').style.display = "block";
                                 }else{
@@ -1187,7 +1190,7 @@
                                 if (typeof response.explain_for_functioning_at_age !== "undefined")
                                     document.getElementsByName('explain_for_functioning_at_age')[0].value = response.explain_for_functioning_at_age;
 
-                                if(response.able_to_walk == "Yes" ){
+                                if(typeof response.able_to_walk == "Yes" ){
                                     document.getElementById('able_to_walk1').checked = true;
                                     document.getElementById('explain_for_able_to_walk_div').style.display = "block";
                                 }else{
@@ -1198,7 +1201,7 @@
                                 if (typeof response.explain_for_able_to_walk !== "undefined")
                                     document.getElementsByName('explain_for_able_to_walk')[0].value = response.explain_for_able_to_walk;
 
-                                if(response.communicate_their_needs == "Yes" ){
+                                if(typeof response.communicate_their_needs == "Yes" ){
                                     document.getElementById('communicate_their_needs1').checked = true;
                                     document.getElementById('explain_for_communicate_their_needs_div').style.display = "block";
                                 }else{
@@ -1209,7 +1212,7 @@
                                 if (typeof response.explain_for_communicate_their_needs !== "undefined")
                                     document.getElementsByName('explain_for_communicate_their_needs')[0].value = response.explain_for_communicate_their_needs;
 
-                                if(response.any_medication == "Yes" ){
+                                if(typeof response.any_medication == "Yes" ){
                                     document.getElementById('any_medication1').checked = true;
                                     document.getElementById('explain_for_any_medication_div').style.display = "block";
                                 }else{
@@ -1220,7 +1223,7 @@
                                 if (typeof response.explain_for_any_medication !== "undefined")
                                     document.getElementsByName('explain_for_any_medication')[0].value = response.explain_for_any_medication;
 
-                                if(response.utilize_special_equipment == "Yes" ){
+                                if(typeof response.utilize_special_equipment == "Yes" ){
                                     document.getElementById('utilize_special_equipment1').checked = true;
                                     document.getElementById('explain_for_utilize_special_equipment_div').style.display = "block";
                                 }else{
@@ -1231,7 +1234,7 @@
                                 if (typeof response.explain_for_utilize_special_equipment !== "undefined")
                                     document.getElementsByName('explain_for_utilize_special_equipment')[0].value = response.explain_for_utilize_special_equipment;
                                     
-                                if(response.significant_periods == "Yes" ){
+                                if(typeof response.significant_periods == "Yes" ){
                                     document.getElementById('significant_periods1').checked = true;
                                     document.getElementById('explain_for_significant_periods_div').style.display = "block";
                                 }else{
@@ -1241,7 +1244,7 @@
                                 if (typeof response.explain_for_significant_periods !== "undefined")
                                     document.getElementsByName('explain_for_significant_periods')[0].value = response.explain_for_significant_periods;
 
-                                if(response.desire_any_accommodations == "Yes" ){
+                                if(typeof response.desire_any_accommodations == "Yes" ){
                                     document.getElementById('desire_any_accommodations1').checked = true;
                                     document.getElementById('explain_for_desire_any_accommodations_div').style.display = "block";
                                 }else{
@@ -1278,7 +1281,7 @@
                                     medicalDetails = false;
                                 }
 
-                                if( response.do_you_agree_this == "on" ){
+                                if(typeof response.do_you_agree_this == "on" ){
                                     document.getElementById('do_you_agree_this').checked = true;
                                 }else{
                                     document.getElementById('do_you_agree_this').checked = false;
@@ -1320,7 +1323,7 @@
                             if(document.getElementById('pickuppassword') !== null ){                          
                                 if (typeof response.child_password_pick_up_password_form !== "undefined")
                                     document.getElementsByName('child_password_pick_up_password_form')[0].value = response.child_password_pick_up_password_form;
-                                if( response.do_you_agree_this_pick_up_password_form == "on" ){
+                                if(typeof response.do_you_agree_this_pick_up_password_form == "on" ){
                                     document.getElementById('do_you_agree_this_pick_up_password_form').checked = true;
                                 }else{
                                     document.getElementById('do_you_agree_this_pick_up_password_form').checked = false;
@@ -1355,12 +1358,12 @@
                                 if (typeof response.photo_usage_photo_video_permission_form !== "undefined")
                                 document.getElementsByName('photo_usage_photo_video_permission_form')[0].value = response.photo_usage_photo_video_permission_form;
 
-                                if( response.photo_permission_agree_group_photos_electronic == "on" ){
+                                if(typeof response.photo_permission_agree_group_photos_electronic == "on" ){
                                     document.getElementById('photo_permission_agree_group_photos_electronic').checked = true;
                                 }else{
                                     document.getElementById('photo_permission_agree_group_photos_electronic').checked = false;
                                 }
-                                if( response.do_you_agree_this_photo_video_permission_form == "on" ){
+                                if(typeof response.do_you_agree_this_photo_video_permission_form == "on" ){
                                     document.getElementById('do_you_agree_this_photo_video_permission_form').checked = true;
                                 }else{
                                     document.getElementById('do_you_agree_this_photo_video_permission_form').checked = false;
@@ -1389,7 +1392,7 @@
                             // security policy details
                             let securityPolicy;
                             if(document.getElementById('securitypolicy') !== null ){
-                                if( response.do_you_agree_this_security_release_policy_form == "on" ){
+                                if(typeof response.do_you_agree_this_security_release_policy_form == "on" ){
                                     document.getElementById('do_you_agree_this_security_release_policy_form').checked = true;
                                 }else{
                                     document.getElementById('do_you_agree_this_security_release_policy_form').checked = false;
@@ -1417,7 +1420,7 @@
                                 if (typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined")
                                     document.getElementsByName('contact_emergency_medical_technicians_medical_transportation_waiver')[0].value = response.contact_emergency_medical_technicians_medical_transportation_waiver;
                                 
-                                if( response.do_you_agree_this_medical_transportation_waiver == "on" ){
+                                if(typeof response.do_you_agree_this_medical_transportation_waiver == "on" ){
                                     document.getElementById('do_you_agree_this_medical_transportation_waiver').checked = true;
                                 }else{
                                     document.getElementById('do_you_agree_this_medical_transportation_waiver').checked = false;
@@ -1443,7 +1446,7 @@
                             // health policy details
                             let healthPolicy;
                             if(document.getElementById('healthpolicies') !== null ){
-                                if( response.do_you_agree_this_health_policies == "on" ){
+                                if(typeof response.do_you_agree_this_health_policies == "on" ){
                                     document.getElementById('do_you_agree_this_health_policies').checked = true;
                                 }else{
                                     document.getElementById('do_you_agree_this_health_policies').checked = false;
@@ -1468,7 +1471,7 @@
                             // outside weiver details
                             let outsideWeiver;
                             if(document.getElementById('outsideengagements') !== null ){
-                                if( response.outside_waiver_parent_sign_outside_engagements_waiver == "on" ){
+                                if(typeof response.outside_waiver_parent_sign_outside_engagements_waiver == "on" ){
                                     document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = true;
                                 }else{
                                     document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = false;
@@ -1492,11 +1495,12 @@
                             
                             // Admission form parent agreement
                             let admissionparentsign;
+                            console.log(response.parent_sign_admission);
                             if(document.getElementById('parentsignature') !== null ){
-                                if( response.parent_sign_admission !== "undefined" ){
+                                if(typeof response.parent_sign_admission !== "undefined" ){
                                     document.getElementsByName('parent_sign_admission')[0].value = response.parent_sign_admission;
                                 }
-                                if( response.parent_sign_date_admission !== "undefined" ){
+                                if(typeof response.parent_sign_date_admission !== "undefined" ){
                                     document.getElementsByName('parent_sign_date_admission')[0].value = response.parent_sign_date_admission;
                                 }
                                 
@@ -1551,7 +1555,7 @@
                             }
 
                             //Admission form admin restriction
-                            if(document.getElementById('adminsignature') !== null ){
+                            if(typeof document.getElementById('adminsignature') !== null ){
                                 if (localStorage.getItem('logged_in_email') !== 'goddard01arjava@gmail.com') {
                                     let adminFinalAgreement = document.getElementById('adminFinalAgreement');
                                     adminFinalAgreement.classList.add('disabled');
@@ -1652,10 +1656,10 @@
                             }
                            
                             if(document.getElementById('childenrollmentagreementparentsign') !== null ){
-                                if( response.parent_sign_enroll !== "undefined" ){
+                                if(typeof response.parent_sign_enroll !== "undefined" ){
                                     document.getElementsByName('parent_sign_enroll')[0].value = response.parent_sign_enroll;
                                 }
-                                if( response.parent_sign_date_enroll !== "undefined" ){
+                                if(typeof response.parent_sign_date_enroll !== "undefined" ){
                                     document.getElementsByName('parent_sign_date_enroll')[0].value = response.parent_sign_date_enroll;
                                 }
                                
@@ -1742,10 +1746,10 @@
                                 }
                             }
                             if(document.getElementById('authorizationparentsign') !== null ){
-                                if( response.parent_sign_ach !== "undefined" ){
+                                if(typeof response.parent_sign_ach !== "undefined" ){
                                     document.getElementsByName('parent_sign_ach')[0].value = response.parent_sign_ach;
                                 }
-                                if( response.parent_sign_date_ach !== "undefined" ){
+                                if(typeof response.parent_sign_date_ach !== "undefined" ){
                                     document.getElementsByName('parent_sign_date_ach')[0].value = response.parent_sign_date_ach;
                                 }
                                 
@@ -1796,7 +1800,7 @@
                             let welcome_goddard_agreement;
                             let parentHandBook;
                             if(document.getElementById('volumeone') !== null ){
-                                if( response.parent_hand_book['welcome_goddard_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['welcome_goddard_agreement'] == "on" ){
                                     document.getElementById('welcome_goddard_agreement').checked = true;
                                 }else{
                                     document.getElementById('welcome_goddard_agreement').checked = false;
@@ -1819,7 +1823,7 @@
                                 }
 
                                 let mission_statement_agreement;
-                                if( response.parent_hand_book['mission_statement_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['mission_statement_agreement'] == "on" ){
                                     document.getElementById('mission_statement_agreement').checked = true;
                                 }else{
                                     document.getElementById('mission_statement_agreement').checked = false;
@@ -1841,7 +1845,7 @@
                                 }
 
                                 let general_information_agreement;
-                                if( response.parent_hand_book['general_information_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['general_information_agreement'] == "on" ){
                                     document.getElementById('general_information_agreement').checked = true;
                                 }else{
                                     document.getElementById('general_information_agreement').checked = false;
@@ -1864,7 +1868,7 @@
 
 
                                 let medical_care_provider_agreement;
-                                if( response.parent_hand_book['medical_care_provider_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['medical_care_provider_agreement'] == "on" ){
                                     document.getElementById('medical_care_provider_agreement').checked = true;
                                 }else{
                                     document.getElementById('medical_care_provider_agreement').checked = false;
@@ -1886,7 +1890,7 @@
                                 }
 
                                 let parent_access_agreement;
-                                if( response.parent_hand_book['parent_access_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['parent_access_agreement'] == "on" ){
                                     document.getElementById('parent_access_agreement').checked = true;
                                 }else{
                                     document.getElementById('parent_access_agreement').checked = false;
@@ -1907,7 +1911,7 @@
                                     parent_access_agreement = false;
                                 }
                                 let release_of_children_agreement;
-                                if( response.parent_hand_book['release_of_children_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['release_of_children_agreement'] == "on" ){
                                     document.getElementById('release_of_children_agreement').checked = true;
                                 }else{
                                     document.getElementById('release_of_children_agreement').checked = false;
@@ -1930,7 +1934,7 @@
 
                             
                                 let registration_fees_agreement;
-                                if( response.parent_hand_book['registration_fees_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['registration_fees_agreement'] == "on" ){
                                     document.getElementById('registration_fees_agreement').checked = true;
                                 }else{
                                     document.getElementById('registration_fees_agreement').checked = false;
@@ -1952,7 +1956,7 @@
                                 }
 
                                 let outside_engagements_agreement;
-                                if( response.parent_hand_book['outside_engagements_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['outside_engagements_agreement'] == "on" ){
                                     document.getElementById('outside_engagements_agreement').checked = true;
                                 }else{
                                     document.getElementById('outside_engagements_agreement').checked = false;
@@ -1974,7 +1978,7 @@
                                 }
 
                                 let health_policies_agreement;
-                                if( response.parent_hand_book['health_policies_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['health_policies_agreement'] == "on" ){
                                     document.getElementById('health_policies_agreement').checked = true;
                                 }else{
                                     document.getElementById('health_policies_agreement').checked = false;
@@ -1997,7 +2001,7 @@
 
                 
                                 let medication_procedures_agreement;
-                                if( response.parent_hand_book['medication_procedures_agreement'] == "on" ){
+                                if( typeof response.parent_hand_book['medication_procedures_agreement'] == "on" ){
                                     document.getElementById('medication_procedures_agreement').checked = true;
                                 }else{
                                     document.getElementById('medication_procedures_agreement').checked = false;
@@ -2020,7 +2024,7 @@
                             
 
                                 let bring_to_school_agreement;
-                                if( response.parent_hand_book['bring_to_school_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['bring_to_school_agreement'] == "on" ){
                                     document.getElementById('bring_to_school_agreement').checked = true;
                                 }else{
                                     document.getElementById('bring_to_school_agreement').checked = false;
@@ -2042,7 +2046,7 @@
                                 }
 
                                 let rest_time_agreement;
-                                if(response.parent_hand_book['rest_time_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['rest_time_agreement'] == "on" ){
                                     document.getElementById('rest_time_agreement').checked = true;
                                 }else{
                                     document.getElementById('rest_time_agreement').checked = false;
@@ -2064,7 +2068,7 @@
                                 }
                                 
                                 let training_philosophy_agreement;
-                                if(response.parent_hand_book['training_philosophy_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['training_philosophy_agreement'] == "on" ){
                                     document.getElementById('training_philosophy_agreement').checked = true;
                                 }else{
                                     document.getElementById('training_philosophy_agreement').checked = false;
@@ -2086,7 +2090,7 @@
                                 }
 
                                 let affiliation_policy_agreement;
-                                if( response.parent_hand_book['affiliation_policy_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['affiliation_policy_agreement'] == "on" ){
                                     document.getElementById('affiliation_policy_agreement').checked = true;
                                 }else{
                                     document.getElementById('affiliation_policy_agreement').checked = false;
@@ -2108,7 +2112,7 @@
                                 }
 
                                 let security_issue_agreement;
-                                if( response.parent_hand_book['security_issue_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['security_issue_agreement'] == "on" ){
                                     document.getElementById('security_issue_agreement').checked = true;
                                 }else{
                                     document.getElementById('security_issue_agreement').checked = false;
@@ -2130,7 +2134,7 @@
                                 }
 
                                 let addressing_individual_child_agreement;
-                                if( response.parent_hand_book['addressing_individual_child_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['addressing_individual_child_agreement'] == "on" ){
                                     document.getElementById('addressing_individual_child_agreement').checked = true;
                                 }else{
                                     document.getElementById('addressing_individual_child_agreement').checked = false;
@@ -2152,7 +2156,7 @@
                                 }
 
                                 let finalword_agreement;
-                                if( response.parent_hand_book['finalword_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['finalword_agreement'] == "on" ){
                                     document.getElementById('finalword_agreement').checked = true;
                                 }else{
                                     document.getElementById('finalword_agreement').checked = false;
@@ -2211,10 +2215,10 @@
                             }
                         }
                             if(document.getElementById('parentsignaturehandbook') !== null ){
-                                if(response.parent_hand_book['parent_sign_handbook'] !== "undefined" ){
+                                if(typeof response.parent_hand_book['parent_sign_handbook'] !== "undefined" ){
                                     document.getElementsByName('parent_sign_handbook')[0].value =response.parent_hand_book['parent_sign_handbook'];
                                 }
-                                if(response.parent_hand_book['parent_sign_date_handbook'] !== "undefined" ){
+                                if(typeof response.parent_hand_book['parent_sign_date_handbook'] !== "undefined" ){
                                     document.getElementsByName('parent_sign_date_handbook')[0].value =response.parent_hand_book['parent_sign_date_handbook'];
                                 }
                                 let parenthandbookparentsign;

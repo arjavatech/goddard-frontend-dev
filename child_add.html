@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Welcome-Dashboard</title>
+        <title>Parent Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
         <link rel="stylesheet" href="css/form_style.css">
@@ -27,79 +27,18 @@
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
         <style>
-            .accordion-button:not(.collapsed)::after {
-                background-image: url('image/down_white.png');
-                transform: rotate(-180deg);
-            }
-            .accordion-button-one:not(.collapsed)::after {
-                background-image: url('image/down_white.png');
-                transform: rotate(-180deg);
-            }
-            span.icon{
-                position: absolute;
-                z-index: 10;
-                background-image: url('image/tick.png');
-                background-repeat: no-repeat;
-                width: 5%;
-                height: 5%;
-            }
-            .hide {
-                display: none;
-            }
 
-
-            .success-msg{
-                position: fixed;
-                top: 5px; 
-                left:2%;
-                width: 96%;
-            }
-            .error-msg{
-                position: fixed;
-                top: 5px; 
-                left:2%;
-                width: 96%;
-            }
-            
-            .alert{
-                display: none;
-                padding: 15px;
-                margin-bottom: 20px;
-                border: 1px solid transparent;
-                border-radius: 4px;
-            }  
-          
-            .close {
-                float: right;
-                font-size: 22px;
-                font-weight: 700;
-                line-height: 1;
-                color: #000;
-                text-shadow: 0 1px 0 #fff;
-                opacity: .2;
-              }
-            
-            a {
-              color: #337ab7;
-              text-decoration: none;
-            }
-
-            .accordion-fixed
-            {
-                position: sticky;
-                top:0;
-            }
-
-            .side-menu, a.completedforms
-            {
-                background: #0F2D52 !important;
-                color: #fff !important;
-            }
-
-            a.completedforms:hover
-            {
-                opacity: 0.7;
-            }
+        /****** Accordion Icon ******/
+        .accordion-button:not(.collapsed)::after {
+            background-image: url('image/down_white.png') !important;
+            transform: rotate(-180deg) !important;
+        }
+        .accordion-button-one:not(.collapsed)::after {
+            background-image: url('image/down_white.png') !important;
+            transform: rotate(-180deg) !important;
+        }
+        /****** Accordion Icon ******/
+    
         </style>
     </head>
     <body>
@@ -114,7 +53,7 @@
 
         <!-- Welcome Screen -->
         <div class="p-3">
-            <h2 class="parent_dashboard_title h2 pt-4 text-center">Dashboard</h2>
+            <h2 class="parent_dashboard_title h2 pt-4 text-center">Parent Dashboard</h2>
             <!-- Welcome Text -->
             <h4 class="h4 pt-2 text-center" id="welcomeText" name="welcomeText"></h4>
         </div>
@@ -136,12 +75,6 @@
                                     <div class="accordion" id="accordionExampleone">
                                         <!--Admission Form Tab-->
                                         <div class="accordion-item accordio_style">
-                                            <!-- <h2 class="accordion-header shadow">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                                    data-bs-target="#admission" aria-expanded="true" aria-controls="collapseOne">
-                                                    Admission Forms
-                                                </button>
-                                            </h2> -->
                                             <ul class="nav nav-pills flex-column tab-content menu" role="tablist" id="menu">
                                                 <h6 class="p-3 side-menu"><b>Incomplete</b></h6>
                                                 <div class="menu">

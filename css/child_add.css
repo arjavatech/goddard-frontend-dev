@@ -2,6 +2,39 @@
 
 /*****Parent Dashboard Style*****/
 
+
+/****** Accordion ******/
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url('image/down_white.png') !important;
+    transform: rotate(-180deg) !important;
+}
+.accordion-button-one:not(.collapsed)::after {
+    background-image: url('image/down_white.png') !important;
+    transform: rotate(-180deg) !important;
+}
+
+.accordion-fixed
+{
+    position: sticky;
+    top:0;
+}
+
+.side-menu, a.completedforms
+{
+    background: #0F2D52 !important;
+    color: #fff !important;
+}
+
+a.completedforms:hover
+{
+    opacity: 0.7;
+}
+
+/****** Accordion End ******/
+
+/****** A ******/
+
 .parent_dashboard_title, .dashboard_card_icon {
     color: #0F2D52 !important;
     display: flex !important;

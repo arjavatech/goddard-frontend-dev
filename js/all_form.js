@@ -38,10 +38,16 @@ function submitForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            // alert(response.message)
-            window.location.reload();
+            $(".success-msg").show();
+            setTimeout(function(){ 
+                $(".success-msg").hide(); 
+                window.location.reload();
+            }, 3000);
         }else{
-            alert("failed to save admission form");
+            $(".error-msg").show();
+            setTimeout(function(){ 
+                $(".error-msg").hide(); 
+            }, 3000);
         }
     };
     xhr.open("PUT", "http://localhost:8080/admission_child_additional/update");
@@ -86,10 +92,16 @@ function childPersonalsubmitForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            // alert('hlo');
-            window.location.reload();
+            $(".success-msg").show();
+            setTimeout(function(){ 
+                $(".success-msg").hide(); 
+                window.location.reload();
+            }, 3000);
         }else{
-            alert("failed to save admission form");
+            $(".error-msg").show();
+            setTimeout(function(){ 
+                $(".error-msg").hide(); 
+            }, 3000);
         }
     };
     xhr.open("PUT", "http://localhost:8080/admission_child_personal/modify");
@@ -164,10 +176,16 @@ function childParentsubmitForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            // alert(response.message);
-            window.location.reload();
+            $(".success-msg").show();
+            setTimeout(function(){ 
+                $(".success-msg").hide(); 
+                window.location.reload();
+            }, 3000);
         }else{
-            alert("failed to save admission form");
+            $(".error-msg").show();
+            setTimeout(function(){ 
+                $(".error-msg").hide(); 
+            }, 3000);
         }
     };
     xhr.open("PUT", "http://localhost:8080/admission_parent_info/update");
@@ -210,9 +228,17 @@ function childHistorysubmitForm(editID) {
     xhr.onload = () => {
         if (xhr.status === 200) {
             // alert(response.message)
-            window.location.reload();
+            $(".success-msg").show();
+            setTimeout(function(){ 
+                $(".success-msg").hide(); 
+                window.location.reload();
+            }, 3000);
+           
         }else{
-            alert("failed to save admission form");
+            $(".error-msg").show();
+            setTimeout(function(){ 
+                $(".error-msg").hide(); 
+            }, 3000);
         }
     };
     xhr.open("PUT", " http://localhost:8080/admission_child_health/update");
@@ -255,10 +281,16 @@ function childProfilesubmitForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            // alert(response.message)
-            window.location.reload();
+            $(".success-msg").show();
+            setTimeout(function(){ 
+                $(".success-msg").hide(); 
+                window.location.reload();
+            }, 3000);
         }else{
-            alert("failed to save admission form");
+            $(".error-msg").show();
+            setTimeout(function(){ 
+                $(".error-msg").hide(); 
+            }, 3000);
         }
     };
     xhr.open("PUT", "http://localhost:8080/admission_child_profile/update");
@@ -307,10 +339,16 @@ function saveForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            // alert(response.message)
-            window.location.reload();
+            $(".success-msg").show();
+            setTimeout(function(){ 
+                $(".success-msg").hide(); 
+                window.location.reload();
+            }, 3000);
         }else{
-            alert("failed to save admission form");
+            $(".error-msg").show();
+            setTimeout(function(){ 
+                $(".error-msg").hide(); 
+            }, 3000);
         }
     };
     xhr.open("PUT", "http://localhost:8080/admission_child_additional/update");
@@ -359,10 +397,16 @@ function authorizationSubmitForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            // alert(response.message)
-            window.location.reload();
+            $(".success-msg").show();
+            setTimeout(function(){ 
+                $(".success-msg").hide(); 
+                window.location.reload();
+            }, 3000);
         }else{
-            alert("failed to save admission form");
+            $(".error-msg").show();
+            setTimeout(function(){ 
+                $(".error-msg").hide(); 
+            }, 3000);
         }
     };
     xhr.open("PUT", "http://localhost:8080/bill_ach/update");
@@ -412,10 +456,16 @@ function authorizationSaveForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            // alert(response.message)
-            window.location.reload();
+            $(".success-msg").show();
+            setTimeout(function(){ 
+                $(".success-msg").hide(); 
+                window.location.reload();
+            }, 3000);
         }else{
-            alert("failed to save admission form");
+            $(".error-msg").show();
+            setTimeout(function(){ 
+                $(".error-msg").hide(); 
+            }, 3000);
         }
     };
     xhr.open("PUT", "http://localhost:8080/bill_ach/update");
@@ -464,10 +514,16 @@ function enrollmentSubmitForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            // alert(response.message)
-            window.location.reload();
+            $(".success-msg").show();
+            setTimeout(function(){ 
+                $(".success-msg").hide(); 
+                window.location.reload();
+            }, 3000);
         }else{
-            alert("failed to save admission form");
+            $(".error-msg").show();
+            setTimeout(function(){ 
+                $(".error-msg").hide(); 
+            }, 3000);
         }
     };
     xhr.open("PUT", "http://localhost:8080/enrollment_agreement/update");
@@ -517,10 +573,16 @@ function enrollmentSaveForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            // alert(response.message)
-            window.location.reload();
+            $(".success-msg").show();
+            setTimeout(function(){ 
+                $(".success-msg").hide(); 
+                window.location.reload();
+            }, 3000);
         }else{
-            alert("failed to save admission form");
+            $(".error-msg").show();
+            setTimeout(function(){ 
+                $(".error-msg").hide(); 
+            }, 3000);
         }
     };
     xhr.open("PUT", "http://localhost:8080/enrollment_agreement/update");
@@ -569,10 +631,16 @@ function handbookSubmitForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            // alert(response.message)
-            window.location.reload();
+            $(".success-msg").show();
+            setTimeout(function(){ 
+                $(".success-msg").hide(); 
+                window.location.reload();
+            }, 3000);
         }else{
-            alert("failed to save admission form");
+            $(".error-msg").show();
+            setTimeout(function(){ 
+                $(".error-msg").hide(); 
+            }, 3000);
         }
     };
     xhr.open("PUT", "http://localhost:8080/hand_book/update");
@@ -622,10 +690,16 @@ function handbookSaveForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            // alert(response.message)
-            window.location.reload();
+            $(".success-msg").show();
+            setTimeout(function(){ 
+                $(".success-msg").hide(); 
+                window.location.reload();
+            }, 3000);
         }else{
-            alert("failed to save admission form");
+            $(".error-msg").show();
+            setTimeout(function(){ 
+                $(".error-msg").hide(); 
+            }, 3000);
         }
     };
     xhr.open("PUT", "http://localhost:8080/hand_book/update");
@@ -661,7 +735,7 @@ $(document).ready(function () {
         });
         $(document).on("click", ".child-profile-btn", function(e) {
             e.preventDefault();
-            childPersonalsubmitForm(editChildID);
+            childProfilesubmitForm(editChildID);
         });
         $(document).on("click", ".save-btn", function(e) {
             e.preventDefault();

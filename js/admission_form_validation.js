@@ -57,6 +57,7 @@ function ValidatePincode(inputtxt, errorSpan) {
 // }
 //custom textbox hide and show function
 function CustomChange(inputtxt,labelvalue) {
+    console.log('checck custom change');
     if (inputtxt == "Yes") {
         document.getElementById(labelvalue).style.display = "block";
     } else {

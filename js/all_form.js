@@ -141,7 +141,7 @@ function childParentsubmitForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            alert(response.message);
+            // alert(response.message);
             window.location.reload();
         }else{
             alert("failed to save admission form");
@@ -538,7 +538,7 @@ function enrollmentSaveForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            alert(response.message)
+            // alert(response.message)
             window.location.reload();
         }else{
             alert("failed to save admission form");
@@ -643,7 +643,7 @@ function handbookSaveForm(editID) {
     let xhr = new XMLHttpRequest();
     xhr.onload = () => {
         if (xhr.status === 200) {
-            alert(response.message)
+            // alert(response.message)
             window.location.reload();
         }else{
             alert("failed to save admission form");

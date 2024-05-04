@@ -39,9 +39,6 @@
         }
         /****** Accordion Icon ******/
 
-        /**.content {
-            display: none;
-          } **/
           .success-msg{
                 position: fixed;
                 top: 5px; 
@@ -92,7 +89,7 @@
         </div>  
          <!-- Welcome Screen End -->
         <div class="tab-bg m-2">
-            <span onclick="toggleContent('completedFormDetails')"><ul class="nav" role="tablist" id="dynamicChildCards"></ul></span>
+            <span><ul class="nav" role="tablist" id="dynamicChildCards" onclick="closeCompletedFormsTab()"></ul></span>
             <div class="row m-1 tab_bg "  id="formdiv" >
                 <div class="col-3 p-3 side_tab_bg"><br>
                     <div class="accordion accordion-fixed" id="accordionExample">
@@ -154,9 +151,9 @@
                             <div class="tab-content parenthandbook" id="parenthandbook"></div>
                         </form>
                     </div><br>
-                    <div  id="completedFormDetails"  class="container tab-pane fade pt-3 content" onclick="toggleContent('dynamicChildCards')">
+                    <div  id="completedFormDetails"  class="container tab-pane fade pt-3">
                         <div class="card">
-                            <h2 class="text-center title_bg">Completed Forms</h2>
+                            <h3 class="text-center title_bg">Completed Forms</h3>
                             <div class="row">
                                 <div class="col-1"></div>
                                 <div class="col-2 p-3">
@@ -200,22 +197,34 @@
         
         <script>
             
+            function closeCompletedFormsTab() {
+                var completedFormsTab = document.getElementById("completedFormDetails");
+                if (completedFormsTab) {
+                    completedFormsTab.style.display = "none";
+                }
+            }
+
             function toggleContent(contentId) {
                 var content = document.getElementById(contentId);
                 if (!content) return; // Check if element exists
                 var display = window.getComputedStyle(content).display;
                 if (display === "block") {
-                    content.style.display = "none";
+                    // Check if the clicked tab is the "Completed Forms" tab
+                    if (contentId !== "completedFormDetails") {
+                        content.style.display = "none";
+                    }
                 } else {
-                    // Hide all active content
-                    var activeContents = document.querySelectorAll('.content[style="display: block;"]');
+                    // Hide all active content except for completedFormDetails
+                    var activeContents = document.querySelectorAll('.tab-pane[style="display: block;"]');
                     activeContents.forEach(function(activeContent) {
-                        activeContent.style.display = "none";
+                        if (activeContent.id !== contentId) {
+                            activeContent.style.display = "none";
+                        }
                     });
                     // Show the clicked content
                     content.style.display = "block";
                 }
-            }             
+            }                 
         </script>
             
                         

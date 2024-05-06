@@ -15,7 +15,7 @@ function handleCredentialResponse(response) {
         window.location.href = "admin_dashboard.html";
     }else{
         // Redirect
-        window.location.href = "child_add.html";
+        window.location.href = "parent_dashborad.html";
     }
     
 }

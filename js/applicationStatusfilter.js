@@ -41,7 +41,7 @@ function applicationStatusYear() {
                         // let anchor = document.createElement('a');
                         // anchor.setAttribute('class','nav-link ');
                         // anchor.textContent = responseValue[j].child_id;
-                        // anchor.setAttribute('href', '/child_add.html');
+                        // anchor.setAttribute('href', '/parent_dashborad.html');
                         // // checking(${responseValue[j].child_id})`);
                         // childIdCell.appendChild(anchor);
 
@@ -60,7 +60,7 @@ function applicationStatusYear() {
                         let parentemailanchor = document.createElement('a');
                         parentemailanchor.setAttribute('class','nav-link ');
                         parentemailanchor.textContent = responseValue[j].parent_email;
-                        parentemailanchor.setAttribute('href', `/child_add.html?id=${ responseValue[j].parent_email}`);
+                        parentemailanchor.setAttribute('href', `/parent_dashborad.html?id=${ responseValue[j].parent_email}`);
                         // checking(${responseValue[j].child_id})`);
                         parentEmaildCell.appendChild(parentemailanchor);
                         row.appendChild(parentEmaildCell);

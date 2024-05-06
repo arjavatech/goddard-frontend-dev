@@ -25,7 +25,7 @@ import {isAuthenticated} from "./authenticationVerify.js";
 //                     setTimeout(function(){
 //                     $(".success-msg-save").hide();
 //                     window.location.reload();
-//                     // window.location.href = 'child_add.html';
+//                     // window.location.href = 'parent_dashborad.html';
 //                 }, 3000);  
 //             },
 //             error: function (xhr, status, error) {
@@ -48,7 +48,7 @@ import {isAuthenticated} from "./authenticationVerify.js";
 //                     setTimeout(function(){
 //                     $(".success-msg-save").hide();
 //                     window.location.reload();
-//                     // window.location.href = 'child_add.html';
+//                     // window.location.href = 'parent_dashborad.html';
 //                 }, 3000);  
 //             },
 //             error: function (xhr, status, error) {
@@ -76,7 +76,7 @@ form.addEventListener("submit", (e) => {
                 setTimeout(function(){
                 $(".success-msg-save").hide();
                 window.location.reload();
-                // window.location.href = 'child_add.html';
+                // window.location.href = 'parent_dashborad.html';
             }, 3000);  
         },
         error: function (xhr, status, error) {

@@ -275,7 +275,7 @@
                             if (trimValues == 'admissionforms' || trimValues == 'authorization' || 
                             trimValues == 'enrollmentagreement' || trimValues == 'parenthandbook') {
                                 // $('.menu').load(trimValues + "ListItem.html");
-                                $(`.menu.${trimValues}`).load(trimValues + "ListItem.html");
+                                $(`.menu.${trimValues}`).load(trimValues + "listitem.html");
                                 
                             }
 
@@ -1567,8 +1567,8 @@
                                     adminFinalAgreement.classList.add('disabled');
                                     
                                 } else {
-                                    let adminFinalAgreement = document.getElementById('adminFinalAgreement');
-                                    adminFinalAgreement.classList.remove('disabled');
+                                    // let adminFinalAgreement = document.getElementById('adminFinalAgreement');
+                                    // adminFinalAgreement.classList.remove('disabled');
                                 }
                             }
 
@@ -2141,7 +2141,7 @@
 
                                 let expulsion_policy_agreement;
                                 console.log(response.parent_hand_book[expulsion_policy_agreement]);
-                                if( response.parent_hand_book['expulsion_policy_agreement'] == "on" ){
+                                if(typeof response.parent_hand_book['expulsion_policy_agreement'] == "on" ){
                                     document.getElementById('expulsion_policy_agreement').checked = true;
                                 }else{
                                     document.getElementById('expulsion_policy_agreement').checked = false;

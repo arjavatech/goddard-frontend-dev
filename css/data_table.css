@@ -1,5 +1,15 @@
 
+/*** Icons ***/
 
+.action-icons
+{
+    cursor: pointer;
+}
+
+.action-icons:hover
+{
+    opacity: 0.6;
+}
 
 .table-head
 {

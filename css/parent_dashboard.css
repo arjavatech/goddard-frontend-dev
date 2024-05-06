@@ -20,6 +20,14 @@
     top:0;
 }
 
+.side-menu-title
+{
+    background-color: #0F2D52 !important;
+    color: #fff !important; 
+    text-align: center;
+    font-size: 20px;
+}
+
 .side-menu, a.completedforms
 {
     background: #0F2D52 !important;
@@ -33,7 +41,24 @@ a.completedforms:hover
 
 /****** Accordion End ******/
 
-/****** A ******/
+/****** Alert Mesage ******/
+
+.success-msg, .error-msg, .error-msg-empty, .error-msg-mismatch{
+    position: fixed;
+    top: 5px !important; 
+    left:2% !important;
+    width: 96% !important;
+}
+
+.alert{
+    display: none;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}  
+
+/****** Alert Mesage End ******/
 
 .parent_dashboard_title, .dashboard_card_icon {
     color: #0F2D52 !important;

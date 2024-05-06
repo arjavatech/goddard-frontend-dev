@@ -1,0 +1,80 @@
+
+/***** Login, Signup and Reset *****/
+
+
+/***** Card Logo *****/
+
+.gd-tab-logo
+{
+    width: 100px;
+    height: 100px;
+}
+
+/***** Card  *****/
+
+.card_position
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.login_card_style {
+    width: 450px;
+    background: #D8E9FF !important;
+    box-shadow: 0px 4px 15px rgba(83, 53, 73, 0.25);
+    border-radius: 20px !important;
+    border: none !important;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.form-control:focus {
+    border-color: rgb(15, 45, 82) !important;
+    -webkit-box-shadow: 0 0 8px rgb(15, 45, 82, 0.6) !important;
+    box-shadow: 0 0 8px rgb(15, 45, 82, 0.6) !important;
+}
+
+.login_btn, .signup_btn, .reset_btn {
+    padding: 10px !important;
+    color: #fff !important;
+    background: #0F2D52 !important;
+    border-radius: 30px;
+    border: none !important;
+}
+
+.login_btn:hover, .signup_btn:hover, .reset_btn:hover, .forgot_pwd:hover {
+    opacity: 0.6;
+}
+
+.login_btn:focus, .signup_btn:focus, .reset_btn:focus{
+    border: none !important;
+}
+
+/***** Login, Signup and Reset End*****/
+
+
+/*** Alert Message ***/
+
+.success-msg, .error-msg, .error-msg-empty, .error-msg-mismatch{
+    position: fixed !important;
+    top: 5px !important; 
+    left:2% !important;
+    width: 96% !important; 
+}
+
+.alert{
+    display: none;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}  
+
+a {
+  color: #337ab7;
+  text-decoration: none;
+}
+
+/*** Alert Message End ***/

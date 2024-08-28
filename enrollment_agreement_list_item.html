@@ -1,0 +1,47 @@
+<h2 class="accordion-header">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#enrollmentagreementform" aria-expanded="true" aria-controls="collapseOne">
+        Enrollment Agreement&nbsp;
+        <img src="image/tick.png" height="8%" width="8%" class="childenrollment-tick float-end" style="display: none;">
+        <img src="image/circle-with.png" height="8%" width="8%" class="childenrollment-circle float-end" style="display: none;">
+    </button>
+</h2>
+
+<div id="enrollmentagreementform" class="accordion-collapse collapse" data-bs-parent="#accordionExampleone">
+    <div class="accordion-body accordion_sidemenu_body">
+        <li class="nav-item" >
+            <a class="nav-link" data-bs-toggle="pill" 
+                href="#childenrollmentagreement">
+                <span>Agreement
+                    <img src="image/tick.png" height="8%" width="8%" class="childenrollmentagreement-tick float-end" style="display: none;">
+                    <img src="image/circle-with.png" height="8%" width="8%" class="childenrollmentagreement-circle float-end" style="display: none;">
+                </span>
+            </a> 
+        </li>
+        <li class="nav-item" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="You Have to fill all the missing fields.">
+            <a class="nav-link" data-bs-toggle="pill" 
+            href="#childenrollmentagreementparentsign" id="enrollmentFinalAgreement">
+                <span>Parent Signature
+                    <img src="image/tick.png" height="8%" width="8%" class="childenrollmentagreementparentsign-tick float-end" style="display: none;">
+                    <img src="image/circle-with.png" height="8%" width="8%" class="childenrollmentagreementparentsign-circle float-end" style="display: none;">
+                </span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="pill" href="#childenrollmentagreementadminsign" id="enrollmentAdminFinalAgreement">
+                <span>Admin Signature
+                    <img src="image/tick.png" height="8%" width="8%" class="childenrollmentagreementadminsign-tick float-end" style="display: none;">
+                    <img src="image/circle-with.png" height="8%" width="8%" class="childenrollmentagreementadminsign-circle float-end" style="display: none;">
+                </span>
+            </a>
+        </li>
+    </div>
+</div><br>
+
+<!--- Popover Script-->
+<script>
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+    })
+</script>
+<!--- Popover Script-->

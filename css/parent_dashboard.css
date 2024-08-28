@@ -3,16 +3,14 @@
 /*****Parent Dashboard Style*****/
 
 
-/****** Accordion ******/
+p, ol li, ul li
+{
+    font-weight: 500;
+    text-align: justify;
+}
 
-.accordion-button:not(.collapsed)::after {
-    background-image: url('image/down_white.png') !important;
-    transform: rotate(-180deg) !important;
-}
-.accordion-button-one:not(.collapsed)::after {
-    background-image: url('image/down_white.png') !important;
-    transform: rotate(-180deg) !important;
-}
+
+/****** Accordion ******/
 
 .accordion-fixed
 {
@@ -25,7 +23,7 @@
     background-color: #0F2D52 !important;
     color: #fff !important; 
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .side-menu, a.completedforms
@@ -36,18 +34,21 @@
 
 a.completedforms:hover
 {
-    opacity: 0.7;
+    opacity: 0.6;
 }
 
 /****** Accordion End ******/
 
-/****** Alert Mesage ******/
 
-.success-msg, .error-msg, .error-msg-empty, .error-msg-mismatch{
-    position: fixed;
+
+/*** Alert Message ***/
+
+.success-msg, .error-msg {
+    position: fixed !important;
     top: 5px !important; 
     left:2% !important;
     width: 96% !important;
+    z-index: 20; 
 }
 
 .alert{
@@ -58,7 +59,11 @@ a.completedforms:hover
     border-radius: 4px;
 }  
 
-/****** Alert Mesage End ******/
+a {
+  text-decoration: none;
+}
+
+/*** Alert Message End ***/
 
 .parent_dashboard_title, .dashboard_card_icon {
     color: #0F2D52 !important;
@@ -69,104 +74,29 @@ a.completedforms:hover
 
 .dashboard_card_text
 {
-    position: relative;
-    /* top: px; */
-    /* color: #0f0f0f !important; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.card_style, .tab-bg{
+.tab-bg{
     background: #0F2D52 !important; 
     margin-top: 2px;
 }
 
-.card_style:hover{
-    opacity: 0.6;
-}
-
-.dashboard_card_style1{
-    height: 50px !important;
-    background: #2aa956 !important;
-    border-radius: 0px !important;
-    cursor: pointer;
-}
-
-.dashboard_card_style1:hover{
-    opacity: 0.8;
-}
-
-.dashboard_card_style {
-    height: 58px !important;
-    background: #D8E9FF !important;
-    border: 1px solid #0F2D52 !important;
-    border-radius: 0px !important;
-    cursor: pointer;
-}
-
-.dashboard_card_style:hover {
-    opacity: 0.8;
-}
-
-.dashboard_card_style_on_process{
-    height: 50px !important;
-    background: #fa6d6d !important;
-    /* background: #2aa956 !important; */
-    border-radius: 0px !important;
-    cursor: pointer;
-    width: auto !important;
-}
-.dashboard_card_style_on_process_active{
-    height: 50px !important;
-    /* color:#0F2D52 !important;
-    color: aqua !important; */
-    border-radius: 0px !important;
-    cursor: pointer;
-    width: auto !important;
+.tab_body_bg {
     background-color: #D8E9FF !important;
-}
-div.card-bodys{
-    height: 50px !important;
-    border-radius: 0px !important;
-    cursor: pointer;
     width: auto !important;
-    background-color: #D8E9FF !important;
 }
-
-.dashboard_card_style_on_process:hover{
-    opacity: 0.8;
-}
-
-.child_basic_card
-{
-    background: #D8E9FF !important;
-    box-shadow: 0px 4px 15px rgba(83, 53, 73, 0.25);
-    border-radius: 10px !important;
-    border: none !important;
-}
-
-.card_title
-{
-    background-color:#0F2D52; 
-    color: #fff;
-    border-radius: 10px 10px 0 0 !important;
-    border: 2px solid #D8E9FF !important;
-    align-items: center !important;
-}    
             
-.card_center
-{
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}  
-
 .nav {
     display: flex;
     flex-wrap: wrap;
-    padding-left: 2px;
-    margin-bottom: 0;
+    margin: 4px;
     list-style: none;
-    padding-top: 9px;
+    padding-top: 4px;
 }
+
 .nav-link.active {
     border-color: #D8E9FF !important;
     cursor: pointer;
@@ -177,4 +107,27 @@ div.card-bodys{
     cursor: pointer;
 }
 
+.action-icons:hover
+{
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+/***** COmpleted Forms *****/
+
+.completed-forms-year
+{
+    padding: 10px 46px 0 41px !important;
+}
+
+.completed-forms-childname
+{
+    padding: 10px 0 0 21px !important;
+}
+
+.input-error {
+    border-color: rgb(212, 86, 86) !important;
+}
+
 /*****Parent Dashboard Style End*****/
+

@@ -2,6 +2,10 @@
 
 /*****Admin Dashboard Style*****/
 
+html
+{
+    font-size: medium;
+}
 
 .admin_cards
 {
@@ -36,7 +40,6 @@
     justify-content: center;
 }
 
-
 .col-form-label
 {
     font-weight: 500;
@@ -61,26 +64,14 @@
 }
 
 .form-control:focus {
-    border-color: #66afe9 !important;
-    -webkit-box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
-    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6) !important;
+    border-color: rgb(15, 45, 82) !important;
+    -webkit-box-shadow: 0 0 8px rgb(15, 45, 82, 0.6) !important;
+    box-shadow: 0 0 8px rgb(15, 45, 82, 0.6) !important;
 }
 
 a{
     text-decoration: none !important;
     color:#0F2D52 !important;
-}
-/* a:hover{
-    color:#21446f !important
-} */
-  /***Modal style End***/
-
-
-
-.active_form_modal
-{
-    height: 500px !important;
-    width: 500px !important;
 }
 
 .form-multi-select.show
@@ -95,23 +86,9 @@ a{
     border: none !important;
 }
 
-.modal_center
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* number input default icon restriction code */
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-   -webkit-appearance: none; 
-}
-
-
 /***Button Style***/
 
-    .send-btn, .cancel-btn, .add-btn
+    .send-btn, .add-btn
     {
         background-color: #0F2D52 !important;
         color: #ffffff;
@@ -125,7 +102,206 @@ input[type=number]::-webkit-outer-spin-button {
         border-radius: .20rem;
     }
 
+    .cancel-btn
+    {
+        background-color: #D8E9FF !important;
+        color: #0F2D52;
+        display: inline-block;
+        min-width: 100px;
+        min-width: 120px;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #0F2D52 !important;
+        font-weight: 600;
+        border-radius: .20rem;
+    }
+
     .send-btn:hover, .cancel-btn:hover, .add-btn:hover
+    {
+        opacity: 0.6;
+    }
+
+    /***Button Style End***/
+
+    /*** Alert Message ***/
+
+    .success-msg, .error-msg-roomedit {
+        position: fixed !important;
+        top: 5px; 
+        left:2%;
+        width: 96%;
+        z-index: 20; 
+    }
+    .error-msg, .error-msg-empty, .error-msg-alreadyexists, .error-msg-childdelete, .error-msg-delete, .error-msg-1, .error-msg-2 {
+        position: fixed !important;
+        top: 5px; 
+        left:2%;
+        width: 96%;
+        z-index: 20; 
+    }
+    
+    .alert{
+        display: none;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }  
+
+    /*** Alert Message End ***/
+      
+    /***Dropdown style***/
+
+    select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    }
+
+    select.input-lg {
+    height: 50px !important;
+    line-height: 25px !important;
+    }
+
+    select+i.fa {
+    float: right;
+    margin-top: -27px;
+    margin-right: 9px;
+    pointer-events: none;
+    color: #424242;
+    background-color: #FFF;
+    padding-right: 5px;
+    }
+
+    .input-inline {
+    display: inline;
+    width: auto;
+    border: none;
+    border-bottom: #000000 !important;
+    }
+
+    .input-inline:focus {
+    display: inline;
+    width: auto;
+    border: none;
+    border-bottom: #424242 !important;
+    }
+
+    /***Dropdown style end***/
+
+    /*** Invite Parent ***/
+
+    .card_center
+    {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .invite_card
+    {
+        width: 56%;
+        background: #D8E9FF !important;
+    }
+
+    /*** Invite Parent End***/
+
+
+    /***Forms Repository***/
+
+    option:checked {
+        background-color: #0F2D52 !important;
+        color: #fff !important;
+    }
+
+    option:focus {
+        background-color: #0F2D52 !important;
+        color: #fff !important;
+    }
+
+    option:hover {
+        background-color: #0F2D52 !important;
+        color: #fff !important;
+        cursor: pointer !important;
+    }
+
+    .nav-off
+    {
+        background-color: #D8E9FF !important;
+    }    
+    
+    .nav-pills-style .nav-link-style {
+        border: 2px solid #0F2D52 !important;
+        border-radius: 0 !important;
+        padding: 20px !important;
+    }
+
+    .bg-card-style
+    {
+        margin: 5%;
+    }
+
+    .form-card-style
+    {
+        background: #D8E9FF !important; 
+        margin: 7% -18% 12% -18% !important;
+    }
+
+    /***Forms Repository End***/
+
+    /***Add class room***/
+
+    .classroom-add-btn
+    {
+    background-color: #0F2D52;
+    color: #fff;
+    padding: 8px 25px;
+    border: none;
+    border-radius: .25rem;
+    }
+
+    .classroom-add-btn:hover
+    {
+    opacity: 0.6;
+    }
+
+    .btn-align
+    {
+    margin-top: 3% !important;
+    }
+
+    .action-icons
+    {
+    color: #0F2D52 !important;
+    cursor: pointer;
+    }
+
+    .action-icons:hover
+    {
+    opacity: 0.6;
+    cursor: pointer;
+    }
+    
+
+    /***Parent Details***/
+
+    .invite-button
+    {
+        background-color: #0F2D52 !important;
+        color: #fff;
+        min-width: 70px;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        border-radius: .20rem;
+    }
+
+    .invite-button:hover
     {
         opacity: 0.8;
     }
+
+    /***Parent Details End***/
+

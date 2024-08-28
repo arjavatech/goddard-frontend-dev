@@ -15,7 +15,7 @@ function handleCredentialResponse(response) {
         window.location.href = "admin_dashboard.html";
     }else{
         // Redirect
-        window.location.href = "parent_dashborad.html";
+        window.location.href = "parent_dashboard.html";
     }
     
 }
@@ -44,3 +44,81 @@ function checkLoginState() {
 //     });
 // }
 
+// Email and password validation with particular format
+function loginFunction() {
+    const email_id = document.getElementById('login_email').value;
+    const password = document.getElementById('login_pswd').value;
+    if(email_id != '' && password !=''){
+        const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+        $.ajax({
+        url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/is_admin/${email_id}?password=${hashedUserPassword}`,
+        type: "GET",
+        success: function (response) {
+            console.log(response);
+            let isAuthenticated = false;
+            if(response.admin === true ){
+                $(".success-msg").show();
+                    setTimeout(function(){
+                   $(".success-msg").hide(); 
+                    // isAuthenticated = true;
+                    localStorage.setItem('is_admin',response.admin)
+                    localStorage.setItem('logged_in_email', email_id);
+                    window.location.href = "./admin_dashboard.html"; 
+                }, 3000);
+                
+            }else if (response.admin === false ) {
+                $(".success-msg").show();
+                setTimeout(function(){
+                 $(".success-msg").hide(); 
+                    // isAuthenticated = true;
+                    // localStorage.setItem('is_admin',response.admin)
+                    localStorage.setItem('logged_in_email', email_id);
+                    window.location.href = "./parent_dashboard.html";
+                }, 3000);
+               
+            }else{
+                $(".error-msg").show();
+                setTimeout(function(){ 
+                    $(".error-msg").hide(); 
+                }, 3000);
+            }
+
+            // if (!isAuthenticated) {
+            //     // Authentication failed
+            //     $(".error-msg").show();
+            //         setTimeout(function(){
+            //         $(".error-msg").hide(); 
+            //     }, 3000);
+            //     // let spanMsg = document.getElementById("errorMessage");
+            //     // let spanMsgDiv = document.getElementById("errorMessageDiv");
+            //     // spanMsgDiv.style.display = "block";
+            //     // spanMsg.style.display = "block";
+            // }
+        },
+        error: function (xhr, status, error) {
+            $(".error-msg").show();
+            setTimeout(function(){ 
+            $(".error-msg").hide(); 
+            }, 3000);
+            // console.log(error);
+            // let spanMsg = document.getElementById("errorMessage");
+            // let spanMsgDiv = document.getElementById("errorMessageDiv");
+            // spanMsgDiv.style.display = "block";
+            // spanMsg.style.display = "block";
+        }
+    });
+    }else{
+        // alert('fill the form');
+        $(".error-msg-empty").show();
+            setTimeout(function(){
+            $(".error-msg-empty").hide(); 
+        }, 3000);
+    }
+}
+
+$(document).ready(function () {
+    $("#loginButton").on("click", function (e) {
+        e.preventDefault(); // Prevent the default form submission
+        loginFunction();
+    });
+});

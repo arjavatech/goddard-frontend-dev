@@ -1,4 +1,4 @@
-import {isAuthenticated} from "./authenticationVerify.js";
+import {isAuthenticated} from "./authentication_verify.js";
 
  // Function to submit the form data
  function submitForm() {
@@ -11,7 +11,7 @@ import {isAuthenticated} from "./authenticationVerify.js";
         const json =JSON.stringify(obj);
         // console.log(json);
         $.ajax({
-            url: "http://localhost:8080/admission_child_personal/add",
+            url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/add",
             type: "POST",
             contentType: "application/json",
             data: json,
@@ -49,15 +49,17 @@ $(document).ready(function () {
         $('#primary_parent_email').on('focus', function(){
             //for waking up the aws lambda server
             $.ajax({
-                url: 'http://localhost:8080/parent_invite_info/accepted_invite',
+                url: 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/all_parent_email',
                 type: 'get',
                 datasrc:'',
                 dataType:'json',
                 //this is uesd to get the response and return the result
                 success: function(response){
+                    console.log(response);
                     var parent_email = ''; 
                     if(response !== ""){
                         for (var i = 0; i < response.length; i++) { 
+                            console.log(response[i].parent_email);
                             if(response[i].parent_email != "" && response[i].parent_email != undefined ){                      
                                 parent_email += '<option value="' + response[i].parent_email + '">' + response[i].parent_email + '</option>';  
                             }  
@@ -70,7 +72,7 @@ $(document).ready(function () {
         $('#class_name').on('focus', function(){
         //for waking up the aws lambda server
         $.ajax({
-            url: 'http://localhost:8080/ClassId_ClassName_info/all',
+            url: 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/all',
             type: 'get',
             datasrc:'',
             dataType:'json',

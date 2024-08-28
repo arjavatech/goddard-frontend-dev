@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Parent details</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
+        <link rel="stylesheet" href="css/navbar_signout.css">
+        <link rel="stylesheet" href="css/admin_dashboard.css">
+        <link rel="stylesheet" href="css/data_table.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="js/parent_details.js"></script>
+        <script type="module" src="js/auth_verify.js"></script>
+        <style>
+
+            /***DON'T REMOVE***/
+
+                /*** Pagination ***/
+                .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+                    color: #fff !important;
+                    border: 1px solid #0F2D52;
+                    background-color: #0F2D52 !important;
+                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0F2D52), color-stop(100%, #0F2D52)) !important;
+                    background: -webkit-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+                    background: -moz-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+                    background: -ms-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+                    background: -o-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+                    background: linear-gradient(to bottom, #0F2D52 0%, #0F2D52 100%) !important;
+                }
+
+                .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+                    color: #fff !important;
+                    border: 1px solid #0F2D52;
+                    background-color: #0F2D52 !important;
+                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0F2D52), color-stop(100%, #0F2D52)) !important;
+                    background: -webkit-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+                    background: -moz-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+                    background: -ms-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+                    background: -o-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+                    background: linear-gradient(to bottom, #0F2D52 0%, #0F2D52 100%) !important;
+                }
+
+                .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+                    color: #fff !important;
+                    border: 1px solid #0F2D52;
+                    background-color: #0F2D52 !important;
+                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0F2D52), color-stop(100%, #0F2D52)) !important;
+                    background: -webkit-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+                    background: -moz-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+                    background: -ms-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+                    background: -o-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+                    background: linear-gradient(to bottom, #0F2D52 0%, #0F2D52 100%) !important;
+                }
+
+                .dataTables_wrapper .dataTables_paginate .paginate_button {
+                    color: #0F2D52 !important;
+                    border: 1px solid #c5c5c5;
+                    background-color: #c5c5c5 !important;
+                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c5c5c5), color-stop(100%, #c5c5c5)) !important;
+                    background: -webkit-linear-gradient(top, #c5c5c5 0%, #c5c5c5 100%) !important;
+                    background: -moz-linear-gradient(top, #c5c5c5 0%, #c5c5c5 100%) !important;
+                    background: -ms-linear-gradient(top, #c5c5c5 0%, #c5c5c5 100%) !important;
+                    background: -o-linear-gradient(top, #c5c5c5 0%, #c5c5c5 100%) !important;
+                    background: linear-gradient(to bottom, #c5c5c5 0%, #c5c5c5 100%) !important;
+                }
+
+                [type=search] {
+                    outline-offset: 0px !important;
+                }
+
+            /***DON'T REMOVE***/    
+        </style>
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar_bg">
+                <!--Side Menu Bar-->
+            <div class="row">
+                <div class="col-2">
+                    <button class="btn btn-primary m-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                    </button>
+                    
+                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                        <div class="offcanvas-header p-3">
+                            <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" style="color:#0F2D52">Admin Menu</h3>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                            </div>
+                            <div class="offcanvas-body">
+                                <ul class="nav nav-pills flex-column mb-auto">
+                                    <li class="nav-item">
+                                        <a href="admin_dashboard.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-bar-chart-fill p-2" viewBox="0 0 16 16">
+                                            <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"/>
+                                        </svg>Dashboard</a>
+                                        <a href="invite_parent.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                            class="bi bi-plus-circle-fill p-2" viewBox="0 0 16 16">
+                                            <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                        </svg>Invite Parent</a>
+                                        <a href="add_child.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="p-2" viewBox="0 0 576 512"><path d="M112 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm40 304V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V256.9L59.4 304.5c-9.1 15.1-28.8 20-43.9 10.9s-20-28.8-10.9-43.9l58.3-97c17.4-28.9 48.6-46.6 82.3-46.6h29.7c33.7 0 64.9 17.7 82.3 46.6l44.9 74.7c-16.1 17.6-28.6 38.5-36.6 61.5c-1.9-1.8-3.5-3.9-4.9-6.3L232 256.9V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352H152zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm16 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v48H368c-8.8 0-16 7.2-16 16s7.2 16 16 16h48v48c0 8.8 7.2 16 16 16s16-7.2 16-16V384h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H448V304z"/></svg>Add Child</a>
+                                        <a href="application_status.html" class="nav-link"> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                            class="bi bi-file-text-fill p-2" viewBox="0 0 16 16">
+                                            <path
+                                                d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z" />
+                                        </svg>Application Status</a>
+                                        <a href="parent_details.html" class="nav-link active"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-people-fill p-2" viewBox="0 0 16 16">
+                                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
+                                        </svg>Parent Details</a>
+                                        <a href="forms_repository.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-file-earmark-text-fill p-2" viewBox="0 0 16 16">
+                                            <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z"/>
+                                        </svg>Classroom Management</a>
+                                    </li>
+                                </ul>
+                            </div>
+                    </div>
+                    </div>
+
+                <!-- Side Menu Bar End -->
+                <div class="col-8">
+                    <div class="text-center m-2">
+                        <img src="image/gs_logo_lynnwood.png" alt="gs_logo_lynnwood" type="image/png" width="476px" height="112px">
+                    </div>
+                </div>
+                <div class="col-2">   
+                    <div id="btn-signout" class="btn signout"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Sign
+                            Out</b></div>
+                </div>            
+            </div>
+        </nav><br>
+        <!-- Navigation Bar End -->
+
+        <!-- Alert Message -->
+
+        <div class="success-msg alert alert-success">
+            <a href="#" data-dismiss="alert"></a>
+            <strong>Success!</strong> Email Sent Successfully!
+        </div>  
+        <div class="error-msg alert alert-danger">
+            <a href="#" data-dismiss="alert" aria-label="close"></a>
+            <strong>Oops!</strong> Email sending failed!
+        </div>  
+        <!-- Alert Message End-->
+
+        <!-- Parent Dashboard -->
+        <div class="container">
+            <div class="card m-4">
+                <!-- Child Name -->
+                <h2 class="parent_dashboard_title h2 pt-4 text-center">Parent details for :<span id="applicationStatusYear"></span>
+                    <span class="child-name fs-2" id="applicationStatusyear" name="applicationStatusyear"></span>
+                </h2><br><br>
+                <div class="d-flex justify-content-center m-4">
+                    <div class="container" style="margin-top: 20px;">
+                        <div class="table-wrapper">
+                            <!-- Form Action Table -->
+                            <table id="example" class="display nowrap mt-3" style="width:100%" rules ="all">  
+                                <thead class="table-head">
+                                    <th>Child Name</th>
+                                    <th>Parent Name </th>
+                                    <th>Parent Email</th>
+                                    <th>Invite Status</th>
+                                    <th>Resend Invite</th>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <!-- Form Action Table End -->
+                        </div>
+                        <button class="excelbuttn"  onclick="ExportToExcel('xlsx')"><img src="image/excel.png" alt="image" style="height:25px;width:25px;"></button>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+        <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/searchbuilder/1.3.2/css/searchBuilder.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
+
+        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+        
+        <script>
+            // let object = {
+            //         "from": "noreply.goddard@gmail.com",
+            //         "to": "noreply.goddard@gmail.com",
+            //         "subject": "subject",
+            //         "body": "You are invited",
+            //         "attachmentName": "AttachmentForm",
+            //         "attachmentKey": "attachment"
+            //     }
+            //     function emailSend(child_full_name,parent_name,parent_email) {
+            //             console.log(child_full_name);
+            //             console.log(parent_name);
+            //             console.log(parent_email);
+            //         try {
+            //             const obj = {};
+            //             obj.child_full_name = child_full_name;
+            //             obj.parent_name = parent_name;
+            //             obj.parent_email = parent_email;
+            //             obj.from = "noreply.goddard@gmail.com";
+            //             obj.to = parent_email;
+            //             let randomID = Math.floor(Date.now() / 1000);
+            //             obj.invite_id =randomID;
+            //             obj.subject = 'Invite parents';
+            //             let messageData = 'https://arjavatech.github.io/goddard-frontend-dev/signup.html';
+            //             obj.body = `${messageData}?id=${randomID}`;
+            //             obj.attachmentName ="AttachmentForm";
+            //             obj.attachmentKey ="attachment";
+            //             const json =JSON.stringify(obj);
+            //             console.log(json);
+
+            //             $.ajax({
+            //                 url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
+            //                 type: "POST",
+            //                 contentType: "application/json",
+            //                 data: json,
+            //                 success: function (response) {
+            //                     alert("Email Sent Successfully");
+            //                     window.location.reload();
+            //                 },
+            //                 error: function (xhr, status, error) {
+            //                     console.log(xhr);
+            //                     console.log(status);
+            //                     console.log(error);
+            //                     alert("Email sending failed")
+            //                 }
+            //             });
+            //         } catch (error) {
+            //             console.error('Error:', error);
+            //         }
+            //     }
+
+            $(document).ready(function() {
+                // $('#myTable').DataTable();
+                 //for avoid datatable error popup messages//
+                 $.fn.dataTable.ext.errMode = 'none';
+
+                //datatable creating function//
+                $('#example').DataTable({
+                    //for adding horizontal scrool bar
+                    scrollX: true,
+                    Info : false,
+                    //option is used to define the layout and elements that should be displayed around the table.
+                    dom: 'Qlfrtip',
+                    lengthChange: false,
+                    //for waking up the aws lambda server
+                    ajax: {
+                        url:'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/parent_invite_info/all',
+                        dataSrc: '',
+                    },
+                    //it is used to define and configure the individual columns of the table.
+                    columns: [
+                        { data: 'child_full_name'},
+                        { data: 'parent_name'},
+                        { data: 'parent_email'},
+                        { data: 'invite_status'},
+                        { data: 'resend',
+                            render: function ( data, type, full, meta ) {
+                                return `<button id="sendButton"  name="sendButton" class="invite-button" onclick="emailSend('${full.child_full_name}','${full.parent_name}','${full.parent_email}')">Send</button>`;
+
+                            },
+                        },
+                    ],
+                    "pageLength": 25,
+                });
+            } );
+            function ExportToExcel(type, fn, dl) {
+                var elt = document.getElementById('example');
+                var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+                return dl ?
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+                XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+            }
+        </script> 
+    </body>
+</html>        

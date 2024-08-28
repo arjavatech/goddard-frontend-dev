@@ -1,19 +1,26 @@
-<!DOCTYPE html>
+
+
+<html>
     <head>
         <title>Sign Up</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
-        <link rel="stylesheet" href="css/navbar_signout_style.css">
+        <link rel="stylesheet" href="css/navbar_signout.css">
         <link rel="stylesheet" href="css/login_signup_reset.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
         <script src="https://accounts.google.com/gsi/client" async defer></script>
         <meta name="google-signin-client_id" content="70072849812-7gjpuusbnoho0v8l80lli57v74rrvch4.apps.googleusercontent.com">
         <script src="js/login.js" ></script>
-        <script src="js/password_show_hide.js" async></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -24,7 +31,7 @@
             <img src="image/gs_logo_lynnwood.png" alt="gs_logo_lynnwood" type="image/png" width="476px" height="112px">
         </nav>
         <!-- Navigation Bar End -->
-        <!-- Sign Up Card -->
+        <!-- Login Card -->
         <div class="container">
             <div class="card_position">
                 <div class="card login_card_style">
@@ -39,15 +46,18 @@
                         </div>
                         <div class="error-msg alert alert-danger">
                             <a href="#" data-dismiss="alert" aria-label="close"></a>
-                            <strong>Oops!</strong> Signup not allowed!
+                            <strong>Oops!</strong>Email Id is Mismatched!
                         </div>  
                         <div class="error-msg-empty alert alert-danger">
                             <a href="#" data-dismiss="alert" aria-label="close"></a>
                             <strong>Oops!</strong> You have to fill all the fields!
                         </div> 
-                        <!-- Card Logo -->
-                        <div class=" text-center"><img src="image/gs_logo_tab.png" class="gd-tab-logo" type="image/png"></div>
-                         <!-- Sign Up Form -->
+                        <div class="error-msg-alreadyexists alert alert-danger">
+                            <a href="#" data-dismiss="alert" aria-label="close"></a>
+                            <strong>Oops!</strong> User already exists!
+                        </div> 
+                        <div class=" text-center"><img src="image/gs_logo_tab.png" class="gd-tab-logo" type="image/png"></div><br>
+                         <!-- Sign Up -->
                         <div class="container">
                             <form id="signup"><br>
                                 <div class="form-group">
@@ -85,10 +95,10 @@
                                     </div>
                                 </div><br>
                                 <div class="d-grid">
-                                    <button type="button" class="btn signup_btn btn-block shadow-none" id="signupButton">Sign Up</button>
+                                    <button type="button" class="btn signup_btn btn-block shadow-none" id="signupButton"><b>Sign Up</b></button>
                                 </div><br>  
                                 <div class="text-center">
-                                    <span class="fs-6">Already have an account?</span>&nbsp;<a href="login.html" class="fs-6 for_pwd" style="color: #0F2D52;">Login</a>
+                                    <span class="fs-6">Already have an account?</span>&nbsp;<a href="login.html" class="fs-6 login_link" style="color: #0F2D52;">Login</a>
                                 </div> 
                             </form><br>
                         </div>    
@@ -97,6 +107,7 @@
             </div>
         </div>
         <!-- Sign Up Card End -->
+        <script src="js/password_show_hide.js" ></script>
         <script>
             // document.getElementById('reset_password_span').style.display = "none";
             function validatePassword() {
@@ -150,21 +161,21 @@
                         }
 
                         $.ajax({
-                            url: "http://localhost:8080/sign_up/add",
+                            url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/add",
                             type: "POST",
                             contentType: "application/json",
                             data: JSON.stringify(obj),
                             success: function (response) {
-                                if(response.message == "Sign-up not allowed"){
-                                    $(".error-msg").show();
-                                    setTimeout(function(){ 
-                                        $(".error-msg").hide(); 
-                                    }, 3000);
-                                }else{
+                                if(response.message == "Successfully signed up"){
                                     $(".success-msg").show();
                                     setTimeout(function(){ 
                                         $(".success-msg").hide(); 
                                         window.location.href = "login.html";
+                                    }, 3000);
+                                }else{
+                                    $(".error-msg").show();
+                                    setTimeout(function(){ 
+                                        $(".error-msg").hide(); 
                                     }, 3000);
                                 }
                             

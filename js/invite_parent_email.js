@@ -57,4 +57,26 @@ $(document).ready(function () {
         console.log('checking email send');
         emailSend();
     });
+
+    $('#class_name').on('focus', function () {
+        //for waking up the aws lambda server
+        $.ajax({
+            url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_details/getall',
+            type: 'get',
+            datasrc: '',
+            dataType: 'json',
+            //this is uesd to get the response and return the result
+            success: function (response) {
+                var class_room = '';
+                if (response !== "") {
+                    for (var i = 0; i < response.length; i++) {
+                        if (response[i].class_name != "" && response[i].class_name != undefined) {
+                            class_room += '<option value="' + response[i].class_id + '">' + response[i].class_name + '</option>';
+                        }
+                    }
+                }
+                document.getElementById('class_name').innerHTML = class_room;
+            }
+        });
+    });
 })

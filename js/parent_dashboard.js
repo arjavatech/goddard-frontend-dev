@@ -634,11 +634,11 @@ function checking(editID) {
                         const inputFields = [
                             'child_first_name', 'child_last_name', 'nick_name', 'dob', 'gender', 'do_relevant_custody_papers_apply', 'primary_language', 'school_age_child_school',
                             'parent_name', 'parent_street_address', 'parent_city_address', 'parent_state_address', 'parent_zip_address',
-                            'home_telephone_number', 'business_name', 'work_hours', 'business_telephone_number', 'business_street_address',
+                            'home_telephone_number', 'business_name', 'work_hours_from','work_hours_to', 'business_telephone_number', 'business_street_address',
                             'business_city_address', 'business_state_address', 'business_zip_address', 'business_cell_number',
                             'primary_parent_email', 'parent_two_name', 'parent_two_street_address', 'parent_two_city_address',
                             'parent_two_state_address', 'parent_two_zip_address', 'parent_two_home_telephone_number', 'parent_two_business_name',
-                            'parent_two_work_hours', 'parent_two_business_telephone_number', 'parent_two_business_street_address',
+                            'parent_two_work_hours_from','parent_two_work_hours_to', 'parent_two_business_telephone_number', 'parent_two_business_street_address',
                             'parent_two_business_city_address', 'parent_two_business_state_address', 'parent_two_business_zip_address',
                             'parent_two_business_cell_number', 'parent_email', 'child_emergency_contact_name', 'child_emergency_contact_full_address',
                             'child_emergency_contact_relationship', 'child_emergency_contact_telephone_number', 'child_care_provider_name',
@@ -934,8 +934,10 @@ function checking(editID) {
                         document.getElementsByName('home_telephone_number')[0].value = response.home_telephone_number;
                     if (typeof response.business_name !== "undefined")
                         document.getElementsByName('business_name')[0].value = response.business_name;
-                    if (typeof response.work_hours !== "undefined")
-                        document.getElementsByName('work_hours')[0].value = response.work_hours;
+                    if (typeof response.work_hours_from !== "undefined")
+                        document.getElementsByName('work_hours_from')[0].value = response.work_hours_from;
+                    if (typeof response.work_hours_to !== "undefined")
+                        document.getElementsByName('work_hours_to')[0].value = response.work_hours_to;
                     if (typeof response.business_telephone_number !== "undefined")
                         document.getElementsByName('business_telephone_number')[0].value = response.business_telephone_number;
                     if (typeof response.business_street_address !== "undefined")
@@ -958,7 +960,8 @@ function checking(editID) {
                         typeof response.parent_zip_address !== "undefined" &&
                         typeof response.home_telephone_number !== "undefined" &&
                         typeof response.business_name !== "undefined" &&
-                        typeof response.work_hours !== "undefined" &&
+                        typeof response.work_hours_from !== "undefined" &&
+                        typeof response.work_hours_to !== "undefined" &&
                         typeof response.business_telephone_number !== "undefined" &&
                         typeof response.business_street_address !== "undefined" &&
                         typeof response.business_city_address !== "undefined" &&

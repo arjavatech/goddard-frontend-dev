@@ -10,18 +10,18 @@ function emailSend() {
         const formData = new FormData(form);
         const obj = Object.fromEntries(formData);
 
-        obj.from = "noreply.goddard@gmail.com";
-        let email_to = $('#parent_email').val();
-        obj.to = email_to;
-        console.log(obj.to);
-        obj.subject = 'Invite parents';
+        // obj.from = "noreply.goddard@gmail.com";
+        // let email_to = $('#parent_email').val();
+        // obj.to = email_to;
+        // console.log(obj.to);
+        // obj.subject = 'Invite parents';
         // let messageData = $('#messageData').val();
-        obj.body = "";
+        // obj.body = "";
         const json =JSON.stringify(obj);
         console.log(json);
 
         $.ajax({
-            url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/email/send",
+            url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_invite_info/create",
             type: "POST",
             contentType: "application/json",
             data: json,

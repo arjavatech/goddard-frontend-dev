@@ -6,7 +6,7 @@ $(document).ready(function () {
     // Fetch classroom options for dropdown
     let classroomOptions = [];
     $.ajax({
-        url: 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/all',
+        url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_details/getall',
         method: 'GET',
         async: false, //  options are loaded before datatable initialization
         success: function(data) {
@@ -16,10 +16,12 @@ $(document).ready(function () {
 
     // function for create dropdown options
     function getClassroomDropdown(selectedClassName, childId) {
+        // console.log(selectedClassName,childId);
+        // return false;
         let dropdown = `<div class="dropdown-container"><select class="classroom-dropdown" data-child-id="${childId}">`;
         classroomOptions.forEach(option => {
             const selected = option.class_name === selectedClassName ? 'selected' : '';
-            dropdown += `<option value="${option.class_name}" ${selected}>${option.class_name}</option>`;
+            dropdown += `<option value="${option.class_id}" ${selected}>${option.class_name}</option>`;
         });
         dropdown += '</select></div>';
         return dropdown;
@@ -53,7 +55,7 @@ $(document).ready(function () {
                     alert("Wrong message");
                 }
             };
-            xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/update_class_name");
+            xhr.open("PUT", `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_form/update/${child_id_value}`);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(json);
         }else{
@@ -158,7 +160,8 @@ $(document).ready(function () {
                     },
                 },
             ],
-            pageLength: 25,
+            pageLength: 10,
+            
             
         });
 

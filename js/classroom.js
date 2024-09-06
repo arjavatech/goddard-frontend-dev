@@ -90,7 +90,7 @@ form.addEventListener("submit", (e) => {
             }       
         };
 
-        xhr.open("POST", 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/add');
+        xhr.open("POST", 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_details/create');
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(json);
     }else{
@@ -112,8 +112,8 @@ $(document).ready(function () {
         if(editID != ''){
             //for waking up the aws lambda server
             $.ajax({
-                url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/fetch/${editID}`,
-                type: 'get',
+                url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_details/update/${editID}`,
+                type: 'PUT',
                 //this is uesd to get the response and return the result
                 success: function(response){
                     if (typeof response.class_name !== "undefined")
@@ -166,7 +166,7 @@ $(document).ready(function () {
                         }       
                     };
 
-                    xhr.open("PUT", 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/update');
+                    xhr.open("PUT", `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_details/update/${editID}`);
                     xhr.setRequestHeader("Content-Type", "application/json");
                     xhr.send(json);
                 }

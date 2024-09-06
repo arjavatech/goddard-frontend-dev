@@ -16,17 +16,17 @@ async function emailSend(child_full_name,parent_name,
         const obj = {};
         obj.child_full_name = child_full_name;
         obj.parent_name = parent_name;
-        obj.parent_email = parent_email;
-        obj.from = "noreply.goddard@gmail.com";
-        obj.to = parent_email;
-        obj.subject = 'Invite parents';
-        obj.body = "";
+        obj.email = parent_email;
+        // obj.from = "noreply.goddard@gmail.com";
+        // obj.to = parent_email;
+        // obj.subject = 'Invite parents';
+        // obj.body = "";
         const json =JSON.stringify(obj);
         console.log(json);
 
         $.ajax({
-            url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/email/resend",
-            type: "POST",
+            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_invite_info/update/${parent_email}`,
+            type: "PUT",
             contentType: "application/json",
             data: json,
             success: function (response) {

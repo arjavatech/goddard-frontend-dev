@@ -48,15 +48,26 @@ function checkLoginState() {
 function loginFunction() {
     const email_id = document.getElementById('login_email').value;
     const password = document.getElementById('login_pswd').value;
+
+    
     if(email_id != '' && password !=''){
         const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+
+        const obj = {};
+        obj.email = email_id;
+        obj.password = hashedUserPassword;
+        console.log(obj);
+
         $.ajax({
-        url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/is_admin/${email_id}?password=${hashedUserPassword}`,
-        type: "GET",
+        url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/sign_in/check`,
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify(obj),
         success: function (response) {
             console.log(response);
+            
             let isAuthenticated = false;
-            if(response.admin === true ){
+            if(response.isAdmin === true ){
                 $(".success-msg").show();
                     setTimeout(function(){
                    $(".success-msg").hide(); 
@@ -66,7 +77,7 @@ function loginFunction() {
                     window.location.href = "./admin_dashboard.html"; 
                 }, 3000);
                 
-            }else if (response.admin === false ) {
+            }else if (response.isParent === true ) {
                 $(".success-msg").show();
                 setTimeout(function(){
                  $(".success-msg").hide(); 

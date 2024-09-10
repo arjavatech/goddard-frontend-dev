@@ -133,7 +133,7 @@
                                     <div class="form-group">
                                         <label for="child_first_name" class="col-form-label"><b>Child First Name</b></label>
                                         <input type="text" class="form-control" id="child_first_name"
-                                            name="child_first_name">
+                                            name="child_fname">
                                         <div class="wizard-form-error"></div>
                                     </div>
                                 </div>
@@ -141,14 +141,14 @@
                                     <div class="form-group">
                                         <label for="child_last_name" class="col-form-label"><b>Child Last Name</b></label>
                                         <input type="text" class="form-control" id="child_last_name"
-                                            name="child_last_name">
+                                            name="child_lname">
                                         <div class="wizard-form-error"></div>
                                     </div>
                                 </div>
                                 <div class="col-sm mb-3">
                                     <div class="form-group"> 
                                         <label class="col-form-label"><b>Class Room</b></label>
-                                        <select class="form-control" name="class_name" id="class_name"></select>
+                                        <select class="form-control" name="child_classroom_id" id="class_name"></select>
                                         <i class="fa fa-chevron-down"></i>
                                     </div> 
                                 </div>
@@ -165,9 +165,9 @@
                                 </div>
                                 <div class="col-sm mb-3">
                                     <div class="form-group">
-                                        <label for="parent_email" class="col-form-label"><b>Email</b></label>
+                                        <label for="parent_email" class="col-form-label"><b>Invite Email</b></label>
                                         <input type="email" class="form-control" id="parent_email"
-                                            name="email"
+                                            name="invite_email"
                                             onchange="emailValidation(this,'parent_email_span')">
                                         <span id="parent_email_span" style="color:red; display:none">
                                             Enter valid input [should be in @ and .].</span>

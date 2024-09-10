@@ -64,7 +64,7 @@
                                     <label for="email_id" class="form-label"><b>Email
                                         <span style="color:#ff0000;">*</span></b>
                                     </label><br>
-                                    <input type="email" class="form-control wizard-required" id="email_id" name="email_id"
+                                    <input type="email" class="form-control wizard-required" id="email_id" name="email"
                                         onchange="emailValidation(this,'email_id_span')">
                                     <span id="email_id_span" style="color:red; display:none">
                                         Enter valid input [should be in @ and .].</span>
@@ -141,31 +141,37 @@
                     if (password1 === password2) {
                         // spanMsgDiv.style.display = "none";
                         // spanMsg.style.display = "none";
-                        const form = document.getElementById("signup");
-                        const formData = new FormData(form);
-                        const password = formData.get("password");
+                        // const form = document.getElementById("signup");
+                        // const formData = new FormData(form);
+                        // const password = formData.get("password");
 
                         // Hash the password
-                        const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+                        const hashedPassword = CryptoJS.SHA256(password2).toString(CryptoJS.enc.Hex);
                         console.log(hashedPassword);
                         
                         // Replace the original password with the hashed password in the form data
-                        formData.set("password", hashedPassword);
-                        const obj = Object.fromEntries(formData);
-                        obj.invite_id = window.localStorage.getItem('inviteData');
-                        console.log(obj);
-                        if(obj.email_id === 'goddard01arjava@gmail.com' || obj.email_id === 'goddard02arjava@gmail.com'){
-                            obj.admin = true;
-                        }else{
-                            obj.admin = false;
-                        }
+                        // formData.set("password", hashedPassword);
+                        // const obj = Object.fromEntries(formData);
 
+                        // if(obj.email_id === 'goddard01arjava@gmail.com' || obj.email_id === 'goddard02arjava@gmail.com'){
+                        //     obj.admin = true;
+                        // }else{
+                        //     obj.admin = false;
+                        // }
+
+                        const obj = {};
+                        obj.email = email_id;
+                        obj.password = hashedPassword;
+                        obj.invite_id = `https://arjavatech.github.io/goddard-frontend-test/signup.html?invite_id=${window.localStorage.getItem('inviteData')}`;
+                        console.log(obj);
+                      
                         $.ajax({
-                            url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/add",
+                            url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/sign_up/create",
                             type: "POST",
                             contentType: "application/json",
                             data: JSON.stringify(obj),
                             success: function (response) {
+                                console.log(response.message)
                                 if(response.message == "Successfully signed up"){
                                     $(".success-msg").show();
                                     setTimeout(function(){ 
@@ -181,6 +187,7 @@
                             
                             },
                             error: function (xhr, status, error) {
+                                console.log(error)
                                 $(".error-msg").show();
                                 setTimeout(function(){ 
                                     $(".error-msg").hide(); 
@@ -205,13 +212,15 @@
                 // Check if the URL contains an invite_id parameter
                 const urlParams = new URLSearchParams(window.location.search);
                 const inviteId = urlParams.get('invite_id');
-                let regex = /^([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})+$/i;
+                // let regex = /^([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})+$/i;
                 // If invite_id is not present, redirect the user
                 if (!inviteId) {
                     window.location.href = 'login.html';
-                }else if(!(inviteId.match(regex))){
-                    window.location.href = 'login.html';
-                }else{
+                }
+                // else if(!(inviteId.match(regex))){
+                //     window.location.href = 'login.html';
+                // }
+                else{
                     window.localStorage.setItem('inviteData',inviteId)
                 }
                 $("#signupButton").on("click", function (e) {

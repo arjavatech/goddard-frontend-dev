@@ -21,7 +21,7 @@ function emailSend() {
         console.log(json);
 
         $.ajax({
-            url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_invite_info/create",
+            url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_invite_with_mail_trigger/create",
             type: "POST",
             contentType: "application/json",
             data: json,

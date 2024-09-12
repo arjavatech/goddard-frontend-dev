@@ -171,8 +171,7 @@
                             contentType: "application/json",
                             data: JSON.stringify(obj),
                             success: function (response) {
-                                console.log(response.message)
-                                if(response.message == "Successfully signed up"){
+                                if(response.message == "SignUp Data successfully updated"){
                                     $(".success-msg").show();
                                     setTimeout(function(){ 
                                         $(".success-msg").hide(); 

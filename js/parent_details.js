@@ -10,25 +10,12 @@ let obj = {
     "attachmentKey": "attachment"
 }
 
-async function emailSend(child_full_name,parent_name,
-    parent_email) {
+async function emailSend(parent_email) {
     try {
-        const obj = {};
-        obj.child_full_name = child_full_name;
-        obj.parent_name = parent_name;
-        obj.email = parent_email;
-        // obj.from = "noreply.goddard@gmail.com";
-        // obj.to = parent_email;
-        // obj.subject = 'Invite parents';
-        // obj.body = "";
-        const json =JSON.stringify(obj);
-        console.log(json);
-
+       
         $.ajax({
-            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_invite_info/update/${parent_email}`,
-            type: "PUT",
-            contentType: "application/json",
-            data: json,
+            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_invite_mail/resend/${parent_email}`,
+            type: "GET",
             success: function (response) {
                 $(".success-msg").show();
                 setTimeout(function(){ 

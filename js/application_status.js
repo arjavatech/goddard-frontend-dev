@@ -78,7 +78,7 @@ $(document).ready(function () {
     //             { 
     //                 data: 'child_name',
     //                 render: function (data, type, full, meta) {
-    //                     let url = `${window.location.origin}/goddard-frontend-test/parent_dashboard.html?id=${full.parent_email}`;
+    //                     let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.parent_email}`;
     //                     return `<a href="${url}">${full.child_name}</a>`;
     //                 },
     //             },
@@ -140,19 +140,19 @@ $(document).ready(function () {
                 { 
                     data: 'child_name',
                     render: function (data, type, full, meta) {
-                        let url = `${window.location.origin}/goddard-frontend-test/parent_dashboard.html?id=${full.parent_email}`;
+                        let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.parent_email}`;
                         return `<a href="${url}">${full.child_name}</a>`;
                     },
                 },
                 { 
                     data: 'child_class_name',
                     render: function (data, type, full, meta) {
-                        return getClassroomDropdown(full.child_class_name, full.child_id);
+                        return getClassroomDropdown(full.class_name, full.child_id);
                     },
                 },
                 { data: 'parent_email' },
                 { data: 'parent_two_email' },
-                { data: 'form_status' },
+                { data: 'final_form_status' },
                 { 
                     data: 'edit',
                     render: function (data, type, full, meta) {
@@ -175,7 +175,7 @@ $(document).ready(function () {
     
 
     // Initialize DataTable with default URL
-    initializeDataTable('https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/all_child_status');
+    initializeDataTable('https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
 
     // Event listener for form_name dropdown
     $('#form_name').on('change', function() {

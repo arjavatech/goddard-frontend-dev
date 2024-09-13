@@ -6,12 +6,13 @@ function submitForm() {
     console.log(form);
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
-    if (obj.child_first_name != '' && obj.child_last_name != ''
-        && obj.dob != '' && obj.class_room != '' && obj.primary_parent_email) {
+    if (obj.child_first_name != '' && obj.child_last_name != '' && obj.class_id != '' && obj.parent_id) {
+        obj.class_id = parseInt(obj.class_id);
         const json = JSON.stringify(obj);
-        // console.log(json);
+        console.log(json);
+        // return false;
         $.ajax({
-            url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_form/create",
+            url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_info/create",
             type: "POST",
             contentType: "application/json",
             data: json,
@@ -24,7 +25,8 @@ function submitForm() {
                 }, 3000);
             },
             error: function (xhr, status, error) {
-                alert("failed to submit admission form");
+                console.log(error)
+                // alert("failed to submit admission form");
             }
         });
     } else {
@@ -49,19 +51,19 @@ $(document).ready(function () {
         $('#primary_parent_email').on('focus', function () {
             //for waking up the aws lambda server
             $.ajax({
-                url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_invite_info/getall',
+                url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_info/getall',
                 type: 'get',
                 datasrc: '',
                 dataType: 'json',
                 //this is uesd to get the response and return the result
                 success: function (response) {
-                    console.log(response);
+                    // console.log(response);
                     var parent_email = '';
                     if (response !== "") {
                         for (var i = 0; i < response.length; i++) {
-                            console.log(response[i].email);
+                            // console.log(response[i].invite_email);
                             if (response[i].email != "" && response[i].email != undefined) {
-                                parent_email += '<option value="' + response[i].email + '">' + response[i].email + '</option>';
+                                parent_email += '<option value="' + response[i].parent_id + '">' + response[i].email + '</option>';
                             }
                         }
                     }

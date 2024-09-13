@@ -260,7 +260,7 @@
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class="col-form-label">Available Forms</label>
-                                                        <select id="available_forms" class="form-control float-end"
+                                                        <select id="available_forms" name="options" class="form-control float-end"
                                                             size="6" multiple>
 
                                                         </select>
@@ -314,7 +314,7 @@
                                                 </div>
                                             
                                                 <!-- Select for Child Name -->
-                                                <div class="col-sm-4" id="childNameDiv" style="display:none;">
+                                                <div class="col-sm-4" id="childNameDiv">
                                                     <div class="form-group">
                                                         <label class="col-form-label">Child Name</label>
                                                         <select class="selectpicker" multiple data-live-search="true">
@@ -326,7 +326,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- Radio Buttons -->
-                                                <div class="col-sm-4">
+                                                <!-- <div class="col-sm-4">
 
                                                     <label class="col-form-label">Select Option </label>
                                                     <div class="form-check">
@@ -341,7 +341,7 @@
                                                             Show Child Name
                                                         </label>
                                                     </div>
-                                                </div>
+                                                </div> -->
                                             
                                             </div>
                                             
@@ -556,13 +556,31 @@
         });
 
         $(document).on("click", "#avai-to-act", function () {
-            var avai_value = document.getElementById("available_forms").value;
+            var availableForms = document.getElementById("available_forms");
+            var selectedValues = [];
 
-            let obj = {
-                form_id: avai_value,
-                form_status: "Active",
+            // Loop through the options and collect the selected values
+            for (var i = 0; i < availableForms.options.length; i++) {
+                if (availableForms.options[i].selected) {
+                    selectedValues.push(availableForms.options[i].value);
+                }
             }
+
+            // If no values are selected, return false
+            if (selectedValues.length === 0) {
+                console.log("No forms selected.");
+                return false;
+            }
+
+            // Prepare data object with the selected values and form status
+            let obj = {
+                form_ids: selectedValues,  // Send an array of selected values
+                form_status: "Active",
+            };
+
             const json = JSON.stringify(obj);
+            console.log(json);
+            return false;
 
             $.ajax({
                 url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/all_form_info/update/${avai_value}`,
@@ -622,15 +640,15 @@
         });
 
         // Add event listener for radio buttons
-        document.getElementById("radioClass").addEventListener("click", function() {
-            document.getElementById("classRoomDiv").style.display = "block";  // Show Class Room select
-            document.getElementById("childNameDiv").style.display = "none";   // Hide Child Name select
-        });
+        // document.getElementById("radioClass").addEventListener("click", function() {
+        //     document.getElementById("classRoomDiv").style.display = "block";  // Show Class Room select
+        //     document.getElementById("childNameDiv").style.display = "none";   // Hide Child Name select
+        // });
     
-        document.getElementById("radioChild").addEventListener("click", function() {
-            document.getElementById("classRoomDiv").style.display = "none";   // Hide Class Room select
-            document.getElementById("childNameDiv").style.display = "block";  // Show Child Name select
-        });
+        // document.getElementById("radioChild").addEventListener("click", function() {
+        //     document.getElementById("classRoomDiv").style.display = "none";   // Hide Class Room select
+        //     document.getElementById("childNameDiv").style.display = "block";  // Show Child Name select
+        // });
 
 
     </script>

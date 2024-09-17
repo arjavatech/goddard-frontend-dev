@@ -48,7 +48,31 @@ $(document).ready(function () {
             e.preventDefault(); // Prevent the default form submission
             submitForm();
         });
-        $('#primary_parent_email').on('focus', function () {
+        // $('#primary_parent_email').on('focus', function () {
+        //     //for waking up the aws lambda server
+        //     $.ajax({
+        //         url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_info/getall',
+        //         type: 'get',
+        //         datasrc: '',
+        //         dataType: 'json',
+        //         //this is uesd to get the response and return the result
+        //         success: function (response) {
+        //             // console.log(response);
+        //             var parent_email = '';
+        //             if (response !== "") {
+        //                 for (var i = 0; i < response.length; i++) {
+        //                     // console.log(response[i].invite_email);
+        //                     if (response[i].email != "" && response[i].email != undefined) {
+        //                         parent_email += '<option value="' + response[i].parent_id + '">' + response[i].email + '</option>';
+        //                     }
+        //                 }
+        //             }
+        //             document.getElementById('primary_parent_email').innerHTML = parent_email;
+        //         }
+        //     });
+        // });
+
+        function parent_email_load() {
             //for waking up the aws lambda server
             $.ajax({
                 url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_info/getall',
@@ -57,20 +81,29 @@ $(document).ready(function () {
                 dataType: 'json',
                 //this is uesd to get the response and return the result
                 success: function (response) {
-                    // console.log(response);
+                    console.log(response);
                     var parent_email = '';
-                    if (response !== "") {
+                    // Checking if response is not empty and contains valid data
+                    if (response && response.length > 0) {
                         for (var i = 0; i < response.length; i++) {
-                            // console.log(response[i].invite_email);
-                            if (response[i].email != "" && response[i].email != undefined) {
-                                parent_email += '<option value="' + response[i].parent_id + '">' + response[i].email + '</option>';
+                            if (response[i].email) {
+                                // Dynamically constructing options for the select
+                                parent_email += '<option value="' + response[i].parent_id + '" data-tokens="' + response[i].parent_id + '">' + response[i].email + '</option>';
                             }
                         }
                     }
-                    document.getElementById('primary_parent_email').innerHTML = parent_email;
+                    // Updating the select element with new options
+                    $('#primary_parent_email').html(parent_email);
+
+                    // Refreshing the selectpicker to apply the new options
+                    $('#primary_parent_email').selectpicker('refresh');
                 }
             });
+        }
+        $(document).on("click", ".bs-placeholder", function () {
+            parent_email_load();
         });
+        
         $('#class_name').on('focus', function () {
             //for waking up the aws lambda server
             $.ajax({

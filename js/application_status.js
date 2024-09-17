@@ -23,16 +23,20 @@ $(document).ready(function () {
             const selected = option.class_name === selectedClassName ? 'selected' : '';
             dropdown += `<option value="${option.class_id}" ${selected}>${option.class_name}</option>`;
         });
-        dropdown += '</select></div>';
+        dropdown += `</select></div>`;
         return dropdown;
+    }
+
+    function getClassroomValue(value){
+        let selectedValue = `<p classname="selectedcls_value">${value}<p>`;
+        return selectedValue;
     }
     
 
     // function to handle dropdown change
     function toChangeClassName(class_name_value, child_id_value) {
         const updateObject = {
-            child_id: child_id_value,
-            class_name: class_name_value
+            class_id: class_name_value
         };
         const json = JSON.stringify(updateObject);
         console.log(json);
@@ -41,6 +45,7 @@ $(document).ready(function () {
         if (msg == true) { 
             let xhr = new XMLHttpRequest();
             xhr.onload = () => {
+                // console.log(xhr)
                 if (xhr.status === 200) {
                     $(".success-msg").show();
                     setTimeout(function(){ 
@@ -55,7 +60,7 @@ $(document).ready(function () {
                     alert("Wrong message");
                 }
             };
-            xhr.open("PUT", `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_form/update/${child_id_value}`);
+            xhr.open("PUT", `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_info/update_class/${child_id_value}`);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(json);
         }else{
@@ -150,6 +155,12 @@ $(document).ready(function () {
                         return getClassroomDropdown(full.class_name, full.child_id);
                     },
                 },
+                { 
+                    data: 'child_class_val',
+                    render: function (data, type, full, meta) {
+                        return getClassroomValue(full.class_name);
+                    },
+                },
                 { data: 'parent_email' },
                 { data: 'parent_two_email' },
                 { data: 'final_form_status' },
@@ -170,6 +181,13 @@ $(document).ready(function () {
             const selectedClassName = $(this).val();
             const childId = $(this).data('child-id');
             toChangeClassName(selectedClassName, childId);
+        });
+        
+
+        var table = new DataTable('#example');
+          // Search in the 'Schedule' column (column index 1) based on extra search box
+          document.getElementById('clsroomSearch').addEventListener('change', function() {
+            table.column(2).search(this.value).draw(); // Column index 1 refers to 'Schedule'
         });
     }
     
@@ -206,6 +224,27 @@ $(document).ready(function () {
                     });
                 }
                 $('#form_name').html(form_name_value);
+            }
+        });
+    });
+
+
+     // Preload the Classroom dropdown options
+     $('#clsroomSearch').on('focus', function() {
+        $.ajax({
+            url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_details/getall',
+            type: 'get',
+            dataType: 'json',
+            success: function(response) {
+                let clsroom_name_value = `<option value="">All</option>`;
+                if(response !== "") {
+                    response.forEach(item => {
+                        if(item.class_name && item.class_name !== undefined) {
+                            clsroom_name_value += `<option value="${item.class_name}">${item.class_name}</option>`;
+                        }
+                    });
+                }
+                $('#clsroomSearch').html(clsroom_name_value);
             }
         });
     });

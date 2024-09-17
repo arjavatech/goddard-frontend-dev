@@ -1,319 +1,367 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Application Status</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
-        <link rel="stylesheet" href="css/navbar_signout.css">
-        <link rel="stylesheet" href="css/admin_dashboard.css">
-        <link rel="stylesheet" href="css/application_status.css">
-        <link rel="stylesheet" href="css/data_table.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-        <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
-        <script type="module" src='js/auth_verify.js'></script>
-        <script src='js/application_status.js'></script>
-        <style>
 
-            /***DON'T REMOVE***/
+<head>
+    <title>Application Status</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
+    <link rel="stylesheet" href="css/navbar_signout.css">
+    <link rel="stylesheet" href="css/admin_dashboard.css">
+    <link rel="stylesheet" href="css/application_status.css">
+    <link rel="stylesheet" href="css/data_table.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.922.0.min.js"></script>
+    <script type="module" src='js/auth_verify.js'></script>
+    <script src='js/application_status.js'></script>
+    <style>
+        /***DON'T REMOVE***/
 
-                /*** Pagination ***/
-                .dataTables_wrapper .dataTables_paginate {
-                    float: right;
-                    text-align: right;
-                    padding-top: .25em
-                }
-                
-                .dataTables_wrapper .dataTables_paginate .paginate_button {
-                    box-sizing: border-box;
-                    display: inline-block;
-                    min-width: 1.5em;
-                    padding: .5em 1em;
-                    margin-left: 2px;
-                    text-align: center;
-                    text-decoration: none !important;
-                    cursor: pointer;
-                    cursor: hand;
-                    color: #fff !important;
-                    border: 1px solid transparent;
-                    border-radius: 2px
-                }
-                
-                .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-                    color: #fff !important;
-                    border: 1px solid #0F2D52;
-                    background-color: #0F2D52 !important;
-                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0F2D52), color-stop(100%, #0F2D52)) !important;
-                    background: -webkit-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
-                    background: -moz-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
-                    background: -ms-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
-                    background: -o-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
-                    background: linear-gradient(to bottom, #0F2D52 0%, #0F2D52 100%) !important;
-                }
-        
-                .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-                    color: #fff !important;
-                    border: 1px solid #0F2D52;
-                    background-color: #0F2D52 !important;
-                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0F2D52), color-stop(100%, #0F2D52)) !important;
-                    background: -webkit-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
-                    background: -moz-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
-                    background: -ms-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
-                    background: -o-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
-                    background: linear-gradient(to bottom, #0F2D52 0%, #0F2D52 100%) !important;
-                }
-        
-                .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-                    color: #fff !important;
-                    border: 1px solid #0F2D52;
-                    background-color: #0F2D52 !important;
-                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0F2D52), color-stop(100%, #0F2D52)) !important;
-                    background: -webkit-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
-                    background: -moz-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
-                    background: -ms-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
-                    background: -o-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
-                    background: linear-gradient(to bottom, #0F2D52 0%, #0F2D52 100%) !important;
-                }
-        
-                .dataTables_wrapper .dataTables_paginate .paginate_button {
-                    color: #0F2D52 !important;
-                    border: 1px solid #c5c5c5;
-                    background-color: #c5c5c5 !important;
-                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c5c5c5), color-stop(100%, #c5c5c5)) !important;
-                    background: -webkit-linear-gradient(top, #c5c5c5 0%, #c5c5c5 100%) !important;
-                    background: -moz-linear-gradient(top, #c5c5c5 0%, #c5c5c5 100%) !important;
-                    background: -ms-linear-gradient(top, #c5c5c5 0%, #c5c5c5 100%) !important;
-                    background: -o-linear-gradient(top, #c5c5c5 0%, #c5c5c5 100%) !important;
-                    background: linear-gradient(to bottom, #c5c5c5 0%, #c5c5c5 100%) !important;
-                }
-        
-                [type=search] {
-                    outline-offset: 0px !important;
-                }
+        /*** Pagination ***/
+        .dataTables_wrapper .dataTables_paginate {
+            float: right;
+            text-align: right;
+            padding-top: .25em
+        }
 
-                td a{
-                    text-decoration: underline !important;
-                    color: #0464ca !important;
-                }
-                .dropdown-container {
-                    position: relative;
-                    display: inline-block;
-                    width: 100%; 
-                }
-                .dropdown-container1 {
-                    position: relative;
-                    display: inline-block;
-                    width: 100%; 
-                }
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            box-sizing: border-box;
+            display: inline-block;
+            min-width: 1.5em;
+            padding: .5em 1em;
+            margin-left: 2px;
+            text-align: center;
+            text-decoration: none !important;
+            cursor: pointer;
+            cursor: hand;
+            color: #fff !important;
+            border: 1px solid transparent;
+            border-radius: 2px
+        }
 
-                .classroom-dropdown {
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    appearance: none;
-                    width: 100%;
-                    padding: 10px;
-                    border: 1px solid #0F2D52; 
-                    border-radius: 4px; 
-                    background-color: #fff; 
-                    font-size: 16px;
-                    position: relative;
-                }
-                .classroom-dropdown1 {
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    appearance: none;
-                    width: 100%;
-                    padding: 8px;
-                    border: 1px solid #0F2D52; 
-                    border-radius: 4px; 
-                    background-color: #fff; 
-                    font-size: 16px;
-                    position: relative;
-                }
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+            color: #fff !important;
+            border: 1px solid #0F2D52;
+            background-color: #0F2D52 !important;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0F2D52), color-stop(100%, #0F2D52)) !important;
+            background: -webkit-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+            background: -moz-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+            background: -ms-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+            background: -o-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+            background: linear-gradient(to bottom, #0F2D52 0%, #0F2D52 100%) !important;
+        }
 
-                .dropdown-container::after {
-                    content: '';
-                    position: absolute;
-                    right: 10px;
-                    top: 50%;
-                    width: 0;
-                    height: 0;
-                    pointer-events: none;
-                    border-left: 5px solid transparent;
-                    border-right: 5px solid transparent;
-                    border-top: 5px solid #000;
-                    transform: translateY(-50%);
-                }
-                .dropdown-container1::after {
-                    content: '';
-                    position: absolute;
-                    right: 20px;
-                    top: 50%;
-                    width: 0;
-                    height: 0;
-                    pointer-events: none;
-                    border-left: 5px solid transparent;
-                    border-right: 5px solid transparent;
-                    border-top: 5px solid #000;
-                    transform: translateY(-50%);
-                }
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+            color: #fff !important;
+            border: 1px solid #0F2D52;
+            background-color: #0F2D52 !important;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0F2D52), color-stop(100%, #0F2D52)) !important;
+            background: -webkit-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+            background: -moz-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+            background: -ms-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+            background: -o-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+            background: linear-gradient(to bottom, #0F2D52 0%, #0F2D52 100%) !important;
+        }
 
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+            color: #fff !important;
+            border: 1px solid #0F2D52;
+            background-color: #0F2D52 !important;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #0F2D52), color-stop(100%, #0F2D52)) !important;
+            background: -webkit-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+            background: -moz-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+            background: -ms-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+            background: -o-linear-gradient(top, #0F2D52 0%, #0F2D52 100%) !important;
+            background: linear-gradient(to bottom, #0F2D52 0%, #0F2D52 100%) !important;
+        }
 
-            /***DON'T REMOVE***/    
-        </style>
-    </head>
-    <body>
-        <!-- Navigation Bar -->
-        <nav class="navbar_bg">
-            <!--Side Menu Bar-->
-            <div class="row">
-                <div class="col-2">
-                    <button class="btn btn-primary m-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-                        </svg>
-                    </button>
-            
-                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-                        <div class="offcanvas-header p-3">
-                            <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Admin Menu</h3>
-                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                        </div>
-                            <div class="offcanvas-body">
-                                <ul class="nav nav-pills flex-column mb-auto">
-                                    <li class="nav-item">
-                                        <a href="admin_dashboard.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-bar-chart-fill p-2" viewBox="0 0 16 16">
-                                            <path d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z"/>
-                                        </svg>Dashboard</a>
-                                        <a href="invite_parent.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                                            class="bi bi-plus-circle-fill p-2" viewBox="0 0 16 16">
-                                            <path
-                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
-                                        </svg>Invite Parent</a>
-                                    <a href="add_child.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="p-2" viewBox="0 0 576 512"><path d="M112 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm40 304V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V256.9L59.4 304.5c-9.1 15.1-28.8 20-43.9 10.9s-20-28.8-10.9-43.9l58.3-97c17.4-28.9 48.6-46.6 82.3-46.6h29.7c33.7 0 64.9 17.7 82.3 46.6l44.9 74.7c-16.1 17.6-28.6 38.5-36.6 61.5c-1.9-1.8-3.5-3.9-4.9-6.3L232 256.9V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352H152zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm16 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v48H368c-8.8 0-16 7.2-16 16s7.2 16 16 16h48v48c0 8.8 7.2 16 16 16s16-7.2 16-16V384h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H448V304z"/></svg>Add Child</a>
-                                        <a href="application_status.html" class="nav-link active"> <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
-                                            class="bi bi-file-text-fill p-2" viewBox="0 0 16 16">
-                                            <path
-                                                d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z" />
-                                        </svg>Application Status</a>
-                                        <a href="parent_details.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-people-fill p-2" viewBox="0 0 16 16">
-                                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/>
-                                        </svg>Parent Details</a>
-                                        <a href="forms_repository.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-file-earmark-text-fill p-2" viewBox="0 0 16 16">
-                                            <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z"/>
-                                        </svg>Classroom Management</a>
-                                    </li>
-                                </ul>
-                            </div>
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            color: #0F2D52 !important;
+            border: 1px solid #c5c5c5;
+            background-color: #c5c5c5 !important;
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c5c5c5), color-stop(100%, #c5c5c5)) !important;
+            background: -webkit-linear-gradient(top, #c5c5c5 0%, #c5c5c5 100%) !important;
+            background: -moz-linear-gradient(top, #c5c5c5 0%, #c5c5c5 100%) !important;
+            background: -ms-linear-gradient(top, #c5c5c5 0%, #c5c5c5 100%) !important;
+            background: -o-linear-gradient(top, #c5c5c5 0%, #c5c5c5 100%) !important;
+            background: linear-gradient(to bottom, #c5c5c5 0%, #c5c5c5 100%) !important;
+        }
+
+        [type=search] {
+            outline-offset: 0px !important;
+        }
+
+        td a {
+            text-decoration: underline !important;
+            color: #0464ca !important;
+        }
+
+        .dropdown-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .dropdown-container1 {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .classroom-dropdown {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #0F2D52;
+            border-radius: 4px;
+            background-color: #fff;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .classroom-dropdown1 {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #0F2D52;
+            border-radius: 4px;
+            background-color: #fff;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .dropdown-container::after {
+            content: '';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #000;
+            transform: translateY(-50%);
+        }
+
+        .dropdown-container1::after {
+            content: '';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #000;
+            transform: translateY(-50%);
+        }
+
+        #example td:nth-child(3), 
+        #example th:nth-child(3) {
+            display: none;
+        }
+        /***DON'T REMOVE***/
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar_bg">
+        <!--Side Menu Bar-->
+        <div class="row">
+            <div class="col-2">
+                <button class="btn btn-primary m-5" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-list"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                    </svg>
+                </button>
+
+                <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                    aria-labelledby="offcanvasWithBothOptionsLabel">
+                    <div class="offcanvas-header p-3">
+                        <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Admin Menu</h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="nav nav-pills flex-column mb-auto">
+                            <li class="nav-item">
+                                <a href="admin_dashboard.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="40" height="40" fill="currentColor" class="bi bi-bar-chart-fill p-2"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z" />
+                                    </svg>Dashboard</a>
+                                <a href="invite_parent.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="40" height="40" fill="currentColor" class="bi bi-plus-circle-fill p-2"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                                    </svg>Invite Parent</a>
+                                <a href="add_child.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="40" height="40" fill="currentColor" class="p-2" viewBox="0 0 576 512">
+                                        <path
+                                            d="M112 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm40 304V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V256.9L59.4 304.5c-9.1 15.1-28.8 20-43.9 10.9s-20-28.8-10.9-43.9l58.3-97c17.4-28.9 48.6-46.6 82.3-46.6h29.7c33.7 0 64.9 17.7 82.3 46.6l44.9 74.7c-16.1 17.6-28.6 38.5-36.6 61.5c-1.9-1.8-3.5-3.9-4.9-6.3L232 256.9V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352H152zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm16 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v48H368c-8.8 0-16 7.2-16 16s7.2 16 16 16h48v48c0 8.8 7.2 16 16 16s16-7.2 16-16V384h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H448V304z" />
+                                    </svg>Add Child</a>
+                                <a href="application_status.html" class="nav-link active"> <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                                        class="bi bi-file-text-fill p-2" viewBox="0 0 16 16">
+                                        <path
+                                            d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1zm0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1z" />
+                                    </svg>Application Status</a>
+                                <a href="parent_details.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="40" height="40" fill="currentColor" class="bi bi-people-fill p-2"
+                                        viewBox="0 0 16 16">
+                                        <path
+                                            d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                                    </svg>Parent Details</a>
+                                <a href="forms_repository.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg"
+                                        width="40" height="40" fill="currentColor"
+                                        class="bi bi-file-earmark-text-fill p-2" viewBox="0 0 16 16">
+                                        <path
+                                            d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z" />
+                                    </svg>Classroom Management</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-
-                <!-- Side Menu Bar End -->
-                <div class="col-8">
-                    <div class="text-center m-2">
-                        <img src="image/gs_logo_lynnwood.png" alt="gs_logo_lynnwood" type="image/png" width="476px" height="112px">
-                    </div>
-                </div>
-                <div class="col-2">   
-                    <div id="btn-signout" class="btn signout"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Sign
-                            Out</b></div>
-                </div>            
             </div>
-        </nav><br>
-        <!-- Navigation Bar End -->
 
-        <!-- Alert Message -->
-
-        <div class="success-msg alert alert-success">
-            <a href="#" data-dismiss="alert"></a>
-            <strong>Success!</strong> successfully changed classroom!
-        </div>  
-        <div class="error-msg alert alert-danger">
-            <a href="#" data-dismiss="alert" aria-label="close"></a>
-            <strong>Oops!</strong> classroom was not added!
-        </div>  
-        <div class="error-msg-childdelete alert alert-danger">
-            <a href="#" data-dismiss="alert" aria-label="close"></a>
-            <strong>Oops!</strong> Child deleted!
+            <!-- Side Menu Bar End -->
+            <div class="col-8">
+                <div class="text-center m-2">
+                    <img src="image/gs_logo_lynnwood.png" alt="gs_logo_lynnwood" type="image/png" width="476px"
+                        height="112px">
+                </div>
+            </div>
+            <div class="col-2">
+                <div id="btn-signout" class="btn signout"><i
+                        class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Sign
+                        Out</b></div>
+            </div>
         </div>
+    </nav><br>
+    <!-- Navigation Bar End -->
 
-        <!-- Alert Message End -->
+    <!-- Alert Message -->
 
-        <!-- Parent Dashboard -->
-        <div class="container">
-            <div class="card m-3">
-                <!-- Child Name -->
-                <!-- <h2 class="parent_dashboard_title h2 pt-4 text-center">
+    <div class="success-msg alert alert-success">
+        <a href="#" data-dismiss="alert"></a>
+        <strong>Success!</strong> successfully changed classroom!
+    </div>
+    <div class="error-msg alert alert-danger">
+        <a href="#" data-dismiss="alert" aria-label="close"></a>
+        <strong>Oops!</strong> classroom was not added!
+    </div>
+    <div class="error-msg-childdelete alert alert-danger">
+        <a href="#" data-dismiss="alert" aria-label="close"></a>
+        <strong>Oops!</strong> Child deleted!
+    </div>
+
+    <!-- Alert Message End -->
+
+    <!-- Parent Dashboard -->
+    <div class="container">
+        <div class="card m-3">
+            <!-- Child Name -->
+            <!-- <h2 class="parent_dashboard_title h2 pt-4 text-center">
                     <span id="applicationStatusLabel">Application Status for :</span><span id="applicationStatusYear"></span>
                     <span class="child-name fs-2" id="applicationStatusyear" name="applicationStatusyear"></span>
                 </h2> -->
-                <br><br>
-                <!-- Year -->
-                <div class="row">
-                    <!-- Year dynamic dropdown End -->
-                    <div class="col-3"></div>
-                    <div class="col-2">
-                        <h4>Form List :</h4>
-                    </div>
-                    <div class="col-3  dropdown-container1">
-                        <select name="form_name" class="allform form-control classroom-dropdown1" id="form_name" ></select>
-                    </div>
+            <br><br>
+            <!-- Year -->
+            <div class="row">
+                <!-- Year dynamic dropdown End -->
+                <div class="col-3"></div>
+                <div class="col-2">
+                    <h4>Form List :</h4>
                 </div>
-                <!-- Year End -->
-                <div class="d-flex justify-content-center m-3">
-                    <div class="container" style="margin-top: 20px;">
-                        <div class="table-wrapper">
-                            <!-- Form Action Table -->
-                            <table id="example" class="display nowrap" style="width:100%" frame ="" rules ="all">  
-                                <thead class="table-head">
-                                    <th>Child Name</th>
-                                    <th>Child Class Name</th>
-                                    <th>Parent Email</th>
-                                    <th>Parent Two Email</th>
-                                    <th>Form Status</th>
-                                    <th>Action</th>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                            <!-- Form Action Table End -->
+                <div class="col-3  dropdown-container1">
+                    <select name="form_name" class="allform form-control classroom-dropdown1" id="form_name"></select>
+                </div>
+            </div>
+            <!-- Year End -->
+            <div class="d-flex justify-content-center m-3">
+                <div class="container" style="margin-top: 20px;">
+                    <div class="table-wrapper">
+                        <div class="float-end d-flex dropdown-container1 w-50 mb-2">
+                            <!-- Extra search box for specific column (Schedule) -->
+                            <label for="clsroomSearch" class="me-2">SearchClassroom: </label>
+                            <select name="clsroomSearch" class="form-control" id="clsroomSearch"></select>
+                            <!-- <input type="text" id="clsroomSearch" class="form-control w-100 mb-3"> -->
                         </div>
-                        <!-- <button class="excelbuttn"  onclick="ExportToExcel('xlsx')"><img src="image/excel.png" alt="image" style="height:25px;width:25px;"></button> -->
+
+                        <!-- Form Action Table -->
+                        <table id="example" class="display nowrap" style="width:100%" frame="" rules="all">
+                            <thead class="table-head">
+                                <th>Child Name</th>
+                                <th>Child Class Name</th>
+                                <th class="cls_val d-none">Child Class val</th>
+                                <th>Parent Email</th>
+                                <th>Parent Two Email</th>
+                                <th>Form Status</th>
+                                <th>Action</th>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <!-- Form Action Table End -->
                     </div>
+                    <!-- <button class="excelbuttn"  onclick="ExportToExcel('xlsx')"><img src="image/excel.png" alt="image" style="height:25px;width:25px;"></button> -->
                 </div>
-            </div>    
+            </div>
         </div>
+    </div>
 
-        <!--Data Table-->
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet">
-        <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-        
-        
-        <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
-        <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"> -->
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/searchbuilder/1.3.2/css/searchBuilder.dataTables.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
-
-        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
-        <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
-
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
-        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-        <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/searchbuilder/1.3.2/css/searchBuilder.dataTables.min.css">
-        <script type="text/javascript" src="https://cdn.datatables.net/searchbuilder/1.3.2/js/dataTables.searchBuilder.min.js"></script>
+    <!--Data Table-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 
 
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"> -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/searchbuilder/1.3.2/css/searchBuilder.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
 
-        
-    </body>
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript"
+        src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/buttons/1.7.1/css/buttons.dataTables.min.css">
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/searchbuilder/1.3.2/css/searchBuilder.dataTables.min.css">
+    <script type="text/javascript"
+        src="https://cdn.datatables.net/searchbuilder/1.3.2/js/dataTables.searchBuilder.min.js"></script>
+
+
+
+
+</body>
+
 </html>

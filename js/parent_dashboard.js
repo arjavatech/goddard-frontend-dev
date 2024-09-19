@@ -17,9 +17,9 @@ function checkParentAuthentication(editID, callback) {
     if (editID == logged_in_email || logged_in_email == 'goddard01arjava@gmail.com' || editID == '') {
         // (stop user to see other kids || check admin login || default parent login)
         if (editID != '') {
-            url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${editID}`
+            url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/parent_email/${editID}`
         } else {
-            url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${logged_in_email}`
+            url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/parent_email/${logged_in_email}`
         }
         $.ajax({
             url: url,
@@ -48,15 +48,16 @@ function getAllInfo(editID, callback) {
     const logged_in_email = localStorage.getItem('logged_in_email');
     let url;
     if (editID != '') {
-        url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${editID}`
+        url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/parent_email/${editID}`
     } else {
-        url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${logged_in_email}`
+        url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/parent_email/${logged_in_email}`
     }
 
     $.ajax({
         url: url,
         type: 'get',
         success: function (response) {
+            console.log(response);
             // localStorage.clear()
             if (response['children']) {
                 // Iterate through all the child and store the response
@@ -248,7 +249,7 @@ function checking(editID) {
     // var tab_content = document.querySelector(".tab-content");
     // tab_content.reset();
     $.ajax({
-        url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/incomplete_form_status/${editID}`,
+        url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/incomplete_form_status/${editID}`,
         type: 'GET',
         dataType: 'json',
         success: function (response) {
@@ -442,7 +443,7 @@ function checking(editID) {
     function populateFormData(editID, formName) {
         return new Promise((resolve, reject) => {
             $.ajax({
-                url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
+                url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/fetch/${editID}`,
                 type: 'GET',
                 success: function (response) {
                     console.log(response);
@@ -792,7 +793,7 @@ function checking(editID) {
         dom: 'Qlfrtip',
         lengthChange: false,
         ajax: {
-            url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
+            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
             dataSrc: function (json) {
                 // Format the timestamp in the JSON data before using it in the DataTable
                 json.CompletedFormStatus.forEach(function (item) {
@@ -858,7 +859,7 @@ function checking(editID) {
         // addChildDiv.style.display = 'none';
         //for waking up the aws lambda server  
         $.ajax({
-            url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
+            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/fetch/${editID}`,
             type: 'GET',
             //this is used to get the response and return the result
             success: function (response) {

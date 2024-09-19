@@ -204,14 +204,14 @@ $(document).ready(function () {
             table.clear().destroy();
 
             // Initialize a new DataTable with the updated URL
-            initializeDataTable(`https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/form_status?formName=${form_name}`);
+            initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/form_status?formName=${form_name}`);
         }
     });
 
     // Preload the form_name dropdown options
     $('#form_name').on('focus', function() {
         $.ajax({
-            url: 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all_active_forms',
+            url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/goddard_all_form/all_active_forms',
             type: 'get',
             dataType: 'json',
             success: function(response) {
@@ -280,7 +280,7 @@ function deletedata(id,email) {
             }
         };
 
-        xhr.open("DELETE", 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/remove');
+        xhr.open("DELETE", 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/remove');
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(json);
     }

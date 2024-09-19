@@ -43,7 +43,7 @@ function signupFunction(){
             formData.set("password", hashedPassword);
             const obj = Object.fromEntries(formData);
             $.ajax({
-                url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/password_reset",
+                url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/sign_up/password_reset",
                 type: "POST",
                 contentType: "application/json",
                 data: JSON.stringify(obj),

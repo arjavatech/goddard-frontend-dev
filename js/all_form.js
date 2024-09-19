@@ -54,7 +54,7 @@ function submitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_additional/update");
+    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_additional/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -112,11 +112,11 @@ function childPersonalsubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/modify");
+    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/modify");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
     // $.ajax({
-    //     url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/modify",
+    //     url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/modify",
     //     type: "PUT",
     //     contentType: "application/json",
     //     data:json,
@@ -189,7 +189,7 @@ function childParentsubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_parent_info/update");
+    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_parent_info/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -230,7 +230,7 @@ function childParentTwosubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("POST", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_parent_two_info/add");
+    xhr.open("POST", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_parent_two_info/add");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -286,7 +286,7 @@ function childHistorysubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", " https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_health/update");
+    xhr.open("PUT", " https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_health/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -340,7 +340,7 @@ function childProfilesubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_profile/update");
+    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_profile/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -400,7 +400,7 @@ function saveForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_additional/update");
+    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_additional/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -458,7 +458,7 @@ function admissionsubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/modify");
+    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/modify");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -518,7 +518,7 @@ function authorizationSubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/bill_ach/update");
+    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/bill_ach/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -579,7 +579,7 @@ function authorizationSaveForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/bill_ach/update");
+    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/bill_ach/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -639,7 +639,7 @@ function enrollmentSubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_agreement/update");
+    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/enrollment_agreement/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -700,7 +700,7 @@ function enrollmentSaveForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/enrollment_agreement/update");
+    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/enrollment_agreement/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -760,7 +760,7 @@ function handbookSubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/hand_book/update");
+    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/hand_book/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -821,7 +821,7 @@ function handbookSaveForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/hand_book/update");
+    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/hand_book/update");
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }

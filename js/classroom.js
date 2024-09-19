@@ -15,7 +15,7 @@ import {isAuthenticated} from "./authentication_verify.js";
 //         let json = JSON.stringify(obj);
 //         console.log(json);
 //         $.ajax({
-//             url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/add",
+//             url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/ClassId_ClassName_info/add",
 //             type: "POST",
 //             contentType: "application/json",
 //             data: json,
@@ -38,7 +38,7 @@ import {isAuthenticated} from "./authentication_verify.js";
 //         let json = JSON.stringify(obj);
 //         console.log(json);
 //         $.ajax({
-//             url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/ClassId_ClassName_info/update",
+//             url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/ClassId_ClassName_info/update",
 //             type: "PUT",
 //             contentType: "application/json",
 //             data: json,

@@ -110,12 +110,12 @@
                                         <path
                                             d="M1 11a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3zm5-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1V2z" />
                                     </svg>Dashboard</a>
-                                <a href="invite_parent.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg"
+                                <!-- <a href="invite_parent.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg"
                                         width="40" height="40" fill="currentColor" class="bi bi-plus-circle-fill p-2"
                                         viewBox="0 0 16 16">
                                         <path
                                             d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
-                                    </svg>Invite Parent</a>
+                                    </svg>Invite Parent</a> -->
                                 <a href="add_child.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg"
                                         width="40" height="40" fill="currentColor" class="p-2" viewBox="0 0 576 512">
                                         <path
@@ -138,7 +138,7 @@
                                         class="bi bi-file-earmark-text-fill p-2" viewBox="0 0 16 16">
                                         <path
                                             d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1h-7zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1h-4z" />
-                                    </svg>Classroom Management</a>
+                                    </svg>Classroom | Form Manage</a>
                             </li>
                         </ul>
                     </div>
@@ -180,8 +180,12 @@
             <h2 class="parent_dashboard_title h2 pt-4 text-center">Parent details for :<span
                     id="applicationStatusYear"></span>
                 <span class="child-name fs-2" id="applicationStatusyear" name="applicationStatusyear"></span>
-            </h2><br><br>
-            <div class="d-flex justify-content-center m-4">
+            </h2>
+            <div class="ms-4">
+                <a href="invite_parent.html" class="btn btn-primary text-white text-decoration-none">Invite Parent</a>
+            </div>  
+            <div class="d-flex justify-content-center m-2">
+                
                 <div class="container" style="margin-top: 20px;">
                     <div class="table-wrapper">
                         <!-- Form Action Table -->
@@ -289,7 +293,12 @@
                 },
                 //it is used to define and configure the individual columns of the table.
                 columns: [
-                    { data: 'parent_name' },
+                    { data: 'parent_name',
+                    render: function (data, type, full, meta) {
+                        let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.invite_email}`;
+                        return `<a href="${url}" class="text-primary">${full.parent_name}</a>`;
+                    },
+                    },
                     { data: 'invite_email' },
                     {
                         data: 'time_stamp',

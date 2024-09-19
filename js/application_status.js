@@ -118,24 +118,6 @@ $(document).ready(function () {
         $('#example').DataTable({
             scrollX: true,
             info: false,
-            dom: 'Bfrtip',
-            buttons: [
-                {
-                    extend: 'excelHtml5',
-                    text: 'Export to Excel',
-                    customize: function (xlsx) {
-                        var sheet = xlsx.xl.worksheets['sheet1.xml'];
-                        var rowIndex = 2; // Excel rows are 1-based
-                        $('#example').find('tbody tr').each(function() {
-                            var childId = $(this).find('.classroom-dropdown').data('child-id');
-                            var selectedClassName = $(this).find('.classroom-dropdown').find('option:selected').text();
-                            // Update the cell in the Excel sheet
-                            $('row:nth-child(' + (rowIndex + 1) + ') c[r^="B"] t', sheet).text(selectedClassName);
-                            rowIndex++;
-                        });
-                    }
-                }
-            ],
             lengthChange: false,
             ajax: {
                 url: url,

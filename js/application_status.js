@@ -149,7 +149,8 @@ $(document).ready(function () {
                 { 
                     data: 'edit',
                     render: function (data, type, full, meta) {
-                        return `<img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton" name="deletebutton" height="20px;" style="text-align:right !important;cursor: pointer !important;" onclick="deletedata(${full.child_id}, '${full.parent_email}');">`;
+                        return `<a class="btn btn-primary text-white text-decoration-none" href="mailto:${full.parent_email}?cc=${full.parent_two_email}">Send Email</a>`;
+                        // return `<img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton" name="deletebutton" height="20px;" style="text-align:right !important;cursor: pointer !important;" onclick="deletedata(${full.child_id}, '${full.parent_email}');">`;
                     },
                 },
             ],
@@ -235,10 +236,36 @@ $(document).ready(function () {
 });
 function ExportToExcel(type, fn, dl) {
     var elt = document.getElementById('example');
+    var rowIndex = 0; 
     var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
-    return dl ?
-    XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
-    XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    var sheet = wb.Sheets["sheet1"]; // Access the first sheet of the workbook
+
+    for (var i = 0; i < elt.rows.length; i++) {
+        // Remove the 7th column from the HTML table
+        elt.rows[i].deleteCell(6);
+        // Find the selected value 
+        var selectedClassName = $(elt.rows[i]).find('.classroom-dropdown').find('option:selected').text();
+
+        // Update the appropriate Excel cell (in column B, adjusting row number)
+        var cellAddress = 'B' + (rowIndex + 1); // Adjust for 1-based Excel rows
+        if (sheet[cellAddress]) {
+            sheet[cellAddress].v = selectedClassName; // Update the cell value
+        } else {
+            sheet[cellAddress] = { v: selectedClassName }; // If the cell doesn't exist, create it
+        }
+        rowIndex++;
+    }
+
+    if (dl) {
+        XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' });
+    } else {
+        XLSX.writeFile(wb, fn || ('Application status.' + (type || 'xlsx')));
+    }
+      // Delay the reload to allow the download to complete
+      setTimeout(function() {
+        window.location.reload();
+    }, 1000);
+
 }
 //this function is used to delete course fields details
 function deletedata(id,email) {

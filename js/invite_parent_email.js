@@ -9,6 +9,7 @@ function emailSend() {
         const form = document.getElementById("admission_form");
         const formData = new FormData(form);
         const obj = Object.fromEntries(formData);
+        obj.child_classroom_id = document.getElementById('class_name').value;
 
         // obj.from = "noreply.goddard@gmail.com";
         // let email_to = $('#parent_email').val();
@@ -20,6 +21,8 @@ function emailSend() {
         const json =JSON.stringify(obj);
         console.log(json);
 
+        if(obj.child_fname != "" && obj.child_lname && obj.child_classroom_id && obj.parent_name && obj.invite_email){
+
         $.ajax({
             url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_invite_with_mail_trigger/create",
             type: "POST",
@@ -27,8 +30,6 @@ function emailSend() {
             data: json,
             success: function (response) {
                 // console.log(response.message);
-                // alert(response.message);
-                // window.location.reload();
                 $(".success-msg").show();
                     setTimeout(function(){
                     $(".success-msg").hide();
@@ -36,17 +37,19 @@ function emailSend() {
                 }, 3000);
             },
             error: function (xhr, status, error) {
-                // console.log(xhr);
-                // console.log(status);
-                // console.log(error);
-                // alert(error);
-                $(".error-msg-empty").show();
+                $(".error-msg-alreadyexists").show();
                     setTimeout(function(){
-                    $(".error-msg-empty").hide();
+                    $(".error-msg-alreadyexists").hide();
                     window.location.reload();
                 }, 3000);
             }
         });
+    } else {
+        $(".error-msg-empty").show();
+        setTimeout(function(){
+        $(".error-msg-empty").hide();
+    }, 3000);
+    }
     } catch (error) {
         console.error('Error:', error);
     }
@@ -54,7 +57,7 @@ function emailSend() {
 
 $(document).ready(function () {
     $('#sendButton').click(function () {
-        console.log('checking email send');
+        // console.log('checking email send');
         emailSend();
     });
 

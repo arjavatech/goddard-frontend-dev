@@ -9,8 +9,8 @@ html
 
 .admin_cards
 {
-    width: 250px !important;
-    height: 200px !important;
+    width: 90% !important;
+    height: 225px !important;
     background: #D8E9FF !important;
     border: 2px solid #0F2D52 !important;
     border-radius: 20px !important;

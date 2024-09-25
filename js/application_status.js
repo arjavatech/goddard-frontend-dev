@@ -27,12 +27,6 @@ $(document).ready(function () {
         return dropdown;
     }
 
-    function getClassroomValue(value){
-        let selectedValue = `<p classname="selectedcls_value">${value}<p>`;
-        return selectedValue;
-    }
-    
-
     // function to handle dropdown change
     function toChangeClassName(class_name_value, child_id_value) {
         const updateObject = {
@@ -128,7 +122,7 @@ $(document).ready(function () {
                     data: 'child_name',
                     render: function (data, type, full, meta) {
                         let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.parent_email}`;
-                        return `<a href="${url}">${full.child_name}</a>`;
+                        return `<a href="${url}">${full.child_first_name +" "+ full.child_last_name}</a>`;
                     },
                 },
                 { 
@@ -137,19 +131,13 @@ $(document).ready(function () {
                         return getClassroomDropdown(full.class_name, full.child_id);
                     },
                 },
-                { 
-                    data: 'child_class_val',
-                    render: function (data, type, full, meta) {
-                        return getClassroomValue(full.class_name);
-                    },
-                },
-                { data: 'parent_email' },
-                { data: 'parent_two_email' },
-                { data: 'final_form_status' },
+                { data: 'primary_email' },
+                { data: 'additional_parent_email' },
+                { data: 'form_status' },
                 { 
                     data: 'edit',
                     render: function (data, type, full, meta) {
-                        return `<a class="btn btn-primary text-white text-decoration-none" href="mailto:${full.parent_email}?cc=${full.parent_two_email}">Send Email</a>`;
+                        return `<a class="btn btn-primary text-white text-decoration-none" href="mailto:${full.primary_email}?cc=${full.additional_parent_email}">Send Email</a>`;
                         // return `<img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton" name="deletebutton" height="20px;" style="text-align:right !important;cursor: pointer !important;" onclick="deletedata(${full.child_id}, '${full.parent_email}');">`;
                     },
                 },
@@ -166,17 +154,37 @@ $(document).ready(function () {
             toChangeClassName(selectedClassName, childId);
         });
         
-
-        var table = new DataTable('#example');
-          // Search in the 'Schedule' column (column index 1) based on extra search box
-          document.getElementById('clsroomSearch').addEventListener('change', function() {
-            table.column(2).search(this.value).draw(); // Column index 1 refers to 'Schedule'
-        });
+        // var table = new DataTable('#example');
+        //   // Search in the 'Schedule' column (column index 1) based on extra search box
+        //   document.getElementById('clsroomSearch').addEventListener('change', function() {
+        //     table.column(2).search(this.value).draw(); // Column index 1 refers to 'Schedule'
+        // });
     }
-    
 
-    // Initialize DataTable with default URL
-    initializeDataTable('https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
+    // Classroom based details
+    let classID = window.location.search.slice(4);
+    if(classID != ""){
+         // Initialize a new DataTable with the updated URL
+         initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_based_all_child_details/${classID}`);
+    } else {
+        // Initialize DataTable with default URL
+        initializeDataTable('https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
+    }
+
+    $('#clsroomSearch').on('change', function() {
+        let clsroomSearchId = $(this).val();
+         // Clear and destroy the existing DataTable
+         let table = $('#example').DataTable();
+         table.clear().destroy();
+         
+        if(clsroomSearchId != ""){
+            initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_based_all_child_details/${clsroomSearchId}`);
+        } else {
+            console.log("lll")
+            initializeDataTable('https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
+        }
+        
+    });
 
     // Event listener for form_name dropdown
     $('#form_name').on('change', function() {
@@ -186,8 +194,13 @@ $(document).ready(function () {
             let table = $('#example').DataTable();
             table.clear().destroy();
 
-            // Initialize a new DataTable with the updated URL
-            initializeDataTable(`https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/form_status?formName=${form_name}`);
+            if(form_name != ""){
+                // Initialize a new DataTable with the updated URL
+                initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/form_based_all_child_details/${form_name}`);
+            } else {
+                // Initialize DataTable with default URL
+                initializeDataTable('https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
+            }
         
         }
     });
@@ -195,15 +208,15 @@ $(document).ready(function () {
     // Preload the form_name dropdown options
     $('#form_name').on('focus', function() {
         $.ajax({
-            url: 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/goddard_all_form/all_active_forms',
+            url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/all_form_info/getall',
             type: 'get',
             dataType: 'json',
             success: function(response) {
-                let form_name_value = '';
+                let form_name_value = '<option value="">All</option>';
                 if(response !== "") {
                     response.forEach(item => {
                         if(item.main_topic && item.main_topic !== undefined) {
-                            form_name_value += `<option value="${item.main_topic}">${item.main_topic}</option>`;
+                            form_name_value += `<option value="${item.form_id}">${item.main_topic}</option>`;
                         }
                     });
                 }
@@ -224,7 +237,7 @@ $(document).ready(function () {
                 if(response !== "") {
                     response.forEach(item => {
                         if(item.class_name && item.class_name !== undefined) {
-                            clsroom_name_value += `<option value="${item.class_name}">${item.class_name}</option>`;
+                            clsroom_name_value += `<option value="${item.class_id}">${item.class_name}</option>`;
                         }
                     });
                 }
@@ -234,64 +247,3 @@ $(document).ready(function () {
     });
 
 });
-function ExportToExcel(type, fn, dl) {
-    var elt = document.getElementById('example');
-    var rowIndex = 0; 
-    var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
-    var sheet = wb.Sheets["sheet1"]; // Access the first sheet of the workbook
-
-    for (var i = 0; i < elt.rows.length; i++) {
-        // Remove the 7th column from the HTML table
-        elt.rows[i].deleteCell(6);
-        // Find the selected value 
-        var selectedClassName = $(elt.rows[i]).find('.classroom-dropdown').find('option:selected').text();
-
-        // Update the appropriate Excel cell (in column B, adjusting row number)
-        var cellAddress = 'B' + (rowIndex + 1); // Adjust for 1-based Excel rows
-        if (sheet[cellAddress]) {
-            sheet[cellAddress].v = selectedClassName; // Update the cell value
-        } else {
-            sheet[cellAddress] = { v: selectedClassName }; // If the cell doesn't exist, create it
-        }
-        rowIndex++;
-    }
-
-    if (dl) {
-        XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' });
-    } else {
-        XLSX.writeFile(wb, fn || ('Application status.' + (type || 'xlsx')));
-    }
-      // Delay the reload to allow the download to complete
-      setTimeout(function() {
-        window.location.reload();
-    }, 1000);
-
-}
-//this function is used to delete course fields details
-function deletedata(id,email) {
-    var delete_object={child_id : id,primary_parent_email : email};
-    const json=JSON.stringify(delete_object);
-    console.log(json)
-    var msg = confirm("Are you sure?"); 
-    //it check the user confirmation if yes or no       
-    if (msg == true) { 
-        //  sending post request to the server
-        let xhr = new XMLHttpRequest();
-        xhr.onload = () => {
-            const data = xhr.responseText;
-            if (xhr.status == 200) {
-                // var confirmationRes = window.confirm(data);
-                if (data) {
-                    // window.location.href = "../reg_form/sponsorreport.html";
-                    window.location.reload();
-                } else {
-                    window.location.reload();
-                }
-            }
-        };
-
-        xhr.open("DELETE", 'https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/remove');
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.send(json);
-    }
-};

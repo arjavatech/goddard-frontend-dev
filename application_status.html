@@ -169,10 +169,6 @@
             transform: translateY(-50%);
         }
 
-        #example td:nth-child(3), 
-        #example th:nth-child(3) {
-            display: none;
-        }
         /***DON'T REMOVE***/
     </style>
 </head>
@@ -296,8 +292,8 @@
                 </div>
                 <div class="col-4">
                     <div class="d-flex dropdown-container1 mb-2">
-                        <label for="clsroomSearch" class="me-2 fw-bold fs-5">Classroom: </label>
-                        <select name="clsroomSearch" class="allform form-control" id="clsroomSearch"></select>
+                        <label for="clsroom_Search" class="me-2 fw-bold fs-5">Classroom: </label>
+                        <select name="clsroomSearch" class="allform form-control classroom-dropdown1" id="clsroomSearch"></select>
                     </div>
                 </div>
             </div>
@@ -310,7 +306,6 @@
                             <thead class="table-head">
                                 <th>Child Name</th>
                                 <th>Child Class Name</th>
-                                <th class="cls_val d-none">Child Class val</th>
                                 <th>Parent Email</th>
                                 <th>Parent Two Email</th>
                                 <th>Form Status</th>
@@ -359,13 +354,43 @@
         src="https://cdn.datatables.net/searchbuilder/1.3.2/js/dataTables.searchBuilder.min.js"></script>
 
 <script>
-    // function ExportToExcel(type, fn, dl) {
-    //         var elt = document.getElementById('example');
-    //         var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
-    //         return dl ?
-    //             XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
-    //             XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
-    //     }
+  function ExportToExcel(type, fn, dl) {
+    var elt = document.getElementById('example');
+    var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+    var sheet = wb.Sheets["sheet1"]; // Access the first sheet of the workbook
+    var rowIndex = 2; // Excel uses 1-based indexing
+
+    $('#example').find('tbody tr').each(function() {
+        var selectedClassName = $(this).find('.classroom-dropdown option:selected').text();
+
+        // We are ignoring the 5th column for Excel, so we'll skip it here
+
+        // Update the appropriate Excel cell (in column B)
+        var cellAddress = 'B' + rowIndex; // B1, B2, etc.
+        if (sheet[cellAddress]) {
+            sheet[cellAddress].v = selectedClassName; // Update the cell value
+        } else {
+            sheet[cellAddress] = { v: selectedClassName }; // Create the cell if it doesn't exist
+        }
+
+        rowIndex++;
+    });
+
+    // Now, remove the 5th column from the Excel sheet entirely (ignoring column 5)
+    for (var R = 1; R <= rowIndex; R++) {
+        var cellToDelete = 'F' + R; // Column F is the 5th column
+        if (sheet[cellToDelete]) {
+            delete sheet[cellToDelete]; // Remove the 5th column data
+        }
+    }
+
+    if (dl) {
+        XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' });
+    } else {
+        XLSX.writeFile(wb, fn || ('Application_status.' + (type || 'xlsx')));
+    }
+}
+
 </script>
 
 

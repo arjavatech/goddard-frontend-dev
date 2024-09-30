@@ -114,11 +114,11 @@
                                         <path
                                             d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                                     </svg>Invite Parent</a> -->
-                                <a href="add_child.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg"
+                                <!-- <a href="add_child.html" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg"
                                         width="40" height="40" fill="currentColor" class="p-2" viewBox="0 0 576 512">
                                         <path
                                             d="M112 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm40 304V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V256.9L59.4 304.5c-9.1 15.1-28.8 20-43.9 10.9s-20-28.8-10.9-43.9l58.3-97c17.4-28.9 48.6-46.6 82.3-46.6h29.7c33.7 0 64.9 17.7 82.3 46.6l44.9 74.7c-16.1 17.6-28.6 38.5-36.6 61.5c-1.9-1.8-3.5-3.9-4.9-6.3L232 256.9V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352H152zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm16 80c0-8.8-7.2-16-16-16s-16 7.2-16 16v48H368c-8.8 0-16 7.2-16 16s7.2 16 16 16h48v48c0 8.8 7.2 16 16 16s16-7.2 16-16V384h48c8.8 0 16-7.2 16-16s-7.2-16-16-16H448V304z" />
-                                    </svg>Add Child</a>
+                                    </svg>Add Child</a> -->
                                 <a href="application_status.html" class="nav-link"> <svg
                                         xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
                                         class="bi bi-file-text-fill p-2" viewBox="0 0 16 16">
@@ -196,8 +196,7 @@
         <div class="card bg-card-style">
             <ul class="nav nav-pills nav-pills-style nav-justified nav-off" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link nav-link-style active" data-bs-toggle="pill" href="#addclassroom">Add Class
-                        Room</a>
+                    <a class="nav-link nav-link-style active" data-bs-toggle="pill" href="#addclassroom">Add Classroom</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-link-style" data-bs-toggle="pill" href="#formsrepository">Forms
@@ -214,7 +213,7 @@
                             <div class="row">
                                 <div class="col-auto d-flex justify-content-center">
                                     <div class="form-group">
-                                        <label for="class_name" class="form-label"><b>Class Room Name
+                                        <label for="class_name" class="form-label"><b>Classroom Name
                                             </b></label><br>
                                         <input name="class_name" type="text" maxlength="20"
                                             class="form-control wizard-required" id="class_name">
@@ -232,8 +231,8 @@
                                     <table id="example" class="display nowrap" style="width:100%" rules="all">
                                         <thead class="table-head">
                                             <tr>
-                                                <th>Class Room</th>
-                                                <th>Child Count</th>
+                                                <th>Classroom</th>
+                                                <th>Children Count</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -241,7 +240,7 @@
                                     </table>
                                     <!-- Form Action Table End -->
                                 </div>
-                                <button class="excelbuttn" onclick="ExportToExcel('xlsx')"><img src="image/excel.png"
+                                <button class="excelbuttn border-0" onclick="ExportToExcel('xlsx')"><img src="image/excel.png"
                                         alt="image" style="height:25px;width:25px;"></button>
                             </div>
                         </div>
@@ -411,24 +410,35 @@
                 lengthChange: false,
                 //for waking up the aws lambda server
                 ajax: {
-                    url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_details/getall',
+                    url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_count_with_class_name',
                     dataSrc: '',
                 },
                 //it is used to define and configure the individual columns of the table.
                 columns: [
                     { data: 'class_name',
                     render: function (data, type, full, meta) {
-                        let url = `${window.location.origin}/goddard-frontend-dev/clsbased_application_status.html`;
+                        let url = `${window.location.origin}/goddard-frontend-dev/application_status.html?id=${full.class_id}`;
                         return `<a href="${url}" class="text-primary">${full.class_name}</a>`;
                     },
                      },
-                    { data: 'child_count' },
+                    { data: 'count' },
                     {
                         data: 'edit',
                         render: function (data, type, full, meta) {
-                            window.location.replace = `${window.location.origin}/forms_repository.html?id=${full.class_id}`;
-                            let url = `${window.location.origin}/forms_repository.html?id=${full.class_id}` //Question
-                            return `<a href="${url}"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="17" height="17" class="action-icons m-2" id="editbutton" name="editbutton"><path fill="#0F2D52" d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/></svg></a><a><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="17" height="17" class="action-icons m-2" id="deletebutton"  name="deletebutton"><path fill="#bb1b1b" d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0H284.2c12.1 0 23.2 6.8 28.6 17.7L320 32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 96 0 81.7 0 64S14.3 32 32 32h96l7.2-14.3zM32 128H416V448c0 35.3-28.7 64-64 64H96c-35.3 0-64-28.7-64-64V128zm96 64c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16V432c0 8.8 7.2 16 16 16s16-7.2 16-16V208c0-8.8-7.2-16-16-16z" onclick="deleteClassroom('${full.class_id}')"/></svg></a>`;
+                            window.location.replace = `${window.location.origin}/goddard-frontend-dev/forms_repository.html?id=${full.class_id}`;
+                            let url = `${window.location.origin}/goddard-frontend-dev/forms_repository.html?id=${full.class_id}` //Question
+                            let title = "";
+                            let Onclick = "";
+                            let color_del = "";
+                            if(full.count == 0){
+                                Onclick = "deleteClassroom('${full.class_id}')";
+                                color_del = "text-danger";
+                            } else {
+                                title = "Move children to another classroom before delete";
+                                color_del = "text-secondary";
+                                Onclick = "";
+                            }
+                            return `<a href="${url}"><i class="fas fa-pencil-alt action-icons m-2" id="editbutton" name="editbutton"></i></a><a title="${title}"><i class="fas fa-trash-alt action-icons ${color_del} m-2" id="deletebutton" name="deletebutton" onclick="${Onclick}"></i></a>`;
                             //return '<a href="'+ url +'"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9RvaUyBbAGaB9dcdAZxQvJJHKnd8vqQpsqgJpRuNrFCwk2ZY5vl5RgEj_b2wcGXW8OwE&usqp=CAU" id="editbutton"  name="editbutton"  height="20px;" style="text-align:right !important;"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton"  name="deletebutton"  height="20px;" style="text-align:right !important;cursor: pointer !important;"></a>';
                         },
                     },
@@ -447,9 +457,25 @@
         function ExportToExcel(type, fn, dl) {
             var elt = document.getElementById('example');
             var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
-            return dl ?
-                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
-                XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+            var sheet = wb.Sheets["sheet1"]; // Access the first sheet of the workbook
+            var rowIndex = 2; // Excel uses 1-based indexing
+
+            $('#example').find('tbody tr').each(function() {
+                // Now, remove the 3th column from the Excel sheet entirely
+                for (var R = 1; R <= rowIndex; R++) {
+                    var cellToDelete = 'C' + R; // Column C is the 3th column
+                    if (sheet[cellToDelete]) {
+                        delete sheet[cellToDelete]; // Remove the 3th column data
+                    }
+                }
+                rowIndex++;
+            });
+
+            if (dl) {
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' });
+            } else {
+                XLSX.writeFile(wb, fn || ('Classroom details.' + (type || 'xlsx')));
+            }
         }
     </script>
     <script>

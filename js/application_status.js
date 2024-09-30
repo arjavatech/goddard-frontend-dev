@@ -15,16 +15,18 @@ $(document).ready(function () {
     });
 
     // function for create dropdown options
-    function getClassroomDropdown(selectedClassName, childId) {
-        // console.log(selectedClassName,childId);
-        // return false;
-        let dropdown = `<div class="dropdown-container"><select class="classroom-dropdown" data-child-id="${childId}">`;
-        classroomOptions.forEach(option => {
-            const selected = option.class_name === selectedClassName ? 'selected' : '';
-            dropdown += `<option value="${option.class_id}" ${selected}>${option.class_name}</option>`;
-        });
-        dropdown += `</select></div>`;
-        return dropdown;
+    // function getClassroomDropdown(selectedClassName, childId) {
+    //     let dropdown = `<div class="dropdown-container"><select class="classroom-dropdown" data-child-id="${childId}">`;
+    //     classroomOptions.forEach(option => {
+    //         const selected = option.class_name === selectedClassName ? 'selected' : '';
+    //         dropdown += `<option value="${option.class_id}" ${selected}>${option.class_name}</option>`;
+    //     });
+    //     dropdown += `</select></div>`;
+    //     return dropdown;
+    // }
+    function getClassroomValue(value){
+        let selectedValue = `${value}`;
+        return selectedValue;
     }
 
     // function to handle dropdown change
@@ -108,6 +110,8 @@ $(document).ready(function () {
     //     });
     // }
 
+    let classID = window.location.search.slice(4);
+
     function initializeDataTable(url) {
         $('#example').DataTable({
             scrollX: true,
@@ -115,7 +119,17 @@ $(document).ready(function () {
             lengthChange: false,
             ajax: {
                 url: url,
-                dataSrc: '',
+                dataSrc: function(json) {
+                    if (!url.includes('class_based_all_child_details')) {
+                        // Filter out rows where class_name is "archive and unassign"
+                        return json.filter(function(row) {
+                            return row.class_name !== 'Archive' && row.class_name !== 'Unassigned';
+                        });
+                    } else {
+                        return json;
+                    }
+                    
+                }
             },
             columns: [
                 { 
@@ -128,7 +142,7 @@ $(document).ready(function () {
                 { 
                     data: 'child_class_name',
                     render: function (data, type, full, meta) {
-                        return getClassroomDropdown(full.class_name, full.child_id);
+                        return getClassroomValue(full.class_name);
                     },
                 },
                 { data: 'primary_email' },
@@ -157,12 +171,11 @@ $(document).ready(function () {
         // var table = new DataTable('#example');
         //   // Search in the 'Schedule' column (column index 1) based on extra search box
         //   document.getElementById('clsroomSearch').addEventListener('change', function() {
-        //     table.column(2).search(this.value).draw(); // Column index 1 refers to 'Schedule'
+        //     table.column(1).search(this.value).draw(); // Column index 1 refers to 'Schedule'
         // });
     }
 
     // Classroom based details
-    let classID = window.location.search.slice(4);
     if(classID != ""){
          // Initialize a new DataTable with the updated URL
          initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_based_all_child_details/${classID}`);
@@ -180,7 +193,6 @@ $(document).ready(function () {
         if(clsroomSearchId != ""){
             initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_based_all_child_details/${clsroomSearchId}`);
         } else {
-            console.log("lll")
             initializeDataTable('https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
         }
         

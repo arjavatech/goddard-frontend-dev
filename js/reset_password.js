@@ -26,25 +26,23 @@ function emailValidation(inputtxtID,errorSpanID) {
 }
 
 function signupFunction(){
-    let email_id = document.getAnimations('email_id').value;
+    let email_id = document.getElementById('email_id').value;
     var password1 = document.getElementById('reset_pswd').value;
     var password2 = document.getElementById('password').value;
 
     if (email_id != '' && password1 !='' && password2 !=''){
         // Check if passwords match
         if (password1 === password2) {
-            const form = document.getElementById("reset_password");
-            const formData = new FormData(form);
-            const password = formData.get("password");
             // Hash the password
-            const hashedPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
-            
-            // Replace the original password with the hashed password in the form data
-            formData.set("password", hashedPassword);
-            const obj = Object.fromEntries(formData);
+            const hashedPassword = CryptoJS.SHA256(password2).toString(CryptoJS.enc.Hex);
+            const obj = {};
+            obj.email = email_id;
+            obj.password = hashedPassword;
+            // console.log(obj);
+            // return false;
             $.ajax({
-                url: "https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/sign_up/password_reset",
-                type: "POST",
+                url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_info/update_password",
+                type: "PUT",
                 contentType: "application/json",
                 data: JSON.stringify(obj),
                 success: function (response) {
@@ -76,10 +74,57 @@ function signupFunction(){
     }
 
 }
+// Send Email
+function resendmailFunction(){
+    let email_id = document.getElementById('email_id').value;
+
+    if (email_id != ''){
+        $.ajax({
+            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/forget_password_mail_trigger/${email_id}`,
+            type: "GET",
+            dataType: 'json',
+            success: function (response) {
+                if(response.message == "Password reset email sent successfully!"){
+                    $(".success-msg").show();
+                    setTimeout(function(){ 
+                        $(".success-msg").hide(); 
+                        window.location.href = "send_resetmail.html";
+                    }, 3000);
+                }else{
+                    $(".error-msg-notfound").show();
+                    setTimeout(function(){ 
+                        $(".error-msg-notfound").hide(); 
+                    }, 3000);
+                }
+            },
+            error: function() {
+                // Handle AJAX errors
+                $(".error-msg-notfound").show();
+                setTimeout(function(){ 
+                    $(".error-msg-notfound").hide(); 
+                }, 3000);
+            }
+        });
+    
+    }else{
+        $(".error-msg-empty").show();
+        setTimeout(function(){ 
+            $(".error-msg-empty").hide(); 
+        }, 3000);
+    }
+
+}
+
+
 $(document).ready(function () {
     $("#resetButton").on("click", function (e) {
         e.preventDefault(); // Prevent the default form submission
         signupFunction();
+    });
+
+    $("#mailsendButton").on("click", function (e) {
+        e.preventDefault(); // Prevent the default form submission
+        resendmailFunction();
     });
 });
 

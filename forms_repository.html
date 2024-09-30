@@ -456,19 +456,26 @@
 
         function ExportToExcel(type, fn, dl) {
             var elt = document.getElementById('example');
-            for (var i = 0; i < elt.rows.length; i++) {
-                elt.rows[i].deleteCell(4);
-            }
             var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
-                if (dl) {
-                    XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' });
-                } else {
-                    XLSX.writeFile(wb, fn || ('Child details.' + (type || 'xlsx')));
-                }
+            var sheet = wb.Sheets["sheet1"]; // Access the first sheet of the workbook
+            var rowIndex = 2; // Excel uses 1-based indexing
 
-                setTimeout(function() {
-                    window.location.reload();
-                }, 1000);
+            $('#example').find('tbody tr').each(function() {
+                // Now, remove the 3th column from the Excel sheet entirely
+                for (var R = 1; R <= rowIndex; R++) {
+                    var cellToDelete = 'C' + R; // Column C is the 3th column
+                    if (sheet[cellToDelete]) {
+                        delete sheet[cellToDelete]; // Remove the 3th column data
+                    }
+                }
+                rowIndex++;
+            });
+
+            if (dl) {
+                XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' });
+            } else {
+                XLSX.writeFile(wb, fn || ('Classroom details.' + (type || 'xlsx')));
+            }
         }
     </script>
     <script>

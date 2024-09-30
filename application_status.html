@@ -361,39 +361,23 @@
     var rowIndex = 2; // Excel uses 1-based indexing
 
     $('#example').find('tbody tr').each(function() {
-        var selectedClassName = $(this).find('.classroom-dropdown option:selected').text();
-
-        // We are ignoring the 5th column for Excel, so we'll skip it here
-
-        // Update the appropriate Excel cell (in column B)
-        var cellAddress = 'B' + rowIndex; // B1, B2, etc.
-        if (sheet[cellAddress]) {
-            sheet[cellAddress].v = selectedClassName; // Update the cell value
-        } else {
-            sheet[cellAddress] = { v: selectedClassName }; // Create the cell if it doesn't exist
+         // Now, remove the 5th column from the Excel sheet entirely
+        for (var R = 1; R <= rowIndex; R++) {
+            var cellToDelete = 'F' + R; // Column F is the 5th column
+            if (sheet[cellToDelete]) {
+                delete sheet[cellToDelete]; // Remove the 5th column data
+            }
         }
-
         rowIndex++;
     });
-
-    // Now, remove the 5th column from the Excel sheet entirely (ignoring column 5)
-    for (var R = 1; R <= rowIndex; R++) {
-        var cellToDelete = 'F' + R; // Column F is the 5th column
-        if (sheet[cellToDelete]) {
-            delete sheet[cellToDelete]; // Remove the 5th column data
-        }
-    }
 
     if (dl) {
         XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' });
     } else {
-        XLSX.writeFile(wb, fn || ('Application_status.' + (type || 'xlsx')));
+        XLSX.writeFile(wb, fn || ('Application status.' + (type || 'xlsx')));
     }
 }
 
 </script>
-
-
 </body>
-
 </html>

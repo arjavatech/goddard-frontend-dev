@@ -59,6 +59,13 @@ function signupFunction(){
                         }, 3000);
                     }
                 },
+                error: function() {
+                    // Handle AJAX errors
+                    $(".error-msg-notfound").show();
+                    setTimeout(function(){ 
+                        $(".error-msg-notfound").hide(); 
+                    }, 3000);
+                }
             });
         } else {
             $(".error-msg-mismatch").show();

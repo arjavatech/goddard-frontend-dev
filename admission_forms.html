@@ -75,13 +75,13 @@
                                 <div class="form-group">
                                     <p><b>DO RELEVANT CUSTODY PAPERS APPLY?</b></p>
                                     <div class="wizard-form-radio">
-                                        <input name="custody_papers_apply"
+                                        <input name="do_relevant_custody_papers_apply"
                                             id="do_relevant_custody_papers_apply1" value="Yes"
                                             type="radio">
                                         <label for="do_relevant_custody_papers_apply1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
-                                        <input name="custody_papers_apply"
+                                        <input name="do_relevant_custody_papers_apply"
                                             id="do_relevant_custody_papers_apply2" type="radio"
                                             value="No" checked>
                                         <label for="do_relevant_custody_papers_apply2">No</label>
@@ -133,7 +133,7 @@
                                             GUARDIAN’S NAME</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_name"
-                                        name="name" placeholder="e.g. David Hussey">
+                                        name="parent_name" placeholder="e.g. David Hussey">
                                 </div>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                                     <label for="parent_street_address" class="form-label"><b>STREET</b>
                                     </label>
                                     <input type="text" class="form-control" id="parent_street_address"
-                                        name="street_address" placeholder="e.g. 132, My Street">
+                                        name="parent_street_address" placeholder="e.g. 132, My Street">
                                         <!-- onchange="autoPopulateAddress(this.value,'parent2_street_address')"> -->
                                 </div>
                             </div>
@@ -153,7 +153,7 @@
                                     <label for="parent_city_address" class="form-label"><b>CITY</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_city_address"
-                                        name="city_address" placeholder="e.g. Kingston">
+                                        name="parent_city_address" placeholder="e.g. Kingston">
                                         <!-- onchange="autoPopulateAddress(this.value,'parent2_city_address')"> -->
                                 </div>
                             </div>
@@ -162,7 +162,7 @@
                                     <label for="parent_state_address" class="form-label"><b>STATE</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_state_address"
-                                        name="state_address" placeholder="e.g. New York">
+                                        name="parent_state_address" placeholder="e.g. New York">
                                         <!-- onchange="autoPopulateAddress(this.value,'parent2_state_address')"> -->
                                 </div>
                             </div>
@@ -171,7 +171,7 @@
                                     <label for="parent_zip_address" class="form-label"><b>ZIP</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_zip_address"
-                                        name="zip_address"
+                                        name="parent_zip_address"
                                         onchange="ValidatePincode (this,'parent_zip_address_span')" placeholder="e.g. 12401">
                                     <span id="parent_zip_address_span" style="color:red; display:none">
                                         Enter valid input [only numbers].</span>
@@ -196,7 +196,7 @@
                                     <label for="business_cell_number" class="form-label"><b>CELL NUMBER</b>
                                     </label>
                                     <input type="text" class="form-control " aria-label="Telephone Number"
-                                        id="business_cell_number" name="home_cellphone_number"
+                                        id="business_cell_number" name="business_cell_number"
                                         onchange="validatePhone(this,'business_cell_number_span')" placeholder=" e.g. +1-212-456-7890">
                                     <span id="business_cell_number_span" style="color:red; display:none">
                                         Enter valid input [only numbers,+,-,()].</span>
@@ -207,7 +207,7 @@
                                     <label for="primary_parent_email" class="form-label"><b>EMAIL ADDRESS</b>
                                     </label>
                                     <input type="text" class="form-control " id="primary_parent_email"
-                                        name="email"
+                                        name="primary_parent_email"
                                         onchange="emailValidation(this,'primary_parent_email_span')" placeholder=" e.g. digitalmarketing@gmail.com" disabled>
                                     <span id="primary_parent_email_span" style="color:red; display:none">
                                         Enter valid input [should be in @ and .].</span>
@@ -227,18 +227,10 @@
                             </div>
                             <div class="col-sm">
                                 <div class="form-group">
-                                    <label for="work_hours" class="form-label"><b>WORK HOURS FROM</b>
+                                    <label for="work_hours" class="form-label"><b>WORK HOURS</b>
                                     </label>
-                                    <input type="text" class="form-control " id="work_hours_from"
-                                        name="work_hours_from" placeholder=" e.g. 10">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="work_hours" class="form-label"><b>WORK HOURS TO</b>
-                                    </label>
-                                    <input type="text" class="form-control " id="work_hours_to"
-                                        name="work_hours_to" placeholder=" e.g. 10">
+                                    <input type="text" class="form-control " id="work_hours"
+                                        name="work_hours" placeholder=" e.g. 10">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -324,7 +316,7 @@
                                             GUARDIAN’S NAME</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_two_name"
-                                        name="name" placeholder="e.g. Rossy David">
+                                        name="parent_two_name" placeholder="e.g. Rossy David">
                                 </div>
                             </div>
                         </div>
@@ -335,7 +327,7 @@
                                     <label for="parent_two_street_address" class="form-label"><b>STREET</b>
                                     </label>
                                     <input type="text" class="form-control" id="parent_two_street_address"
-                                        name="street_address" placeholder="e.g. 132, My Street">
+                                        name="parent_two_street_address" placeholder="e.g. 132, My Street">
                                         <!-- onchange="autoPopulateAddress(this.value,'parent2_street_address')"> -->
                                 </div>
                             </div>
@@ -344,7 +336,7 @@
                                     <label for="parent_two_city_address" class="form-label"><b>CITY</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_two_city_address"
-                                        name="city_address" placeholder="e.g. Kingston">
+                                        name="parent_two_city_address" placeholder="e.g. Kingston">
                                         <!-- onchange="autoPopulateAddress(this.value,'parent2_city_address')"> -->
                                 </div>
                             </div>
@@ -353,7 +345,7 @@
                                     <label for="parent_two_state_address" class="form-label"><b>STATE</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_two_state_address"
-                                        name="state_address" placeholder="e.g. New York">
+                                        name="parent_two_state_address" placeholder="e.g. New York">
                                         <!-- onchange="autoPopulateAddress(this.value,'parent2_state_address')"> -->
                                 </div>
                             </div>
@@ -362,7 +354,7 @@
                                     <label for="parent_two_zip_address" class="form-label"><b>ZIP</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_two_zip_address"
-                                        name="zip_address"
+                                        name="parent_two_zip_address"
                                         onchange="ValidatePincode (this,'parent_two_zip_address_span')" placeholder="e.g. 12401">
                                     <span id="parent_two_zip_address_span" style="color:red; display:none">
                                         Enter valid input [only numbers].</span>
@@ -376,7 +368,7 @@
                                             NUMBER</b>
                                     </label>
                                     <input type="text" class="form-control " aria-label="Telephone Number"
-                                        id="parent_two_home_telephone_number" name="home_telephone_number"
+                                        id="parent_two_home_telephone_number" name="parent_two_home_telephone_number"
                                         onchange="validatePhone(this,'parent_two_home_telephone_number_span')" placeholder=" e.g. +1(555) 555-1234">
                                     <span id="parent_two_home_telephone_number_span" style="color:red; display:none">
                                         Enter valid input [only numbers,+,-,()].</span>
@@ -387,7 +379,7 @@
                                     <label for="parent_two_business_cell_number" class="form-label"><b>CELL NUMBER</b>
                                     </label>
                                     <input type="text" class="form-control " aria-label="Telephone Number"
-                                        id="parent_two_business_cell_number" name="home_cellphone_number"
+                                        id="parent_two_business_cell_number" name="parent_two_business_cell_number"
                                         onchange="validatePhone(this,'parent_two_business_cell_number_span')" placeholder="e.g. +1-212-456-7890">
                                     <span id="parent_two_business_cell_number_span" style="color:red; display:none">
                                         Enter valid input [only numbers,+,-,()].</span>
@@ -398,7 +390,7 @@
                                     <label for="parent_email" class="form-label"><b>EMAIL ADDRESS</b>
                                     </label>
                                     <input type="text" class="form-control" id="parent_email"
-                                        name="email"
+                                        name="parent_email"
                                         onchange="emailValidation(this,'parent_email_span')" placeholder="e.g. digitaldesinging@outlook.com">
                                     <span id="parent_email_span" style="color:red; display:none">
                                         Enter valid input [should be in @ and .].</span>
@@ -413,23 +405,15 @@
                                     <label for="parent_two_business_name" class="form-label"><b>NAME</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_two_business_name"
-                                        name="business_name" placeholder=" e.g. Digital Designing">
+                                        name="parent_two_business_name" placeholder=" e.g. Digital Designing">
                                 </div>
                             </div>
                             <div class="col-sm">
                                 <div class="form-group">
-                                    <label for="parent_two_work_hours_from" class="form-label"><b>WORK HOURS FROM</b>
+                                    <label for="parent_two_work_hours" class="form-label"><b>WORK HOURS</b>
                                     </label>
-                                    <input type="text" class="form-control " id="parent_two_work_hours_from"
-                                        name="work_hours_from" placeholder=" e.g. 11">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="parent_two_work_hours_to" class="form-label"><b>WORK HOURS TO</b>
-                                    </label>
-                                    <input type="text" class="form-control" id="parent_two_work_hours_to"
-                                        name="work_hours_to" placeholder=" e.g. 11">
+                                    <input type="text" class="form-control " id="parent_two_work_hours"
+                                        name="parent_two_work_hours" placeholder=" e.g. 11">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -437,7 +421,7 @@
                                     <label for="parent_two_business_telephone_number" class="form-label"><b>TELEPHONE NUMBER</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_two_business_telephone_number"
-                                        name="business_telephone_number"
+                                        name="parent_two_business_telephone_number"
                                         onchange="validatePhone(this,'parent_two_business_telephone_number_span')"  placeholder=" e.g. +1(555) 555-9086">
                                     <span id="parent_two_business_telephone_number_span"
                                         style="color:red; display:none">
@@ -458,7 +442,7 @@
                                     <label for="parent_two_business_street_address" class="form-label"><b>STREET</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_two_business_street_address"
-                                        name="business_street_address" placeholder=" e.g. 133, My Street">
+                                        name="parent_two_business_street_address" placeholder=" e.g. 133, My Street">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -466,7 +450,7 @@
                                     <label for="parent_two_business_city_address" class="form-label"><b>CITY</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_two_business_city_address"
-                                        name="business_city_address" placeholder=" e.g. Kingston">
+                                        name="parent_two_business_city_address" placeholder=" e.g. Kingston">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -474,7 +458,7 @@
                                     <label for="parent_two_business_state_address" class="form-label"><b>STATE</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_two_business_state_address"
-                                        name="business_state_address" placeholder=" e.g. New York">
+                                        name="parent_two_business_state_address" placeholder=" e.g. New York">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -482,7 +466,7 @@
                                     <label for="parent_two_business_zip_address" class="form-label"><b>ZIP</b>
                                     </label>
                                     <input type="text" class="form-control " id="parent_two_business_zip_address"
-                                        name="business_zip_address"
+                                        name="parent_two_business_zip_address"
                                         onchange="ValidatePincode (this,'parent_two_business_zip_address_span')" placeholder=" e.g. 12401">
                                     <span id="parent_two_business_zip_address_span" style="color:red; display:none">
                                         Enter valid input [only numbers].</span>
@@ -517,15 +501,25 @@
                                     <label for="child_emergency_contact_name" class="form-label"><b>NAME</b>
                                     </label>
                                     <input type="text" class="form-control " aria-label="Emergency Name" id="child_emergency_contact_name"
-                                        name="contact_name" placeholder=" e.g. Mathew">
+                                        name="child_emergency_contact_name" placeholder=" e.g. Mathew">
                                 </div>
                             </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="child_emergency_contact_full_address" class="form-label"><b>FULL ADDRESS</b>
+                                    </label>
+                                    <input type="text" class="form-control " aria-label="emergency_address"
+                                        id="child_emergency_contact_full_address" name="child_emergency_contact_full_address" placeholder="e.g. 132, My Street, Kingston, New York 12401.">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-1 mb-4">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="child_emergency_contact_relationship" class="form-label"><b>RELATIONSHIP</b>
                                     </label>
                                     <input type="text" class="form-control " aria-label="Emergency Relationship"
-                                        id="child_emergency_contact_relationship" name="contact_relationship" placeholder="e.g. Brother">
+                                        id="child_emergency_contact_relationship" name="child_emergency_contact_relationship" placeholder="e.g. Brother">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -533,48 +527,12 @@
                                     <label for="child_emergency_contact_telephone_number" class="form-label"><b>TELEPHONE NUMBER</b>
                                     </label>
                                     <input type="text" class="form-control " aria-label="Emergency Relationship"
-                                        id="child_emergency_contact_telephone_number" name="contact_telephone_number"
+                                        id="child_emergency_contact_telephone_number" name="child_emergency_contact_telephone_number"
                                         onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')" placeholder="e.g. +1-212-456-8890">
                                     <span id="child_emergency_contact_telephone_number_span" style="color:red; display:none">
                                         Enter valid input [only numbers,+,-,()].</span>
                                 </div>
                             </div>
-                            
-                        </div>
-                        <div class="row m-1 mb-4">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="child_emergency_street_address" class="form-label"><b>STREET</b>
-                                    </label>
-                                    <input type="text" class="form-control " id="child_emergency_street_address"
-                                        name="street_address" placeholder=" e.g. 133, My Street">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="child_emergency_city_address" class="form-label"><b>CITY</b>
-                                    </label>
-                                    <input type="text" class="form-control " id="child_emergency_city_address"
-                                        name="city_address" placeholder=" e.g. Kingston">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="child_emergency_state_address" class="form-label"><b>STATE</b>
-                                    </label>
-                                    <input type="text" class="form-control " id="child_emergency_state_address"
-                                        name="state_address" placeholder=" e.g. New York">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="child_emergency_zip_address" class="form-label"><b>ZIP</b>
-                                    </label>
-                                    <input type="text" class="form-control " aria-label="emergency_address"
-                                        id="child_emergency_zip_address" name="zip_address" placeholder="e.g. 12401.">
-                                </div>
-                            </div>
-                            
                         </div>
                         <!-- Additional Parent's or legal guardian's business info end -->
                         <div class="text-center">
@@ -610,7 +568,7 @@
                                             CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER</b>
                                     </label>
                                     <input type="text" class="form-control " id="child_care_provider_name"
-                                        name="name" placeholder="e.g. Adam">
+                                        name="child_care_provider_name" placeholder="e.g. Adam">
                                 </div>
                             </div>
                         </div>
@@ -622,7 +580,7 @@
                                     </label>
                                     <input type="text" class="form-control "
                                         id="child_care_provider_telephone_number"
-                                        name="telephone_number"
+                                        name="child_care_provider_telephone_number"
                                         onchange="validatePhone(this,'child_care_provider_telephone_number_span')" placeholder="e.g. +1-212-243-4545">
                                     <span id="child_care_provider_telephone_number_span"
                                         style="color:red; display:none">
@@ -635,7 +593,7 @@
                                             AFFILIATION</b>
                                     </label>
                                     <input type="text" class="form-control " id="child_hospital_affiliation"
-                                        name="hospital_affiliation" placeholder="e.g. Mercy General Hospital">
+                                        name="child_hospital_affiliation" placeholder="e.g. Mercy General Hospital">
                                 </div>
                             </div>
                         </div>
@@ -655,7 +613,7 @@
                                     </label>
                                     <input type="text" class="form-control "
                                         id="child_care_provider_street_address"
-                                        name="street_address" placeholder="e.g. 2nd Street">
+                                        name="child_care_provider_street_address" placeholder="e.g. 2nd Street">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -665,7 +623,7 @@
                                     </label>
                                     <input type="text" class="form-control "
                                         id="child_care_provider_city_address"
-                                        name="city_address" placeholder="e.g. Dorm">
+                                        name="child_care_provider_city_address" placeholder="e.g. Dorm">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -675,7 +633,7 @@
                                     </label>
                                     <input type="text" class="form-control "
                                         id="child_care_provider_state_address"
-                                        name="state_address" placeholder="e.g. New York">
+                                        name="child_care_provider_state_address" placeholder="e.g. New York">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -685,7 +643,7 @@
                                     </label>
                                     <input type="text" class="form-control "
                                         id="child_care_provider_zip_address"
-                                        name="zip_address"
+                                        name="child_care_provider_zip_address"
                                         onchange="ValidatePincode(this,'child_care_provider_zip_address_span')" placeholder="e.g. 10003">
                                     <span id="child_care_provider_zip_address_span"
                                         style="color:red; display:none">
@@ -706,7 +664,7 @@
                                             DENTIST</b>
                                     </label>
                                     <input type="text" class="form-control " id="child_dentist_name"
-                                        name="name" placeholder="e.g. Jordan">
+                                        name="child_dentist_name" placeholder="e.g. Jordan">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -715,7 +673,7 @@
                                             TELEPHONE NUMBER</b>
                                     </label>
                                     <input type="text" class="form-control " id="dentist_telephone_number"
-                                        name="telephone_number"
+                                        name="dentist_telephone_number"
                                         onchange="validatePhone(this,'dentist_telephone_number_span')" placeholder="e.g.+1-212-838-8979 ">
                                     <span id="dentist_telephone_number_span"
                                         style="color:red; display:none">
@@ -726,34 +684,10 @@
                         <div class="row m-1 mb-4">
                             <div class="col-sm">
                                 <div class="form-group">
-                                    <label for="dentist__street_address" class="form-label"><b>STREET</b>
+                                    <label for="dentist_address" class="form-label"><b>DENTIST ADDRESS</b>
                                     </label>
-                                    <input type="text" class="form-control " id="dentist__street_address"
-                                        name="street_address" placeholder=" e.g. 133, My Street">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="dentist__city_address" class="form-label"><b>CITY</b>
-                                    </label>
-                                    <input type="text" class="form-control " id="dentist__city_address"
-                                        name="city_address" placeholder=" e.g. Kingston">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="dentist__state_address" class="form-label"><b>STATE</b>
-                                    </label>
-                                    <input type="text" class="form-control " id="dentist__state_address"
-                                        name="state_address" placeholder=" e.g. New York">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="dentist__zip_address" class="form-label"><b>ZIP</b>
-                                    </label>
-                                    <input type="text" class="form-control " aria-label="emergency_address"
-                                        id="dentist__zip_address" name="zip_address" placeholder="e.g. 12401.">
+                                    <input type="text" class="form-control " id="dentist_address"
+                                        name="dentist_address" placeholder="e.g. 3rd Ave, New York, 10003">
                                 </div>
                             </div>
                         </div>
@@ -776,7 +710,7 @@
                                     </label>
                                     <input type="text" class="form-control "
                                         id="allergies_medication_reaction"
-                                        name="allergies_reaction" placeholder="e.g. Amoxicillin">
+                                        name="allergies_medication_reaction" placeholder="e.g. Amoxicillin">
                                 </div>
                             </div>
                         </div>
@@ -857,7 +791,7 @@
                                     </label>
                                     <input type="text" class="form-control "
                                         id="obtaining_emergency_medical_care"
-                                        name="emergency_medical_care" placeholder="Enter Emergency Contact Information">
+                                        name="obtaining_emergency_medical_care" placeholder="Enter Emergency Contact Information">
                                 </div>
                             </div>
                         </div>
@@ -869,7 +803,7 @@
                                             PROCEDURES</b></label>
                                     <input type="text" class="form-control "
                                         id="administration_first_aid_procedures"
-                                        name="first_aid_procedures" placeholder="Enter Instructions">
+                                        name="administration_first_aid_procedures" placeholder="Enter Instructions">
                                 </div>
                             </div>
                         </div>
@@ -878,7 +812,7 @@
                         <div class="row m-1 mb-4">
                             <div class="form-group wizard-form-checkbox">
                                 <input type="checkbox" class="input-checkbox" id="agree_all_above_information_is_correct"
-                                    name="above_information_is_correct">
+                                    name="agree_all_above_information_is_correct">
                                 <label class="form-check-label" for="agree_all_above_information_is_correct">
                                     <span class="svg"></span>
                                     <span><b>I agree all the above information is correct.</b></span>
@@ -1105,7 +1039,7 @@
                                 <div class="form-group">
                                     <label for="medical_other" class="form-label"><b>Other</b>
                                     </label>
-                                    <input type="text" class="form-control" id="medical_other"
+                                    <input type="text" class="form-control " id="medical_other"
                                         name="medical_other" placeholder="Please specify any other relevant health information.">
                                 </div>
                             </div>
@@ -1137,7 +1071,7 @@
                                             during pregnancy</b>
                                     </label>
                                     <input type="text" class="form-control " id="illness_during_pregnancy"
-                                        name="illness_in_pregnancy" placeholder="If yes, please specify.">
+                                        name="illness_during_pregnancy" placeholder="If yes, please specify.">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -1252,7 +1186,7 @@
                                 <div class="col-sm m-4">
                                     <div class="wizard-form-checkbox">
                                         <input type="checkbox" class="input-checkbox"
-                                            id="family_history_allergies" name="fam_hist_allergies">
+                                            id="family_history_allergies" name="family_history_allergies">
                                         <label class="form-check-label" for="family_history_allergies">
                                             <span class="svg"></span><span><b>Allergies</b></span>
                                         </label>
@@ -1262,7 +1196,7 @@
                                     <div class="wizard-form-checkbox">
                                         <input type="checkbox" class="input-checkbox"
                                             id="family_history_heart_problems"
-                                            name="fam_hist_heart_problems">
+                                            name="family_history_heart_problems">
                                         <label class="form-check-label"
                                             for="family_history_heart_problems">
                                             <span class="svg"></span><span><b>Heart Problems</b></span>
@@ -1272,7 +1206,7 @@
                                 <div class="col-sm m-4">
                                     <div class="wizard-form-checkbox">
                                         <input type="checkbox" class="input-checkbox"
-                                            id="family_history_tuberculosis" name="fam_hist_tuberculosis">
+                                            id="family_history_tuberculosis" name="family_history_tuberculosis">
                                         <label class="form-check-label" for="family_history_tuberculosis">
                                             <span  class="svg"></span><span><b>Tuberculosis</b></span>
                                         </label>
@@ -1283,7 +1217,7 @@
                                 <div class="col-sm m-4">
                                     <div class="wizard-form-checkbox">
                                         <input type="checkbox" class="input-checkbox" id="family_history_asthma"
-                                            name="fam_hist_asthma">
+                                            name="family_history_asthma">
                                         <label class="form-check-label" for="family_history_asthma">
                                             <span class="svg"></span><span><b>Asthma</b></span>
                                         </label>
@@ -1293,7 +1227,7 @@
                                     <div class="wizard-form-checkbox">
                                         <input type="checkbox" class="input-checkbox"
                                             id="family_history_high_blood_pressure"
-                                            name="fam_hist_high_blood_pressure">
+                                            name="family_history_high_blood_pressure">
                                         <label class="form-check-label"
                                             for="family_history_high_blood_pressure">
                                             <span class="svg"></span><span><b>High Blood Pressure</b></span>
@@ -1304,7 +1238,7 @@
                                     <div class="wizard-form-checkbox">
                                         <input type="checkbox" class="input-checkbox"
                                             id="family_history_vision_problems"
-                                            name="fam_hist_vision_problems">
+                                            name="family_history_vision_problems">
                                         <label class="form-check-label"
                                             for="family_history_vision_problems">
                                             <span class="svg"></span><span><b>Vision Problems</b></span>
@@ -1316,7 +1250,7 @@
                                 <div class="col-sm m-4">
                                     <div class="wizard-form-checkbox">
                                         <input type="checkbox" class="input-checkbox"
-                                            id="family_history_diabetes" name="fam_hist_diabetes">
+                                            id="family_history_diabetes" name="family_history_diabetes">
                                         <label class="form-check-label" for="family_history_diabetes">
                                             <span class="svg"></span><span><b>Diabetes</b></span>
                                         </label>
@@ -1326,7 +1260,7 @@
                                     <div class="wizard-form-checkbox">
                                         <input type="checkbox" class="input-checkbox"
                                             id="family_history_hyperactivity"
-                                            name="fam_hist_hyperactivity">
+                                            name="family_history_hyperactivity">
                                         <label class="form-check-label"
                                             for="family_history_hyperactivity">
                                             <span class="svg"></span><span><b>Hyperactivity</b></span>
@@ -1336,7 +1270,7 @@
                                 <div class="col-sm m-4">
                                     <div class="wizard-form-checkbox">
                                         <input type="checkbox" class="input-checkbox"
-                                            id="family_history_epilepsy" name="fam_hist_epilepsy">
+                                            id="family_history_epilepsy" name="family_history_epilepsy">
                                         <label class="form-check-label" for="family_history_epilepsy">
                                             <span class="svg"></span><span><b>Epilepsy</b></span>
                                         </label>
@@ -1402,7 +1336,7 @@
                                                 with mother</b>
                                         </label>
                                         <input type="text" class="form-control " id="relationship_with_mother"
-                                            name="relationship_with_mom" placeholder="Enter Relationship, e.g., close, friendly, etc." required>
+                                            name="relationship_with_mother" placeholder="Enter Relationship, e.g., close, friendly, etc." required>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -1411,7 +1345,7 @@
                                                 with father</b>
                                         </label>
                                         <input type="text" class="form-control " id="relationship_with_father"
-                                            name="relationship_with_dad" placeholder="Enter Relationship, e.g., supportive, distant, etc." required>
+                                            name="relationship_with_father" placeholder="Enter Relationship, e.g., supportive, distant, etc." required>
                                     </div>
                                 </div>
                             </div>
@@ -1423,7 +1357,7 @@
                                             class="form-label"><b>Relationship with siblings</b>
                                         </label>
                                         <input type="text" class="form-control " id="relationship_with_siblings"
-                                            name="relationship_with_sib" placeholder="Enter Relationship, e.g., friend" required>
+                                            name="relationship_with_siblings" placeholder="Enter Relationship, e.g., friend" required>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -1432,7 +1366,7 @@
                                             <b>Relationship with extended family</b></label>
                                         <input type="text" class="form-control "
                                             id="relationship_with_extended_family"
-                                            name="relationship_extended_family" placeholder="Enter Relationship, e.g., close, distant, etc." required>
+                                            name="relationship_with_extended_family" placeholder="Enter Relationship, e.g., close, distant, etc." required>
                                     </div>
                                 </div>
                             </div>
@@ -1453,7 +1387,7 @@
                                                 response to frustration</b>
                                         </label>
                                         <input type="text" class="form-control " id="child_response_frustration"
-                                            name="c_response_frustration" placeholder="Describe how the child typically responds."  required>
+                                            name="child_response_frustration" placeholder="Describe how the child typically responds."  required>
                                     </div>
                                 </div>
                             </div>
@@ -1504,7 +1438,7 @@
                                         <label for="things_used_at_home" class="form-label">
                                             <b>Educational toys, games, books used at home?</b></label>
                                         <input type="text" class="form-control " id="things_used_at_home"
-                                            name="things_used_home" placeholder="Describe educational toys, games, and books used at home." required>
+                                            name="things_used_at_home" placeholder="Describe educational toys, games, and books used at home." required>
                                     </div>
                                 </div>
                             </div>
@@ -1525,7 +1459,7 @@
                                         <label for="language_used_at_home" class="form-label">
                                             <b>Language used in the home?</b></label>
                                         <input type="text" class="form-control " id="language_used_at_home"
-                                            name="language_at_home" placeholder="Enter the primary language used at home." required>
+                                            name="language_used_at_home" placeholder="Enter the primary language used at home." required>
                                     </div>
                                 </div>
                             </div>
@@ -1537,7 +1471,7 @@
                                                 there been any changes in the home situation recently, i.e.
                                                 addition/loss/death/divorce.</b></label>
                                         <input type="text" class="form-control " id="changes_at_home_situation"
-                                            name="changes_home_situation" placeholder="Describe any recent changes in the home situation." required>
+                                            name="changes_at_home_situation" placeholder="Describe any recent changes in the home situation." required>
                                     </div>
                                 </div>
                             </div>
@@ -1577,7 +1511,7 @@
                                 <div class="col-sm">
                                     <div class="form-group wizard-form-checkbox">
                                         <input type="checkbox" class="input-checkbox" id="agree_all_above_info_is_correct"
-                                            name="above_info_is_correct">
+                                            name="agree_all_above_info_is_correct">
                                         <label class="form-check-label" for="agree_all_above_info_is_correct">
                                             <span class="svg"></span>
                                             <span><b>I agree all the above information is correct.</b></span>
@@ -1620,7 +1554,7 @@
             <div class="col-sm mb-2">
                 <div class="form-group wizard-form-checkbox">
                     <input type="checkbox" class="input-checkbox" id="do_you_agree_this_immunization_instructions"
-                    name="immunization_instructions" >
+                    name="do_you_agree_this_immunization_instructions" >
                     <label class="form-check-label" for="do_you_agree_this_immunization_instructions">
                         <span class="svg"></span>
                         <span><b>I agree immunization instructions.</b></span>
@@ -1658,7 +1592,7 @@
                                         important Family Members (Siblings, Grandparent, Pets, etc)</b>
                                         </label>
                                     <input type="text" class="form-control " id="other_important_family_members"
-                                        name="important_fam_members" placeholder="List names and relationships of other important family members.">
+                                        name="other_important_family_members" placeholder="List names and relationships of other important family members.">
                                 </div>
                             </div>
                         </div>
@@ -1669,7 +1603,7 @@
                                         your family traditions or important celebrations</b>
                                         </label>
                                     <input type="text" class="form-control " id="about_family_celebrations"
-                                        name="fam_celebrations" placeholder="Describe family traditions and celebrations.">
+                                        name="about_family_celebrations" placeholder="Describe family traditions and celebrations.">
                                 </div>
                             </div>
                         </div>
@@ -1842,12 +1776,12 @@
                                         
                                     </b></p>
                                     <div class="wizard-form-radio">
-                                        <input name="rest_middle_day" id="rest_in_the_middle_day1" value="Yes"
+                                        <input name="rest_in_the_middle_day" id="rest_in_the_middle_day1" value="Yes"
                                             type="radio" >
                                         <label for="rest_in_the_middle_day1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
-                                        <input name="rest_middle_day" id="rest_in_the_middle_day2" type="radio"
+                                        <input name="rest_in_the_middle_day" id="rest_in_the_middle_day2" type="radio"
                                             value="No" >
                                         <label for="rest_in_the_middle_day2">No</label>
                                     </div>
@@ -1859,7 +1793,7 @@
                                 <div class="form-group"> 
                                     <label for="reason_for_rest_in_the_middle_day" class="form-label">Explain (Type "NA" if not applicable)</label>
                                     <input type="text" class="form-control " id="reason_for_rest_in_the_middle_day"
-                                    name="reason_rest_middle_day" placeholder="Indicate if the child takes a midday rest." >
+                                    name="reason_for_rest_in_the_middle_day" placeholder="Indicate if the child takes a midday rest." >
                                 </div>
                             </div>
                         </div>
@@ -1944,7 +1878,7 @@
                                     <label for="explain_for_existing_illness_allergy"  
                                     class="form-label">Explain (Type "NA" if not applicable)</label>
                                     <input type="text" class="form-control" id="explain_for_existing_illness_allergy"
-                                        name="explain_illness_allergy" placeholder="Specify details if applicable." >
+                                        name="explain_for_existing_illness_allergy" placeholder="Specify details if applicable." >
                                 </div>
                             </div>
                         </div>
@@ -1970,7 +1904,7 @@
                                 <div class="form-group"> 
                                     <label for="explain_for_functioning_at_age" class="form-label">Explain (Type "NA" if not applicable)</label>
                                     <input type="text" class="form-control " id="explain_for_functioning_at_age"
-                                    name="explain_functioning_at_age" placeholder="Provide comments if necessary." >
+                                    name="explain_for_functioning_at_age" placeholder="Provide comments if necessary." >
                                 </div>
                             </div>
                         </div>
@@ -1994,7 +1928,7 @@
                                 <div class="form-group"> 
                                     <label for="explain_for_able_to_walk" class="form-label">Explain (Type "NA" if not applicable)</label>
                                     <input type="text" class="form-control" id="explain_for_able_to_walk"
-                                    name="explain_able_to_walk" placeholder="Indicate the child's mobility.">
+                                    name="explain_for_able_to_walk" placeholder="Indicate the child's mobility.">
                                 </div>
                             </div>
                         </div>
@@ -2022,7 +1956,7 @@
                                 <div class="form-group"> 
                                     <label for="explain_for_communicate_their_needs" class="form-label">Explain (Type "NA" if not applicable)</label>
                                     <input type="text" class="form-control " id="explain_for_communicate_their_needs"
-                                        name="explain_communicate_their_needs" placeholder="Indicate the child's communication abilities.">
+                                        name="explain_for_communicate_their_needs" placeholder="Indicate the child's communication abilities.">
                                 </div>
                             </div>
                         </div>
@@ -2061,12 +1995,12 @@
                                             braces)? </b>
                                     </p>
                                     <div class="wizard-form-radio">
-                                        <input name="special_equipment" id="utilize_special_equipment1" value="Yes"
+                                        <input name="utilize_special_equipment" id="utilize_special_equipment1" value="Yes"
                                             type="radio">
                                         <label for="utilize_special_equipment1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
-                                        <input name="special_equipment" id="utilize_special_equipment2" type="radio"
+                                        <input name="utilize_special_equipment" id="utilize_special_equipment2" type="radio"
                                             value="No" >
                                         <label for="utilize_special_equipment2">No</label>
                                     </div>
@@ -2078,7 +2012,7 @@
                                 <div class="form-group"> 
                                     <label for="explain_for_utilize_special_equipment" class="form-label">Explain (Type "NA" if not applicable)</label>
                                     <input type="text" class="form-control" id="explain_for_utilize_special_equipment"
-                                    name="explain_special_equipment" placeholder="Specify the equipment if applicable." >
+                                    name="explain_for_utilize_special_equipment" placeholder="Specify the equipment if applicable." >
                                 </div>
                             </div>
                         </div>
@@ -2117,12 +2051,12 @@
                                             School &reg; group setting?</b></p>
                                     </p>
                                     <div class="wizard-form-radio">
-                                        <input name="accommodations" id="desire_any_accommodations1" value="Yes"
+                                        <input name="desire_any_accommodations" id="desire_any_accommodations1" value="Yes"
                                             type="radio" >
                                         <label for="desire_any_accommodations1">Yes</label>
                                     </div>
                                     <div class="wizard-form-radio">
-                                        <input name="accommodations" id="desire_any_accommodations2" type="radio"
+                                        <input name="desire_any_accommodations" id="desire_any_accommodations2" type="radio"
                                             value="No" >
                                         <label for="desire_any_accommodations2">No</label>
                                     </div>
@@ -2134,7 +2068,7 @@
                                 <div class="form-group"> 
                                     <label for="explain_for_desire_any_accommodations" class="form-label">Explain (Type "NA" if not applicable)</label>
                                     <input type="text" class="form-control" id="explain_for_desire_any_accommodations"
-                                    name="explain_for_accommodations" placeholder="Provide details if necessary.">
+                                    name="explain_for_desire_any_accommodations" placeholder="Provide details if necessary.">
                                 </div>
                             </div>
                         </div>      
@@ -2223,7 +2157,7 @@
                             
                         </label>
                         <input type="text" class="form-control" id="child_password_pick_up_password_form" maxlength="5"
-                        name="child_pick_up_password" placeholder="(5 digits, alpha numeric characters)">
+                        name="child_password_pick_up_password_form" placeholder="(5 digits, alpha numeric characters)">
                     </div>
                 </div>
                 <div class="col-3"></div>
@@ -2231,7 +2165,7 @@
             <div class="col-sm">
                 <div class="form-group wizard-form-checkbox">
                     <input type="checkbox" class="input-checkbox" id="do_you_agree_this_pick_up_password_form"
-                    name="pick_up_password_form" >
+                    name="do_you_agree_this_pick_up_password_form" >
                     <label class="form-check-label" for="do_you_agree_this_pick_up_password_form">
                         <span class="svg"></span>
                         <span><b>I agree pick-up password instructions.</b></span>
@@ -2262,7 +2196,7 @@
                                 </label>
                                 <select class="form-control" aria-label=".form-control-lg example" 
                                 id="photo_usage_photo_video_permission_form"
-                                    name="photo_video_permission_form">
+                                    name="photo_usage_photo_video_permission_form">
                                     <option selected disabled></option>
                                     <option value="Full Use">Full Use</option>
                                     <option value="In-House Only">In-House Only*</option>
@@ -2280,7 +2214,7 @@
                                 <div class="form-group"> 
                                     <div class="wizard-form-checkbox">
                                         <input type="checkbox" class="input-checkbox" id="photo_permission_agree_group_photos_electronic"
-                                        name="photo_permission_electronic">
+                                        name="photo_permission_agree_group_photos_electronic">
                                         <label class="form-check-label" for="photo_permission_agree_group_photos_electronic">
                                             <span class="svg"></span><span>I agree to have individual photos of my child and photos of group activities that include mychild shared </span> through the School’s electronic daily activity reports.
                                         </label>
@@ -2294,7 +2228,7 @@
                                 <div class="form-group"> 
                                     <div class="wizard-form-checkbox">
                                         <input type="checkbox" class="input-checkbox" id="do_you_agree_this_photo_video_permission_form"
-                                        name="photo_permission_post">
+                                        name="do_you_agree_this_photo_video_permission_form">
                                         <label class="form-check-label" for="do_you_agree_this_photo_video_permission_form">
                                             <span class="svg"></span><span>I agree that I will not post or use any photographs or videos that I receive from or take at The Goddard School</span> that include children other than my own child in print, electronic or social media or any other form. This includes group photos that I receive as part of an electronic daily activity report. My agreement extends to photos or videos taken by any member of my family or any visitors that I bring to The Goddard School.
                                         </label>
@@ -2329,7 +2263,7 @@
             <div class="col-sm">
                 <div class="form-group wizard-form-checkbox">
                     <input type="checkbox" class="input-checkbox" id="do_you_agree_this_security_release_policy_form"
-                    name="security_release_policy_form" >
+                    name="do_you_agree_this_security_release_policy_form" >
                     <label class="form-check-label" for="do_you_agree_this_security_release_policy_form">
                         <span class="svg"></span>
                         <span><b>I agree Security Release & Policy
@@ -2353,14 +2287,14 @@
             <span>
                 <p>The undersigned authorizes representatives of The Goddard School® to contact Emergency Medical Technicians to transport
                 <input type="text" class="form-control inputBox" id="contact_emergency_medical_technicians_medical_transportation_waiver" 
-                name="med_technicians_med_transportation_waiver">
+                name="contact_emergency_medical_technicians_medical_transportation_waiver">
                 (“Student”) to receive medical care, if such transportation/care is deemed necessary.</p>
                 <p>The undersigned irrevocably release any claims, demands, actions or causes of action against The Goddard School®, its franchisor, Goddard Systems, Inc., and their respective representatives and employees, which arise out of or relate to the transportation of Student and any medical care provided.</p>
                 <p>This authorization and waiver shall remain effective until Student withdraws from The Goddard School®.</p>
             </span><br>
             <div class="form-group wizard-form-checkbox">
                 <input type="checkbox" class="input-checkbox" id="do_you_agree_this_medical_transportation_waiver"
-                name="medical_transportation_waiver" placeholder="Enter Student's Full Name">
+                name="do_you_agree_this_medical_transportation_waiver" placeholder="Enter Student's Full Name">
                 <label class="form-check-label" for="do_you_agree_this_medical_transportation_waiver">
                     <span class="svg"></span>
                     <span><b>I agree medical transportation
@@ -2434,7 +2368,7 @@
                 <div class="col-sm">
                     <div class="form-group wizard-form-checkbox">
                         <input type="checkbox" class="input-checkbox" id="do_you_agree_this_health_policies"
-                        name="health_policies" >
+                        name="do_you_agree_this_health_policies" >
                         <label class="form-check-label" for="do_you_agree_this_health_policies">
                             <span class="svg"></span>
                             <span><b>I agree health policies.</b></span>
@@ -2487,7 +2421,7 @@
                 <div class="form-group"> 
                     <div class="wizard-form-checkbox">
                         <input type="checkbox" class="input-checkbox" id="outside_waiver_parent_sign_outside_engagements_waiver" 
-                        name="parent_sign_outside_waiver">
+                        name="outside_waiver_parent_sign_outside_engagements_waiver">
                         <label class="form-check-label" for="outside_waiver_parent_sign_outside_engagements_waiver">
                             <span class="svg"></span><span><b>I have read this agreement and understand its terms.</b></span>
                         </label>
@@ -2535,7 +2469,7 @@
                 <div class="form-group">
                     <label for="printed_name_social_media_post" class="form-label"><b>Printed Name</b>
                     </label>
-                    <input type="text" class="form-control" id="printed_name_social_media_post" name="printed_social_media_post" placeholder="Enter printed name">
+                    <input type="text" class="form-control" id="printed_name_social_media_post" name="printed_name_social_media_post" placeholder="Enter printed name">
                 </div>
             </div>
         </div>    
@@ -2544,7 +2478,7 @@
                 <div class="form-group"> 
                     <div class="wizard-form-checkbox">
                         <input type="checkbox" class="input-checkbox" id="do_you_agree_this_social_media_post" 
-                        name="social_media_post">
+                        name="do_you_agree_this_social_media_post">
                         <label class="form-check-label" for="do_you_agree_this_social_media_post">
                             <span class="svg"></span><span><b>I have read this agreement and understand its terms.</b></span>
                         </label>
@@ -2570,7 +2504,7 @@
                     <label for="parent_sign_admission" class="form-label"><b>Parent Signature</b>
                     </label>
                     <input type="text" class="form-control" id="parent_sign_admission"
-                    name="parent_sign">
+                    name="parent_sign_admission">
                 </div>
             </div>
             <div class="col-sm">
@@ -2578,7 +2512,7 @@
                     <label for="parent_sign_date_admission"  class="form-label"><b>Date</b>
                     </label>
                     <input type="date" class="form-control" id="parent_sign_date_admission"
-                        name="parent_date" onclick="dateValidation('parent_sign_date_admission')">
+                        name="parent_sign_date_admission" onclick="dateValidation('parent_sign_date_admission')">
                 </div>
             </div>
         </div>
@@ -2601,7 +2535,7 @@
                     <label for="admin_sign_admission" class="form-label"><b>Admin Signature</b>
                     </label>
                     <input type="text" class="form-control" id="admin_sign_admission"
-                    name="admin_sign">
+                    name="admin_sign_admission">
                 </div>
             </div>
             <div class="col-sm">
@@ -2609,7 +2543,7 @@
                     <label for="admin_sign_date_admission"  class="form-label"><b>Date</b>
                     </label>
                     <input type="date" class="form-control" id="admin_sign_date_admission"
-                        name="admin_date" onclick="dateValidation('admin_sign_date_admission')">
+                        name="admin_sign_date_admission" onclick="dateValidation('admin_sign_date_admission')">
                 </div>
             </div>
         </div>

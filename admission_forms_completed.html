@@ -77,7 +77,7 @@
                                     <div id="do_relevant_custody_papers_apply" class="col-sm">
                                         <div class="form-group">
                                             <label for="do_relevant_custody_papers_apply1" class="form-label"><b>DO RELEVANT CUSTODY PAPERS APPLY?</b></label>
-                                            <input type="text" class="form-control text-box" name="custody_papers_apply" id="do_relevant_custody_papers_apply1">
+                                            <input type="text" class="form-control text-box" name="do_relevant_custody_papers_apply" id="do_relevant_custody_papers_apply1">
                                         </div>
                                     </div>
                                     <div id="gender" class="col-sm">
@@ -97,7 +97,7 @@
                                                     GUARDIAN’S NAME</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="parent_name"
-                                                name="name">
+                                                name="parent_name">
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -120,7 +120,7 @@
                                             <label for="parent_street_address" class="form-label"><b>STREET</b>
                                             </label>
                                             <input type="text" class="form-control text-box" id="parent_street_address"
-                                                name="street_address">
+                                                name="parent_street_address">
                                                 <!-- onchange="autoPopulateAddress(this.value,'parent2_street_address')"> -->
                                         </div>
                                     </div>
@@ -129,7 +129,7 @@
                                             <label for="parent_city_address" class="form-label"><b>CITY</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="parent_city_address"
-                                                name="city_address">
+                                                name="parent_city_address">
                                                 <!-- onchange="autoPopulateAddress(this.value,'parent2_city_address')"> -->
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                                             <label for="parent_state_address" class="form-label"><b>STATE</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="parent_state_address"
-                                                name="state_address">
+                                                name="parent_state_address">
                                                 <!-- onchange="autoPopulateAddress(this.value,'parent2_state_address')"> -->
                                         </div>
                                     </div>
@@ -147,7 +147,7 @@
                                             <label for="parent_zip_address" class="form-label"><b>ZIP</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="parent_zip_address"
-                                                name="zip_address"
+                                                name="parent_zip_address"
                                                 onchange="ValidatePincode (this,'parent_zip_address_span')">
                                             <span id="parent_zip_address_span" style="color:red; display:none">
                                                 Enter valid input [only numbers].</span>
@@ -167,18 +167,10 @@
                                     </div>
                                     <div class="col-sm">
                                         <div class="form-group">
-                                            <label for="work_hours_from" class="form-label"><b>WORK HOURS FROM</b>
+                                            <label for="work_hours" class="form-label"><b>WORK HOURS</b>
                                             </label>
-                                            <input type="text" class="form-control text-box" id="work_hours_from"
-                                                name="work_hours_from">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="work_hours_to" class="form-label"><b>WORK HOURS TO</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box" id="work_hours_to"
-                                                name="work_hours_to">
+                                            <input type="text" class="form-control text-box " id="work_hours"
+                                                name="work_hours">
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -243,7 +235,7 @@
                                             <label for="business_cell_number" class="form-label"><b>CELL NUMBER</b>
                                             </label>
                                             <input type="text" class="form-control text-box " aria-label="Telephone Number"
-                                                id="business_cell_number" name="home_cellphone_number">
+                                                id="business_cell_number" name="business_cell_number">
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -266,7 +258,7 @@
                                                     GUARDIAN’S NAME</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="parent_two_name"
-                                                name="name">
+                                                name="parent_two_name">
                                         </div>
                                     </div>
                                 </div>
@@ -277,7 +269,7 @@
                                             <label for="parent_two_street_address" class="form-label"><b>STREET</b>
                                             </label>
                                             <input type="text" class="form-control text-box" id="parent_two_street_address"
-                                                name="street_address">
+                                                name="parent_two_street_address">
                                                 <!-- onchange="autoPopulateAddress(this.value,'parent2_street_address')"> -->
                                         </div>
                                     </div>
@@ -286,7 +278,7 @@
                                             <label for="parent_two_city_address" class="form-label"><b>CITY</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="parent_two_city_address"
-                                                name="city_address">
+                                                name="parent_two_city_address">
                                                 <!-- onchange="autoPopulateAddress(this.value,'parent2_city_address')"> -->
                                         </div>
                                     </div>
@@ -295,7 +287,7 @@
                                             <label for="parent_two_state_address" class="form-label"><b>STATE</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="parent_two_state_address"
-                                                name="state_address">
+                                                name="parent_two_state_address">
                                                 <!-- onchange="autoPopulateAddress(this.value,'parent2_state_address')"> -->
                                         </div>
                                     </div>
@@ -304,7 +296,7 @@
                                             <label for="parent_two_zip_address" class="form-label"><b>ZIP</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="parent_two_zip_address"
-                                                name="zip_address"
+                                                name="parent_two_zip_address"
                                                 onchange="ValidatePincode (this,'parent_two_zip_address_span')">
                                             <span id="parent_two_zip_address_span" style="color:red; display:none">
                                                 Enter valid input [only numbers].</span>
@@ -318,7 +310,7 @@
                                                     NUMBER</b>
                                             </label>
                                             <input type="text" class="form-control text-box " aria-label="Telephone Number"
-                                                id="parent_two_home_telephone_number" name="home_telephone_number"
+                                                id="parent_two_home_telephone_number" name="parent_two_home_telephone_number"
                                                 onchange="validatePhone(this,'parent_two_home_telephone_number_span')">
                                             <span id="parent_two_home_telephone_number_span" style="color:red; display:none">
                                                 Enter valid input [only numbers,+,-,()].</span>
@@ -333,23 +325,15 @@
                                             <label for="parent_two_business_name" class="form-label"><b>NAME</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="parent_two_business_name"
-                                                name="business_name">   
+                                                name="parent_two_business_name">
                                         </div>
                                     </div>
                                     <div class="col-sm">
                                         <div class="form-group">
-                                            <label for="parent_two_work_hours_from" class="form-label"><b>WORK HOURS FROM</b>
+                                            <label for="parent_two_work_hours" class="form-label"><b>WORK HOURS</b>
                                             </label>
-                                            <input type="text" class="form-control text-box " id="parent_two_work_hours_from"
-                                                name="work_hours_from">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="parent_two_work_hours_to" class="form-label"><b>WORK HOURS TO</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box" id="parent_two_work_hours_to"
-                                                name="work_hours_to">
+                                            <input type="text" class="form-control text-box " id="parent_two_work_hours"
+                                                name="parent_two_work_hours">
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -357,7 +341,7 @@
                                             <label for="parent_two_business_telephone_number" class="form-label"><b>TELEPHONE NUMBER</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="parent_two_business_telephone_number"
-                                                name="business_telephone_number"
+                                                name="parent_two_business_telephone_number"
                                                 onchange="validatePhone(this,'parent_two_business_telephone_number_span')">
                                             <span id="parent_two_business_telephone_number_span"
                                                 style="color:red; display:none">
@@ -375,7 +359,7 @@
                                             <label for="parent_two_business_street_address" class="form-label"><b>STREET</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="parent_two_business_street_address"
-                                                name="business_street_address">
+                                                name="parent_two_business_street_address">
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -383,7 +367,7 @@
                                             <label for="parent_two_business_city_address" class="form-label"><b>CITY</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="parent_two_business_city_address"
-                                                name="business_city_address">
+                                                name="parent_two_business_city_address">
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -391,7 +375,7 @@
                                             <label for="parent_two_business_state_address" class="form-label"><b>STATE</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="parent_two_business_state_address"
-                                                name="business_state_address">
+                                                name="parent_two_business_state_address">
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -399,7 +383,7 @@
                                             <label for="parent_two_business_zip_address" class="form-label"><b>ZIP</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="parent_two_business_zip_address"
-                                                name="business_zip_address"
+                                                name="parent_two_business_zip_address"
                                                 onchange="ValidatePincode (this,'parent_two_business_zip_address_span')">
                                             <span id="parent_two_business_zip_address_span" style="color:red; display:none">
                                                 Enter valid input [only numbers].</span>
@@ -414,7 +398,7 @@
                                             <label for="parent_two_business_cell_number" class="form-label"><b>CELL NUMBER</b>
                                             </label>
                                             <input type="text" class="form-control text-box " aria-label="Telephone Number"
-                                                id="parent_two_business_cell_number" name="home_cellphone_number"
+                                                id="parent_two_business_cell_number" name="parent_two_business_cell_number"
                                                 onchange="validatePhone(this,'parent_two_business_cell_number_span')">
                                             <span id="parent_two_business_cell_number_span" style="color:red; display:none">
                                                 Enter valid input [only numbers,+,-,()].</span>
@@ -442,15 +426,25 @@
                                             <label for="child_emergency_contact_name" class="form-label"><b>NAME</b>
                                             </label>
                                             <input type="text" class="form-control text-box " aria-label="Emergency Name" id="child_emergency_contact_name"
-                                                name="contact_name">
+                                                name="child_emergency_contact_name">
                                         </div>
                                     </div>
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_full_address" class="form-label"><b>FULL ADDRESS</b>
+                                            </label>
+                                            <input type="text" class="form-control text-box " aria-label="emergency_address"
+                                                id="child_emergency_contact_full_address" name="child_emergency_contact_full_address">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row m-1 mb-3">
                                     <div class="col-sm">
                                         <div class="form-group">
                                             <label for="child_emergency_contact_relationship" class="form-label"><b>RELATIONSHIP</b>
                                             </label>
                                             <input type="text" class="form-control text-box " aria-label="Emergency Relationship"
-                                                id="child_emergency_contact_relationship" name="contact_relationship">
+                                                id="child_emergency_contact_relationship" name="child_emergency_contact_relationship">
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -458,45 +452,10 @@
                                             <label for="child_emergency_contact_telephone_number" class="form-label"><b>TELEPHONE NUMBER</b>
                                             </label>
                                             <input type="text" class="form-control text-box " aria-label="Emergency Relationship"
-                                                id="child_emergency_contact_telephone_number" name="contact_telephone_number"
+                                                id="child_emergency_contact_telephone_number" name="child_emergency_contact_telephone_number"
                                                 onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')">
                                             <span id="child_emergency_contact_telephone_number_span" style="color:red; display:none">
                                                 Enter valid input [only numbers,+,-,()].</span>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <div class="row m-1 mb-3">
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_street_address" class="form-label"><b>STREET</b>
-                                            </label>
-                                            <input type="text" class="form-control " id="child_emergency_street_address"
-                                                name="street_address" placeholder=" e.g. 133, My Street">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_city_address" class="form-label"><b>CITY</b>
-                                            </label>
-                                            <input type="text" class="form-control " id="child_emergency_city_address"
-                                                name="city_address" placeholder=" e.g. Kingston">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_state_address" class="form-label"><b>STATE</b>
-                                            </label>
-                                            <input type="text" class="form-control " id="child_emergency_state_address"
-                                                name="state_address" placeholder=" e.g. New York">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_zip_address" class="form-label"><b>ZIP</b>
-                                            </label>
-                                            <input type="text" class="form-control " aria-label="emergency_address"
-                                                id="child_emergency_zip_address" name="zip_address" placeholder="e.g. 12401.">
                                         </div>
                                     </div>
                                 </div>
@@ -510,7 +469,7 @@
                                                     CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="child_care_provider_name"
-                                                name="name">
+                                                name="child_care_provider_name">
                                         </div>
                                     </div>
                                 </div>
@@ -522,7 +481,7 @@
                                             </label>
                                             <input type="text" class="form-control text-box "
                                                 id="child_care_provider_telephone_number"
-                                                name="telephone_number"
+                                                name="child_care_provider_telephone_number"
                                                 onchange="validatePhone(this,'child_care_provider_telephone_number_span')">
                                             <span id="child_care_provider_telephone_number_span"
                                                 style="color:red; display:none">
@@ -535,7 +494,7 @@
                                                     AFFILIATION</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="child_hospital_affiliation"
-                                                name="hospital_affiliation">
+                                                name="child_hospital_affiliation">
                                         </div>
                                     </div>
                                 </div>
@@ -551,7 +510,7 @@
                                             </label>
                                             <input type="text" class="form-control text-box "
                                                 id="child_care_provider_street_address"
-                                                name="street_address">
+                                                name="child_care_provider_street_address">
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -561,7 +520,7 @@
                                             </label>
                                             <input type="text" class="form-control text-box "
                                                 id="child_care_provider_city_address"
-                                                name="city_address">
+                                                name="child_care_provider_city_address">
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -571,7 +530,7 @@
                                             </label>
                                             <input type="text" class="form-control text-box "
                                                 id="child_care_provider_state_address"
-                                                name="state_address">
+                                                name="child_care_provider_state_address">
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -581,7 +540,7 @@
                                             </label>
                                             <input type="text" class="form-control text-box "
                                                 id="child_care_provider_zip_address"
-                                                name="zip_address"
+                                                name="child_care_provider_zip_address"
                                                 onchange="ValidatePincode(this,'child_care_provider_zip_address_span')">
                                             <span id="child_care_provider_zip_address_span"
                                                 style="color:red; display:none">
@@ -600,7 +559,7 @@
                                                     DENTIST</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="child_dentist_name"
-                                                name="name">
+                                                name="child_dentist_name">
                                         </div>
                                     </div>
                                     <div class="col-sm">
@@ -609,7 +568,7 @@
                                                     TELEPHONE NUMBER</b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="dentist_telephone_number"
-                                                name="telephone_number"
+                                                name="dentist_telephone_number"
                                                 onchange="validatePhone(this,'dentist_telephone_number_span')">
                                             <span id="dentist_telephone_number_span"
                                                 style="color:red; display:none">
@@ -620,34 +579,10 @@
                                 <div class="row m-1 mb-3">
                                     <div class="col-sm">
                                         <div class="form-group">
-                                            <label for="dentist__street_address" class="form-label"><b>STREET</b>
+                                            <label for="dentist_address" class="form-label"><b>DENTIST ADDRESS</b>
                                             </label>
-                                            <input type="text" class="form-control " id="dentist__street_address"
-                                                name="street_address" placeholder=" e.g. 133, My Street">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="dentist__city_address" class="form-label"><b>CITY</b>
-                                            </label>
-                                            <input type="text" class="form-control " id="dentist__city_address"
-                                                name="city_address" placeholder=" e.g. Kingston">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="dentist__state_address" class="form-label"><b>STATE</b>
-                                            </label>
-                                            <input type="text" class="form-control " id="dentist__state_address"
-                                                name="state_address" placeholder=" e.g. New York">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="dentist__zip_address" class="form-label"><b>ZIP</b>
-                                            </label>
-                                            <input type="text" class="form-control " aria-label="emergency_address"
-                                                id="dentist__zip_address" name="zip_address" placeholder="e.g. 12401.">
+                                            <input type="text" class="form-control text-box " id="dentist_address"
+                                                name="dentist_address">
                                         </div>
                                     </div>
                                 </div>
@@ -670,7 +605,7 @@
                                             </label>
                                             <input type="text" class="form-control text-box "
                                                 id="allergies_medication_reaction"
-                                                name="allergies_reaction">
+                                                name="allergies_medication_reaction">
                                         </div>
                                     </div>
                                 </div>
@@ -731,7 +666,7 @@
                                             </label>
                                             <input type="text" class="form-control text-box "
                                                 id="obtaining_emergency_medical_care"
-                                                name="emergency_medical_care">
+                                                name="obtaining_emergency_medical_care">
                                         </div>
                                     </div>
                                 </div>
@@ -743,7 +678,7 @@
                                                     PROCEDURES</b></label>
                                             <input type="text" class="form-control text-box "
                                                 id="administration_first_aid_procedures"
-                                                name="first_aid_procedures">
+                                                name="administration_first_aid_procedures">
                                         </div>
                                     </div>
                                 </div>
@@ -755,7 +690,7 @@
                                 <div class="row m-1 mb-3">
                                     <div class="form-group">
                                         <input type="checkbox" class="input-checkbox" id="agree_all_above_information_is_correct"
-                                            name="above_information_is_correct">
+                                            name="agree_all_above_information_is_correct">
                                         <label class="form-check-label" for="agree_all_above_information_is_correct">
                                             <span><b>I agree all the above information is correct.</b></span>
                                         </label>
@@ -769,7 +704,7 @@
             </div>
             <!--Child Information End-->
 
-            <!--Child and family history-->
+            <!--Child aand family history-->
             <div class="m-5">
                 <div class="card">
                     <div class="form-body">
@@ -954,7 +889,7 @@
                                                 during pregnancy</b>
                                         </label>
                                         <input type="text" class="form-control text-box " id="illness_during_pregnancy"
-                                            name="illness_in_pregnancy">
+                                            name="illness_during_pregnancy">
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -1048,21 +983,21 @@
                             <div class="row">
                                 <div class="col-sm m-4">
                                     <input type="checkbox" class="input-checkbox"
-                                        id="family_history_allergies" name="fam_hist_allergies">
+                                        id="family_history_allergies" name="family_history_allergies">
                                     <label class="form-check-label" for="family_history_allergies"><span><b>Allergies</b></span>
                                     </label>
                                 </div>
                                 <div class="col-sm m-4">
                                     <input type="checkbox" class="input-checkbox"
                                         id="family_history_heart_problems"
-                                        name="fam_hist_heart_problems">
+                                        name="family_history_heart_problems">
                                     <label class="form-check-label"
                                         for="family_history_heart_problems"><span><b>Heart Problems</b></span>
                                     </label>
                                 </div>
                                 <div class="col-sm m-4">
                                     <input type="checkbox" class="input-checkbox"
-                                        id="family_history_tuberculosis" name="fam_hist_tuberculosis">
+                                        id="family_history_tuberculosis" name="family_history_tuberculosis">
                                     <label class="form-check-label" for="family_history_tuberculosis"><span><b>Tuberculosis</b></span>
                                     </label>
                                 </div>
@@ -1070,14 +1005,14 @@
                             <div class="row">
                                 <div class="col-sm m-4">
                                     <input type="checkbox" class="input-checkbox" id="family_history_asthma"
-                                        name="fam_hist_asthma">
+                                        name="family_history_asthma">
                                     <label class="form-check-label" for="family_history_asthma"><span><b>Asthma</b></span>
                                     </label>
                                 </div>
                                 <div class="col-sm m-4">
                                     <input type="checkbox" class="input-checkbox"
                                         id="family_history_high_blood_pressure"
-                                        name="fam_hist_high_blood_pressure">
+                                        name="family_history_high_blood_pressure">
                                     <label class="form-check-label"
                                         for="family_history_high_blood_pressure"><span><b>High Blood Pressure</b></span>
                                     </label>
@@ -1085,7 +1020,7 @@
                                 <div class="col-sm m-4">
                                     <input type="checkbox" class="input-checkbox"
                                         id="family_history_vision_problems"
-                                        name="fam_hist_vision_problems">
+                                        name="family_history_vision_problems">
                                     <label class="form-check-label"
                                         for="family_history_vision_problems"><span><b>Vision Problems</b></span>
                                     </label>
@@ -1094,21 +1029,21 @@
                             <div class="row">
                                 <div class="col-sm m-4">
                                     <input type="checkbox" class="input-checkbox"
-                                        id="family_history_diabetes" name="fam_hist_diabetes">
+                                        id="family_history_diabetes" name="family_history_diabetes">
                                     <label class="form-check-label" for="family_history_diabetes"><span><b>Diabetes</b></span>
                                     </label>
                                 </div>
                                 <div class="col-sm m-4">
                                     <input type="checkbox" class="input-checkbox"
                                         id="family_history_hyperactivity"
-                                        name="fam_hist_hyperactivity">
+                                        name="family_history_hyperactivity">
                                     <label class="form-check-label"
                                         for="family_history_hyperactivity"><span><b>Hyperactivity</b></span>
                                     </label>
                                 </div>
                                 <div class="col-sm m-4">
                                     <input type="checkbox" class="input-checkbox"
-                                        id="family_history_epilepsy" name="fam_hist_epilepsy">
+                                        id="family_history_epilepsy" name="family_history_epilepsy">
                                     <label class="form-check-label" for="family_history_epilepsy"><span><b>Epilepsy</b></span>
                                     </label>
                                 </div>
@@ -1152,7 +1087,7 @@
                                                 with mother</b>
                                         </label>
                                         <input type="text" class="form-control text-box " id="relationship_with_mother"
-                                            name="relationship_with_mom">
+                                            name="relationship_with_mother">
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -1161,7 +1096,7 @@
                                                 with father</b>
                                         </label>
                                         <input type="text" class="form-control text-box " id="relationship_with_father"
-                                            name="relationship_with_dad">
+                                            name="relationship_with_father">
                                     </div>
                                 </div>
                             </div>
@@ -1173,7 +1108,7 @@
                                             class="form-label"><b>Relationship with siblings</b>
                                         </label>
                                         <input type="text" class="form-control text-box " id="relationship_with_siblings"
-                                            name="relationship_with_sib">
+                                            name="relationship_with_siblings">
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -1182,7 +1117,7 @@
                                             <b>Relationship with extended family</b></label>
                                         <input type="text" class="form-control text-box "
                                             id="relationship_with_extended_family"
-                                            name="relationship_extended_family">
+                                            name="relationship_with_extended_family">
                                     </div>
                                 </div>
                             </div>
@@ -1203,7 +1138,7 @@
                                                 response to frustration</b>
                                         </label>
                                         <input type="text" class="form-control text-box " id="child_response_frustration"
-                                            name="c_response_frustration">
+                                            name="child_response_frustration">
                                     </div>
                                 </div>
                             </div>
@@ -1258,7 +1193,7 @@
                                         <label for="language_used_at_home" class="form-label">
                                             <b>Language used in the home?</b></label>
                                         <input type="text" class="form-control text-box " id="language_used_at_home"
-                                            name="language_at_home">
+                                            name="language_used_at_home">
                                     </div>
                                 </div>
                             </div>
@@ -1270,7 +1205,7 @@
                                                 there been any changes in the home situation recently, i.e.
                                                 addition/loss/death/divorce.</b></label>
                                         <input type="text" class="form-control text-box " id="changes_at_home_situation"
-                                            name="changes_home_situation">
+                                            name="changes_at_home_situation">
                                     </div>
                                 </div>
                             </div>
@@ -1293,7 +1228,7 @@
                                 <div class="col-sm">
                                     <div class="form-group">
                                         <input type="checkbox" class="input-checkbox" id="agree_all_above_info_is_correct"
-                                            name="above_info_is_correct">
+                                            name="agree_all_above_info_is_correct">
                                         <label class="form-check-label" for="agree_all_above_info_is_correct">
                                             <span><b>I agree all the above information is correct.</b></span>
                                         </label>
@@ -1337,7 +1272,7 @@
                                 <div class="col-sm mb-3">
                                     <div class="form-group">
                                         <input type="checkbox" class="input-checkbox" id="do_you_agree_this_immunization_instructions"
-                                        name="immunization_instructions" >
+                                        name="do_you_agree_this_immunization_instructions" >
                                         <label class="form-check-label" for="do_you_agree_this_immunization_instructions">
                                             <span><b>I agree immunization instructions.</b></span>
                                         </label>
@@ -1369,7 +1304,7 @@
                                         <label for="other_important_family_members" class="form-label"><b>Other important Family Members (Siblings, Grandparent, Pets, etc)</b>
                                         </label>
                                         <input type="text" class="form-control text-box " id="other_important_family_members"
-                                            name="important_fam_members">
+                                            name="other_important_family_members">
                                     </div>
                                 </div>
                             </div>
@@ -1380,7 +1315,7 @@
                                             your family traditions or important celebrations</b>
                                             </label>
                                         <input type="text" class="form-control text-box " id="about_family_celebrations"
-                                            name="fam_celebrations">
+                                            name="about_family_celebrations">
                                     </div>
                                 </div>
                             </div>
@@ -1388,7 +1323,7 @@
                                 <div id="childcare_before" class="col-sm">
                                     <div class="form-group">
                                         <label for="reason_for_childcare_before" class="form-label"><b>Has your child been in childcare before?</b></label>
-                                        <input type="text" class="form-control text-box" name="childcare_before" id="reason_for_childcare_before">
+                                        <input type="text" class="form-control text-box" name="reason_for_childcare_before" id="reason_for_childcare_before">
                                     </div>
                                 </div>
                             </div>
@@ -1481,7 +1416,7 @@
                                 <div id="rest_in_the_middle_day" class="col-sm">
                                     <div class="form-group">
                                         <label for="reason_for_rest_in_the_middle_day" class="form-label"><b>Does your child rest in the middle of the day?</b></label>
-                                        <input type="text" class="form-control text-box" name="reason_rest_middle_day" id="reason_for_rest_in_the_middle_day">
+                                        <input type="text" class="form-control text-box" name="reason_for_rest_in_the_middle_day" id="reason_for_rest_in_the_middle_day">
                                     </div>
                                 </div>
                             </div>
@@ -1529,7 +1464,7 @@
                                 <div id="existing_illness_allergy" class="col-sm">
                                     <div class="form-group">
                                         <label for="explain_for_existing_illness_allergy" class="form-label"><b>Does your child have an existing illness/allergy/condition?</b></label>
-                                        <input type="text" class="form-control text-box" name="explain_illness_allergy" id="explain_for_existing_illness_allergy">
+                                        <input type="text" class="form-control text-box" name="explain_for_existing_illness_allergy" id="explain_for_existing_illness_allergy">
                                     </div>
                                 </div>
                             </div>
@@ -1547,7 +1482,7 @@
                                 <div id="functioning_at_age" class="col-sm">
                                     <div class="form-group">
                                         <label for="explain_for_functioning_at_age" class="form-label"><b>Does your think your child is functioning at age-level?</b></label>
-                                        <input type="text" class="form-control text-box" name="explain_functioning_at_age" id="explain_for_functioning_at_age">
+                                        <input type="text" class="form-control text-box" name="explain_for_functioning_at_age" id="explain_for_functioning_at_age">
                                     </div>
                                 </div>
                             </div>
@@ -1564,7 +1499,7 @@
                                 <div id="able_to_walk" class="col-sm">
                                     <div class="form-group">
                                         <label for="explain_for_able_to_walk" class="form-label"><b>Is your child able to walk?</b></label>
-                                        <input type="text" class="form-control text-box" name="explain_able_to_walk" id="explain_for_able_to_walk">
+                                        <input type="text" class="form-control text-box" name="explain_for_able_to_walk" id="explain_for_able_to_walk">
                                     </div>
                                 </div>
                             </div>
@@ -1581,7 +1516,7 @@
                                 <div id="communicate_their_needs" class="col-sm">
                                     <div class="form-group">
                                         <label for="explain_for_communicate_their_needs" class="form-label"><b>Is your child able to communicate their needs to others?</b></label>
-                                        <input type="text" class="form-control text-box" name="explain_communicate_their_needs" id="explain_for_communicate_their_needs">
+                                        <input type="text" class="form-control text-box" name="explain_for_communicate_their_needs" id="explain_for_communicate_their_needs">
                                     </div>
                                 </div>
                             </div>
@@ -1620,7 +1555,7 @@
                                         <label for="explain_for_utilize_special_equipment" class="form-label"><b>Does your child utilize any special equipment(such as
                                             a breathing machine, wheelchair, hearing aid, or
                                             braces)?</b></label>
-                                        <input type="text" class="form-control text-box" name="explain_special_equipment" id="explain_for_utilize_special_equipment">
+                                        <input type="text" class="form-control text-box" name="explain_for_utilize_special_equipment" id="explain_for_utilize_special_equipment">
                                     </div>
                                 </div>
                             </div>
@@ -1658,7 +1593,7 @@
                                             accommodations or modifications in order to fully
                                             and eually enjoy and participate in The Goddard
                                             School &reg; group setting?</b></label>
-                                        <input type="text" class="form-control text-box" name="explain_for_accommodations" id="explain_for_desire_any_accommodations">
+                                        <input type="text" class="form-control text-box" name="explain_for_desire_any_accommodations" id="explain_for_desire_any_accommodations">
                                     </div>
                                 </div>
                             </div>
@@ -1736,7 +1671,7 @@
                                         <div class="form-group"> 
                                             <label for="child_password_pick_up_password_form" class="form-label h-3"><b>Password</b></label>
                                             <input type="text" class="form-control text-box" id="child_password_pick_up_password_form" 
-                                            name="child_pick_up_password">
+                                            name="child_password_pick_up_password_form">
                                             <p class="pt-2"><b>(5 digits, alpha numeric characters)</b></p>
                                         </div>
                                     </div>
@@ -1745,7 +1680,7 @@
                                 <div class="col-sm">
                                     <div class="form-group">
                                         <input type="checkbox" class="input-checkbox" id="do_you_agree_this_pick_up_password_form"
-                                        name="pick_up_password_form" >
+                                        name="do_you_agree_this_pick_up_password_form" >
                                         <label class="form-check-label" for="do_you_agree_this_pick_up_password_form">
                                             <span><b>I agree pick-up password instructions.</b></span>
                                         </label>
@@ -1778,7 +1713,7 @@
                                             <label for="photo_usage_photo_video_permission_form" class="form-label h-3"><b></b>
                                             </label>
                                             <input type="text" class="form-control text-box " id="photo_usage_photo_video_permission_form" 
-                                            name="photo_video_permission_form">
+                                            name="photo_usage_photo_video_permission_form">
                                         </div>
                                     </div>
                                     <div class="col-3"></div>
@@ -1791,7 +1726,7 @@
                                     <div class="col-sm">
                                         <div class="form-group"> 
                                             <input type="checkbox" class="input-checkbox" id="photo_permission_agree_group_photos_electronic"
-                                            name="photo_permission_electronic">
+                                            name="photo_permission_agree_group_photos_electronic">
                                             <label class="form-check-label" for="photo_permission_agree_group_photos_electronic"><span>I agree to have individual photos of my child and photos of group activities that include mychild shared through the School’s electronic daily activity reports.</span>
                                             </label>
                                         </div>
@@ -1803,7 +1738,7 @@
                                     <div class="col-sm">
                                         <div class="form-group"> 
                                             <input type="checkbox" class="input-checkbox" id="do_you_agree_this_photo_video_permission_form"
-                                            name="photo_permission_post">
+                                            name="do_you_agree_this_photo_video_permission_form">
                                             <label class="form-check-label" for="do_you_agree_this_photo_video_permission_form">
                                                 <span>I agree that I will not post or use any photographs or
                                                         videos that I receive from or take at The Goddard School</span>
@@ -1861,7 +1796,7 @@
                                 <div class="col-sm">
                                     <div class="form-group">
                                         <input type="checkbox" class="input-checkbox" id="do_you_agree_this_security_release_policy_form"
-                                        name="security_release_policy_form" >
+                                        name="do_you_agree_this_security_release_policy_form" >
                                         <label class="form-check-label" for="do_you_agree_this_security_release_policy_form">
                                             <span><b>I agree Security Release & Policy
                                                 Acknowledgement.</b></span>
@@ -1890,7 +1825,7 @@
                                 <span>
                                     <p>The undersigned authorizes representatives of The Goddard School® to contact Emergency Medical Technicians to transport
                                     <input type="text" class="form-control inputBox text-box" id="contact_emergency_medical_technicians_medical_transportation_waiver" 
-                                    name="med_technicians_med_transportation_waiver">
+                                    name="contact_emergency_medical_technicians_medical_transportation_waiver">
                                     (“Student”) to receive medical care, if such transportation/care is deemed necessary.</p>
                                     <p>The undersigned irrevocably release any claims, demands, actions or
                                         causes of
@@ -1905,7 +1840,7 @@
                                 <h4 class="text-center">Parent Agreement</h4>
                                 <div class="form-group">
                                     <input type="checkbox" class="input-checkbox" id="do_you_agree_this_medical_transportation_waiver"
-                                    name="medical_transportation_waiver" >
+                                    name="do_you_agree_this_medical_transportation_waiver" >
                                     <label class="form-check-label" for="do_you_agree_this_medical_transportation_waiver">
                                         <span><b>I agree medical transportation
                                             waiver.</b></span>
@@ -2055,7 +1990,7 @@
                                     <div class="col-sm">
                                         <div class="form-group">
                                             <input type="checkbox" class="input-checkbox" id="do_you_agree_this_health_policies"
-                                            name="health_policies" >
+                                            name="do_you_agree_this_health_policies" >
                                             <label class="form-check-label" for="do_you_agree_this_health_policies">
                                                 <span><b>I agree health policies.</b></span>
                                             </label>
@@ -2114,7 +2049,7 @@
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <input type="checkbox" class="input-checkbox" id="outside_waiver_parent_sign_outside_engagements_waiver" 
-                                        name="parent_sign_outside_waiver">
+                                        name="outside_waiver_parent_sign_outside_engagements_waiver">
                                         <label class="form-check-label" for="outside_waiver_parent_sign_outside_engagements_waiver"><span><b>I have read this agreement and understand its terms.</b></span>
                                         </label>
                                     </div>
@@ -2165,7 +2100,7 @@
                                     <div class="form-group">
                                         <label for="printed_name_social_media_post" class="form-label"><b>Printed Name</b>
                                         </label>
-                                        <input type="text" class="form-control text-box" id="printed_name_social_media_post" name="printed_social_media_post">
+                                        <input type="text" class="form-control text-box" id="printed_name_social_media_post" name="printed_name_social_media_post">
                                     </div>
                                 </div>
                             </div>    
@@ -2173,7 +2108,7 @@
                                 <div class="col-sm">
                                     <div class="form-group"> 
                                         <input type="checkbox" class="input-checkbox" id="do_you_agree_this_social_media_post" 
-                                        name="social_media_post">
+                                        name="do_you_agree_this_social_media_post">
                                         <label class="form-check-label" for="do_you_agree_this_social_media_post">
                                             <span class="svg"></span><span><b>I have read this agreement and understand its terms.</b></span>
                                         </label>
@@ -2187,7 +2122,7 @@
                                         <label for="parent_sign_admission" class="form-label"><b>Parent Signature</b>
                                         </label>
                                         <input type="text" class="form-control text-box" id="parent_sign_admission"
-                                        name="parent_sign">
+                                        name="parent_sign_admission">
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -2195,7 +2130,7 @@
                                         <label for="parent_sign_date_admission"  class="form-label"><b>Date</b>
                                         </label>
                                         <input type="date" class="form-control text-box" id="parent_sign_date_admission"
-                                            name="parent_date" onclick="dateValidation('parent_sign_date_admission')">
+                                            name="parent_sign_date_admission" onclick="dateValidation('parent_sign_date_admission')">
                                     </div>
                                 </div>
                             </div>

@@ -304,11 +304,8 @@
                                                 <div class="col-sm-4" id="classRoomDiv">
                                                     <div class="form-group">
                                                         <label class="col-form-label">Class Room</label>
-                                                        <select class="selectpicker" multiple data-live-search="true">
-                                                            <option data-tokens="option1">Option 1</option>
-                                                            <option data-tokens="option2">Option 2</option>
-                                                            <option data-tokens="option3">Option 3</option>
-                                                            <option data-tokens="option4">Option 4</option>
+                                                        <select id="multi_cls_room" class="selectpicker" multiple data-live-search="true">
+                                                           
                                                         </select>
                                                     </div>
                                                 </div>
@@ -317,7 +314,7 @@
                                                 <div class="col-sm-4" id="childNameDiv">
                                                     <div class="form-group">
                                                         <label class="col-form-label">Child Name</label>
-                                                        <select class="selectpicker" multiple data-live-search="true">
+                                                        <select id="multi_child_name" class="selectpicker" multiple data-live-search="true">
                                                             <option data-tokens="option1">Option 1</option>
                                                             <option data-tokens="option2">Option 2</option>
                                                             <option data-tokens="option3">Option 3</option>
@@ -532,6 +529,8 @@
             }
         }
 
+
+        // Form repo start
         // display active form lists
         document.addEventListener("DOMContentLoaded", function () {
 
@@ -561,9 +560,6 @@
                 });
             }
 
-            // Call the function to execute it when the DOM is fully loaded
-            active_forms();
-
             function available_forms() {
                 // For waking up the AWS Lambda server
                 $.ajax({
@@ -584,8 +580,32 @@
                 });
             }
 
+            function classroom_names() {
+                // For waking up the AWS Lambda server
+                $.ajax({
+                    url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_count_with_class_name',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (response) {
+                        var multi_cls_room = '';
+                        if (response !== "") {
+                            for (var i = 0; i < response.length; i++) {
+                                if (response[i].class_name != "" && response[i].class_name != undefined) {
+                                    multi_cls_room += '<option value="' + response[i].class_id + '">' + response[i].class_name + '</option>';
+                                }
+                            }
+                        }
+                        $('#multi_cls_room').html(multi_cls_room);
+                         // Refresh the selectpicker to apply the changes
+                         $('#multi_cls_room').selectpicker('refresh');
+                    }
+                });
+            }
+
             // Call the function to execute it when the DOM is fully loaded
+            active_forms();
             available_forms();
+            classroom_names();
         });
 
         $(document).on("click", "#avai-to-act", function () {

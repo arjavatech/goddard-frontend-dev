@@ -442,7 +442,7 @@ function checking(editID) {
     function populateFormData(editID, formName) {
         return new Promise((resolve, reject) => {
             $.ajax({
-                url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
+                url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_all_details/fetch/${editID}`,
                 type: 'GET',
                 success: function (response) {
                     console.log(response);
@@ -858,7 +858,7 @@ function checking(editID) {
         // addChildDiv.style.display = 'none';
         //for waking up the aws lambda server  
         $.ajax({
-            url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/fetch/${editID}`,
+            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_all_details/fetch/${editID}`,
             type: 'GET',
             //this is used to get the response and return the result
             success: function (response) {

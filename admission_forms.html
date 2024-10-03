@@ -207,7 +207,7 @@
                                     <label for="primary_parent_email" class="form-label"><b>EMAIL ADDRESS</b>
                                     </label>
                                     <input type="text" class="form-control " id="primary_parent_email"
-                                        name="primary_parent_email"
+                                        name="parent_email"
                                         onchange="emailValidation(this,'primary_parent_email_span')" placeholder=" e.g. digitalmarketing@gmail.com" disabled>
                                     <span id="primary_parent_email_span" style="color:red; display:none">
                                         Enter valid input [should be in @ and .].</span>
@@ -227,10 +227,18 @@
                             </div>
                             <div class="col-sm">
                                 <div class="form-group">
-                                    <label for="work_hours" class="form-label"><b>WORK HOURS</b>
+                                    <label for="work_hours" class="form-label"><b>WORK HOURS FROM</b>
                                     </label>
-                                    <input type="text" class="form-control " id="work_hours"
-                                        name="work_hours" placeholder=" e.g. 10">
+                                    <input type="text" class="form-control " id="work_hours_from"
+                                        name="work_hours_from" placeholder=" e.g. 10">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="work_hours" class="form-label"><b>WORK HOURS TO</b>
+                                    </label>
+                                    <input type="text" class="form-control " id="work_hours_to"
+                                        name="work_hours_to" placeholder=" e.g. 10">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -390,7 +398,7 @@
                                     <label for="parent_email" class="form-label"><b>EMAIL ADDRESS</b>
                                     </label>
                                     <input type="text" class="form-control" id="parent_email"
-                                        name="parent_email"
+                                        name="parent_two_email"
                                         onchange="emailValidation(this,'parent_email_span')" placeholder="e.g. digitaldesinging@outlook.com">
                                     <span id="parent_email_span" style="color:red; display:none">
                                         Enter valid input [should be in @ and .].</span>
@@ -410,10 +418,18 @@
                             </div>
                             <div class="col-sm">
                                 <div class="form-group">
-                                    <label for="parent_two_work_hours" class="form-label"><b>WORK HOURS</b>
+                                    <label for="work_hours" class="form-label"><b>WORK HOURS FROM</b>
                                     </label>
-                                    <input type="text" class="form-control " id="parent_two_work_hours"
-                                        name="parent_two_work_hours" placeholder=" e.g. 11">
+                                    <input type="text" class="form-control " id="parent_two_work_hours_from"
+                                        name="parent_two_work_hours_from" placeholder=" e.g. 10">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="work_hours" class="form-label"><b>WORK HOURS TO</b>
+                                    </label>
+                                    <input type="text" class="form-control " id="parent_two_work_hours_to"
+                                        name="parent_two_work_hours_to" placeholder=" e.g. 10">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -495,43 +511,229 @@
                 <div id="emergencyCollapseThree" class="accordion-collapse collapse" aria-labelledby="emergencyHeadingThree"
                     data-bs-parent="#childinfoAccordionExample">
                     <div class="accordion-body accordion_tab_body">
-                        <div class="row m-1 mb-4">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="child_emergency_contact_name" class="form-label"><b>NAME</b>
-                                    </label>
-                                    <input type="text" class="form-control " aria-label="Emergency Name" id="child_emergency_contact_name"
-                                        name="child_emergency_contact_name" placeholder=" e.g. Mathew">
+                        <div>
+                            <h5>Emergency Contact 1:</h5>
+                            <div class="row m-1 mb-4">
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_name" class="form-label"><b>NAME</b>
+                                        </label>
+                                        <input type="text" class="form-control " aria-label="Emergency Name" id="child_emergency_contact_name"
+                                            name="child_emergency_contact_name" placeholder=" e.g. Mathew">
+                                    </div>
                                 </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_relationship" class="form-label"><b>RELATIONSHIP</b>
+                                        </label>
+                                        <input type="text" class="form-control " aria-label="Emergency Relationship"
+                                            id="child_emergency_contact_relationship" name="child_emergency_contact_relationship" placeholder="e.g. Brother">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_telephone_number" class="form-label"><b>TELEPHONE NUMBER</b>
+                                        </label>
+                                        <input type="text" class="form-control " aria-label="Emergency Relationship"
+                                            id="child_emergency_contact_telephone_number" name="child_emergency_contact_telephone_number"
+                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')" placeholder="e.g. +1-212-456-8890">
+                                        <span id="child_emergency_contact_telephone_number_span" style="color:red; display:none">
+                                            Enter valid input [only numbers,+,-,()].</span>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_full_address" class="form-label"><b>FULL ADDRESS</b>
+                                        </label>
+                                        <input type="text" class="form-control " aria-label="emergency_address"
+                                            id="child_emergency_contact_full_address" name="child_emergency_contact_full_address" placeholder="e.g. 132, My Street, Kingston, New York 12401.">
+                                    </div>
+                                </div> -->
                             </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="child_emergency_contact_full_address" class="form-label"><b>FULL ADDRESS</b>
-                                    </label>
-                                    <input type="text" class="form-control " aria-label="emergency_address"
-                                        id="child_emergency_contact_full_address" name="child_emergency_contact_full_address" placeholder="e.g. 132, My Street, Kingston, New York 12401.">
-                                </div>
+                            <div class="row m-1 mb-4">
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_full_address" class="form-label"><b>STREET</b>
+                                            </label>
+                                            <input type="text" class="form-control " id="child_emergency_contact_full_address"
+                                                name="child_emergency_contact_full_address" placeholder=" e.g. 133, My Street">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_city_address" class="form-label"><b>CITY</b>
+                                            </label>
+                                            <input type="text" class="form-control " id="child_emergency_contact_city_address"
+                                                name="child_emergency_contact_city_address" placeholder=" e.g. Kingston">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_state_address" class="form-label"><b>STATE</b>
+                                            </label>
+                                            <input type="text" class="form-control " id="child_emergency_contact_state_address"
+                                                name="child_emergency_contact_state_address" placeholder=" e.g. New York">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_zip_address" class="form-label"><b>ZIP</b>
+                                            </label>
+                                            <input type="text" class="form-control " aria-label="emergency_address"
+                                                id="child_emergency_contact_zip_address" name="child_emergency_contact_zip_address" placeholder="e.g. 12401.">
+                                        </div>
+                                    </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-4">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="child_emergency_contact_relationship" class="form-label"><b>RELATIONSHIP</b>
-                                    </label>
-                                    <input type="text" class="form-control " aria-label="Emergency Relationship"
-                                        id="child_emergency_contact_relationship" name="child_emergency_contact_relationship" placeholder="e.g. Brother">
+                        <div>
+                            <h5>Emergency Contact 2:</h5>
+                            <div class="row m-1 mb-4">
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_name" class="form-label"><b>NAME</b>
+                                        </label>
+                                        <input type="text" class="form-control " aria-label="Emergency Name" id="child_emergency_contact_name"
+                                            name="child_emergency_contact_name" placeholder=" e.g. Mathew">
+                                    </div>
                                 </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_relationship" class="form-label"><b>RELATIONSHIP</b>
+                                        </label>
+                                        <input type="text" class="form-control " aria-label="Emergency Relationship"
+                                            id="child_emergency_contact_relationship" name="child_emergency_contact_relationship" placeholder="e.g. Brother">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_telephone_number" class="form-label"><b>TELEPHONE NUMBER</b>
+                                        </label>
+                                        <input type="text" class="form-control " aria-label="Emergency Relationship"
+                                            id="child_emergency_contact_telephone_number" name="child_emergency_contact_telephone_number"
+                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')" placeholder="e.g. +1-212-456-8890">
+                                        <span id="child_emergency_contact_telephone_number_span" style="color:red; display:none">
+                                            Enter valid input [only numbers,+,-,()].</span>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_full_address" class="form-label"><b>FULL ADDRESS</b>
+                                        </label>
+                                        <input type="text" class="form-control " aria-label="emergency_address"
+                                            id="child_emergency_contact_full_address" name="child_emergency_contact_full_address" placeholder="e.g. 132, My Street, Kingston, New York 12401.">
+                                    </div>
+                                </div> -->
                             </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="child_emergency_contact_telephone_number" class="form-label"><b>TELEPHONE NUMBER</b>
-                                    </label>
-                                    <input type="text" class="form-control " aria-label="Emergency Relationship"
-                                        id="child_emergency_contact_telephone_number" name="child_emergency_contact_telephone_number"
-                                        onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')" placeholder="e.g. +1-212-456-8890">
-                                    <span id="child_emergency_contact_telephone_number_span" style="color:red; display:none">
-                                        Enter valid input [only numbers,+,-,()].</span>
+                            <div class="row m-1 mb-4">
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_full_address" class="form-label"><b>STREET</b>
+                                            </label>
+                                            <input type="text" class="form-control " id="child_emergency_contact_full_address"
+                                                name="child_emergency_contact_full_address" placeholder=" e.g. 133, My Street">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_city_address" class="form-label"><b>CITY</b>
+                                            </label>
+                                            <input type="text" class="form-control " id="child_emergency_contact_city_address"
+                                                name="child_emergency_contact_city_address" placeholder=" e.g. Kingston">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_state_address" class="form-label"><b>STATE</b>
+                                            </label>
+                                            <input type="text" class="form-control " id="child_emergency_contact_state_address"
+                                                name="child_emergency_contact_state_address" placeholder=" e.g. New York">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_zip_address" class="form-label"><b>ZIP</b>
+                                            </label>
+                                            <input type="text" class="form-control " aria-label="emergency_address"
+                                                id="child_emergency_contact_zip_address" name="child_emergency_contact_zip_address" placeholder="e.g. 12401.">
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Emergency Contact 3:</h5>
+                            <div class="row m-1 mb-4">
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_name" class="form-label"><b>NAME</b>
+                                        </label>
+                                        <input type="text" class="form-control " aria-label="Emergency Name" id="child_emergency_contact_name"
+                                            name="child_emergency_contact_name" placeholder=" e.g. Mathew">
+                                    </div>
                                 </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_relationship" class="form-label"><b>RELATIONSHIP</b>
+                                        </label>
+                                        <input type="text" class="form-control " aria-label="Emergency Relationship"
+                                            id="child_emergency_contact_relationship" name="child_emergency_contact_relationship" placeholder="e.g. Brother">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_telephone_number" class="form-label"><b>TELEPHONE NUMBER</b>
+                                        </label>
+                                        <input type="text" class="form-control " aria-label="Emergency Relationship"
+                                            id="child_emergency_contact_telephone_number" name="child_emergency_contact_telephone_number"
+                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')" placeholder="e.g. +1-212-456-8890">
+                                        <span id="child_emergency_contact_telephone_number_span" style="color:red; display:none">
+                                            Enter valid input [only numbers,+,-,()].</span>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_full_address" class="form-label"><b>FULL ADDRESS</b>
+                                        </label>
+                                        <input type="text" class="form-control " aria-label="emergency_address"
+                                            id="child_emergency_contact_full_address" name="child_emergency_contact_full_address" placeholder="e.g. 132, My Street, Kingston, New York 12401.">
+                                    </div>
+                                </div> -->
+                            </div>
+                            <div class="row m-1 mb-4">
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_full_address" class="form-label"><b>STREET</b>
+                                            </label>
+                                            <input type="text" class="form-control " id="child_emergency_contact_full_address"
+                                                name="child_emergency_contact_full_address" placeholder=" e.g. 133, My Street">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_city_address" class="form-label"><b>CITY</b>
+                                            </label>
+                                            <input type="text" class="form-control " id="child_emergency_contact_city_address"
+                                                name="child_emergency_contact_city_address" placeholder=" e.g. Kingston">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_state_address" class="form-label"><b>STATE</b>
+                                            </label>
+                                            <input type="text" class="form-control " id="child_emergency_contact_state_address"
+                                                name="child_emergency_contact_state_address" placeholder=" e.g. New York">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_zip_address" class="form-label"><b>ZIP</b>
+                                            </label>
+                                            <input type="text" class="form-control " aria-label="emergency_address"
+                                                id="child_emergency_contact_zip_address" name="child_emergency_contact_zip_address" placeholder="e.g. 12401.">
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                         <!-- Additional Parent's or legal guardian's business info end -->
@@ -682,12 +884,56 @@
                             </div>
                         </div>
                         <div class="row m-1 mb-4">
-                            <div class="col-sm">
+                            <!-- <div class="col-sm">
                                 <div class="form-group">
                                     <label for="dentist_address" class="form-label"><b>DENTIST ADDRESS</b>
                                     </label>
                                     <input type="text" class="form-control " id="dentist_address"
                                         name="dentist_address" placeholder="e.g. 3rd Ave, New York, 10003">
+                                </div>
+                            </div> -->
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="dentist_street_address"
+                                        class="form-label"><b>STREET</b>
+                                    </label>
+                                    <input type="text" class="form-control "
+                                        id="dentist_street_address"
+                                        name="dentist_street_address" placeholder="e.g. 2nd Street">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="dentist_city_address"
+                                        class="form-label"><b>CITY</b>
+                                    </label>
+                                    <input type="text" class="form-control "
+                                        id="dentist_city_address"
+                                        name="dentist_city_address" placeholder="e.g. Dorm">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="dentist_state_address"
+                                        class="form-label"><b>STATE</b>
+                                    </label>
+                                    <input type="text" class="form-control "
+                                        id="dentist_state_address"
+                                        name="dentist_state_address" placeholder="e.g. New York">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="dentist_zip_address"
+                                        class="form-label"><b>ZIP</b>
+                                    </label>
+                                    <input type="text" class="form-control "
+                                        id="dentist_zip_address"
+                                        name="dentist_zip_address"
+                                        onchange="ValidatePincode(this,'child_care_provider_zip_address_span')" placeholder="e.g. 10003">
+                                    <span id="child_care_provider_zip_address_span"
+                                        style="color:red; display:none">
+                                        Enter valid input [only numbers].</span>
                                 </div>
                             </div>
                         </div>
@@ -2263,7 +2509,7 @@
             <div class="col-sm">
                 <div class="form-group wizard-form-checkbox">
                     <input type="checkbox" class="input-checkbox" id="do_you_agree_this_security_release_policy_form"
-                    name="do_you_agree_this_security_release_policy_form" >
+                    name="security_release_policy_form" >
                     <label class="form-check-label" for="do_you_agree_this_security_release_policy_form">
                         <span class="svg"></span>
                         <span><b>I agree Security Release & Policy
@@ -2287,14 +2533,14 @@
             <span>
                 <p>The undersigned authorizes representatives of The Goddard School® to contact Emergency Medical Technicians to transport
                 <input type="text" class="form-control inputBox" id="contact_emergency_medical_technicians_medical_transportation_waiver" 
-                name="contact_emergency_medical_technicians_medical_transportation_waiver">
+                name="med_technicians_med_transportation_waiver">
                 (“Student”) to receive medical care, if such transportation/care is deemed necessary.</p>
                 <p>The undersigned irrevocably release any claims, demands, actions or causes of action against The Goddard School®, its franchisor, Goddard Systems, Inc., and their respective representatives and employees, which arise out of or relate to the transportation of Student and any medical care provided.</p>
                 <p>This authorization and waiver shall remain effective until Student withdraws from The Goddard School®.</p>
             </span><br>
             <div class="form-group wizard-form-checkbox">
                 <input type="checkbox" class="input-checkbox" id="do_you_agree_this_medical_transportation_waiver"
-                name="do_you_agree_this_medical_transportation_waiver" placeholder="Enter Student's Full Name">
+                name="medical_transportation_waiver" placeholder="Enter Student's Full Name">
                 <label class="form-check-label" for="do_you_agree_this_medical_transportation_waiver">
                     <span class="svg"></span>
                     <span><b>I agree medical transportation
@@ -2421,7 +2667,7 @@
                 <div class="form-group"> 
                     <div class="wizard-form-checkbox">
                         <input type="checkbox" class="input-checkbox" id="outside_waiver_parent_sign_outside_engagements_waiver" 
-                        name="outside_waiver_parent_sign_outside_engagements_waiver">
+                        name="parent_sign_outside_waiver">
                         <label class="form-check-label" for="outside_waiver_parent_sign_outside_engagements_waiver">
                             <span class="svg"></span><span><b>I have read this agreement and understand its terms.</b></span>
                         </label>

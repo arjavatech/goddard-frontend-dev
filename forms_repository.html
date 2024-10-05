@@ -257,7 +257,7 @@
                                     <div class="container">
                                         <form>
                                             <div class="row m-5">
-                                                <div class="col-sm-4">
+                                                <!-- <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class="col-form-label">Available Forms</label>
                                                         <select id="available_forms" name="options" class="form-control float-end"
@@ -276,8 +276,8 @@
                                                             class="btn btn-primary btn-bg">
                                                             <</button>
                                                     </div>
-                                                    <!-- <div class="col-sm"><button id="submitButton" type="button"
-                                                            class="btn btn-primary btn-bg">Submit</button></div> -->
+                                                    <div class="col-sm"><button id="submitButton" type="button"
+                                                            class="btn btn-primary btn-bg">Submit</button></div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
@@ -287,6 +287,46 @@
 
                                                         </select>
                                                     </div>
+                                                </div> -->
+                                                <div class="col-sm-4" >
+                                                    <div class="form-group">
+                                                        <label class="col-form-label">All Form Status</label>
+                                                        <select id="multi_child_name" class="selectpicker" multiple data-live-search="true">
+                                                            <option data-tokens="option1">All</option>
+                                                            <option data-tokens="option2">Default</option>
+                                                            <option data-tokens="option3">Available</option>
+                                                            <option data-tokens="option4">Active</option>
+                                                            <option data-tokens="option4">Archive</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" >
+                                                    <div class="form-group">
+                                                        <label class="col-form-label">All Form Name</label>
+                                                        <select id="multi_child_name" class="selectpicker" multiple data-live-search="true">
+                                                            <option data-tokens="option1">All</option>
+                                                            <option data-tokens="option2">Admission</option>
+                                                            <option data-tokens="option3">Authorization</option>
+                                                            <option data-tokens="option4">Parent Handbook</option>
+                                                            <option data-tokens="option4">Entrollment</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" >
+                                                    <div class="form-group">
+                                                        <label class="col-form-label">Form Moving Status</label>
+                                                        <select id="multi_child_name" class="selectpicker" data-live-search="true">
+                                                            <option data-tokens="option1">All</option>
+                                                            <option data-tokens="option2">Default</option>
+                                                            <option data-tokens="option3">Available</option>
+                                                            <option data-tokens="option4">Active</option>
+                                                            <option data-tokens="option4">Archive</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="text-center m-5">
+                                                    <button id="sendButton" type="submit"
+                                                        class="btn btn-primary btn-bg">Send</button>
                                                 </div>
                                             </div>
                                             <div class="row m-4">

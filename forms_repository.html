@@ -257,7 +257,7 @@
                                     <div class="container">
                                         <form>
                                             <div class="row m-5">
-                                                <div class="col-sm-4">
+                                                <!-- <div class="col-sm-4">
                                                     <div class="form-group">
                                                         <label class="col-form-label">Available Forms</label>
                                                         <select id="available_forms" name="options" class="form-control float-end"
@@ -276,8 +276,8 @@
                                                             class="btn btn-primary btn-bg">
                                                             <</button>
                                                     </div>
-                                                    <!-- <div class="col-sm"><button id="submitButton" type="button"
-                                                            class="btn btn-primary btn-bg">Submit</button></div> -->
+                                                    <div class="col-sm"><button id="submitButton" type="button"
+                                                            class="btn btn-primary btn-bg">Submit</button></div>
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
@@ -287,6 +287,46 @@
 
                                                         </select>
                                                     </div>
+                                                </div> -->
+                                                <div class="col-sm-4" >
+                                                    <div class="form-group">
+                                                        <label class="col-form-label">All Form Status</label>
+                                                        <select id="multi_child_name" class="selectpicker" multiple data-live-search="true">
+                                                            <option data-tokens="option1">All</option>
+                                                            <option data-tokens="option2">Default</option>
+                                                            <option data-tokens="option3">Available</option>
+                                                            <option data-tokens="option4">Active</option>
+                                                            <option data-tokens="option4">Archive</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" >
+                                                    <div class="form-group">
+                                                        <label class="col-form-label">All Form Name</label>
+                                                        <select id="multi_child_name" class="selectpicker" multiple data-live-search="true">
+                                                            <option data-tokens="option1">All</option>
+                                                            <option data-tokens="option2">Admission</option>
+                                                            <option data-tokens="option3">Authorization</option>
+                                                            <option data-tokens="option4">Parent Handbook</option>
+                                                            <option data-tokens="option4">Entrollment</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4" >
+                                                    <div class="form-group">
+                                                        <label class="col-form-label">Form Moving Status</label>
+                                                        <select id="multi_child_name" class="selectpicker" data-live-search="true">
+                                                            <option data-tokens="option1">All</option>
+                                                            <option data-tokens="option2">Default</option>
+                                                            <option data-tokens="option3">Available</option>
+                                                            <option data-tokens="option4">Active</option>
+                                                            <option data-tokens="option4">Archive</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="text-center m-5">
+                                                    <button id="sendButton" type="submit"
+                                                        class="btn btn-primary btn-bg">Send</button>
                                                 </div>
                                             </div>
                                             <div class="row m-4">
@@ -304,11 +344,8 @@
                                                 <div class="col-sm-4" id="classRoomDiv">
                                                     <div class="form-group">
                                                         <label class="col-form-label">Class Room</label>
-                                                        <select class="selectpicker" multiple data-live-search="true">
-                                                            <option data-tokens="option1">Option 1</option>
-                                                            <option data-tokens="option2">Option 2</option>
-                                                            <option data-tokens="option3">Option 3</option>
-                                                            <option data-tokens="option4">Option 4</option>
+                                                        <select id="multi_cls_room" class="selectpicker" multiple data-live-search="true">
+                                                           
                                                         </select>
                                                     </div>
                                                 </div>
@@ -317,7 +354,7 @@
                                                 <div class="col-sm-4" id="childNameDiv">
                                                     <div class="form-group">
                                                         <label class="col-form-label">Child Name</label>
-                                                        <select class="selectpicker" multiple data-live-search="true">
+                                                        <select id="multi_child_name" class="selectpicker" multiple data-live-search="true">
                                                             <option data-tokens="option1">Option 1</option>
                                                             <option data-tokens="option2">Option 2</option>
                                                             <option data-tokens="option3">Option 3</option>
@@ -532,6 +569,8 @@
             }
         }
 
+
+        // Form repo start
         // display active form lists
         document.addEventListener("DOMContentLoaded", function () {
 
@@ -561,9 +600,6 @@
                 });
             }
 
-            // Call the function to execute it when the DOM is fully loaded
-            active_forms();
-
             function available_forms() {
                 // For waking up the AWS Lambda server
                 $.ajax({
@@ -584,8 +620,32 @@
                 });
             }
 
+            function classroom_names() {
+                // For waking up the AWS Lambda server
+                $.ajax({
+                    url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_count_with_class_name',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (response) {
+                        var multi_cls_room = '';
+                        if (response !== "") {
+                            for (var i = 0; i < response.length; i++) {
+                                if (response[i].class_name != "" && response[i].class_name != undefined) {
+                                    multi_cls_room += '<option value="' + response[i].class_id + '">' + response[i].class_name + '</option>';
+                                }
+                            }
+                        }
+                        $('#multi_cls_room').html(multi_cls_room);
+                         // Refresh the selectpicker to apply the changes
+                         $('#multi_cls_room').selectpicker('refresh');
+                    }
+                });
+            }
+
             // Call the function to execute it when the DOM is fully loaded
+            active_forms();
             available_forms();
+            classroom_names();
         });
 
         $(document).on("click", "#avai-to-act", function () {

@@ -135,7 +135,7 @@ $(document).ready(function () {
                 { 
                     data: 'child_name',
                     render: function (data, type, full, meta) {
-                        let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.parent_email}`;
+                        let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.primary_email}`;
                         return `<a href="${url}">${full.child_first_name +" "+ full.child_last_name}</a>`;
                     },
                 },

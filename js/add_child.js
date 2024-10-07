@@ -86,9 +86,9 @@ $(document).ready(function () {
                     // Checking if response is not empty and contains valid data
                     if (response && response.length > 0) {
                         for (var i = 0; i < response.length; i++) {
-                            if (response[i].email) {
+                            if (response[i].parent_email) {
                                 // Dynamically constructing options for the select
-                                parent_email += '<option value="' + response[i].parent_id + '" data-tokens="' + response[i].parent_id + '">' + response[i].email + '</option>';
+                                parent_email += '<option value="' + response[i].parent_id + '" data-tokens="' + response[i].parent_id + '">' + response[i].parent_email + '</option>';
                             }
                         }
                     }

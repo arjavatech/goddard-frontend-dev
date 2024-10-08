@@ -2,7 +2,7 @@ import {isAuthenticated} from "./authentication_verify.js";
 
 var year = new Date().getFullYear() + '';
 // Function to submit the form data
-function submitForm(editID) {
+function submitForm(editID,number) {
     const form = document.getElementById("childInfoAdmission");
     var old = form;
     var new_element = old.cloneNode(true);
@@ -11,6 +11,7 @@ function submitForm(editID) {
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData); 
     obj.form_year_admission = year;
+    obj.pointer = number;
     //to get values from local storage variable and stored it into response1 variable.
     var response=JSON.parse(window.localStorage.getItem("responseData"));
     var outputobject ={};
@@ -54,414 +55,11 @@ function submitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_additional/update");
+    xhr.open("PUT", `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_form/update/${localStorage.getItem('child_id')}`);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
 
-function childPersonalsubmitForm(editID) {
-    console.log(editID);
-    const form = document.getElementById("childInfoAdmission");
-    var old = form;
-    var new_element = old.cloneNode(true);
-    //replace the element
-    old.parentNode.replaceChild(new_element,old);
-    const formData = new FormData(form);
-    const obj = Object.fromEntries(formData);
-    console.log(obj);
-    obj.form_year_admission = year;
-    //to get values from local storage variable and stored it into response1 variable.
-    var response=JSON.parse(window.localStorage.getItem("responseData"));
-    var outputobject ={};
-    //to set local response variable id value for outputobject id value.
-    if(editID != ''){
-        outputobject.primary_parent_email = editID;
-    }else{
-        outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
-    }
-    const child_id_val = localStorage.getItem('child_id');
-
-    if (child_id_val !== null && child_id_val !== undefined) {
-        outputobject.child_id = child_id_val; 
-    }
-    var keys = Object.keys(obj);
-    // alert('hi');
-    //compare new date with old data
-    keys.forEach(function (key) {
-        if(obj[key] != response[key] && obj[key] !=="" ){
-            outputobject[key]=obj[key];
-        }
-    })
-    const json=JSON.stringify(outputobject); 
-    console.log(json);
-    let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        if (xhr.status === 200) {
-            $(".success-msg").show();
-            setTimeout(function(){ 
-                $(".success-msg").hide(); 
-                // window.location.reload();
-                // localStorage.setItem()
-                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-                window.location.href = `./parent_dashboard.html`;
-            }, 3000);
-        }else{
-            $(".error-msg").show();
-            setTimeout(function(){ 
-                $(".error-msg").hide(); 
-            }, 3000);
-        }
-    };
-    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/modify");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(json);
-    // $.ajax({
-    //     url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/modify",
-    //     type: "PUT",
-    //     contentType: "application/json",
-    //     data:json,
-    //     success: function (response) {
-    //         console.log(response);
-    //         if(response.message == "Sign-up not allowed"){
-    //             $(".error-msg").show();
-    //             setTimeout(function(){ 
-    //                 $(".error-msg").hide(); 
-    //             }, 3000);
-    //         }else{
-    //             $(".success-msg").show();
-    //             setTimeout(function(){ 
-    //                 $(".success-msg").hide(); 
-    //                 window.location.href = "login.html";
-    //             }, 3000);
-    //         }
-        
-    //     },
-    // });
-}
-function childParentsubmitForm(editID) {
-    const form = document.getElementById("childInfoAdmission");
-    var old = form;
-    var new_element = old.cloneNode(true);
-    //replace the element
-    old.parentNode.replaceChild(new_element,old);
-    const formData = new FormData(form);
-    const obj = Object.fromEntries(formData);
-    obj.form_year_admission = year;
-    //to get values from local storage variable and stored it into response1 variable.
-    var response=JSON.parse(window.localStorage.getItem("responseData"));
-    var outputobject ={};
-    //to set local response variable id value for outputobject id value.
-    if(editID != ''){
-        outputobject.primary_parent_email = editID;
-    }else{
-        outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
-    }
-    const child_id_val = localStorage.getItem('child_id');
-
-    if (child_id_val !== null && child_id_val !== undefined) {
-        outputobject.child_id = child_id_val; 
-    }
-    var keys = Object.keys(obj);
-    
-    //compare new date with old data
-    keys.forEach(function (key) {
-        console.log(obj[key]);
-        if(obj[key] != response[key] && obj[key] !=="" ){
-            outputobject[key]=obj[key];
-        }
-    })
-    const json=JSON.stringify(outputobject); 
-    console.log(json)
-    let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        if (xhr.status === 200) {
-            $(".success-msg").show();
-            setTimeout(function(){ 
-                $(".success-msg").hide(); 
-                // window.location.reload();
-                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-                window.location.href = `./parent_dashboard.html`;
-            }, 3000);
-        }else{
-            $(".error-msg").show();
-            setTimeout(function(){ 
-                $(".error-msg").hide(); 
-            }, 3000);
-        }
-    };
-    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_parent_info/update");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(json);
-}
-
-function childParentTwosubmitForm(editID) {
-    const form = document.getElementById("childInfoAdmission");
-    const formData = new FormData(form);
-    const obj = Object.fromEntries(formData);
-    obj.form_year_admission = year;
-    console.log(obj);
-    //to set local response variable id value for outputobject id value.
-    if(editID != ''){
-        obj.primary_parent_email = editID;
-    }else{
-        obj.primary_parent_email = localStorage.getItem('logged_in_email');
-    }
-    const child_id_val = localStorage.getItem('child_id');
-
-    if (child_id_val !== null && child_id_val !== undefined) {
-        obj.child_id = child_id_val; 
-    }
-    const json=JSON.stringify(obj); 
-    console.log(json)
-    let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        if (xhr.status === 200) {
-            $(".success-msg").show();
-            setTimeout(function(){ 
-                $(".success-msg").hide(); 
-                // window.location.reload();
-                sessionStorage.setItem('putcallId',child_id_val);
-                window.location.href = `./parent_dashboard.html`;
-            }, 3000);
-        }else{
-            $(".error-msg").show();
-            setTimeout(function(){ 
-                $(".error-msg").hide(); 
-            }, 3000);
-        }
-    };
-    xhr.open("POST", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_parent_two_info/add");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(json);
-}
-
-function childHistorysubmitForm(editID) {
-    const form = document.getElementById("childInfoAdmission");
-    var old = form;
-    var new_element = old.cloneNode(true);
-    //replace the element
-    old.parentNode.replaceChild(new_element,old);
-    const formData = new FormData(form);
-    const obj = Object.fromEntries(formData);
-    obj.form_year_admission = year;
-    //to get values from local storage variable and stored it into response1 variable.
-    var response=JSON.parse(window.localStorage.getItem("responseData"));
-    var outputobject ={};
-    //to set local response variable id value for outputobject id value.
-    if(editID != ''){
-        outputobject.primary_parent_email = editID;
-    }else{
-        outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
-    }
-    const child_id_val = localStorage.getItem('child_id');
-
-    if (child_id_val !== null && child_id_val !== undefined) {
-        outputobject.child_id = child_id_val; 
-    }
-    var keys = Object.keys(obj);
-    
-    //compare new date with old data
-    keys.forEach(function (key) {
-        if(obj[key] != response[key] && obj[key] !=="" ){
-            outputobject[key]=obj[key];
-        }
-    })
-    const json=JSON.stringify(outputobject); 
-    let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        if (xhr.status === 200) {
-            // alert(response.message)
-            $(".success-msg").show();
-            setTimeout(function(){ 
-                $(".success-msg").hide(); 
-                // window.location.reload();
-                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-                window.location.href = `./parent_dashboard.html`;
-            }, 3000);
-           
-        }else{
-            $(".error-msg").show();
-            setTimeout(function(){ 
-                $(".error-msg").hide(); 
-            }, 3000);
-        }
-    };
-    xhr.open("PUT", " https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_health/update");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(json);
-}
-function childProfilesubmitForm(editID) {
-    const form = document.getElementById("childInfoAdmission");
-    var old = form;
-    var new_element = old.cloneNode(true);
-    //replace the element
-    old.parentNode.replaceChild(new_element,old);
-    const formData = new FormData(form);
-    const obj = Object.fromEntries(formData);
-    obj.form_year_admission = year;
-    //to get values from local storage variable and stored it into response1 variable.
-    var response=JSON.parse(window.localStorage.getItem("responseData"));
-    var outputobject ={};
-    //to set local response variable id value for outputobject id value.
-    if(editID != ''){
-        outputobject.primary_parent_email = editID;
-    }else{
-        outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
-    }
-    const child_id_val = localStorage.getItem('child_id');
-
-    if (child_id_val !== null && child_id_val !== undefined) {
-        outputobject.child_id = child_id_val; 
-    }
-    var keys = Object.keys(obj);
-    
-    //compare new date with old data
-    keys.forEach(function (key) {
-        if(obj[key] != response[key] && obj[key] !=="" ){
-            outputobject[key]=obj[key];
-        }
-    })
-    const json=JSON.stringify(outputobject); 
-    console.log(json);
-    let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        if (xhr.status === 200) {
-            $(".success-msg").show();
-            setTimeout(function(){ 
-                $(".success-msg").hide(); 
-                // window.location.reload();
-                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-                window.location.href = `./parent_dashboard.html`;
-            }, 3000);
-        }else{
-            $(".error-msg").show();
-            setTimeout(function(){ 
-                $(".error-msg").hide(); 
-            }, 3000);
-        }
-    };
-    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_profile/update");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(json);
-}
-
-function saveForm(editID) {
-    //to get values from local storage variable.
-    window.localStorage.getItem("responseData");
-    var form = document.getElementById("childInfoAdmission");
-    
-    // form.removeEventListener("submit", addStudent);
-    var old = form;
-    var new_element = old.cloneNode(true);
-    //replace the element
-    old.parentNode.replaceChild(new_element,old);
-    // new_element.addEventListener("submit", (e) => {
-    //     e.preventDefault();
-    const formData = new FormData(form);
-    const obj = Object.fromEntries(formData);
-    obj.form_year_admission = year;
-    //to get values from local storage variable and stored it into response1 variable.
-    var response=JSON.parse(window.localStorage.getItem("responseData"));
-    var outputobject ={};
-    //to set local response variable id value for outputobject id value.
-    if(editID != ''){
-        outputobject.primary_parent_email = editID;
-    }else{
-        outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
-    }
-    const child_id_val = localStorage.getItem('child_id');
-
-    if (child_id_val !== null && child_id_val !== undefined) {
-        outputobject.child_id = child_id_val; 
-    }
-    var keys = Object.keys(obj);
-    
-    //compare new date with old data
-    keys.forEach(function (key) {
-        if(obj[key] != response[key] && obj[key] !=="" ){
-            outputobject[key]=obj[key];
-        }
-    })
-    const json=JSON.stringify(outputobject); 
-    let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        if (xhr.status === 200) {
-            $(".success-msg").show();
-            setTimeout(function(){ 
-                $(".success-msg").hide(); 
-                // window.location.reload();
-                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-                window.location.href = `./parent_dashboard.html`;
-            }, 3000);
-        }else{
-            $(".error-msg").show();
-            setTimeout(function(){ 
-                $(".error-msg").hide(); 
-            }, 3000);
-        }
-    };
-    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_additional/update");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(json);
-}
-
-function admissionsubmitForm(editID) {
-    console.log(editID);
-    const form = document.getElementById("childInfoAdmission");
-    var old = form;
-    var new_element = old.cloneNode(true);
-    //replace the element
-    old.parentNode.replaceChild(new_element,old);
-    const formData = new FormData(form);
-    const obj = Object.fromEntries(formData);
-    console.log(obj);
-    obj.form_year_admission = year;
-    //to get values from local storage variable and stored it into response1 variable.
-    var response=JSON.parse(window.localStorage.getItem("responseData"));
-    var outputobject ={};
-    //to set local response variable id value for outputobject id value.
-    if(editID != ''){
-        outputobject.primary_parent_email = editID;
-    }else{
-        outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
-    }
-    const child_id_val = localStorage.getItem('child_id');
-
-    if (child_id_val !== null && child_id_val !== undefined) {
-        outputobject.child_id = child_id_val; 
-    }
-    var keys = Object.keys(obj);
-    // alert('hi');
-    //compare new date with old data
-    keys.forEach(function (key) {
-        if(obj[key] != response[key] && obj[key] !=="" ){
-            outputobject[key]=obj[key];
-        }
-    })
-    const json=JSON.stringify(outputobject); 
-    console.log(json);
-    let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        if (xhr.status === 200) {
-            $(".success-msg").show();
-            setTimeout(function(){ 
-                $(".success-msg").hide(); 
-                // window.location.reload();
-                // localStorage.setItem()
-                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-                window.location.href = `./parent_dashboard.html?id=${editID}`;
-            }, 3000);
-        }else{
-            $(".error-msg").show();
-            setTimeout(function(){ 
-                $(".error-msg").hide(); 
-            }, 3000);
-        }
-    };
-    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/modify");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(json);
-}
 
 function authorizationSubmitForm(editID) {
     const form = document.getElementById("childInfoAuthorization");
@@ -847,33 +445,114 @@ $(document).ready(function () {
         });
         let samplejson = {};
         let editChildID = window.location.search.slice(4);
-        $(document).on("click", ".child_personal_admission", function(e) {
+        $(document).on("click", "#child_basic_info", function(e) {
             e.preventDefault();
-            childPersonalsubmitForm(editChildID);
+            submitForm(editChildID,1);
         });
-        $(document).on("click", ".child_parent_info", function(e) {
+        $(document).on("click", "#parent_info", function(e) {
             e.preventDefault();
-            childParentsubmitForm(editChildID);
+            submitForm(editChildID,2);
         });
-        $(document).on("click", ".child_parent_two_info", function(e) {
+        $(document).on("click", "#parent_two_info", function(e) {
             e.preventDefault();
-            childParentTwosubmitForm(editChildID);
+            submitForm(editChildID,3);
         });
-        $(document).on("click", ".child_health", function(e) {
+        $(document).on("click", "#emergency_info", function(e) {
             e.preventDefault();
-            childHistorysubmitForm(editChildID);
+            submitForm(editChildID,4);
         });
-        $(document).on("click", ".child-profile-btn", function(e) {
+        $(document).on("click", "#fourth_save", function(e) {
             e.preventDefault();
-            childProfilesubmitForm(editChildID);
+            submitForm(editChildID,5);
         });
-        $(document).on("click", ".save-btn", function(e) {
+        $(document).on("click", "#fifth_save", function(e) {
             e.preventDefault();
-            saveForm(editChildID);
+            submitForm(editChildID,6);
         });
+        $(document).on("click", "#sixth_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,7);
+        });
+        $(document).on("click", "#seventh_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,8);
+        });
+        $(document).on("click", "#eigth_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,9);
+        });
+        $(document).on("click", "#nine_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,10);
+        });
+        $(document).on("click", "#ten_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,11);
+        });
+        $(document).on("click", "#eleven_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,12);
+        });
+        $(document).on("click", "#twelve_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,13);
+        });
+        $(document).on("click", "#thirteen_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,14);
+        });
+        $(document).on("click", "#fourteen_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,15);
+        });
+        $(document).on("click", "#fifteen_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,16);
+        });
+        $(document).on("click", "#sixteen_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,17);
+        });
+        $(document).on("click", "#seventeen_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,18);
+        });
+        $(document).on("click", "#eighteen_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,19);
+        });
+        $(document).on("click", "#nineteen_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,20);
+        });
+        $(document).on("click", "#twenty_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,21);
+        });
+        $(document).on("click", "#twentyone_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,22);
+        });
+        $(document).on("click", "#twentytwo_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,23);
+        });
+        $(document).on("click", "#twentythree_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,24);
+        });
+        $(document).on("click", "#twentyfour_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,25);
+        });
+        $(document).on("click", "#twentyfive_save", function(e) {
+            e.preventDefault();
+            submitForm(editChildID,26);
+        });
+
         $(document).on("click", ".admission-submit-btn", function(e) {
             e.preventDefault();
-            admissionsubmitForm(editChildID);
+            admissionsubmitForm(editChildID,1);
         });
         $(document).on("click", ".ach-save-btn", function(e) {
             e.preventDefault();

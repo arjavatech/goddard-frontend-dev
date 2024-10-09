@@ -71,7 +71,7 @@ function getAllInfo(editID, callback) {
     })
 }
 
-function qqfesc80rqna4ljmv0ga2m5m6f58twm7nqc27h0gx2() {
+function responseToAuthenticationCheck() {
     const parentName = localStorage.getItem('logged_in_email');
     if (parentName !== 'undefined' && parentName !== null) {
         document.body.style.visibility = 'visible';
@@ -200,13 +200,13 @@ function checking(editID) {
                 //     $("#menu").append(data);
                 // });
 
-                if (trimValues == 'admission_forms' || trimValues == 'authorization' ||
+                if (trimValues == 'admission_form' || trimValues == 'authorization' ||
                     trimValues == 'enrollment_agreement' || trimValues == 'parent_handbook') {
                     $(`.menu.${trimValues}`).load(trimValues + "_list_item.html");
 
                 }
 
-                if (trimValues == 'admission_forms' || trimValues == 'authorization' ||
+                if (trimValues == 'admission_form' || trimValues == 'authorization' ||
                     trimValues == 'enrollment_agreement' || trimValues == 'parent_handbook') {
                     $(`.tab-content.${trimValues}`).load(trimValues + ".html");
                     $('.svg').append('<svg width="12px" height="10px" viewbox="0 0 12 10"><polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg>');
@@ -749,7 +749,7 @@ function checking(editID) {
                     let url = '';
                     switch (full.formName) {
                         case 'Admission Forms':
-                            url = `${window.location.origin}/goddard-frontend-test/admission_forms_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/goddard-frontend-test/admission_form_completed.html?id=${editID}`;
                             break;
                         case 'Authorization':
                             url = `${window.location.origin}/goddard-frontend-test/authorization_completed.html?id=${editID}`;
@@ -782,7 +782,7 @@ function checking(editID) {
         // addChildDiv.style.display = 'none';
         //for waking up the aws lambda server  
         $.ajax({
-            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_all_details/fetch/${editID}`,
+            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_all_form_details/fetch/${editID}`,
             type: 'GET',
             //this is used to get the response and return the result
             success: function (response) {
@@ -924,16 +924,16 @@ function checking(editID) {
                         document.getElementsByName('parent_two_work_hours')[0].value = response.parent_two_work_hours;
                     if (typeof response.parent_two_business_telephone_number !== "undefined")
                         document.getElementsByName('parent_two_business_telephone_number')[0].value = response.parent_two_business_telephone_number;
-                    if (typeof response.parent_two_business_street_address !== "undefined")
-                        document.getElementsByName('parent_two_business_street_address')[0].value = response.parent_two_business_street_address;
-                    if (typeof response.parent_two_business_city_address !== "undefined")
-                        document.getElementsByName('parent_two_business_city_address')[0].value = response.parent_two_business_city_address;
-                    if (typeof response.parent_two_business_state_address !== "undefined")
-                        document.getElementsByName('parent_two_business_state_address')[0].value = response.parent_two_business_state_address;
-                    if (typeof response.parent_two_business_zip_address !== "undefined")
-                        document.getElementsByName('parent_two_business_zip_address')[0].value = response.parent_two_business_zip_address;
-                    if (typeof response.parent_two_business_cell_number !== "undefined")
-                        document.getElementsByName('parent_two_business_cell_number')[0].value = response.parent_two_business_cell_number;
+                    // if (typeof response.parent_two_business_street_address !== "undefined")
+                    //     document.getElementsByName('parent_two_business_street_address')[0].value = response.parent_two_business_street_address;
+                    // if (typeof response.parent_two_business_city_address !== "undefined")
+                    //     document.getElementsByName('parent_two_business_city_address')[0].value = response.parent_two_business_city_address;
+                    // if (typeof response.parent_two_business_state_address !== "undefined")
+                    //     document.getElementsByName('parent_two_business_state_address')[0].value = response.parent_two_business_state_address;
+                    // if (typeof response.parent_two_business_zip_address !== "undefined")
+                    //     document.getElementsByName('parent_two_business_zip_address')[0].value = response.parent_two_business_zip_address;
+                    // if (typeof response.parent_two_business_cell_number !== "undefined")
+                    //     document.getElementsByName('parent_two_business_cell_number')[0].value = response.parent_two_business_cell_number;
                     if (typeof response.parent_email !== "undefined")
                         document.getElementsByName('parent_email')[0].value = response.parent_email;
 
@@ -3032,7 +3032,7 @@ $(document).ready(function () {
         let editID = window.location.search.slice(4);
         // checks the parent info table to see if parent entry is present
         checkParentAuthentication(editID, function () {
-            qqfesc80rqna4ljmv0ga2m5m6f58twm7nqc27h0gx2();
+            responseToAuthenticationCheck();
             // Checks the admission info table
             getAllInfo(editID, function () {
                 welcomeText();
@@ -3044,3 +3044,4 @@ $(document).ready(function () {
         });
     }
 });
+

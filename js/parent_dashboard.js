@@ -17,9 +17,9 @@ function checkParentAuthentication(editID, callback) {
     if (editID == logged_in_email || logged_in_email == 'goddard01arjava@gmail.com' || editID == '') {
         // (stop user to see other kids || check admin login || default parent login)
         if (editID != '') {
-            url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${editID}`
+            url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/parent_email/${editID}`
         } else {
-            url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${logged_in_email}`
+            url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/parent_email/${logged_in_email}`
         }
         $.ajax({
             url: url,
@@ -48,15 +48,16 @@ function getAllInfo(editID, callback) {
     const logged_in_email = localStorage.getItem('logged_in_email');
     let url;
     if (editID != '') {
-        url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${editID}`
+        url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/parent_email/${editID}`
     } else {
-        url = `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/parent_email?email=${logged_in_email}`
+        url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/parent_email/${logged_in_email}`
     }
 
     $.ajax({
         url: url,
         type: 'get',
         success: function (response) {
+            console.log(response);
             // localStorage.clear()
             if (response['children']) {
                 // Iterate through all the child and store the response
@@ -70,7 +71,7 @@ function getAllInfo(editID, callback) {
     })
 }
 
-function responseToAuthenticationCheck() {
+function qqfesc80rqna4ljmv0ga2m5m6f58twm7nqc27h0gx2() {
     const parentName = localStorage.getItem('logged_in_email');
     if (parentName !== 'undefined' && parentName !== null) {
         document.body.style.visibility = 'visible';
@@ -248,7 +249,7 @@ function checking(editID) {
     // var tab_content = document.querySelector(".tab-content");
     // tab_content.reset();
     $.ajax({
-        url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/incomplete_form_status/${editID}`,
+        url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/incomplete_form_status/${editID}`,
         type: 'GET',
         dataType: 'json',
         success: function (response) {
@@ -792,7 +793,7 @@ function checking(editID) {
         dom: 'Qlfrtip',
         lengthChange: false,
         ajax: {
-            url: `https://jvirbzj4p1.execute-api.us-west-2.amazonaws.com/goddard_test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
+            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
             dataSrc: function (json) {
                 // Format the timestamp in the JSON data before using it in the DataTable
                 json.CompletedFormStatus.forEach(function (item) {
@@ -3108,7 +3109,7 @@ $(document).ready(function () {
         let editID = window.location.search.slice(4);
         // checks the parent info table to see if parent entry is present
         checkParentAuthentication(editID, function () {
-            responseToAuthenticationCheck();
+            qqfesc80rqna4ljmv0ga2m5m6f58twm7nqc27h0gx2();
             // Checks the admission info table
             getAllInfo(editID, function () {
                 welcomeText();
@@ -3120,4 +3121,3 @@ $(document).ready(function () {
         });
     }
 });
-

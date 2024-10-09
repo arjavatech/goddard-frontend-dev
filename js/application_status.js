@@ -112,7 +112,7 @@ $(document).ready(function () {
 
     let classID = window.location.search.slice(4);
 
-    function initializeDataTable(url) {
+    function initializeDataTable(url,clsdataval) {
         $('#example').DataTable({
             scrollX: true,
             info: false,
@@ -122,9 +122,16 @@ $(document).ready(function () {
                 dataSrc: function(json) {
                     if (!url.includes('class_based_all_child_details')) {
                         // Filter out rows where class_name is "archive and unassign"
-                        return json.filter(function(row) {
-                            return row.class_name !== 'Archive' && row.class_name !== 'Unassigned';
-                        });
+                        if(clsdataval !== undefined){
+                            return json.filter(function(row) {
+                                return row.class_name == clsdataval;
+                            });
+                        } else {
+                            return json.filter(function(row) {
+                                return row.class_name !== 'Archive' && row.class_name !== 'Unassigned';
+                            });
+                        }
+                       
                     } else {
                         return json;
                     }
@@ -186,14 +193,19 @@ $(document).ready(function () {
 
     $('#clsroomSearch').on('change', function() {
         let clsroomSearchId = $(this).val();
+        let clsroomDataval = $(this).find('option:selected').data('value');
+        let formSelectedval = $("#form_name").find('option:selected').val();
          // Clear and destroy the existing DataTable
          let table = $('#example').DataTable();
          table.clear().destroy();
          
-        if(clsroomSearchId != ""){
+        if(formSelectedval == undefined){
             initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_based_all_child_details/${clsroomSearchId}`);
-        } else {
+        } else if(formSelectedval == ""){
+            // Initialize DataTable with default URL
             initializeDataTable('https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
+        } else {
+            initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/form_based_all_child_details/${formSelectedval}`,clsroomDataval);
         }
         
     });
@@ -201,20 +213,18 @@ $(document).ready(function () {
     // Event listener for form_name dropdown
     $('#form_name').on('change', function() {
         let form_name = $(this).val();
-        if (form_name) {
-            // Clear and destroy the existing DataTable
-            let table = $('#example').DataTable();
-            table.clear().destroy();
+        // Clear and destroy the existing DataTable
+        let table = $('#example').DataTable();
+        table.clear().destroy();
 
-            if(form_name != ""){
-                // Initialize a new DataTable with the updated URL
-                initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/form_based_all_child_details/${form_name}`);
-            } else {
-                // Initialize DataTable with default URL
-                initializeDataTable('https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
-            }
-        
+        if(form_name != ""){
+            // Initialize a new DataTable with the updated URL
+            initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/form_based_all_child_details/${form_name}`);
+        } else {
+            // Initialize DataTable with default URL
+            initializeDataTable('https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
         }
+        
     });
 
     // Preload the form_name dropdown options
@@ -245,11 +255,11 @@ $(document).ready(function () {
             type: 'get',
             dataType: 'json',
             success: function(response) {
-                let clsroom_name_value = `<option value="">All</option>`;
+                let clsroom_name_value = `<option value="" data-value="">All</option>`;
                 if(response !== "") {
                     response.forEach(item => {
                         if(item.class_name && item.class_name !== undefined) {
-                            clsroom_name_value += `<option value="${item.class_id}">${item.class_name}</option>`;
+                            clsroom_name_value += `<option value="${item.class_id}" data-value="${item.class_name}">${item.class_name}</option>`;
                         }
                     });
                 }

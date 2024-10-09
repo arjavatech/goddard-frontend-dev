@@ -18,38 +18,44 @@ function emailSend() {
         // obj.subject = 'Invite parents';
         // let messageData = $('#messageData').val();
         // obj.body = "";
-        const json =JSON.stringify(obj);
+        const json = JSON.stringify(obj);
         console.log(json);
 
-        if(obj.child_fname != "" && obj.child_lname && obj.child_classroom_id && obj.parent_name && obj.invite_email){
+        if (obj.child_fname != "" && obj.child_lname && obj.child_classroom_id && obj.parent_name && obj.invite_email) {
 
-        $.ajax({
-            url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_invite_with_mail_trigger/create",
-            type: "POST",
-            contentType: "application/json",
-            data: json,
-            success: function (response) {
-                // console.log(response.message);
-                $(".success-msg").show();
-                    setTimeout(function(){
-                    $(".success-msg").hide();
-                    window.location.reload();
-                }, 3000);
-            },
-            error: function (xhr, status, error) {
-                $(".error-msg-alreadyexists").show();
-                    setTimeout(function(){
-                    $(".error-msg-alreadyexists").hide();
-                    window.location.reload();
-                }, 3000);
-            }
-        });
-    } else {
-        $(".error-msg-empty").show();
-        setTimeout(function(){
-        $(".error-msg-empty").hide();
-    }, 3000);
-    }
+            $.ajax({
+                url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_invite_with_mail_trigger/create",
+                type: "POST",
+                contentType: "application/json",
+                data: json,
+                success: function (response) {
+                    console.log(response.error);
+                    // return false;
+                    if (response.error === "Parent invite mail with id varsha.arjava@gmail.com is already exists!!!") {
+                        $(".error-msg-alreadyexists").show();
+                        setTimeout(function () {
+                            $(".error-msg-alreadyexists").hide();
+                            // window.location.reload();
+                        }, 3000);
+                    } else {
+                        $(".success-msg").show();
+                        setTimeout(function () {
+                            $(".success-msg").hide();
+                            window.location.reload();
+                        }, 3000);
+                    }
+
+                },
+                error: function (xhr, status, error) {
+                    console.log(error);
+                }
+            });
+        } else {
+            $(".error-msg-empty").show();
+            setTimeout(function () {
+                $(".error-msg-empty").hide();
+            }, 3000);
+        }
     } catch (error) {
         console.error('Error:', error);
     }

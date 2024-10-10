@@ -905,7 +905,7 @@
                                     </label>
                                     <input type="text" class="form-control " id="dentist_telephone_number"
                                         name="dentist_telephone_number"
-                                        onchange="validatePhone(this,'dentist_telephone_number_span')" placeholder="e.g.+1-212-838-8979 ">
+                                        onchange="validatePhone(this,'dentist_telephone_number_span')" placeholder="e.g.+1-212-838-8979 " disabled>
                                     <span id="dentist_telephone_number_span"
                                         style="color:red; display:none">
                                         Enter valid input [only numbers,+,-,()].</span>
@@ -918,7 +918,7 @@
                                     </label>
                                     <input type="text" class="form-control "
                                         id="dentist_street_address"
-                                        name="dentist_street_address" placeholder="e.g. 2nd Street">
+                                        name="dentist_street_address" placeholder="e.g. 2nd Street" disabled>
                                 </div>
                             </div>
                         </div>
@@ -939,7 +939,7 @@
                                     </label>
                                     <input type="text" class="form-control "
                                         id="dentist_city_address"
-                                        name="dentist_city_address" placeholder="e.g. Dorm">
+                                        name="dentist_city_address" placeholder="e.g. Dorm" disabled>
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -949,7 +949,7 @@
                                     </label>
                                     <input type="text" class="form-control "
                                         id="dentist_state_address"
-                                        name="dentist_state_address" placeholder="e.g. New York">
+                                        name="dentist_state_address" placeholder="e.g. New York" disabled>
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -960,7 +960,7 @@
                                     <input type="text" class="form-control "
                                         id="dentist_zip_address"
                                         name="dentist_zip_address"
-                                        onchange="ValidatePincode(this,'child_care_provider_zip_address_span')" placeholder="e.g. 10003">
+                                        onchange="ValidatePincode(this,'child_care_provider_zip_address_span')" placeholder="e.g. 10003" disabled>
                                     <span id="child_care_provider_zip_address_span"
                                         style="color:red; display:none">
                                         Enter valid input [only numbers].</span>
@@ -2872,6 +2872,9 @@
                         }
                     }
                 }
+                 // Add "Others" option
+            dentist_name += '<a class="dropdown-item" href="#" data-value="others" id="otherOption">Others</a>';
+
                 // Populate the dropdown menu with the dentist names
                 $('#dropdown-menu').html(dentist_name);
 
@@ -2893,13 +2896,60 @@
                         event.preventDefault();
                         const dropdownButton = document.getElementById('dropdownMenuButton');
                         dropdownButton.textContent = this.textContent;
+
+                          // Check if "Others" option is selected
+                        if ($(this).data('value') === 'others') {
+                            // Show a new input field for entering a custom dentist name
+                            $('#dropdown-menu').append(`
+                                <input type="text" id="customDentistName" class="form-control mt-2" placeholder="Enter dentist name...">
+                            `);
+
+                            // Enable the input fields that were previously disabled
+                            $('#dentist_telephone_number').prop('disabled', false);
+                            $('#dentist_street_address').prop('disabled', false);
+                            $('#dentist_city_address').prop('disabled', false);
+                            $('#dentist_state_address').prop('disabled', false);
+                            $('#dentist_zip_address').prop('disabled', false);
+                        } else {
+                            // Disable the dentist details fields when any other option is selected
+                            $('#dentist_telephone_number').prop('disabled', true);
+                            $('#dentist_street_address').prop('disabled', true);
+                            $('#dentist_city_address').prop('disabled', true);
+                            $('#dentist_state_address').prop('disabled', true);
+                            $('#dentist_zip_address').prop('disabled', true);
+                        }
                     });
                 });
             }
         });
     });
-    $(document).on("click", "#dropdown-menu", function () {
-        console.log("ff")
+    $(document).on("click", ".dropdown-item", function () {
+        let dentistId = $(this).data('value');
+
+        $.ajax({
+            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/dentist/get/${dentistId}`,
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                // Populate the dentist details
+                $('#dentist_telephone_number').val(response.dentist_telephone_number);
+                $('#dentist_street_address').val(response.dentist_street_address);
+                $('#dentist_city_address').val(response.dentist_city_address);
+                $('#dentist_state_address').val(response.dentist_state_address);
+                $('#dentist_zip_address').val(response.dentist_zip_address);
+
+                 // Disable the input fields after setting the values
+                $('#dentist_telephone_number').prop('disabled', true);
+                $('#dentist_street_address').prop('disabled', true);
+                $('#dentist_city_address').prop('disabled', true);
+                $('#dentist_state_address').prop('disabled', true);
+                $('#dentist_zip_address').prop('disabled', true);
+
+            },
+            error: function (xhr, status, error) {
+            console.error('Error fetching dentist details:', error);
+        }
+        });
     });
     </script>
 </body>

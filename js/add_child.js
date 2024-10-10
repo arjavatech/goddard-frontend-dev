@@ -6,7 +6,7 @@ function submitForm() {
     console.log(form);
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
-    if (obj.child_first_name != '' && obj.child_last_name != '' && obj.class_id != '' && obj.parent_id) {
+    if (obj.child_first_name != '' && obj.child_last_name != '' && obj.class_id != '' && obj.class_id != null && obj.parent_id != '') {
         obj.class_id = parseInt(obj.class_id);
         const json = JSON.stringify(obj);
         console.log(json);

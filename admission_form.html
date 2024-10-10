@@ -1,4 +1,24 @@
 <!--Child Information End-->
+<style>
+    /* Styling for the dropdown */
+    .dropdown-menu {
+        width: 100%;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+    .search-input {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+    /* Move the arrow to the right */
+    .dropdown-toggle::after {
+        margin-left: auto;
+        float: right;
+        margin-top: 5%;
+    }
+</style>
 
 <div id="childinformation" class="container tab-pane active"><br>
     <div class="card">
@@ -865,8 +885,17 @@
                                     <label for="child_dentist_name" class="form-label"><b>NAME OF CHILD'S
                                             DENTIST</b>
                                     </label>
-                                    <input type="text" class="form-control " id="child_dentist_name"
-                                        name="child_dentist_name" placeholder="e.g. Jordan">
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-toggle form-control" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Select an dentist
+                                        </button>
+                                        <div class="dropdown-menu" id="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                           
+                                           
+                                        </div>
+                                    </div>
+                                    <!-- <input type="text" class="form-control " id="child_dentist_name"
+                                        name="child_dentist_name" placeholder="e.g. Jordan"> -->
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -882,16 +911,6 @@
                                         Enter valid input [only numbers,+,-,()].</span>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row m-1 mb-4">
-                            <!-- <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="dentist_address" class="form-label"><b>DENTIST ADDRESS</b>
-                                    </label>
-                                    <input type="text" class="form-control " id="dentist_address"
-                                        name="dentist_address" placeholder="e.g. 3rd Ave, New York, 10003">
-                                </div>
-                            </div> -->
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="dentist_street_address"
@@ -902,6 +921,17 @@
                                         name="dentist_street_address" placeholder="e.g. 2nd Street">
                                 </div>
                             </div>
+                        </div>
+                        <div class="row m-1 mb-4">
+                            <!-- <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="dentist_address" class="form-label"><b>DENTIST ADDRESS</b>
+                                    </label>
+                                    <input type="text" class="form-control " id="dentist_address"
+                                        name="dentist_address" placeholder="e.g. 3rd Ave, New York, 10003">
+                                </div>
+                            </div> -->
+                           
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="dentist_city_address"
@@ -2820,3 +2850,58 @@
     </div> 
 </div>
 <!--Admin Signature Form End-->
+
+ <!-- Bootstrap JS and dependencies -->
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+ 
+ <script>
+    $(document).on("focus", "#dropdownMenuButton", function () {
+        $.ajax({
+            url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/dentist/getall',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                // Create the search input and dropdown items
+                var dentist_name = '<input type="text" class="form-control search-input" id="search" placeholder="Search...">';
+                // console.log(response)
+                if (response !== "") {
+                    for (var i = 0; i < response.length; i++) {
+                        if (response[i].child_dentist_name != "" && response[i].child_dentist_name != undefined) {
+                            dentist_name += '<a class="dropdown-item" href="#" data-value="' + response[i].child_dentist_id + '">' + response[i].child_dentist_name + '</a>';
+                        }
+                    }
+                }
+                // Populate the dropdown menu with the dentist names
+                $('#dropdown-menu').html(dentist_name);
+
+                // Add event listener for the search input after it is added to the DOM
+                document.getElementById('search').addEventListener('input', function () {
+                    const filter = this.value.toLowerCase();
+                    const items = document.querySelectorAll('.dropdown-item');
+                    
+                    items.forEach(item => {
+                        const text = item.textContent || item.innerText;
+                        item.style.display = text.toLowerCase().includes(filter) ? '' : 'none';
+                    });
+                });
+
+                // Add event listener for each dropdown item click after they are added to the DOM
+                const dropdownItems = document.querySelectorAll('.dropdown-item');
+                dropdownItems.forEach(item => {
+                    item.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        const dropdownButton = document.getElementById('dropdownMenuButton');
+                        dropdownButton.textContent = this.textContent;
+                    });
+                });
+            }
+        });
+    });
+    $(document).on("click", "#dropdown-menu", function () {
+        console.log("ff")
+    });
+    </script>
+</body>
+</html>
+

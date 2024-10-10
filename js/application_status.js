@@ -127,12 +127,13 @@ $(document).ready(function () {
                                 return row.class_name == clsdataval;
                             });
                         } else {
+                            $("#clsroomSearch").val("");
                             return json.filter(function(row) {
                                 return row.class_name !== 'Archive' && row.class_name !== 'Unassigned';
                             });
-                        }
-                       
+                        }                       
                     } else {
+                        console.log("kk")
                         return json;
                     }
                     

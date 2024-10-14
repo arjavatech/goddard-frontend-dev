@@ -202,10 +202,15 @@ $(document).ready(function () {
          
         if(formSelectedval == undefined){
             initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_based_all_child_details/${clsroomSearchId}`);
-        } else if(formSelectedval == ""){
-            // Initialize DataTable with default URL
+        } else if(clsroomDataval =="" && formSelectedval == "") {
             initializeDataTable('https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
-        } else {
+        } else if(formSelectedval == "" && clsroomDataval !==""){
+            // Initialize DataTable with default URL
+            initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_based_all_child_details/${clsroomSearchId}`);
+        } else if(formSelectedval !== "" && clsroomDataval ==""){
+            initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/form_based_all_child_details/${formSelectedval}`);
+        }
+          else {
             initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/form_based_all_child_details/${formSelectedval}`,clsroomDataval);
         }
         
@@ -214,6 +219,7 @@ $(document).ready(function () {
     // Event listener for form_name dropdown
     $('#form_name').on('change', function() {
         let form_name = $(this).val();
+        $("#clsroomSearch").val("")
         // Clear and destroy the existing DataTable
         let table = $('#example').DataTable();
         table.clear().destroy();

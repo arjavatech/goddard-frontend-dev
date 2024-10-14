@@ -891,11 +891,13 @@
                                         </button>
                                         <div class="dropdown-menu" id="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                            
-                                           
                                         </div>
                                     </div>
-                                    <!-- <input type="text" class="form-control " id="child_dentist_name"
-                                        name="child_dentist_name" placeholder="e.g. Jordan"> -->
+                                </div>
+                                
+                                <div class="mt-2">
+                                    <input type="text" class="form-control d-none" id="child_dentist_name"
+                                    name="child_dentist_name" placeholder="e.g. Jordan">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -2910,6 +2912,15 @@
                             $('#dentist_city_address').prop('disabled', false);
                             $('#dentist_state_address').prop('disabled', false);
                             $('#dentist_zip_address').prop('disabled', false);
+                            $('#dentist_telephone_number').val("");
+                            $('#dentist_street_address').val("");
+                            $('#dentist_city_address').val("");
+                            $('#dentist_state_address').val("");
+                            $('#dentist_zip_address').val("");
+                            $('#child_dentist_name').removeClass('d-none');
+                            $('#child_dentist_name').addClass('d-block');
+
+
                         } else {
                             // Disable the dentist details fields when any other option is selected
                             $('#dentist_telephone_number').prop('disabled', true);
@@ -2917,6 +2928,9 @@
                             $('#dentist_city_address').prop('disabled', true);
                             $('#dentist_state_address').prop('disabled', true);
                             $('#dentist_zip_address').prop('disabled', true);
+                            $('#child_dentist_name').addClass('d-none');
+                            $('#child_dentist_name').removeClass('d-block');
+                          
                         }
                     });
                 });

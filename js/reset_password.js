@@ -84,20 +84,20 @@ function signupFunction(){
 // Send Email
 function resendmailFunction(){
     let email_id = document.getElementById('email_id').value;
-
     if (email_id != ''){
         $.ajax({
             url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/forget_password_mail_trigger/${email_id}`,
             type: "GET",
             dataType: 'json',
             success: function (response) {
+                console.log(response)
                 if(response.message == "Password reset email sent successfully!"){
-                    $(".success-msg").show();
+                    $(".forget-success-msg").show();
                     setTimeout(function(){ 
-                        $(".success-msg").hide(); 
+                        $(".forget-success-msg").hide(); 
                         window.location.href = "send_resetmail.html";
                     }, 3000);
-                }else{
+                }else if(response.error == "SignUpInfo with email_id dhfjsdh@gmail.com not found"){
                     $(".error-msg-notfound").show();
                     setTimeout(function(){ 
                         $(".error-msg-notfound").hide(); 

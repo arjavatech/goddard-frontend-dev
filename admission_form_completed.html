@@ -2553,10 +2553,12 @@
                 let is_admin = localStorage.getItem('is_admin');
                 console.log(is_admin);
                 $.ajax({
-                    url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/fetch/${editID}`,
+                    url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_all_details/fetch/${editID}`,
                     type: 'GET',
                     //this is used to get the response and return the result
                     success: function (response) {
+                        console.log(response)
+                        // return false;
                         //child information details
                         if (typeof response.child_first_name !== "undefined")
                             document.getElementsByClassName('child_first_name')[0].value = response.child_first_name;

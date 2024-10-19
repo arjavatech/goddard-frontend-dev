@@ -366,7 +366,7 @@ function checking(editID) {
     function populateFormData(editID, formName) {
         return new Promise((resolve, reject) => {
             $.ajax({
-                url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_all_details/fetch/${editID}`,
+                url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_all_form_details/fetch/${editID}`,
                 type: 'GET',
                 success: function (response) {
                     console.log(response);
@@ -377,7 +377,7 @@ function checking(editID) {
                         return;
                     }
 
-                    if (formName === 'Authorization.pdf') {
+                    if (formName === 'authorization_form.pdf') {
                         const authFields = ['bank_routing', 'bank_account', 'driver_license', 'state', 'i', 'parent_sign_ach', 'parent_sign_date_ach'];
 
                         authFields.forEach(field => {
@@ -386,9 +386,9 @@ function checking(editID) {
                                 element.setAttribute('value', response[field]);
                             }
                         });
-                    } else if (formName === 'Enrollment Agreement.pdf') {
+                    } else if (formName === 'enrollment_form.pdf') {
                         const fields = [
-                            'point_one_field_one', 'point_one_field_two', 'point_one_field_three',
+                            'point_one_field_three',
                             'point_two_initial_here', 'point_three_initial_here', 'point_four_initial_here',
                             'point_five_initial_here', 'point_six_initial_here', 'point_seven_initial_here',
                             'point_eight_initial_here', 'point_nine_initial_here', 'point_ten_initial_here',
@@ -417,7 +417,7 @@ function checking(editID) {
                                 element.setAttribute('checked', true);
                             }
                         });
-                    } else if (formName === 'Parent HandBook.pdf') {
+                    } else if (formName === 'parent_handbook.pdf') {
                         const checkboxFields = [
                             'welcome_goddard_agreement', 'mission_statement_agreement', 'general_information_agreement',
                             'medical_care_provider_agreement', 'parent_access_agreement', 'release_of_children_agreement',
@@ -554,21 +554,19 @@ function checking(editID) {
                         //         }
                         //     }
                         // }
-                    } else if (formName === 'Admission Forms.pdf') {
+                    } else if (formName === 'admission_form.pdf') {
                         const inputFields = [
                             'child_first_name', 'child_last_name', 'nick_name', 'dob', 'gender', 'do_relevant_custody_papers_apply', 'primary_language', 'school_age_child_school',
                             'parent_name', 'parent_street_address', 'parent_city_address', 'parent_state_address', 'parent_zip_address',
-                            'home_telephone_number', 'business_name', 'work_hours', 'business_telephone_number', 'business_street_address',
-                            'business_city_address', 'business_state_address', 'business_zip_address', 'business_cell_number',
-                            'primary_parent_email', 'parent_two_name', 'parent_two_street_address', 'parent_two_city_address',
+                            'home_telephone_number', 'business_name', 'work_hours_from','work_hours_to', 'business_telephone_number','business_cell_number',
+                            'parent_email', 'parent_two_name', 'parent_two_street_address', 'parent_two_city_address',
                             'parent_two_state_address', 'parent_two_zip_address', 'parent_two_home_telephone_number', 'parent_two_business_name',
-                            'parent_two_work_hours', 'parent_two_business_telephone_number', 'parent_two_business_street_address',
-                            'parent_two_business_city_address', 'parent_two_business_state_address', 'parent_two_business_zip_address',
-                            'parent_two_business_cell_number', 'parent_email', 'child_emergency_contact_name', 'child_emergency_contact_full_address',
+                            'parent_two_work_hours_from','parent_two_work_hours_to', 'parent_two_business_telephone_number',
+                            'parent_two_business_cell_number', 'parent_two_email', 'child_emergency_contact_name', 'child_emergency_contact_full_address','child_emergency_contact_city_address','child_emergency_contact_state_address','child_emergency_contact_zip_address',
                             'child_emergency_contact_relationship', 'child_emergency_contact_telephone_number', 'child_care_provider_name',
                             'child_care_provider_telephone_number', 'child_hospital_affiliation', 'child_care_provider_street_address',
                             'child_care_provider_city_address', 'child_care_provider_state_address', 'child_care_provider_zip_address',
-                            'child_dentist_name', 'dentist_telephone_number', 'dentist_address', 'special_diabilities', 'allergies_medication_reaction',
+                            'child_dentist_name', 'dentist_telephone_number', 'dentist_street_address','dentist_city_address','dentist_state_address','dentist_zip_address', 'special_diabilities', 'allergies_medication_reaction',
                             'additional_info', 'medication', 'health_insurance', 'policy_number', 'obtaining_emergency_medical_care',
                             'administration_first_aid_procedures', 'physical_exam_last_date', 'dental_exam_last_date', 'age_group_friends',
                             'neighborhood_friends', 'relationship_with_mother', 'allergies', 'asthma', 'bleeding_problems', 'diabetes',
@@ -604,8 +602,8 @@ function checking(editID) {
                             'do_you_agree_this_immunization_instructions', 'childcare_before', 'restricted_diet', 'eat_own', 'rest_in_the_middle_day', 'toilet_trained',
                             'existing_illness_allergy', 'functioning_at_age', 'able_to_walk', 'communicate_their_needs', 'any_medication', 'utilize_special_equipment',
                             'significant_periods', 'desire_any_accommodations', 'do_you_agree_this', 'do_you_agree_this_pick_up_password_form',
-                            'photo_permission_agree_group_photos_electronic', 'do_you_agree_this_photo_video_permission_form', 'do_you_agree_this_security_release_policy_form',
-                            'do_you_agree_this_medical_transportation_waiver', 'do_you_agree_this_health_policies', 'outside_waiver_parent_sign_outside_engagements_waiver',
+                            'photo_permission_agree_group_photos_electronic', 'do_you_agree_this_photo_video_permission_form', 'security_release_policy_form',
+                            'medical_transportation_waiver', 'do_you_agree_this_health_policies', 'outside_waiver_parent_sign_outside_engagements_waiver',
                             'do_you_agree_this_social_media_post'
                         ];
 
@@ -1257,7 +1255,6 @@ function checking(editID) {
                         document.querySelector('.pregnancyhistory-circle').style.display = 'block';
                         pregnancyHistory = false;
                     }
-
 
                     if (response.family_history_allergies == 1) {
                         document.getElementById('family_history_allergies').checked = true;

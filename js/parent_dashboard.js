@@ -255,7 +255,7 @@ function checking(editID) {
                         generatePDFContent().then(doc => {
                             doc.save(fileName);
                             document.body.removeChild(hiddenDiv);
-                            // window.location.reload();
+                            window.location.reload();
                         }).catch(error => {
                             document.body.removeChild(hiddenDiv);
                         });
@@ -366,7 +366,7 @@ function checking(editID) {
     function populateFormData(editID, formName) {
         return new Promise((resolve, reject) => {
             $.ajax({
-                url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_all_details/fetch/${editID}`,
+                url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_all_form_details/fetch/${editID}`,
                 type: 'GET',
                 success: function (response) {
                     console.log(response);
@@ -377,7 +377,7 @@ function checking(editID) {
                         return;
                     }
 
-                    if (formName === 'Authorization.pdf') {
+                    if (formName === 'authorization_form.pdf') {
                         const authFields = ['bank_routing', 'bank_account', 'driver_license', 'state', 'i', 'parent_sign_ach', 'parent_sign_date_ach'];
 
                         authFields.forEach(field => {
@@ -386,9 +386,9 @@ function checking(editID) {
                                 element.setAttribute('value', response[field]);
                             }
                         });
-                    } else if (formName === 'Enrollment Agreement.pdf') {
+                    } else if (formName === 'enrollment_form.pdf') {
                         const fields = [
-                            'point_one_field_one', 'point_one_field_two', 'point_one_field_three',
+                            'point_one_field_three',
                             'point_two_initial_here', 'point_three_initial_here', 'point_four_initial_here',
                             'point_five_initial_here', 'point_six_initial_here', 'point_seven_initial_here',
                             'point_eight_initial_here', 'point_nine_initial_here', 'point_ten_initial_here',
@@ -417,7 +417,7 @@ function checking(editID) {
                                 element.setAttribute('checked', true);
                             }
                         });
-                    } else if (formName === 'Parent HandBook.pdf') {
+                    } else if (formName === 'parent_handbook.pdf') {
                         const checkboxFields = [
                             'welcome_goddard_agreement', 'mission_statement_agreement', 'general_information_agreement',
                             'medical_care_provider_agreement', 'parent_access_agreement', 'release_of_children_agreement',
@@ -513,7 +513,7 @@ function checking(editID) {
                         //         'do_you_agree_this','do_you_agree_this_pick_up_password_form',
                         //         'photo_permission_agree_group_photos_electronic','do_you_agree_this_photo_video_permission_form',
                         //         'do_you_agree_this_security_release_policy_form','do_you_agree_this_medical_transportation_waiver',
-                        //         'do_you_agree_this_health_policies','outside_waiver_parent_sign_outside_engagements_waiver'
+                        //         'do_you_agree_this_health_policies','parent_sign_outside_waiver'
                         //     ];
 
                         //     checkboxFields.forEach(field => {
@@ -524,7 +524,7 @@ function checking(editID) {
                         //     });
 
                         //     inputFields.forEach(field => {
-                        //         if (response[field] === "Yes") {
+                        //         if (response[field] === 1) {
                         //             let element = form.querySelector(`input[name='${field}']`);
                         //             if (element) {
                         //                 element.setAttribute('checked', true);
@@ -554,21 +554,19 @@ function checking(editID) {
                         //         }
                         //     }
                         // }
-                    } else if (formName === 'Admission Forms.pdf') {
+                    } else if (formName === 'admission_form.pdf') {
                         const inputFields = [
                             'child_first_name', 'child_last_name', 'nick_name', 'dob', 'gender', 'do_relevant_custody_papers_apply', 'primary_language', 'school_age_child_school',
                             'parent_name', 'parent_street_address', 'parent_city_address', 'parent_state_address', 'parent_zip_address',
-                            'home_telephone_number', 'business_name', 'work_hours', 'business_telephone_number', 'business_street_address',
-                            'business_city_address', 'business_state_address', 'business_zip_address', 'business_cell_number',
-                            'primary_parent_email', 'parent_two_name', 'parent_two_street_address', 'parent_two_city_address',
+                            'home_telephone_number', 'business_name', 'work_hours_from','work_hours_to', 'business_telephone_number','business_cell_number',
+                            'parent_email', 'parent_two_name', 'parent_two_street_address', 'parent_two_city_address',
                             'parent_two_state_address', 'parent_two_zip_address', 'parent_two_home_telephone_number', 'parent_two_business_name',
-                            'parent_two_work_hours', 'parent_two_business_telephone_number', 'parent_two_business_street_address',
-                            'parent_two_business_city_address', 'parent_two_business_state_address', 'parent_two_business_zip_address',
-                            'parent_two_business_cell_number', 'parent_email', 'child_emergency_contact_name', 'child_emergency_contact_full_address',
+                            'parent_two_work_hours_from','parent_two_work_hours_to', 'parent_two_business_telephone_number',
+                            'parent_two_business_cell_number', 'parent_two_email', 'child_emergency_contact_name', 'child_emergency_contact_full_address','child_emergency_contact_city_address','child_emergency_contact_state_address','child_emergency_contact_zip_address',
                             'child_emergency_contact_relationship', 'child_emergency_contact_telephone_number', 'child_care_provider_name',
                             'child_care_provider_telephone_number', 'child_hospital_affiliation', 'child_care_provider_street_address',
                             'child_care_provider_city_address', 'child_care_provider_state_address', 'child_care_provider_zip_address',
-                            'child_dentist_name', 'dentist_telephone_number', 'dentist_address', 'special_diabilities', 'allergies_medication_reaction',
+                            'child_dentist_name', 'dentist_telephone_number', 'dentist_street_address','dentist_city_address','dentist_state_address','dentist_zip_address', 'special_diabilities', 'allergies_medication_reaction',
                             'additional_info', 'medication', 'health_insurance', 'policy_number', 'obtaining_emergency_medical_care',
                             'administration_first_aid_procedures', 'physical_exam_last_date', 'dental_exam_last_date', 'age_group_friends',
                             'neighborhood_friends', 'relationship_with_mother', 'allergies', 'asthma', 'bleeding_problems', 'diabetes',
@@ -585,7 +583,7 @@ function checking(editID) {
                             'reason_for_toilet_trained', 'explain_for_existing_illness_allergy', 'explain_for_functioning_at_age', 'explain_for_able_to_walk',
                             'explain_for_communicate_their_needs', 'explain_for_any_medication', 'explain_for_utilize_special_equipment',
                             'explain_for_significant_periods', 'explain_for_desire_any_accommodations', 'additional_information',
-                            'child_password_pick_up_password_form', 'photo_usage_photo_video_permission_form', 'contact_emergency_medical_technicians_medical_transportation_waiver',
+                            'child_password_pick_up_password_form', 'photo_usage_photo_video_permission_form', 'med_technicians_med_transportation_waiver',
                             'parent_sign_admission', 'parent_sign_date_admission', 'printed_name_social_media_post'
                         ];
 
@@ -604,8 +602,8 @@ function checking(editID) {
                             'do_you_agree_this_immunization_instructions', 'childcare_before', 'restricted_diet', 'eat_own', 'rest_in_the_middle_day', 'toilet_trained',
                             'existing_illness_allergy', 'functioning_at_age', 'able_to_walk', 'communicate_their_needs', 'any_medication', 'utilize_special_equipment',
                             'significant_periods', 'desire_any_accommodations', 'do_you_agree_this', 'do_you_agree_this_pick_up_password_form',
-                            'photo_permission_agree_group_photos_electronic', 'do_you_agree_this_photo_video_permission_form', 'do_you_agree_this_security_release_policy_form',
-                            'do_you_agree_this_medical_transportation_waiver', 'do_you_agree_this_health_policies', 'outside_waiver_parent_sign_outside_engagements_waiver',
+                            'photo_permission_agree_group_photos_electronic', 'do_you_agree_this_photo_video_permission_form', 'security_release_policy_form',
+                            'medical_transportation_waiver', 'do_you_agree_this_health_policies', 'parent_sign_outside_waiver',
                             'do_you_agree_this_social_media_post'
                         ];
 
@@ -716,8 +714,10 @@ function checking(editID) {
         dom: 'Qlfrtip',
         lengthChange: false,
         ajax: {
-            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/completed_form_status/${editID}?year=${year}`,
+            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/completed_form_status_year/${editID}/${year}`,
             dataSrc: function (json) {
+                console.log(json)
+                // return false;
                 // Format the timestamp in the JSON data before using it in the DataTable
                 json.CompletedFormStatus.forEach(function (item) {
                     const date = new Date(item.completedTimestamp);
@@ -734,7 +734,7 @@ function checking(editID) {
             {
                 data: 'formName',
                 render: function (data, type, full, meta) {
-                    return full.formName;
+                    return full.formname;
                 }
             },
             {
@@ -747,26 +747,26 @@ function checking(editID) {
                 data: 'edit',
                 render: function (data, type, full, meta) {
                     let url = '';
-                    switch (full.formName) {
-                        case 'Admission Forms':
-                            url = `${window.location.origin}/goddard-frontend-test/admission_form_completed.html?id=${editID}`;
+                    switch (full.formname) {
+                        case 'admission_form':
+                            url = `${window.location.origin}/admission_form_completed.html?id=${editID}`;
                             break;
-                        case 'Authorization':
-                            url = `${window.location.origin}/goddard-frontend-test/authorization_completed.html?id=${editID}`;
+                        case 'authorization_form':
+                            url = `${window.location.origin}/authorization_completed.html?id=${editID}`;
                             break;
-                        case 'Enrollment Agreement':
-                            url = `${window.location.origin}/goddard-frontend-test/enrollment_agreement_completed.html?id=${editID}`;
+                        case 'enrollment_form':
+                            url = `${window.location.origin}/enrollment_agreement_completed.html?id=${editID}`;
                             break;
-                        case 'Parent HandBook':
-                            url = `${window.location.origin}/goddard-frontend-test/parent_handbook_completed.html?id=${editID}`;
+                        case 'parent_handbook':
+                            url = `${window.location.origin}/parent_handbook_completed.html?id=${editID}`;
                             break;
                         default:
                             return '';
                     }
                     return `
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 download-btn" data-url="${url}" data-name="${full.formName}.pdf" name="downbutton"><path fill="#0F2D52" d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 print-btn" data-url="${url}" data-name="${full.formName}.pdf" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 download-btn" data-url="${url}" data-name="${full.formname}.pdf" name="downbutton"><path fill="#0F2D52" d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 print-btn" data-url="${url}" data-name="${full.formname}.pdf" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
                         </div>`;
                 }
             }
@@ -808,14 +808,14 @@ function checking(editID) {
                         document.getElementsByName('primary_language')[0].value = response.primary_language;
                     if (typeof response.school_age_child_school !== "undefined")
                         document.getElementsByName('school_age_child_school')[0].value = response.school_age_child_school;
-                    if (response.do_relevant_custody_papers_apply === "Yes") {
+                    if (response.do_relevant_custody_papers_apply === 1) {
                         document.getElementById('do_relevant_custody_papers_apply1').checked = true;
                     } else {
                         document.getElementById('do_relevant_custody_papers_apply2').checked = true;
                     }
-                    if (response.gender == "Male") {
+                    if (response.gender == "male") {
                         document.getElementById('gender1').checked = true;
-                    } else if (response.gender == "Female") {
+                    } else if (response.gender == "female") {
                         document.getElementById('gender2').checked = true;
                     } else {
                         document.getElementById('gender3').checked = true;
@@ -859,18 +859,12 @@ function checking(editID) {
                         document.getElementsByName('home_telephone_number')[0].value = response.home_telephone_number;
                     if (typeof response.business_name !== "undefined")
                         document.getElementsByName('business_name')[0].value = response.business_name;
-                    if (typeof response.work_hours !== "undefined")
-                        document.getElementsByName('work_hours')[0].value = response.work_hours;
+                    if (typeof response.work_hours_from !== "undefined")
+                        document.getElementsByName('work_hours_from')[0].value = response.work_hours_from;
+                    if (typeof response.work_hours_to !== "undefined")
+                        document.getElementsByName('work_hours_to')[0].value = response.work_hours_to;
                     if (typeof response.business_telephone_number !== "undefined")
                         document.getElementsByName('business_telephone_number')[0].value = response.business_telephone_number;
-                    if (typeof response.business_street_address !== "undefined")
-                        document.getElementsByName('business_street_address')[0].value = response.business_street_address;
-                    if (typeof response.business_city_address !== "undefined")
-                        document.getElementsByName('business_city_address')[0].value = response.business_city_address;
-                    if (typeof response.business_state_address !== "undefined")
-                        document.getElementsByName('business_state_address')[0].value = response.business_state_address;
-                    if (typeof response.business_zip_address !== "undefined")
-                        document.getElementsByName('business_zip_address')[0].value = response.business_zip_address;
                     if (typeof response.business_cell_number !== "undefined")
                         document.getElementsByName('business_cell_number')[0].value = response.business_cell_number;
                     if (typeof response.primary_parent_email !== "undefined")
@@ -883,11 +877,9 @@ function checking(editID) {
                         typeof response.parent_zip_address !== "undefined" &&
                         typeof response.home_telephone_number !== "undefined" &&
                         typeof response.business_name !== "undefined" &&
-                        typeof response.work_hours !== "undefined" &&
+                        typeof response.work_hours_from !== "undefined" &&
+                        typeof response.work_hours_to !== "undefined" &&
                         typeof response.business_telephone_number !== "undefined" &&
-                        typeof response.business_street_address !== "undefined" &&
-                        typeof response.business_city_address !== "undefined" &&
-                        typeof response.business_zip_address !== "undefined" &&
                         typeof response.business_cell_number !== "undefined" &&
                         typeof response.primary_parent_email !== "undefined"
                     ) {
@@ -921,8 +913,10 @@ function checking(editID) {
                         document.getElementsByName('parent_two_home_telephone_number')[0].value = response.parent_two_home_telephone_number;
                     if (typeof response.parent_two_business_name !== "undefined")
                         document.getElementsByName('parent_two_business_name')[0].value = response.parent_two_business_name;
-                    if (typeof response.parent_two_work_hours !== "undefined")
-                        document.getElementsByName('parent_two_work_hours')[0].value = response.parent_two_work_hours;
+                    if (typeof response.parent_two_work_hours_from !== "undefined")
+                        document.getElementsByName('parent_two_work_hours_from')[0].value = response.parent_two_work_hours_from;
+                    if (typeof response.parent_two_work_hours_to !== "undefined")
+                        document.getElementsByName('parent_two_work_hours_to')[0].value = response.parent_two_work_hours_to;
                     if (typeof response.parent_two_business_telephone_number !== "undefined")
                         document.getElementsByName('parent_two_business_telephone_number')[0].value = response.parent_two_business_telephone_number;
                     // if (typeof response.parent_two_business_street_address !== "undefined")
@@ -947,9 +941,6 @@ function checking(editID) {
                         typeof response.parent_two_business_name !== "undefined" &&
                         typeof response.parent_two_work_hours !== "undefined" &&
                         typeof response.parent_two_business_telephone_number !== "undefined" &&
-                        typeof response.parent_two_business_street_address !== "undefined" &&
-                        typeof response.parent_two_business_city_address !== "undefined" &&
-                        typeof response.parent_two_business_zip_address !== "undefined" &&
                         typeof response.parent_two_business_cell_number !== "undefined" &&
                         typeof response.parent_email !== "undefined") {
                         document.querySelector('.parent_twodetails-tick').style.display = 'block';
@@ -958,8 +949,7 @@ function checking(editID) {
                         document.querySelector('.parent_twodetails-circle').style.display = 'block';
                         additionalChildparentInfo = false;
                     }
-
-                    ///need to change
+                    // Need to change
                     // emergency Contact Information
                     if (typeof response.child_emergency_contact_name !== "undefined")
                         document.getElementsByName('child_emergency_contact_name')[0].value = response.child_emergency_contact_name;
@@ -1008,10 +998,21 @@ function checking(editID) {
                         document.getElementsByName('child_dentist_name')[0].value = response.child_dentist_name;
                     if (typeof response.dentist_telephone_number !== "undefined")
                         document.getElementsByName('dentist_telephone_number')[0].value = response.dentist_telephone_number;
+<<<<<<< HEAD
                     if (typeof response.dentist_address !== "undefined")
                         document.getElementsByName('dentist_address')[0].value = response.dentist_address;
                     // need ti change
 
+=======
+                    if (typeof response.dentist_street_address !== "undefined")
+                        document.getElementsByName('dentist_street_address')[0].value = response.dentist_street_address;
+                    if (typeof response.dentist_city_address !== "undefined")
+                        document.getElementsByName('dentist_city_address')[0].value = response.dentist_city_address;
+                    if (typeof response.dentist_state_address !== "undefined")
+                        document.getElementsByName('dentist_state_address')[0].value = response.dentist_state_address;
+                    if (typeof response.dentist_zip_address !== "undefined")
+                        document.getElementsByName('dentist_zip_address')[0].value = response.dentist_zip_address;
+>>>>>>> 027ce064eef940a277b64c2e4fbbe39babe557ca
                     if (typeof response.special_diabilities !== "undefined")
                         document.getElementsByName('special_diabilities')[0].value = response.special_diabilities;
                     if (typeof response.allergies_medication_reaction !== "undefined")
@@ -1034,7 +1035,10 @@ function checking(editID) {
                         typeof response.child_care_provider_zip_address !== "undefined" &&
                         typeof response.child_dentist_name !== "undefined" &&
                         typeof response.dentist_telephone_number !== "undefined" &&
-                        typeof response.dentist_address !== "undefined" &&
+                        typeof response.dentist_street_address !== "undefined" &&
+                        typeof response.dentist_city_address !== "undefined" &&
+                        typeof response.dentist_state_address !== "undefined" &&
+                        typeof response.dentist_zip_address !== "undefined" &&
                         typeof response.special_diabilities !== "undefined" &&
                         typeof response.allergies_medication_reaction !== "undefined" &&
                         typeof response.additional_info !== "undefined" &&
@@ -1225,10 +1229,19 @@ function checking(editID) {
                         document.getElementsByName('birth_weight_oz')[0].value = response.birth_weight_oz;
                     if (typeof response.complications !== "undefined")
                         document.getElementsByName('complications')[0].value = response.complications;
-                    if (typeof response.bottle_fed !== "undefined")
-                        document.getElementsByName('bottle_fed')[0].value = response.bottle_fed;
-                    if (typeof response.breast_fed !== "undefined")
-                        document.getElementsByName('breast_fed')[0].value = response.breast_fed;
+                    if (typeof response.bottle_fed == 1){
+                        document.getElementById('bottle_fed').checked = true;
+
+                    } else {
+                        document.getElementById('bottle_fed').checked = false;
+
+                    }
+                    if (typeof response.breast_fed == 1){
+                        document.getElementById('breast_fed').checked = true;
+                    } else {
+                        document.getElementById('breast_fed').checked = false;
+
+                    }
                     if (typeof response.other_siblings_name !== "undefined")
                         document.getElementsByName('other_siblings_name')[0].value = response.other_siblings_name;
                     if (typeof response.other_siblings_age !== "undefined")
@@ -1259,7 +1272,6 @@ function checking(editID) {
                         document.querySelector('.pregnancyhistory-circle').style.display = 'block';
                         pregnancyHistory = false;
                     }
-
 
                     if (response.family_history_allergies == 1) {
                         document.getElementById('family_history_allergies').checked = true;
@@ -1306,11 +1318,11 @@ function checking(editID) {
                     } else {
                         document.getElementById('family_history_epilepsy').checked = false;
                     }
-                    // if ( response.no_illnesses_for_this_child == 1){
-                    //     document.getElementById('no_illnesses_for_this_child').checked = true;
-                    // }else{
-                    //     document.getElementById('no_illnesses_for_this_child').checked = false;
-                    // }
+                    if ( response.no_illnesses_for_this_child == 1){
+                        document.getElementById('no_illnesses_for_this_child').checked = true;
+                    }else{
+                        document.getElementById('no_illnesses_for_this_child').checked = false;
+                    }
 
                     if (response.family_history_allergies == 1 ||
                         response.family_history_heart_problems == 1 ||
@@ -1538,10 +1550,10 @@ function checking(editID) {
                         document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
                     if (typeof response.about_family_celebrations !== "undefined")
                         document.getElementsByName('about_family_celebrations')[0].value = response.about_family_celebrations;
-                    if (response.childcare_before == "Yes") {
+                    if (response.childcare_before == 1) {
                         document.getElementById('childcare_before1').checked = true;
                         // document.getElementById('childcare_before_reason_div').style.display = "block";
-                    } else if (response.childcare_before == "No") {
+                    } else if (response.childcare_before == 0) {
                         document.getElementById('childcare_before2').checked = true;
                         // document.getElementById('childcare_before_reason_div').style.display = "none";
                     }
@@ -1578,19 +1590,19 @@ function checking(editID) {
                     }
 
 
-                    if (response.restricted_diet == "Yes") {
+                    if (response.restricted_diet == 1) {
                         document.getElementById('restricted_diet1').checked = true;
                         // document.getElementById('restricted_diet_reason_div').style.display = "block";
-                    } else if (response.restricted_diet == "No") {
+                    } else if (response.restricted_diet == 0) {
                         document.getElementById('restricted_diet2').checked = true;
                         // document.getElementById('restricted_diet_reason_div').style.display = "none";
                     }
                     if (typeof response.restricted_diet_reason !== "undefined")
                         document.getElementsByName('restricted_diet_reason')[0].value = response.restricted_diet_reason;
-                    if (response.eat_own == "Yes") {
+                    if (response.eat_own == 1) {
                         document.getElementById('eat_own1').checked = true;
                         // document.getElementById('eat_own_reason_div').style.display = "block";
-                    } else if (response.eat_own == "No") {
+                    } else if (response.eat_own == 0) {
                         document.getElementById('eat_own2').checked = true;
                         // document.getElementById('eat_own_reason_div').style.display = "none";
                     }
@@ -1619,10 +1631,10 @@ function checking(editID) {
                     }
 
 
-                    if (response.rest_in_the_middle_day == "Yes") {
+                    if (response.rest_in_the_middle_day == 1) {
                         document.getElementById('rest_in_the_middle_day1').checked = true;
                         // document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "block";
-                    } else if (response.rest_in_the_middle_day == "No") {
+                    } else if (response.rest_in_the_middle_day == 0) {
                         document.getElementById('rest_in_the_middle_day2').checked = true;
                         // document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "none";
                     }
@@ -1630,10 +1642,10 @@ function checking(editID) {
                         document.getElementsByName('reason_for_rest_in_the_middle_day')[0].value = response.reason_for_rest_in_the_middle_day;
                     if (typeof response.rest_routine !== "undefined")
                         document.getElementsByName('rest_routine')[0].value = response.rest_routine;
-                    if (response.toilet_trained == "Yes") {
+                    if (response.toilet_trained == 1) {
                         document.getElementById('toilet_trained1').checked = true;
                         // document.getElementById('reason_for_toilet_trained_div').style.display = "block";
-                    } else if (response.toilet_trained == "No") {
+                    } else if (response.toilet_trained == 0) {
                         document.getElementById('toilet_trained2').checked = true;
                         // document.getElementById('reason_for_toilet_trained_div').style.display = "none";
                     }
@@ -1660,10 +1672,10 @@ function checking(editID) {
                     }
 
 
-                    if (response.existing_illness_allergy == "Yes") {
+                    if (response.existing_illness_allergy == 1) {
                         document.getElementById('existing_illness_allergy1').checked = true;
                         // document.getElementById('explain_for_existing_illness_allergy_div').style.display = "block";
-                    } else if (response.existing_illness_allergy == "No") {
+                    } else if (response.existing_illness_allergy == 0) {
                         document.getElementById('existing_illness_allergy2').checked = true;
                         // document.getElementById('explain_for_existing_illness_allergy_div').style.display = "none";
                     }
@@ -1671,10 +1683,10 @@ function checking(editID) {
                     if (typeof response.explain_for_existing_illness_allergy !== "undefined")
                         document.getElementsByName('explain_for_existing_illness_allergy')[0].value = response.explain_for_existing_illness_allergy;
 
-                    if (response.functioning_at_age == "Yes") {
+                    if (response.functioning_at_age == 1) {
                         document.getElementById('functioning_at_age1').checked = true;
                         // document.getElementById('explain_for_functioning_at_age_div').style.display = "block";
-                    } else if (response.functioning_at_age == "No") {
+                    } else if (response.functioning_at_age == 0) {
                         document.getElementById('functioning_at_age2').checked = true;
                         // document.getElementById('explain_for_functioning_at_age_div').style.display = "none";
                     }
@@ -1682,10 +1694,10 @@ function checking(editID) {
                     if (typeof response.explain_for_functioning_at_age !== "undefined")
                         document.getElementsByName('explain_for_functioning_at_age')[0].value = response.explain_for_functioning_at_age;
 
-                    if (response.able_to_walk == "Yes") {
+                    if (response.able_to_walk == 1) {
                         document.getElementById('able_to_walk1').checked = true;
                         // document.getElementById('explain_for_able_to_walk_div').style.display = "block";
-                    } else if (response.able_to_walk == "No") {
+                    } else if (response.able_to_walk == 0) {
                         document.getElementById('able_to_walk2').checked = true;
                         // document.getElementById('explain_for_able_to_walk_div').style.display = "none";
                     }
@@ -1693,10 +1705,10 @@ function checking(editID) {
                     if (typeof response.explain_for_able_to_walk !== "undefined")
                         document.getElementsByName('explain_for_able_to_walk')[0].value = response.explain_for_able_to_walk;
 
-                    if (response.communicate_their_needs == "Yes") {
+                    if (response.communicate_their_needs == 1) {
                         document.getElementById('communicate_their_needs1').checked = true;
                         // document.getElementById('explain_for_communicate_their_needs_div').style.display = "block";
-                    } else if (response.communicate_their_needs == "No") {
+                    } else if (response.communicate_their_needs == 0) {
                         document.getElementById('communicate_their_needs2').checked = true;
                         // document.getElementById('explain_for_communicate_their_needs_div').style.display = "none";
                     }
@@ -1704,10 +1716,10 @@ function checking(editID) {
                     if (typeof response.explain_for_communicate_their_needs !== "undefined")
                         document.getElementsByName('explain_for_communicate_their_needs')[0].value = response.explain_for_communicate_their_needs;
 
-                    if (response.any_medication == "Yes") {
+                    if (response.any_medication == 1) {
                         document.getElementById('any_medication1').checked = true;
                         // document.getElementById('explain_for_any_medication_div').style.display = "block";
-                    } else if (response.any_medication == "No") {
+                    } else if (response.any_medication == 0) {
                         document.getElementById('any_medication2').checked = true;
                         // document.getElementById('explain_for_any_medication_div').style.display = "none";
                     }
@@ -1715,10 +1727,10 @@ function checking(editID) {
                     if (typeof response.explain_for_any_medication !== "undefined")
                         document.getElementsByName('explain_for_any_medication')[0].value = response.explain_for_any_medication;
 
-                    if (response.utilize_special_equipment == "Yes") {
+                    if (response.utilize_special_equipment == 1) {
                         document.getElementById('utilize_special_equipment1').checked = true;
                         // document.getElementById('explain_for_utilize_special_equipment_div').style.display = "block";
-                    } else if (response.utilize_special_equipment == "No") {
+                    } else if (response.utilize_special_equipment == 0) {
                         document.getElementById('utilize_special_equipment2').checked = true;
                         // document.getElementById('explain_for_utilize_special_equipment_div').style.display = "none";
                     }
@@ -1726,20 +1738,20 @@ function checking(editID) {
                     if (typeof response.explain_for_utilize_special_equipment !== "undefined")
                         document.getElementsByName('explain_for_utilize_special_equipment')[0].value = response.explain_for_utilize_special_equipment;
 
-                    if (response.significant_periods == "Yes") {
+                    if (response.significant_periods == 1) {
                         document.getElementById('significant_periods1').checked = true;
                         // document.getElementById('explain_for_significant_periods_div').style.display = "block";
-                    } else if (response.significant_periods == "No") {
+                    } else if (response.significant_periods == 0) {
                         document.getElementById('significant_periods2').checked = true;
                         // document.getElementById('explain_for_significant_periods_div').style.display = "none";
                     }
                     if (typeof response.explain_for_significant_periods !== "undefined")
                         document.getElementsByName('explain_for_significant_periods')[0].value = response.explain_for_significant_periods;
 
-                    if (response.desire_any_accommodations == "Yes") {
+                    if (response.desire_any_accommodations == 1) {
                         document.getElementById('desire_any_accommodations1').checked = true;
                         // document.getElementById('explain_for_desire_any_accommodations_div').style.display = "block";
-                    } else if (response.desire_any_accommodations == "No") {
+                    } else if (response.desire_any_accommodations == 0) {
                         document.getElementById('desire_any_accommodations2').checked = true;
                         // document.getElementById('explain_for_desire_any_accommodations_div').style.display = "none";
                     }
@@ -1917,12 +1929,12 @@ function checking(editID) {
                 // security policy details
                 let securityPolicy;
                 if (document.getElementById('securitypolicy') != null) {
-                    if (response.do_you_agree_this_security_release_policy_form == 1) {
-                        document.getElementById('do_you_agree_this_security_release_policy_form').checked = true;
+                    if (response.security_release_policy_form == 1) {
+                        document.getElementById('security_release_policy_form').checked = true;
                     } else {
-                        document.getElementById('do_you_agree_this_security_release_policy_form').checked = false;
+                        document.getElementById('security_release_policy_form').checked = false;
                     }
-                    if (typeof response.do_you_agree_this_security_release_policy_form !== "undefined") {
+                    if (typeof response.security_release_policy_form !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.childsecurity-tick').style.display = 'none';
                         document.querySelector('.childsecurity-circle').style.display = 'none';
@@ -1953,16 +1965,16 @@ function checking(editID) {
                 //medical transportation details
                 let medicaltransportationWeiver;
                 if (document.getElementById('medicaltransportation') != null) {
-                    if (typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined")
-                        document.getElementsByName('contact_emergency_medical_technicians_medical_transportation_waiver')[0].value = response.contact_emergency_medical_technicians_medical_transportation_waiver;
+                    if (typeof response.med_technicians_med_transportation_waiver !== "undefined")
+                        document.getElementsByName('med_technicians_med_transportation_waiver')[0].value = response.med_technicians_med_transportation_waiver;
 
-                    if (response.do_you_agree_this_medical_transportation_waiver == 1) {
-                        document.getElementById('do_you_agree_this_medical_transportation_waiver').checked = true;
+                    if (response.medical_transportation_waiver == 1) {
+                        document.getElementById('medical_transportation_waiver').checked = true;
                     } else {
-                        document.getElementById('do_you_agree_this_medical_transportation_waiver').checked = false;
+                        document.getElementById('medical_transportation_waiver').checked = false;
                     }
-                    if (typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined" &&
-                        typeof response.do_you_agree_this_medical_transportation_waiver !== "undefined") {
+                    if (typeof response.med_technicians_med_transportation_waiver !== "undefined" &&
+                        typeof response.medical_transportation_waiver !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.childmedical-tick').style.display = 'none';
                         document.querySelector('.childmedical-circle').style.display = 'none';
@@ -2029,12 +2041,12 @@ function checking(editID) {
                 // outside weiver details
                 let outsideWeiver;
                 if (document.getElementById('outsideengagements') != null) {
-                    if (response.outside_waiver_parent_sign_outside_engagements_waiver == 1) {
-                        document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = true;
+                    if (response.parent_sign_outside_waiver == 1) {
+                        document.getElementById('parent_sign_outside_waiver').checked = true;
                     } else {
-                        document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = false;
+                        document.getElementById('parent_sign_outside_waiver').checked = false;
                     }
-                    if (typeof response.outside_waiver_parent_sign_outside_engagements_waiver !== "undefined") {
+                    if (typeof response.parent_sign_outside_waiver !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.childoutside-tick').style.display = 'none';
                         document.querySelector('.childoutside-circle').style.display = 'none';

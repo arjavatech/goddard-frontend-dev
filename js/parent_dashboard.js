@@ -998,12 +998,6 @@ function checking(editID) {
                         document.getElementsByName('child_dentist_name')[0].value = response.child_dentist_name;
                     if (typeof response.dentist_telephone_number !== "undefined")
                         document.getElementsByName('dentist_telephone_number')[0].value = response.dentist_telephone_number;
-<<<<<<< HEAD
-                    if (typeof response.dentist_address !== "undefined")
-                        document.getElementsByName('dentist_address')[0].value = response.dentist_address;
-                    // need ti change
-
-=======
                     if (typeof response.dentist_street_address !== "undefined")
                         document.getElementsByName('dentist_street_address')[0].value = response.dentist_street_address;
                     if (typeof response.dentist_city_address !== "undefined")
@@ -1012,7 +1006,6 @@ function checking(editID) {
                         document.getElementsByName('dentist_state_address')[0].value = response.dentist_state_address;
                     if (typeof response.dentist_zip_address !== "undefined")
                         document.getElementsByName('dentist_zip_address')[0].value = response.dentist_zip_address;
->>>>>>> 027ce064eef940a277b64c2e4fbbe39babe557ca
                     if (typeof response.special_diabilities !== "undefined")
                         document.getElementsByName('special_diabilities')[0].value = response.special_diabilities;
                     if (typeof response.allergies_medication_reaction !== "undefined")

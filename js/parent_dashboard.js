@@ -1222,18 +1222,22 @@ function checking(editID) {
                         document.getElementsByName('birth_weight_oz')[0].value = response.birth_weight_oz;
                     if (typeof response.complications !== "undefined")
                         document.getElementsByName('complications')[0].value = response.complications;
-                    if (typeof response.bottle_fed == 1){
-                        document.getElementById('bottle_fed').checked = true;
+                    if (typeof response.bottle_fed == 0){
+                        document.getElementById('bottle_fed1').checked = true;
 
-                    } else {
-                        document.getElementById('bottle_fed').checked = false;
-
+                    } else if (typeof response.bottle_fed == 1){
+                        document.getElementById('bottle_fed2').checked = true;
+                    }else{
+                        document.getElementById('bottle_fed1').checked = false;
+                        document.getElementById('bottle_fed2').checked = false;
                     }
-                    if (typeof response.breast_fed == 1){
-                        document.getElementById('breast_fed').checked = true;
-                    } else {
-                        document.getElementById('breast_fed').checked = false;
-
+                    if (typeof response.breast_fed == 0){
+                        document.getElementById('breast_fed1').checked = true;
+                    } else if (typeof response.breast_fed == 1) {
+                        document.getElementById('breast_fed2').checked = true;
+                    }else{
+                        document.getElementById('breast_fed1').checked = false;
+                        document.getElementById('breast_fed2').checked = false;
                     }
                     if (typeof response.other_siblings_name !== "undefined")
                         document.getElementsByName('other_siblings_name')[0].value = response.other_siblings_name;
@@ -2071,10 +2075,13 @@ function checking(editID) {
                 let socialMedia;
                 if (document.getElementById('socialmediaapproval') != null) {
 
-                    if (response.approve_social_media_post == "approve_social_media_post") {
+                    if (response.approve_social_media_post == 1) {
                         document.getElementById('approve_social_media_post1').checked = true;
-                    } else {
+                    } else if (response.approve_social_media_post == 1){
                         document.getElementById('approve_social_media_post2').checked = true;
+                    } else{
+                        document.getElementById('approve_social_media_post1').checked = false;
+                        document.getElementById('approve_social_media_post2').checked = false;
                     }
                     if (typeof response.printed_name_social_media_post !== "undefined")
                         document.getElementsByName('printed_name_social_media_post')[0].value = response.administration_first_aid_procedures;

@@ -255,7 +255,7 @@ function checking(editID) {
                         generatePDFContent().then(doc => {
                             doc.save(fileName);
                             document.body.removeChild(hiddenDiv);
-                            // window.location.reload();
+                            window.location.reload();
                         }).catch(error => {
                             document.body.removeChild(hiddenDiv);
                         });
@@ -513,7 +513,7 @@ function checking(editID) {
                         //         'do_you_agree_this','do_you_agree_this_pick_up_password_form',
                         //         'photo_permission_agree_group_photos_electronic','do_you_agree_this_photo_video_permission_form',
                         //         'do_you_agree_this_security_release_policy_form','do_you_agree_this_medical_transportation_waiver',
-                        //         'do_you_agree_this_health_policies','outside_waiver_parent_sign_outside_engagements_waiver'
+                        //         'do_you_agree_this_health_policies','parent_sign_outside_waiver'
                         //     ];
 
                         //     checkboxFields.forEach(field => {
@@ -524,7 +524,7 @@ function checking(editID) {
                         //     });
 
                         //     inputFields.forEach(field => {
-                        //         if (response[field] === "Yes") {
+                        //         if (response[field] === 1) {
                         //             let element = form.querySelector(`input[name='${field}']`);
                         //             if (element) {
                         //                 element.setAttribute('checked', true);
@@ -583,7 +583,7 @@ function checking(editID) {
                             'reason_for_toilet_trained', 'explain_for_existing_illness_allergy', 'explain_for_functioning_at_age', 'explain_for_able_to_walk',
                             'explain_for_communicate_their_needs', 'explain_for_any_medication', 'explain_for_utilize_special_equipment',
                             'explain_for_significant_periods', 'explain_for_desire_any_accommodations', 'additional_information',
-                            'child_password_pick_up_password_form', 'photo_usage_photo_video_permission_form', 'contact_emergency_medical_technicians_medical_transportation_waiver',
+                            'child_password_pick_up_password_form', 'photo_usage_photo_video_permission_form', 'med_technicians_med_transportation_waiver',
                             'parent_sign_admission', 'parent_sign_date_admission', 'printed_name_social_media_post'
                         ];
 
@@ -603,7 +603,7 @@ function checking(editID) {
                             'existing_illness_allergy', 'functioning_at_age', 'able_to_walk', 'communicate_their_needs', 'any_medication', 'utilize_special_equipment',
                             'significant_periods', 'desire_any_accommodations', 'do_you_agree_this', 'do_you_agree_this_pick_up_password_form',
                             'photo_permission_agree_group_photos_electronic', 'do_you_agree_this_photo_video_permission_form', 'security_release_policy_form',
-                            'medical_transportation_waiver', 'do_you_agree_this_health_policies', 'outside_waiver_parent_sign_outside_engagements_waiver',
+                            'medical_transportation_waiver', 'do_you_agree_this_health_policies', 'parent_sign_outside_waiver',
                             'do_you_agree_this_social_media_post'
                         ];
 
@@ -807,14 +807,14 @@ function checking(editID) {
                         document.getElementsByName('primary_language')[0].value = response.primary_language;
                     if (typeof response.school_age_child_school !== "undefined")
                         document.getElementsByName('school_age_child_school')[0].value = response.school_age_child_school;
-                    if (response.do_relevant_custody_papers_apply === "Yes") {
+                    if (response.do_relevant_custody_papers_apply === 1) {
                         document.getElementById('do_relevant_custody_papers_apply1').checked = true;
                     } else {
                         document.getElementById('do_relevant_custody_papers_apply2').checked = true;
                     }
-                    if (response.gender == "Male") {
+                    if (response.gender == "male") {
                         document.getElementById('gender1').checked = true;
-                    } else if (response.gender == "Female") {
+                    } else if (response.gender == "female") {
                         document.getElementById('gender2').checked = true;
                     } else {
                         document.getElementById('gender3').checked = true;
@@ -858,18 +858,12 @@ function checking(editID) {
                         document.getElementsByName('home_telephone_number')[0].value = response.home_telephone_number;
                     if (typeof response.business_name !== "undefined")
                         document.getElementsByName('business_name')[0].value = response.business_name;
-                    if (typeof response.work_hours !== "undefined")
-                        document.getElementsByName('work_hours')[0].value = response.work_hours;
+                    if (typeof response.work_hours_from !== "undefined")
+                        document.getElementsByName('work_hours_from')[0].value = response.work_hours_from;
+                    if (typeof response.work_hours_to !== "undefined")
+                        document.getElementsByName('work_hours_to')[0].value = response.work_hours_to;
                     if (typeof response.business_telephone_number !== "undefined")
                         document.getElementsByName('business_telephone_number')[0].value = response.business_telephone_number;
-                    if (typeof response.business_street_address !== "undefined")
-                        document.getElementsByName('business_street_address')[0].value = response.business_street_address;
-                    if (typeof response.business_city_address !== "undefined")
-                        document.getElementsByName('business_city_address')[0].value = response.business_city_address;
-                    if (typeof response.business_state_address !== "undefined")
-                        document.getElementsByName('business_state_address')[0].value = response.business_state_address;
-                    if (typeof response.business_zip_address !== "undefined")
-                        document.getElementsByName('business_zip_address')[0].value = response.business_zip_address;
                     if (typeof response.business_cell_number !== "undefined")
                         document.getElementsByName('business_cell_number')[0].value = response.business_cell_number;
                     if (typeof response.primary_parent_email !== "undefined")
@@ -882,11 +876,9 @@ function checking(editID) {
                         typeof response.parent_zip_address !== "undefined" &&
                         typeof response.home_telephone_number !== "undefined" &&
                         typeof response.business_name !== "undefined" &&
-                        typeof response.work_hours !== "undefined" &&
+                        typeof response.work_hours_from !== "undefined" &&
+                        typeof response.work_hours_to !== "undefined" &&
                         typeof response.business_telephone_number !== "undefined" &&
-                        typeof response.business_street_address !== "undefined" &&
-                        typeof response.business_city_address !== "undefined" &&
-                        typeof response.business_zip_address !== "undefined" &&
                         typeof response.business_cell_number !== "undefined" &&
                         typeof response.primary_parent_email !== "undefined"
                     ) {
@@ -920,8 +912,10 @@ function checking(editID) {
                         document.getElementsByName('parent_two_home_telephone_number')[0].value = response.parent_two_home_telephone_number;
                     if (typeof response.parent_two_business_name !== "undefined")
                         document.getElementsByName('parent_two_business_name')[0].value = response.parent_two_business_name;
-                    if (typeof response.parent_two_work_hours !== "undefined")
-                        document.getElementsByName('parent_two_work_hours')[0].value = response.parent_two_work_hours;
+                    if (typeof response.parent_two_work_hours_from !== "undefined")
+                        document.getElementsByName('parent_two_work_hours_from')[0].value = response.parent_two_work_hours_from;
+                    if (typeof response.parent_two_work_hours_to !== "undefined")
+                        document.getElementsByName('parent_two_work_hours_to')[0].value = response.parent_two_work_hours_to;
                     if (typeof response.parent_two_business_telephone_number !== "undefined")
                         document.getElementsByName('parent_two_business_telephone_number')[0].value = response.parent_two_business_telephone_number;
                     // if (typeof response.parent_two_business_street_address !== "undefined")
@@ -946,9 +940,6 @@ function checking(editID) {
                         typeof response.parent_two_business_name !== "undefined" &&
                         typeof response.parent_two_work_hours !== "undefined" &&
                         typeof response.parent_two_business_telephone_number !== "undefined" &&
-                        typeof response.parent_two_business_street_address !== "undefined" &&
-                        typeof response.parent_two_business_city_address !== "undefined" &&
-                        typeof response.parent_two_business_zip_address !== "undefined" &&
                         typeof response.parent_two_business_cell_number !== "undefined" &&
                         typeof response.parent_email !== "undefined") {
                         document.querySelector('.parent_twodetails-tick').style.display = 'block';
@@ -957,7 +948,7 @@ function checking(editID) {
                         document.querySelector('.parent_twodetails-circle').style.display = 'block';
                         additionalChildparentInfo = false;
                     }
-
+                    // Need to change
                     // emergency Contact Information
                     if (typeof response.child_emergency_contact_name !== "undefined")
                         document.getElementsByName('child_emergency_contact_name')[0].value = response.child_emergency_contact_name;
@@ -1006,8 +997,14 @@ function checking(editID) {
                         document.getElementsByName('child_dentist_name')[0].value = response.child_dentist_name;
                     if (typeof response.dentist_telephone_number !== "undefined")
                         document.getElementsByName('dentist_telephone_number')[0].value = response.dentist_telephone_number;
-                    if (typeof response.dentist_address !== "undefined")
-                        document.getElementsByName('dentist_address')[0].value = response.dentist_address;
+                    if (typeof response.dentist_street_address !== "undefined")
+                        document.getElementsByName('dentist_street_address')[0].value = response.dentist_street_address;
+                    if (typeof response.dentist_city_address !== "undefined")
+                        document.getElementsByName('dentist_city_address')[0].value = response.dentist_city_address;
+                    if (typeof response.dentist_state_address !== "undefined")
+                        document.getElementsByName('dentist_state_address')[0].value = response.dentist_state_address;
+                    if (typeof response.dentist_zip_address !== "undefined")
+                        document.getElementsByName('dentist_zip_address')[0].value = response.dentist_zip_address;
                     if (typeof response.special_diabilities !== "undefined")
                         document.getElementsByName('special_diabilities')[0].value = response.special_diabilities;
                     if (typeof response.allergies_medication_reaction !== "undefined")
@@ -1030,7 +1027,10 @@ function checking(editID) {
                         typeof response.child_care_provider_zip_address !== "undefined" &&
                         typeof response.child_dentist_name !== "undefined" &&
                         typeof response.dentist_telephone_number !== "undefined" &&
-                        typeof response.dentist_address !== "undefined" &&
+                        typeof response.dentist_street_address !== "undefined" &&
+                        typeof response.dentist_city_address !== "undefined" &&
+                        typeof response.dentist_state_address !== "undefined" &&
+                        typeof response.dentist_zip_address !== "undefined" &&
                         typeof response.special_diabilities !== "undefined" &&
                         typeof response.allergies_medication_reaction !== "undefined" &&
                         typeof response.additional_info !== "undefined" &&
@@ -1221,10 +1221,19 @@ function checking(editID) {
                         document.getElementsByName('birth_weight_oz')[0].value = response.birth_weight_oz;
                     if (typeof response.complications !== "undefined")
                         document.getElementsByName('complications')[0].value = response.complications;
-                    if (typeof response.bottle_fed !== "undefined")
-                        document.getElementsByName('bottle_fed')[0].value = response.bottle_fed;
-                    if (typeof response.breast_fed !== "undefined")
-                        document.getElementsByName('breast_fed')[0].value = response.breast_fed;
+                    if (typeof response.bottle_fed == 1){
+                        document.getElementById('bottle_fed').checked = true;
+
+                    } else {
+                        document.getElementById('bottle_fed').checked = false;
+
+                    }
+                    if (typeof response.breast_fed == 1){
+                        document.getElementById('breast_fed').checked = true;
+                    } else {
+                        document.getElementById('breast_fed').checked = false;
+
+                    }
                     if (typeof response.other_siblings_name !== "undefined")
                         document.getElementsByName('other_siblings_name')[0].value = response.other_siblings_name;
                     if (typeof response.other_siblings_age !== "undefined")
@@ -1301,11 +1310,11 @@ function checking(editID) {
                     } else {
                         document.getElementById('family_history_epilepsy').checked = false;
                     }
-                    // if ( response.no_illnesses_for_this_child == 1){
-                    //     document.getElementById('no_illnesses_for_this_child').checked = true;
-                    // }else{
-                    //     document.getElementById('no_illnesses_for_this_child').checked = false;
-                    // }
+                    if ( response.no_illnesses_for_this_child == 1){
+                        document.getElementById('no_illnesses_for_this_child').checked = true;
+                    }else{
+                        document.getElementById('no_illnesses_for_this_child').checked = false;
+                    }
 
                     if (response.family_history_allergies == 1 ||
                         response.family_history_heart_problems == 1 ||
@@ -1533,10 +1542,10 @@ function checking(editID) {
                         document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
                     if (typeof response.about_family_celebrations !== "undefined")
                         document.getElementsByName('about_family_celebrations')[0].value = response.about_family_celebrations;
-                    if (response.childcare_before == "Yes") {
+                    if (response.childcare_before == 1) {
                         document.getElementById('childcare_before1').checked = true;
                         // document.getElementById('childcare_before_reason_div').style.display = "block";
-                    } else if (response.childcare_before == "No") {
+                    } else if (response.childcare_before == 0) {
                         document.getElementById('childcare_before2').checked = true;
                         // document.getElementById('childcare_before_reason_div').style.display = "none";
                     }
@@ -1573,19 +1582,19 @@ function checking(editID) {
                     }
 
 
-                    if (response.restricted_diet == "Yes") {
+                    if (response.restricted_diet == 1) {
                         document.getElementById('restricted_diet1').checked = true;
                         // document.getElementById('restricted_diet_reason_div').style.display = "block";
-                    } else if (response.restricted_diet == "No") {
+                    } else if (response.restricted_diet == 0) {
                         document.getElementById('restricted_diet2').checked = true;
                         // document.getElementById('restricted_diet_reason_div').style.display = "none";
                     }
                     if (typeof response.restricted_diet_reason !== "undefined")
                         document.getElementsByName('restricted_diet_reason')[0].value = response.restricted_diet_reason;
-                    if (response.eat_own == "Yes") {
+                    if (response.eat_own == 1) {
                         document.getElementById('eat_own1').checked = true;
                         // document.getElementById('eat_own_reason_div').style.display = "block";
-                    } else if (response.eat_own == "No") {
+                    } else if (response.eat_own == 0) {
                         document.getElementById('eat_own2').checked = true;
                         // document.getElementById('eat_own_reason_div').style.display = "none";
                     }
@@ -1614,10 +1623,10 @@ function checking(editID) {
                     }
 
 
-                    if (response.rest_in_the_middle_day == "Yes") {
+                    if (response.rest_in_the_middle_day == 1) {
                         document.getElementById('rest_in_the_middle_day1').checked = true;
                         // document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "block";
-                    } else if (response.rest_in_the_middle_day == "No") {
+                    } else if (response.rest_in_the_middle_day == 0) {
                         document.getElementById('rest_in_the_middle_day2').checked = true;
                         // document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "none";
                     }
@@ -1625,10 +1634,10 @@ function checking(editID) {
                         document.getElementsByName('reason_for_rest_in_the_middle_day')[0].value = response.reason_for_rest_in_the_middle_day;
                     if (typeof response.rest_routine !== "undefined")
                         document.getElementsByName('rest_routine')[0].value = response.rest_routine;
-                    if (response.toilet_trained == "Yes") {
+                    if (response.toilet_trained == 1) {
                         document.getElementById('toilet_trained1').checked = true;
                         // document.getElementById('reason_for_toilet_trained_div').style.display = "block";
-                    } else if (response.toilet_trained == "No") {
+                    } else if (response.toilet_trained == 0) {
                         document.getElementById('toilet_trained2').checked = true;
                         // document.getElementById('reason_for_toilet_trained_div').style.display = "none";
                     }
@@ -1655,10 +1664,10 @@ function checking(editID) {
                     }
 
 
-                    if (response.existing_illness_allergy == "Yes") {
+                    if (response.existing_illness_allergy == 1) {
                         document.getElementById('existing_illness_allergy1').checked = true;
                         // document.getElementById('explain_for_existing_illness_allergy_div').style.display = "block";
-                    } else if (response.existing_illness_allergy == "No") {
+                    } else if (response.existing_illness_allergy == 0) {
                         document.getElementById('existing_illness_allergy2').checked = true;
                         // document.getElementById('explain_for_existing_illness_allergy_div').style.display = "none";
                     }
@@ -1666,10 +1675,10 @@ function checking(editID) {
                     if (typeof response.explain_for_existing_illness_allergy !== "undefined")
                         document.getElementsByName('explain_for_existing_illness_allergy')[0].value = response.explain_for_existing_illness_allergy;
 
-                    if (response.functioning_at_age == "Yes") {
+                    if (response.functioning_at_age == 1) {
                         document.getElementById('functioning_at_age1').checked = true;
                         // document.getElementById('explain_for_functioning_at_age_div').style.display = "block";
-                    } else if (response.functioning_at_age == "No") {
+                    } else if (response.functioning_at_age == 0) {
                         document.getElementById('functioning_at_age2').checked = true;
                         // document.getElementById('explain_for_functioning_at_age_div').style.display = "none";
                     }
@@ -1677,10 +1686,10 @@ function checking(editID) {
                     if (typeof response.explain_for_functioning_at_age !== "undefined")
                         document.getElementsByName('explain_for_functioning_at_age')[0].value = response.explain_for_functioning_at_age;
 
-                    if (response.able_to_walk == "Yes") {
+                    if (response.able_to_walk == 1) {
                         document.getElementById('able_to_walk1').checked = true;
                         // document.getElementById('explain_for_able_to_walk_div').style.display = "block";
-                    } else if (response.able_to_walk == "No") {
+                    } else if (response.able_to_walk == 0) {
                         document.getElementById('able_to_walk2').checked = true;
                         // document.getElementById('explain_for_able_to_walk_div').style.display = "none";
                     }
@@ -1688,10 +1697,10 @@ function checking(editID) {
                     if (typeof response.explain_for_able_to_walk !== "undefined")
                         document.getElementsByName('explain_for_able_to_walk')[0].value = response.explain_for_able_to_walk;
 
-                    if (response.communicate_their_needs == "Yes") {
+                    if (response.communicate_their_needs == 1) {
                         document.getElementById('communicate_their_needs1').checked = true;
                         // document.getElementById('explain_for_communicate_their_needs_div').style.display = "block";
-                    } else if (response.communicate_their_needs == "No") {
+                    } else if (response.communicate_their_needs == 0) {
                         document.getElementById('communicate_their_needs2').checked = true;
                         // document.getElementById('explain_for_communicate_their_needs_div').style.display = "none";
                     }
@@ -1699,10 +1708,10 @@ function checking(editID) {
                     if (typeof response.explain_for_communicate_their_needs !== "undefined")
                         document.getElementsByName('explain_for_communicate_their_needs')[0].value = response.explain_for_communicate_their_needs;
 
-                    if (response.any_medication == "Yes") {
+                    if (response.any_medication == 1) {
                         document.getElementById('any_medication1').checked = true;
                         // document.getElementById('explain_for_any_medication_div').style.display = "block";
-                    } else if (response.any_medication == "No") {
+                    } else if (response.any_medication == 0) {
                         document.getElementById('any_medication2').checked = true;
                         // document.getElementById('explain_for_any_medication_div').style.display = "none";
                     }
@@ -1710,10 +1719,10 @@ function checking(editID) {
                     if (typeof response.explain_for_any_medication !== "undefined")
                         document.getElementsByName('explain_for_any_medication')[0].value = response.explain_for_any_medication;
 
-                    if (response.utilize_special_equipment == "Yes") {
+                    if (response.utilize_special_equipment == 1) {
                         document.getElementById('utilize_special_equipment1').checked = true;
                         // document.getElementById('explain_for_utilize_special_equipment_div').style.display = "block";
-                    } else if (response.utilize_special_equipment == "No") {
+                    } else if (response.utilize_special_equipment == 0) {
                         document.getElementById('utilize_special_equipment2').checked = true;
                         // document.getElementById('explain_for_utilize_special_equipment_div').style.display = "none";
                     }
@@ -1721,20 +1730,20 @@ function checking(editID) {
                     if (typeof response.explain_for_utilize_special_equipment !== "undefined")
                         document.getElementsByName('explain_for_utilize_special_equipment')[0].value = response.explain_for_utilize_special_equipment;
 
-                    if (response.significant_periods == "Yes") {
+                    if (response.significant_periods == 1) {
                         document.getElementById('significant_periods1').checked = true;
                         // document.getElementById('explain_for_significant_periods_div').style.display = "block";
-                    } else if (response.significant_periods == "No") {
+                    } else if (response.significant_periods == 0) {
                         document.getElementById('significant_periods2').checked = true;
                         // document.getElementById('explain_for_significant_periods_div').style.display = "none";
                     }
                     if (typeof response.explain_for_significant_periods !== "undefined")
                         document.getElementsByName('explain_for_significant_periods')[0].value = response.explain_for_significant_periods;
 
-                    if (response.desire_any_accommodations == "Yes") {
+                    if (response.desire_any_accommodations == 1) {
                         document.getElementById('desire_any_accommodations1').checked = true;
                         // document.getElementById('explain_for_desire_any_accommodations_div').style.display = "block";
-                    } else if (response.desire_any_accommodations == "No") {
+                    } else if (response.desire_any_accommodations == 0) {
                         document.getElementById('desire_any_accommodations2').checked = true;
                         // document.getElementById('explain_for_desire_any_accommodations_div').style.display = "none";
                     }
@@ -1912,12 +1921,12 @@ function checking(editID) {
                 // security policy details
                 let securityPolicy;
                 if (document.getElementById('securitypolicy') != null) {
-                    if (response.do_you_agree_this_security_release_policy_form == 1) {
-                        document.getElementById('do_you_agree_this_security_release_policy_form').checked = true;
+                    if (response.security_release_policy_form == 1) {
+                        document.getElementById('security_release_policy_form').checked = true;
                     } else {
-                        document.getElementById('do_you_agree_this_security_release_policy_form').checked = false;
+                        document.getElementById('security_release_policy_form').checked = false;
                     }
-                    if (typeof response.do_you_agree_this_security_release_policy_form !== "undefined") {
+                    if (typeof response.security_release_policy_form !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.childsecurity-tick').style.display = 'none';
                         document.querySelector('.childsecurity-circle').style.display = 'none';
@@ -1948,16 +1957,16 @@ function checking(editID) {
                 //medical transportation details
                 let medicaltransportationWeiver;
                 if (document.getElementById('medicaltransportation') != null) {
-                    if (typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined")
-                        document.getElementsByName('contact_emergency_medical_technicians_medical_transportation_waiver')[0].value = response.contact_emergency_medical_technicians_medical_transportation_waiver;
+                    if (typeof response.med_technicians_med_transportation_waiver !== "undefined")
+                        document.getElementsByName('med_technicians_med_transportation_waiver')[0].value = response.med_technicians_med_transportation_waiver;
 
-                    if (response.do_you_agree_this_medical_transportation_waiver == 1) {
-                        document.getElementById('do_you_agree_this_medical_transportation_waiver').checked = true;
+                    if (response.medical_transportation_waiver == 1) {
+                        document.getElementById('medical_transportation_waiver').checked = true;
                     } else {
-                        document.getElementById('do_you_agree_this_medical_transportation_waiver').checked = false;
+                        document.getElementById('medical_transportation_waiver').checked = false;
                     }
-                    if (typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined" &&
-                        typeof response.do_you_agree_this_medical_transportation_waiver !== "undefined") {
+                    if (typeof response.med_technicians_med_transportation_waiver !== "undefined" &&
+                        typeof response.medical_transportation_waiver !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.childmedical-tick').style.display = 'none';
                         document.querySelector('.childmedical-circle').style.display = 'none';
@@ -2024,12 +2033,12 @@ function checking(editID) {
                 // outside weiver details
                 let outsideWeiver;
                 if (document.getElementById('outsideengagements') != null) {
-                    if (response.outside_waiver_parent_sign_outside_engagements_waiver == 1) {
-                        document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = true;
+                    if (response.parent_sign_outside_waiver == 1) {
+                        document.getElementById('parent_sign_outside_waiver').checked = true;
                     } else {
-                        document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = false;
+                        document.getElementById('parent_sign_outside_waiver').checked = false;
                     }
-                    if (typeof response.outside_waiver_parent_sign_outside_engagements_waiver !== "undefined") {
+                    if (typeof response.parent_sign_outside_waiver !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.childoutside-tick').style.display = 'none';
                         document.querySelector('.childoutside-circle').style.display = 'none';

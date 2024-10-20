@@ -2122,10 +2122,10 @@
                             <div class="col-sm">
                                 <div class="form-group">
                                     <input type="checkbox" class="input-checkbox"
-                                        id="do_you_agree_this_security_release_policy_form"
-                                        name="do_you_agree_this_security_release_policy_form">
+                                        id="security_release_policy_form"
+                                        name="security_release_policy_form">
                                     <label class="form-check-label"
-                                        for="do_you_agree_this_security_release_policy_form">
+                                        for="security_release_policy_form">
                                         <span><b>I agree Security Release & Policy
                                                 Acknowledgement.</b></span>
                                     </label>
@@ -2161,8 +2161,8 @@
                                 <p>The undersigned authorizes representatives of The Goddard School® to contact
                                     Emergency Medical Technicians to transport
                                     <input type="text" class="form-control inputBox text-box"
-                                        id="contact_emergency_medical_technicians_medical_transportation_waiver"
-                                        name="contact_emergency_medical_technicians_medical_transportation_waiver">
+                                        id="med_technicians_med_transportation_waiver"
+                                        name="med_technicians_med_transportation_waiver">
                                     (“Student”) to receive medical care, if such transportation/care is deemed
                                     necessary.
                                 </p>
@@ -2179,9 +2179,9 @@
                             <h4 class="text-center">Parent Agreement</h4>
                             <div class="form-group">
                                 <input type="checkbox" class="input-checkbox"
-                                    id="do_you_agree_this_medical_transportation_waiver"
-                                    name="do_you_agree_this_medical_transportation_waiver">
-                                <label class="form-check-label" for="do_you_agree_this_medical_transportation_waiver">
+                                    id="medical_transportation_waiver"
+                                    name="medical_transportation_waiver">
+                                <label class="form-check-label" for="medical_transportation_waiver">
                                     <span><b>I agree medical transportation
                                             waiver.</b></span>
                                 </label>
@@ -2420,10 +2420,10 @@
                             <div class="col-sm">
                                 <div class="form-group">
                                     <input type="checkbox" class="input-checkbox"
-                                        id="outside_waiver_parent_sign_outside_engagements_waiver"
-                                        name="outside_waiver_parent_sign_outside_engagements_waiver">
+                                        id="parent_sign_outside_waiver"
+                                        name="parent_sign_outside_waiver">
                                     <label class="form-check-label"
-                                        for="outside_waiver_parent_sign_outside_engagements_waiver"><span><b>I have read
+                                        for="parent_sign_outside_waiver"><span><b>I have read
                                                 this agreement and understand its terms.</b></span>
                                     </label>
                                 </div>
@@ -2767,52 +2767,52 @@
                             document.getElementsByName('other_siblings_age')[0].value = response.other_siblings_age;
 
 
-                        if (response.family_history_allergies == "on") {
+                        if (response.family_history_allergies == 1) {
                             document.getElementById('family_history_allergies').checked = true;
                         } else {
                             document.getElementById('family_history_allergies').checked = false;
                         }
-                        if (response.family_history_heart_problems == "on") {
+                        if (response.family_history_heart_problems == 1) {
                             document.getElementById('family_history_heart_problems').checked = true;
                         } else {
                             document.getElementById('family_history_heart_problems').checked = false;
                         }
-                        if (response.family_history_tuberculosis == "on") {
+                        if (response.family_history_tuberculosis == 1) {
                             document.getElementById('family_history_tuberculosis').checked = true;
                         } else {
                             document.getElementById('family_history_tuberculosis').checked = false;
                         }
-                        if (response.family_history_asthma == "on") {
+                        if (response.family_history_asthma == 1) {
                             document.getElementById('family_history_asthma').checked = true;
                         } else {
                             document.getElementById('family_history_asthma').checked = false;
                         }
-                        if (response.family_history_high_blood_pressure == "on") {
+                        if (response.family_history_high_blood_pressure == 1) {
                             document.getElementById('family_history_high_blood_pressure').checked = true;
                         } else {
                             document.getElementById('family_history_high_blood_pressure').checked = false;
                         }
-                        if (response.family_history_vision_problems == "on") {
+                        if (response.family_history_vision_problems == 1) {
                             document.getElementById('family_history_vision_problems').checked = true;
                         } else {
                             document.getElementById('family_history_vision_problems').checked = false;
                         }
-                        if (response.family_history_diabetes == "on") {
+                        if (response.family_history_diabetes == 1) {
                             document.getElementById('family_history_diabetes').checked = true;
                         } else {
                             document.getElementById('family_history_diabetes').checked = false;
                         }
-                        if (response.family_history_hyperactivity == "on") {
+                        if (response.family_history_hyperactivity == 1) {
                             document.getElementById('family_history_hyperactivity').checked = true;
                         } else {
                             document.getElementById('family_history_hyperactivity').checked = false;
                         }
-                        if (response.family_history_epilepsy == "on") {
+                        if (response.family_history_epilepsy == 1) {
                             document.getElementById('family_history_epilepsy').checked = true;
                         } else {
                             document.getElementById('family_history_epilepsy').checked = false;
                         }
-                        if (response.no_illnesses_for_this_child == "on") {
+                        if (response.no_illnesses_for_this_child == 1) {
                             document.getElementById('no_illnesses_for_this_child').checked = true;
                         } else {
                             document.getElementById('no_illnesses_for_this_child').checked = false;
@@ -2851,14 +2851,14 @@
                             document.getElementsByName('educational_expectations_of_child')[0].value = response.educational_expectations_of_child;
 
 
-                        if (response.agree_all_above_info_is_correct == "on") {
+                        if (response.agree_all_above_info_is_correct == 1) {
                             document.getElementById('agree_all_above_info_is_correct').checked = true;
                         } else {
                             document.getElementById('agree_all_above_info_is_correct').checked = false;
                         }
 
                         //immunization details
-                        if (response.do_you_agree_this_immunization_instructions == "on") {
+                        if (response.do_you_agree_this_immunization_instructions == 1) {
                             document.getElementById('do_you_agree_this_immunization_instructions').checked = true;
                             immunizationInstruction = true;
                         } else {
@@ -2871,13 +2871,13 @@
                             document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
                         if (typeof response.about_family_celebrations !== "undefined")
                             document.getElementsByName('about_family_celebrations')[0].value = response.about_family_celebrations;
-                        if (response.childcare_before == 1) {
-                            document.getElementById('childcare_before').checked = true;
+                        // if (response.childcare_before == 1) {
+                        //     document.getElementById('childcare_before').checked = true;
                             // document.getElementsByName('reason_for_childcare_before')[0].style.display = "block";
-                        } else {
-                            document.getElementById('childcare_before2').checked = true;
+                        // } else {
+                        //     document.getElementById('childcare_before2').checked = true;
                             // document.getElementsByName('reason_for_childcare_before')[0].style.display = "none";
-                        }
+                        // }
                         if (typeof response.reason_for_childcare_before !== "undefined")
                             document.getElementsByName('reason_for_childcare_before')[0].value = response.reason_for_childcare_before;
                         if (typeof response.what_child_interests !== "undefined")
@@ -2888,139 +2888,139 @@
                             document.getElementsByName('pick_up_time')[0].value = response.pick_up_time;
 
 
-                        if (response.restricted_diet == 1) {
-                            document.getElementById('restricted_diet1').checked = true;
-                            document.getElementById('restricted_diet_reason_div').style.display = "block";
-                        } else {
-                            document.getElementById('restricted_diet2').checked = true;
-                            document.getElementById('restricted_diet_reason_div').style.display = "none";
-                        }
+                        // if (response.restricted_diet == 1) {
+                        //     document.getElementById('restricted_diet1').checked = true;
+                        //     document.getElementById('restricted_diet_reason_div').style.display = "block";
+                        // } else {
+                        //     document.getElementById('restricted_diet2').checked = true;
+                        //     document.getElementById('restricted_diet_reason_div').style.display = "none";
+                        // }
                         if (typeof response.restricted_diet_reason !== "undefined")
                             document.getElementsByName('restricted_diet_reason')[0].value = response.restricted_diet_reason;
-                        if (response.eat_own == 1) {
-                            document.getElementById('eat_own1').checked = true;
-                            document.getElementById('eat_own_reason_div').style.display = "block";
-                        } else {
-                            document.getElementById('eat_own2').checked = true;
-                            document.getElementById('eat_own_reason_div').style.display = "none";
-                        }
+                        // if (response.eat_own == 1) {
+                        //     document.getElementById('eat_own1').checked = true;
+                        //     document.getElementById('eat_own_reason_div').style.display = "block";
+                        // } else {
+                        //     document.getElementById('eat_own2').checked = true;
+                        //     document.getElementById('eat_own_reason_div').style.display = "none";
+                        // }
                         if (typeof response.eat_own_reason !== "undefined")
                             document.getElementsByName('eat_own_reason')[0].value = response.eat_own_reason;
                         if (typeof response.favorite_foods !== "undefined")
                             document.getElementsByName('favorite_foods')[0].value = response.favorite_foods;
 
-                        if (response.rest_in_the_middle_day == 1) {
-                            document.getElementById('rest_in_the_middle_day1').checked = true;
-                            document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "block";
-                        } else {
-                            document.getElementById('rest_in_the_middle_day2').checked = true;
-                            document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "none";
-                        }
+                        // if (response.rest_in_the_middle_day == 1) {
+                        //     document.getElementById('rest_in_the_middle_day1').checked = true;
+                        //     document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "block";
+                        // } else {
+                        //     document.getElementById('rest_in_the_middle_day2').checked = true;
+                        //     document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "none";
+                        // }
                         if (typeof response.reason_for_rest_in_the_middle_day !== "undefined")
                             document.getElementsByName('reason_for_rest_in_the_middle_day')[0].value = response.reason_for_rest_in_the_middle_day;
                         if (typeof response.rest_routine !== "undefined")
                             document.getElementsByName('rest_routine')[0].value = response.rest_routine;
-                        if (response.toilet_trained == 1) {
-                            document.getElementById('toilet_trained1').checked = true;
-                            document.getElementById('reason_for_toilet_trained_div').style.display = "block";
-                        } else {
-                            document.getElementById('toilet_trained2').checked = true;
-                            document.getElementById('reason_for_toilet_trained_div').style.display = "none";
-                        }
+                        // if (response.toilet_trained == 1) {
+                        //     document.getElementById('toilet_trained1').checked = true;
+                        //     document.getElementById('reason_for_toilet_trained_div').style.display = "block";
+                        // } else {
+                        //     document.getElementById('toilet_trained2').checked = true;
+                        //     document.getElementById('reason_for_toilet_trained_div').style.display = "none";
+                        // }
                         if (typeof response.reason_for_toilet_trained !== "undefined")
                             document.getElementsByName('reason_for_toilet_trained')[0].value = response.reason_for_toilet_trained;
 
 
-                        if (response.existing_illness_allergy == 1) {
-                            document.getElementById('existing_illness_allergy1').checked = true;
-                            document.getElementById('explain_for_existing_illness_allergy_div').style.display = "block";
-                        } else {
-                            document.getElementById('existing_illness_allergy2').checked = true;
-                            document.getElementById('explain_for_existing_illness_allergy_div').style.display = "none";
-                        }
+                        // if (response.existing_illness_allergy == 1) {
+                        //     document.getElementById('existing_illness_allergy1').checked = true;
+                        //     document.getElementById('explain_for_existing_illness_allergy_div').style.display = "block";
+                        // } else {
+                        //     document.getElementById('existing_illness_allergy2').checked = true;
+                        //     document.getElementById('explain_for_existing_illness_allergy_div').style.display = "none";
+                        // }
 
                         if (typeof response.explain_for_existing_illness_allergy !== "undefined")
                             document.getElementsByName('explain_for_existing_illness_allergy')[0].value = response.explain_for_existing_illness_allergy;
 
-                        if (response.functioning_at_age == 1) {
-                            document.getElementById('functioning_at_age1').checked = true;
-                            document.getElementById('explain_for_functioning_at_age_div').style.display = "block";
-                        } else {
-                            document.getElementById('functioning_at_age2').checked = true;
-                            document.getElementById('explain_for_functioning_at_age_div').style.display = "none";
-                        }
+                        // if (response.functioning_at_age == 1) {
+                        //     document.getElementById('functioning_at_age1').checked = true;
+                        //     document.getElementById('explain_for_functioning_at_age_div').style.display = "block";
+                        // } else {
+                        //     document.getElementById('functioning_at_age2').checked = true;
+                        //     document.getElementById('explain_for_functioning_at_age_div').style.display = "none";
+                        // }
 
                         if (typeof response.explain_for_functioning_at_age !== "undefined")
                             document.getElementsByName('explain_for_functioning_at_age')[0].value = response.explain_for_functioning_at_age;
 
-                        if (response.able_to_walk == 1) {
-                            document.getElementById('able_to_walk1').checked = true;
-                            document.getElementById('explain_for_able_to_walk_div').style.display = "block";
-                        } else {
-                            document.getElementById('able_to_walk2').checked = true;
-                            document.getElementById('explain_for_able_to_walk_div').style.display = "none";
-                        }
+                        // if (response.able_to_walk == 1) {
+                        //     document.getElementById('able_to_walk1').checked = true;
+                        //     document.getElementById('explain_for_able_to_walk_div').style.display = "block";
+                        // } else {
+                        //     document.getElementById('able_to_walk2').checked = true;
+                        //     document.getElementById('explain_for_able_to_walk_div').style.display = "none";
+                        // }
 
                         if (typeof response.explain_for_able_to_walk !== "undefined")
                             document.getElementsByName('explain_for_able_to_walk')[0].value = response.explain_for_able_to_walk;
 
-                        if (response.communicate_their_needs == 1) {
-                            document.getElementById('communicate_their_needs1').checked = true;
-                            document.getElementById('explain_for_communicate_their_needs_div').style.display = "block";
-                        } else {
-                            document.getElementById('communicate_their_needs2').checked = true;
-                            document.getElementById('explain_for_communicate_their_needs_div').style.display = "none";
-                        }
+                        // if (response.communicate_their_needs == 1) {
+                        //     document.getElementById('communicate_their_needs1').checked = true;
+                        //     document.getElementById('explain_for_communicate_their_needs_div').style.display = "block";
+                        // } else {
+                        //     document.getElementById('communicate_their_needs2').checked = true;
+                        //     document.getElementById('explain_for_communicate_their_needs_div').style.display = "none";
+                        // }
 
                         if (typeof response.explain_for_communicate_their_needs !== "undefined")
                             document.getElementsByName('explain_for_communicate_their_needs')[0].value = response.explain_for_communicate_their_needs;
 
-                        if (response.any_medication == 1) {
-                            document.getElementById('any_medication1').checked = true;
-                            document.getElementById('explain_for_any_medication_div').style.display = "block";
-                        } else {
-                            document.getElementById('any_medication2').checked = true;
-                            document.getElementById('explain_for_any_medication_div').style.display = "none";
-                        }
+                        // if (response.any_medication == 1) {
+                        //     document.getElementById('any_medication1').checked = true;
+                        //     document.getElementById('explain_for_any_medication_div').style.display = "block";
+                        // } else {
+                        //     document.getElementById('any_medication2').checked = true;
+                        //     document.getElementById('explain_for_any_medication_div').style.display = "none";
+                        // }
 
                         if (typeof response.explain_for_any_medication !== "undefined")
                             document.getElementsByName('explain_for_any_medication')[0].value = response.explain_for_any_medication;
 
-                        if (response.utilize_special_equipment == 1) {
-                            document.getElementById('utilize_special_equipment1').checked = true;
-                            document.getElementById('explain_for_utilize_special_equipment_div').style.display = "block";
-                        } else {
-                            document.getElementById('utilize_special_equipment2').checked = true;
-                            document.getElementById('explain_for_utilize_special_equipment_div').style.display = "none";
-                        }
+                        // if (response.utilize_special_equipment == 1) {
+                        //     document.getElementById('utilize_special_equipment1').checked = true;
+                        //     document.getElementById('explain_for_utilize_special_equipment_div').style.display = "block";
+                        // } else {
+                        //     document.getElementById('utilize_special_equipment2').checked = true;
+                        //     document.getElementById('explain_for_utilize_special_equipment_div').style.display = "none";
+                        // }
 
                         if (typeof response.explain_for_utilize_special_equipment !== "undefined")
                             document.getElementsByName('explain_for_utilize_special_equipment')[0].value = response.explain_for_utilize_special_equipment;
 
-                        if (response.significant_periods == 1) {
-                            document.getElementById('significant_periods1').checked = true;
-                            document.getElementById('explain_for_significant_periods_div').style.display = "block";
-                        } else {
-                            document.getElementById('significant_periods2').checked = true;
-                            document.getElementById('explain_for_significant_periods_div').style.display = "none";
-                        }
+                        // if (response.significant_periods == 1) {
+                        //     document.getElementById('significant_periods1').checked = true;
+                        //     document.getElementById('explain_for_significant_periods_div').style.display = "block";
+                        // } else {
+                        //     document.getElementById('significant_periods2').checked = true;
+                        //     document.getElementById('explain_for_significant_periods_div').style.display = "none";
+                        // }
                         if (typeof response.explain_for_significant_periods !== "undefined")
                             document.getElementsByName('explain_for_significant_periods')[0].value = response.explain_for_significant_periods;
 
-                        if (response.desire_any_accommodations == 1) {
-                            document.getElementById('desire_any_accommodations1').checked = true;
-                            document.getElementById('explain_for_desire_any_accommodations_div').style.display = "block";
-                        } else {
-                            document.getElementById('desire_any_accommodations2').checked = true;
-                            document.getElementById('explain_for_desire_any_accommodations_div').style.display = "none";
-                        }
+                        // if (response.desire_any_accommodations == 1) {
+                        //     document.getElementById('desire_any_accommodations1').checked = true;
+                        //     document.getElementById('explain_for_desire_any_accommodations_div').style.display = "block";
+                        // } else {
+                        //     document.getElementById('desire_any_accommodations2').checked = true;
+                        //     document.getElementById('explain_for_desire_any_accommodations_div').style.display = "none";
+                        // }
                         if (typeof response.explain_for_desire_any_accommodations !== "undefined")
                             document.getElementsByName('explain_for_desire_any_accommodations')[0].value = response.explain_for_desire_any_accommodations;
                         if (typeof response.additional_information !== "undefined")
                             document.getElementsByName('additional_information')[0].value = response.additional_information;
 
 
-                        if (response.do_you_agree_this == "on") {
+                        if (response.do_you_agree_this == 1) {
                             document.getElementById('do_you_agree_this').checked = true;
                         } else {
                             document.getElementById('do_you_agree_this').checked = false;
@@ -3029,7 +3029,7 @@
                         //pickup password details                        
                         if (typeof response.child_password_pick_up_password_form !== "undefined")
                             document.getElementsByName('child_password_pick_up_password_form')[0].value = response.child_password_pick_up_password_form;
-                        if (response.do_you_agree_this_pick_up_password_form == "on") {
+                        if (response.do_you_agree_this_pick_up_password_form == 1) {
                             document.getElementById('do_you_agree_this_pick_up_password_form').checked = true;
                         } else {
                             document.getElementById('do_you_agree_this_pick_up_password_form').checked = false;
@@ -3039,46 +3039,46 @@
                         if (typeof response.photo_usage_photo_video_permission_form !== "undefined")
                             document.getElementsByName('photo_usage_photo_video_permission_form')[0].value = response.photo_usage_photo_video_permission_form;
 
-                        if (response.photo_permission_agree_group_photos_electronic == "on") {
+                        if (response.photo_permission_agree_group_photos_electronic == 1) {
                             document.getElementById('photo_permission_agree_group_photos_electronic').checked = true;
                         } else {
                             document.getElementById('photo_permission_agree_group_photos_electronic').checked = false;
                         }
-                        if (response.do_you_agree_this_photo_video_permission_form == "on") {
+                        if (response.do_you_agree_this_photo_video_permission_form == 1) {
                             document.getElementById('do_you_agree_this_photo_video_permission_form').checked = true;
                         } else {
                             document.getElementById('do_you_agree_this_photo_video_permission_form').checked = false;
                         }
 
                         // security policy details
-                        if (response.do_you_agree_this_security_release_policy_form == "on") {
-                            document.getElementById('do_you_agree_this_security_release_policy_form').checked = true;
+                        if (response.security_release_policy_form == 1) {
+                            document.getElementById('security_release_policy_form').checked = true;
                         } else {
-                            document.getElementById('do_you_agree_this_security_release_policy_form').checked = false;
+                            document.getElementById('security_release_policy_form').checked = false;
                         }
 
                         //medical transportation details
-                        if (typeof response.contact_emergency_medical_technicians_medical_transportation_waiver !== "undefined")
-                            document.getElementsByName('contact_emergency_medical_technicians_medical_transportation_waiver')[0].value = response.contact_emergency_medical_technicians_medical_transportation_waiver;
+                        if (typeof response.med_technicians_med_transportation_waiver !== "undefined")
+                            document.getElementsByName('med_technicians_med_transportation_waiver')[0].value = response.med_technicians_med_transportation_waiver;
 
-                        if (response.do_you_agree_this_medical_transportation_waiver == "on") {
-                            document.getElementById('do_you_agree_this_medical_transportation_waiver').checked = true;
+                        if (response.medical_transportation_waiver == 1) {
+                            document.getElementById('medical_transportation_waiver').checked = true;
                         } else {
-                            document.getElementById('do_you_agree_this_medical_transportation_waiver').checked = false;
+                            document.getElementById('medical_transportation_waiver').checked = false;
                         }
 
                         // health policy details
-                        if (response.do_you_agree_this_health_policies == "on") {
+                        if (response.do_you_agree_this_health_policies == 1) {
                             document.getElementById('do_you_agree_this_health_policies').checked = true;
                         } else {
                             document.getElementById('do_you_agree_this_health_policies').checked = false;
                         }
 
                         // outside weiver details
-                        if (response.outside_waiver_parent_sign_outside_engagements_waiver == "on") {
-                            document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = true;
+                        if (response.parent_sign_outside_waiver == 1) {
+                            document.getElementById('parent_sign_outside_waiver').checked = true;
                         } else {
-                            document.getElementById('outside_waiver_parent_sign_outside_engagements_waiver').checked = false;
+                            document.getElementById('parent_sign_outside_waiver').checked = false;
                         }
 
                         // Admission form parent agreement

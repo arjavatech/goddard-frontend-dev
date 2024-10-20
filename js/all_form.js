@@ -14,6 +14,7 @@ function submitForm(editID,number) {
     obj.pointer = number;
     //to get values from local storage variable and stored it into response1 variable.
     var response=JSON.parse(window.localStorage.getItem("responseData"));
+    console.log(response);
     var outputobject ={};
     //to set local response variable id value for outputobject id value.
     if(editID != ''){
@@ -22,7 +23,6 @@ function submitForm(editID,number) {
         outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
     }
     const child_id_val = localStorage.getItem('child_id');
-
     if (child_id_val !== null && child_id_val !== undefined) {
         outputobject.child_id = child_id_val; 
     }
@@ -34,6 +34,53 @@ function submitForm(editID,number) {
             outputobject[key]=obj[key];
         }
     })
+
+    const emergencyContacts = [];
+    for (let i = 1; i <= 2; i++) {
+        const contactName = formData.get(`emergency_contact_name_${i}`);
+        const contactZip = formData.get(`emergency_contact_zip_address_${i}`);
+        const contactCity = formData.get(`emergency_contact_city_address_${i}`);
+        const contactFullAddress = formData.get(`emergency_contact_full_address_${i}`);
+        const contactRelationship = formData.get(`emergency_contact_relationship_${i}`);
+        const contactState = formData.get(`emergency_contact_state_address_${i}`);
+        const contactPhone = formData.get(`emergency_contact_telephone_number_${i}`);
+        
+        if (contactName && contactPhone) {
+            emergencyContacts.push({
+                // child_emergency_contact_id: i, 
+                child_emergency_contact_name: contactName,
+                child_emergency_contact_zip_address: contactZip,
+                child_emergency_contact_city_address: contactCity,
+                child_emergency_contact_full_address: contactFullAddress,
+                child_emergency_contact_relationship: contactRelationship,
+                child_emergency_contact_state_address: contactState,
+                child_emergency_contact_telephone_number: contactPhone
+            });
+        }
+    }
+    outputobject.emergency_contact_info = emergencyContacts;
+    // Additional objects for specific sections
+    let child_dentist_info = {
+        child_dentist_name: obj.child_dentist_name,
+        dentist_telephone_number: obj.dentist_telephone_number,
+        dentist_street_address: obj.dentist_street_address,
+        dentist_city_address: obj.dentist_city_address,
+        dentist_state_address: obj.dentist_state_address,
+        dentist_zip_address: obj.dentist_zip_address
+    };
+    outputobject.child_dentist_info = child_dentist_info;
+
+    let child_care_provider_info = {
+        child_care_provider_name: obj.child_care_provider_name,
+        child_care_provider_telephone_number: obj.child_care_provider_telephone_number,
+        child_hospital_affiliation: obj.child_hospital_affiliation,
+        child_care_provider_street_address : obj.child_care_provider_street_address,
+        child_care_provider_city_address : obj.child_care_provider_city_address,
+        child_care_provider_state_address :obj.child_care_provider_state_address,
+        child_care_provider_zip_address :obj.child_care_provider_zip_address
+    };
+    outputobject.child_care_provider_info = child_dentist_info;
+
     const json=JSON.stringify(outputobject); 
     console.log(json);
     let xhr = new XMLHttpRequest();
@@ -55,11 +102,10 @@ function submitForm(editID,number) {
             }, 3000);
         }
     };
-    xhr.open("PUT", `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_form/update/${localStorage.getItem('child_id')}`);
+    xhr.open("PUT", ` https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_segment_update/${localStorage.getItem('child_id')}`);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
-
 
 function authorizationSubmitForm(editID) {
     const form = document.getElementById("childInfoAuthorization");
@@ -423,6 +469,7 @@ function handbookSaveForm(editID) {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
+
 function clearForm(){
     window.location.reload();
 }

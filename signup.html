@@ -39,7 +39,11 @@
                         <div class="success-msg alert alert-success">
                             <a href="#" data-dismiss="alert"></a>
                             <strong>Success!</strong> You have been signed in successfully!
-                        </div>   
+                        </div>
+                        <div class="error-msg-invalidurl alert alert-danger">
+                            <a href="#" data-dismiss="alert"></a>
+                            <strong>Oops!</strong> Already registered with another mail-id. (Invalid URL)
+                        </div>
                         <div class="error-msg-mismatch alert alert-danger">
                             <a href="#" data-dismiss="alert"></a>
                             <strong>Oops!</strong> Password Mismatched!
@@ -56,6 +60,7 @@
                             <a href="#" data-dismiss="alert" aria-label="close"></a>
                             <strong>Oops!</strong> User already exists!
                         </div> 
+                        
                         <div class=" text-center"><img src="image/gs_logo_tab.png" class="gd-tab-logo" type="image/png"></div><br>
                          <!-- Sign Up -->
                         <div class="container">
@@ -171,13 +176,25 @@
                             contentType: "application/json",
                             data: JSON.stringify(obj),
                             success: function (response) {
+                                console.log(response)
                                 if(response.message == "SignUp Data successfully updated"){
                                     $(".success-msg").show();
                                     setTimeout(function(){ 
                                         $(".success-msg").hide(); 
                                         window.location.href = "login.html";
                                     }, 3000);
-                                }else{
+                                }else if(response.error == `signup_id with email ${email_id} Already Registered`){
+                                    $(".error-msg-alreadyexists").show();
+                                    setTimeout(function(){ 
+                                        $(".error-msg-alreadyexists").hide(); 
+                                    }, 3000);
+                                } else if(response.error == "Already registered with another mail-id. (Invalid URL)"){
+                                    console.log("kk");
+                                    $(".error-msg-invalidurl").show();
+                                    setTimeout(function(){ 
+                                        $(".error-msg-invalidurl").hide(); 
+                                    }, 3000);
+                                } else {
                                     $(".error-msg").show();
                                     setTimeout(function(){ 
                                         $(".error-msg").hide(); 

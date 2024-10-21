@@ -97,7 +97,12 @@ function resendmailFunction(){
                         $(".forget-success-msg").hide(); 
                         window.location.href = "login.html";
                     }, 3000);
-                }else {
+                }else if(response.error == "We have already sent the password reset page URL to your email. Please check your inbox."){
+                    $(".error-msg-alreadyexists").show();
+                    setTimeout(function(){ 
+                        $(".error-msg-alreadyexists").hide(); 
+                    }, 3000);
+                }else{
                     $(".error-msg-notfound").show();
                     setTimeout(function(){ 
                         $(".error-msg-notfound").hide(); 

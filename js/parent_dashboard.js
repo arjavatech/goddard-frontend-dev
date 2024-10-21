@@ -476,7 +476,7 @@ function checking(editID) {
                         //         'birth_weight_oz','complications','bottle_fed','breast_fed','other_siblings_name','other_siblings_age',
                         //         'relationship_with_father', 'relationship_with_siblings', 'relationship_with_extended_family', 'fears_conflicts',
                         //         'child_response_frustration', 'favorite_activities', 'last_five_years_moved', 'things_used_at_home', 'hours_of_television_daily',
-                        //         'language_used_at_home', 'changes_at_home_situation', 'educational_expectations_of_child', 'other_important_family_members',
+                        //         'language_used_at_home', 'changes_at_home_situation', 'educational_expectations_of_child', 'important_fam_members',
                         //         'about_family_celebrations', 'reason_for_childcare_before', 'what_child_interests', 'drop_off_time', 'pick_up_time', 
                         //         'restricted_diet_reason', 'eat_own_reason', 'favorite_foods', 'reason_for_rest_in_the_middle_day', 'rest_routine', 
                         //         'reason_for_toilet_trained', 'explain_for_existing_illness_allergy', 'explain_for_functioning_at_age', 'explain_for_able_to_walk', 
@@ -577,7 +577,7 @@ function checking(editID) {
                             'birth_weight_oz', 'complications', 'bottle_fed', 'breast_fed', 'other_siblings_name', 'other_siblings_age',
                             'relationship_with_father', 'relationship_with_siblings', 'relationship_with_extended_family', 'fears_conflicts',
                             'child_response_frustration', 'favorite_activities', 'last_five_years_moved', 'things_used_at_home', 'hours_of_television_daily',
-                            'language_used_at_home', 'changes_at_home_situation', 'educational_expectations_of_child', 'other_important_family_members',
+                            'language_used_at_home', 'changes_at_home_situation', 'educational_expectations_of_child', 'important_fam_members',
                             'about_family_celebrations', 'reason_for_childcare_before', 'what_child_interests', 'drop_off_time', 'pick_up_time',
                             'restricted_diet_reason', 'eat_own_reason', 'favorite_foods', 'reason_for_rest_in_the_middle_day', 'rest_routine',
                             'reason_for_toilet_trained', 'explain_for_existing_illness_allergy', 'explain_for_functioning_at_age', 'explain_for_able_to_walk',
@@ -1538,8 +1538,8 @@ function checking(editID) {
                 //child profile details
                 if (document.getElementById('childprofile') != null) {
 
-                    if (typeof response.other_important_family_members !== "undefined")
-                        document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
+                    if (typeof response.important_fam_members !== "undefined")
+                        document.getElementsByName('important_fam_members')[0].value = response.important_fam_members;
                     if (typeof response.about_family_celebrations !== "undefined")
                         document.getElementsByName('about_family_celebrations')[0].value = response.about_family_celebrations;
                     if (response.childcare_before == 1) {
@@ -1558,7 +1558,7 @@ function checking(editID) {
                     if (typeof response.pick_up_time !== "undefined")
                         document.getElementsByName('pick_up_time')[0].value = response.pick_up_time;
 
-                    if (typeof response.other_important_family_members !== "undefined" &&
+                    if (typeof response.important_fam_members !== "undefined" &&
                         typeof response.about_family_celebrations !== "undefined" &&
                         typeof response.childcare_before !== "undefined" &&
                         typeof response.reason_for_childcare_before !== "undefined" &&

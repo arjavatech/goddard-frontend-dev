@@ -10,6 +10,7 @@ function submitForm(editID,number) {
     old.parentNode.replaceChild(new_element,old);
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData); 
+    console.log(obj);
     obj.form_year_admission = year;
     obj.pointer = number;
     //to get values from local storage variable and stored it into response1 variable.
@@ -36,42 +37,82 @@ function submitForm(editID,number) {
         }
     })
 
+    let primary_parent_info = {
+        parent_id : response.primary_parent_info.parent_id,
+        parent_name: obj.parent_name,
+        parent_street_address: obj.parent_street_address,
+        parent_city_address: obj.parent_city_address,
+        parent_state_address: obj.parent_state_address,
+        parent_zip_address: obj.parent_zip_address,
+        home_telephone_number: obj.home_telephone_number,
+        business_name: obj.business_name,
+        work_hours_from: obj.work_hours_from,
+        work_hours_to: obj.work_hours_to,
+        business_telephone_number: obj.business_telephone_number,
+        business_cell_number: obj.business_cell_number,
+        parent_email: obj.primary_parent_info
+    };
+    outputobject.primary_parent_info = primary_parent_info;
+
+    let additional_parent_info = {
+        parent_id : response.additional_parent_info.parent_id,
+        parent_name: obj.parent_two_name,
+        parent_street_address: obj.parent_two_street_address,
+        parent_city_address: obj.parent_two_city_address,
+        parent_state_address: obj.parent_two_state_address,
+        parent_zip_address: obj.parent_two_zip_address,
+        home_telephone_number: obj.parent_two_home_telephone_number,
+        business_name: obj.parent_two_business_name,
+        work_hours_from: obj.parent_two_work_hours_from,
+        work_hours_to: obj.parent_two_work_hours_to,
+        business_telephone_number: obj.parent_two_business_telephone_number,
+        business_cell_number: obj.parent_two_business_cell_number,
+        parent_email: obj.parent_info
+    };
+    outputobject.additional_parent_info = additional_parent_info;
+
     const emergencyContacts = [];
-    for (let i = 1; i <= 2; i++) {
-        const contactName = formData.get(`emergency_contact_name_${i}`);
-        const contactZip = formData.get(`emergency_contact_zip_address_${i}`);
-        const contactCity = formData.get(`emergency_contact_city_address_${i}`);
-        const contactFullAddress = formData.get(`emergency_contact_full_address_${i}`);
-        const contactRelationship = formData.get(`emergency_contact_relationship_${i}`);
-        const contactState = formData.get(`emergency_contact_state_address_${i}`);
-        const contactPhone = formData.get(`emergency_contact_telephone_number_${i}`);
+    for (let i = 0; i <= 2; i++) {
+        const contactName = formData.get(`child_emergency_contact_name${i}`);
+        const contactZip = formData.get(`child_emergency_contact_zip_address${i}`);
+        const contactCity = formData.get(`child_emergency_contact_city_address${i}`);
+        const contactFullAddress = formData.get(`child_emergency_contact_full_address${i}`);
+        const contactRelationship = formData.get(`child_emergency_contact_relationship${i}`);
+        const contactState = formData.get(`child_emergency_contact_state_address${i}`);
+        const contactPhone = formData.get(`child_emergency_contact_telephone_number${i}`);
         
-        if (contactName && contactPhone) {
-            emergencyContacts.push({
-                // child_emergency_contact_id: i, 
-                child_emergency_contact_name: contactName,
-                child_emergency_contact_zip_address: contactZip,
-                child_emergency_contact_city_address: contactCity,
-                child_emergency_contact_full_address: contactFullAddress,
-                child_emergency_contact_relationship: contactRelationship,
-                child_emergency_contact_state_address: contactState,
-                child_emergency_contact_telephone_number: contactPhone
-            });
-        }
+        emergencyContacts.push({
+            child_emergency_contact_name: contactName,
+            child_emergency_contact_zip_address: contactZip,
+            child_emergency_contact_city_address: contactCity,
+            child_emergency_contact_full_address: contactFullAddress,
+            child_emergency_contact_relationship: contactRelationship,
+            child_emergency_contact_state_address: contactState,
+            child_emergency_contact_telephone_number: contactPhone
+        });
     }
+    
     outputobject.emergency_contact_info = emergencyContacts;
+    console.log(outputobject.emergency_contact_info);
+    
+
+    console.log( obj.dentist_telephone_number);
     // Additional objects for specific sections
     let child_dentist_info = {
-        child_dentist_name: obj.child_dentist_name,
-        dentist_telephone_number: obj.dentist_telephone_number,
-        dentist_street_address: obj.dentist_street_address,
-        dentist_city_address: obj.dentist_city_address,
-        dentist_state_address: obj.dentist_state_address,
-        dentist_zip_address: obj.dentist_zip_address
+        child_dentist_id: response.child_dentist_info?.child_dentist_id || '',
+        child_dentist_name: document.getElementById('child_dentist_name').value,
+        dentist_telephone_number: document.getElementById('dentist_telephone_number').value,
+        dentist_street_address: document.getElementById('dentist_street_address').value,
+        dentist_city_address: document.getElementById('dentist_city_address').value,
+        dentist_state_address: document.getElementById('dentist_state_address').value,
+        dentist_zip_address: document.getElementById('dentist_zip_address').value
     };
     outputobject.child_dentist_info = child_dentist_info;
 
+    console.log(outputobject.child_dentist_info);
+
     let child_care_provider_info = {
+        child_care_provider_id : response.child_care_provider_info.child_care_provider_id || '',
         child_care_provider_name: obj.child_care_provider_name,
         child_care_provider_telephone_number: obj.child_care_provider_telephone_number,
         child_hospital_affiliation: obj.child_hospital_affiliation,
@@ -80,7 +121,7 @@ function submitForm(editID,number) {
         child_care_provider_state_address :obj.child_care_provider_state_address,
         child_care_provider_zip_address :obj.child_care_provider_zip_address
     };
-    outputobject.child_care_provider_info = child_dentist_info;
+    outputobject.child_care_provider_info = child_care_provider_info;
 
     const json=JSON.stringify(outputobject); 
     console.log(json);

@@ -29,19 +29,25 @@ function emailSend() {
                 contentType: "application/json",
                 data: json,
                 success: function (response) {
-                    console.log(response.error);
+                    console.log(response);
                     // return false;
-                    if (response.error === "Parent invite mail with id varsha.arjava@gmail.com is already exists!!!") {
+                    if (response.error === "Email Already Registered with another mail. Please try different email") {
                         $(".error-msg-alreadyexists").show();
                         setTimeout(function () {
                             $(".error-msg-alreadyexists").hide();
                             // window.location.reload();
                         }, 3000);
-                    } else {
+                    } else if(response.message === "Parent invite created and Email sent successfully!") {
                         $(".success-msg").show();
                         setTimeout(function () {
                             $(".success-msg").hide();
-                            window.location.reload();
+                            // window.location.reload();
+                        }, 3000);
+                    } else {
+                        $(".error-msg-alreadyexists").show();
+                        setTimeout(function () {
+                            $(".error-msg-alreadyexists").hide();
+                            // window.location.reload();
                         }, 3000);
                     }
 

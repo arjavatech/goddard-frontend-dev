@@ -786,7 +786,6 @@ function checking(editID) {
             type: 'GET',
             //this is used to get the response and return the result
             success: function (response) {
-                console.log(response);
                 let childbasicInfo;
                 let childparentInfo;
                 let additionalChildparentInfo;
@@ -1222,22 +1221,18 @@ function checking(editID) {
                         document.getElementsByName('birth_weight_oz')[0].value = response.birth_weight_oz;
                     if (typeof response.complications !== "undefined")
                         document.getElementsByName('complications')[0].value = response.complications;
-                    if (typeof response.bottle_fed == 0){
-                        document.getElementById('bottle_fed1').checked = true;
+                    if (typeof response.bottle_fed == 1){
+                        document.getElementById('bottle_fed').checked = true;
 
-                    } else if (typeof response.bottle_fed == 1){
-                        document.getElementById('bottle_fed2').checked = true;
-                    }else{
-                        document.getElementById('bottle_fed1').checked = false;
-                        document.getElementById('bottle_fed2').checked = false;
+                    } else {
+                        document.getElementById('bottle_fed').checked = false;
+
                     }
-                    if (typeof response.breast_fed == 0){
-                        document.getElementById('breast_fed1').checked = true;
-                    } else if (typeof response.breast_fed == 1) {
-                        document.getElementById('breast_fed2').checked = true;
-                    }else{
-                        document.getElementById('breast_fed1').checked = false;
-                        document.getElementById('breast_fed2').checked = false;
+                    if (typeof response.breast_fed == 1){
+                        document.getElementById('breast_fed').checked = true;
+                    } else {
+                        document.getElementById('breast_fed').checked = false;
+
                     }
                     if (typeof response.other_siblings_name !== "undefined")
                         document.getElementsByName('other_siblings_name')[0].value = response.other_siblings_name;
@@ -2075,13 +2070,10 @@ function checking(editID) {
                 let socialMedia;
                 if (document.getElementById('socialmediaapproval') != null) {
 
-                    if (response.approve_social_media_post == 1) {
+                    if (response.approve_social_media_post == "approve_social_media_post") {
                         document.getElementById('approve_social_media_post1').checked = true;
-                    } else if (response.approve_social_media_post == 1){
+                    } else {
                         document.getElementById('approve_social_media_post2').checked = true;
-                    } else{
-                        document.getElementById('approve_social_media_post1').checked = false;
-                        document.getElementById('approve_social_media_post2').checked = false;
                     }
                     if (typeof response.printed_name_social_media_post !== "undefined")
                         document.getElementsByName('printed_name_social_media_post')[0].value = response.administration_first_aid_procedures;
@@ -2518,13 +2510,13 @@ function checking(editID) {
                 let welcome_goddard_agreement;
                 let parentHandBook;
                 if (document.getElementById('volumeone') != null) {
-                    if (response.welcome_goddard_agreement == 1) {
+                    if (response.parent_hand_book['welcome_goddard_agreement'] == 1) {
                         document.getElementById('welcome_goddard_agreement').checked = true;
                     } else {
                         document.getElementById('welcome_goddard_agreement').checked = false;
                     }
 
-                    if (typeof response.welcome_goddard_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['welcome_goddard_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.goddard-tick').style.display = 'none';
                         document.querySelector('.goddard-circle').style.display = 'none';
@@ -2541,12 +2533,12 @@ function checking(editID) {
                     }
 
                     let mission_statement_agreement;
-                    if (response.mission_statement_agreement == 1) {
+                    if (response.parent_hand_book['mission_statement_agreement'] == 1) {
                         document.getElementById('mission_statement_agreement').checked = true;
                     } else {
                         document.getElementById('mission_statement_agreement').checked = false;
                     }
-                    if (typeof response.mission_statement_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['mission_statement_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.mission-tick').style.display = 'none';
                         document.querySelector('.mission-circle').style.display = 'none';
@@ -2563,12 +2555,12 @@ function checking(editID) {
                     }
 
                     let general_information_agreement;
-                    if (response.general_information_agreement == 1) {
+                    if (response.parent_hand_book['general_information_agreement'] == 1) {
                         document.getElementById('general_information_agreement').checked = true;
                     } else {
                         document.getElementById('general_information_agreement').checked = false;
                     }
-                    if (typeof response.general_information_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['general_information_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.generalinfo-tick').style.display = 'none';
                         document.querySelector('.generalinfo-circle').style.display = 'none';
@@ -2586,12 +2578,12 @@ function checking(editID) {
 
 
                     let medical_care_provider_agreement;
-                    if (response.medical_care_provider_agreement == 1) {
+                    if (response.parent_hand_book['medical_care_provider_agreement'] == 1) {
                         document.getElementById('medical_care_provider_agreement').checked = true;
                     } else {
                         document.getElementById('medical_care_provider_agreement').checked = false;
                     }
-                    if (typeof response.medical_care_provider_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['medical_care_provider_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.statement-tick').style.display = 'none';
                         document.querySelector('.statement-circle').style.display = 'none';
@@ -2608,12 +2600,12 @@ function checking(editID) {
                     }
 
                     let parent_access_agreement;
-                    if (response.parent_access_agreement == 1) {
+                    if (response.parent_hand_book['parent_access_agreement'] == 1) {
                         document.getElementById('parent_access_agreement').checked = true;
                     } else {
                         document.getElementById('parent_access_agreement').checked = false;
                     }
-                    if (typeof response.parent_access_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['parent_access_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.parentaccess-tick').style.display = 'none';
                         document.querySelector('.parentaccess-circle').style.display = 'none';
@@ -2629,12 +2621,12 @@ function checking(editID) {
                         parent_access_agreement = false;
                     }
                     let release_of_children_agreement;
-                    if (response.release_of_children_agreement == 1) {
+                    if (response.parent_hand_book['release_of_children_agreement'] == 1) {
                         document.getElementById('release_of_children_agreement').checked = true;
                     } else {
                         document.getElementById('release_of_children_agreement').checked = false;
                     }
-                    if (typeof response.release_of_children_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['release_of_children_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.releasechild-tick').style.display = 'none';
                         document.querySelector('.releasechild-circle').style.display = 'none';
@@ -2652,12 +2644,12 @@ function checking(editID) {
 
 
                     let registration_fees_agreement;
-                    if (response.registration_fees_agreement == 1) {
+                    if (response.parent_hand_book['registration_fees_agreement'] == 1) {
                         document.getElementById('registration_fees_agreement').checked = true;
                     } else {
                         document.getElementById('registration_fees_agreement').checked = false;
                     }
-                    if (typeof response.registration_fees_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['registration_fees_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.fees-tick').style.display = 'none';
                         document.querySelector('.fees-circle').style.display = 'none';
@@ -2674,12 +2666,12 @@ function checking(editID) {
                     }
 
                     let outside_engagements_agreement;
-                    if (response.outside_engagements_agreement == 1) {
+                    if (response.parent_hand_book['outside_engagements_agreement'] == 1) {
                         document.getElementById('outside_engagements_agreement').checked = true;
                     } else {
                         document.getElementById('outside_engagements_agreement').checked = false;
                     }
-                    if (typeof response.outside_engagements_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['outside_engagements_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.outsideengagement-tick').style.display = 'none';
                         document.querySelector('.outsideengagement-circle').style.display = 'none';
@@ -2696,12 +2688,12 @@ function checking(editID) {
                     }
 
                     let health_policies_agreement;
-                    if (response.health_policies_agreement == 1) {
+                    if (response.parent_hand_book['health_policies_agreement'] == 1) {
                         document.getElementById('health_policies_agreement').checked = true;
                     } else {
                         document.getElementById('health_policies_agreement').checked = false;
                     }
-                    if (typeof response.health_policies_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['health_policies_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.healthpolicies-tick').style.display = 'none';
                         document.querySelector('.healthpolicies-circle').style.display = 'none';
@@ -2719,12 +2711,12 @@ function checking(editID) {
 
 
                     let medication_procedures_agreement;
-                    if (response.medication_procedures_agreement == 1) {
+                    if (response.parent_hand_book['medication_procedures_agreement'] == 1) {
                         document.getElementById('medication_procedures_agreement').checked = true;
                     } else {
                         document.getElementById('medication_procedures_agreement').checked = false;
                     }
-                    if (typeof response.medication_procedures_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['medication_procedures_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.medicationprocedures-tick').style.display = 'none';
                         document.querySelector('.medicationprocedures-circle').style.display = 'none';
@@ -2742,12 +2734,12 @@ function checking(editID) {
 
 
                     let bring_to_school_agreement;
-                    if (response.bring_to_school_agreement == 1) {
+                    if (response.parent_hand_book['bring_to_school_agreement'] == 1) {
                         document.getElementById('bring_to_school_agreement').checked = true;
                     } else {
                         document.getElementById('bring_to_school_agreement').checked = false;
                     }
-                    if (typeof response.bring_to_school_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['bring_to_school_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.toysfromhome-tick').style.display = 'none';
                         document.querySelector('.toysfromhome-circle').style.display = 'none';
@@ -2764,12 +2756,12 @@ function checking(editID) {
                     }
 
                     let rest_time_agreement;
-                    if (response.rest_time_agreement == 1) {
+                    if (response.parent_hand_book['rest_time_agreement'] == 1) {
                         document.getElementById('rest_time_agreement').checked = true;
                     } else {
                         document.getElementById('rest_time_agreement').checked = false;
                     }
-                    if (typeof response.rest_time_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['rest_time_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.restmealssnacks-tick').style.display = 'none';
                         document.querySelector('.restmealssnacks-circle').style.display = 'none';
@@ -2786,12 +2778,12 @@ function checking(editID) {
                     }
 
                     let training_philosophy_agreement;
-                    if (response.training_philosophy_agreement == 1) {
+                    if (response.parent_hand_book['training_philosophy_agreement'] == 1) {
                         document.getElementById('training_philosophy_agreement').checked = true;
                     } else {
                         document.getElementById('training_philosophy_agreement').checked = false;
                     }
-                    if (typeof response.training_philosophy_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['training_philosophy_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.transition-tick').style.display = 'none';
                         document.querySelector('.transition-circle').style.display = 'none';
@@ -2808,12 +2800,12 @@ function checking(editID) {
                     }
 
                     let affiliation_policy_agreement;
-                    if (response.affiliation_policy_agreement == 1) {
+                    if (response.parent_hand_book['affiliation_policy_agreement'] == 1) {
                         document.getElementById('affiliation_policy_agreement').checked = true;
                     } else {
                         document.getElementById('affiliation_policy_agreement').checked = false;
                     }
-                    if (typeof response.affiliation_policy_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['affiliation_policy_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.emergencyclosings-tick').style.display = 'none';
                         document.querySelector('.emergencyclosings-circle').style.display = 'none';
@@ -2830,12 +2822,12 @@ function checking(editID) {
                     }
 
                     let security_issue_agreement;
-                    if (response.security_issue_agreement == 1) {
+                    if (response.parent_hand_book['security_issue_agreement'] == 1) {
                         document.getElementById('security_issue_agreement').checked = true;
                     } else {
                         document.getElementById('security_issue_agreement').checked = false;
                     }
-                    if (typeof response.security_issue_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['security_issue_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.websitesblogs-tick').style.display = 'none';
                         document.querySelector('.websitesblogs-circle').style.display = 'none';
@@ -2852,12 +2844,12 @@ function checking(editID) {
                     }
 
                     let expulsion_policy_agreement;
-                    if (response.expulsion_policy_agreement == 1) {
+                    if (response.parent_hand_book['expulsion_policy_agreement'] == 1) {
                         document.getElementById('expulsion_policy_agreement').checked = true;
                     } else {
                         document.getElementById('expulsion_policy_agreement').checked = false;
                     }
-                    if (typeof response.expulsion_policy_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['expulsion_policy_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.expulsionpolicy-tick').style.display = 'none';
                         document.querySelector('.expulsionpolicy-circle').style.display = 'none';
@@ -2874,12 +2866,12 @@ function checking(editID) {
                     }
 
                     let addressing_individual_child_agreement;
-                    if (response.addressing_individual_child_agreement == 1) {
+                    if (response.parent_hand_book['addressing_individual_child_agreement'] == 1) {
                         document.getElementById('addressing_individual_child_agreement').checked = true;
                     } else {
                         document.getElementById('addressing_individual_child_agreement').checked = false;
                     }
-                    if (typeof response.addressing_individual_child_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['addressing_individual_child_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.addressing-tick').style.display = 'none';
                         document.querySelector('.addressing-circle').style.display = 'none';
@@ -2896,12 +2888,12 @@ function checking(editID) {
                     }
 
                     let finalword_agreement;
-                    if (response.finalword_agreement == 1) {
+                    if (response.parent_hand_book['finalword_agreement'] == 1) {
                         document.getElementById('finalword_agreement').checked = true;
                     } else {
                         document.getElementById('finalword_agreement').checked = false;
                     }
-                    if (typeof response.finalword_agreement !== "undefined") {
+                    if (typeof response.parent_hand_book['finalword_agreement'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.finalword-tick').style.display = 'none';
                         document.querySelector('.finalword-circle').style.display = 'none';
@@ -2965,15 +2957,15 @@ function checking(editID) {
                     }
                 });
                 if (document.getElementById('parentsignaturehandbook') != null) {
-                    if (typeof response.parent_sign_handbook !== "undefined") {
-                        document.getElementsByName('parent_sign_handbook')[0].value = response.parent_sign_handbook;
+                    if (typeof response.parent_hand_book['parent_sign_handbook'] !== "undefined") {
+                        document.getElementsByName('parent_sign_handbook')[0].value = response.parent_hand_book['parent_sign_handbook'];
                     }
-                    if (typeof response.parent_sign_date_handbook !== "undefined") {
-                        document.getElementsByName('parent_sign_date_handbook')[0].value = response.parent_sign_date_handbook;
+                    if (typeof response.parent_hand_book['parent_sign_date_handbook'] !== "undefined") {
+                        document.getElementsByName('parent_sign_date_handbook')[0].value = response.parent_hand_book['parent_sign_date_handbook'];
                     }
                     let parenthandbookparentsign;
-                    if (typeof response.parent_sign_handbook !== "undefined" &&
-                        typeof response.parent_sign_date_handbook !== "undefined") {
+                    if (typeof response.parent_hand_book['parent_sign_handbook'] !== "undefined" &&
+                        typeof response.parent_hand_book['parent_sign_date_handbook'] !== "undefined") {
                         // Reset the display for both images
                         document.querySelector('.childparenthandbook-tick').style.display = 'none';
                         document.querySelector('.childparenthandbook-circle').style.display = 'none';

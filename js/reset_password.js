@@ -95,9 +95,9 @@ function resendmailFunction(){
                     $(".forget-success-msg").show();
                     setTimeout(function(){ 
                         $(".forget-success-msg").hide(); 
-                        window.location.href = "send_resetmail.html";
+                        window.location.href = "login.html";
                     }, 3000);
-                }else if(response.error == "SignUpInfo with email_id dhfjsdh@gmail.com not found"){
+                }else {
                     $(".error-msg-notfound").show();
                     setTimeout(function(){ 
                         $(".error-msg-notfound").hide(); 

@@ -394,7 +394,7 @@ function checking(editID) {
                             'point_eight_initial_here', 'point_nine_initial_here', 'point_ten_initial_here',
                             'point_eleven_initial_here', 'point_twelve_initial_here', 'point_thirteen_initial_here',
                             'point_fourteen_initial_here', 'point_fifteen_initial_here', 'point_sixteen_initial_here',
-                            'point_seventeen_initial_here', 'point_eighteen_initial_here', 'point_nineteen_initial_here',
+                            'point_seventeen_initial_here', 'point_eighteen_initial_here', 'point_ninteen_initial_here',
                             'parent_sign_enroll', 'parent_sign_date_enroll', 'preferred_start_date', 'preferred_schedule'
                         ];
 
@@ -413,7 +413,7 @@ function checking(editID) {
 
                         checkboxFields.forEach(field => {
                             let element = form.querySelector(`[name='${field}']`);
-                            if (element && response[field] == "on") {
+                            if (element && response[field] == 1) {
                                 element.setAttribute('checked', true);
                             }
                         });
@@ -428,7 +428,7 @@ function checking(editID) {
                         ];
 
                         checkboxFields.forEach(field => {
-                            if (response.parent_hand_book[field] === "on") {
+                            if (response.parent_hand_book[field] === 1) {
                                 let element = form.querySelector(`input[name='${field}']`);
                                 if (element) {
                                     element.setAttribute('checked', true);
@@ -609,7 +609,7 @@ function checking(editID) {
 
                         checkboxFields.forEach(field => {
                             let element = form.querySelector(`[name='${field}']`);
-                            if (element && response[field] == "on") {
+                            if (element && response[field] == 1) {
                                 element.setAttribute('checked', true);
                             }
                         });
@@ -786,6 +786,7 @@ function checking(editID) {
             type: 'GET',
             //this is used to get the response and return the result
             success: function (response) {
+                console.log(response);
                 let childbasicInfo;
                 let childparentInfo;
                 let additionalChildparentInfo;
@@ -799,34 +800,38 @@ function checking(editID) {
                         document.getElementsByClassName('child_first_name')[0].value = response.child_first_name;
                     if (typeof response.child_last_name !== "undefined")
                         document.getElementsByClassName('child_last_name')[0].value = response.child_last_name;
-                    if (typeof response.nick_name !== "undefined")
+                    
+                    if (typeof response.nick_name !== "undefined" && typeof response.nick_name !== null ){
+                        console.log(response.nick_name)
                         document.getElementsByName('nick_name')[0].value = response.nick_name;
+                    }
                     if (typeof response.dob !== "undefined")
                         document.getElementsByClassName('dob')[0].value = response.dob;
                     if (typeof response.primary_language !== "undefined")
                         document.getElementsByName('primary_language')[0].value = response.primary_language;
                     if (typeof response.school_age_child_school !== "undefined")
                         document.getElementsByName('school_age_child_school')[0].value = response.school_age_child_school;
-                    if (response.do_relevant_custody_papers_apply == 1) {
+                    if (response.do_relevant_custody_papers_apply === 1) {
                         document.getElementById('do_relevant_custody_papers_apply1').checked = true;
-                    } else if(response.do_relevant_custody_papers_apply == 0) {
+                    } else {
                         document.getElementById('do_relevant_custody_papers_apply2').checked = true;
                     }
-                    if (response.gender == "Male") {
+                    if (response.gender == "male") {
                         document.getElementById('gender1').checked = true;
-                    } else if (response.gender == "Female") {
+                    } else if (response.gender == "female") {
                         document.getElementById('gender2').checked = true;
                     } else {
                         document.getElementById('gender3').checked = true;
                     }
 
-                    if (typeof response.child_first_name !== "undefined" &&
-                        typeof response.child_last_name !== "undefined" &&
-                        typeof response.nick_name !== "undefined" &&
-                        typeof response.dob !== "undefined" &&
-                        typeof response.primary_language !== "undefined" &&
-                        typeof response.school_age_child_school !== "undefined" &&
-                        typeof response.gender !== "undefined") {
+                    if ( response.child_first_name  &&
+                         response.child_last_name  &&
+                         response.nick_name  &&
+                         response.dob  &&
+                         response.primary_language  &&
+                         response.school_age_child_school  &&
+                         response.gender ) {
+                            console.log('true');
                         // Reset the display for both images
                         document.querySelector('.childdetails-tick').style.display = 'none';
                         document.querySelector('.childdetails-circle').style.display = 'none';
@@ -886,18 +891,18 @@ function checking(editID) {
                     // if (typeof response.parent_email !== "undefined")
                     //     document.getElementsByName('parent_email')[0].value = response.parent_email;
 
-                    if (typeof response.primary_parent_info.parent_name !== "undefined" &&
-                        typeof response.primary_parent_info.parent_street_address !== "undefined" &&
-                        typeof response.primary_parent_info.parent_city_address !== "undefined" &&
-                        typeof response.primary_parent_info.parent_state_address !== "undefined" &&
-                        typeof response.primary_parent_info.parent_zip_address !== "undefined" &&
-                        typeof response.primary_parent_info.parent_home_telephone_number !== "undefined" &&
-                        typeof response.primary_parent_info.parent_business_name !== "undefined" &&
-                        typeof response.primary_parent_info.parent_work_hours_from !== "undefined" &&
-                        typeof response.primary_parent_info.parent_work_hours_to !== "undefined" &&
-                        typeof response.primary_parent_info.parent_business_telephone_number !== "undefined" &&
-                        typeof response.primary_parent_info.parent_business_cell_number !== "undefined" &&
-                        typeof response.primary_parent_info.parent_email !== "undefined"
+                    if ( response.primary_parent_info.parent_name  &&
+                         response.primary_parent_info.parent_street_address  &&
+                         response.primary_parent_info.parent_city_address  &&
+                         response.primary_parent_info.parent_state_address  &&
+                         response.primary_parent_info.parent_zip_address  &&
+                         response.primary_parent_info.parent_home_telephone_number  &&
+                         response.primary_parent_info.parent_business_name  &&
+                         response.primary_parent_info.parent_work_hours_from  &&
+                         response.primary_parent_info.parent_work_hours_to  &&
+                         response.primary_parent_info.parent_business_telephone_number  &&
+                         response.primary_parent_info.parent_business_cell_number  &&
+                         response.primary_parent_info.parent_email 
                     ) {
                         // Reset the display for both images
                         document.querySelector('.parentdetails-tick').style.display = 'none';
@@ -966,18 +971,18 @@ function checking(editID) {
                     // if (typeof response.parent_email !== "undefined")
                     //     document.getElementsByName('parent_email')[0].value = response.parent_email;
 
-                    if (typeof response.additional_parent_info.parent_name !== "undefined" &&
-                        typeof response.additional_parent_info.parent_street_address !== "undefined" &&
-                        typeof response.additional_parent_info.parent_city_address !== "undefined" &&
-                        typeof response.additional_parent_info.parent_state_address !== "undefined" &&
-                        typeof response.additional_parent_info.parent_zip_address !== "undefined" &&
-                        typeof response.additional_parent_info.parent_home_telephone_number !== "undefined" &&
-                        typeof response.additional_parent_info.parent_business_name !== "undefined" &&
-                        typeof response.additional_parent_info.parent_work_hours_from !== "undefined" &&
-                        typeof response.additional_parent_info.parent_work_hours_to !== "undefined" &&
-                        typeof response.additional_parent_info.parent_business_telephone_number !== "undefined" &&
-                        typeof response.additional_parent_info.parent_business_cell_number !== "undefined" &&
-                        typeof response.additional_parent_info.parent_email !== "undefined"
+                    if ( response.additional_parent_info.parent_name  &&
+                         response.additional_parent_info.parent_street_address  &&
+                         response.additional_parent_info.parent_city_address  &&
+                         response.additional_parent_info.parent_state_address  &&
+                         response.additional_parent_info.parent_zip_address  &&
+                         response.additional_parent_info.parent_home_telephone_number  &&
+                         response.additional_parent_info.parent_business_name  &&
+                         response.additional_parent_info.parent_work_hours_from  &&
+                         response.additional_parent_info.parent_work_hours_to  &&
+                         response.additional_parent_info.parent_business_telephone_number  &&
+                         response.additional_parent_info.parent_business_cell_number  &&
+                         response.additional_parent_info.parent_email 
                     ) {
                         document.querySelector('.parent_twodetails-tick').style.display = 'block';
                         additionalChildparentInfo = true;
@@ -1113,25 +1118,25 @@ function checking(editID) {
                     if (typeof response.policy_number !== "undefined")
                         document.getElementsByName('policy_number')[0].value = response.policy_number;
 
-                    if (typeof response.child_care_provider_name !== "undefined" &&
-                        typeof response.child_care_provider_telephone_number !== "undefined" &&
-                        typeof response.child_hospital_affiliation !== "undefined" &&
-                        typeof response.child_care_provider_street_address !== "undefined" &&
-                        typeof response.child_care_provider_city_address !== "undefined" &&
-                        typeof response.child_care_provider_state_address !== "undefined" &&
-                        typeof response.child_care_provider_zip_address !== "undefined" &&
-                        typeof response.child_dentist_name !== "undefined" &&
-                        typeof response.dentist_telephone_number !== "undefined" &&
-                        typeof response.dentist_street_address !== "undefined" &&
-                        typeof response.dentist_city_address !== "undefined" &&
-                        typeof response.dentist_state_address !== "undefined" &&
-                        typeof response.dentist_zip_address !== "undefined" &&
-                        typeof response.special_diabilities !== "undefined" &&
-                        typeof response.allergies_medication_reaction !== "undefined" &&
-                        typeof response.additional_info !== "undefined" &&
-                        typeof response.medication !== "undefined" &&
-                        typeof response.health_insurance !== "undefined" &&
-                        typeof response.policy_number !== "undefined"
+                    if (response.child_care_provider_info.child_care_provider_name  &&
+                        response.child_care_provider_info.child_care_provider_telephone_number  &&
+                        response.child_care_provider_info.child_hospital_affiliation  &&
+                        response.child_care_provider_info.child_care_provider_street_address  &&
+                        response.child_care_provider_info.child_care_provider_city_address  &&
+                        response.child_care_provider_info.child_care_provider_state_address  &&
+                        response.child_care_provider_info.child_care_provider_zip_address  &&
+                         response.child_dentist_info.child_dentist_name  &&
+                         response.child_dentist_info.dentist_telephone_number  &&
+                         response.child_dentist_info.dentist_street_address  &&
+                         response.child_dentist_info.dentist_city_address  &&
+                         response.child_dentist_info.dentist_state_address  &&
+                         response.child_dentist_info.dentist_zip_address  &&
+                         response.special_diabilities  &&
+                         response.allergies_medication_reaction  &&
+                         response.additional_info  &&
+                         response.medication  &&
+                         response.health_insurance  &&
+                         response.policy_number 
                     ) {
                         // Reset the display for both images
                         document.querySelector('.medicalcare-tick').style.display = 'none';
@@ -1160,9 +1165,9 @@ function checking(editID) {
                         document.getElementById('agree_all_above_information_is_correct').checked = false;
 
                     }
-                    if (typeof response.obtaining_emergency_medical_care !== "undefined" &&
-                        typeof response.administration_first_aid_procedures !== "undefined" &&
-                        typeof response.agree_all_above_information_is_correct !== "undefined"
+                    if ( response.obtaining_emergency_medical_care  &&
+                         response.administration_first_aid_procedures  &&
+                         response.agree_all_above_information_is_correct 
                     ) {
                         // Reset the display for both images
                         document.querySelector('.parentagreement-tick').style.display = 'none';
@@ -1222,8 +1227,8 @@ function checking(editID) {
                         document.getElementsByName('physical_exam_last_date')[0].value = response.physical_exam_last_date;
                     if (typeof response.dental_exam_last_date !== "undefined")
                         document.getElementsByName('dental_exam_last_date')[0].value = response.dental_exam_last_date;
-                    if (typeof response.physical_exam_last_date !== "undefined" &&
-                        typeof response.dental_exam_last_date !== "undefined"
+                    if ( response.physical_exam_last_date  &&
+                         response.dental_exam_last_date 
                     ) {
                         // Reset the display for both images
                         document.querySelector('.childhistoryDetails-tick').style.display = 'none';
@@ -1273,20 +1278,20 @@ function checking(editID) {
                     if (typeof response.medical_other !== "undefined")
                         document.getElementsByName('medical_other')[0].value = response.medical_other;
 
-                    if (typeof response.allergies !== "undefined" &&
-                        typeof response.asthma !== "undefined" &&
-                        typeof response.bleeding_problems !== "undefined" &&
-                        typeof response.diabetes !== "undefined" &&
-                        typeof response.epilepsy !== "undefined" &&
-                        typeof response.frequent_ear_infections !== "undefined" &&
-                        typeof response.hearing_problems !== "undefined" &&
-                        typeof response.hospitalization !== "undefined" &&
-                        typeof response.rheumatic_fever !== "undefined" &&
-                        typeof response.seizures_convulsions !== "undefined" &&
-                        typeof response.serious_injuries_accidents !== "undefined" &&
-                        typeof response.surgeries !== "undefined" &&
-                        typeof response.vision_problems !== "undefined" &&
-                        typeof response.medical_other !== "undefined"
+                    if ( response.allergies  &&
+                         response.asthma  &&
+                         response.bleeding_problems  &&
+                         response.diabetes  &&
+                         response.epilepsy  &&
+                         response.frequent_ear_infections  &&
+                         response.hearing_problems  &&
+                         response.hospitalization  &&
+                         response.rheumatic_fever  &&
+                         response.seizures_convulsions  &&
+                         response.serious_injuries_accidents  &&
+                         response.surgeries  &&
+                         response.vision_problems  &&
+                         response.medical_other 
                     ) {
                         // Reset the display for both images
                         document.querySelector('.medicalhistory-tick').style.display = 'none';
@@ -1316,25 +1321,28 @@ function checking(editID) {
                         document.getElementsByName('birth_weight_oz')[0].value = response.birth_weight_oz;
                     if (typeof response.complications !== "undefined")
                         document.getElementsByName('complications')[0].value = response.complications;
-                    if (typeof response.bottle_fed == 1){
+                    if (typeof response.bottle_fed == 0){
                         document.getElementById('bottle_fed1').checked = true;
-
-                    } else if(typeof response.bottle_fed == 0) {
                         document.getElementById('bottle_fed2').checked = false;
 
+                    } else if (typeof response.bottle_fed == 1){
+                        document.getElementById('bottle_fed1').checked = false;
+                        document.getElementById('bottle_fed2').checked = true;
                     }
-                    if (typeof response.breast_fed == 1){
+                    if (typeof response.breast_fed == 0){
                         document.getElementById('breast_fed1').checked = true;
-                    } else if(typeof response.breast_fed == 0) {
                         document.getElementById('breast_fed2').checked = false;
-
+                    } else if (typeof response.breast_fed == 1) {
+                        document.getElementById('breast_fed2').checked = true;
+                        document.getElementById('breast_fed1').checked = false;
                     }
                     if (typeof response.other_siblings_name !== "undefined")
                         document.getElementsByName('other_siblings_name')[0].value = response.other_siblings_name;
                     if (typeof response.other_siblings_age !== "undefined")
                         document.getElementsByName('other_siblings_age')[0].value = response.other_siblings_age;
 
-                    if (typeof response.illness_during_pregnancy !== "undefined" &&
+                    if (
+                        typeof response.illness_during_pregnancy !== "undefined" &&
                         typeof response.condition_of_newborn !== "undefined" &&
                         typeof response.duration_of_pregnancy !== "undefined" &&
                         typeof response.birth_weight_lbs !== "undefined" &&
@@ -1345,20 +1353,23 @@ function checking(editID) {
                         typeof response.other_siblings_name !== "undefined" &&
                         typeof response.other_siblings_age !== "undefined"
                     ) {
+                        console.log("true value")
                         // Reset the display for both images
                         document.querySelector('.pregnancyhistory-tick').style.display = 'none';
                         document.querySelector('.pregnancyhistory-circle').style.display = 'none';
-                        // Update the display for the clicked card
+                        // Update the display for the tick
                         document.querySelector('.pregnancyhistory-tick').style.display = 'block';
                         pregnancyHistory = true;
                     } else {
+                        console.log("false value")
                         // Reset the display for both images
                         document.querySelector('.pregnancyhistory-tick').style.display = 'none';
                         document.querySelector('.pregnancyhistory-circle').style.display = 'none';
-                        // Update the display for the clicked card
+                        // Update the display for the circle
                         document.querySelector('.pregnancyhistory-circle').style.display = 'block';
                         pregnancyHistory = false;
                     }
+                    
 
                     if (response.family_history_allergies == "on") {
                         document.getElementById('family_history_allergies').checked = true;
@@ -1426,16 +1437,16 @@ function checking(editID) {
                         document.getElementById('no_illnesses_for_this_child').checked = true;
                     }
 
-                    if (typeof response.family_history_allergies !== "undefined" ||
-                        typeof response.family_history_heart_problems !== "undefined" ||
-                        typeof response.family_history_tuberculosis !== "undefined" ||
-                        typeof response.family_history_asthma !== "undefined" ||
-                        typeof response.family_history_high_blood_pressure !== "undefined" ||
-                        typeof response.family_history_vision_problems !== "undefined" ||
-                        typeof response.family_history_diabetes !== "undefined" ||
-                        typeof response.family_history_hyperactivity !== "undefined" ||
-                        typeof response.family_history_epilepsy !== "undefined" ||
-                        typeof response.no_illnesses_for_this_child !== "undefined"
+                    if ( response.family_history_allergies  ||
+                         response.family_history_heart_problems  ||
+                         response.family_history_tuberculosis  ||
+                         response.family_history_asthma  ||
+                         response.family_history_high_blood_pressure  ||
+                         response.family_history_vision_problems  ||
+                         response.family_history_diabetes  ||
+                         response.family_history_hyperactivity  ||
+                         response.family_history_epilepsy  ||
+                         response.no_illnesses_for_this_child 
                     ) {
 
                         // Reset the display for both images
@@ -1473,15 +1484,15 @@ function checking(editID) {
                     if (typeof response.favorite_activities !== "undefined")
                         document.getElementsByName('favorite_activities')[0].value = response.favorite_activities;
 
-                    if (typeof response.age_group_friends !== "undefined" &&
-                        typeof response.neighborhood_friends !== "undefined" &&
-                        typeof response.relationship_with_mother !== "undefined" &&
-                        typeof response.relationship_with_father !== "undefined" &&
-                        typeof response.relationship_with_siblings !== "undefined" &&
-                        typeof response.relationship_with_extended_family !== "undefined" &&
-                        typeof response.fears_conflicts !== "undefined" &&
-                        typeof response.child_response_frustration !== "undefined" &&
-                        typeof response.favorite_activities !== "undefined"
+                    if ( response.age_group_friends &&
+                         response.neighborhood_friends &&
+                         response.relationship_with_mother &&
+                         response.relationship_with_father &&
+                         response.relationship_with_siblings &&
+                         response.relationship_with_extended_family &&
+                         response.fears_conflicts &&
+                         response.child_response_frustration &&
+                         response.favorite_activities
                     ) {
                         // Reset the display for both images
                         document.querySelector('.socialbehavior-tick').style.display = 'none';
@@ -1512,12 +1523,12 @@ function checking(editID) {
                     if (typeof response.educational_expectations_of_child !== "undefined")
                         document.getElementsByName('educational_expectations_of_child')[0].value = response.educational_expectations_of_child;
 
-                    if (typeof response.last_five_years_moved !== "undefined" &&
-                        typeof response.things_used_at_home !== "undefined" &&
-                        typeof response.hours_of_television_daily !== "undefined" &&
-                        typeof response.language_used_at_home !== "undefined" &&
-                        typeof response.changes_at_home_situation !== "undefined" &&
-                        typeof response.educational_expectations_of_child !== "undefined"
+                    if ( response.last_five_years_moved  &&
+                         response.things_used_at_home  &&
+                         response.hours_of_television_daily  &&
+                         response.language_used_at_home  &&
+                         response.changes_at_home_situation  &&
+                         response.educational_expectations_of_child 
                     ) {
                         // Reset the display for both images
                         document.querySelector('.environmentalfactor-tick').style.display = 'none';
@@ -1534,7 +1545,7 @@ function checking(editID) {
                         environmentalFactor = false;
                     }
 
-                    if (response.agree_all_above_info_is_correct == "on") {
+                    if (response.agree_all_above_info_is_correct == 1) {
                         document.getElementById('agree_all_above_info_is_correct').checked = true;
                     } else {
                         document.getElementById('agree_all_above_info_is_correct').checked = false;
@@ -1653,13 +1664,13 @@ function checking(editID) {
                     if (typeof response.pick_up_time !== "undefined")
                         document.getElementsByName('pick_up_time')[0].value = response.pick_up_time;
 
-                    if (typeof response.important_fam_members !== "undefined" &&
-                        typeof response.about_family_celebrations !== "undefined" &&
-                        typeof response.childcare_before !== "undefined" &&
-                        typeof response.reason_for_childcare_before !== "undefined" &&
-                        typeof response.what_child_interests !== "undefined" &&
-                        typeof response.drop_off_time !== "undefined" &&
-                        typeof response.pick_up_time !== "undefined"
+                    if ( response.important_fam_members  &&
+                         response.about_family_celebrations  &&
+                         response.childcare_before  &&
+                         response.reason_for_childcare_before  &&
+                         response.what_child_interests  &&
+                         response.drop_off_time  &&
+                         response.pick_up_time 
                     ) {
                         // Reset the display for both images
                         document.querySelector('.childprofiledetail-tick').style.display = 'none';
@@ -1739,9 +1750,9 @@ function checking(editID) {
                     if (typeof response.reason_for_toilet_trained !== "undefined")
                         document.getElementsByName('reason_for_toilet_trained')[0].value = response.reason_for_toilet_trained;
 
-                    if (typeof response.rest_in_the_middle_day !== "undefined" &&
-                        typeof response.rest_routine !== "undefined" &&
-                        typeof response.toilet_trained !== "undefined"
+                    if ( response.rest_in_the_middle_day  &&
+                         response.rest_routine  &&
+                         response.toilet_trained 
                     ) {
                         // Reset the display for both images
                         document.querySelector('.restdetails-tick').style.display = 'none';
@@ -1877,7 +1888,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('do_you_agree_this').checked = false;
                     }
-                    if (typeof response.do_you_agree_this !== "undefined") {
+                    if ( response.do_you_agree_this ) {
                         // Reset the display for both images
                         document.querySelector('.parentagreement-three-tick').style.display = 'none';
                         document.querySelector('.parentagreement-three-circle').style.display = 'none';
@@ -1931,8 +1942,8 @@ function checking(editID) {
                         document.getElementById('do_you_agree_this_pick_up_password_form').checked = false;
                     }
 
-                    if (typeof response.child_password_pick_up_password_form !== "undefined" &&
-                        typeof response.do_you_agree_this_pick_up_password_form !== "undefined"
+                    if ( response.child_password_pick_up_password_form  &&
+                         response.do_you_agree_this_pick_up_password_form 
                     ) {
                         // Reset the display for both images
                         document.querySelector('.childpickup-tick').style.display = 'none';
@@ -1982,9 +1993,9 @@ function checking(editID) {
                         document.getElementById('do_you_agree_this_photo_video_permission_form').checked = false;
                     }
 
-                    if (typeof response.photo_usage_photo_video_permission_form !== "undefined" &&
-                        typeof response.photo_permission_agree_group_photos_electronic !== "undefined" &&
-                        typeof response.do_you_agree_this_photo_video_permission_form !== "undefined"
+                    if ( response.photo_usage_photo_video_permission_form  &&
+                         response.photo_permission_agree_group_photos_electronic  &&
+                         response.do_you_agree_this_photo_video_permission_form 
                     ) {
                         // Reset the display for both images
                         document.querySelector('.childphotopermission-tick').style.display = 'none';
@@ -2021,7 +2032,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('security_release_policy_form').checked = false;
                     }
-                    if (typeof response.security_release_policy_form !== "undefined") {
+                    if ( response.security_release_policy_form ) {
                         // Reset the display for both images
                         document.querySelector('.childsecurity-tick').style.display = 'none';
                         document.querySelector('.childsecurity-circle').style.display = 'none';
@@ -2060,8 +2071,8 @@ function checking(editID) {
                     } else {
                         document.getElementById('medical_transportation_waiver').checked = false;
                     }
-                    if (typeof response.med_technicians_med_transportation_waiver !== "undefined" &&
-                        typeof response.medical_transportation_waiver !== "undefined") {
+                    if ( response.med_technicians_med_transportation_waiver  &&
+                         response.medical_transportation_waiver ) {
                         // Reset the display for both images
                         document.querySelector('.childmedical-tick').style.display = 'none';
                         document.querySelector('.childmedical-circle').style.display = 'none';
@@ -2097,7 +2108,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('do_you_agree_this_health_policies').checked = false;
                     }
-                    if (typeof response.do_you_agree_this_health_policies !== "undefined") {
+                    if ( response.do_you_agree_this_health_policies) {
                         // Reset the display for both images
                         document.querySelector('.childhealth-tick').style.display = 'none';
                         document.querySelector('.childhealth-circle').style.display = 'none';
@@ -2133,7 +2144,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('parent_sign_outside_waiver').checked = false;
                     }
-                    if (typeof response.parent_sign_outside_waiver !== "undefined") {
+                    if ( response.parent_sign_outside_waiver) {
                         // Reset the display for both images
                         document.querySelector('.childoutside-tick').style.display = 'none';
                         document.querySelector('.childoutside-circle').style.display = 'none';
@@ -2165,22 +2176,25 @@ function checking(editID) {
                 let socialMedia;
                 if (document.getElementById('socialmediaapproval') != null) {
 
-                    if (response.approve_social_media_post == "on") {
+                    if (response.approve_social_media_post == 1) {
                         document.getElementById('approve_social_media_post1').checked = true;
-                    } else {
+                    } else if (response.approve_social_media_post == 0){
                         document.getElementById('approve_social_media_post2').checked = true;
+                    } else{
+                        document.getElementById('approve_social_media_post1').checked = false;
+                        document.getElementById('approve_social_media_post2').checked = false;
                     }
                     if (typeof response.printed_name_social_media_post !== "undefined")
-                        document.getElementsByName('printed_name_social_media_post')[0].value = response.administration_first_aid_procedures;
+                        document.getElementsByName('printed_name_social_media_post')[0].value = response.printed_name_social_media_post;
                     if (response.do_you_agree_this_social_media_post == "on") {
                         document.getElementById('do_you_agree_this_social_media_post').checked = true;
                     } else {
                         document.getElementById('do_you_agree_this_social_media_post').checked = false;
                     }
 
-                    if (typeof response.approve_social_media_post !== "undefined" &&
-                        typeof response.printed_name_social_media_post !== "undefined" &&
-                        typeof response.do_you_agree_this_social_media_post !== "undefined"
+                    if ( response.approve_social_media_post  &&
+                         response.printed_name_social_media_post  &&
+                         response.do_you_agree_this_social_media_post 
                     ) {
                         // Reset the display for both images
                         document.querySelector('.socialmedia-tick').style.display = 'none';
@@ -2221,8 +2235,8 @@ function checking(editID) {
                         document.getElementsByName('parent_sign_date_admission')[0].value = response.parent_sign_date_admission;
                     }
 
-                    if (typeof response.parent_sign_admission !== "undefined" &&
-                        typeof response.parent_sign_date_admission !== "undefined") {
+                    if ( response.parent_sign_admission &&
+                         response.parent_sign_date_admission) {
                         // Reset the display for both images
                         document.querySelector('.childparent-tick').style.display = 'none';
                         document.querySelector('.childparent-circle').style.display = 'none';
@@ -2354,8 +2368,8 @@ function checking(editID) {
                         document.getElementsByName("point_seventeen_initial_here")[0].value = response.point_seventeen_initial_here;
                     if (typeof response.point_eighteen_initial_here !== "undefined")
                         document.getElementsByName("point_eighteen_initial_here")[0].value = response.point_eighteen_initial_here;
-                    if (typeof response.point_nineteen_initial_here !== "undefined")
-                        document.getElementsByName("point_nineteen_initial_here")[0].value = response.point_nineteen_initial_here;
+                    if (typeof response.point_ninteen_initial_here !== "undefined")
+                        document.getElementsByName("point_ninteen_initial_here")[0].value = response.point_ninteen_initial_here;
                     if (typeof response.preferred_start_date !== "undefined")
                         document.getElementsByName("preferred_start_date")[0].value = response.preferred_start_date;
                     if (typeof response.preferred_schedule !== "undefined")
@@ -2389,7 +2403,7 @@ function checking(editID) {
                         typeof response.point_sixteen_initial_here !== "undefined" &&
                         typeof response.point_seventeen_initial_here !== "undefined" &&
                         typeof response.point_eighteen_initial_here !== "undefined" &&
-                        typeof response.point_nineteen_initial_here !== "undefined" &&
+                        typeof response.point_ninteen_initial_here !== "undefined" &&
                         typeof response.preferred_start_date !== "undefined" &&
                         typeof response.preferred_schedule !== "undefined"
                     ) {
@@ -2432,8 +2446,8 @@ function checking(editID) {
                         document.getElementsByName('parent_sign_date_enroll')[0].value = response.parent_sign_date_enroll;
                     }
 
-                    if (typeof response.parent_sign_enroll !== "undefined" &&
-                        typeof response.parent_sign_date_enroll !== "undefined") {
+                    if ( response.parent_sign_enroll  &&
+                         response.parent_sign_date_enroll ) {
                         // Reset the display for both images
                         document.querySelector('.childenrollmentagreementparentsign-tick').style.display = 'none';
                         document.querySelector('.childenrollmentagreementparentsign-circle').style.display = 'none';
@@ -2546,8 +2560,8 @@ function checking(editID) {
                         document.getElementsByName('parent_sign_date_ach')[0].value = response.parent_sign_date_ach;
                     }
 
-                    if (typeof response.parent_sign_ach !== "undefined" &&
-                        typeof response.parent_sign_date_ach !== "undefined") {
+                    if ( response.parent_sign_ach  &&
+                         response.parent_sign_date_ach ) {
                         // Reset the display for both images
                         document.querySelector('.authorizationparentsign-tick').style.display = 'none';
                         document.querySelector('.authorizationparentsign-circle').style.display = 'none';
@@ -2611,7 +2625,7 @@ function checking(editID) {
                         document.getElementById('welcome_goddard_agreement').checked = false;
                     }
 
-                    if (typeof response.welcome_goddard_agreement !== "undefined") {
+                    if ( response.welcome_goddard_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.goddard-tick').style.display = 'none';
                         document.querySelector('.goddard-circle').style.display = 'none';
@@ -2633,7 +2647,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('mission_statement_agreement').checked = false;
                     }
-                    if (typeof response.mission_statement_agreement !== "undefined") {
+                    if ( response.mission_statement_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.mission-tick').style.display = 'none';
                         document.querySelector('.mission-circle').style.display = 'none';
@@ -2655,7 +2669,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('general_information_agreement').checked = false;
                     }
-                    if (typeof response.general_information_agreement !== "undefined") {
+                    if ( response.general_information_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.generalinfo-tick').style.display = 'none';
                         document.querySelector('.generalinfo-circle').style.display = 'none';
@@ -2678,7 +2692,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('medical_care_provider_agreement').checked = false;
                     }
-                    if (typeof response.medical_care_provider_agreement !== "undefined") {
+                    if ( response.medical_care_provider_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.statement-tick').style.display = 'none';
                         document.querySelector('.statement-circle').style.display = 'none';
@@ -2700,7 +2714,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('parent_access_agreement').checked = false;
                     }
-                    if (typeof response.parent_access_agreement !== "undefined") {
+                    if ( response.parent_access_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.parentaccess-tick').style.display = 'none';
                         document.querySelector('.parentaccess-circle').style.display = 'none';
@@ -2721,7 +2735,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('release_of_children_agreement').checked = false;
                     }
-                    if (typeof response.release_of_children_agreement !== "undefined") {
+                    if ( response.release_of_children_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.releasechild-tick').style.display = 'none';
                         document.querySelector('.releasechild-circle').style.display = 'none';
@@ -2744,7 +2758,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('registration_fees_agreement').checked = false;
                     }
-                    if (typeof response.registration_fees_agreement !== "undefined") {
+                    if ( response.registration_fees_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.fees-tick').style.display = 'none';
                         document.querySelector('.fees-circle').style.display = 'none';
@@ -2766,7 +2780,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('outside_engagements_agreement').checked = false;
                     }
-                    if (typeof response.outside_engagements_agreement !== "undefined") {
+                    if ( response.outside_engagements_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.outsideengagement-tick').style.display = 'none';
                         document.querySelector('.outsideengagement-circle').style.display = 'none';
@@ -2788,7 +2802,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('health_policies_agreement').checked = false;
                     }
-                    if (typeof response.health_policies_agreement !== "undefined") {
+                    if ( response.health_policies_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.healthpolicies-tick').style.display = 'none';
                         document.querySelector('.healthpolicies-circle').style.display = 'none';
@@ -2811,7 +2825,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('medication_procedures_agreement').checked = false;
                     }
-                    if (typeof response.medication_procedures_agreement !== "undefined") {
+                    if ( response.medication_procedures_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.medicationprocedures-tick').style.display = 'none';
                         document.querySelector('.medicationprocedures-circle').style.display = 'none';
@@ -2834,7 +2848,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('bring_to_school_agreement').checked = false;
                     }
-                    if (typeof response.bring_to_school_agreement !== "undefined") {
+                    if ( response.bring_to_school_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.toysfromhome-tick').style.display = 'none';
                         document.querySelector('.toysfromhome-circle').style.display = 'none';
@@ -2856,7 +2870,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('rest_time_agreement').checked = false;
                     }
-                    if (typeof response.rest_time_agreement !== "undefined") {
+                    if ( response.rest_time_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.restmealssnacks-tick').style.display = 'none';
                         document.querySelector('.restmealssnacks-circle').style.display = 'none';
@@ -2878,7 +2892,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('training_philosophy_agreement').checked = false;
                     }
-                    if (typeof response.training_philosophy_agreement !== "undefined") {
+                    if ( response.training_philosophy_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.transition-tick').style.display = 'none';
                         document.querySelector('.transition-circle').style.display = 'none';
@@ -2900,7 +2914,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('affiliation_policy_agreement').checked = false;
                     }
-                    if (typeof response.affiliation_policy_agreement !== "undefined") {
+                    if ( response.affiliation_policy_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.emergencyclosings-tick').style.display = 'none';
                         document.querySelector('.emergencyclosings-circle').style.display = 'none';
@@ -2922,7 +2936,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('security_issue_agreement').checked = false;
                     }
-                    if (typeof response.security_issue_agreement !== "undefined") {
+                    if ( response.security_issue_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.websitesblogs-tick').style.display = 'none';
                         document.querySelector('.websitesblogs-circle').style.display = 'none';
@@ -2944,7 +2958,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('expulsion_policy_agreement').checked = false;
                     }
-                    if (typeof response.expulsion_policy_agreement !== "undefined") {
+                    if ( response.expulsion_policy_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.expulsionpolicy-tick').style.display = 'none';
                         document.querySelector('.expulsionpolicy-circle').style.display = 'none';
@@ -2966,7 +2980,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('addressing_individual_child_agreement').checked = false;
                     }
-                    if (typeof response.addressing_individual_child_agreement !== "undefined") {
+                    if ( response.addressing_individual_child_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.addressing-tick').style.display = 'none';
                         document.querySelector('.addressing-circle').style.display = 'none';
@@ -2988,7 +3002,7 @@ function checking(editID) {
                     } else {
                         document.getElementById('finalword_agreement').checked = false;
                     }
-                    if (typeof response.finalword_agreement !== "undefined") {
+                    if ( response.finalword_agreement ) {
                         // Reset the display for both images
                         document.querySelector('.finalword-tick').style.display = 'none';
                         document.querySelector('.finalword-circle').style.display = 'none';
@@ -3059,8 +3073,8 @@ function checking(editID) {
                         document.getElementsByName('parent_sign_date_handbook')[0].value = response.parent_sign_date_handbook;
                     }
                     let parenthandbookparentsign;
-                    if (typeof response.parent_sign_handbook !== "undefined" &&
-                        typeof response.parent_sign_date_handbook !== "undefined") {
+                    if ( response.parent_sign_handbook  &&
+                         response.parent_sign_date_handbook ) {
                         // Reset the display for both images
                         document.querySelector('.childparenthandbook-tick').style.display = 'none';
                         document.querySelector('.childparenthandbook-circle').style.display = 'none';
@@ -3147,3 +3161,4 @@ $(document).ready(function () {
         });
     }
 });
+

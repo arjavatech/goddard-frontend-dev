@@ -95,14 +95,9 @@ function resendmailFunction(){
                     $(".forget-success-msg").show();
                     setTimeout(function(){ 
                         $(".forget-success-msg").hide(); 
-                        window.location.href = "login.html";
+                        window.location.href = "send_resetmail.html";
                     }, 3000);
-                }else if(response.error == "We have already sent the password reset page URL to your email. Please check your inbox."){
-                    $(".error-msg-alreadyexists").show();
-                    setTimeout(function(){ 
-                        $(".error-msg-alreadyexists").hide(); 
-                    }, 3000);
-                }else{
+                }else if(response.error == "SignUpInfo with email_id dhfjsdh@gmail.com not found"){
                     $(".error-msg-notfound").show();
                     setTimeout(function(){ 
                         $(".error-msg-notfound").hide(); 

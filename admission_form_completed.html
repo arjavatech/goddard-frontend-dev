@@ -1536,11 +1536,11 @@
                         <div class="row m-4 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
-                                    <label for="important_fam_members" class="form-label"><b>Other important
+                                    <label for="other_important_family_members" class="form-label"><b>Other important
                                             Family Members (Siblings, Grandparent, Pets, etc)</b>
                                     </label>
                                     <input type="text" class="form-control text-box "
-                                        id="important_fam_members" name="important_fam_members">
+                                        id="other_important_family_members" name="other_important_family_members">
                                 </div>
                             </div>
                         </div>
@@ -2547,7 +2547,7 @@
                 let is_admin = localStorage.getItem('is_admin');
                 console.log(is_admin);
                 $.ajax({
-                    url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_all_form_details/fetch/${editID}`,
+                    url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_all_details/fetch/${editID}`,
                     type: 'GET',
                     //this is used to get the response and return the result
                     success: function (response) {
@@ -2571,66 +2571,66 @@
                         } else {
                             document.getElementById('do_relevant_custody_papers_apply1').value = "No";
                         }
-                        if (response.gender == "Male") {
+                        if (response.gender == "male") {
                             document.getElementById('gender1').value = "Male";
-                        } else if (response.gender == "Female") {
+                        } else if (response.gender == "female") {
                             document.getElementById('gender1').value = "Female";
                         } else {
                             document.getElementById('gender1').value = "Others";
                         }
 
                         // parent one details div
-                        if (typeof response.primary_parent_info.parent_name !== "undefined")
-                            document.getElementsByName('parent_name')[0].value = response.primary_parent_info.parent_name;
-                        if (typeof response.primary_parent_info.parent_street_address !== "undefined")
-                            document.getElementsByName('parent_street_address')[0].value = response.primary_parent_info.parent_street_address;
-                        if (typeof response.primary_parent_info.parent_city_address !== "undefined")
-                            document.getElementsByName('parent_city_address')[0].value = response.primary_parent_info.parent_city_address;
-                        if (typeof response.primary_parent_info.parent_state_address !== "undefined")
-                            document.getElementsByName('parent_state_address')[0].value = response.primary_parent_info.parent_state_address;
-                        if (typeof response.primary_parent_info.parent_zip_address !== "undefined")
-                            document.getElementsByName('parent_zip_address')[0].value = response.primary_parent_info.parent_zip_address;
-                        if (typeof response.primary_parent_info.home_telephone_number !== "undefined")
-                            document.getElementsByName('home_telephone_number')[0].value = response.primary_parent_info.home_telephone_number;
-                        if (typeof response.primary_parent_info.business_name !== "undefined")
-                            document.getElementsByName('business_name')[0].value = response.primary_parent_info.business_name;
-                        if (typeof response.primary_parent_info.work_hours_from !== "undefined")
-                            document.getElementsByName('work_hours_from')[0].value = response.primary_parent_info.work_hours_from;
-                        if (typeof response.primary_parent_info.work_hours_to !== "undefined")
-                            document.getElementsByName('work_hours_to')[0].value = response.primary_parent_info.work_hours_to;
-                        if (typeof response.primary_parent_info.business_telephone_number !== "undefined")
-                            document.getElementsByName('business_telephone_number')[0].value = response.primary_parent_info.business_telephone_number;
+                        if (typeof response.parent_name !== "undefined")
+                            document.getElementsByName('parent_name')[0].value = response.parent_name;
+                        if (typeof response.parent_street_address !== "undefined")
+                            document.getElementsByName('parent_street_address')[0].value = response.parent_street_address;
+                        if (typeof response.parent_city_address !== "undefined")
+                            document.getElementsByName('parent_city_address')[0].value = response.parent_city_address;
+                        if (typeof response.parent_state_address !== "undefined")
+                            document.getElementsByName('parent_state_address')[0].value = response.parent_state_address;
+                        if (typeof response.parent_zip_address !== "undefined")
+                            document.getElementsByName('parent_zip_address')[0].value = response.parent_zip_address;
+                        if (typeof response.home_telephone_number !== "undefined")
+                            document.getElementsByName('home_telephone_number')[0].value = response.home_telephone_number;
+                        if (typeof response.business_name !== "undefined")
+                            document.getElementsByName('business_name')[0].value = response.business_name;
+                        if (typeof response.work_hours_from !== "undefined")
+                            document.getElementsByName('work_hours_from')[0].value = response.work_hours_from;
+                        if (typeof response.work_hours_to !== "undefined")
+                            document.getElementsByName('work_hours_to')[0].value = response.work_hours_to;
+                        if (typeof response.business_telephone_number !== "undefined")
+                            document.getElementsByName('business_telephone_number')[0].value = response.business_telephone_number;
 
-                        if (typeof response.primary_parent_info.business_cell_number !== "undefined")
-                            document.getElementsByName('business_cell_number')[0].value = response.primary_parent_info.business_cell_number;
-                        if (typeof response.primary_parent_info.parent_email !== "undefined")
-                            document.getElementsByName('primary_parent_email')[0].value = response.primary_parent_info.parent_email;
+                        if (typeof response.business_cell_number !== "undefined")
+                            document.getElementsByName('business_cell_number')[0].value = response.business_cell_number;
+                        if (typeof response.parent_email !== "undefined")
+                            document.getElementsByName('primary_parent_email')[0].value = response.parent_email;
 
                         // additional parent details div
-                        if (typeof response.additional_parent_info.parent_two_name !== "undefined")
-                            document.getElementsByName('parent_two_name')[0].value = response.additional_parent_info.parent_two_name;
-                        if (typeof response.additional_parent_info.parent_two_street_address !== "undefined")
-                            document.getElementsByName('parent_two_street_address')[0].value = response.additional_parent_info.parent_two_street_address;
-                        if (typeof response.additional_parent_info.parent_two_city_address !== "undefined")
-                            document.getElementsByName('parent_two_city_address')[0].value = response.additional_parent_info.parent_two_city_address;
-                        if (typeof response.additional_parent_info.parent_two_state_address !== "undefined")
-                            document.getElementsByName('parent_two_state_address')[0].value = response.additional_parent_info.parent_two_state_address;
-                        if (typeof response.additional_parent_info.parent_two_zip_address !== "undefined")
-                            document.getElementsByName('parent_two_zip_address')[0].value = response.additional_parent_info.parent_two_zip_address;
-                        if (typeof response.additional_parent_info.parent_two_home_telephone_number !== "undefined")
-                            document.getElementsByName('parent_two_home_telephone_number')[0].value = response.additional_parent_info.parent_two_home_telephone_number;
-                        if (typeof response.additional_parent_info.parent_two_business_name !== "undefined")
-                            document.getElementsByName('parent_two_business_name')[0].value = response.additional_parent_info.parent_two_business_name;
-                        if (typeof response.additional_parent_info.parent_two_work_hours_from !== "undefined")
-                            document.getElementsByName('parent_two_work_hours_from')[0].value = response.additional_parent_info.parent_two_work_hours_from;
-                        if (typeof response.additional_parent_info.parent_two_work_hours_to !== "undefined")
-                            document.getElementsByName('parent_two_work_hours_to')[0].value = response.additional_parent_info.parent_two_work_hours_to;
-                        if (typeof response.additional_parent_info.parent_two_business_telephone_number !== "undefined")
-                            document.getElementsByName('parent_two_business_telephone_number')[0].value = response.additional_parent_info.parent_two_business_telephone_number;
-                        if (typeof response.additional_parent_info.parent_two_business_cell_number !== "undefined")
-                            document.getElementsByName('parent_two_business_cell_number')[0].value = response.additional_parent_info.parent_two_business_cell_number;
-                        if (typeof response.additional_parent_info.parent_email !== "undefined")
-                            document.getElementsByName('parent_email')[0].value = response.additional_parent_info.parent_email;
+                        if (typeof response.parent_two_name !== "undefined")
+                            document.getElementsByName('parent_two_name')[0].value = response.parent_two_name;
+                        if (typeof response.parent_two_street_address !== "undefined")
+                            document.getElementsByName('parent_two_street_address')[0].value = response.parent_two_street_address;
+                        if (typeof response.parent_two_city_address !== "undefined")
+                            document.getElementsByName('parent_two_city_address')[0].value = response.parent_two_city_address;
+                        if (typeof response.parent_two_state_address !== "undefined")
+                            document.getElementsByName('parent_two_state_address')[0].value = response.parent_two_state_address;
+                        if (typeof response.parent_two_zip_address !== "undefined")
+                            document.getElementsByName('parent_two_zip_address')[0].value = response.parent_two_zip_address;
+                        if (typeof response.parent_two_home_telephone_number !== "undefined")
+                            document.getElementsByName('parent_two_home_telephone_number')[0].value = response.parent_two_home_telephone_number;
+                        if (typeof response.parent_two_business_name !== "undefined")
+                            document.getElementsByName('parent_two_business_name')[0].value = response.parent_two_business_name;
+                        if (typeof response.parent_two_work_hours_from !== "undefined")
+                            document.getElementsByName('parent_two_work_hours_from')[0].value = response.parent_two_work_hours_from;
+                        if (typeof response.parent_two_work_hours_to !== "undefined")
+                            document.getElementsByName('parent_two_work_hours_to')[0].value = response.parent_two_work_hours_to;
+                        if (typeof response.parent_two_business_telephone_number !== "undefined")
+                            document.getElementsByName('parent_two_business_telephone_number')[0].value = response.parent_two_business_telephone_number;
+                        if (typeof response.parent_two_business_cell_number !== "undefined")
+                            document.getElementsByName('parent_two_business_cell_number')[0].value = response.parent_two_business_cell_number;
+                        if (typeof response.parent_email !== "undefined")
+                            document.getElementsByName('parent_email')[0].value = response.parent_email;
 
                         // emergency Contact Information
                         for (i = 0; i < response.emergency_contact_info.length; i++) {
@@ -2651,32 +2651,32 @@
                         }
 
                         // Child care provider Information
-                        if (typeof response.child_care_provider_info.child_care_provider_name !== "undefined")
-                            document.getElementsByName('child_care_provider_name')[0].value = response.child_care_provider_info.child_care_provider_name;
-                        if (typeof response.child_care_provider_info.child_care_provider_telephone_number !== "undefined")
-                            document.getElementsByName('child_care_provider_telephone_number')[0].value = response.child_care_provider_info.child_care_provider_telephone_number;
-                        if (typeof response.child_care_provider_info.child_hospital_affiliation !== "undefined")
-                            document.getElementsByName('child_hospital_affiliation')[0].value = response.child_care_provider_info.child_hospital_affiliation;
-                        if (typeof response.child_care_provider_info.child_care_provider_street_address !== "undefined")
-                            document.getElementsByName('child_care_provider_street_address')[0].value = response.child_care_provider_info.child_care_provider_street_address;
-                        if (typeof response.child_care_provider_info.child_care_provider_city_address !== "undefined")
-                            document.getElementsByName('child_care_provider_city_address')[0].value = response.child_care_provider_info.child_care_provider_city_address;
-                        if (typeof response.child_care_provider_info.child_care_provider_state_address !== "undefined")
-                            document.getElementsByName('child_care_provider_state_address')[0].value = response.child_care_provider_info.child_care_provider_state_address;
-                        if (typeof response.child_care_provider_info.child_care_provider_zip_address !== "undefined")
-                            document.getElementsByName('child_care_provider_zip_address')[0].value = response.child_care_provider_info.child_care_provider_zip_address;
-                        if (typeof response.child_dentist_info.child_dentist_name !== "undefined")
-                            document.getElementsByName('child_dentist_name')[0].value = response.child_dentist_info.child_dentist_name;
-                        if (typeof response.child_dentist_info.dentist_telephone_number !== "undefined")
-                            document.getElementsByName('dentist_telephone_number')[0].value = response.child_dentist_info.dentist_telephone_number;
-                        if (typeof response.child_dentist_info.dentist_street_address !== "undefined")
-                            document.getElementsByName('dentist_street_address')[0].value = response.child_dentist_info.dentist_street_address;
-                        if (typeof response.child_dentist_info.dentist_city_address !== "undefined")
-                            document.getElementsByName('dentist_city_address')[0].value = response.child_dentist_info.dentist_city_address;
-                        if (typeof response.child_dentist_info.dentist_state_address !== "undefined")
-                            document.getElementsByName('dentist_state_address')[0].value = response.child_dentist_info.dentist_state_address;
-                        if (typeof response.child_dentist_info.dentist_zip_address !== "undefined")
-                            document.getElementsByName('dentist_zip_address')[0].value = response.child_dentist_info.dentist_zip_address;
+                        if (typeof response.child_care_provider_name !== "undefined")
+                            document.getElementsByName('child_care_provider_name')[0].value = response.child_care_provider_name;
+                        if (typeof response.child_care_provider_telephone_number !== "undefined")
+                            document.getElementsByName('child_care_provider_telephone_number')[0].value = response.child_care_provider_telephone_number;
+                        if (typeof response.child_hospital_affiliation !== "undefined")
+                            document.getElementsByName('child_hospital_affiliation')[0].value = response.child_hospital_affiliation;
+                        if (typeof response.child_care_provider_street_address !== "undefined")
+                            document.getElementsByName('child_care_provider_street_address')[0].value = response.child_care_provider_street_address;
+                        if (typeof response.child_care_provider_city_address !== "undefined")
+                            document.getElementsByName('child_care_provider_city_address')[0].value = response.child_care_provider_city_address;
+                        if (typeof response.child_care_provider_state_address !== "undefined")
+                            document.getElementsByName('child_care_provider_state_address')[0].value = response.child_care_provider_state_address;
+                        if (typeof response.child_care_provider_zip_address !== "undefined")
+                            document.getElementsByName('child_care_provider_zip_address')[0].value = response.child_care_provider_zip_address;
+                        if (typeof response.child_dentist_name !== "undefined")
+                            document.getElementsByName('child_dentist_name')[0].value = response.child_dentist_name;
+                        if (typeof response.dentist_telephone_number !== "undefined")
+                            document.getElementsByName('dentist_telephone_number')[0].value = response.dentist_telephone_number;
+                        if (typeof response.dentist_street_address !== "undefined")
+                            document.getElementsByName('dentist_street_address')[0].value = response.dentist_street_address;
+                        if (typeof response.dentist_city_address !== "undefined")
+                            document.getElementsByName('dentist_city_address')[0].value = response.dentist_city_address;
+                        if (typeof response.dentist_state_address !== "undefined")
+                            document.getElementsByName('dentist_state_address')[0].value = response.dentist_state_address;
+                        if (typeof response.dentist_zip_address !== "undefined")
+                            document.getElementsByName('dentist_zip_address')[0].value = response.dentist_zip_address;
                         if (typeof response.special_diabilities !== "undefined")
                             document.getElementsByName('special_diabilities')[0].value = response.special_diabilities;
                         if (typeof response.allergies_medication_reaction !== "undefined")
@@ -2867,8 +2867,8 @@
                         }
 
                         //child profile details
-                        if (typeof response.important_fam_members !== "undefined")
-                            document.getElementsByName('important_fam_members')[0].value = response.important_fam_members;
+                        if (typeof response.other_important_family_members !== "undefined")
+                            document.getElementsByName('other_important_family_members')[0].value = response.other_important_family_members;
                         if (typeof response.about_family_celebrations !== "undefined")
                             document.getElementsByName('about_family_celebrations')[0].value = response.about_family_celebrations;
                         // if (response.childcare_before == 1) {

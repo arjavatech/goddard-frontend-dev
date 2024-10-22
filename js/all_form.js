@@ -17,7 +17,7 @@ function submitForm(editID,number) {
     var response=JSON.parse(window.localStorage.getItem("responseData"));
     console.log(response);
     var outputobject ={};
-    outputobject.class_id = response.class_id;
+    outputobject.classid = response.classid;
     //to set local response variable id value for outputobject id value.
     if(editID != ''){
         outputobject.primary_parent_email = editID;
@@ -98,8 +98,13 @@ function submitForm(editID,number) {
 
     console.log( obj.dentist_telephone_number);
     // Additional objects for specific sections
+    let dentist_Id;
+    if(response.child_dentist_info){
+        dentist_Id = response.child_dentist_info.child_dentist_id
+    }
     let child_dentist_info = {
-        child_dentist_id: response.child_dentist_info?.child_dentist_id || '',
+        child_dentist_id : dentist_Id || '',
+        // child_dentist_id: response.child_dentist_info.child_dentist_id || '',
         child_dentist_name: document.getElementById('child_dentist_name').value,
         dentist_telephone_number: document.getElementById('dentist_telephone_number').value,
         dentist_street_address: document.getElementById('dentist_street_address').value,
@@ -111,8 +116,13 @@ function submitForm(editID,number) {
 
     console.log(outputobject.child_dentist_info);
 
+    let care_provider_Id;
+    if(response.child_dentist_info){
+        care_provider_Id = response.child_care_provider_info.child_care_provider_id
+    }
     let child_care_provider_info = {
-        child_care_provider_id : response.child_care_provider_info.child_care_provider_id || '',
+        child_care_provider_id : care_provider_Id || '',
+        // child_care_provider_id : response.child_care_provider_info.child_care_provider_id || '',
         child_care_provider_name: obj.child_care_provider_name,
         child_care_provider_telephone_number: obj.child_care_provider_telephone_number,
         child_hospital_affiliation: obj.child_hospital_affiliation,
@@ -204,68 +214,7 @@ function authorizationSubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/bill_ach/update");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(json);
-}
-
-// Function to submit the form data
-function authorizationSaveForm(editID) {
-    const form = document.getElementById("childInfoAuthorization");
-     var old = form;
-     var new_element = old.cloneNode(true);
-     //replace the element
-     old.parentNode.replaceChild(new_element,old);
-    const formData = new FormData(form);
-    const obj = Object.fromEntries(formData);
-    obj.form_year_ach = year;
-    //to get values from local storage variable and stored it into response1 variable.
-    var response=JSON.parse(window.localStorage.getItem("responseData"));
-    console.log(response);
-    var outputobject ={};
-    //to set local response variable id value for outputobject id value.
-    if(editID != ''){
-        outputobject.primary_parent_email = editID;
-    }else{
-        outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
-    }
-    const child_id_val = localStorage.getItem('child_id');
-
-    if (child_id_val !== null && child_id_val !== undefined) {
-        outputobject.child_id = child_id_val; 
-    }
-    var keys = Object.keys(obj);
-    console.log(keys);
-    
-    //compare new date with old data
-    keys.forEach(function (key) {
-        if(obj[key] != response[key] && obj[key] !=="" ){
-            outputobject[key]=obj[key];
-            console.log( outputobject[key]);
-            console.log( obj[key]);
-        }
-    })
-    console.log( outputobject);
-    const json=JSON.stringify(outputobject); 
-    console.log(json);   
-    let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        if (xhr.status === 200) {
-            $(".success-msg").show();
-            setTimeout(function(){ 
-                $(".success-msg").hide(); 
-                // window.location.reload();
-                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-                window.location.href = `./parent_dashboard.html`;
-            }, 3000);
-        }else{
-            $(".error-msg").show();
-            setTimeout(function(){ 
-                $(".error-msg").hide(); 
-            }, 3000);
-        }
-    };
-    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/bill_ach/update");
+    xhr.open("PUT", `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/authorization_form/update/${localStorage.getItem('child_id')}`);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -325,68 +274,7 @@ function enrollmentSubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/enrollment_agreement/update");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(json);
-}
-
-// Function to submit the form data
-function enrollmentSaveForm(editID) {
-    const form = document.getElementById("childInfoEnrollment");
-     var old = form;
-     var new_element = old.cloneNode(true);
-     //replace the element
-     old.parentNode.replaceChild(new_element,old);
-    const formData = new FormData(form);
-    const obj = Object.fromEntries(formData);
-    obj.form_year_enroll = year;
-    //to get values from local storage variable and stored it into response1 variable.
-    var response=JSON.parse(window.localStorage.getItem("responseData"));
-    console.log(response);
-    var outputobject ={};
-    //to set local response variable id value for outputobject id value.
-    if(editID != ''){
-        outputobject.primary_parent_email = editID;
-    }else{
-        outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
-    }
-    const child_id_val = localStorage.getItem('child_id');
-
-    if (child_id_val !== null && child_id_val !== undefined) {
-        outputobject.child_id = child_id_val; 
-    }
-    var keys = Object.keys(obj);
-    console.log(keys);
-    
-    //compare new date with old data
-    keys.forEach(function (key) {
-        if(obj[key] != response[key] && obj[key] !=="" ){
-            outputobject[key]=obj[key];
-            console.log( outputobject[key]);
-            console.log( obj[key]);
-        }
-    })
-    console.log( outputobject);
-    const json=JSON.stringify(outputobject); 
-    console.log(json);   
-    let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        if (xhr.status === 200) {
-            $(".success-msg").show();
-            setTimeout(function(){ 
-                $(".success-msg").hide(); 
-                // window.location.reload();
-                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-                window.location.href = `./parent_dashboard.html`;
-            }, 3000);
-        }else{
-            $(".error-msg").show();
-            setTimeout(function(){ 
-                $(".error-msg").hide(); 
-            }, 3000);
-        }
-    };
-    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/enrollment_agreement/update");
+    xhr.open("PUT", `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/enrollment_form/update/${localStorage.getItem('child_id')}`);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -446,68 +334,7 @@ function handbookSubmitForm(editID) {
             }, 3000);
         }
     };
-    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/hand_book/update");
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(json);
-}
-
-// Function to submit the form data
-function handbookSaveForm(editID) {
-    const form = document.getElementById("childInfoHandbook");
-     var old = form;
-     var new_element = old.cloneNode(true);
-     //replace the element
-     old.parentNode.replaceChild(new_element,old);
-    const formData = new FormData(form);
-    const obj = Object.fromEntries(formData);
-    obj.form_year_handbook = year;
-    //to get values from local storage variable and stored it into response1 variable.
-    var response=JSON.parse(window.localStorage.getItem("responseData"));
-    console.log(response);
-    var outputobject ={};
-    //to set local response variable id value for outputobject id value.
-    if(editID != ''){
-        outputobject.primary_parent_email = editID;
-    }else{
-        outputobject.primary_parent_email = localStorage.getItem('logged_in_email');
-    }
-    const child_id_val = localStorage.getItem('child_id');
-
-    if (child_id_val !== null && child_id_val !== undefined) {
-        outputobject.child_id = child_id_val; 
-    }
-    var keys = Object.keys(obj);
-    console.log(keys);
-    
-    //compare new date with old data
-    keys.forEach(function (key) {
-        if(obj[key] != response[key] && obj[key] !=="" ){
-            outputobject[key]=obj[key];
-            console.log( outputobject[key]);
-            console.log( obj[key]);
-        }
-    })
-    console.log( outputobject);
-    const json=JSON.stringify(outputobject); 
-    console.log(json);   
-    let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        if (xhr.status === 200) {
-            $(".success-msg").show();
-            setTimeout(function(){ 
-                $(".success-msg").hide(); 
-                // window.location.reload();
-                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-                window.location.href = `./parent_dashboard.html`;
-            }, 3000);
-        }else{
-            $(".error-msg").show();
-            setTimeout(function(){ 
-                $(".error-msg").hide(); 
-            }, 3000);
-        }
-    };
-    xhr.open("PUT", "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/hand_book/update");
+    xhr.open("PUT", `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_handbook/update/${localStorage.getItem('child_id')}`);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -638,14 +465,15 @@ $(document).ready(function () {
             e.preventDefault();
             submitForm(editChildID,26);
         });
-
         $(document).on("click", ".admission-submit-btn", function(e) {
             e.preventDefault();
             admissionsubmitForm(editChildID,1);
         });
+
+
         $(document).on("click", ".ach-save-btn", function(e) {
             e.preventDefault();
-            authorizationSaveForm(editChildID);
+            authorizationSubmitForm(editChildID);
         });
         $(document).on("click", ".ach-submit-btn", function(e) {
             e.preventDefault();
@@ -653,7 +481,7 @@ $(document).ready(function () {
         });
         $(document).on("click", ".enrollment-save-btn", function(e) {
             e.preventDefault();
-            enrollmentSaveForm(editChildID);
+            enrollmentSubmitForm(editChildID);
         });
         $(document).on("click", ".enrollment-submit-btn", function(e) {
             e.preventDefault();
@@ -661,7 +489,7 @@ $(document).ready(function () {
         });
         $(document).on("click", ".handbook_button", function(e) {
             e.preventDefault();
-            handbookSaveForm(editChildID);
+            handbookSubmitForm(editChildID);
         });
         $(document).on("click", ".handbook-submit-btn", function(e) {
             e.preventDefault();

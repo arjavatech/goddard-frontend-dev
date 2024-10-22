@@ -17,7 +17,7 @@ function submitForm(editID,number) {
     var response=JSON.parse(window.localStorage.getItem("responseData"));
     console.log(response);
     var outputobject ={};
-    outputobject.classid = response.classid;
+    outputobject.class_id = response.class_id;
     //to set local response variable id value for outputobject id value.
     if(editID != ''){
         outputobject.primary_parent_email = editID;

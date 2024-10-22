@@ -41,7 +41,7 @@ function emailSend() {
                         $(".success-msg").show();
                         setTimeout(function () {
                             $(".success-msg").hide();
-                            // window.location.reload();
+                            window.location.reload();
                         }, 3000);
                     } else {
                         $(".error-msg-alreadyexists").show();

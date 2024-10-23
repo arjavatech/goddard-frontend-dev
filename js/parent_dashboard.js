@@ -428,7 +428,8 @@ function checking(editID) {
                         ];
 
                         checkboxFields.forEach(field => {
-                            if (response.parent_hand_book[field] === 1) {
+                            console.log(response[field])
+                            if (response[field] == "on") {
                                 let element = form.querySelector(`input[name='${field}']`);
                                 if (element) {
                                     element.setAttribute('checked', true);
@@ -444,10 +445,11 @@ function checking(editID) {
                         const parentHandBookFields = ['parent_sign_handbook', 'parent_sign_date_handbook'];
 
                         parentHandBookFields.forEach(field => {
-                            if (response.parent_hand_book[field] !== undefined) {
+                            console.log(response.parent_sign_handbook);
+                            if (response[field] !== null) {
                                 let element = form.querySelector(`input[name='${field}']`);
                                 if (element) {
-                                    element.setAttribute('value', response.parent_hand_book[field]);
+                                    element.setAttribute('value', response[field]);
                                 }
                             }
                         });
@@ -609,7 +611,7 @@ function checking(editID) {
 
                         checkboxFields.forEach(field => {
                             let element = form.querySelector(`[name='${field}']`);
-                            if (element && response[field] == 1) {
+                            if (element && response[field] == "on") {
                                 element.setAttribute('checked', true);
                             }
                         });
@@ -643,7 +645,7 @@ function checking(editID) {
                             let relatedElement = form.querySelector(`[name='${relatedField}']`);
 
                             if (keyElement) {
-                                if (response[keyField] === "Yes") {
+                                if (response[keyField] === 0) {
                                     if (relatedElement) {
                                         relatedElement.setAttribute('value', response[relatedField] || '');
                                     } else {
@@ -686,7 +688,7 @@ function checking(editID) {
                                 element.setAttribute('checked', true);
                             }
                         }
-                        if (response.approve_social_media_post === "approve_social_media_post") {
+                        if (response.approve_social_media_post === 0) {
                             let element = form.querySelector(`input[id='approve_social_media_post1']`);
                             if (element) {
                                 element.setAttribute('checked', true);

@@ -471,7 +471,7 @@ $(document).ready(function () {
         });
         $(document).on("click", ".admission-submit-btn", function(e) {
             e.preventDefault();
-            admissionsubmitForm(editChildID,1);
+            submitForm(editChildID,1);
         });
 
 

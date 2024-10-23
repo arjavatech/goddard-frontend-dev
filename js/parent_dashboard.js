@@ -2299,17 +2299,39 @@ function checking(editID) {
                     securityPolicy == true && medicaltransportationWeiver == true &&
                     healthPolicy == true && outsideWeiver == true && socialMedia == true
                     && admissionparentsign == true) {
-                    // Reset the display for both images
-                    document.querySelector('.admission-tick').style.display = 'none';
-                    document.querySelector('.admission-circle').style.display = 'none';
-                    // Update the display for the clicked card
-                    document.querySelector('.admission-tick').style.display = 'block';
+                    // // Reset the display for both images
+                    // document.querySelector('.admission-tick').style.display = 'none';
+                    // document.querySelector('.admission-circle').style.display = 'none';
+                    // // Update the display for the clicked card
+                    // document.querySelector('.admission-tick').style.display = 'block';
+                    const admissionTick = document.querySelector('.admission-tick');
+                    const admissionCircle = document.querySelector('.admission-circle');
+
+                    // Check if both elements exist before changing their styles
+                    if (admissionTick && admissionCircle) {
+                        // Reset the display for both images
+                        admissionTick.style.display = 'none';
+                        admissionCircle.style.display = 'none';
+                        // Update the display for the clicked card
+                        admissionTick.style.display = 'block';
+                    }
                 } else {
-                    // Reset the display for both images
-                    document.querySelector('.admission-tick').style.display = 'none';
-                    document.querySelector('.admission-circle').style.display = 'none';
-                    // Update the display for the clicked card
-                    document.querySelector('.admission-circle').style.display = 'block';
+                    // // Reset the display for both images
+                    // document.querySelector('.admission-tick').style.display = 'none';
+                    // document.querySelector('.admission-circle').style.display = 'none';
+                    // // Update the display for the clicked card
+                    // document.querySelector('.admission-circle').style.display = 'block';
+                    const admissionTick = document.querySelector('.admission-tick');
+                    const admissionCircle = document.querySelector('.admission-circle');
+                
+                    // Check if both elements exist before changing their styles
+                    if (admissionTick && admissionCircle) {
+                        // Reset the display for both images
+                        admissionTick.style.display = 'none';
+                        admissionCircle.style.display = 'none';
+                        // Update the display for the clicked card
+                        admissionCircle.style.display = 'block';
+                    }
                 }
 
 

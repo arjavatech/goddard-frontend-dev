@@ -818,9 +818,9 @@ function checking(editID) {
                     } else {
                         document.getElementById('do_relevant_custody_papers_apply2').checked = true;
                     }
-                    if (response.gender == "male") {
+                    if (response.gender == "Male") {
                         document.getElementById('gender1').checked = true;
-                    } else if (response.gender == "female") {
+                    } else if (response.gender == "Female") {
                         document.getElementById('gender2').checked = true;
                     } else {
                         document.getElementById('gender3').checked = true;

@@ -2385,27 +2385,27 @@ function checking(editID) {
                         document.getElementById('half_day').checked = false;
                     }
 
-                    if (typeof response.point_one_field_three !== "undefined" &&
-                        typeof response.point_two_initial_here !== "undefined" &&
-                        typeof response.point_three_initial_here !== "undefined" &&
-                        typeof response.point_four_initial_here !== "undefined" &&
-                        typeof response.point_five_initial_here !== "undefined" &&
-                        typeof response.point_six_initial_here !== "undefined" &&
-                        typeof response.point_seven_initial_here !== "undefined" &&
-                        typeof response.point_eight_initial_here !== "undefined" &&
-                        typeof response.point_nine_initial_here !== "undefined" &&
-                        typeof response.point_ten_initial_here !== "undefined" &&
-                        typeof response.point_eleven_initial_here !== "undefined" &&
-                        typeof response.point_twelve_initial_here !== "undefined" &&
-                        typeof response.point_thirteen_initial_here !== "undefined" &&
-                        typeof response.point_fourteen_initial_here !== "undefined" &&
-                        typeof response.point_fifteen_initial_here !== "undefined" &&
-                        typeof response.point_sixteen_initial_here !== "undefined" &&
-                        typeof response.point_seventeen_initial_here !== "undefined" &&
-                        typeof response.point_eighteen_initial_here !== "undefined" &&
-                        typeof response.point_ninteen_initial_here !== "undefined" &&
-                        typeof response.preferred_start_date !== "undefined" &&
-                        typeof response.preferred_schedule !== "undefined"
+                    if ( response.point_one_field_three  &&
+                         response.point_two_initial_here  &&
+                         response.point_three_initial_here  &&
+                         response.point_four_initial_here  &&
+                         response.point_five_initial_here  &&
+                         response.point_six_initial_here  &&
+                         response.point_seven_initial_here  &&
+                         response.point_eight_initial_here  &&
+                         response.point_nine_initial_here  &&
+                         response.point_ten_initial_here  &&
+                         response.point_eleven_initial_here  &&
+                         response.point_twelve_initial_here  &&
+                         response.point_thirteen_initial_here  &&
+                         response.point_fourteen_initial_here  &&
+                         response.point_fifteen_initial_here  &&
+                         response.point_sixteen_initial_here  &&
+                         response.point_seventeen_initial_here  &&
+                         response.point_eighteen_initial_here  &&
+                         response.point_ninteen_initial_here  &&
+                         response.preferred_start_date  &&
+                         response.preferred_schedule 
                     ) {
 
                         let enrollmentFinalAgreement = document.getElementById('enrollmentFinalAgreement');
@@ -2518,9 +2518,9 @@ function checking(editID) {
                     if (typeof response.i !== "undefined")
                         document.getElementById("i").value = response.i;
 
-                    if (typeof response.bank_routing !== "undefined" && typeof response.bank_account !== "undefined"
-                        && typeof response.driver_license !== "undefined" && typeof response.state !== "undefined"
-                        && typeof response.i !== "undefined") {
+                    if ( response.bank_routing  &&  response.bank_account 
+                        &&  response.driver_license  &&  response.state 
+                        &&  response.i ) {
                         let achFinalAgreement = document.getElementById('achFinalAgreement');
                         achFinalAgreement.classList.remove('disabled');
                         // Reset the display for both images

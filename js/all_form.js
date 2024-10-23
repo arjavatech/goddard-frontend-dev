@@ -103,7 +103,7 @@ function submitForm(editID,number) {
         dentist_Id = response.child_dentist_info.child_dentist_id
     }
     let child_dentist_info = {
-        child_dentist_id : dentist_Id || '',
+        child_dentist_id : dentist_Id ? parseInt(dentist_Id) : '',
         // child_dentist_id: response.child_dentist_info.child_dentist_id || '',
         child_dentist_name: document.getElementById('child_dentist_name').value,
         dentist_telephone_number: document.getElementById('dentist_telephone_number').value,
@@ -121,7 +121,7 @@ function submitForm(editID,number) {
         care_provider_Id = response.child_care_provider_info.child_care_provider_id
     }
     let child_care_provider_info = {
-        child_care_provider_id : care_provider_Id || '',
+        child_care_provider_id : care_provider_Id ? parseInt(care_provider_Id) : '',
         // child_care_provider_id : response.child_care_provider_info.child_care_provider_id || '',
         child_care_provider_name: obj.child_care_provider_name,
         child_care_provider_telephone_number: obj.child_care_provider_telephone_number,

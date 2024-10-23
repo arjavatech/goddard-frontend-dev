@@ -55,7 +55,7 @@ function submitForm(editID,number) {
     outputobject.primary_parent_info = primary_parent_info;
 
     let additional_parent_info = {
-        parent_id : response.additional_parent_info.parent_id,
+        parent_id : response.additional_parent_info.parent_id ? parseInt(response.additional_parent_info.parent_id) : null,
         parent_name: obj.parent_two_name,
         parent_street_address: obj.parent_two_street_address,
         parent_city_address: obj.parent_two_city_address,
@@ -72,6 +72,7 @@ function submitForm(editID,number) {
     outputobject.additional_parent_info = additional_parent_info;
 
     const emergencyContacts = [];
+    const emergencyContactsFromResponse = response.emergency_contact_info || []; 
     for (let i = 0; i <= 2; i++) {
         const contactName = formData.get(`child_emergency_contact_name${i}`);
         const contactZip = formData.get(`child_emergency_contact_zip_address${i}`);
@@ -80,8 +81,11 @@ function submitForm(editID,number) {
         const contactRelationship = formData.get(`child_emergency_contact_relationship${i}`);
         const contactState = formData.get(`child_emergency_contact_state_address${i}`);
         const contactPhone = formData.get(`child_emergency_contact_telephone_number${i}`);
+
+        const contactId = emergencyContactsFromResponse[i] ? emergencyContactsFromResponse[i].child_emergency_contact_id : null;
         
         emergencyContacts.push({
+            child_emergency_contact_id: contactId, 
             child_emergency_contact_name: contactName,
             child_emergency_contact_zip_address: contactZip,
             child_emergency_contact_city_address: contactCity,
@@ -103,7 +107,7 @@ function submitForm(editID,number) {
         dentist_Id = response.child_dentist_info.child_dentist_id
     }
     let child_dentist_info = {
-        child_dentist_id : dentist_Id ? parseInt(dentist_Id) : '',
+        child_dentist_id : dentist_Id ? parseInt(dentist_Id) : null,
         // child_dentist_id: response.child_dentist_info.child_dentist_id || '',
         child_dentist_name: document.getElementById('child_dentist_name').value,
         dentist_telephone_number: document.getElementById('dentist_telephone_number').value,
@@ -121,7 +125,7 @@ function submitForm(editID,number) {
         care_provider_Id = response.child_care_provider_info.child_care_provider_id
     }
     let child_care_provider_info = {
-        child_care_provider_id : care_provider_Id ? parseInt(care_provider_Id) : '',
+        child_care_provider_id : care_provider_Id ? parseInt(care_provider_Id) : null,
         // child_care_provider_id : response.child_care_provider_info.child_care_provider_id || '',
         child_care_provider_name: obj.child_care_provider_name,
         child_care_provider_telephone_number: obj.child_care_provider_telephone_number,

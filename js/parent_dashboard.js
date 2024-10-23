@@ -1078,12 +1078,43 @@ function checking(editID) {
                     console.log(response.child_dentist_info);
 
                     if (response.child_dentist_info) {
+                         // Select the correct dentist from the dropdown
+                        // const dentistId = response.child_dentist_info.child_dentist_id;
+                        // const dentistName = response.child_dentist_info.child_dentist_name;
+
+                        // Find the dropdown item with the same name and update the dropdown button's text
+                        // const dropdownButton = document.getElementById('dropdownMenuButton');
+                        // const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+                        // let found = false;
+                        // dropdownItems.forEach(item => {
+                        //     const itemId = item.getAttribute('data-value');
+                        //     if (itemId == dentistId) {
+                        //         dropdownButton.textContent = dentistName;
+                        //         found = true;
+                        //     }
+                        // });
+
+                        // // If the dentist is not in the dropdown, assume it's a custom "Others" entry
+                        // if (!found) {
+                        //     dropdownButton.textContent = "Others";
+                        //     $('#dropdown-menu').append(`
+                        //         <input type="text" id="customDentistName" class="form-control mt-2" placeholder="Enter dentist name..." value="${dentistName}">
+                        //     `);
+                        // }
                         document.getElementById('child_dentist_name').value = response.child_dentist_info.child_dentist_name || '';
                         document.getElementById('dentist_telephone_number').value = response.child_dentist_info.dentist_telephone_number || '';
                         document.getElementById('dentist_street_address').value = response.child_dentist_info.dentist_street_address || '';
                         document.getElementById('dentist_city_address').value = response.child_dentist_info.dentist_city_address || '';
                         document.getElementById('dentist_state_address').value = response.child_dentist_info.dentist_state_address || '';
                         document.getElementById('dentist_zip_address').value = response.child_dentist_info.dentist_zip_address || '';
+                        
+                        // Disable the input fields since they're pre-populated with a dentist's details
+                        // $('#dentist_telephone_number').prop('disabled', true);
+                        // $('#dentist_street_address').prop('disabled', true);
+                        // $('#dentist_city_address').prop('disabled', true);
+                        // $('#dentist_state_address').prop('disabled', true);
+                        // $('#dentist_zip_address').prop('disabled', true);
                     }
 
                     console.log(response.child_dentist_info);

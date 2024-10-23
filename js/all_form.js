@@ -139,28 +139,28 @@ function submitForm(editID,number) {
 
     const json=JSON.stringify(outputobject); 
     console.log(json);
-    // let xhr = new XMLHttpRequest();
-    // xhr.onload = () => {
-    //     if (xhr.status === 200) {
-    //         $(".success-msg").show();
-    //         setTimeout(function(){ 
-    //             $(".success-msg").hide(); 
-    //             // window.location.reload();
-    //             // window.location.href = `./parent_dashboard.html?childid=${child_id_val}`;
-    //             sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-    //             window.location.href = `./parent_dashboard.html`;
+    let xhr = new XMLHttpRequest();
+    xhr.onload = () => {
+        if (xhr.status === 200) {
+            $(".success-msg").show();
+            setTimeout(function(){ 
+                $(".success-msg").hide(); 
+                // window.location.reload();
+                // window.location.href = `./parent_dashboard.html?childid=${child_id_val}`;
+                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+                window.location.href = `./parent_dashboard.html`;
 
-    //         }, 3000);
-    //     }else{
-    //         $(".error-msg").show();
-    //         setTimeout(function(){ 
-    //             $(".error-msg").hide(); 
-    //         }, 3000);
-    //     }
-    // };
-    // xhr.open("PUT", ` https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_segment_update/${localStorage.getItem('child_id')}`);
-    // xhr.setRequestHeader("Content-Type", "application/json");
-    // xhr.send(json);
+            }, 3000);
+        }else{
+            $(".error-msg").show();
+            setTimeout(function(){ 
+                $(".error-msg").hide(); 
+            }, 3000);
+        }
+    };
+    xhr.open("PUT", ` https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_segment_update/${localStorage.getItem('child_id')}`);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(json);
 }
 
 function authorizationSubmitForm(editID) {

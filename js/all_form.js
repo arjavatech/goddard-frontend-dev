@@ -50,7 +50,7 @@ function submitForm(editID,number) {
         work_hours_to: obj.work_hours_to,
         business_telephone_number: obj.business_telephone_number,
         business_cell_number: obj.business_cell_number,
-        parent_email: obj.primary_parent_info
+        parent_email: obj.primary_parent_email
     };
     outputobject.primary_parent_info = primary_parent_info;
 
@@ -67,7 +67,7 @@ function submitForm(editID,number) {
         work_hours_to: obj.parent_two_work_hours_to,
         business_telephone_number: obj.parent_two_business_telephone_number,
         business_cell_number: obj.parent_two_business_cell_number,
-        parent_email: obj.parent_info
+        parent_email: obj.parent_email
     };
     outputobject.additional_parent_info = additional_parent_info;
 

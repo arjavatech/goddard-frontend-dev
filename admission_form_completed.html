@@ -246,6 +246,20 @@
                                             name="parent_two_name">
                                     </div>
                                 </div>
+                                <div class="col-sm"><br>
+                                    <div class="form-group">
+                                        <label for="parent_two_home_telephone_number" class="form-label"><b>TELEPHONE
+                                                NUMBER</b>
+                                        </label>
+                                        <input type="text" class="form-control text-box " aria-label="Telephone Number"
+                                            id="parent_two_home_telephone_number"
+                                            name="parent_two_home_telephone_number"
+                                            onchange="validatePhone(this,'parent_two_home_telephone_number_span')">
+                                        <span id="parent_two_home_telephone_number_span"
+                                            style="color:red; display:none">
+                                            Enter valid input [only numbers,+,-,()].</span>
+                                    </div>
+                                </div>
                             </div>
                             <!-- <h4 class="text-center mb-3"><b>Home Address</b></h4> -->
                             <div class="row m-1 mb-3">
@@ -285,22 +299,6 @@
                                             onchange="ValidatePincode (this,'parent_two_zip_address_span')">
                                         <span id="parent_two_zip_address_span" style="color:red; display:none">
                                             Enter valid input [only numbers].</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row m-1 mb-3">
-                                <div class="col-sm"><br>
-                                    <div class="form-group">
-                                        <label for="parent_two_home_telephone_number" class="form-label"><b>TELEPHONE
-                                                NUMBER</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box " aria-label="Telephone Number"
-                                            id="parent_two_home_telephone_number"
-                                            name="parent_two_home_telephone_number"
-                                            onchange="validatePhone(this,'parent_two_home_telephone_number_span')">
-                                        <span id="parent_two_home_telephone_number_span"
-                                            style="color:red; display:none">
-                                            Enter valid input [only numbers,+,-,()].</span>
                                     </div>
                                 </div>
                             </div>
@@ -375,11 +373,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <br><br><br><br>
                             <!--Emergency Contact-->
                             <!-- <h4 class="panel-title text-center mb-3"><b>Emergency Contact</b></h4> -->
-                            <h4 class="panel-title text-center mb-3"><b>TO WHOM THE CHILD MAY BE RELEASED IN THE EVENT
-                                    OF AN EMERGENCY</b></h4>
+                            <h4 class="panel-title text-center mt-5 mb-2"><b>TO WHOM THE CHILD MAY BE RELEASED IN THE EVENT OF AN EMERGENCY</b></h4>
+                            <br>
                             <div>
                                 <h5>Emergency Contact 1:</h5>
                                 <div class="row m-1 mb-4">
@@ -470,9 +467,10 @@
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <div>
                                 <h5>Emergency Contact 2:</h5>
-                                <div class="row m-1 mb-4">
+                                <div class="row m-1 mb-1">
                                     <div class="col-sm">
                                         <div class="form-group">
                                             <label for="child_emergency_contact_name1" class="form-label"><b>NAME</b>
@@ -514,7 +512,7 @@
                                             </div>
                                         </div> -->
                                 </div>
-                                <div class="row m-1 mb-4">
+                                <div class="row m-1 mb-1">
                                     <div class="col-sm">
                                         <div class="form-group">
                                             <label for="child_emergency_contact_full_address1"
@@ -559,7 +557,7 @@
                             </div>
                             <div>
                                 <h5>Emergency Contact 3:</h5>
-                                <div class="row m-1 mb-4">
+                                <div class="row m-1 mb-1">
                                     <div class="col-sm">
                                         <div class="form-group">
                                             <label for="child_emergency_contact_name2" class="form-label"><b>NAME</b>
@@ -604,7 +602,7 @@
                                             </div>
                                         </div> -->
                                 </div>
-                                <div class="row m-1 mb-4">
+                                <div class="row m-1 mb-1">
                                     <div class="col-sm">
                                         <div class="form-group">
                                             <label for="child_emergency_contact_full_address2"
@@ -827,6 +825,14 @@
                                             name="additional_info">
                                     </div>
                                 </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="policy_number" class="form-label"><b>POLICY NUMBER</b>
+                                        </label>
+                                        <input type="text" class="form-control text-box " id="policy_number"
+                                            name="policy_number">
+                                    </div>
+                                </div>
                             </div>
                             <div class="row m-1 mb-3">
                                 <div class="col-sm">
@@ -849,22 +855,12 @@
                                             name="health_insurance">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row m-1 mb-3">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="policy_number" class="form-label"><b>POLICY NUMBER</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box " id="policy_number"
-                                            name="policy_number">
-                                    </div>
-                                </div>
-                            </div>
+                            </div><br>
                             <!--Parent Agreement-->
 
                             <!-- <h4 class="text-center mb-3"><b>Parent Agreement</b></h4> -->
                             <!-- Parent's or guardian's signature -->
-
+                            
                             <h4 class="text-center mb-3"><b>PARENT’S / LEGAL GUARDIAN’S SIGNATURE IS REQUIRED TO
                                     INDICATE CONSENT</b></h4>
                             <div class="row m-1 mb-3">
@@ -878,8 +874,6 @@
                                             name="obtaining_emergency_medical_care">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row m-1 mb-3">
                                 <div class="col-sm">
                                     <div class="form-group">
                                         <label for="administration_first_aid_procedures"
@@ -956,7 +950,7 @@
                                         name="dental_exam_last_date" onclick="dateValidation('dental_exam_last_date')">
                                 </div>
                             </div>
-                        </div>
+                        </div><br>
                         <!--Medical History-->
                         <h4 class="text-center"><b>Medical History And Illnesses</b></h4>
                         <h3 class="text-center">Does your child have a history of : (please describe)</h3>
@@ -1094,10 +1088,10 @@
                                         name="medical_other">
                                 </div>
                             </div>
-                        </div>
+                        </div><br>
                         <!--Pregnancy and Infant History-->
                         <h4 class="text-center"><b>Pregnancy And Infant History</b></h4><br>
-                        <div class="row m-1 mb-3">
+                        <div class="row m-1 mb-1">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="illness_during_pregnancy" class="form-label"><b>Illness
@@ -1114,17 +1108,6 @@
                                     </label>
                                     <input type="text" class="form-control text-box " id="condition_of_newborn"
                                         name="condition_of_newborn">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row m-1 mb-3">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="duration_of_pregnancy" class="form-label"><b>Duration of
-                                            pregnancy</b>
-                                    </label>
-                                    <input type="text" class="form-control text-box " id="duration_of_pregnancy"
-                                        name="duration_of_pregnancy">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -1152,7 +1135,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-3">
+                        <div class="row m-1 mb-1">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="duration_of_pregnancy" class="form-label"><b>Duration of
+                                            pregnancy</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box " id="duration_of_pregnancy"
+                                        name="duration_of_pregnancy">
+                                </div>
+                            </div>
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="complications" class="form-label"><b>Complications</b>
@@ -1200,43 +1192,43 @@
                         <h3 class="text-center">Has any blood relative of this child had any of the following
                             conditions? (please check off)</h3>
                         <div class="row">
-                            <div class="col-sm m-4">
+                            <div class="col-sm m-3">
                                 <input type="checkbox" class="input-checkbox" id="family_history_allergies"
                                     name="family_history_allergies">
                                 <label class="form-check-label"
                                     for="family_history_allergies"><span><b>Allergies</b></span>
                                 </label>
                             </div>
-                            <div class="col-sm m-4">
+                            <div class="col-sm m-3">
                                 <input type="checkbox" class="input-checkbox" id="family_history_heart_problems"
                                     name="family_history_heart_problems">
                                 <label class="form-check-label" for="family_history_heart_problems"><span><b>Heart
                                             Problems</b></span>
                                 </label>
                             </div>
-                            <div class="col-sm m-4">
+                            <div class="col-sm m-3">
                                 <input type="checkbox" class="input-checkbox" id="family_history_tuberculosis"
                                     name="family_history_tuberculosis">
                                 <label class="form-check-label"
                                     for="family_history_tuberculosis"><span><b>Tuberculosis</b></span>
                                 </label>
                             </div>
-                        </div><br><br>
+                        </div>
                         <div class="row">
-                            <div class="col-sm m-4">
+                            <div class="col-sm m-3">
                                 <input type="checkbox" class="input-checkbox" id="family_history_asthma"
                                     name="family_history_asthma">
                                 <label class="form-check-label" for="family_history_asthma"><span><b>Asthma</b></span>
                                 </label>
                             </div>
-                            <div class="col-sm m-4">
+                            <div class="col-sm m-3">
                                 <input type="checkbox" class="input-checkbox" id="family_history_high_blood_pressure"
                                     name="family_history_high_blood_pressure">
                                 <label class="form-check-label" for="family_history_high_blood_pressure"><span><b>High
                                             Blood Pressure</b></span>
                                 </label>
                             </div>
-                            <div class="col-sm m-4">
+                            <div class="col-sm m-3">
                                 <input type="checkbox" class="input-checkbox" id="family_history_vision_problems"
                                     name="family_history_vision_problems">
                                 <label class="form-check-label" for="family_history_vision_problems"><span><b>Vision
@@ -1245,21 +1237,21 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm m-4">
+                            <div class="col-sm m-3">
                                 <input type="checkbox" class="input-checkbox" id="family_history_diabetes"
                                     name="family_history_diabetes">
                                 <label class="form-check-label"
                                     for="family_history_diabetes"><span><b>Diabetes</b></span>
                                 </label>
                             </div>
-                            <div class="col-sm m-4">
+                            <div class="col-sm m-3">
                                 <input type="checkbox" class="input-checkbox" id="family_history_hyperactivity"
                                     name="family_history_hyperactivity">
                                 <label class="form-check-label"
                                     for="family_history_hyperactivity"><span><b>Hyperactivity</b></span>
                                 </label>
                             </div>
-                            <div class="col-sm m-4">
+                            <div class="col-sm m-3">
                                 <input type="checkbox" class="input-checkbox" id="family_history_epilepsy"
                                     name="family_history_epilepsy">
                                 <label class="form-check-label"
@@ -1268,16 +1260,16 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm m-4">
+                            <div class="col-sm m-3">
                                 <input type="checkbox" class="input-checkbox" id="no_illnesses_for_this_child"
                                     name="no_illnesses_for_this_child">
                                 <label class="form-check-label" for="no_illnesses_for_this_child"><span><b>No
                                             Illnesses</b></span>
                                 </label>
                             </div>
-                            <div class="col-sm m-4"></div>
-                            <div class="col-sm m-4"></div>
-                        </div>
+                            <div class="col-sm m-3"></div>
+                            <div class="col-sm m-3"></div>
+                        </div> <br>
                         <!--Social Behavior-->
                         <h4 class="text-center"><b>Social Behavior</b></h4><br>
                         <div class="row m-1 mb-3">
@@ -1372,7 +1364,7 @@
                                         name="favorite_activities">
                                 </div>
                             </div>
-                        </div>
+                        </div><br>
                         <!--Environmental Factors-->
                         <h4 class="text-center"><b>Environmental Factors</b></h4><br>
                         <div class="row m-1 mb-3">
@@ -1442,7 +1434,7 @@
                         </div>
                         <!--Parent Agreement-->
                         <h4 class="text-center"><b>Parent Agreement</b></h4><br>
-                        <div class="row m-3">
+                        <div class="row m-1">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <input type="checkbox" class="input-checkbox" id="agree_all_above_info_is_correct"
@@ -1452,7 +1444,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
+                        </div><br><br><br>
                     </div>
                 </div>
             </div>
@@ -1564,16 +1556,6 @@
                                         id="reason_for_childcare_before">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row m-4 mb-3">
-                            <!-- <div class="col-sm">
-                                    <div class="form-group"> 
-                                        <label for="reason_for_childcare_before" class="form-label h-3"><b>If so, what kind?</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box " id="reason_for_childcare_before" 
-                                        name="reason_for_childcare_before">
-                                    </div>
-                                </div> -->
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="what_child_interests" class="form-label"><b>What are you child’s
@@ -1584,9 +1566,20 @@
                                         name="what_child_interests">
                                 </div>
                             </div>
-                        </div><br><br><br><br><br><br><br>
-                        <h4 class="text-center"><b>What will be your child’s typical time?</b></h4><br>
-                        <div class="row m-4 mb-3">
+                        </div>
+                        <!-- <div class="row m-4 mb-3"> -->
+                            <!-- <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="reason_for_childcare_before" class="form-label h-3"><b>If so, what kind?</b>
+                                        </label>
+                                        <input type="text" class="form-control text-box " id="reason_for_childcare_before" 
+                                        name="reason_for_childcare_before">
+                                    </div>
+                                </div> -->
+                          
+                        <!-- </div><br> -->
+                        <h4 class="text-center"><b>What will be your child’s typical time?</b></h4>
+                        <div class="row m-4 mb-2">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="drop_off_time" class="form-label"><b>Drop off time?</b>
@@ -1617,34 +1610,6 @@
                                         id="restricted_diet_reason">
                                 </div>
                             </div>
-                        </div>
-                        <!-- <div class="row m-4 mb-3" id="restricted_diet_reason_div" style="display: none;">
-                                <div class="col-sm">
-                                    <div class="form-group"> 
-                                        <label for="restricted_diet_reason" class="form-label">Explain</label>
-                                        <input type="text" class="form-control text-box" id="restricted_diet_reason" name="restricted_diet_reason">
-                                    </div>
-                                </div>
-                            </div> -->
-                        <div class="row m-4 mb-3">
-                            <div id="eat_own" class="col-sm">
-                                <div class="form-group">
-                                    <label for="eat_own_reason" class="form-label"><b>Does your child eat on their
-                                            own?</b></label>
-                                    <input type="text" class="form-control text-box" name="eat_own_reason"
-                                        id="eat_own_reason">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="row m-4 mb-3" id="eat_own_reason_div" style="display: none;">
-                                <div class="col-sm">
-                                    <div class="form-group"> 
-                                        <label for="eat_own_reason" class="form-label">Explain</label>
-                                        <input type="text" class="form-control text-box " id="eat_own_reason" name="eat_own_reason">
-                                    </div>
-                                </div>
-                            </div> -->
-                        <div class="row m-4 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="favorite_foods" class="form-label"><b>What are your child’s favorite
@@ -1656,10 +1621,35 @@
 
                                 </div>
                             </div>
+                            <div id="eat_own" class="col-sm">
+                                <div class="form-group">
+                                    <label for="eat_own_reason" class="form-label"><b>Does your child eat on their
+                                            own?</b></label>
+                                    <input type="text" class="form-control text-box" name="eat_own_reason"
+                                        id="eat_own_reason">
+                                </div>
+                            </div>
                         </div>
-
+                        <!-- <div class="row m-4 mb-3" id="restricted_diet_reason_div" style="display: none;">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="restricted_diet_reason" class="form-label">Explain</label>
+                                        <input type="text" class="form-control text-box" id="restricted_diet_reason" name="restricted_diet_reason">
+                                    </div>
+                                </div>
+                            </div> -->
+                      
+                        <!-- <div class="row m-4 mb-3" id="eat_own_reason_div" style="display: none;">
+                                <div class="col-sm">
+                                    <div class="form-group"> 
+                                        <label for="eat_own_reason" class="form-label">Explain</label>
+                                        <input type="text" class="form-control text-box " id="eat_own_reason" name="eat_own_reason">
+                                    </div>
+                                </div>
+                            </div> -->
+                            <br>
                         <!--Rest and Diapering/Toilet Learning-->
-                        <h4 class="text-center"><b>Rest and Diapering/Toilet Learning</b></h4><br>
+                        <h4 class="text-center"><b>Rest and Diapering/Toilet Learning</b></h4>
                         <div class="row m-4 mb-3">
                             <div id="rest_in_the_middle_day" class="col-sm">
                                 <div class="form-group">
@@ -1712,7 +1702,7 @@
                             </div> -->
 
                         <!--Medical Details-->
-                        <h4 class="text-center"><b>Medical/General</b></h4><br>
+                        <h4 class="text-center"><b>Medical/General</b></h4>
                         <div class="row m-4 mb-3">
                             <div id="existing_illness_allergy" class="col-sm">
                                 <div class="form-group">
@@ -1743,6 +1733,14 @@
                                         name="explain_for_functioning_at_age" id="explain_for_functioning_at_age">
                                 </div>
                             </div>
+                            <div id="able_to_walk" class="col-sm">
+                                <div class="form-group">
+                                    <label for="explain_for_able_to_walk" class="form-label"><b>Is your child able to
+                                            walk?</b></label>
+                                    <input type="text" class="form-control text-box" name="explain_for_able_to_walk"
+                                        id="explain_for_able_to_walk">
+                                </div>
+                            </div>
                         </div>
                         <!-- <div class="row m-4 mb-3" id="explain_for_functioning_at_age_div" style="display: none;">
                                 <div class="col-sm">
@@ -1753,16 +1751,6 @@
                                     </div>
                                 </div>
                             </div> -->
-                        <div class="row m-4 mb-3">
-                            <div id="able_to_walk" class="col-sm">
-                                <div class="form-group">
-                                    <label for="explain_for_able_to_walk" class="form-label"><b>Is your child able to
-                                            walk?</b></label>
-                                    <input type="text" class="form-control text-box" name="explain_for_able_to_walk"
-                                        id="explain_for_able_to_walk">
-                                </div>
-                            </div>
-                        </div>
                         <!-- <div class="row m-4 mb-3" id="explain_for_able_to_walk_div" style="display: none;">
                                 <div class="col-sm">
                                     <div class="form-group"> 
@@ -1935,8 +1923,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4">
-                        <div class="p-4">
+                    <div class="pt-1">
+                        <div class="p-2">
                             <p>It is part of The Goddard School® security policy to have a password that is given to
                                 anyone whom you designate as an authorized pick-up for your child. Your child will be
                                 released to this authorized person only if the following conditions have been met:</p>
@@ -1954,7 +1942,7 @@
                                     thebuilding.</li>
                             </ol>
                             <p>The password is an added measure of security for your family and will be kept with your
-                                child’s emergency information.</p><br>
+                                child’s emergency information.</p>
                             <div class="row">
                                 <div class="col-3"></div>
                                 <div class="col-6">
@@ -2003,15 +1991,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="p-4">
-                        <h4 class="text-center mb-3"><b>Consent to Photograph</b></h4>
+                    <div class="p-2">
+                        <h4 class="text-center mb-1"><b>Consent to Photograph</b></h4>
                         <p>I consent to The Goddard School® taking photographs and videos of my child, who are
                             identified below. For value received and without additional consideration, I agree that all
                             photographs and video footage of my child taken at The Goddard School may be used at any
                             time by The Goddard School or Goddard Systems, Inc. for the purposes of illustration,
                             advertising and publicity, in any manner or in any form, including in broadcast, print,
                             electronic and social media.</p>
-                        <div class="row m-1 mb-3">
+                        <div class="row">
                             <div class="col-3"></div>
                             <div class="col-6">
                                 <div class="form-group">
@@ -2026,8 +2014,8 @@
                         </div>
                         <p>*In-house only includes photos used in the classroom or hallways and photos taken for and
                             through electronic dailyreport tools, such as Kaymbu.</p>
-                        <br><br>
-                        <h4 class="text-center mb-3"><b>Group Photos in Electronic Daily Activity Reports</b></h4>
+                        
+                        <h4 class="text-center mb-1"><b>Group Photos in Electronic Daily Activity Reports</b></h4>
                         <p>The Goddard School takes photos of individual children and groups of children for electronic
                             daily activity reports. These photos will not be used for any other purpose by The Goddard
                             School or Goddard Systems, Inc. Although we have a School policy against it, it is possible
@@ -2035,7 +2023,7 @@
                             these group photos through their personal social media accounts. For this reason, we ask
                             that you specifically authorize whether we can include your child in any group photos shared
                             through the electronic daily activity reports.</p>
-                        <div class="row m-1 mb-3">
+                        <div class="row m-1 mb-1">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <input type="checkbox" class="input-checkbox"
@@ -2050,9 +2038,9 @@
                                 </div>
                             </div>
                         </div>
-                        <h4 class="text-center mb-3"><b>Agreement Not to Post Photos of
+                        <h4 class="text-center mb-1"><b>Agreement Not to Post Photos of
                                 Other Children</b></h4>
-                        <div class="row m-1 mb-3">
+                        <div class="row m-1 mb-1">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <input type="checkbox" class="input-checkbox"
@@ -2094,8 +2082,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4">
-                        <div class="row m-3 mb-3">
+                    <div class="pt-5">
+                        <div class="row m-3 mb-4">
                             <p>I understand that The Goddard School® has installed security
                                 cameras in
                                 the
@@ -2110,7 +2098,7 @@
                                 or she may be also videotaped while at or around the school premises.
                             </p>
                         </div>
-                        <h5 class="text-center"><b>Policy Sign off</b></h5>
+                        <h5 class="text-center"><b>Policy Sign off</b></h5><br>
                         <p class="m-4">My signature below confirms my understanding of the
                             Enrollment Agreement, school
                             policies, my tuition obligation, my responsibility for the payment
@@ -2132,6 +2120,7 @@
                                 </div>
                             </div>
                         </div>
+                        <br>
                     </div>
                 </div>
             </div>
@@ -2176,7 +2165,7 @@
                                 <p>This authorization and waiver shall remain effective until Student
                                     withdraws from The Goddard School®.</p>
                             </span>
-                            <h4 class="text-center">Parent Agreement</h4>
+                            <h4 class="text-center">Parent Agreement</h4><br>
                             <div class="form-group">
                                 <input type="checkbox" class="input-checkbox"
                                     id="medical_transportation_waiver"
@@ -2185,12 +2174,12 @@
                                     <span><b>I agree medical transportation
                                             waiver.</b></span>
                                 </label>
-                            </div>
+                            </div><br>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div><br><br><br><br><br>
         <!--Medical transportation Form End-->
 
         <!--Health policies Form-->
@@ -2210,8 +2199,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4">
-                        <div class="row m-4">
+                    <div class="pt-1">
+                        <div class="row ms-4">
                             <div class="col-sm">
                                 <p>The owners and staff at The Goddard School® do all we can to promote
                                     a healthy environment for your children.
@@ -2260,7 +2249,6 @@
                                     <li> Infected, untreated skin patches/lesions or severe itching of
                                         body/scalp</li>
                                     <li> Difficult or rapid breathing</li>
-                                    <br><br>
                                     <li>Skin rashes (excluding diaper rash) especially with fever or
                                         itching</li>
                                     <li> Swollen joints, visibly enlarged lymph nodes, or stiff neck
@@ -2302,7 +2290,7 @@
                             </div>
                         </div>
                         <!-- Health Policies table -->
-                        <div class="row m-4">
+                        <div class="row ms-4">
                             <div class="col-sm">
                                 <table>
                                     <tr>
@@ -2325,7 +2313,7 @@
                                         <td>Salmonellosis</td>
                                         <td>Shigellosis</td>
                                     </tr>
-                                </table><br>
+                                </table>
                                 <p>All parents will be informed in writing if a communicable disease is
                                     reported. The Goddard School® follows the
                                     reporting guidelines as established by Washington State Department
@@ -2373,8 +2361,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4">
-                        <div class="row m-3 mb-3">
+                    <div class="pt-1">
+                        <div class="row m-3 mb-1">
                             <div class="col-sm">
                                 <p>Parent(s) of student(s) enrolled at The Goddard School Lynnwood may request one or
                                     more employees of
@@ -2406,7 +2394,6 @@
                                     </li>
                                     <li>When hiring for outside engagements, parents ensure that staff work hours at
                                         school are not disturbed.</li>
-                                    <br><br>
                                     <li>If there is a matter of contention between the staff hired and the family,
                                         management is not
                                         liable to mediate or take disciplinary actions against the staff based on what
@@ -2416,7 +2403,7 @@
                             </div>
                         </div>
                         <h4 class="text-center">Parent Agreement</h4>
-                        <div class="row m-3 mb-3">
+                        <div class="row m-3 mb-1">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <input type="checkbox" class="input-checkbox"
@@ -2452,7 +2439,7 @@
                         </div>
                     </div>
                     <div class="pt-4">
-                        <div class="row m-3 mb-4">
+                        <div class="row m-3 mb-1">
                             <div class="col-6">
                                 <h3 class="text-center"><b>Facebook</b></h3>
                             </div>
@@ -2460,14 +2447,14 @@
                                 <h3 class="text-center"><b>Instagram</b></h3>
                             </div>
                         </div>
-                        <div class="row m-3 mb-4">
+                        <div class="row m-3 mb-1">
                             <div class="col-sm">
                                 <p>I hereby grant permission for The Goddard School to utilize any photographs and/or
                                     video footage of my child, whose name is provided below, for social media purposes.
                                     Neither the child's name nor any other identifying details will be mentioned.</p>
                             </div>
                         </div>
-                        <div class="row m-3 mb-4">
+                        <div class="row m-3 mb-1">
                             <div id="approval">
                                 <div class="form-group">
                                     <p><b>Select One:</b></p>
@@ -2485,7 +2472,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-3 mb-4">
+                        <div class="row m-3 mb-1">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="printed_name_social_media_post" class="form-label"><b>Printed Name</b>
@@ -2495,7 +2482,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-3 mb-4">
+                        <div class="row m-3 mb-1">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <input type="checkbox" class="input-checkbox"
@@ -2509,7 +2496,7 @@
                             </div>
                         </div>
                         <!-- Parent's or guardian's signature -->
-                        <div class="row m-3 mb-4">
+                        <div class="row m-3 mb-1">
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="parent_sign_admission" class="form-label"><b>Parent Signature</b>

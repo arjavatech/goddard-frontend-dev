@@ -102,6 +102,11 @@ function submitForm(editID,number) {
 
     console.log( obj.dentist_telephone_number);
     // Additional objects for specific sections
+    let dentistName = document.getElementById('dropdownMenuButton').textContent.trim();
+    if (dentistName === 'Others') {
+        // If "Others" is selected, get the custom input value for dentist name
+        dentistName = document.getElementById('customDentistName').value;
+    }
     let dentist_Id;
     if(response.child_dentist_info){
         dentist_Id = response.child_dentist_info.child_dentist_id
@@ -109,7 +114,7 @@ function submitForm(editID,number) {
     let child_dentist_info = {
         child_dentist_id : dentist_Id ? parseInt(dentist_Id) : null,
         // child_dentist_id: response.child_dentist_info.child_dentist_id || '',
-        child_dentist_name: document.getElementById('child_dentist_name').value,
+        child_dentist_name: dentistName || '',
         dentist_telephone_number: document.getElementById('dentist_telephone_number').value,
         dentist_street_address: document.getElementById('dentist_street_address').value,
         dentist_city_address: document.getElementById('dentist_city_address').value,
@@ -117,9 +122,9 @@ function submitForm(editID,number) {
         dentist_zip_address: document.getElementById('dentist_zip_address').value
     };
     outputobject.child_dentist_info = child_dentist_info;
-
     console.log(outputobject.child_dentist_info);
 
+    console.log(outputobject.child_dentist_info);
     let care_provider_Id;
     if(response.child_dentist_info){
         care_provider_Id = response.child_care_provider_info.child_care_provider_id

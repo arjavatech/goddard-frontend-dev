@@ -57,7 +57,6 @@ function getAllInfo(editID, callback) {
         url: url,
         type: 'get',
         success: function (response) {
-            console.log(response);
             // localStorage.clear()
             if (response['children']) {
                 // Iterate through all the child and store the response
@@ -85,7 +84,6 @@ function responseToAuthenticationCheck() {
 
 function loadDynamicCards() {
     let responseSize = parseInt(localStorage.getItem('number_of_children'), 10);
-    console.log(responseSize);
     let parentContainer = document.getElementById('dynamicChildCards');
     let putcallId = sessionStorage.getItem('putcallId');
 
@@ -167,7 +165,6 @@ function welcomeText() {
 
 function checking(editID) {
     window.localStorage.setItem('editChildId', editID);
-    console.log(editID);
     // var tab_content = document.querySelector(".tab-content");
     // tab_content.reset();
     $.ajax({
@@ -175,7 +172,6 @@ function checking(editID) {
         type: 'GET',
         dataType: 'json',
         success: function (response) {
-            console.log(response);
             let mainTopics = [];
             // iterate over the values of incompletedformstatus
             for (let value of Object.values(response['InCompletedFormStatus'])) {
@@ -233,14 +229,134 @@ function checking(editID) {
     //destroy datatable
     $('#example').DataTable().destroy();
 
+    // $('#example').on('click', '.download-btn', function () {
+    //     let url = $(this).data('url');
+    //     let fileName = $(this).data('name');
+    //     let editID = extractEditIDFromURL(url);
+
+    //     localStorage.setItem('form_name', fileName);
+    //     fetch(url)
+    //         .then(response => response.text())
+    //         .then(text => {
+    //             let hiddenDiv = document.createElement('div');
+    //             hiddenDiv.id = 'formContent';
+    //             hiddenDiv.style.display = 'none';
+    //             hiddenDiv.innerHTML = text;
+    //             document.body.appendChild(hiddenDiv);
+
+    //             populateFormData(editID, fileName).then(() => {
+    //                 setTimeout(() => {
+    //                     generatePDFContent().then(doc => {
+    //                         doc.save(fileName);
+    //                         document.body.removeChild(hiddenDiv);
+    //                         // window.location.reload();
+    //                     }).catch(error => {
+    //                         document.body.removeChild(hiddenDiv);
+    //                     });
+    //                 }, 1000); // Adjust timeout as needed
+    //             }).catch(error => {
+    //                 document.body.removeChild(hiddenDiv);
+    //             });
+    //         })
+    //         .catch(error => {
+    //             console.error('Error downloading the document:', error);
+    //         });
+    // });
+
+    // function generatePDFContent() {
+    //     return new Promise((resolve) => {
+    //         const { jsPDF } = window.jspdf;
+    //         const doc = new jsPDF('p', 'mm', [1500, 1400]);
+    //         let formContent = document.querySelector('#formContent');
+    //         formContent.style.display = 'block';
+
+    //         formContent.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    //             checkbox.defaultChecked = checkbox.checked;
+    //         });
+
+    //         doc.html(formContent, {
+    //             callback: function () {
+    //                 formContent.style.display = 'none';
+    //                 resolve(doc);
+    //             },
+    //             x: 12,
+    //             y: 12
+    //         });
+    //     });
+    // }
+
+    // $('#example').on('click', '.print-btn', function () {
+    //     let url = $(this).data('url');
+    //     let formName = $(this).data('name');
+    //     let editID = extractEditIDFromURL(url);
+    //     localStorage.setItem('form_name', formName);
+
+    //     fetch(url)
+    //         .then(response => {
+    //             if (!response.ok) throw new Error('Network response was not ok');
+    //             return response.text();
+    //         })
+    //         .then(text => {
+    //             let hiddenDiv = document.createElement('div');
+    //             hiddenDiv.id = 'formContent';
+    //             hiddenDiv.style.display = 'none';
+    //             hiddenDiv.innerHTML = text;
+    //             document.body.appendChild(hiddenDiv);
+
+    //             return populateFormData(editID, formName);
+    //         })
+    //         .then(() => {
+    //             let hiddenDiv = document.getElementById('formContent');
+    //             if (hiddenDiv) {
+    //                 console.log('Form content div found:', hiddenDiv);
+    //                 printContent(hiddenDiv);
+    //             } else {
+    //                 throw new Error('Form content div not found');
+    //             }
+    //         })
+    //         .catch(error => {
+    //             console.error('Error:', error);
+    //             let hiddenDiv = document.getElementById('formContent');
+    //             if (hiddenDiv) {
+    //                 document.body.removeChild(hiddenDiv);
+    //             }
+    //         });
+    // });
+
+    // function printContent(hiddenDiv) {
+    //     console.log('Hidden div to print:', hiddenDiv);
+    //     let printWindow = window.open('', '', 'height=1400,width=1500');
+    //     let formContent = hiddenDiv.innerHTML;
+
+    //     printWindow.document.write('<html><head><title>Print Form</title>');
+    //     printWindow.document.write('</head><body>');
+    //     printWindow.document.write(formContent);
+    //     printWindow.document.write('</body></html>');
+    //     printWindow.document.close();
+
+    //     printWindow.onload = function () {
+    //         printWindow.focus();
+    //         printWindow.print();
+    //         printWindow.onafterprint = function () {
+    //             printWindow.close();
+    //             document.body.removeChild(hiddenDiv);
+    //         };
+    //     };
+    // }
+
     $('#example').on('click', '.download-btn', function () {
         let url = $(this).data('url');
-        console.log(url);
         let fileName = $(this).data('name');
-        console.log(fileName);
         let editID = extractEditIDFromURL(url);
-
+    
         localStorage.setItem('form_name', fileName);
+    
+        // Remove any existing hiddenDiv before adding new one
+        let existingDiv = document.getElementById('formContent');
+        if (existingDiv) {
+            document.body.removeChild(existingDiv);
+        }
+    
         fetch(url)
             .then(response => response.text())
             .then(text => {
@@ -249,13 +365,12 @@ function checking(editID) {
                 hiddenDiv.style.display = 'none';
                 hiddenDiv.innerHTML = text;
                 document.body.appendChild(hiddenDiv);
-
+    
                 populateFormData(editID, fileName).then(() => {
                     setTimeout(() => {
                         generatePDFContent().then(doc => {
                             doc.save(fileName);
                             document.body.removeChild(hiddenDiv);
-                            window.location.reload();
                         }).catch(error => {
                             document.body.removeChild(hiddenDiv);
                         });
@@ -268,52 +383,31 @@ function checking(editID) {
                 console.error('Error downloading the document:', error);
             });
     });
-
-    function generatePDFContent() {
-        return new Promise((resolve) => {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF('p', 'mm', [1500, 1400]);
-            let formContent = document.querySelector('#formContent');
-            formContent.style.display = 'block';
-
-            formContent.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                checkbox.defaultChecked = checkbox.checked;
-            });
-
-            doc.html(formContent, {
-                callback: function () {
-                    formContent.style.display = 'none';
-                    resolve(doc);
-                },
-                x: 12,
-                y: 12
-            });
-        });
-    }
-
+    
     $('#example').on('click', '.print-btn', function () {
         let url = $(this).data('url');
         let formName = $(this).data('name');
         let editID = extractEditIDFromURL(url);
         localStorage.setItem('form_name', formName);
-
-        console.log('URL:', url);
-        console.log('Form Name:', formName);
-        console.log('Edit ID:', editID);
-
+    
+        // Remove any existing hiddenDiv before adding new one
+        let existingDiv = document.getElementById('formContent');
+        if (existingDiv) {
+            document.body.removeChild(existingDiv);
+        }
+    
         fetch(url)
             .then(response => {
                 if (!response.ok) throw new Error('Network response was not ok');
                 return response.text();
             })
             .then(text => {
-                console.log('Fetched text:', text);
                 let hiddenDiv = document.createElement('div');
                 hiddenDiv.id = 'formContent';
                 hiddenDiv.style.display = 'none';
                 hiddenDiv.innerHTML = text;
                 document.body.appendChild(hiddenDiv);
-
+    
                 return populateFormData(editID, formName);
             })
             .then(() => {
@@ -333,18 +427,18 @@ function checking(editID) {
                 }
             });
     });
-
+    
     function printContent(hiddenDiv) {
         console.log('Hidden div to print:', hiddenDiv);
         let printWindow = window.open('', '', 'height=1400,width=1500');
         let formContent = hiddenDiv.innerHTML;
-
+    
         printWindow.document.write('<html><head><title>Print Form</title>');
         printWindow.document.write('</head><body>');
         printWindow.document.write(formContent);
         printWindow.document.write('</body></html>');
         printWindow.document.close();
-
+    
         printWindow.onload = function () {
             printWindow.focus();
             printWindow.print();
@@ -354,8 +448,29 @@ function checking(editID) {
             };
         };
     }
-
-
+    
+    function generatePDFContent() {
+        return new Promise((resolve) => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('p', 'mm', [1500, 1400]);
+            let formContent = document.querySelector('#formContent');
+            formContent.style.display = 'block';
+    
+            formContent.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.defaultChecked = checkbox.checked;
+            });
+    
+            doc.html(formContent, {
+                callback: function () {
+                    formContent.style.display = 'none';
+                    resolve(doc);
+                },
+                x: 12,
+                y: 12
+            });
+        });
+    }
+    
 
     function extractEditIDFromURL(url) {
         let params = new URLSearchParams(url.split('?')[1]);
@@ -370,7 +485,6 @@ function checking(editID) {
                 type: 'GET',
                 success: function (response) {
                     console.log(response);
-                    console.log(response.primary_parent_email);
                     let form = document.querySelector('#formContent');
                     if (!form) {
                         reject('Form content not found');
@@ -428,7 +542,6 @@ function checking(editID) {
                         ];
 
                         checkboxFields.forEach(field => {
-                            console.log(response[field])
                             if (response[field] == "on") {
                                 let element = form.querySelector(`input[name='${field}']`);
                                 if (element) {
@@ -445,7 +558,6 @@ function checking(editID) {
                         const parentHandBookFields = ['parent_sign_handbook', 'parent_sign_date_handbook'];
 
                         parentHandBookFields.forEach(field => {
-                            console.log(response.parent_sign_handbook);
                             if (response[field] !== null) {
                                 let element = form.querySelector(`input[name='${field}']`);
                                 if (element) {
@@ -558,17 +670,8 @@ function checking(editID) {
                         // }
                     } else if (formName === 'admission_form.pdf') {
                         const inputFields = [
-                            'child_first_name', 'child_last_name', 'nick_name', 'dob', 'gender', 'do_relevant_custody_papers_apply', 'primary_language', 'school_age_child_school',
-                            'parent_name', 'parent_street_address', 'parent_city_address', 'parent_state_address', 'parent_zip_address',
-                            'home_telephone_number', 'business_name', 'work_hours_from','work_hours_to', 'business_telephone_number','business_cell_number',
-                            'parent_email', 'parent_two_name', 'parent_two_street_address', 'parent_two_city_address',
-                            'parent_two_state_address', 'parent_two_zip_address', 'parent_two_home_telephone_number', 'parent_two_business_name',
-                            'parent_two_work_hours_from','parent_two_work_hours_to', 'parent_two_business_telephone_number',
-                            'parent_two_business_cell_number', 'parent_two_email', 'child_emergency_contact_name', 'child_emergency_contact_full_address','child_emergency_contact_city_address','child_emergency_contact_state_address','child_emergency_contact_zip_address',
-                            'child_emergency_contact_relationship', 'child_emergency_contact_telephone_number', 'child_care_provider_name',
-                            'child_care_provider_telephone_number', 'child_hospital_affiliation', 'child_care_provider_street_address',
-                            'child_care_provider_city_address', 'child_care_provider_state_address', 'child_care_provider_zip_address',
-                            'child_dentist_name', 'dentist_telephone_number', 'dentist_street_address','dentist_city_address','dentist_state_address','dentist_zip_address', 'special_diabilities', 'allergies_medication_reaction',
+                            'child_first_name', 'child_last_name', 'nick_name', 'dob', 'gender', 'primary_language', 'school_age_child_school',
+                            'special_diabilities', 'allergies_medication_reaction',
                             'additional_info', 'medication', 'health_insurance', 'policy_number', 'obtaining_emergency_medical_care',
                             'administration_first_aid_procedures', 'physical_exam_last_date', 'dental_exam_last_date', 'age_group_friends',
                             'neighborhood_friends', 'relationship_with_mother', 'allergies', 'asthma', 'bleeding_problems', 'diabetes',
@@ -595,7 +698,117 @@ function checking(editID) {
                                 element.setAttribute('value', response[field]);
                             }
                         });
+                        if (response.do_relevant_custody_papers_apply !== undefined) {
+                            let custodyField = document.querySelector(`[name='do_relevant_custody_papers_apply']`);
+                            
+                            // Check if the field exists and update its value
+                            if (custodyField) {
+                                custodyField.setAttribute('value', response.do_relevant_custody_papers_apply === 0 ? 'Yes' : 'No');
+                            }
+                        }
 
+                        // Handle nested objects for child care provider info
+                        const childCareProviderFields = {
+                            'child_care_provider_name': response.child_care_provider_info?.child_care_provider_name,
+                            'child_hospital_affiliation': response.child_care_provider_info?.child_hospital_affiliation,
+                            'child_care_provider_zip_address': response.child_care_provider_info?.child_care_provider_zip_address,
+                            'child_care_provider_city_address': response.child_care_provider_info?.child_care_provider_city_address,
+                            'child_care_provider_state_address': response.child_care_provider_info?.child_care_provider_state_address,
+                            'child_care_provider_street_address': response.child_care_provider_info?.child_care_provider_street_address,
+                            'child_care_provider_telephone_number': response.child_care_provider_info?.child_care_provider_telephone_number
+                        };
+
+                        Object.entries(childCareProviderFields).forEach(([field, value]) => {
+                            let element = form.querySelector(`[name='${field}']`);
+                            if (element && value !== undefined) {
+                                element.setAttribute('value', value);
+                            }
+                        });
+
+                        // Handle nested objects for child dentist info
+                        const childDentistFields = {
+                            'child_dentist_name': response.child_dentist_info?.child_dentist_name,
+                            'dentist_zip_address': response.child_dentist_info?.dentist_zip_address,
+                            'dentist_city_address': response.child_dentist_info?.dentist_city_address,
+                            'dentist_state_address': response.child_dentist_info?.dentist_state_address,
+                            'dentist_street_address': response.child_dentist_info?.dentist_street_address,
+                            'dentist_telephone_number': response.child_dentist_info?.dentist_telephone_number
+                        };
+
+                        Object.entries(childDentistFields).forEach(([field, value]) => {
+                            let element = form.querySelector(`[name='${field}']`);
+                            if (element && value !== undefined) {
+                                element.setAttribute('value', value);
+                            }
+                        });
+
+                        // Handle nested objects for parent info (primary parent)
+                        const parentFields = {
+                            'parent_name': response.primary_parent_info?.parent_name,
+                            'primary_parent_email': response.primary_parent_info?.parent_email,
+                            'home_telephone_number':response.primary_parent_info?.parent_home_telephone_number,
+                            'parent_street_address': response.primary_parent_info?.parent_street_address,
+                            'parent_city_address': response.primary_parent_info?.parent_city_address,
+                            'parent_state_address': response.primary_parent_info?.parent_state_address,
+                            'parent_zip_address': response.primary_parent_info?.parent_zip_address,
+                            'business_name': response.primary_parent_info?.parent_business_name,
+                            'business_cell_number': response.primary_parent_info?.parent_business_cell_number,
+                            'work_hours_from': response.primary_parent_info?.parent_work_hours_from,
+                            'work_hours_to': response.primary_parent_info?.parent_work_hours_to,
+                            'business_telephone_number': response.primary_parent_info?.parent_business_telephone_number
+                        };
+
+                        Object.entries(parentFields).forEach(([field, value]) => {
+                            let element = form.querySelector(`[name='${field}']`);
+                            if (element && value !== undefined) {
+                                element.setAttribute('value', value);
+                            }
+                        });
+
+                        const additionalParentFields = {
+                            'parent_two_name': response.additional_parent_info?.parent_name,
+                            'parent_email': response.additional_parent_info?.parent_email,
+                            'parent_two_home_telephone_number':response.primary_parent_info?.parent_home_telephone_number,
+                            'parent_two_street_address': response.additional_parent_info?.parent_street_address,
+                            'parent_two_city_address': response.additional_parent_info?.parent_city_address,
+                            'parent_two_state_address': response.additional_parent_info?.parent_state_address,
+                            'parent_two_zip_address': response.additional_parent_info?.parent_zip_address,
+                            'parent_two_business_name': response.additional_parent_info?.parent_business_name,
+                            'parent_two_business_cell_number': response.additional_parent_info?.parent_business_cell_number,
+                            'parent_two_work_hours_from': response.additional_parent_info?.parent_work_hours_from,
+                            'parent_two_work_hours_to': response.additional_parent_info?.parent_work_hours_to,
+                            'parent_two_business_telephone_number': response.additional_parent_info?.parent_business_telephone_number
+                        };
+
+                        Object.entries(additionalParentFields).forEach(([field, value]) => {
+                            let element = form.querySelector(`[name='${field}']`);
+                            if (element && value !== undefined) {
+                                element.setAttribute('value', value);
+                            }
+                        });
+
+                        // Handle emergency contact info (for example, the first contact)
+                        if (response.emergency_contact_info && response.emergency_contact_info.length > 0) {
+                            response.emergency_contact_info.forEach((contact, index) => {
+                                const emergencyContactFields = {
+                                    [`child_emergency_contact_name${index}`]: contact.child_emergency_contact_name,
+                                    [`child_emergency_contact_full_address${index}`]: contact.child_emergency_contact_full_address,
+                                    [`child_emergency_contact_city_address${index}`]: contact.child_emergency_contact_city_address,
+                                    [`child_emergency_contact_state_address${index}`]: contact.child_emergency_contact_state_address,
+                                    [`child_emergency_contact_zip_address${index}`]: contact.child_emergency_contact_zip_address,
+                                    [`child_emergency_contact_telephone_number${index}`]: contact.child_emergency_contact_telephone_number,
+                                    [`child_emergency_contact_relationship${index}`]: contact.child_emergency_contact_relationship
+                                };
+                        
+                                Object.entries(emergencyContactFields).forEach(([field, value]) => {
+                                    let element = document.querySelector(`[name='${field}']`);
+                                    if (element && value !== undefined) {
+                                        element.setAttribute('value', value);
+                                    }
+                                });
+                            });
+                        }
+                        
                         // Checkbox handling
                         const checkboxFields = [
                             'agree_all_above_information_is_correct', 'family_history_allergies', 'family_history_heart_problems', 'family_history_tuberculosis',
@@ -639,7 +852,6 @@ function checking(editID) {
                             'desire_any_accommodations': 'explain_for_desire_any_accommodations'
                         };
 
-                        // Handle related fields based on Yes/No values
                         Object.entries(relatedFieldsMapping).forEach(([keyField, relatedField]) => {
                             let keyElement = form.querySelector(`input[name='${keyField}']`);
                             let relatedElement = form.querySelector(`[name='${relatedField}']`);
@@ -670,24 +882,7 @@ function checking(editID) {
                                 }
                             }
                         });
-
-
-                        if (response.gender === "Male") {
-                            let element = form.querySelector(`input[id='gender1']`);
-                            if (element) {
-                                element.setAttribute('checked', true);
-                            }
-                        } else if (response.gender === "Female") {
-                            let element = form.querySelector(`input[id='gender2']`);
-                            if (element) {
-                                element.setAttribute('checked', true);
-                            }
-                        } else {
-                            let element = form.querySelector(`input[id='gender3']`);
-                            if (element) {
-                                element.setAttribute('checked', true);
-                            }
-                        }
+                        
                         if (response.approve_social_media_post === 0) {
                             let element = form.querySelector(`input[id='approve_social_media_post1']`);
                             if (element) {
@@ -788,6 +983,7 @@ function checking(editID) {
             type: 'GET',
             //this is used to get the response and return the result
             success: function (response) {
+                
                 console.log(response);
                 let childbasicInfo;
                 let childparentInfo;
@@ -804,7 +1000,6 @@ function checking(editID) {
                         document.getElementsByClassName('child_last_name')[0].value = response.child_last_name;
                     
                     if (typeof response.nick_name !== "undefined" && typeof response.nick_name !== null ){
-                        console.log(response.nick_name)
                         document.getElementsByName('nick_name')[0].value = response.nick_name;
                     }
                     if (typeof response.dob !== "undefined")
@@ -833,7 +1028,6 @@ function checking(editID) {
                          response.primary_language  &&
                          response.school_age_child_school  &&
                          response.gender ) {
-                            console.log('true');
                         // Reset the display for both images
                         document.querySelector('.childdetails-tick').style.display = 'none';
                         document.querySelector('.childdetails-circle').style.display = 'none';
@@ -850,8 +1044,6 @@ function checking(editID) {
                         childbasicInfo = false;
                     }
 
-                    console.log(response.primary_parent_info);
-
                     if (response.primary_parent_info) {
                         document.getElementsByName('parent_name')[0].value = response.primary_parent_info.parent_name;
                         document.getElementsByName('parent_street_address')[0].value = response.primary_parent_info.parent_street_address;
@@ -866,32 +1058,6 @@ function checking(editID) {
                         document.getElementsByName('business_cell_number')[0].value = response.primary_parent_info.parent_business_cell_number;
                         document.getElementsByName('parent_email')[0].value = response.primary_parent_info.parent_email;
                     }
-
-                    // parent one details div
-                    // if (typeof response.parent_name !== "undefined")
-                    //     document.getElementsByName('parent_name')[0].value = response.parent_name;
-                    // if (typeof response.parent_street_address !== "undefined")
-                    //     document.getElementsByName('parent_street_address')[0].value = response.parent_street_address;
-                    // if (typeof response.parent_city_address !== "undefined")
-                    //     document.getElementsByName('parent_city_address')[0].value = response.parent_city_address;
-                    // if (typeof response.parent_state_address !== "undefined")
-                    //     document.getElementsByName('parent_state_address')[0].value = response.parent_state_address;
-                    // if (typeof response.parent_zip_address !== "undefined")
-                    //     document.getElementsByName('parent_zip_address')[0].value = response.parent_zip_address;
-                    // if (typeof response.home_telephone_number !== "undefined")
-                    //     document.getElementsByName('home_telephone_number')[0].value = response.home_telephone_number;
-                    // if (typeof response.business_name !== "undefined")
-                    //     document.getElementsByName('business_name')[0].value = response.business_name;
-                    // if (typeof response.work_hours_from !== "undefined")
-                    //     document.getElementsByName('work_hours_from')[0].value = response.work_hours_from;
-                    // if (typeof response.work_hours_to !== "undefined")
-                    //     document.getElementsByName('work_hours_to')[0].value = response.work_hours_to;
-                    // if (typeof response.business_telephone_number !== "undefined")
-                    //     document.getElementsByName('business_telephone_number')[0].value = response.business_telephone_number;
-                    // if (typeof response.business_cell_number !== "undefined")
-                    //     document.getElementsByName('business_cell_number')[0].value = response.business_cell_number;
-                    // if (typeof response.parent_email !== "undefined")
-                    //     document.getElementsByName('parent_email')[0].value = response.parent_email;
 
                     if ( response.primary_parent_info.parent_name  &&
                          response.primary_parent_info.parent_street_address  &&
@@ -921,8 +1087,6 @@ function checking(editID) {
                         childparentInfo = false;
                     }
 
-                    console.log(response.additional_parent_info);
-
                     if (response.additional_parent_info) {
                         document.getElementsByName('parent_two_name')[0].value = response.additional_parent_info.parent_name;
                         document.getElementsByName('parent_two_street_address')[0].value = response.additional_parent_info.parent_street_address;
@@ -937,42 +1101,7 @@ function checking(editID) {
                         document.getElementsByName('parent_two_business_cell_number')[0].value = response.primary_parent_info.parent_business_cell_number;
                         document.getElementsByName('parent_two_email')[0].value = response.additional_parent_info.parent_email;
                     }
-                    // additional parent details div
-                    // if (typeof response.parent_two_name !== "undefined")
-                    //     document.getElementsByName('parent_two_name')[0].value = response.parent_two_name;
-                    // if (typeof response.parent_two_street_address !== "undefined")
-                    //     document.getElementsByName('parent_two_street_address')[0].value = response.parent_two_street_address;
-                    // if (typeof response.parent_two_city_address !== "undefined")
-                    //     document.getElementsByName('parent_two_city_address')[0].value = response.parent_two_city_address;
-                    // if (typeof response.parent_two_state_address !== "undefined")
-                    //     document.getElementsByName('parent_two_state_address')[0].value = response.parent_two_state_address;
-                    // if (typeof response.parent_two_zip_address !== "undefined")
-                    //     document.getElementsByName('parent_two_zip_address')[0].value = response.parent_two_zip_address;
-                    // if (typeof response.parent_two_home_telephone_number !== "undefined")
-                    //     document.getElementsByName('parent_two_home_telephone_number')[0].value = response.parent_two_home_telephone_number;
-                    // if (typeof response.parent_two_business_name !== "undefined")
-                    //     document.getElementsByName('parent_two_business_name')[0].value = response.parent_two_business_name;
-                    // if (typeof response.parent_two_work_hours_from !== "undefined")
-                    //     document.getElementsByName('parent_two_work_hours_from')[0].value = response.parent_two_work_hours_from;
-                    // if (typeof response.parent_two_work_hours_to !== "undefined")
-                    //     document.getElementsByName('parent_two_work_hours_to')[0].value = response.parent_two_work_hours_to;
-                    // if (typeof response.parent_two_business_telephone_number !== "undefined")
-                    //     document.getElementsByName('parent_two_business_telephone_number')[0].value = response.parent_two_business_telephone_number;
-                    
-                    
-                    // if (typeof response.parent_two_business_street_address !== "undefined")
-                    //     document.getElementsByName('parent_two_business_street_address')[0].value = response.parent_two_business_street_address;
-                    // if (typeof response.parent_two_business_city_address !== "undefined")
-                    //     document.getElementsByName('parent_two_business_city_address')[0].value = response.parent_two_business_city_address;
-                    // if (typeof response.parent_two_business_state_address !== "undefined")
-                    //     document.getElementsByName('parent_two_business_state_address')[0].value = response.parent_two_business_state_address;
-                    // if (typeof response.parent_two_business_zip_address !== "undefined")
-                    //     document.getElementsByName('parent_two_business_zip_address')[0].value = response.parent_two_business_zip_address;
-                    // if (typeof response.parent_two_business_cell_number !== "undefined")
-                    //     document.getElementsByName('parent_two_business_cell_number')[0].value = response.parent_two_business_cell_number;
-                    // if (typeof response.parent_email !== "undefined")
-                    //     document.getElementsByName('parent_email')[0].value = response.parent_email;
-
+  
                     if ( response.additional_parent_info.parent_name  &&
                          response.additional_parent_info.parent_street_address  &&
                          response.additional_parent_info.parent_city_address  &&
@@ -992,17 +1121,7 @@ function checking(editID) {
                         document.querySelector('.parent_twodetails-circle').style.display = 'block';
                         additionalChildparentInfo = false;
                     }
-                    // Need to change
-                    // emergency Contact Information
-                    // if (typeof response.child_emergency_contact_name !== "undefined")
-                    //     document.getElementsByName('child_emergency_contact_name')[0].value = response.child_emergency_contact_name;
-                    // if (typeof response.child_emergency_contact_full_address !== "undefined")
-                    //     document.getElementsByName('child_emergency_contact_full_address')[0].value = response.child_emergency_contact_full_address;
-                    // if (typeof response.child_emergency_contact_relationship !== "undefined")
-                    //     document.getElementsByName('child_emergency_contact_relationship')[0].value = response.child_emergency_contact_relationship;
-                    // if (typeof response.child_emergency_contact_telephone_number !== "undefined")
-                    //     document.getElementsByName('child_emergency_contact_telephone_number')[0].value = response.child_emergency_contact_telephone_number;
-                    // let allContactsValid;
+
                     if (response.emergency_contact_info) {
                         let allContactsValid = true; 
                         response.emergency_contact_info.forEach((contact, index) => {
@@ -1047,25 +1166,6 @@ function checking(editID) {
     
                     }
 
-
-                   
-                    // Child care provider Information
-                    // if (typeof response.child_care_provider_name !== "undefined")
-                    //     document.getElementsByName('child_care_provider_name')[0].value = response.child_care_provider_name;
-                    // if (typeof response.child_care_provider_telephone_number !== "undefined")
-                    //     document.getElementsByName('child_care_provider_telephone_number')[0].value = response.child_care_provider_telephone_number;
-                    // if (typeof response.child_hospital_affiliation !== "undefined")
-                    //     document.getElementsByName('child_hospital_affiliation')[0].value = response.child_hospital_affiliation;
-                    // if (typeof response.child_care_provider_street_address !== "undefined")
-                    //     document.getElementsByName('child_care_provider_street_address')[0].value = response.child_care_provider_street_address;
-                    // if (typeof response.child_care_provider_city_address !== "undefined")
-                    //     document.getElementsByName('child_care_provider_city_address')[0].value = response.child_care_provider_city_address;
-                    // if (typeof response.child_care_provider_state_address !== "undefined")
-                    //     document.getElementsByName('child_care_provider_state_address')[0].value = response.child_care_provider_state_address;
-                    // if (typeof response.child_care_provider_zip_address !== "undefined")
-                    //     document.getElementsByName('child_care_provider_zip_address')[0].value = response.child_care_provider_zip_address;
-
-                    console.log(response.child_care_provider_info);
                     if (response.child_care_provider_info) {
                         document.getElementById('child_care_provider_name').value = response.child_care_provider_info.child_care_provider_name || '';
                         document.getElementById('child_care_provider_telephone_number').value = response.child_care_provider_info.child_care_provider_telephone_number || '';
@@ -1076,66 +1176,61 @@ function checking(editID) {
                         document.getElementById('child_care_provider_zip_address').value = response.child_care_provider_info.child_care_provider_zip_address || '';
 
                     }
-
-                    console.log(response.child_dentist_info);
+                    // if (response.child_dentist_info) {
+                    //     document.getElementById('child_dentist_name').value = response.child_dentist_info.child_dentist_name || '';
+                    //     document.getElementById('dentist_telephone_number').value = response.child_dentist_info.dentist_telephone_number || '';
+                    //     document.getElementById('dentist_street_address').value = response.child_dentist_info.dentist_street_address || '';
+                    //     document.getElementById('dentist_city_address').value = response.child_dentist_info.dentist_city_address || '';
+                    //     document.getElementById('dentist_state_address').value = response.child_dentist_info.dentist_state_address || '';
+                    //     document.getElementById('dentist_zip_address').value = response.child_dentist_info.dentist_zip_address || '';
+                        
+                    // }
 
                     if (response.child_dentist_info) {
-                         // Select the correct dentist from the dropdown
-                        // const dentistId = response.child_dentist_info.child_dentist_id;
-                        // const dentistName = response.child_dentist_info.child_dentist_name;
+                        let dentistId = response.child_dentist_info.child_dentist_id;
+                        let dentistName = response.child_dentist_info.child_dentist_name || '';
+                        let dentistPhone = response.child_dentist_info.dentist_telephone_number || '';
+                        let dentistStreet = response.child_dentist_info.dentist_street_address || '';
+                        let dentistCity = response.child_dentist_info.dentist_city_address || '';
+                        let dentistState = response.child_dentist_info.dentist_state_address || '';
+                        let dentistZip = response.child_dentist_info.dentist_zip_address || '';
+        
+                        let dropdownButton = document.getElementById('dropdownMenuButton');
+                        dropdownButton.textContent = dentistName;
+            
+                        // Find the dropdown item with the matching dentist ID and select it
+                        let dropdownItems = document.querySelectorAll('#dropdown-menu .dropdown-item');
+                        let found = false;
+            
+                        dropdownItems.forEach(item => {
+                            let itemId = $(item).data('value');
+                            if (itemId === dentistId) {
+                                // If the current dropdown item matches the dentist ID, select it
+                                dropdownButton.textContent = item.textContent;
+                                found = true;
+                            }
+                        });
 
-                        // Find the dropdown item with the same name and update the dropdown button's text
-                        // const dropdownButton = document.getElementById('dropdownMenuButton');
-                        // const dropdownItems = document.querySelectorAll('.dropdown-item');
-
-                        // let found = false;
-                        // dropdownItems.forEach(item => {
-                        //     const itemId = item.getAttribute('data-value');
-                        //     if (itemId == dentistId) {
-                        //         dropdownButton.textContent = dentistName;
-                        //         found = true;
-                        //     }
-                        // });
-
-                        // // If the dentist is not in the dropdown, assume it's a custom "Others" entry
-                        // if (!found) {
-                        //     dropdownButton.textContent = "Others";
-                        //     $('#dropdown-menu').append(`
-                        //         <input type="text" id="customDentistName" class="form-control mt-2" placeholder="Enter dentist name..." value="${dentistName}">
-                        //     `);
-                        // }
-                        document.getElementById('child_dentist_name').value = response.child_dentist_info.child_dentist_name || '';
-                        document.getElementById('dentist_telephone_number').value = response.child_dentist_info.dentist_telephone_number || '';
-                        document.getElementById('dentist_street_address').value = response.child_dentist_info.dentist_street_address || '';
-                        document.getElementById('dentist_city_address').value = response.child_dentist_info.dentist_city_address || '';
-                        document.getElementById('dentist_state_address').value = response.child_dentist_info.dentist_state_address || '';
-                        document.getElementById('dentist_zip_address').value = response.child_dentist_info.dentist_zip_address || '';
-                        
-                        // Disable the input fields since they're pre-populated with a dentist's details
-                        // $('#dentist_telephone_number').prop('disabled', true);
-                        // $('#dentist_street_address').prop('disabled', true);
-                        // $('#dentist_city_address').prop('disabled', true);
-                        // $('#dentist_state_address').prop('disabled', true);
-                        // $('#dentist_zip_address').prop('disabled', true);
+                        if (!found) {
+                            dropdownButton.textContent = 'Others';
+                            $('#dropdown-menu').append(`
+                                <input type="text" id="customDentistName" class="form-control mt-2" placeholder="Enter dentist name..." value="${dentistName}">
+                            `);
+                            $('#dentist_telephone_number').prop('disabled', false).val(response.child_dentist_info.dentist_telephone_number || '');
+                            $('#dentist_street_address').prop('disabled', false).val(response.child_dentist_info.dentist_street_address || '');
+                            $('#dentist_city_address').prop('disabled', false).val(response.child_dentist_info.dentist_city_address || '');
+                            $('#dentist_state_address').prop('disabled', false).val(response.child_dentist_info.dentist_state_address || '');
+                            $('#dentist_zip_address').prop('disabled', false).val(response.child_dentist_info.dentist_zip_address || '');
+                            $('#child_dentist_name').removeClass('d-none').val(dentistName);
+                        } else {
+                            $('#dentist_telephone_number').prop('disabled', true);
+                            $('#dentist_street_address').prop('disabled', true);
+                            $('#dentist_city_address').prop('disabled', true);
+                            $('#dentist_state_address').prop('disabled', true);
+                            $('#dentist_zip_address').prop('disabled', true);
+                            $('#child_dentist_name').addClass('d-none');
+                        }
                     }
-
-                    console.log(response.child_dentist_info);
-
-
-                    // if (typeof response.child_dentist_name !== "undefined")
-                    //     document.getElementsByName('child_dentist_name')[0].value = response.child_dentist_name;
-                    // if (typeof response.dentist_telephone_number !== "undefined")
-                    //     document.getElementsByName('dentist_telephone_number')[0].value = response.dentist_telephone_number;
-                    // if (typeof response.dentist_street_address !== "undefined")
-                    //     document.getElementsByName('dentist_street_address')[0].value = response.dentist_street_address;
-                    // if (typeof response.dentist_city_address !== "undefined")
-                    //     document.getElementsByName('dentist_city_address')[0].value = response.dentist_city_address;
-                    // if (typeof response.dentist_state_address !== "undefined")
-                    //     document.getElementsByName('dentist_state_address')[0].value = response.dentist_state_address;
-                    // if (typeof response.dentist_zip_address !== "undefined")
-                    //     document.getElementsByName('dentist_zip_address')[0].value = response.dentist_zip_address;
-
-
 
 
                     if (typeof response.special_diabilities !== "undefined")
@@ -1386,7 +1481,6 @@ function checking(editID) {
                         typeof response.other_siblings_name !== "undefined" &&
                         typeof response.other_siblings_age !== "undefined"
                     ) {
-                        console.log("true value")
                         // Reset the display for both images
                         document.querySelector('.pregnancyhistory-tick').style.display = 'none';
                         document.querySelector('.pregnancyhistory-circle').style.display = 'none';
@@ -1394,7 +1488,6 @@ function checking(editID) {
                         document.querySelector('.pregnancyhistory-tick').style.display = 'block';
                         pregnancyHistory = true;
                     } else {
-                        console.log("false value")
                         // Reset the display for both images
                         document.querySelector('.pregnancyhistory-tick').style.display = 'none';
                         document.querySelector('.pregnancyhistory-circle').style.display = 'none';

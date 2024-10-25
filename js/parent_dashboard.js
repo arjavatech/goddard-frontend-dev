@@ -1671,7 +1671,7 @@ function checking(editID) {
                         environmentalFactor = false;
                     }
 
-                    if (response.agree_all_above_info_is_correct == 1) {
+                    if (response.agree_all_above_info_is_correct == "on") {
                         document.getElementById('agree_all_above_info_is_correct').checked = true;
                     } else {
                         document.getElementById('agree_all_above_info_is_correct').checked = false;
@@ -1984,15 +1984,23 @@ function checking(editID) {
                     if (typeof response.additional_information !== "undefined")
                         document.getElementsByName('additional_information')[0].value = response.additional_information;
 
-                    if (typeof response.existing_illness_allergy !== "undefined" &&
-                        typeof response.functioning_at_age !== "undefined" &&
-                        typeof response.able_to_walk !== "undefined" &&
-                        typeof response.communicate_their_needs !== "undefined" &&
-                        typeof response.any_medication !== "undefined" &&
-                        typeof response.utilize_special_equipment !== "undefined" &&
-                        typeof response.significant_periods !== "undefined" &&
-                        typeof response.desire_any_accommodations !== "undefined" &&
-                        typeof response.additional_information !== "undefined"
+                    if ( response.existing_illness_allergy  &&
+                         response.explain_for_existing_illness_allergy  &&
+                         response.functioning_at_age  &&
+                         response.explain_for_functioning_at_age  &&
+                         response.able_to_walk  &&
+                         response.explain_for_able_to_walk  &&
+                         response.communicate_their_needs  &&
+                         response.explain_for_communicate_their_needs  &&
+                         response.any_medication  &&
+                         response.explain_for_any_medication  &&
+                         response.utilize_special_equipment  &&
+                         response.explain_for_utilize_special_equipment  &&
+                         response.significant_periods  &&
+                         response.explain_for_significant_periods  &&
+                         response.desire_any_accommodations  &&
+                         response.explain_for_desire_any_accommodations  &&
+                         response.additional_information 
                     ) {
                         // Reset the display for both images
                         document.querySelector('.medicaldetails-tick').style.display = 'none';

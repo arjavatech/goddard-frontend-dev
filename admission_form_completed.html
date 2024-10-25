@@ -376,7 +376,7 @@
                             <!--Emergency Contact-->
                             <!-- <h4 class="panel-title text-center mb-3"><b>Emergency Contact</b></h4> -->
                             <h4 class="panel-title text-center mt-5 mb-2"><b>TO WHOM THE CHILD MAY BE RELEASED IN THE EVENT OF AN EMERGENCY</b></h4>
-                            <br>
+                            
                             <div>
                                 <h5>Emergency Contact 1:</h5>
                                 <div class="row m-1 mb-4">
@@ -467,440 +467,461 @@
                                     </div>
                                 </div>
                             </div>
-                            <br>
-                            <div>
-                                <h5>Emergency Contact 2:</h5>
-                                <div class="row m-1 mb-1">
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_contact_name1" class="form-label"><b>NAME</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box" aria-label="Emergency Name"
-                                                id="child_emergency_contact_name1" name="child_emergency_contact_name1">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_contact_relationship1"
-                                                class="form-label"><b>RELATIONSHIP</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box"
-                                                aria-label="Emergency Relationship"
-                                                id="child_emergency_contact_relationship1"
-                                                name="child_emergency_contact_relationship1">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_contact_telephone_number1"
-                                                class="form-label"><b>TELEPHONE NUMBER</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box"
-                                                aria-label="Emergency Relationship"
-                                                id="child_emergency_contact_telephone_number1"
-                                                name="child_emergency_contact_telephone_number1"
-                                                onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')">
-                                        </div>
-                                    </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-5">
+            <div class="card">
+                <div class="form-body">
 
-                                    <!-- <div class="col-sm">
-                                            <div class="form-group">
-                                                <label for="child_emergency_contact_full_address" class="form-label"><b>FULL ADDRESS</b>
-                                                </label>
-                                                <input type="text" class="form-control " aria-label="emergency_address"
-                                                    id="child_emergency_contact_full_address" name="child_emergency_contact_full_address" placeholder="e.g. 132, My Street, Kingston, New York 12401.">
-                                            </div>
-                                        </div> -->
-                                </div>
-                                <div class="row m-1 mb-1">
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_contact_full_address1"
-                                                class="form-label"><b>STREET</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box"
-                                                id="child_emergency_contact_full_address1"
-                                                name="child_emergency_contact_full_address1">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_contact_city_address1"
-                                                class="form-label"><b>CITY</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box"
-                                                id="child_emergency_contact_city_address1"
-                                                name="child_emergency_contact_city_address1">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_contact_state_address1"
-                                                class="form-label"><b>STATE</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box"
-                                                id="child_emergency_contact_state_address1"
-                                                name="child_emergency_contact_state_address1">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_contact_zip_address1"
-                                                class="form-label"><b>ZIP</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box"
-                                                aria-label="emergency_address" id="child_emergency_contact_zip_address1"
-                                                name="child_emergency_contact_zip_address1">
-                                        </div>
-                                    </div>
+                    <div class="card header-border">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="logo-style p-2"><img src="image/gs_logo_lynnwood.png" class="img-fluid"
+                                        alt="gs_logo_lynnwood" type="image/png"></div>
+                            </div>
+                            <div class="col-6">
+                                <div class="title_bg p-5">
+                                    <h2>APPLICATION FOR ADMISSION</h2>
+                                    <h6>EMERGENCY CONTACT · PARENTAL/LEGAL GUARDIAN CONSENT FORM</h6>
                                 </div>
                             </div>
-                            <div>
-                                <h5>Emergency Contact 3:</h5>
-                                <div class="row m-1 mb-1">
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_contact_name2" class="form-label"><b>NAME</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box" aria-label="Emergency Name"
-                                                id="child_emergency_contact_name2" name="child_emergency_contact_name2">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_contact_relationship2"
-                                                class="form-label"><b>RELATIONSHIP</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box"
-                                                aria-label="Emergency Relationship"
-                                                id="child_emergency_contact_relationship2"
-                                                name="child_emergency_contact_relationship2">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_contact_telephone_number2"
-                                                class="form-label"><b>TELEPHONE NUMBER</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box"
-                                                aria-label="Emergency Relationship"
-                                                id="child_emergency_contact_telephone_number2"
-                                                name="child_emergency_contact_telephone_number2"
-                                                onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')">
-                                            <span id="child_emergency_contact_telephone_number_span"
-                                                style="color:red; display:none">
-                                                Enter valid input [only numbers,+,-,()].</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- <div class="col-sm">
-                                            <div class="form-group">
-                                                <label for="child_emergency_contact_full_address" class="form-label"><b>FULL ADDRESS</b>
-                                                </label>
-                                                <input type="text" class="form-control " aria-label="emergency_address"
-                                                    id="child_emergency_contact_full_address" name="child_emergency_contact_full_address" placeholder="e.g. 132, My Street, Kingston, New York 12401.">
-                                            </div>
-                                        </div> -->
-                                </div>
-                                <div class="row m-1 mb-1">
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_contact_full_address2"
-                                                class="form-label"><b>STREET</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box"
-                                                id="child_emergency_contact_full_address2"
-                                                name="child_emergency_contact_full_address2">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_contact_city_address2"
-                                                class="form-label"><b>CITY</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box"
-                                                id="child_emergency_contact_city_address2"
-                                                name="child_emergency_contact_city_address2">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_contact_state_address2"
-                                                class="form-label"><b>STATE</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box"
-                                                id="child_emergency_contact_state_address2"
-                                                name="child_emergency_contact_state_address2">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="child_emergency_contact_zip_address2"
-                                                class="form-label"><b>ZIP</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box"
-                                                aria-label="emergency_address" id="child_emergency_contact_zip_address2"
-                                                name="child_emergency_contact_zip_address2">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--Medical Care Provider Details-->
-                            <!-- <h4 class="panel-title text-center mb-3"><b>Physician/Medical Care Provider Details</b></h4> -->
-                            <!-- Medical care provider details -->
-                            <div class="row m-1 mb-3">
+                        </div>
+                    </div>
+                    <div class="p-4"> 
+                        
+                        <div>
+                            <h5>Emergency Contact 2:</h5>
+                            <div class="row m-1 mb-1">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        <label for="child_care_provider_name" class="form-label"><b>NAME OF
-                                                CHILD’S PHYSICIAN /MEDICAL CARE PROVIDER</b>
+                                        <label for="child_emergency_contact_name1" class="form-label"><b>NAME</b>
                                         </label>
-                                        <input type="text" class="form-control text-box " id="child_care_provider_name"
-                                            name="child_care_provider_name">
+                                        <input type="text" class="form-control text-box" aria-label="Emergency Name"
+                                            id="child_emergency_contact_name1" name="child_emergency_contact_name1">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row m-1 mb-3">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        <label for="child_care_provider_telephone_number"
+                                        <label for="child_emergency_contact_relationship1"
+                                            class="form-label"><b>RELATIONSHIP</b>
+                                        </label>
+                                        <input type="text" class="form-control text-box"
+                                            aria-label="Emergency Relationship"
+                                            id="child_emergency_contact_relationship1"
+                                            name="child_emergency_contact_relationship1">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_telephone_number1"
                                             class="form-label"><b>TELEPHONE NUMBER</b>
                                         </label>
-                                        <input type="text" class="form-control text-box "
-                                            id="child_care_provider_telephone_number"
-                                            name="child_care_provider_telephone_number"
-                                            onchange="validatePhone(this,'child_care_provider_telephone_number_span')">
-                                        <span id="child_care_provider_telephone_number_span"
+                                        <input type="text" class="form-control text-box"
+                                            aria-label="Emergency Relationship"
+                                            id="child_emergency_contact_telephone_number1"
+                                            name="child_emergency_contact_telephone_number1"
+                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')">
+                                    </div>
+                                </div>
+
+                                <!-- <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_full_address" class="form-label"><b>FULL ADDRESS</b>
+                                            </label>
+                                            <input type="text" class="form-control " aria-label="emergency_address"
+                                                id="child_emergency_contact_full_address" name="child_emergency_contact_full_address" placeholder="e.g. 132, My Street, Kingston, New York 12401.">
+                                        </div>
+                                    </div> -->
+                            </div>
+                            <div class="row m-1 mb-1">
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_full_address1"
+                                            class="form-label"><b>STREET</b>
+                                        </label>
+                                        <input type="text" class="form-control text-box"
+                                            id="child_emergency_contact_full_address1"
+                                            name="child_emergency_contact_full_address1">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_city_address1"
+                                            class="form-label"><b>CITY</b>
+                                        </label>
+                                        <input type="text" class="form-control text-box"
+                                            id="child_emergency_contact_city_address1"
+                                            name="child_emergency_contact_city_address1">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_state_address1"
+                                            class="form-label"><b>STATE</b>
+                                        </label>
+                                        <input type="text" class="form-control text-box"
+                                            id="child_emergency_contact_state_address1"
+                                            name="child_emergency_contact_state_address1">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_zip_address1"
+                                            class="form-label"><b>ZIP</b>
+                                        </label>
+                                        <input type="text" class="form-control text-box"
+                                            aria-label="emergency_address" id="child_emergency_contact_zip_address1"
+                                            name="child_emergency_contact_zip_address1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h5>Emergency Contact 3:</h5>
+                            <div class="row m-1 mb-1">
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_name2" class="form-label"><b>NAME</b>
+                                        </label>
+                                        <input type="text" class="form-control text-box" aria-label="Emergency Name"
+                                            id="child_emergency_contact_name2" name="child_emergency_contact_name2">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_relationship2"
+                                            class="form-label"><b>RELATIONSHIP</b>
+                                        </label>
+                                        <input type="text" class="form-control text-box"
+                                            aria-label="Emergency Relationship"
+                                            id="child_emergency_contact_relationship2"
+                                            name="child_emergency_contact_relationship2">
+                                    </div>
+                                </div>
+                                <div class="col-sm">
+                                    <div class="form-group">
+                                        <label for="child_emergency_contact_telephone_number2"
+                                            class="form-label"><b>TELEPHONE NUMBER</b>
+                                        </label>
+                                        <input type="text" class="form-control text-box"
+                                            aria-label="Emergency Relationship"
+                                            id="child_emergency_contact_telephone_number2"
+                                            name="child_emergency_contact_telephone_number2"
+                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')">
+                                        <span id="child_emergency_contact_telephone_number_span"
                                             style="color:red; display:none">
                                             Enter valid input [only numbers,+,-,()].</span>
                                     </div>
                                 </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="child_hospital_affiliation" class="form-label"><b>HOSPITAL
-                                                AFFILIATION</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box "
-                                            id="child_hospital_affiliation" name="child_hospital_affiliation">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Medical care provider details end-->
 
-                            <!-- Medical care provider address -->
-                            <!-- <h4 class="text-center mb-3"><b>Address</b></h4> -->
-                            <div class="row m-1 mb-3">
+                                <!-- <div class="col-sm">
+                                        <div class="form-group">
+                                            <label for="child_emergency_contact_full_address" class="form-label"><b>FULL ADDRESS</b>
+                                            </label>
+                                            <input type="text" class="form-control " aria-label="emergency_address"
+                                                id="child_emergency_contact_full_address" name="child_emergency_contact_full_address" placeholder="e.g. 132, My Street, Kingston, New York 12401.">
+                                        </div>
+                                    </div> -->
+                            </div>
+                            <div class="row m-1 mb-1">
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        <label for="child_care_provider_street_address" class="form-label"><b>STREET</b>
+                                        <label for="child_emergency_contact_full_address2"
+                                            class="form-label"><b>STREET</b>
                                         </label>
-                                        <input type="text" class="form-control text-box "
-                                            id="child_care_provider_street_address"
-                                            name="child_care_provider_street_address">
+                                        <input type="text" class="form-control text-box"
+                                            id="child_emergency_contact_full_address2"
+                                            name="child_emergency_contact_full_address2">
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        <label for="child_care_provider_city_address" class="form-label"><b>CITY</b>
+                                        <label for="child_emergency_contact_city_address2"
+                                            class="form-label"><b>CITY</b>
                                         </label>
-                                        <input type="text" class="form-control text-box "
-                                            id="child_care_provider_city_address"
-                                            name="child_care_provider_city_address">
+                                        <input type="text" class="form-control text-box"
+                                            id="child_emergency_contact_city_address2"
+                                            name="child_emergency_contact_city_address2">
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        <label for="child_care_provider_state_address" class="form-label"><b>STATE</b>
+                                        <label for="child_emergency_contact_state_address2"
+                                            class="form-label"><b>STATE</b>
                                         </label>
-                                        <input type="text" class="form-control text-box "
-                                            id="child_care_provider_state_address"
-                                            name="child_care_provider_state_address">
+                                        <input type="text" class="form-control text-box"
+                                            id="child_emergency_contact_state_address2"
+                                            name="child_emergency_contact_state_address2">
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="form-group">
-                                        <label for="child_care_provider_zip_address" class="form-label"><b>ZIP</b>
+                                        <label for="child_emergency_contact_zip_address2"
+                                            class="form-label"><b>ZIP</b>
                                         </label>
-                                        <input type="text" class="form-control text-box "
-                                            id="child_care_provider_zip_address" name="child_care_provider_zip_address"
-                                            onchange="ValidatePincode(this,'child_care_provider_zip_address_span')">
-                                        <span id="child_care_provider_zip_address_span" style="color:red; display:none">
-                                            Enter valid input [only numbers].</span>
+                                        <input type="text" class="form-control text-box"
+                                            aria-label="emergency_address" id="child_emergency_contact_zip_address2"
+                                            name="child_emergency_contact_zip_address2">
                                     </div>
                                 </div>
                             </div>
-                            <!-- Medical care provider address end -->
+                        </div>
 
-                            <!-- Dentist details -->
-                            <!-- <h4 class="panel-title text-center mb-3"><b>Dentist Details</b></h4> -->
-                            <div class="row m-1 mb-3">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="child_dentist_name" class="form-label"><b>NAME OF CHILD'S
-                                                DENTIST</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box " id="child_dentist_name"
-                                            name="child_dentist_name">
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="dentist_telephone_number" class="form-label"><b>DENTIST
-                                                TELEPHONE NUMBER</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box " id="dentist_telephone_number"
-                                            name="dentist_telephone_number"
-                                            onchange="validatePhone(this,'dentist_telephone_number_span')">
-                                        <span id="dentist_telephone_number_span" style="color:red; display:none">
-                                            Enter valid input [only numbers,+,-,()].</span>
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="dentist_street_address" class="form-label"><b>STREET</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box" id="dentist_street_address"
-                                            name="dentist_street_address">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row m-1 mb-3">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="dentist_city_address" class="form-label"><b>CITY</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box" id="dentist_city_address"
-                                            name="dentist_city_address">
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="dentist_state_address" class="form-label"><b>STATE</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box" id="dentist_state_address"
-                                            name="dentist_state_address">
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="dentist_zip_address" class="form-label"><b>ZIP</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box" id="dentist_zip_address"
-                                            name="dentist_zip_address"
-                                            onchange="ValidatePincode(this,'child_care_provider_zip_address_span')">
-                                        <span id="child_care_provider_zip_address_span" style="color:red; display:none">
-                                            Enter valid input [only numbers].</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Dentist details end -->
-                            <div class="row m-1 mb-3">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="special_diabilities" class="form-label"><b>SPECIAL
-                                                DIABILITIES (IF ANY)</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box " id="special_diabilities"
-                                            name="special_diabilities">
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="allergies_medication_reaction" class="form-label"><b>ALLERGIES
-                                                (MEDICATION REACTION)</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box "
-                                            id="allergies_medication_reaction" name="allergies_medication_reaction">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row m-1 mb-3">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="additional_info" class="form-label"><b>ADDITIONAL
-                                                INFORMATION REGARDING SPECIAL NEEDS</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box " id="additional_info"
-                                            name="additional_info">
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="policy_number" class="form-label"><b>POLICY NUMBER</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box " id="policy_number"
-                                            name="policy_number">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row m-1 mb-3">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="medication" class="form-label"><b>MEDICATION, SPECIAL
-                                                CONDITIONS NUMBER</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box " id="medication"
-                                            name="medication">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row m-1 mb-3">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="health_insurance" class="form-label"><b>HEALTH INSURANCE
-                                                COVERAGE FOR CHILD OR MEDICAL ASSISTANCE BENEFITS</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box " id="health_insurance"
-                                            name="health_insurance">
-                                    </div>
-                                </div>
-                            </div><br>
-                            <!--Parent Agreement-->
-
-                            <!-- <h4 class="text-center mb-3"><b>Parent Agreement</b></h4> -->
-                            <!-- Parent's or guardian's signature -->
-                            
-                            <h4 class="text-center mb-3"><b>PARENT’S / LEGAL GUARDIAN’S SIGNATURE IS REQUIRED TO
-                                    INDICATE CONSENT</b></h4>
-                            <div class="row m-1 mb-3">
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="obtaining_emergency_medical_care" class="form-label"><b>OBTAINING
-                                                EMERGENCY MEDICAL CARE</b>
-                                        </label>
-                                        <input type="text" class="form-control text-box "
-                                            id="obtaining_emergency_medical_care"
-                                            name="obtaining_emergency_medical_care">
-                                    </div>
-                                </div>
-                                <div class="col-sm">
-                                    <div class="form-group">
-                                        <label for="administration_first_aid_procedures"
-                                            class="form-label"><b>ADMINISTRATION OF MINOR FIRST-AID
-                                                PROCEDURES</b></label>
-                                        <input type="text" class="form-control text-box "
-                                            id="administration_first_aid_procedures"
-                                            name="administration_first_aid_procedures">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row m-1">
-                                <p>In EMERGENCIES requiring immediate medical attention, your child will be taken to the
-                                    NEAREST HOSPITAL EMERGENCY ROOM. Your signature authorizes the
-                                    responsible person at the child care facility to have your child transported to that
-                                    hospital.</p>
-                            </div>
-                            <h4 class="text-center">Parent Agreement</h4>
-                            <div class="row m-1 mb-3">
+                        <!--Medical Care Provider Details-->
+                        <!-- <h4 class="panel-title text-center mb-3"><b>Physician/Medical Care Provider Details</b></h4> -->
+                        <!-- Medical care provider details -->
+                        <div class="row m-1 mb-3">
+                            <div class="col-sm">
                                 <div class="form-group">
-                                    <input type="checkbox" class="input-checkbox"
-                                        id="agree_all_above_information_is_correct"
-                                        name="agree_all_above_information_is_correct">
-                                    <label class="form-check-label" for="agree_all_above_information_is_correct">
-                                        <span><b>I agree all the above information is correct.</b></span>
+                                    <label for="child_care_provider_name" class="form-label"><b>NAME OF MEDICAL CARE PROVIDER</b>
                                     </label>
+                                    <input type="text" class="form-control text-box " id="child_care_provider_name"
+                                        name="child_care_provider_name">
                                 </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="child_hospital_affiliation" class="form-label"><b>HOSPITAL
+                                            AFFILIATION</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box "
+                                        id="child_hospital_affiliation" name="child_hospital_affiliation">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="child_care_provider_street_address" class="form-label"><b>STREET</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box "
+                                        id="child_care_provider_street_address"
+                                        name="child_care_provider_street_address">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Medical care provider details end-->
+
+                        <!-- Medical care provider address -->
+                        <!-- <h4 class="text-center mb-3"><b>Address</b></h4> -->
+                        <div class="row m-1 mb-3">
+                            
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="child_care_provider_city_address" class="form-label"><b>CITY</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box "
+                                        id="child_care_provider_city_address"
+                                        name="child_care_provider_city_address">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="child_care_provider_state_address" class="form-label"><b>STATE</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box "
+                                        id="child_care_provider_state_address"
+                                        name="child_care_provider_state_address">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="child_care_provider_zip_address" class="form-label"><b>ZIP</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box "
+                                        id="child_care_provider_zip_address" name="child_care_provider_zip_address"
+                                        onchange="ValidatePincode(this,'child_care_provider_zip_address_span')">
+                                    <span id="child_care_provider_zip_address_span" style="color:red; display:none">
+                                        Enter valid input [only numbers].</span>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="child_care_provider_telephone_number"
+                                        class="form-label"><b>TELEPHONE NUMBER</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box "
+                                        id="child_care_provider_telephone_number"
+                                        name="child_care_provider_telephone_number"
+                                        onchange="validatePhone(this,'child_care_provider_telephone_number_span')">
+                                    <span id="child_care_provider_telephone_number_span"
+                                        style="color:red; display:none">
+                                        Enter valid input [only numbers,+,-,()].</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Medical care provider address end -->
+
+                        <!-- Dentist details -->
+                        <!-- <h4 class="panel-title text-center mb-3"><b>Dentist Details</b></h4> -->
+                        <div class="row m-1 mb-3">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="child_dentist_name" class="form-label"><b>NAME OF CHILD'S
+                                            DENTIST</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box " id="child_dentist_name"
+                                        name="child_dentist_name">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="dentist_telephone_number" class="form-label"><b>DENTIST
+                                            TELEPHONE NUMBER</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box " id="dentist_telephone_number"
+                                        name="dentist_telephone_number"
+                                        onchange="validatePhone(this,'dentist_telephone_number_span')">
+                                    <span id="dentist_telephone_number_span" style="color:red; display:none">
+                                        Enter valid input [only numbers,+,-,()].</span>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="dentist_street_address" class="form-label"><b>STREET</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box" id="dentist_street_address"
+                                        name="dentist_street_address">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="dentist_city_address" class="form-label"><b>CITY</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box" id="dentist_city_address"
+                                        name="dentist_city_address">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-1 mb-3">
+                            
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="dentist_state_address" class="form-label"><b>STATE</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box" id="dentist_state_address"
+                                        name="dentist_state_address">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="dentist_zip_address" class="form-label"><b>ZIP</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box" id="dentist_zip_address"
+                                        name="dentist_zip_address"
+                                        onchange="ValidatePincode(this,'child_care_provider_zip_address_span')">
+                                    <span id="child_care_provider_zip_address_span" style="color:red; display:none">
+                                        Enter valid input [only numbers].</span>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="allergies_medication_reaction" class="form-label"><b>ALLERGIES
+                                            (MEDICATION REACTION)</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box "
+                                        id="allergies_medication_reaction" name="allergies_medication_reaction">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dentist details end -->
+                        <div class="row m-1 mb-3">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="special_diabilities" class="form-label"><b>SPECIAL
+                                            DIABILITIES (IF ANY)</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box " id="special_diabilities"
+                                        name="special_diabilities">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="medication" class="form-label"><b>MEDICATION, SPECIAL
+                                            CONDITIONS NUMBER</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box " id="medication"
+                                        name="medication">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-1 mb-3">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="additional_info" class="form-label"><b>ADDITIONAL
+                                            INFORMATION REGARDING SPECIAL NEEDS</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box " id="additional_info"
+                                        name="additional_info">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="policy_number" class="form-label"><b>POLICY NUMBER</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box " id="policy_number"
+                                        name="policy_number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-1 mb-3">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="health_insurance" class="form-label"><b>HEALTH INSURANCE
+                                            COVERAGE FOR CHILD OR MEDICAL ASSISTANCE BENEFITS</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box " id="health_insurance"
+                                        name="health_insurance">
+                                </div>
+                            </div>
+                        </div>
+                        <!--Parent Agreement-->
+
+                        <!-- <h4 class="text-center mb-3"><b>Parent Agreement</b></h4> -->
+                        <!-- Parent's or guardian's signature -->
+                        
+                        <h4 class="text-center mb-2"><b>PARENT’S / LEGAL GUARDIAN’S SIGNATURE IS REQUIRED TO
+                                INDICATE CONSENT</b></h4>
+                        <div class="row m-1 mb-2">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="obtaining_emergency_medical_care" class="form-label"><b>OBTAINING
+                                            EMERGENCY MEDICAL CARE</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box "
+                                        id="obtaining_emergency_medical_care"
+                                        name="obtaining_emergency_medical_care">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="administration_first_aid_procedures"
+                                        class="form-label"><b>ADMINISTRATION OF MINOR FIRST-AID
+                                            PROCEDURES</b></label>
+                                    <input type="text" class="form-control text-box "
+                                        id="administration_first_aid_procedures"
+                                        name="administration_first_aid_procedures">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row m-1">
+                            <p>In EMERGENCIES requiring immediate medical attention, your child will be taken to the
+                                NEAREST HOSPITAL EMERGENCY ROOM. Your signature authorizes the
+                                responsible person at the child care facility to have your child transported to that
+                                hospital.</p>
+                        </div>
+                        <h4 class="text-center">Parent Agreement</h4>
+                        <div class="row m-1 mb-2">
+                            <div class="form-group">
+                                <input type="checkbox" class="input-checkbox"
+                                    id="agree_all_above_information_is_correct"
+                                    name="agree_all_above_information_is_correct">
+                                <label class="form-check-label" for="agree_all_above_information_is_correct">
+                                    <span><b>I agree all the above information is correct.</b></span>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -927,9 +948,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pt-4">
+                    <div class="p-4">
                         <!--Child History-->
-                        <h4 class="text-center"><b>Child History</b></h4><br>
+                        <h4 class="text-center"><b>Child History</b></h4>
                         <div class="row m-1 mb-3">
                             <div class="col-sm">
                                 <div class="form-group">
@@ -950,7 +971,7 @@
                                         name="dental_exam_last_date" onclick="dateValidation('dental_exam_last_date')">
                                 </div>
                             </div>
-                        </div><br>
+                        </div>
                         <!--Medical History-->
                         <h4 class="text-center"><b>Medical History And Illnesses</b></h4>
                         <h3 class="text-center">Does your child have a history of : (please describe)</h3>
@@ -1088,9 +1109,9 @@
                                         name="medical_other">
                                 </div>
                             </div>
-                        </div><br>
+                        </div>
                         <!--Pregnancy and Infant History-->
-                        <h4 class="text-center"><b>Pregnancy And Infant History</b></h4><br>
+                        <h4 class="text-center"><b>Pregnancy And Infant History</b></h4>
                         <div class="row m-1 mb-1">
                             <div class="col-sm">
                                 <div class="form-group">
@@ -1124,7 +1145,7 @@
                                 </div>
                             </div>
                             <div class="col-sm">
-                                <div class="form-group">
+                                <div class="form-group mt-2">
                                     <label for="birth_weight_oz" class="form-label"><b>Birth Weight</b></label>
                                     <div class="input-group">
                                         <input type="text" class="form-control text-box " id="birth_weight_oz"
@@ -1137,7 +1158,7 @@
                         </div>
                         <div class="row m-1 mb-1">
                             <div class="col-sm">
-                                <div class="form-group">
+                                <div class="form-group mt-2">
                                     <label for="duration_of_pregnancy" class="form-label"><b>Duration of
                                             pregnancy</b>
                                     </label>
@@ -1146,7 +1167,7 @@
                                 </div>
                             </div>
                             <div class="col-sm">
-                                <div class="form-group">
+                                <div class="form-group mt-2">
                                     <label for="complications" class="form-label"><b>Complications</b>
                                     </label>
                                     <input type="text" class="form-control text-box " id="complications"
@@ -1188,7 +1209,7 @@
                             </div>
                         </div>
                         <!--Family History-->
-                        <h4 class="text-center"><b>Family History</b></h4><br>
+                        <h4 class="text-center"><b>Family History</b></h4>
                         <h3 class="text-center">Has any blood relative of this child had any of the following
                             conditions? (please check off)</h3>
                         <div class="row">
@@ -1270,190 +1291,211 @@
                             <div class="col-sm m-3"></div>
                             <div class="col-sm m-3"></div>
                         </div> <br>
-                        <!--Social Behavior-->
-                        <h4 class="text-center"><b>Social Behavior</b></h4><br>
-                        <div class="row m-1 mb-3">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="age_group_friends" class="form-label"><b>Age group of
-                                            friends</b>
-                                    </label>
-                                    <input type="text" class="form-control text-box " id="age_group_friends"
-                                        name="age_group_friends">
-                                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-5">
+            <div class="card">
+                <div class="form-body">
+                    <div class="card header-border">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="logo-style p-2"><img src="image/gs_logo_lynnwood.png" class="img-fluid"
+                                        alt="gs_logo_lynnwood" type="image/png"></div>
                             </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="neighborhood_friends" class="form-label"><b>Neighborhood
-                                            friends</b>
-                                    </label>
-                                    <input type="text" class="form-control text-box " id="neighborhood_friends"
-                                        name="neighborhood_friends">
+                            <div class="col-6">
+                                <div class="title_bg p-5">
+                                    <h2 class="m-4">Child and Family History</h2>
                                 </div>
                             </div>
                         </div>
-                        <div class="row m-1 mb-3">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="relationship_with_mother" class="form-label"><b>Relationship
-                                            with mother</b>
-                                    </label>
-                                    <input type="text" class="form-control text-box " id="relationship_with_mother"
-                                        name="relationship_with_mother">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="relationship_with_father" class="form-label"><b>Relationship
-                                            with father</b>
-                                    </label>
-                                    <input type="text" class="form-control text-box " id="relationship_with_father"
-                                        name="relationship_with_father">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row m-1 mb-3">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="relationship_with_siblings" class="form-label"><b>Relationship with
-                                            siblings</b>
-                                    </label>
-                                    <input type="text" class="form-control text-box " id="relationship_with_siblings"
-                                        name="relationship_with_siblings">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="relationship_with_extended_family" class="form-label">
-                                        <b>Relationship with extended family</b></label>
-                                    <input type="text" class="form-control text-box "
-                                        id="relationship_with_extended_family" name="relationship_with_extended_family">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row m-1 mb-3">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="fears_conflicts" class="form-label"><b>Fears and
-                                            Conflicts</b>
-                                    </label>
-                                    <input type="text" class="form-control text-box " id="fears_conflicts"
-                                        name="fears_conflicts">
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="child_response_frustration" class="form-label"><b>Child’s
-                                            response to frustration</b>
-                                    </label>
-                                    <input type="text" class="form-control text-box " id="child_response_frustration"
-                                        name="child_response_frustration">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row m-1 mb-3">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="favorite_activities" class="form-label"><b>Favorite
-                                            activities</b>
-                                    </label>
-                                    <input type="text" class="form-control text-box " id="favorite_activities"
-                                        name="favorite_activities">
-                                </div>
-                            </div>
-                        </div><br>
-                        <!--Environmental Factors-->
-                        <h4 class="text-center"><b>Environmental Factors</b></h4><br>
-                        <div class="row m-1 mb-3">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="last_five_years_moved" class="form-label">
-                                        <b>How many times have you moved in the last five years?</b></label>
-                                    <input type="text" class="form-control text-box " id="last_five_years_moved"
-                                        name="last_five_years_moved">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row m-1 mb-3">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="things_used_at_home" class="form-label">
-                                        <b>Educational toys, games, books used at home?</b></label>
-                                    <input type="text" class="form-control text-box " id="things_used_at_home"
-                                        name="things_used_at_home">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row m-1 mb-3">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="hours_of_television_daily" class="form-label">
-                                        <b>How many hours of television daily?</b></label>
-                                    <input type="text" class="form-control text-box " id="hours_of_television_daily"
-                                        name="hours_of_television_daily">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row m-1 mb-3">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="language_used_at_home" class="form-label">
-                                        <b>Language used in the home?</b></label>
-                                    <input type="text" class="form-control text-box " id="language_used_at_home"
-                                        name="language_used_at_home">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row m-1 mb-3">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="changes_at_home_situation" class="form-label"><b>Have
-                                            there been any changes in the home situation recently, i.e.
-                                            addition/loss/death/divorce.</b></label>
-                                    <input type="text" class="form-control text-box " id="changes_at_home_situation"
-                                        name="changes_at_home_situation">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row m-1 mb-3">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="educational_expectations_of_child" class="form-label"><b>What are your
-                                            educational expectations of your
-                                            child?</b>
-                                    </label>
-                                    <input type="text" class="form-control text-box "
-                                        id="educational_expectations_of_child" name="educational_expectations_of_child">
-                                </div>
-                            </div>
-                        </div>
-                        <!--Parent Agreement-->
-                        <h4 class="text-center"><b>Parent Agreement</b></h4><br>
-                        <div class="row m-1">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <input type="checkbox" class="input-checkbox" id="agree_all_above_info_is_correct"
-                                        name="agree_all_above_info_is_correct">
-                                    <label class="form-check-label" for="agree_all_above_info_is_correct">
-                                        <span><b>I agree all the above information is correct.</b></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div><br><br><br>
+                    </div>
+                    <div class="p-4">
+                         <!--Social Behavior-->
+                         <h4 class="text-center"><b>Social Behavior</b></h4><br>
+                         <div class="row m-1 mb-3">
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="age_group_friends" class="form-label"><b>Age group of
+                                             friends</b>
+                                     </label>
+                                     <input type="text" class="form-control text-box " id="age_group_friends"
+                                         name="age_group_friends">
+                                 </div>
+                             </div>
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="neighborhood_friends" class="form-label"><b>Neighborhood
+                                             friends</b>
+                                     </label>
+                                     <input type="text" class="form-control text-box " id="neighborhood_friends"
+                                         name="neighborhood_friends">
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="row m-1 mb-3">
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="relationship_with_mother" class="form-label"><b>Relationship
+                                             with mother</b>
+                                     </label>
+                                     <input type="text" class="form-control text-box " id="relationship_with_mother"
+                                         name="relationship_with_mother">
+                                 </div>
+                             </div>
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="relationship_with_father" class="form-label"><b>Relationship
+                                             with father</b>
+                                     </label>
+                                     <input type="text" class="form-control text-box " id="relationship_with_father"
+                                         name="relationship_with_father">
+                                 </div>
+                             </div>
+                         </div>
+ 
+                         <div class="row m-1 mb-3">
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="relationship_with_siblings" class="form-label"><b>Relationship with
+                                             siblings</b>
+                                     </label>
+                                     <input type="text" class="form-control text-box " id="relationship_with_siblings"
+                                         name="relationship_with_siblings">
+                                 </div>
+                             </div>
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="relationship_with_extended_family" class="form-label">
+                                         <b>Relationship with extended family</b></label>
+                                     <input type="text" class="form-control text-box "
+                                         id="relationship_with_extended_family" name="relationship_with_extended_family">
+                                 </div>
+                             </div>
+                         </div>
+ 
+                         <div class="row m-1 mb-3">
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="fears_conflicts" class="form-label"><b>Fears and
+                                             Conflicts</b>
+                                     </label>
+                                     <input type="text" class="form-control text-box " id="fears_conflicts"
+                                         name="fears_conflicts">
+                                 </div>
+                             </div>
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="child_response_frustration" class="form-label"><b>Child’s
+                                             response to frustration</b>
+                                     </label>
+                                     <input type="text" class="form-control text-box " id="child_response_frustration"
+                                         name="child_response_frustration">
+                                 </div>
+                             </div>
+                         </div>
+ 
+                         <div class="row m-1 mb-3">
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="favorite_activities" class="form-label"><b>Favorite
+                                             activities</b>
+                                     </label>
+                                     <input type="text" class="form-control text-box " id="favorite_activities"
+                                         name="favorite_activities">
+                                 </div>
+                             </div>
+                         </div><br>
+                         <!--Environmental Factors-->
+                         <h4 class="text-center"><b>Environmental Factors</b></h4>
+                         <div class="row m-1 mb-3">
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="last_five_years_moved" class="form-label">
+                                         <b>How many times have you moved in the last five years?</b></label>
+                                     <input type="text" class="form-control text-box " id="last_five_years_moved"
+                                         name="last_five_years_moved">
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="row m-1 mb-3">
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="things_used_at_home" class="form-label">
+                                         <b>Educational toys, games, books used at home?</b></label>
+                                     <input type="text" class="form-control text-box " id="things_used_at_home"
+                                         name="things_used_at_home">
+                                 </div>
+                             </div>
+                         </div>
+ 
+                         <div class="row m-1 mb-3">
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="hours_of_television_daily" class="form-label">
+                                         <b>How many hours of television daily?</b></label>
+                                     <input type="text" class="form-control text-box " id="hours_of_television_daily"
+                                         name="hours_of_television_daily">
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="row m-1 mb-3">
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="language_used_at_home" class="form-label">
+                                         <b>Language used in the home?</b></label>
+                                     <input type="text" class="form-control text-box " id="language_used_at_home"
+                                         name="language_used_at_home">
+                                 </div>
+                             </div>
+                         </div>
+ 
+                         <div class="row m-1 mb-3">
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="changes_at_home_situation" class="form-label"><b>Have
+                                             there been any changes in the home situation recently, i.e.
+                                             addition/loss/death/divorce.</b></label>
+                                     <input type="text" class="form-control text-box " id="changes_at_home_situation"
+                                         name="changes_at_home_situation">
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="row m-1 mb-3">
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <label for="educational_expectations_of_child" class="form-label"><b>What are your
+                                             educational expectations of your
+                                             child?</b>
+                                     </label>
+                                     <input type="text" class="form-control text-box "
+                                         id="educational_expectations_of_child" name="educational_expectations_of_child">
+                                 </div>
+                             </div>
+                         </div>
+                         <!--Parent Agreement-->
+                         <h4 class="text-center"><b>Parent Agreement</b></h4><br>
+                         <div class="row m-1">
+                             <div class="col-sm">
+                                 <div class="form-group">
+                                     <input type="checkbox" class="input-checkbox" id="agree_all_above_info_is_correct"
+                                         name="agree_all_above_info_is_correct">
+                                     <label class="form-check-label" for="agree_all_above_info_is_correct">
+                                         <span><b>I agree all the above information is correct.</b></span>
+                                     </label>
+                                 </div>
+                             </div>
+                         </div><br>
                     </div>
                 </div>
             </div>
         </div>
         <!--Child aand family history end-->
-        <br><br><br><br>
+        <br><br>
         <!--Immunization Instructions-->
         <div class="m-5">
-            <div class="card">
+            <div class="card" style="margin-bottom: 70%;">
                 <div class="form-body">
                     <div class="card header-border">
                         <div class="row">
@@ -1507,7 +1549,7 @@
 
         <!-- Child Profile-->
         <div class="m-5">
-            <div class="card">
+            <div class="card" style="margin-bottom: 15%;">
                 <div class="form-body">
                     <div class="card header-border">
                         <div class="row">
@@ -1522,6 +1564,7 @@
                             </div>
                         </div>
                     </div>
+                    <br>
                     <div class="pt-4">
                         <!--Child Profile Details-->
                         <h4 class="text-center"><b>Child Profile Details</b></h4><br>
@@ -1577,7 +1620,7 @@
                                     </div>
                                 </div> -->
                           
-                        <!-- </div><br> -->
+                        <!-- </div> --> <br>
                         <h4 class="text-center"><b>What will be your child’s typical time?</b></h4>
                         <div class="row m-4 mb-2">
                             <div class="col-sm">
@@ -1598,7 +1641,7 @@
                                         name="pick_up_time">
                                 </div>
                             </div>
-                        </div>
+                        </div><br>
                         <!--Nutrition Details-->
                         <h4 class="text-center"><b>Nutrition</b></h4><br>
                         <div class="row m-4 mb-3">
@@ -1649,7 +1692,7 @@
                             </div> -->
                             <br>
                         <!--Rest and Diapering/Toilet Learning-->
-                        <h4 class="text-center"><b>Rest and Diapering/Toilet Learning</b></h4>
+                        <h4 class="text-center"><b>Rest and Diapering/Toilet Learning</b></h4><br>
                         <div class="row m-4 mb-3">
                             <div id="rest_in_the_middle_day" class="col-sm">
                                 <div class="form-group">
@@ -1700,206 +1743,226 @@
                                     </div>
                                 </div>
                             </div> -->
-
-                        <!--Medical Details-->
-                        <h4 class="text-center"><b>Medical/General</b></h4>
-                        <div class="row m-4 mb-3">
-                            <div id="existing_illness_allergy" class="col-sm">
-                                <div class="form-group">
-                                    <label for="explain_for_existing_illness_allergy" class="form-label"><b>Does your
-                                            child have an existing illness/allergy/condition?</b></label>
-                                    <input type="text" class="form-control text-box"
-                                        name="explain_for_existing_illness_allergy"
-                                        id="explain_for_existing_illness_allergy">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-5">
+            <div class="card" style="margin-bottom: 10%;">
+                <div class="form-body">
+                    <div class="card header-border">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="logo-style p-3"><img src="image/gs_logo_lynnwood.png" class="img-fluid"
+                                        alt="gs_logo_lynnwood" type="image/png"></div>
+                            </div>
+                            <div class="col-6">
+                                <div class="title_bg p-5">
+                                    <h2 class="m-4">Child Profile</h2>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="row m-4 mb-3" id="explain_for_existing_illness_allergy_div" style="display: none;">
-                                <div class="col-sm">
-                                    <div class="form-group"> 
-                                        <label for="explain_for_existing_illness_allergy"  
-                                        class="form-label">Explain</label>
-                                        <input type="text" class="form-control text-box" id="explain_for_existing_illness_allergy"
-                                            name="explain_for_existing_illness_allergy">
-                                    </div>
-                                </div>
-                            </div> -->
-                        <div class="row m-4 mb-3">
-                            <div id="functioning_at_age" class="col-sm">
-                                <div class="form-group">
-                                    <label for="explain_for_functioning_at_age" class="form-label"><b>Does your think
-                                            your child is functioning at age-level?</b></label>
-                                    <input type="text" class="form-control text-box"
-                                        name="explain_for_functioning_at_age" id="explain_for_functioning_at_age">
-                                </div>
-                            </div>
-                            <div id="able_to_walk" class="col-sm">
-                                <div class="form-group">
-                                    <label for="explain_for_able_to_walk" class="form-label"><b>Is your child able to
-                                            walk?</b></label>
-                                    <input type="text" class="form-control text-box" name="explain_for_able_to_walk"
-                                        id="explain_for_able_to_walk">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="row m-4 mb-3" id="explain_for_functioning_at_age_div" style="display: none;">
-                                <div class="col-sm">
-                                    <div class="form-group"> 
-                                        <label for="explain_for_functioning_at_age" class="form-label">Explain</label>
-                                        <input type="text" class="form-control text-box " id="explain_for_functioning_at_age"
-                                        name="explain_for_functioning_at_age">
-                                    </div>
-                                </div>
-                            </div> -->
-                        <!-- <div class="row m-4 mb-3" id="explain_for_able_to_walk_div" style="display: none;">
-                                <div class="col-sm">
-                                    <div class="form-group"> 
-                                        <label for="explain_for_able_to_walk" class="form-label">Explain</label>
-                                        <input type="text" class="form-control text-box" id="explain_for_able_to_walk"
-                                        name="explain_for_able_to_walk">
-                                    </div>
-                                </div>
-                            </div> -->
-                        <div class="row m-4 mb-3">
-                            <div id="communicate_their_needs" class="col-sm">
-                                <div class="form-group">
-                                    <label for="explain_for_communicate_their_needs" class="form-label"><b>Is your child
-                                            able to communicate their needs to others?</b></label>
-                                    <input type="text" class="form-control text-box"
-                                        name="explain_for_communicate_their_needs"
-                                        id="explain_for_communicate_their_needs">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="row m-4 mb-3" id="explain_for_communicate_their_needs_div" style="display: none;">
-                                <div class="col-sm">
-                                    <div class="form-group"> 
-                                        <label for="explain_for_communicate_their_needs" class="form-label">Explain</label>
-                                        <input type="text" class="form-control text-box " id="explain_for_communicate_their_needs"
-                                            name="explain_for_communicate_their_needs">
-                                    </div>
-                                </div>
-                            </div> -->
-                        <div class="row m-4 mb-3">
-                            <div id="any_medication" class="col-sm">
-                                <div class="form-group">
-                                    <label for="explain_for_any_medication" class="form-label"><b>Does your child
-                                            require any medication, therapy,
-                                            treatment, or medical assessment (example, blood
-                                            sugar monitoring) while in childcare?</b></label>
-                                    <input type="text" class="form-control text-box" name="explain_for_any_medication"
-                                        id="explain_for_any_medication">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="row m-4 mb-3" id="explain_for_any_medication_div" style="display: none;">
-                                <div class="col-sm">
-                                    <div class="form-group"> 
-                                        <label for="explain_for_any_medication" class="form-label">Explain</label>
-                                        <input type="text" class="form-control text-box " id="explain_for_any_medication"
-                                        name="explain_for_any_medication">
-                                    </div>
-                                </div>
-                            </div> -->
-                        <br><br>
-                        <div class="row m-4 mb-3">
-                            <div id="utilize_special_equipment" class="col-sm">
-                                <div class="form-group">
-                                    <label for="explain_for_utilize_special_equipment" class="form-label"><b>Does your
-                                            child utilize any special equipment(such as
-                                            a breathing machine, wheelchair, hearing aid, or
-                                            braces)?</b></label>
-                                    <input type="text" class="form-control text-box"
-                                        name="explain_for_utilize_special_equipment"
-                                        id="explain_for_utilize_special_equipment">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="row m-4 mb-3" id="explain_for_utilize_special_equipment_div" style="display: none;">
-                                <div class="col-sm">
-                                    <div class="form-group"> 
-                                        <label for="explain_for_utilize_special_equipment" class="form-label">Explain</label>
-                                        <input type="text" class="form-control text-box" id="explain_for_utilize_special_equipment"
-                                        name="explain_for_utilize_special_equipment">
-                                    </div>
-                                </div>
-                            </div> -->
-                        <div class="row m-4 mb-3">
-                            <div id="significant periods" class="col-sm">
-                                <div class="form-group">
-                                    <label for="explain_for_significant_periods" class="form-label"><b>Does your child
-                                            require one-on-one supervision on a
-                                            regular basis for significant periods of time?</b></label>
-                                    <input type="text" class="form-control text-box"
-                                        name="explain_for_significant_periods" id="explain_for_significant_periods">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="row m-4 mb-3" id="explain_for_significant_periods_div" style="display: none;">
-                                <div class="col-sm">
-                                    <div class="form-group"> 
-                                        <label for="explain_for_significant_periods" class="form-label">Explain</label>
-                                        <input type="text" class="form-control text-box" id="explain_for_significant_periods"
-                                        name="explain_for_significant_periods">
-                                    </div>
-                                </div>
-                            </div> -->
-                        <div class="row m-4 mb-3">
-                            <div id="desire_any_accommodations" class="col-sm">
-                                <div class="form-group">
-                                    <label for="explain_for_desire_any_accommodations" class="form-label"><b>Does your
-                                            child require and/or desire any
-                                            accommodations or modifications in order to fully
-                                            and eually enjoy and participate in The Goddard
-                                            School &reg; group setting?</b></label>
-                                    <input type="text" class="form-control text-box"
-                                        name="explain_for_desire_any_accommodations"
-                                        id="explain_for_desire_any_accommodations">
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="row m-4 mb-3" id="explain_for_desire_any_accommodations_div" style="display: none;">
-                                <div class="col-sm">
-                                    <div class="form-group"> 
-                                        <label for="explain_for_desire_any_accommodations" class="form-label">Explain</label>
-                                        <input type="text" class="form-control text-box" id="explain_for_desire_any_accommodations"
-                                        name="explain_for_desire_any_accommodations">
-                                    </div>
-                                </div>
-                            </div>       -->
-                        <div class="row m-4 mb-3">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <label for="additional_information" class="form-label h-3"><b>Comments and
-                                            additional information
-                                        </b>
-                                    </label>
-                                    <input type="text" class="form-control text-box " id="additional_information"
-                                        name="additional_information">
-                                </div>
-                            </div>
-                        </div>
-                        <!--Parent Agreement-->
-                        <h4 class="text-center"><b>Parent Agreement</b></h4><br>
-                        <h5 class="text-center"><b>Correct and Complete Information</b></h5>
-                        <p class="m-4 mb-3">To the best of my knowledge, the information I have provided and the
-                            statements I have made in this profile are correct and complete. I
-                            understand that false information provided herein or in connection
-                            with the enrollment process may result in disenrollment of my child.
-                            I further agree to update the information in this Health and Social
-                            Record as circumstances may require at Goddard School’s request.
-                        </p>
-                        <div class="row m-4 mb-3">
-                            <div class="col-sm">
-                                <div class="form-group">
-                                    <input type="checkbox" class="input-checkbox" id="do_you_agree_this"
-                                        name="do_you_agree_this">
-                                    <label class="form-check-label" for="do_you_agree_this">
-                                        <span><b>I agree all the above information is correct.</b></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="pt-4">
+                           <!--Medical Details-->
+                           <h4 class="text-center"><b>Medical/General</b></h4>
+                           <div class="row m-4 mb-3">
+                               <div id="existing_illness_allergy" class="col-sm">
+                                   <div class="form-group">
+                                       <label for="explain_for_existing_illness_allergy" class="form-label"><b>Does your
+                                               child have an existing illness/allergy/condition?</b></label>
+                                       <input type="text" class="form-control text-box"
+                                           name="explain_for_existing_illness_allergy"
+                                           id="explain_for_existing_illness_allergy">
+                                   </div>
+                               </div>
+                           </div>
+                           <!-- <div class="row m-4 mb-3" id="explain_for_existing_illness_allergy_div" style="display: none;">
+                                   <div class="col-sm">
+                                       <div class="form-group"> 
+                                           <label for="explain_for_existing_illness_allergy"  
+                                           class="form-label">Explain</label>
+                                           <input type="text" class="form-control text-box" id="explain_for_existing_illness_allergy"
+                                               name="explain_for_existing_illness_allergy">
+                                       </div>
+                                   </div>
+                               </div> -->
+                           <div class="row m-4 mb-3">
+                               <div id="functioning_at_age" class="col-sm">
+                                   <div class="form-group">
+                                       <label for="explain_for_functioning_at_age" class="form-label"><b>Does your think
+                                               your child is functioning at age-level?</b></label>
+                                       <input type="text" class="form-control text-box"
+                                           name="explain_for_functioning_at_age" id="explain_for_functioning_at_age">
+                                   </div>
+                               </div>
+                               <div id="able_to_walk" class="col-sm">
+                                   <div class="form-group">
+                                       <label for="explain_for_able_to_walk" class="form-label"><b>Is your child able to
+                                               walk?</b></label>
+                                       <input type="text" class="form-control text-box" name="explain_for_able_to_walk"
+                                           id="explain_for_able_to_walk">
+                                   </div>
+                               </div>
+                           </div>
+                           <!-- <div class="row m-4 mb-3" id="explain_for_functioning_at_age_div" style="display: none;">
+                                   <div class="col-sm">
+                                       <div class="form-group"> 
+                                           <label for="explain_for_functioning_at_age" class="form-label">Explain</label>
+                                           <input type="text" class="form-control text-box " id="explain_for_functioning_at_age"
+                                           name="explain_for_functioning_at_age">
+                                       </div>
+                                   </div>
+                               </div> -->
+                           <!-- <div class="row m-4 mb-3" id="explain_for_able_to_walk_div" style="display: none;">
+                                   <div class="col-sm">
+                                       <div class="form-group"> 
+                                           <label for="explain_for_able_to_walk" class="form-label">Explain</label>
+                                           <input type="text" class="form-control text-box" id="explain_for_able_to_walk"
+                                           name="explain_for_able_to_walk">
+                                       </div>
+                                   </div>
+                               </div> -->
+                           <div class="row m-4 mb-3">
+                               <div id="communicate_their_needs" class="col-sm">
+                                   <div class="form-group">
+                                       <label for="explain_for_communicate_their_needs" class="form-label"><b>Is your child
+                                               able to communicate their needs to others?</b></label>
+                                       <input type="text" class="form-control text-box"
+                                           name="explain_for_communicate_their_needs"
+                                           id="explain_for_communicate_their_needs">
+                                   </div>
+                               </div>
+                           </div>
+                           <!-- <div class="row m-4 mb-3" id="explain_for_communicate_their_needs_div" style="display: none;">
+                                   <div class="col-sm">
+                                       <div class="form-group"> 
+                                           <label for="explain_for_communicate_their_needs" class="form-label">Explain</label>
+                                           <input type="text" class="form-control text-box " id="explain_for_communicate_their_needs"
+                                               name="explain_for_communicate_their_needs">
+                                       </div>
+                                   </div>
+                               </div> -->
+                           <div class="row m-4 mb-3">
+                               <div id="any_medication" class="col-sm">
+                                   <div class="form-group">
+                                       <label for="explain_for_any_medication" class="form-label"><b>Does your child
+                                               require any medication, therapy,
+                                               treatment, or medical assessment (example, blood
+                                               sugar monitoring) while in childcare?</b></label>
+                                       <input type="text" class="form-control text-box" name="explain_for_any_medication"
+                                           id="explain_for_any_medication">
+                                   </div>
+                               </div>
+                           </div>
+                           <!-- <div class="row m-4 mb-3" id="explain_for_any_medication_div" style="display: none;">
+                                   <div class="col-sm">
+                                       <div class="form-group"> 
+                                           <label for="explain_for_any_medication" class="form-label">Explain</label>
+                                           <input type="text" class="form-control text-box " id="explain_for_any_medication"
+                                           name="explain_for_any_medication">
+                                       </div>
+                                   </div>
+                               </div> -->
+                           <br><br>
+                           <div class="row m-4 mb-3">
+                               <div id="utilize_special_equipment" class="col-sm">
+                                   <div class="form-group">
+                                       <label for="explain_for_utilize_special_equipment" class="form-label"><b>Does your
+                                               child utilize any special equipment(such as
+                                               a breathing machine, wheelchair, hearing aid, or
+                                               braces)?</b></label>
+                                       <input type="text" class="form-control text-box"
+                                           name="explain_for_utilize_special_equipment"
+                                           id="explain_for_utilize_special_equipment">
+                                   </div>
+                               </div>
+                           </div>
+                           <!-- <div class="row m-4 mb-3" id="explain_for_utilize_special_equipment_div" style="display: none;">
+                                   <div class="col-sm">
+                                       <div class="form-group"> 
+                                           <label for="explain_for_utilize_special_equipment" class="form-label">Explain</label>
+                                           <input type="text" class="form-control text-box" id="explain_for_utilize_special_equipment"
+                                           name="explain_for_utilize_special_equipment">
+                                       </div>
+                                   </div>
+                               </div> -->
+                           <div class="row m-4 mb-3">
+                               <div id="significant periods" class="col-sm">
+                                   <div class="form-group">
+                                       <label for="explain_for_significant_periods" class="form-label"><b>Does your child
+                                               require one-on-one supervision on a
+                                               regular basis for significant periods of time?</b></label>
+                                       <input type="text" class="form-control text-box"
+                                           name="explain_for_significant_periods" id="explain_for_significant_periods">
+                                   </div>
+                               </div>
+                           </div>
+                           <!-- <div class="row m-4 mb-3" id="explain_for_significant_periods_div" style="display: none;">
+                                   <div class="col-sm">
+                                       <div class="form-group"> 
+                                           <label for="explain_for_significant_periods" class="form-label">Explain</label>
+                                           <input type="text" class="form-control text-box" id="explain_for_significant_periods"
+                                           name="explain_for_significant_periods">
+                                       </div>
+                                   </div>
+                               </div> -->
+                           <div class="row m-4 mb-3">
+                               <div id="desire_any_accommodations" class="col-sm">
+                                   <div class="form-group">
+                                       <label for="explain_for_desire_any_accommodations" class="form-label"><b>Does your
+                                               child require and/or desire any
+                                               accommodations or modifications in order to fully
+                                               and eually enjoy and participate in The Goddard
+                                               School &reg; group setting?</b></label>
+                                       <input type="text" class="form-control text-box"
+                                           name="explain_for_desire_any_accommodations"
+                                           id="explain_for_desire_any_accommodations">
+                                   </div>
+                               </div>
+                           </div>
+                           <!-- <div class="row m-4 mb-3" id="explain_for_desire_any_accommodations_div" style="display: none;">
+                                   <div class="col-sm">
+                                       <div class="form-group"> 
+                                           <label for="explain_for_desire_any_accommodations" class="form-label">Explain</label>
+                                           <input type="text" class="form-control text-box" id="explain_for_desire_any_accommodations"
+                                           name="explain_for_desire_any_accommodations">
+                                       </div>
+                                   </div>
+                               </div>       -->
+                           <div class="row m-4 mb-3">
+                               <div class="col-sm">
+                                   <div class="form-group">
+                                       <label for="additional_information" class="form-label h-3"><b>Comments and
+                                               additional information
+                                           </b>
+                                       </label>
+                                       <input type="text" class="form-control text-box " id="additional_information"
+                                           name="additional_information">
+                                   </div>
+                               </div>
+                           </div>
+                           <!--Parent Agreement-->
+                           <h4 class="text-center"><b>Parent Agreement</b></h4><br>
+                           <h5 class="text-center"><b>Correct and Complete Information</b></h5>
+                           <p class="m-4 mb-3">To the best of my knowledge, the information I have provided and the
+                               statements I have made in this profile are correct and complete. I
+                               understand that false information provided herein or in connection
+                               with the enrollment process may result in disenrollment of my child.
+                               I further agree to update the information in this Health and Social
+                               Record as circumstances may require at Goddard School’s request.
+                           </p>
+                           <div class="row m-4 mb-3">
+                               <div class="col-sm">
+                                   <div class="form-group">
+                                       <input type="checkbox" class="input-checkbox" id="do_you_agree_this"
+                                           name="do_you_agree_this">
+                                       <label class="form-check-label" for="do_you_agree_this">
+                                           <span><b>I agree all the above information is correct.</b></span>
+                                       </label>
+                                   </div>
+                               </div>
+                           </div><br>
                     </div>
                 </div>
             </div>
@@ -1908,7 +1971,7 @@
 
         <!--Pick-up Password Form-->
         <div class="m-5">
-            <div class="card">
+            <div class="card" style="margin-bottom: 66%;">
                 <div class="form-body">
                     <div class="card header-border">
                         <div class="row">
@@ -1923,7 +1986,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pt-1">
+                    <div class="p-4">
                         <div class="p-2">
                             <p>It is part of The Goddard School® security policy to have a password that is given to
                                 anyone whom you designate as an authorized pick-up for your child. Your child will be
@@ -1976,7 +2039,7 @@
         <br>
         <!--Photo and Video Permission Form-->
         <div class="m-5">
-            <div class="card">
+            <div class="card" style="margin-bottom: 58%;">
                 <div class="form-body">
                     <div class="card header-border">
                         <div class="row">
@@ -1991,7 +2054,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="p-2">
+                    <div class="p-4">
                         <h4 class="text-center mb-1"><b>Consent to Photograph</b></h4>
                         <p>I consent to The Goddard School® taking photographs and videos of my child, who are
                             identified below. For value received and without additional consideration, I agree that all
@@ -2067,7 +2130,7 @@
 
         <!--Security Policy Form-->
         <div class="m-5">
-            <div class="card">
+            <div class="card" style="margin-bottom: 61%;">
                 <div class="form-body">
                     <div class="card header-border">
                         <div class="row">
@@ -2129,7 +2192,7 @@
 
         <!--Medical transportation Form-->
         <div class="m-5">
-            <div class="card">
+            <div class="card" style="margin-bottom: 60%;">
                 <div class="form-body">
                     <div class="card header-border">
                         <div class="row">
@@ -2346,7 +2409,7 @@
 
         <!--Outside engagements Form-->
         <div class="m-5">
-            <div class="card">
+            <div class="card" style="margin-bottom: 60%;">
                 <div class="form-body">
                     <div class="card header-border">
                         <div class="row">
@@ -2514,7 +2577,7 @@
                                         onclick="dateValidation('parent_sign_date_admission')">
                                 </div>
                             </div>
-                        </div>
+                        </div><br><br>
                     </div>
                 </div>
             </div>

@@ -229,134 +229,12 @@ function checking(editID) {
     //destroy datatable
     $('#example').DataTable().destroy();
 
-    $('#example').on('click', '.download-btn', function () {
-        let url = $(this).data('url');
-        let fileName = $(this).data('name');
-        let editID = extractEditIDFromURL(url);
-
-        localStorage.setItem('form_name', fileName);
-        fetch(url)
-            .then(response => response.text())
-            .then(text => {
-                let hiddenDiv = document.createElement('div');
-                hiddenDiv.id = 'formContent';
-                hiddenDiv.style.display = 'none';
-                hiddenDiv.innerHTML = text;
-                document.body.appendChild(hiddenDiv);
-
-                populateFormData(editID, fileName).then(() => {
-                    setTimeout(() => {
-                        generatePDFContent().then(doc => {
-                            doc.save(fileName);
-                            document.body.removeChild(hiddenDiv);
-                            // window.location.reload();
-                        }).catch(error => {
-                            document.body.removeChild(hiddenDiv);
-                        });
-                    }, 1000); // Adjust timeout as needed
-                }).catch(error => {
-                    document.body.removeChild(hiddenDiv);
-                });
-            })
-            .catch(error => {
-                console.error('Error downloading the document:', error);
-            });
-    });
-
-    function generatePDFContent() {
-        return new Promise((resolve) => {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF('p', 'mm', [1500, 1400]);
-            let formContent = document.querySelector('#formContent');
-            formContent.style.display = 'block';
-
-            formContent.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                checkbox.defaultChecked = checkbox.checked;
-            });
-
-            doc.html(formContent, {
-                callback: function () {
-                    formContent.style.display = 'none';
-                    resolve(doc);
-                },
-                x: 12,
-                y: 12
-            });
-        });
-    }
-
-    $('#example').on('click', '.print-btn', function () {
-        let url = $(this).data('url');
-        let formName = $(this).data('name');
-        let editID = extractEditIDFromURL(url);
-        localStorage.setItem('form_name', formName);
-
-        fetch(url)
-            .then(response => {
-                if (!response.ok) throw new Error('Network response was not ok');
-                return response.text();
-            })
-            .then(text => {
-                let hiddenDiv = document.createElement('div');
-                hiddenDiv.id = 'formContent';
-                hiddenDiv.style.display = 'none';
-                hiddenDiv.innerHTML = text;
-                document.body.appendChild(hiddenDiv);
-
-                return populateFormData(editID, formName);
-            })
-            .then(() => {
-                let hiddenDiv = document.getElementById('formContent');
-                if (hiddenDiv) {
-                    console.log('Form content div found:', hiddenDiv);
-                    printContent(hiddenDiv);
-                } else {
-                    throw new Error('Form content div not found');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                let hiddenDiv = document.getElementById('formContent');
-                if (hiddenDiv) {
-                    document.body.removeChild(hiddenDiv);
-                }
-            });
-    });
-
-    function printContent(hiddenDiv) {
-        console.log('Hidden div to print:', hiddenDiv);
-        let printWindow = window.open('', '', 'height=1400,width=1500');
-        let formContent = hiddenDiv.innerHTML;
-
-        printWindow.document.write('<html><head><title>Print Form</title>');
-        printWindow.document.write('</head><body>');
-        printWindow.document.write(formContent);
-        printWindow.document.write('</body></html>');
-        printWindow.document.close();
-
-        printWindow.onload = function () {
-            printWindow.focus();
-            printWindow.print();
-            printWindow.onafterprint = function () {
-                printWindow.close();
-                document.body.removeChild(hiddenDiv);
-            };
-        };
-    }
-
     // $('#example').on('click', '.download-btn', function () {
     //     let url = $(this).data('url');
     //     let fileName = $(this).data('name');
     //     let editID = extractEditIDFromURL(url);
-    
+
     //     localStorage.setItem('form_name', fileName);
-    
-    //     // Remove any existing hiddenDiv before adding new one
-    //     let existingDiv = document.getElementById('formContent');
-    //     if (existingDiv) {
-    //         document.body.removeChild(existingDiv);
-    //     }
-    
     //     fetch(url)
     //         .then(response => response.text())
     //         .then(text => {
@@ -365,12 +243,13 @@ function checking(editID) {
     //             hiddenDiv.style.display = 'none';
     //             hiddenDiv.innerHTML = text;
     //             document.body.appendChild(hiddenDiv);
-    
+
     //             populateFormData(editID, fileName).then(() => {
     //                 setTimeout(() => {
     //                     generatePDFContent().then(doc => {
     //                         doc.save(fileName);
     //                         document.body.removeChild(hiddenDiv);
+    //                         // window.location.reload();
     //                     }).catch(error => {
     //                         document.body.removeChild(hiddenDiv);
     //                     });
@@ -383,19 +262,35 @@ function checking(editID) {
     //             console.error('Error downloading the document:', error);
     //         });
     // });
-    
+
+    // function generatePDFContent() {
+    //     return new Promise((resolve) => {
+    //         const { jsPDF } = window.jspdf;
+    //         const doc = new jsPDF('p', 'mm', [1500, 1400]);
+    //         let formContent = document.querySelector('#formContent');
+    //         formContent.style.display = 'block';
+
+    //         formContent.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    //             checkbox.defaultChecked = checkbox.checked;
+    //         });
+
+    //         doc.html(formContent, {
+    //             callback: function () {
+    //                 formContent.style.display = 'none';
+    //                 resolve(doc);
+    //             },
+    //             x: 12,
+    //             y: 12
+    //         });
+    //     });
+    // }
+
     // $('#example').on('click', '.print-btn', function () {
     //     let url = $(this).data('url');
     //     let formName = $(this).data('name');
     //     let editID = extractEditIDFromURL(url);
     //     localStorage.setItem('form_name', formName);
-    
-    //     // Remove any existing hiddenDiv before adding new one
-    //     let existingDiv = document.getElementById('formContent');
-    //     if (existingDiv) {
-    //         document.body.removeChild(existingDiv);
-    //     }
-    
+
     //     fetch(url)
     //         .then(response => {
     //             if (!response.ok) throw new Error('Network response was not ok');
@@ -407,7 +302,7 @@ function checking(editID) {
     //             hiddenDiv.style.display = 'none';
     //             hiddenDiv.innerHTML = text;
     //             document.body.appendChild(hiddenDiv);
-    
+
     //             return populateFormData(editID, formName);
     //         })
     //         .then(() => {
@@ -427,18 +322,18 @@ function checking(editID) {
     //             }
     //         });
     // });
-    
+
     // function printContent(hiddenDiv) {
     //     console.log('Hidden div to print:', hiddenDiv);
     //     let printWindow = window.open('', '', 'height=1400,width=1500');
     //     let formContent = hiddenDiv.innerHTML;
-    
+
     //     printWindow.document.write('<html><head><title>Print Form</title>');
     //     printWindow.document.write('</head><body>');
     //     printWindow.document.write(formContent);
     //     printWindow.document.write('</body></html>');
     //     printWindow.document.close();
-    
+
     //     printWindow.onload = function () {
     //         printWindow.focus();
     //         printWindow.print();
@@ -448,28 +343,133 @@ function checking(editID) {
     //         };
     //     };
     // }
+
+    $('#example').on('click', '.download-btn', function () {
+        let url = $(this).data('url');
+        let fileName = $(this).data('name');
+        let editID = extractEditIDFromURL(url);
     
-    // function generatePDFContent() {
-    //     return new Promise((resolve) => {
-    //         const { jsPDF } = window.jspdf;
-    //         const doc = new jsPDF('p', 'mm', [1500, 1400]);
-    //         let formContent = document.querySelector('#formContent');
-    //         formContent.style.display = 'block';
+        localStorage.setItem('form_name', fileName);
     
-    //         formContent.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-    //             checkbox.defaultChecked = checkbox.checked;
-    //         });
+        // Remove any existing hiddenDiv before adding new one
+        let existingDiv = document.getElementById('formContent');
+        if (existingDiv) {
+            document.body.removeChild(existingDiv);
+        }
     
-    //         doc.html(formContent, {
-    //             callback: function () {
-    //                 formContent.style.display = 'none';
-    //                 resolve(doc);
-    //             },
-    //             x: 12,
-    //             y: 12
-    //         });
-    //     });
-    // }
+        fetch(url)
+            .then(response => response.text())
+            .then(text => {
+                let hiddenDiv = document.createElement('div');
+                hiddenDiv.id = 'formContent';
+                hiddenDiv.style.display = 'none';
+                hiddenDiv.innerHTML = text;
+                document.body.appendChild(hiddenDiv);
+    
+                populateFormData(editID, fileName).then(() => {
+                    setTimeout(() => {
+                        generatePDFContent().then(doc => {
+                            doc.save(fileName);
+                            document.body.removeChild(hiddenDiv);
+                        }).catch(error => {
+                            document.body.removeChild(hiddenDiv);
+                        });
+                    }, 1000); // Adjust timeout as needed
+                }).catch(error => {
+                    document.body.removeChild(hiddenDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error downloading the document:', error);
+            });
+    });
+    
+    $('#example').on('click', '.print-btn', function () {
+        let url = $(this).data('url');
+        let formName = $(this).data('name');
+        let editID = extractEditIDFromURL(url);
+        localStorage.setItem('form_name', formName);
+    
+        // Remove any existing hiddenDiv before adding new one
+        let existingDiv = document.getElementById('formContent');
+        if (existingDiv) {
+            document.body.removeChild(existingDiv);
+        }
+    
+        fetch(url)
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.text();
+            })
+            .then(text => {
+                let hiddenDiv = document.createElement('div');
+                hiddenDiv.id = 'formContent';
+                hiddenDiv.style.display = 'none';
+                hiddenDiv.innerHTML = text;
+                document.body.appendChild(hiddenDiv);
+    
+                return populateFormData(editID, formName);
+            })
+            .then(() => {
+                let hiddenDiv = document.getElementById('formContent');
+                if (hiddenDiv) {
+                    console.log('Form content div found:', hiddenDiv);
+                    printContent(hiddenDiv);
+                } else {
+                    throw new Error('Form content div not found');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                let hiddenDiv = document.getElementById('formContent');
+                if (hiddenDiv) {
+                    document.body.removeChild(hiddenDiv);
+                }
+            });
+    });
+    
+    function printContent(hiddenDiv) {
+        console.log('Hidden div to print:', hiddenDiv);
+        let printWindow = window.open('', '', 'height=1400,width=1500');
+        let formContent = hiddenDiv.innerHTML;
+    
+        printWindow.document.write('<html><head><title>Print Form</title>');
+        printWindow.document.write('</head><body>');
+        printWindow.document.write(formContent);
+        printWindow.document.write('</body></html>');
+        printWindow.document.close();
+    
+        printWindow.onload = function () {
+            printWindow.focus();
+            printWindow.print();
+            printWindow.onafterprint = function () {
+                printWindow.close();
+                document.body.removeChild(hiddenDiv);
+            };
+        };
+    }
+    
+    function generatePDFContent() {
+        return new Promise((resolve) => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('p', 'mm', [1500, 1400]);
+            let formContent = document.querySelector('#formContent');
+            formContent.style.display = 'block';
+    
+            formContent.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.defaultChecked = checkbox.checked;
+            });
+    
+            doc.html(formContent, {
+                callback: function () {
+                    formContent.style.display = 'none';
+                    resolve(doc);
+                },
+                x: 12,
+                y: 12
+            });
+        });
+    }
     
 
     function extractEditIDFromURL(url) {

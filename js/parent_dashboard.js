@@ -235,11 +235,6 @@ function checking(editID) {
         let editID = extractEditIDFromURL(url);
 
         localStorage.setItem('form_name', fileName);
-    
-        let existingDiv = document.getElementById('formContent');
-        if (existingDiv) {
-            document.body.removeChild(existingDiv);
-        }
         fetch(url)
             .then(response => response.text())
             .then(text => {
@@ -268,149 +263,34 @@ function checking(editID) {
             });
     });
 
-    // function generatePDFContent() {
-    //     return new Promise((resolve) => {
-    //         const { jsPDF } = window.jspdf;
-    //         const doc = new jsPDF('p', 'mm', [1500, 1400]);
-    //         let formContent = document.querySelector('#formContent');
-    //         formContent.style.display = 'block';
+    function generatePDFContent() {
+        return new Promise((resolve) => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('p', 'mm', [1500, 1400]);
+            let formContent = document.querySelector('#formContent');
+            formContent.style.display = 'block';
 
-    //         formContent.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-    //             checkbox.defaultChecked = checkbox.checked;
-    //         });
+            formContent.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.defaultChecked = checkbox.checked;
+            });
 
-    //         doc.html(formContent, {
-    //             callback: function () {
-    //                 formContent.style.display = 'none';
-    //                 resolve(doc);
-    //             },
-    //             x: 12,
-    //             y: 12
-    //         });
-    //     });
-    // }
+            doc.html(formContent, {
+                callback: function () {
+                    formContent.style.display = 'none';
+                    resolve(doc);
+                },
+                x: 12,
+                y: 12
+            });
+        });
+    }
 
-    // $('#example').on('click', '.print-btn', function () {
-    //     let url = $(this).data('url');
-    //     let formName = $(this).data('name');
-    //     let editID = extractEditIDFromURL(url);
-    //     localStorage.setItem('form_name', formName);
-
-    //     fetch(url)
-    //         .then(response => {
-    //             if (!response.ok) throw new Error('Network response was not ok');
-    //             return response.text();
-    //         })
-    //         .then(text => {
-    //             let hiddenDiv = document.createElement('div');
-    //             hiddenDiv.id = 'formContent';
-    //             hiddenDiv.style.display = 'none';
-    //             hiddenDiv.innerHTML = text;
-    //             document.body.appendChild(hiddenDiv);
-
-    //             return populateFormData(editID, formName);
-    //         })
-    //         .then(() => {
-    //             let hiddenDiv = document.getElementById('formContent');
-    //             if (hiddenDiv) {
-    //                 console.log('Form content div found:', hiddenDiv);
-    //                 printContent(hiddenDiv);
-    //             } else {
-    //                 throw new Error('Form content div not found');
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.error('Error:', error);
-    //             let hiddenDiv = document.getElementById('formContent');
-    //             if (hiddenDiv) {
-    //                 document.body.removeChild(hiddenDiv);
-    //             }
-    //         });
-    // });
-
-    // function printContent(hiddenDiv) {
-    //     console.log('Hidden div to print:', hiddenDiv);
-    //     let printWindow = window.open('', '', 'height=1400,width=1500');
-    //     let formContent = hiddenDiv.innerHTML;
-
-    //     printWindow.document.write('<html><head><title>Print Form</title>');
-    //     printWindow.document.write('</head><body>');
-    //     printWindow.document.write(formContent);
-    //     printWindow.document.write('</body></html>');
-    //     printWindow.document.close();
-
-    //     printWindow.onload = function () {
-    //         printWindow.focus();
-    //         printWindow.print();
-    //         printWindow.onafterprint = function () {
-    //             printWindow.close();
-    //             document.body.removeChild(hiddenDiv);
-    //         };
-    //     };
-    // }
-
-    // $('#example').on('click', '.download-btn', function () {
-    //     let url = $(this).data('url').split('?')[0]; // Strip query parameters
-    //     let fileName = $(this).data('name');
-    //     let editID = extractEditIDFromURL(url);
-    
-    //     localStorage.setItem('form_name', fileName);
-    
-    //     let existingDiv = document.getElementById('formContent');
-    //     if (existingDiv) {
-    //         document.body.removeChild(existingDiv);
-    //     }
-    
-    //     console.log("URL being fetched:", url);
-    
-    //     fetch(url)
-    //         .then(response => {
-    //             if (!response.ok) {
-    //                 throw new Error(`Network response was not ok, status: ${response.status}`);
-    //             }
-    //             return response.text();
-    //         })
-    //         .then(text => {
-    //             let hiddenDiv = document.createElement('div');
-    //             hiddenDiv.id = 'formContent';
-    //             hiddenDiv.style.display = 'none';
-    //             hiddenDiv.innerHTML = text;
-    //             document.body.appendChild(hiddenDiv);
-    
-    //             populateFormData(editID, fileName).then(() => {
-    //                 setTimeout(() => {
-    //                     generatePDFContent().then(doc => {
-    //                         doc.save(fileName);
-    //                         document.body.removeChild(hiddenDiv);
-    //                     }).catch(error => {
-    //                         console.error("Error generating PDF content:", error);
-    //                         document.body.removeChild(hiddenDiv);
-    //                     });
-    //                 }, 1000);
-    //             }).catch(error => {
-    //                 console.error("Error populating form data:", error);
-    //                 document.body.removeChild(hiddenDiv);
-    //             });
-    //         })
-    //         .catch(error => {
-    //             console.error('Error downloading the document:', error);
-    //             alert('There was an issue fetching the document. Please try again later.');
-    //         });
-    // });
-    
-    
     $('#example').on('click', '.print-btn', function () {
         let url = $(this).data('url');
         let formName = $(this).data('name');
         let editID = extractEditIDFromURL(url);
         localStorage.setItem('form_name', formName);
-    
-        // Remove any existing hiddenDiv before adding new one
-        let existingDiv = document.getElementById('formContent');
-        if (existingDiv) {
-            document.body.removeChild(existingDiv);
-        }
-    
+
         fetch(url)
             .then(response => {
                 if (!response.ok) throw new Error('Network response was not ok');
@@ -422,7 +302,7 @@ function checking(editID) {
                 hiddenDiv.style.display = 'none';
                 hiddenDiv.innerHTML = text;
                 document.body.appendChild(hiddenDiv);
-    
+
                 return populateFormData(editID, formName);
             })
             .then(() => {
@@ -442,18 +322,18 @@ function checking(editID) {
                 }
             });
     });
-    
+
     function printContent(hiddenDiv) {
         console.log('Hidden div to print:', hiddenDiv);
         let printWindow = window.open('', '', 'height=1400,width=1500');
         let formContent = hiddenDiv.innerHTML;
-    
+
         printWindow.document.write('<html><head><title>Print Form</title>');
         printWindow.document.write('</head><body>');
         printWindow.document.write(formContent);
         printWindow.document.write('</body></html>');
         printWindow.document.close();
-    
+
         printWindow.onload = function () {
             printWindow.focus();
             printWindow.print();
@@ -463,28 +343,133 @@ function checking(editID) {
             };
         };
     }
+
+    // $('#example').on('click', '.download-btn', function () {
+    //     let url = $(this).data('url');
+    //     let fileName = $(this).data('name');
+    //     let editID = extractEditIDFromURL(url);
     
-    function generatePDFContent() {
-        return new Promise((resolve) => {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF('p', 'mm', [1500, 1400]);
-            let formContent = document.querySelector('#formContent');
-            formContent.style.display = 'block';
+    //     localStorage.setItem('form_name', fileName);
     
-            formContent.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                checkbox.defaultChecked = checkbox.checked;
-            });
+    //     // Remove any existing hiddenDiv before adding new one
+    //     let existingDiv = document.getElementById('formContent');
+    //     if (existingDiv) {
+    //         document.body.removeChild(existingDiv);
+    //     }
     
-            doc.html(formContent, {
-                callback: function () {
-                    formContent.style.display = 'none';
-                    resolve(doc);
-                },
-                x: 12,
-                y: 12
-            });
-        });
-    }
+    //     fetch(url)
+    //         .then(response => response.text())
+    //         .then(text => {
+    //             let hiddenDiv = document.createElement('div');
+    //             hiddenDiv.id = 'formContent';
+    //             hiddenDiv.style.display = 'none';
+    //             hiddenDiv.innerHTML = text;
+    //             document.body.appendChild(hiddenDiv);
+    
+    //             populateFormData(editID, fileName).then(() => {
+    //                 setTimeout(() => {
+    //                     generatePDFContent().then(doc => {
+    //                         doc.save(fileName);
+    //                         document.body.removeChild(hiddenDiv);
+    //                     }).catch(error => {
+    //                         document.body.removeChild(hiddenDiv);
+    //                     });
+    //                 }, 1000); // Adjust timeout as needed
+    //             }).catch(error => {
+    //                 document.body.removeChild(hiddenDiv);
+    //             });
+    //         })
+    //         .catch(error => {
+    //             console.error('Error downloading the document:', error);
+    //         });
+    // });
+    
+    // $('#example').on('click', '.print-btn', function () {
+    //     let url = $(this).data('url');
+    //     let formName = $(this).data('name');
+    //     let editID = extractEditIDFromURL(url);
+    //     localStorage.setItem('form_name', formName);
+    
+    //     // Remove any existing hiddenDiv before adding new one
+    //     let existingDiv = document.getElementById('formContent');
+    //     if (existingDiv) {
+    //         document.body.removeChild(existingDiv);
+    //     }
+    
+    //     fetch(url)
+    //         .then(response => {
+    //             if (!response.ok) throw new Error('Network response was not ok');
+    //             return response.text();
+    //         })
+    //         .then(text => {
+    //             let hiddenDiv = document.createElement('div');
+    //             hiddenDiv.id = 'formContent';
+    //             hiddenDiv.style.display = 'none';
+    //             hiddenDiv.innerHTML = text;
+    //             document.body.appendChild(hiddenDiv);
+    
+    //             return populateFormData(editID, formName);
+    //         })
+    //         .then(() => {
+    //             let hiddenDiv = document.getElementById('formContent');
+    //             if (hiddenDiv) {
+    //                 console.log('Form content div found:', hiddenDiv);
+    //                 printContent(hiddenDiv);
+    //             } else {
+    //                 throw new Error('Form content div not found');
+    //             }
+    //         })
+    //         .catch(error => {
+    //             console.error('Error:', error);
+    //             let hiddenDiv = document.getElementById('formContent');
+    //             if (hiddenDiv) {
+    //                 document.body.removeChild(hiddenDiv);
+    //             }
+    //         });
+    // });
+    
+    // function printContent(hiddenDiv) {
+    //     console.log('Hidden div to print:', hiddenDiv);
+    //     let printWindow = window.open('', '', 'height=1400,width=1500');
+    //     let formContent = hiddenDiv.innerHTML;
+    
+    //     printWindow.document.write('<html><head><title>Print Form</title>');
+    //     printWindow.document.write('</head><body>');
+    //     printWindow.document.write(formContent);
+    //     printWindow.document.write('</body></html>');
+    //     printWindow.document.close();
+    
+    //     printWindow.onload = function () {
+    //         printWindow.focus();
+    //         printWindow.print();
+    //         printWindow.onafterprint = function () {
+    //             printWindow.close();
+    //             document.body.removeChild(hiddenDiv);
+    //         };
+    //     };
+    // }
+    
+    // function generatePDFContent() {
+    //     return new Promise((resolve) => {
+    //         const { jsPDF } = window.jspdf;
+    //         const doc = new jsPDF('p', 'mm', [1500, 1400]);
+    //         let formContent = document.querySelector('#formContent');
+    //         formContent.style.display = 'block';
+    
+    //         formContent.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    //             checkbox.defaultChecked = checkbox.checked;
+    //         });
+    
+    //         doc.html(formContent, {
+    //             callback: function () {
+    //                 formContent.style.display = 'none';
+    //                 resolve(doc);
+    //             },
+    //             x: 12,
+    //             y: 12
+    //         });
+    //     });
+    // }
     
 
     function extractEditIDFromURL(url) {
@@ -718,7 +703,7 @@ function checking(editID) {
                             
                             // Check if the field exists and update its value
                             if (custodyField) {
-                                custodyField.setAttribute('value', response.do_relevant_custody_papers_apply === 2 ? 'Yes' : 'No');
+                                custodyField.setAttribute('value', response.do_relevant_custody_papers_apply === 0 ? 'Yes' : 'No');
                             }
                         }
 
@@ -872,7 +857,7 @@ function checking(editID) {
                             let relatedElement = form.querySelector(`[name='${relatedField}']`);
 
                             if (keyElement) {
-                                if (response[keyField] === 2) {
+                                if (response[keyField] === 0) {
                                     if (relatedElement) {
                                         relatedElement.setAttribute('value', response[relatedField] || '');
                                     } else {
@@ -898,7 +883,7 @@ function checking(editID) {
                             }
                         });
                         
-                        if (response.approve_social_media_post === 2) {
+                        if (response.approve_social_media_post === 0) {
                             let element = form.querySelector(`input[id='approve_social_media_post1']`);
                             if (element) {
                                 element.setAttribute('checked', true);
@@ -1464,7 +1449,7 @@ function checking(editID) {
                         document.getElementsByName('birth_weight_oz')[0].value = response.birth_weight_oz;
                     if (typeof response.complications !== "undefined")
                         document.getElementsByName('complications')[0].value = response.complications;
-                    if (typeof response.bottle_fed == 2){
+                    if (typeof response.bottle_fed == 0){
                         document.getElementById('bottle_fed1').checked = true;
                         document.getElementById('bottle_fed2').checked = false;
 
@@ -1472,7 +1457,7 @@ function checking(editID) {
                         document.getElementById('bottle_fed1').checked = false;
                         document.getElementById('bottle_fed2').checked = true;
                     }
-                    if (typeof response.breast_fed == 2){
+                    if (typeof response.breast_fed == 0){
                         document.getElementById('breast_fed1').checked = true;
                         document.getElementById('breast_fed2').checked = false;
                     } else if (typeof response.breast_fed == 1) {
@@ -1792,7 +1777,7 @@ function checking(editID) {
                     if (response.childcare_before == 1) {
                         document.getElementById('childcare_before1').checked = true;
                         // document.getElementById('childcare_before_reason_div').style.display = "block";
-                    } else if (response.childcare_before == 2) {
+                    } else if (response.childcare_before == 0) {
                         document.getElementById('childcare_before2').checked = true;
                         // document.getElementById('childcare_before_reason_div').style.display = "none";
                     }
@@ -1832,7 +1817,7 @@ function checking(editID) {
                     if (response.restricted_diet == 1) {
                         document.getElementById('restricted_diet1').checked = true;
                         // document.getElementById('restricted_diet_reason_div').style.display = "block";
-                    } else if (response.restricted_diet == 2) {
+                    } else if (response.restricted_diet == 0) {
                         document.getElementById('restricted_diet2').checked = true;
                         // document.getElementById('restricted_diet_reason_div').style.display = "none";
                     }
@@ -1841,7 +1826,7 @@ function checking(editID) {
                     if (response.eat_own == 1) {
                         document.getElementById('eat_own1').checked = true;
                         // document.getElementById('eat_own_reason_div').style.display = "block";
-                    } else if (response.eat_own == 2) {
+                    } else if (response.eat_own == 0) {
                         document.getElementById('eat_own2').checked = true;
                         // document.getElementById('eat_own_reason_div').style.display = "none";
                     }
@@ -1873,7 +1858,7 @@ function checking(editID) {
                     if (response.rest_in_the_middle_day == 1) {
                         document.getElementById('rest_in_the_middle_day1').checked = true;
                         // document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "block";
-                    } else if (response.rest_in_the_middle_day == 2) {
+                    } else if (response.rest_in_the_middle_day == 0) {
                         document.getElementById('rest_in_the_middle_day2').checked = true;
                         // document.getElementById('reason_for_rest_in_the_middle_day_div').style.display = "none";
                     }
@@ -1884,7 +1869,7 @@ function checking(editID) {
                     if (response.toilet_trained == 1) {
                         document.getElementById('toilet_trained1').checked = true;
                         // document.getElementById('reason_for_toilet_trained_div').style.display = "block";
-                    } else if (response.toilet_trained == 2) {
+                    } else if (response.toilet_trained == 0) {
                         document.getElementById('toilet_trained2').checked = true;
                         // document.getElementById('reason_for_toilet_trained_div').style.display = "none";
                     }
@@ -1914,7 +1899,7 @@ function checking(editID) {
                     if (response.existing_illness_allergy == 1) {
                         document.getElementById('existing_illness_allergy1').checked = true;
                         // document.getElementById('explain_for_existing_illness_allergy_div').style.display = "block";
-                    } else if (response.existing_illness_allergy == 2) {
+                    } else if (response.existing_illness_allergy == 0) {
                         document.getElementById('existing_illness_allergy2').checked = true;
                         // document.getElementById('explain_for_existing_illness_allergy_div').style.display = "none";
                     }
@@ -1925,7 +1910,7 @@ function checking(editID) {
                     if (response.functioning_at_age == 1) {
                         document.getElementById('functioning_at_age1').checked = true;
                         // document.getElementById('explain_for_functioning_at_age_div').style.display = "block";
-                    } else if (response.functioning_at_age == 2) {
+                    } else if (response.functioning_at_age == 0) {
                         document.getElementById('functioning_at_age2').checked = true;
                         // document.getElementById('explain_for_functioning_at_age_div').style.display = "none";
                     }
@@ -1936,7 +1921,7 @@ function checking(editID) {
                     if (response.able_to_walk == 1) {
                         document.getElementById('able_to_walk1').checked = true;
                         // document.getElementById('explain_for_able_to_walk_div').style.display = "block";
-                    } else if (response.able_to_walk == 2) {
+                    } else if (response.able_to_walk == 0) {
                         document.getElementById('able_to_walk2').checked = true;
                         // document.getElementById('explain_for_able_to_walk_div').style.display = "none";
                     }
@@ -1947,7 +1932,7 @@ function checking(editID) {
                     if (response.communicate_their_needs == 1) {
                         document.getElementById('communicate_their_needs1').checked = true;
                         // document.getElementById('explain_for_communicate_their_needs_div').style.display = "block";
-                    } else if (response.communicate_their_needs == 2) {
+                    } else if (response.communicate_their_needs == 0) {
                         document.getElementById('communicate_their_needs2').checked = true;
                         // document.getElementById('explain_for_communicate_their_needs_div').style.display = "none";
                     }
@@ -1958,7 +1943,7 @@ function checking(editID) {
                     if (response.any_medication == 1) {
                         document.getElementById('any_medication1').checked = true;
                         // document.getElementById('explain_for_any_medication_div').style.display = "block";
-                    } else if (response.any_medication == 2) {
+                    } else if (response.any_medication == 0) {
                         document.getElementById('any_medication2').checked = true;
                         // document.getElementById('explain_for_any_medication_div').style.display = "none";
                     }
@@ -1969,7 +1954,7 @@ function checking(editID) {
                     if (response.utilize_special_equipment == 1) {
                         document.getElementById('utilize_special_equipment1').checked = true;
                         // document.getElementById('explain_for_utilize_special_equipment_div').style.display = "block";
-                    } else if (response.utilize_special_equipment == 2) {
+                    } else if (response.utilize_special_equipment == 0) {
                         document.getElementById('utilize_special_equipment2').checked = true;
                         // document.getElementById('explain_for_utilize_special_equipment_div').style.display = "none";
                     }
@@ -1980,7 +1965,7 @@ function checking(editID) {
                     if (response.significant_periods == 1) {
                         document.getElementById('significant_periods1').checked = true;
                         // document.getElementById('explain_for_significant_periods_div').style.display = "block";
-                    } else if (response.significant_periods == 2) {
+                    } else if (response.significant_periods == 0) {
                         document.getElementById('significant_periods2').checked = true;
                         // document.getElementById('explain_for_significant_periods_div').style.display = "none";
                     }
@@ -1990,7 +1975,7 @@ function checking(editID) {
                     if (response.desire_any_accommodations == 1) {
                         document.getElementById('desire_any_accommodations1').checked = true;
                         // document.getElementById('explain_for_desire_any_accommodations_div').style.display = "block";
-                    } else if (response.desire_any_accommodations == 2) {
+                    } else if (response.desire_any_accommodations == 0) {
                         document.getElementById('desire_any_accommodations2').checked = true;
                         // document.getElementById('explain_for_desire_any_accommodations_div').style.display = "none";
                     }
@@ -2327,7 +2312,7 @@ function checking(editID) {
 
                     if (response.approve_social_media_post == 1) {
                         document.getElementById('approve_social_media_post1').checked = true;
-                    } else if (response.approve_social_media_post == 2){
+                    } else if (response.approve_social_media_post == 0){
                         document.getElementById('approve_social_media_post2').checked = true;
                     } else{
                         document.getElementById('approve_social_media_post1').checked = false;

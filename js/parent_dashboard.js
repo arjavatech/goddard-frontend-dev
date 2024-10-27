@@ -351,14 +351,23 @@ function checking(editID) {
     
         localStorage.setItem('form_name', fileName);
     
-        // Remove any existing hiddenDiv before adding new one
+        // Remove any existing hiddenDiv before adding a new one
         let existingDiv = document.getElementById('formContent');
         if (existingDiv) {
             document.body.removeChild(existingDiv);
         }
     
+        // Log the URL to confirm it's correct
+        console.log("URL being fetched:", url);
+    
         fetch(url)
-            .then(response => response.text())
+            .then(response => {
+                // Check if the response is okay
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok, status: ${response.status}`);
+                }
+                return response.text();
+            })
             .then(text => {
                 let hiddenDiv = document.createElement('div');
                 hiddenDiv.id = 'formContent';
@@ -366,23 +375,29 @@ function checking(editID) {
                 hiddenDiv.innerHTML = text;
                 document.body.appendChild(hiddenDiv);
     
+                // Populate form data and generate PDF
                 populateFormData(editID, fileName).then(() => {
                     setTimeout(() => {
                         generatePDFContent().then(doc => {
                             doc.save(fileName);
                             document.body.removeChild(hiddenDiv);
                         }).catch(error => {
+                            console.error("Error generating PDF content:", error);
                             document.body.removeChild(hiddenDiv);
                         });
                     }, 1000); // Adjust timeout as needed
                 }).catch(error => {
+                    console.error("Error populating form data:", error);
                     document.body.removeChild(hiddenDiv);
                 });
             })
             .catch(error => {
                 console.error('Error downloading the document:', error);
+                alert('There was an issue fetching the document. Please try again later.');
             });
     });
+    
+    
     
     $('#example').on('click', '.print-btn', function () {
         let url = $(this).data('url');

@@ -944,6 +944,7 @@ function checking(editID) {
                 data: 'edit',
                 render: function (data, type, full, meta) {
                     let url = '';
+                    console.log(window.location.origin);
                     switch (full.formname) {
                         case 'admission_form':
                             url = `${window.location.origin}/admission_form_completed.html?id=${editID}`;

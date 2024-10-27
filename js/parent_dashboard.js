@@ -345,24 +345,21 @@ function checking(editID) {
     // }
 
     $('#example').on('click', '.download-btn', function () {
-        let url = $(this).data('url');
+        let url = $(this).data('url').split('?')[0]; // Strip query parameters
         let fileName = $(this).data('name');
         let editID = extractEditIDFromURL(url);
     
         localStorage.setItem('form_name', fileName);
     
-        // Remove any existing hiddenDiv before adding a new one
         let existingDiv = document.getElementById('formContent');
         if (existingDiv) {
             document.body.removeChild(existingDiv);
         }
     
-        // Log the URL to confirm it's correct
         console.log("URL being fetched:", url);
     
         fetch(url)
             .then(response => {
-                // Check if the response is okay
                 if (!response.ok) {
                     throw new Error(`Network response was not ok, status: ${response.status}`);
                 }
@@ -375,7 +372,6 @@ function checking(editID) {
                 hiddenDiv.innerHTML = text;
                 document.body.appendChild(hiddenDiv);
     
-                // Populate form data and generate PDF
                 populateFormData(editID, fileName).then(() => {
                     setTimeout(() => {
                         generatePDFContent().then(doc => {
@@ -385,7 +381,7 @@ function checking(editID) {
                             console.error("Error generating PDF content:", error);
                             document.body.removeChild(hiddenDiv);
                         });
-                    }, 1000); // Adjust timeout as needed
+                    }, 1000);
                 }).catch(error => {
                     console.error("Error populating form data:", error);
                     document.body.removeChild(hiddenDiv);
@@ -396,7 +392,6 @@ function checking(editID) {
                 alert('There was an issue fetching the document. Please try again later.');
             });
     });
-    
     
     
     $('#example').on('click', '.print-btn', function () {

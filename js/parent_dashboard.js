@@ -229,39 +229,44 @@ function checking(editID) {
     //destroy datatable
     $('#example').DataTable().destroy();
 
-    // $('#example').on('click', '.download-btn', function () {
-    //     let url = $(this).data('url');
-    //     let fileName = $(this).data('name');
-    //     let editID = extractEditIDFromURL(url);
+    $('#example').on('click', '.download-btn', function () {
+        let url = $(this).data('url');
+        let fileName = $(this).data('name');
+        let editID = extractEditIDFromURL(url);
 
-    //     localStorage.setItem('form_name', fileName);
-    //     fetch(url)
-    //         .then(response => response.text())
-    //         .then(text => {
-    //             let hiddenDiv = document.createElement('div');
-    //             hiddenDiv.id = 'formContent';
-    //             hiddenDiv.style.display = 'none';
-    //             hiddenDiv.innerHTML = text;
-    //             document.body.appendChild(hiddenDiv);
+        localStorage.setItem('form_name', fileName);
+    
+        let existingDiv = document.getElementById('formContent');
+        if (existingDiv) {
+            document.body.removeChild(existingDiv);
+        }
+        fetch(url)
+            .then(response => response.text())
+            .then(text => {
+                let hiddenDiv = document.createElement('div');
+                hiddenDiv.id = 'formContent';
+                hiddenDiv.style.display = 'none';
+                hiddenDiv.innerHTML = text;
+                document.body.appendChild(hiddenDiv);
 
-    //             populateFormData(editID, fileName).then(() => {
-    //                 setTimeout(() => {
-    //                     generatePDFContent().then(doc => {
-    //                         doc.save(fileName);
-    //                         document.body.removeChild(hiddenDiv);
-    //                         // window.location.reload();
-    //                     }).catch(error => {
-    //                         document.body.removeChild(hiddenDiv);
-    //                     });
-    //                 }, 1000); // Adjust timeout as needed
-    //             }).catch(error => {
-    //                 document.body.removeChild(hiddenDiv);
-    //             });
-    //         })
-    //         .catch(error => {
-    //             console.error('Error downloading the document:', error);
-    //         });
-    // });
+                populateFormData(editID, fileName).then(() => {
+                    setTimeout(() => {
+                        generatePDFContent().then(doc => {
+                            doc.save(fileName);
+                            document.body.removeChild(hiddenDiv);
+                            // window.location.reload();
+                        }).catch(error => {
+                            document.body.removeChild(hiddenDiv);
+                        });
+                    }, 1000); // Adjust timeout as needed
+                }).catch(error => {
+                    document.body.removeChild(hiddenDiv);
+                });
+            })
+            .catch(error => {
+                console.error('Error downloading the document:', error);
+            });
+    });
 
     // function generatePDFContent() {
     //     return new Promise((resolve) => {
@@ -344,54 +349,54 @@ function checking(editID) {
     //     };
     // }
 
-    $('#example').on('click', '.download-btn', function () {
-        let url = $(this).data('url').split('?')[0]; // Strip query parameters
-        let fileName = $(this).data('name');
-        let editID = extractEditIDFromURL(url);
+    // $('#example').on('click', '.download-btn', function () {
+    //     let url = $(this).data('url').split('?')[0]; // Strip query parameters
+    //     let fileName = $(this).data('name');
+    //     let editID = extractEditIDFromURL(url);
     
-        localStorage.setItem('form_name', fileName);
+    //     localStorage.setItem('form_name', fileName);
     
-        let existingDiv = document.getElementById('formContent');
-        if (existingDiv) {
-            document.body.removeChild(existingDiv);
-        }
+    //     let existingDiv = document.getElementById('formContent');
+    //     if (existingDiv) {
+    //         document.body.removeChild(existingDiv);
+    //     }
     
-        console.log("URL being fetched:", url);
+    //     console.log("URL being fetched:", url);
     
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Network response was not ok, status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(text => {
-                let hiddenDiv = document.createElement('div');
-                hiddenDiv.id = 'formContent';
-                hiddenDiv.style.display = 'none';
-                hiddenDiv.innerHTML = text;
-                document.body.appendChild(hiddenDiv);
+    //     fetch(url)
+    //         .then(response => {
+    //             if (!response.ok) {
+    //                 throw new Error(`Network response was not ok, status: ${response.status}`);
+    //             }
+    //             return response.text();
+    //         })
+    //         .then(text => {
+    //             let hiddenDiv = document.createElement('div');
+    //             hiddenDiv.id = 'formContent';
+    //             hiddenDiv.style.display = 'none';
+    //             hiddenDiv.innerHTML = text;
+    //             document.body.appendChild(hiddenDiv);
     
-                populateFormData(editID, fileName).then(() => {
-                    setTimeout(() => {
-                        generatePDFContent().then(doc => {
-                            doc.save(fileName);
-                            document.body.removeChild(hiddenDiv);
-                        }).catch(error => {
-                            console.error("Error generating PDF content:", error);
-                            document.body.removeChild(hiddenDiv);
-                        });
-                    }, 1000);
-                }).catch(error => {
-                    console.error("Error populating form data:", error);
-                    document.body.removeChild(hiddenDiv);
-                });
-            })
-            .catch(error => {
-                console.error('Error downloading the document:', error);
-                alert('There was an issue fetching the document. Please try again later.');
-            });
-    });
+    //             populateFormData(editID, fileName).then(() => {
+    //                 setTimeout(() => {
+    //                     generatePDFContent().then(doc => {
+    //                         doc.save(fileName);
+    //                         document.body.removeChild(hiddenDiv);
+    //                     }).catch(error => {
+    //                         console.error("Error generating PDF content:", error);
+    //                         document.body.removeChild(hiddenDiv);
+    //                     });
+    //                 }, 1000);
+    //             }).catch(error => {
+    //                 console.error("Error populating form data:", error);
+    //                 document.body.removeChild(hiddenDiv);
+    //             });
+    //         })
+    //         .catch(error => {
+    //             console.error('Error downloading the document:', error);
+    //             alert('There was an issue fetching the document. Please try again later.');
+    //         });
+    // });
     
     
     $('#example').on('click', '.print-btn', function () {

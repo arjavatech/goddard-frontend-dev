@@ -1014,9 +1014,9 @@ function checking(editID) {
                     } else {
                         document.getElementById('do_relevant_custody_papers_apply2').checked = true;
                     }
-                    if (response.gender == "Male") {
+                    if (response.gender == 1) {
                         document.getElementById('gender1').checked = true;
-                    } else if (response.gender == "Female") {
+                    } else if (response.gender == 2) {
                         document.getElementById('gender2').checked = true;
                     } else {
                         document.getElementById('gender3').checked = true;

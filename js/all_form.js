@@ -13,10 +13,19 @@ function submitForm(editID,number) {
     console.log(obj);
     obj.form_year_admission = year;
     obj.pointer = number;
+    const bottleFedValue = document.querySelector('input[name="bottle_fed"]:checked')?.value || null;
+    const breastFedValue = document.querySelector('input[name="breast_fed"]:checked')?.value || null;
+
+    obj.bottle_fed = bottleFedValue;
+    console.log(obj.bottle_fed);
+    obj.breast_fed = breastFedValue;
+    console.log(obj.breast_fed);
     //to get values from local storage variable and stored it into response1 variable.
     var response=JSON.parse(window.localStorage.getItem("responseData"));
     console.log(response);
     var outputobject ={};
+    outputobject.bottle_fed = obj.bottle_fed,
+    outputobject.breast_fed = obj.breast_fed,
     outputobject.classid = response.classid;
     //to set local response variable id value for outputobject id value.
     if(editID != ''){
@@ -146,6 +155,8 @@ function submitForm(editID,number) {
         child_care_provider_zip_address :obj.child_care_provider_zip_address
     };
     outputobject.child_care_provider_info = child_care_provider_info;
+    console.log(outputobject.breast_fed);
+    console.log(outputobject.bottle_fed);
 
     const json=JSON.stringify(outputobject); 
     console.log(json);

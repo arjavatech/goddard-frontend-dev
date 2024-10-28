@@ -1450,17 +1450,20 @@ function checking(editID) {
                         document.getElementsByName('birth_weight_oz')[0].value = response.birth_weight_oz;
                     if (typeof response.complications !== "undefined")
                         document.getElementsByName('complications')[0].value = response.complications;
-                    if (typeof response.bottle_fed == 1){
+                    
+                    console.log(response.breast_fed);
+                    console.log(response.bottle_fed);
+                    if (response.bottle_fed === 1) {
                         document.getElementById('bottle_fed1').checked = true;
-
-                    } else if (typeof response.bottle_fed == 2){
+                    } else if (response.bottle_fed === 2) {
                         document.getElementById('bottle_fed2').checked = true;
                     }
-                    if (typeof response.breast_fed == 1){
+                    if (response.breast_fed === 1) {
                         document.getElementById('breast_fed1').checked = true;
-                    } else if (typeof response.breast_fed == 2) {
+                    } else if (response.breast_fed === 2) {
                         document.getElementById('breast_fed2').checked = true;
                     }
+                    
                     if (typeof response.other_siblings_name !== "undefined")
                         document.getElementsByName('other_siblings_name')[0].value = response.other_siblings_name;
                     if (typeof response.other_siblings_age !== "undefined")

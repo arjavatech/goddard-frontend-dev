@@ -703,7 +703,7 @@ function checking(editID) {
                             
                             // Check if the field exists and update its value
                             if (custodyField) {
-                                custodyField.setAttribute('value', response.do_relevant_custody_papers_apply === 2 ? 'NO' : 'Yes');
+                                custodyField.setAttribute('value', response.do_relevant_custody_papers_apply === 2 ? 'No' : 'Yes');
                             }
                         }
 
@@ -1450,18 +1450,18 @@ function checking(editID) {
                         document.getElementsByName('birth_weight_oz')[0].value = response.birth_weight_oz;
                     if (typeof response.complications !== "undefined")
                         document.getElementsByName('complications')[0].value = response.complications;
-                    if (typeof response.bottle_fed == 2){
+                    if (typeof response.bottle_fed == 1){
                         document.getElementById('bottle_fed1').checked = true;
                         document.getElementById('bottle_fed2').checked = false;
 
-                    } else if (typeof response.bottle_fed == 1){
+                    } else if (typeof response.bottle_fed == 2){
                         document.getElementById('bottle_fed1').checked = false;
                         document.getElementById('bottle_fed2').checked = true;
                     }
-                    if (typeof response.breast_fed == 2){
+                    if (typeof response.breast_fed == 1){
                         document.getElementById('breast_fed1').checked = true;
                         document.getElementById('breast_fed2').checked = false;
-                    } else if (typeof response.breast_fed == 1) {
+                    } else if (typeof response.breast_fed == 2) {
                         document.getElementById('breast_fed2').checked = true;
                         document.getElementById('breast_fed1').checked = false;
                     }

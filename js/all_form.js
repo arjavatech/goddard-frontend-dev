@@ -103,9 +103,14 @@ function submitForm(editID,number) {
     console.log( obj.dentist_telephone_number);
     // Additional objects for specific sections
     let dentistName = document.getElementById('dropdownMenuButton').textContent.trim();
+    console.log(dentistName);
     if (dentistName === 'Others') {
         // If "Others" is selected, get the custom input value for dentist name
-        dentistName = document.getElementById('customDentistName').value;
+        dentistName = document.getElementById('child_dentist_name').value;
+        console.log(dentistName);
+    }else{
+        dentistName = document.getElementById('dropdownMenuButton').textContent.trim();
+        console.log(dentistName);
     }
     let dentist_Id;
     if(response.child_dentist_info){

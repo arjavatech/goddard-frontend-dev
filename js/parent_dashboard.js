@@ -1452,18 +1452,14 @@ function checking(editID) {
                         document.getElementsByName('complications')[0].value = response.complications;
                     if (typeof response.bottle_fed == 1){
                         document.getElementById('bottle_fed1').checked = true;
-                        document.getElementById('bottle_fed2').checked = false;
 
                     } else if (typeof response.bottle_fed == 2){
-                        document.getElementById('bottle_fed1').checked = false;
                         document.getElementById('bottle_fed2').checked = true;
                     }
                     if (typeof response.breast_fed == 1){
                         document.getElementById('breast_fed1').checked = true;
-                        document.getElementById('breast_fed2').checked = false;
                     } else if (typeof response.breast_fed == 2) {
                         document.getElementById('breast_fed2').checked = true;
-                        document.getElementById('breast_fed1').checked = false;
                     }
                     if (typeof response.other_siblings_name !== "undefined")
                         document.getElementsByName('other_siblings_name')[0].value = response.other_siblings_name;

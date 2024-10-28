@@ -34,10 +34,12 @@ function signupFunction(){
         // Check if passwords match
         if (password1 === password2) {
             // Hash the password
+            let signupInvite = window.location.search.slice(11);
             const hashedPassword = CryptoJS.SHA256(password2).toString(CryptoJS.enc.Hex);
             const obj = {};
             obj.email = email_id;
             obj.password = hashedPassword;
+            obj.signup_url = `https://arjavatech.github.io/goddard-frontend-dev/reset_password.html?invite_id=${signupInvite}`;
             // console.log(obj);
             // return false;
             $.ajax({
@@ -46,16 +48,29 @@ function signupFunction(){
                 contentType: "application/json",
                 data: JSON.stringify(obj),
                 success: function (response) {
-                    if(response.message == "User not found"){
+                    // console.log(response)
+                    // console.log(JSON.stringify(obj))
+                    // return false 
+                    if(response.error == `Parent info with email_id ${email_id} not found or Signup url is invalid`){
                         $(".error-msg-notfound").show();
                         setTimeout(function(){ 
                             $(".error-msg-notfound").hide(); 
                         }, 3000);
-                    }else{
+                    }else if(response.message == `Parent Info with email_id ${email_id} password updated successfully`){
                         $(".success-msg-reset").show();
                         setTimeout(function(){ 
                             $(".success-msg-reset").hide(); 
                             window.location.href = "login.html";
+                        }, 3000);
+                    } else if(response.error == "Forget password url was expired!!!"){
+                        $(".error-msg").show();
+                        setTimeout(function(){ 
+                            $(".error-msg").hide(); 
+                        }, 3000);
+                    } else {
+                        $(".error-msg-notfound").show();
+                        setTimeout(function(){ 
+                            $(".error-msg-notfound").hide(); 
                         }, 3000);
                     }
                 },
@@ -97,7 +112,17 @@ function resendmailFunction(){
                         $(".forget-success-msg").hide(); 
                         window.location.href = "send_resetmail.html";
                     }, 3000);
-                }else if(response.error == "SignUpInfo with email_id dhfjsdh@gmail.com not found"){
+                }else if(response.error == `SignUpInfo with email_id ${email_id} not found`){
+                    $(".error-msg-notfound").show();
+                    setTimeout(function(){ 
+                        $(".error-msg-notfound").hide(); 
+                    }, 3000);
+                } else if(response.error == "We have already sent the password reset page URL to your email. Please check your inbox."){
+                    $(".error-msg-alreadyexists").show();
+                    setTimeout(function(){ 
+                        $("error-msg-alreadyexists").hide(); 
+                    }, 3000);
+                }else{
                     $(".error-msg-notfound").show();
                     setTimeout(function(){ 
                         $(".error-msg-notfound").hide(); 

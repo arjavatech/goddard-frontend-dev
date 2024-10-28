@@ -55,7 +55,7 @@
 
 /*** Alert Message ***/
 
-.success-msg, .success-msg-reset, .error-msg, .error-msg-empty, .error-msg-mismatch, .error-msg-notfound, .error-msg-alreadyexists {
+.success-msg, .success-msg-reset, .error-msg, .error-msg-empty, .error-msg-mismatch, .error-msg-notfound, .error-msg-alreadyexists, .error-msg-invalidurl {
     position: fixed !important;
     top: 5px !important; 
     left:2% !important;

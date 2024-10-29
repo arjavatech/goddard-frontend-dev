@@ -110,7 +110,7 @@ function resendmailFunction(){
                     $(".forget-success-msg").show();
                     setTimeout(function(){ 
                         $(".forget-success-msg").hide(); 
-                        window.location.href = "send_resetmail.html";
+                        window.location.href = "login.html";
                     }, 3000);
                 }else if(response.error == `SignUpInfo with email_id ${email_id} not found`){
                     $(".error-msg-notfound").show();

@@ -169,7 +169,7 @@ function submitForm(editID,number) {
                 // window.location.reload();
                 // window.location.href = `./parent_dashboard.html?childid=${child_id_val}`;
                 sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-                window.location.href = `./parent_dashboard.html`;
+                window.location.href = `./parent_dashboard.html?id=${editID}`;
 
             }, 3000);
         }else{

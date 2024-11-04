@@ -1470,16 +1470,16 @@ function checking(editID) {
                         document.getElementsByName('other_siblings_age')[0].value = response.other_siblings_age;
 
                     if (
-                        typeof response.illness_during_pregnancy !== "undefined" &&
-                        typeof response.condition_of_newborn !== "undefined" &&
-                        typeof response.duration_of_pregnancy !== "undefined" &&
-                        typeof response.birth_weight_lbs !== "undefined" &&
-                        typeof response.birth_weight_oz !== "undefined" &&
-                        typeof response.complications !== "undefined" &&
-                        typeof response.bottle_fed !== "undefined" &&
-                        typeof response.breast_fed !== "undefined" &&
-                        typeof response.other_siblings_name !== "undefined" &&
-                        typeof response.other_siblings_age !== "undefined"
+                        response.illness_during_pregnancy &&
+                        response.condition_of_newborn &&
+                        response.duration_of_pregnancy &&
+                        response.birth_weight_lbs &&
+                        response.birth_weight_oz &&
+                        response.complications &&
+                        response.bottle_fed &&
+                        response.breast_fed &&
+                        response.other_siblings_name &&
+                        response.other_siblings_age
                     ) {
                         // Reset the display for both images
                         document.querySelector('.pregnancyhistory-tick').style.display = 'none';
@@ -1677,7 +1677,7 @@ function checking(editID) {
                         document.getElementById('agree_all_above_info_is_correct').checked = false;
                     }
 
-                    if (typeof response.agree_all_above_info_is_correct !== "undefined") {
+                    if (response.agree_all_above_info_is_correct) {
                         // Reset the display for both images
                         document.querySelector('.parentagreement-two-tick').style.display = 'none';
                         document.querySelector('.parentagreement-two-circle').style.display = 'none';
@@ -1835,9 +1835,9 @@ function checking(editID) {
                     if (typeof response.favorite_foods !== "undefined")
                         document.getElementsByName('favorite_foods')[0].value = response.favorite_foods;
 
-                    if (typeof response.restricted_diet !== "undefined" &&
-                        typeof response.eat_own !== "undefined" &&
-                        typeof response.favorite_foods !== "undefined"
+                    if (response.restricted_diet &&
+                        response.eat_own &&
+                        response.favorite_foods
                     ) {
                         // Reset the display for both images
                         document.querySelector('.nutrition-tick').style.display = 'none';

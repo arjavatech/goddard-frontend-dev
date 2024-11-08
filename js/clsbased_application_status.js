@@ -112,7 +112,7 @@ $(document).ready(function () {
 
     let classID = window.location.search.slice(4);
 
-    function initializeDataTable(url,clsdataval) {
+    function initializeDataTable(url) {
         $('#example').DataTable({
             scrollX: true,
             info: false,
@@ -121,25 +121,7 @@ $(document).ready(function () {
             scrollY: '500px',
             ajax: {
                 url: url,
-                dataSrc: function(json) {
-                    if (!url.includes('class_based_all_child_details')) {
-                        // Filter out rows where class_name is "archive and unassign"
-                        if(clsdataval !== undefined){
-                            return json.filter(function(row) {
-                                return row.class_name == clsdataval;
-                            });
-                        } else {
-                            // $("#clsroomSearch").val("");
-                            return json.filter(function(row) {
-                                return row.class_name !== 'Archive' && row.class_name !== 'Unassigned';
-                            });
-                        }                       
-                    } else {
-                        console.log("kk")
-                        return json;
-                    }
-                    
-                }
+                dataSrc: '',
             },
             columns: [
                 { 
@@ -152,7 +134,7 @@ $(document).ready(function () {
                 { 
                     data: 'child_class_name',
                     render: function (data, type, full, meta) {
-                        return getClassroomValue(full.class_name);
+                        return getClassroomDropdown(full.class_name, full.child_id);
                     },
                 },
                 { data: 'primary_email' },
@@ -189,94 +171,6 @@ $(document).ready(function () {
     if(classID != ""){
          // Initialize a new DataTable with the updated URL
          initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_based_all_child_details/${classID}`);
-    } else {
-        // Initialize DataTable with default URL
-        initializeDataTable('https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
-    }
-
-    $('#clsroomSearch').on('change', function() {
-        let clsroomSearchId = $(this).val();
-        let clsroomDataval = $(this).find('option:selected').data('value');
-        let formSelectedval = $("#form_name").find('option:selected').val();
-         // Clear and destroy the existing DataTable
-         let table = $('#example').DataTable();
-         table.clear().destroy();
-         
-        if(formSelectedval == undefined){
-            initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_based_all_child_details/${clsroomSearchId}`);
-        } else if(clsroomDataval =="" && formSelectedval == "") {
-            initializeDataTable('https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
-        } else if(formSelectedval == "" && clsroomDataval !==""){
-            // Initialize DataTable with default URL
-            initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_based_all_child_details/${clsroomSearchId}`);
-        } else if(formSelectedval !== "" && clsroomDataval ==""){
-            initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/form_based_all_child_details/${formSelectedval}`);
-        }
-          else {
-            initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/form_based_all_child_details/${formSelectedval}`,clsroomDataval);
-        }
-        
-    });
-
-    // Event listener for form_name dropdown
-    $('#form_name').on('change', function() {
-        let form_name = $(this).val();
-        $("#clsroomSearch").val("")
-        // Clear and destroy the existing DataTable
-        let table = $('#example').DataTable();
-        table.clear().destroy();
-
-        if(form_name != ""){
-            // Initialize a new DataTable with the updated URL
-            initializeDataTable(`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/form_based_all_child_details/${form_name}`);
-        } else {
-            // Initialize DataTable with default URL
-            initializeDataTable('https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
-        }
-        
-    });
-
-    // Preload the form_name dropdown options
-    $('#form_name').on('focus', function() {
-        $.ajax({
-            url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/all_form_info/getall',
-            type: 'get',
-            dataType: 'json',
-            success: function(response) {
-                let form_name_value = '<option value="">All</option>';
-                if(response !== "") {
-                    response.forEach(item => {
-                        if(item.main_topic && item.main_topic !== undefined) {
-                            form_name_value += `<option value="${item.form_id}">${item.main_topic}</option>`;
-                        }
-                    });
-                }
-                $('#form_name').html(form_name_value);
-            }
-        });
-    });
-
-
-     // Preload the Classroom dropdown options
-     clsroomSearch(); // call classroom function
-     function clsroomSearch(){
-        $.ajax({
-            url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_details/getall',
-            type: 'get',
-            dataType: 'json',
-            success: function(response) {
-                let clsroom_name_value = `<option value="" data-value="">All</option>`;
-                if(response !== "") {
-                    response.forEach(item => {
-                        if(item.class_name && item.class_name !== undefined) {
-                            let isSelected = item.class_id == classID ? 'selected' : '';
-                            clsroom_name_value += `<option value="${item.class_id}" data-value="${item.class_name}" ${isSelected}>${item.class_name}</option>`;
-                        }
-                    });
-                }
-                $('#clsroomSearch').html(clsroom_name_value);
-            }
-        });
-    }
+    } 
 
 });

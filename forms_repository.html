@@ -304,7 +304,6 @@
                                                     <div class="form-group">
                                                         <label class="col-form-label">Forms</label>
                                                         <select id="multi_child_name" class="selectpicker" multiple data-live-search="true">
-                                                            <option data-tokens="option1">All</option>
                                                             <option data-tokens="option2">Admission</option>
                                                             <option data-tokens="option3">Authorization</option>
                                                             <option data-tokens="option4">Parent Handbook</option>
@@ -316,7 +315,6 @@
                                                     <div class="form-group">
                                                         <label class="col-form-label">Allocate to</label>
                                                         <select id="multi_child_name" class="selectpicker" data-live-search="true">
-                                                            <option data-tokens="option1">All</option>
                                                             <option data-tokens="option2">Default</option>
                                                             <option data-tokens="option3">Available</option>
                                                             <option data-tokens="option4">Active</option>
@@ -442,6 +440,8 @@
                 //for adding horizontal scrool bar
                 scrollX: true,
                 Info: false,
+                scrollCollapse: true,
+                scrollY: '500px',
                 //option is used to define the layout and elements that should be displayed around the table.
                 dom: 'Qlfrtip',
                 lengthChange: false,
@@ -454,7 +454,7 @@
                 columns: [
                     { data: 'class_name',
                     render: function (data, type, full, meta) {
-                        let url = `${window.location.origin}/goddard-frontend-dev/application_status.html?id=${full.class_id}`;
+                        let url = `${window.location.origin}/goddard-frontend-dev/clsbased_application_status.html?id=${full.class_id}`;
                         return `<a href="${url}" class="text-primary">${full.class_name}</a>`;
                     },
                      },
@@ -486,7 +486,7 @@
                     //     }
                     // },
                 ],
-                "pageLength": 25,
+                "pageLength": 250,
             });
 
         });

@@ -17,6 +17,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="js/parent_details.js"></script>
     <script type="module" src="js/auth_verify.js"></script>
+    <script type="module" src='js/add_child.js'></script>
     <style>
         /***DON'T REMOVE***/
 
@@ -73,6 +74,10 @@
 
         [type=search] {
             outline-offset: 0px !important;
+        }
+
+        .linkstatus {
+            background-color: gray !important;
         }
 
         /***DON'T REMOVE***/
@@ -183,11 +188,11 @@
             </h2>
             <div class="ms-4">
                 <a href="invite_parent.html" class="btn btn-primary text-white text-decoration-none">Invite Parent</a>
-                <a href="add_child.html" class="btn btn-primary text-white text-decoration-none">Add Child</a>
-            </div>  
-           
+                <!-- <a href="add_child.html" class="btn btn-primary text-white text-decoration-none">Add Child</a> -->
+            </div>
+
             <div class="d-flex justify-content-center m-2">
-                
+
                 <div class="container" style="margin-top: 20px;">
                     <div class="table-wrapper">
                         <!-- Form Action Table -->
@@ -203,8 +208,112 @@
                         </table>
                         <!-- Form Action Table End -->
                     </div>
-                    <button class="excelbuttn border-0" onclick="ExportToExcel('xlsx')"><img src="image/excel.png" alt="image"
-                            style="height:25px;width:25px;"></button>
+                    <button class="excelbuttn border-0" onclick="ExportToExcel('xlsx')"><img src="image/excel.png"
+                            alt="image" style="height:25px;width:25px;"></button>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Child Basic Information</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="addChildDiv">
+                                <!--Child basi info Form-->
+                                <div id="child_basic_form"><br>
+                                    <div class="card_center">
+                                        <div>
+                                            <!-- <h2 class="card_title">Child Basic Information</h2><br> -->
+                                            <div class="success-msg alert alert-success">
+                                                <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+                                                <strong>Success!</strong> Child added successfully!
+                                            </div>
+                                            <div class="error-msg alert alert-danger">
+                                                <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+                                                <strong>Oops!</strong> You have to fill all the fields!
+                                            </div>
+                                            <div class="error-msg-notfound alert alert-danger">
+                                                <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+                                                <strong>Oops!</strong> failed to submit admission form
+                                            </div>
+                                            <div class="container" id="avf_form">
+                                                <form id="childBasicForm">
+                                                    <div class="row">
+                                                        <div class="col-sm m-3">
+                                                            <div class="form-group">
+                                                                <label for="child_first_name"
+                                                                    class="form-label"><b>First Name
+                                                                    </b></label><br>
+                                                                <input name="child_first_name" type="text"
+                                                                    maxlength="20" class="form-control wizard-required"
+                                                                    id="child_first_name">
+                                                                <div class="wizard-form-error"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm m-3">
+                                                            <div class="form-group">
+                                                                <label for="child_last_name" class="form-label"><b>Last
+                                                                        Name
+                                                                    </b></label><br>
+                                                                <input name="child_last_name" type="text" maxlength="20"
+                                                                    class="form-control wizard-required"
+                                                                    id="child_last_name">
+                                                                <div class="wizard-form-error"></div>
+                                                            </div>
+                                                        </div>
+                                                        <!-- <div class="col-sm m-3">
+                                                                <div class="form-group"> 
+                                                                    <label for="dob" class="form-label"><b>Date of Birth</b></label>
+                                                                    <input type="date" class="form-control wizard-required" id="dob"
+                                                                        name="dob"/>
+                                                                        <div class="wizard-form-error"></div>
+                                                                </div>
+                                                            </div> -->
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm m-3">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label"><b>Class Room</b></label>
+                                                                <select class="form-control" name="class_id"
+                                                                    id="class_name"></select>
+                                                                <i class="fa fa-chevron-down"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm m-3">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label"><b>Parent
+                                                                        Email</b></label>
+                                                                <input class="form-control" id="primary_parent_email" disabled>
+                                                                <input type="hidden" name="parent_id"
+                                                                    id="primary_parent_hidden">
+                                                                <!-- <i class="fa fa-chevron-down"></i> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group clearfix m-5">
+                                                        <div class="text-center">
+                                                            <button class="cancel-btn">Cancel</button>
+                                                            <button class="add-btn" id="basic_child_button">Add</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <!-- <button type="button" class="btn btn-secondary"
+                             data-bs-dismiss="modal">Close</button>
+                         <button type="button" class="btn btn-primary">Save changes</button> -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -288,6 +397,8 @@
                 //option is used to define the layout and elements that should be displayed around the table.
                 dom: 'Qlfrtip',
                 lengthChange: false,
+                scrollCollapse: true,
+                scrollY: '500px',
                 //for waking up the aws lambda server
                 ajax: {
                     url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_invite_status/getall',
@@ -295,11 +406,12 @@
                 },
                 //it is used to define and configure the individual columns of the table.
                 columns: [
-                    { data: 'parent_name',
-                    render: function (data, type, full, meta) {
-                        let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.invite_email}`;
-                        return `<a href="${url}" class="text-primary">${full.parent_name}</a>`;
-                    },
+                    {
+                        data: 'parent_name',
+                        render: function (data, type, full, meta) {
+                            let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.invite_email}`;
+                            return `<a href="${url}" class="text-primary">${full.parent_name}</a>`;
+                        },
                     },
                     { data: 'invite_email' },
                     {
@@ -316,21 +428,60 @@
                         data: 'resend',
                         render: function (data, type, full, meta) {
                             const disabled = full.status === 'Active' ? 'disabled' : '';
-                            return `<button id="sendButton"  name="sendButton" class="invite-button ${disabled}" onclick="emailSend('${full.invite_email}')" ${disabled}>Send</button>`;
+                            // const linkstatus = full.status === 'Inactive' ? '#' : `add_child.html?email=${full.invite_email}`;
+                            const linkstatuscolor = full.status === 'Inactive' ? 'linkstatus' : '';
+                            return `<button id="sendButton"  name="sendButton" class="invite-button ${disabled}" onclick="emailSend('${full.invite_email}')" ${disabled}>Send</button>
+                            <button id="getEmailid" class="invite-button text-white ${linkstatuscolor}" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" onclick="setModalValue('${full.invite_email}')">Add Child</button>`;
 
                         },
                     },
                 ],
-                "pageLength": 25,
+                "pageLength": 250,
             });
         });
+
+        function setModalValue(buttonValue) {
+            //for waking up the aws lambda server
+            $.ajax({
+                url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_info/getall',
+                type: 'get',
+                datasrc: '',
+                dataType: 'json',
+                //this is uesd to get the response and return the result
+                success: function (response) {
+                    console.log(response);
+                    var parent_email = '';
+                    // Checking if response is not empty and contains valid data
+                    if (response && response.length > 0) {
+                        for (var i = 0; i < response.length; i++) {
+                            if (response[i].parent_email) {
+                                // let Selected = response[i].parent_email === buttonValue ? 'selected' : '';
+                                // // Dynamically constructing options for the select
+                                // parent_email += '<option value="' + response[i].parent_id + '" data-tokens="' + response[i].parent_id + '"' + Selected + '>' + response[i].parent_email + '</option>';
+                                if (response[i].parent_email === buttonValue) {
+                                    // Updating the select parent email
+                                    $('#primary_parent_email').val(response[i].parent_email);
+                                    $('#primary_parent_hidden').val(response[i].parent_id);
+                                }
+                            }
+                        }
+                    }
+
+                }
+            });
+        }
+        // document.getElementById("primary_parent_email").addEventListener("change", function () {
+            // console.log($('#primary_parent_email').val())
+        // });
+
         function ExportToExcel(type, fn, dl) {
             var elt = document.getElementById('example');
             var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
             var sheet = wb.Sheets["sheet1"]; // Access the first sheet of the workbook
             var rowIndex = 2; // Excel uses 1-based indexing
 
-            $('#example').find('tbody tr').each(function() {
+            $('#example').find('tbody tr').each(function () {
                 // Now, remove the 5th column from the Excel sheet entirely
                 for (var R = 1; R <= rowIndex; R++) {
                     var cellToDelete = 'E' + R; // Column E is the 5th column

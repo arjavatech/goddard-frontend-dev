@@ -6,27 +6,35 @@ function submitForm() {
     console.log(form);
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
+    // console.log(obj);
+    // return false;
     if (obj.child_first_name != '' && obj.child_last_name != '' && obj.class_id != '' && obj.class_id != null && obj.parent_id != '') {
         obj.class_id = parseInt(obj.class_id);
         const json = JSON.stringify(obj);
-        console.log(json);
-        // return false;
+
         $.ajax({
             url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_info/create",
             type: "POST",
             contentType: "application/json",
             data: json,
             success: function (response) {
-                // alert(response.message);
-                $(".success-msg").show();
-                setTimeout(function () {
-                    $(".success-msg").hide();
-                    window.location.reload();
-                }, 3000);
+                console.log(response);
+                // return false;
+                if (response.message === "Child information created successfully") {
+                    $(".success-msg").show();
+                    setTimeout(function () {
+                        $(".success-msg").hide();
+                        window.location.reload();
+                    }, 3000);
+                }
+
             },
             error: function (xhr, status, error) {
                 console.log(error)
-                // alert("failed to submit admission form");
+                $(".success-msg").show();
+                setTimeout(function () {
+                    $(".error-msg-notfound").hide();
+                }, 3000);
             }
         });
     } else {
@@ -72,38 +80,43 @@ $(document).ready(function () {
         //     });
         // });
 
-        function parent_email_load() {
-            //for waking up the aws lambda server
-            $.ajax({
-                url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_info/getall',
-                type: 'get',
-                datasrc: '',
-                dataType: 'json',
-                //this is uesd to get the response and return the result
-                success: function (response) {
-                    console.log(response);
-                    var parent_email = '';
-                    // Checking if response is not empty and contains valid data
-                    if (response && response.length > 0) {
-                        for (var i = 0; i < response.length; i++) {
-                            if (response[i].parent_email) {
-                                // Dynamically constructing options for the select
-                                parent_email += '<option value="' + response[i].parent_id + '" data-tokens="' + response[i].parent_id + '">' + response[i].parent_email + '</option>';
-                            }
-                        }
-                    }
-                    // Updating the select element with new options
-                    $('#primary_parent_email').html(parent_email);
+        // function parent_email_load() {
+        //     let selectedEmailId = window.location.search.slice(7);
+        //     //for waking up the aws lambda server
+        //     $.ajax({
+        //         url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_info/getall',
+        //         type: 'get',
+        //         datasrc: '',
+        //         dataType: 'json',
+        //         //this is uesd to get the response and return the result
+        //         success: function (response) {
+        //             console.log(response);
+        //             var parent_email = '';
+        //             // Checking if response is not empty and contains valid data
+        //             if (response && response.length > 0) {
+        //                 for (var i = 0; i < response.length; i++) {
+        //                     if (response[i].parent_email) {
+        //                         let Selected = response[i].parent_email === selectedEmailId ? 'selected' : '';
+        //                         // Dynamically constructing options for the select
+        //                         parent_email += '<option value="' + response[i].parent_id + '" data-tokens="' + response[i].parent_id + '"'+ Selected +'>' + response[i].parent_email + '</option>';
+        //                     }
+        //                 }
+        //             }
+        //             // Updating the select element with new options
+        //             $('#primary_parent_email').html(parent_email);
 
-                    // Refreshing the selectpicker to apply the new options
-                    $('#primary_parent_email').selectpicker('refresh');
-                }
-            });
-        }
-        $(document).on("click", ".bs-placeholder", function () {
-            parent_email_load();
-        });
-        
+        //             // Refreshing the selectpicker to apply the new options
+        //             $('#primary_parent_email').selectpicker('refresh');
+        //             if (selectedEmailId) {
+        //                 $('.filter-option-inner-inner').text(selectedEmailId);
+        //             }
+        //         }
+        //     });
+        // }
+        // $(document).on("click", ".bs-placeholder", function () {
+        //     parent_email_load();
+        // });
+
         $('#class_name').on('focus', function () {
             //for waking up the aws lambda server
             $.ajax({

@@ -183,11 +183,11 @@
     </div>
     <div class="error-form-msg-1 alert alert-danger">
         <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
-        <strong>Oops!</strong>You have to select the fields!
+        <strong>Oops!</strong> You have to select the fields!
     </div>
     <div class="success-form-msg-update alert alert-success">
         <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
-        <strong>Success!</strong>Form updated!
+        <strong>Success!</strong> Form updated!
     </div>
 
     <!-- Alert Message End-->
@@ -255,7 +255,7 @@
                                 <div class="card form-card-style">
                                     <!-- <h2 class="admin_dashboard_title h2 pt-4 text-center">Forms Repository</h2>        -->
                                     <div class="container">
-                                        <form>
+                                        <form id="formAllocate">
                                             <div class="row m-4">
                                                 <!-- <div class="col-sm-4">
                                                     <div class="form-group">
@@ -291,42 +291,40 @@
                                                 <div class="col-sm-4" >
                                                     <div class="form-group">
                                                         <label class="col-form-label">Form type</label>
-                                                        <select id="multi_child_name" class="selectpicker" multiple data-live-search="true">
-                                                            <option data-tokens="option1">All</option>
-                                                            <option data-tokens="option2">Default</option>
-                                                            <option data-tokens="option3">Available</option>
-                                                            <option data-tokens="option4">Active</option>
-                                                            <option data-tokens="option4">Archive</option>
+                                                        <select id="multi_form_type" class="selectpicker" multiple data-live-search="true">
+                                                            <option data-tokens="option1" value="all">All</option>
+                                                            <option data-tokens="option2" value="default">Default</option>
+                                                            <option data-tokens="option3" value="available">Available</option>
+                                                            <option data-tokens="option4" value="active">Active</option>
+                                                            <option data-tokens="option4" value="archive">Archive</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4" >
                                                     <div class="form-group">
                                                         <label class="col-form-label">Forms</label>
-                                                        <select id="multi_child_name" class="selectpicker" multiple data-live-search="true">
-                                                            <option data-tokens="option2">Admission</option>
-                                                            <option data-tokens="option3">Authorization</option>
-                                                            <option data-tokens="option4">Parent Handbook</option>
-                                                            <option data-tokens="option4">Entrollment</option>
+                                                        <select id="multi_form_name" name="multi_form_name" class="selectpicker" multiple data-live-search="true">
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-4" >
                                                     <div class="form-group">
                                                         <label class="col-form-label">Allocate to</label>
-                                                        <select id="multi_child_name" class="selectpicker" data-live-search="true">
-                                                            <option data-tokens="option2">Default</option>
-                                                            <option data-tokens="option3">Available</option>
-                                                            <option data-tokens="option4">Active</option>
-                                                            <option data-tokens="option4">Archive</option>
+                                                        <select id="allocate_to" name="allocate_to" class="selectpicker" data-live-search="true">
+                                                            <option data-tokens="option2" value="0">Default</option>
+                                                            <option data-tokens="option3" value="1">Available</option>
+                                                            <option data-tokens="option4" value="2">Active</option>
+                                                            <option data-tokens="option4" value="3">Archive</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="text-center m-3">
-                                                    <button id="sendButton" type="submit"
+                                                    <button id="sendFormAllocate" type="submit"
                                                         class="btn btn-primary btn-bg">Send</button>
                                                 </div>
                                             </div>
+                                        </form>
+                                        <form>
                                             <div class="row m-4">
                                                 <div class="col-sm-4">
                                                     <div class="form-group">
@@ -353,10 +351,7 @@
                                                     <div class="form-group">
                                                         <label class="col-form-label">Child Name</label>
                                                         <select id="multi_child_name" class="selectpicker" multiple data-live-search="true">
-                                                            <option data-tokens="option1">Option 1</option>
-                                                            <option data-tokens="option2">Option 2</option>
-                                                            <option data-tokens="option3">Option 3</option>
-                                                            <option data-tokens="option4">Option 4</option>
+
                                                         </select>
                                                     </div>
                                                 </div>
@@ -381,10 +376,11 @@
                                             </div>
                                             
                                             <div class="text-center m-4">
-                                                <button id="sendButton" type="submit"
+                                                <button id="sendFormClsChild" type="submit"
                                                     class="btn btn-primary btn-bg">Send</button>
                                             </div>
                                         </form>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -575,51 +571,39 @@
         document.addEventListener("DOMContentLoaded", function () {
 
             function active_forms() {
-                // For waking up the AWS Lambda server
+
                 $.ajax({
-                    url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/all_form_info/getall',
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function (response) {
-                        var active_forms = '';
-                        var multi_active_forms = '';
-                        if (response !== "") {
-                            for (var i = 0; i < response.length; i++) {
-                                if (response[i].main_topic != "" && response[i].main_topic != undefined && response[i].form_status == 'Active') {
-                                    active_forms += '<option value="' + response[i].form_id + '">' + response[i].main_topic + '</option>';
-                                    multi_active_forms += '<option value="' + response[i].form_id + '" data-tokens="' + response[i].main_topic + '">' + response[i].main_topic + '</option>';
-                                }
-                            }
+                url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/get_all_form_details',
+                type: 'get',
+                datasrc: '',
+                dataType: 'json',
+                success: function (response) {
+                    console.log("API Response:", response);
+                    let filteredActiveData = "";
+
+                    // Loop through each selected value to filter response data
+                   
+                        if (response.active) {
+                            Object.entries(response.active).forEach(([key, value]) => {
+                                filteredActiveData += '<option value="' + value + '" data-tokens="' + key + '">' + key + '</option>';
+                            });
+                        } else {
+                            console.warn(`No data found for active form`);
                         }
-                        $('#active_forms').html(active_forms);
-                        $('#multi_active_forms').html(multi_active_forms);
 
-                        // Refresh the selectpicker to apply the changes
-                        $('#multi_active_forms').selectpicker('refresh');
-                    }
-                });
-            }
+                    $multi_active_forms = $('#multi_active_forms').html(filteredActiveData);
 
-            function available_forms() {
-                // For waking up the AWS Lambda server
-                $.ajax({
-                    url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/all_form_info/getall',
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function (response) {
-                        var available_forms = '';
-                        if (response !== "") {
-                            for (var i = 0; i < response.length; i++) {
-                                if (response[i].main_topic != "" && response[i].main_topic != undefined && response[i].form_status == 'Available') {
-                                    available_forms += '<option value="' + response[i].form_id + '">' + response[i].main_topic + '</option>';
-                                }
-                            }
-                        }
-                        $('#available_forms').html(available_forms);
-                    }
-                });
-            }
+                    // Refresh selectpicker if using Bootstrap selectpicker
+                    $multi_active_forms.selectpicker('refresh');
+                },
+                error: function (error) {
+                    console.error("Error fetching data:", error);
+                }
 
+        });
+     }
+
+            
             function classroom_names() {
                 // For waking up the AWS Lambda server
                 $.ajax({
@@ -644,93 +628,202 @@
 
             // Call the function to execute it when the DOM is fully loaded
             active_forms();
-            available_forms();
             classroom_names();
         });
 
-        $(document).on("click", "#avai-to-act", function () {
-            var availableForms = document.getElementById("available_forms");
-            var selectedValues = [];
-
-            // Loop through the options and collect the selected values
-            for (var i = 0; i < availableForms.options.length; i++) {
-                if (availableForms.options[i].selected) {
-                    selectedValues.push(availableForms.options[i].value);
-                }
-            }
-
-            // If no values are selected, return false
-            if (selectedValues.length === 0) {
-                console.log("No forms selected.");
-                return false;
-            }
-
-            // Prepare data object with the selected values and form status
-            let obj = {
-                form_ids: selectedValues,  // Send an array of selected values
-                form_status: "Active",
-            };
-
-            const json = JSON.stringify(obj);
-            console.log(json);
-            return false;
-
+        $(document).on("change", "#multi_form_type", function () {
+            let selectedValues = $('#multi_form_type').val();
             $.ajax({
-                url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/all_form_info/update/${avai_value}`,
-                type: 'PUT',
-                data: json,
-                contentType: 'application/json', // Explicitly set the content type
+                url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/get_all_form_details',
+                type: 'get',
+                datasrc: '',
                 dataType: 'json',
                 success: function (response) {
-                    if (response) {
+                    console.log("API Response:", response);
+                    let filteredData = "";
+
+                    // Loop through each selected value to filter response data
+                    selectedValues.forEach(typeValue => {
+                        console.log(selectedValues);
+                        if (response[typeValue]) {
+                            Object.entries(response[typeValue]).forEach(([key, value]) => {
+                                filteredData += '<option value="' + value + '" data-tokens="' + key + '">' + key + '</option>';
+                            });
+                        } else {
+                            console.warn(`No data found for category: ${typeValue}`);
+                        }
+                    });
+                    console.log("Filtered Data HTML:", filteredData);
+
+                    $secondSelect = $('#multi_form_name').html(filteredData);
+
+                    // Refresh selectpicker if using Bootstrap selectpicker
+                    $secondSelect.selectpicker('refresh');
+                },
+                error: function (error) {
+                    console.error("Error fetching data:", error);
+                }
+
+        });
+    });
+
+    $(document).on("change", "#multi_cls_room", function () {
+        let selectedClsValues = $('#multi_cls_room').val();
+       
+        $.ajax({
+            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_wise_child_details`,
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                let filteredClsData = "";
+                selectedClsValues.forEach(typeValue => {
+                Object.entries(response[typeValue]).forEach(([key, value]) => {
+                    filteredClsData += '<option value="' + value.child_id + '" data-tokens="' + value.child_id + '">' + value.child_first_name + '</option>';
+                });
+            });
+                $secondSelectCls = $('#multi_child_name').html(filteredClsData);
+
+                // Refresh selectpicker if using Bootstrap selectpicker
+                $secondSelectCls.selectpicker('refresh');
+
+            }
+        });
+    });
+
+// Allocate form
+    $(document).on("click", "#sendFormAllocate", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        let allocate_to = $('#allocate_to').val();
+        let multi_form_name = $('#multi_form_name').val();
+
+        let obj = {
+            "form_ids" : multi_form_name,
+            "state": allocate_to
+        }
+        console.log(obj)
+        const json = JSON.stringify(obj);
+        let formId_len = obj.form_ids.length;
+        let form_allocate = obj.state;
+
+        if(formId_len != 0 && form_allocate != ""){
+           
+            $.ajax({
+                url: " https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/update_form_repo_state",
+                type: "PUT",
+                contentType: "application/json",
+                data: json,
+                success: function (response) {
+                    console.log(response);
+                    // return false;
+                    if (response.message === "Forms updated successfully") {
                         $(".success-form-msg-update").show();
                         setTimeout(function () {
                             $(".success-form-msg-update").hide();
-                            window.location.href = "forms_repository.html";
-                        }, 3000);
-                    } else {
-                        $(".error-form-msg-1").show();
-                        setTimeout(function () {
-                            $(".error-form-msg-1").hide();
-                            window.location.href = "forms_repository.html";
+                            window.location.reload();
                         }, 3000);
                     }
+
+                },
+                error: function (xhr, status, error) {
+                    console.log(error)
+                    $(".error-msg-notfound").show();
+                    setTimeout(function () {
+                        $(".error-msg-notfound").hide();
+                    }, 3000);
                 }
             });
-        });
+        
+        } else {
+            $(".error-msg-2").show();
+            setTimeout(function () {
+                $(".error-msg-2").hide();
+            }, 3000);
+            
+        }
 
-        $(document).on("click", "#act-to-avai", function () {
-            var act_value = document.getElementById("active_forms").value;
+    });
 
+    $(document).on("click", "#sendFormClsChild", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        let multi_active_forms = $('#multi_active_forms').val();
+        let multi_cls_room = $('#multi_cls_room').val();
+        let multi_child_name = $('#multi_child_name').val();
+
+        if(multi_active_forms.length != 0 && multi_cls_room.length != 0 && multi_child_name.length == 0){
             let obj = {
-                form_id: act_value,
-                form_status: "Available",
+                "form_ids" : multi_active_forms,
+                "class_ids": multi_cls_room
             }
-            const json = JSON.stringify(obj);
+        const json = JSON.stringify(obj);
 
             $.ajax({
-                url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/all_form_info/update/${act_value}`,
-                type: 'PUT',
+                url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_repo_update",
+                type: "POST",
+                contentType: "application/json",
                 data: json,
-                contentType: 'application/json', // Explicitly set the content type
-                dataType: 'json',
                 success: function (response) {
-                    if (response) {
+                    // console.log(response);
+                    // return false;
+                    if (response.message === "Forms updated successfully") {
                         $(".success-form-msg-update").show();
                         setTimeout(function () {
                             $(".success-form-msg-update").hide();
-                            window.location.href = "forms_repository.html";
-                        }, 3000);
-                    } else {
-                        $(".error-form-msg-1").show();
-                        setTimeout(function () {
-                            $(".error-form-msg-1").hide();
-                            window.location.href = "forms_repository.html";
+                            window.location.reload();
                         }, 3000);
                     }
+
+                },
+                error: function (xhr, status, error) {
+                    console.log(error)
+                    $(".error-msg-notfound").show();
+                    setTimeout(function () {
+                        $(".error-msg-notfound").hide();
+                    }, 3000);
                 }
             });
-        });
+        
+        } else if(multi_active_forms.length != 0 && multi_cls_room.length != 0 && multi_child_name.length != 0){
+            let obj = {
+                "form_ids" : multi_active_forms,
+                "child_ids": multi_child_name
+            }
+        const json = JSON.stringify(obj);
+
+            $.ajax({
+                url: " https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/student_repo_update",
+                type: "POST",
+                contentType: "application/json",
+                data: json,
+                success: function (response) {
+                    // console.log(response);
+                    // return false;
+                    if (response.message === "Forms updated successfully") {
+                        $(".success-form-msg-update").show();
+                        setTimeout(function () {
+                            $(".success-form-msg-update").hide();
+                            window.location.reload();
+                        }, 3000);
+                    }
+
+                },
+                error: function (xhr, status, error) {
+                    console.log(error)
+                    $(".error-msg-notfound").show();
+                    setTimeout(function () {
+                        $(".error-msg-notfound").hide();
+                    }, 3000);
+                }
+            });
+            
+        }else {
+            $(".error-msg-2").show();
+            setTimeout(function () {
+                $(".error-msg-2").hide();
+            }, 3000);
+        }
+      
+
+    });
 
         // Add event listener for radio buttons
         // document.getElementById("radioClass").addEventListener("click", function() {

@@ -125,7 +125,7 @@ a{
 
     /*** Alert Message ***/
 
-    .success-msg, .error-msg-roomedit {
+    .success-msg, .error-msg-roomedit, .success-form-msg-update, .success-msg-update, .success-msg-delete, .error-form-msg-1 {
         position: fixed !important;
         top: 5px; 
         left:2%;

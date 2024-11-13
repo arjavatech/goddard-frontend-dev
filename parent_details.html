@@ -79,6 +79,71 @@
         .linkstatus {
             background-color: gray !important;
         }
+        .dropdown-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .dropdown-container1 {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .parent-dropdown {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #0F2D52;
+            border-radius: 4px;
+            background-color: #fff;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .parent-dropdown1 {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #0F2D52;
+            border-radius: 4px;
+            background-color: #fff;
+            font-size: 16px;
+            position: relative;
+        }
+
+        .dropdown-container::after {
+            content: '';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #000;
+            transform: translateY(-50%);
+        }
+
+        .dropdown-container1::after {
+            content: '';
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            width: 0;
+            height: 0;
+            pointer-events: none;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #000;
+            transform: translateY(-50%);
+        }
 
         /***DON'T REMOVE***/
     </style>
@@ -385,6 +450,16 @@
         //     }
 
         $(document).ready(function () {
+
+            // function for create dropdown options
+            function getStatusDropdown(selectedStatusName, parentId) {
+                let dropdown = `<div class="dropdown-container"><select class="parent-dropdown" data-parent-id="${parentId}">`;
+                    const selected = "Active" === selectedStatusName ? 'selected' : '';
+                    dropdown += `<option value="${selectedStatusName}" "Active" === ${selectedStatusName} ? 'selected' : '';>Active</option>
+                                <option value="${selectedStatusName}" "Archive" === ${selectedStatusName} ? 'selected' : '';>Archive</option>`;
+                dropdown += `</select></div>`;
+                return dropdown;
+            }
             // $('#myTable').DataTable();
             //for avoid datatable error popup messages//
             $.fn.dataTable.ext.errMode = 'none';
@@ -402,7 +477,12 @@
                 //for waking up the aws lambda server
                 ajax: {
                     url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_invite_status/getall',
-                    dataSrc: '',
+                    dataSrc: function(json) {
+                        if (json.Active) {
+                        console.log(json.Active);
+                            return json.Active;
+                        }
+                    }
                 },
                 //it is used to define and configure the individual columns of the table.
                 columns: [
@@ -423,13 +503,17 @@
                             return datePart;
                         },
                     },
-                    { data: 'status' },
+                    { data: 'status',
+                        render: function (data, type, full, meta) {
+                            return getStatusDropdown(full.status, full.parent_id);
+                        },
+                    },
                     {
                         data: 'resend',
                         render: function (data, type, full, meta) {
-                            const disabled = full.status === 'Active' ? 'disabled' : '';
+                            const disabled = full.invite_status === 'Active' ? 'disabled' : '';
                             // const linkstatus = full.status === 'Inactive' ? '#' : `add_child.html?email=${full.invite_email}`;
-                            const linkstatuscolor = full.status === 'Inactive' ? 'linkstatus' : '';
+                            const linkstatuscolor = full.invite_status === 'Inactive' ? 'linkstatus' : '';
                             return `<button id="sendButton"  name="sendButton" class="invite-button ${disabled}" onclick="emailSend('${full.invite_email}')" ${disabled}>Send</button>
                             <button id="getEmailid" class="invite-button text-white ${linkstatuscolor}" data-bs-toggle="modal"
                             data-bs-target="#exampleModal" onclick="setModalValue('${full.invite_email}')">Add Child</button>`;
@@ -471,9 +555,59 @@
                 }
             });
         }
-        // document.getElementById("primary_parent_email").addEventListener("change", function () {
-            // console.log($('#primary_parent_email').val())
-        // });
+        $(document).on("change", ".parent-dropdown", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        let selectedParentName = $(this).val();
+        let parentId = $(this).data('parent-id');
+
+        // let obj = {
+        //     "form_ids" : multi_form_name,
+        //     "state": allocate_to
+        // }
+        
+        // const json = JSON.stringify(obj);
+        // let formId_len = obj.form_ids.length;
+        // let form_allocate = obj.state;
+
+        if(parentId != ''){
+           
+            $.ajax({
+                url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/update_parent_status_as_archive/${parentId}`,
+                type: "PUT",
+                contentType: "application/json",
+                data: '',
+                success: function (response) {
+                    console.log(response);
+                    return false;
+                    if (response.message === "Parent status with parent_id 52 updated successfully") {
+                        $(".success-form-msg-update").show();
+                        setTimeout(function () {
+                            $(".success-form-msg-update").hide();
+                            window.location.reload();
+                        }, 3000);
+                    }
+
+                },
+                error: function (xhr, status, error) {
+                    console.log(error)
+                    $(".error-msg-notfound").show();
+                    setTimeout(function () {
+                        $(".error-msg-notfound").hide();
+                    }, 3000);
+                }
+            });
+        
+        } else {
+            $(".error-msg-2").show();
+            setTimeout(function () {
+                $(".error-msg-2").hide();
+            }, 3000);
+            
+        }
+
+    });
+
+   
 
         function ExportToExcel(type, fn, dl) {
             var elt = document.getElementById('example');

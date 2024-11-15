@@ -21,9 +21,9 @@ function submitForm() {
                 console.log(response);
                 // return false;
                 if (response.message === "Child information created successfully") {
-                    $(".success-msg").show();
+                    $(".success-msg-update").show();
                     setTimeout(function () {
-                        $(".success-msg").hide();
+                        $(".success-msg-update").hide();
                         window.location.reload();
                     }, 3000);
                 }

@@ -253,8 +253,22 @@
             </h2>
             <div class="ms-4">
                 <a href="invite_parent.html" class="btn btn-primary text-white text-decoration-none">Invite Parent</a>
-                <!-- <a href="add_child.html" class="btn btn-primary text-white text-decoration-none">Add Child</a> -->
+                <!-- <a href="add_child.html" class="btn btn-primary text-white text-decoration-none">Add Child</a> --> 
             </div>
+            <div class="row">
+                <div class="col-7"></div>
+                <div class="col-4 mb-2">
+                    <div class="d-flex dropdown-container1">
+                        <label for="parent_Search" class="me-2 fw-bold fs-5">Status: </label>
+                        <select name="parentSearch" class="allform form-control classroom-dropdown1" id="parentSearch">
+                            <option value="">Select status</option>
+                            <option value="Archive">Archive</option>
+                            <option value="Active">Active</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
 
             <div class="d-flex justify-content-center m-2">
 
@@ -294,9 +308,9 @@
                                     <div class="card_center">
                                         <div>
                                             <!-- <h2 class="card_title">Child Basic Information</h2><br> -->
-                                            <div class="success-msg alert alert-success">
+                                            <div class="success-form-msg-update alert alert-success">
                                                 <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
-                                                <strong>Success!</strong> Child added successfully!
+                                                <strong>Success!</strong> Parent Status Updated!
                                             </div>
                                             <div class="error-msg alert alert-danger">
                                                 <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
@@ -450,22 +464,37 @@
         //     }
 
         $(document).ready(function () {
+            initializeDataTable();
 
             // function for create dropdown options
             function getStatusDropdown(selectedStatusName, parentId) {
                 let dropdown = `<div class="dropdown-container"><select class="parent-dropdown" data-parent-id="${parentId}">`;
-                    const selected = "Active" === selectedStatusName ? 'selected' : '';
-                    dropdown += `<option value="${selectedStatusName}" "Active" === ${selectedStatusName} ? 'selected' : '';>Active</option>
-                                <option value="${selectedStatusName}" "Archive" === ${selectedStatusName} ? 'selected' : '';>Archive</option>`;
-                dropdown += `</select></div>`;
-                return dropdown;
+                    const Acselected = "Active" === selectedStatusName ? 'selected' : '';
+                    const Axselected = "Archive" === selectedStatusName ? 'selected' : '';
+
+                    dropdown += `<option value="Active" ${Acselected}>Active</option>
+                                <option value="Archive" ${Axselected}>Archive</option>`;
+                    dropdown += `</select></div>`;
+                    return dropdown;
             }
+
+             // Parent Filter
+
+            $(document).on("change", "#parentSearch", function() {
+                console.log(this.value);
+                initializeDataTable(this.value);
+            });
+
             // $('#myTable').DataTable();
             //for avoid datatable error popup messages//
             $.fn.dataTable.ext.errMode = 'none';
 
-            //datatable creating function//
-            $('#example').DataTable({
+            function initializeDataTable(statusval) {
+                if ($.fn.DataTable.isDataTable('#example')) {
+                    $('#example').DataTable().destroy();
+                }
+                //datatable creating function//
+                $('#example').DataTable({
                 //for adding horizontal scrool bar
                 scrollX: true,
                 Info: false,
@@ -478,10 +507,17 @@
                 ajax: {
                     url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_invite_status/getall',
                     dataSrc: function(json) {
-                        if (json.Active) {
-                        console.log(json.Active);
-                            return json.Active;
+
+                        if (!statusval) {
+                            return json.Active || [];
+                        } else if (statusval === "Archive") {
+                            return json.Archive || [];
+                        } else if (statusval === "Active") {
+                            return json.Active || [];
+                        } else {
+                            return [];
                         }
+                        
                     }
                 },
                 //it is used to define and configure the individual columns of the table.
@@ -523,6 +559,7 @@
                 ],
                 "pageLength": 250,
             });
+            }
         });
 
         function setModalValue(buttonValue) {
@@ -555,6 +592,8 @@
                 }
             });
         }
+
+       
         $(document).on("change", ".parent-dropdown", function(event) {
         event.preventDefault(); // Prevent default form submission
         let selectedParentName = $(this).val();
@@ -568,41 +607,53 @@
         // const json = JSON.stringify(obj);
         // let formId_len = obj.form_ids.length;
         // let form_allocate = obj.state;
+        var msg = confirm("Are you sure?"); 
+        //it check the user confirmation if yes or no       
+        if (msg == true) { 
 
-        if(parentId != ''){
-           
-            $.ajax({
-                url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/update_parent_status_as_archive/${parentId}`,
-                type: "PUT",
-                contentType: "application/json",
-                data: '',
-                success: function (response) {
-                    console.log(response);
-                    return false;
-                    if (response.message === "Parent status with parent_id 52 updated successfully") {
-                        $(".success-form-msg-update").show();
+            if(parentId != ''){
+            
+                $.ajax({
+                    url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/update_parent_status_as_archive/${parentId}`,
+                    type: "PUT",
+                    contentType: "application/json",
+                    data: '',
+                    success: function (response) {
+                        console.log(response);
+                        return false;
+                        if (response.message === `Parent status with parent_id ${parentId} updated successfully`) {
+                            $(".success-form-msg-update").show();
+                            setTimeout(function () {
+                                $(".success-form-msg-update").hide();
+                                window.location.reload();
+                            }, 3000);
+                        } else {
+                            $(".error-msg-notfound").show();
+                            setTimeout(function () {
+                                $(".error-msg-notfound").hide();
+                            }, 3000);
+                        }
+
+                    },
+                    error: function (xhr, status, error) {
+                        console.log(error)
+                        $(".error-msg-notfound").show();
                         setTimeout(function () {
-                            $(".success-form-msg-update").hide();
-                            window.location.reload();
+                            $(".error-msg-notfound").hide();
                         }, 3000);
                     }
-
-                },
-                error: function (xhr, status, error) {
-                    console.log(error)
-                    $(".error-msg-notfound").show();
-                    setTimeout(function () {
-                        $(".error-msg-notfound").hide();
-                    }, 3000);
-                }
-            });
-        
-        } else {
-            $(".error-msg-2").show();
-            setTimeout(function () {
-                $(".error-msg-2").hide();
-            }, 3000);
+                });
             
+            } else {
+                $(".error-msg").show();
+                setTimeout(function () {
+                    $(".error-msg").hide();
+                }, 3000);
+                
+            }
+
+        } else {
+                window.location.reload();
         }
 
     });

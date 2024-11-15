@@ -749,22 +749,26 @@
         let multi_cls_room = $('#multi_cls_room').val();
         let multi_child_name = $('#multi_child_name').val();
 
+        // console.log(multi_active_forms);
+
         if(multi_active_forms.length != 0 && multi_cls_room.length != 0 && multi_child_name.length == 0){
+           
             let obj = {
                 "form_ids" : multi_active_forms,
                 "class_ids": multi_cls_room
             }
         const json = JSON.stringify(obj);
-
+        // console.log(json);
+        // return false
             $.ajax({
                 url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_repo_update",
                 type: "POST",
                 contentType: "application/json",
                 data: json,
                 success: function (response) {
-                    // console.log(response);
-                    // return false;
-                    if (response.message === "Forms updated successfully") {
+                    console.log(response);
+                    return false;
+                    if (response.message === "Data processed successfully") {
                         $(".success-form-msg-update").show();
                         setTimeout(function () {
                             $(".success-form-msg-update").hide();
@@ -788,6 +792,8 @@
                 "child_ids": multi_child_name
             }
         const json = JSON.stringify(obj);
+        // console.log(json);
+        // return false
 
             $.ajax({
                 url: " https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/student_repo_update",
@@ -797,7 +803,7 @@
                 success: function (response) {
                     // console.log(response);
                     // return false;
-                    if (response.message === "Forms updated successfully") {
+                    if (response.message === "Data processed successfully") {
                         $(".success-form-msg-update").show();
                         setTimeout(function () {
                             $(".success-form-msg-update").hide();

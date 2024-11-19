@@ -241,6 +241,18 @@
         <a href="#" data-dismiss="alert" aria-label="close"></a>
         <strong>Oops!</strong> Email sending failed!
     </div>
+    <div class="success-form-msg-update alert alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        <strong>Success!</strong> Parent Status Updated!
+    </div>
+    <div class="error-msg alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        <strong>Oops!</strong> You have to fill all the fields!
+    </div>
+    <div class="error-msg-notfound alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        <strong>Oops!</strong> failed to submit admission form
+    </div>
     <!-- Alert Message End-->
 
     <!-- Parent Dashboard -->
@@ -312,10 +324,7 @@
                                                 <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
                                                 <strong>Success!</strong> Child added successfully!
                                             </div>
-                                            <div class="success-form-msg-update alert alert-success">
-                                                <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
-                                                <strong>Success!</strong> Parent Status Updated!
-                                            </div>
+                                            
                                             <div class="error-msg alert alert-danger">
                                                 <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
                                                 <strong>Oops!</strong> You have to fill all the fields!
@@ -324,6 +333,7 @@
                                                 <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
                                                 <strong>Oops!</strong> failed to submit admission form
                                             </div>
+                                    
                                             <div class="container" id="avf_form">
                                                 <form id="childBasicForm">
                                                     <div class="row">
@@ -476,8 +486,8 @@
                     const Acselected = "Active" === selectedStatusName ? 'selected' : '';
                     const Axselected = "Archive" === selectedStatusName ? 'selected' : '';
 
-                    dropdown += `<option value="Active" ${Acselected}>Active</option>
-                                <option value="Archive" ${Axselected}>Archive</option>`;
+                    dropdown += `<option value="1" ${Acselected}>Active</option>
+                                <option value="2" ${Axselected}>Archive</option>`;
                     dropdown += `</select></div>`;
                     return dropdown;
             }
@@ -600,31 +610,29 @@
        
         $(document).on("change", ".parent-dropdown", function(event) {
         event.preventDefault(); // Prevent default form submission
-        let selectedParentName = $(this).val();
+        let selectedParentStatus = $(this).val();
         let parentId = $(this).data('parent-id');
-
-        // let obj = {
-        //     "form_ids" : multi_form_name,
-        //     "state": allocate_to
-        // }
+            // console.log(selectedParentStatus);
+        let obj = {
+            "status" : selectedParentStatus
+        }
         
-        // const json = JSON.stringify(obj);
-        // let formId_len = obj.form_ids.length;
-        // let form_allocate = obj.state;
+        const json = JSON.stringify(obj);
+        
         var msg = confirm("Are you sure?"); 
         //it check the user confirmation if yes or no       
         if (msg == true) { 
 
             if(parentId != ''){
-            
+               
                 $.ajax({
-                    url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/update_parent_status_as_archive/${parentId}`,
+                    url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/update_parent_info_status/${parentId}`,
                     type: "PUT",
                     contentType: "application/json",
-                    data: '',
+                    data: json,
                     success: function (response) {
-                        console.log(response);
-                        return false;
+                        // console.log(response);
+                        // return false;
                         if (response.message === `Parent status with parent_id ${parentId} updated successfully`) {
                             $(".success-form-msg-update").show();
                             setTimeout(function () {

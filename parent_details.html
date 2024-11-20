@@ -539,11 +539,17 @@
                     {
                         data: 'parent_name',
                         render: function (data, type, full, meta) {
-                            let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.invite_email}`;
+                            let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.primary_email}`;
                             return `<a href="${url}" class="text-primary">${full.parent_name}</a>`;
                         },
                     },
-                    { data: 'invite_email' },
+                    { data: 'primary_email',
+                        render: function (data, type, full, meta) {
+                            const emailId = full.primary_email != null ? `${full.primary_email}` : `${full.invite_email}`;
+                            return `${emailId}`;
+
+                        },
+                    },
                     {
                         data: 'time_stamp',
                         render: function (data, type, full, meta) {

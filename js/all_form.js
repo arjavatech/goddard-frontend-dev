@@ -121,9 +121,16 @@ function submitForm(editID,number) {
         dentistName = document.getElementById('dropdownMenuButton').textContent.trim();
         console.log(dentistName);
     }
-    let dentist_Id;
-    if(response.child_dentist_info){
-        dentist_Id = response.child_dentist_info.child_dentist_id
+    // let dentist_Id;
+    // if(response.child_dentist_info){
+    //     dentist_Id = response.child_dentist_info.child_dentist_id
+    // }
+    let dentist_Id = null;
+    const selectedDentistOption = document.querySelector('.dropdown-item.active');
+    console.log(selectedDentistOption);
+    if (selectedDentistOption) {
+        dentist_Id = selectedDentistOption.getAttribute('data-value');
+        console.log(dentist_Id);
     }
     let child_dentist_info = {
         child_dentist_id : dentist_Id ? parseInt(dentist_Id) : null,

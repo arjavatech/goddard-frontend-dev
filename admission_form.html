@@ -556,8 +556,8 @@
                                         </label>
                                         <input type="text" class="form-control " aria-label="Emergency Relationship"
                                             id="child_emergency_contact_telephone_number0" name="child_emergency_contact_telephone_number0"
-                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')" placeholder="e.g. +1-212-456-8890">
-                                        <span id="child_emergency_contact_telephone_number_span" style="color:red; display:none">
+                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span0')" placeholder="e.g. +1-212-456-8890">
+                                        <span id="child_emergency_contact_telephone_number_span0" style="color:red; display:none">
                                             Enter valid input [only numbers,+,-,()].</span>
                                     </div>
                                 </div>
@@ -631,8 +631,8 @@
                                         </label>
                                         <input type="text" class="form-control " aria-label="Emergency Relationship"
                                             id="child_emergency_contact_telephone_number1" name="child_emergency_contact_telephone_number1"
-                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')" placeholder="e.g. +1-212-456-8890">
-                                        <span id="child_emergency_contact_telephone_number_span" style="color:red; display:none">
+                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span1')" placeholder="e.g. +1-212-456-8890">
+                                        <span id="child_emergency_contact_telephone_number_span1" style="color:red; display:none">
                                             Enter valid input [only numbers,+,-,()].</span>
                                     </div>
                                 </div>
@@ -706,8 +706,8 @@
                                         </label>
                                         <input type="text" class="form-control " aria-label="Emergency Relationship"
                                             id="child_emergency_contact_telephone_number2" name="child_emergency_contact_telephone_number2"
-                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')" placeholder="e.g. +1-212-456-8890">
-                                        <span id="child_emergency_contact_telephone_number_span" style="color:red; display:none">
+                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span2')" placeholder="e.g. +1-212-456-8890">
+                                        <span id="child_emergency_contact_telephone_number_span2" style="color:red; display:none">
                                             Enter valid input [only numbers,+,-,()].</span>
                                     </div>
                                 </div>
@@ -1915,7 +1915,7 @@
                                     </div>
                                     <div class="wizard-form-radio">
                                         <input name="childcare_before" id="childcare_before2"
-                                            type="radio" value=1  >
+                                            type="radio" value=2  >
                                         <label for="childcare_before2">No</label>
                                     </div>
                                 </div>
@@ -1925,7 +1925,7 @@
                                     <label for="reason_for_childcare_before" class="form-label"><b>If so, what kind?</b></label>
                                     <select class="form-control form-select-lg" aria-label=".form-control-lg example"
                                         id="reason_for_childcare_before" name="reason_for_childcare_before">
-                                        <option></option>
+                                        <option value="0"></option>
                                         <option value="1">Relative’s Care</option>
                                         <option value="2">Home Care</option>
                                         <option value="3">Church Care</option>
@@ -2937,11 +2937,71 @@
             }
         });
     });
-    $(document).on("click", ".dropdown-item", function () {
-        let dentistId = $(this).data('value');
+    // $(document).on("click", ".dropdown-item", function () {
+    //     let dentistId = $(this).data('value');
 
+    //     $.ajax({
+    //         url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/dentist/get/${dentistId}`,
+    //         type: 'GET',
+    //         dataType: 'json',
+    //         success: function (response) {
+    //             // Populate the dentist details
+    //             $('#dentist_telephone_number').val(response.dentist_telephone_number);
+    //             $('#dentist_street_address').val(response.dentist_street_address);
+    //             $('#dentist_city_address').val(response.dentist_city_address);
+    //             $('#dentist_state_address').val(response.dentist_state_address);
+    //             $('#dentist_zip_address').val(response.dentist_zip_address);
+
+    //              // Disable the input fields after setting the values
+    //             $('#dentist_telephone_number').prop('disabled', true);
+    //             $('#dentist_street_address').prop('disabled', true);
+    //             $('#dentist_city_address').prop('disabled', true);
+    //             $('#dentist_state_address').prop('disabled', true);
+    //             $('#dentist_zip_address').prop('disabled', true);
+
+    //         },
+    //         error: function (xhr, status, error) {
+    //         console.error('Error fetching dentist details:', error);
+    //     }
+    //     });
+    // });
+
+    $(document).on("click", ".dropdown-item", function (event) {
+    event.preventDefault();
+
+    // Remove the active class from all dropdown items
+    $('.dropdown-item').removeClass('active');
+
+    // Add the active class to the clicked item
+    $(this).addClass('active');
+
+    // Update the dropdown button text
+    const dropdownButton = document.getElementById('dropdownMenuButton');
+    dropdownButton.textContent = this.textContent;
+
+    // Get the selected dentist ID
+    const selectedDentistId = $(this).data('value');
+
+    if (selectedDentistId === 'others') {
+        // If "Others" is selected, enable the custom dentist name input and related fields
+        $('#child_dentist_name').removeClass('d-none').addClass('d-block');
+        $('#dentist_telephone_number').prop('disabled', false).val('');
+        $('#dentist_street_address').prop('disabled', false).val('');
+        $('#dentist_city_address').prop('disabled', false).val('');
+        $('#dentist_state_address').prop('disabled', false).val('');
+        $('#dentist_zip_address').prop('disabled', false).val('');
+    } else {
+        // Disable custom fields and fetch dentist details by ID
+        $('#child_dentist_name').addClass('d-none').removeClass('d-block');
+        $('#dentist_telephone_number').prop('disabled', true);
+        $('#dentist_street_address').prop('disabled', true);
+        $('#dentist_city_address').prop('disabled', true);
+        $('#dentist_state_address').prop('disabled', true);
+        $('#dentist_zip_address').prop('disabled', true);
+
+        // Fetch dentist details
         $.ajax({
-            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/dentist/get/${dentistId}`,
+            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/dentist/get/${selectedDentistId}`,
             type: 'GET',
             dataType: 'json',
             success: function (response) {
@@ -2951,20 +3011,15 @@
                 $('#dentist_city_address').val(response.dentist_city_address);
                 $('#dentist_state_address').val(response.dentist_state_address);
                 $('#dentist_zip_address').val(response.dentist_zip_address);
-
-                 // Disable the input fields after setting the values
-                $('#dentist_telephone_number').prop('disabled', true);
-                $('#dentist_street_address').prop('disabled', true);
-                $('#dentist_city_address').prop('disabled', true);
-                $('#dentist_state_address').prop('disabled', true);
-                $('#dentist_zip_address').prop('disabled', true);
-
             },
             error: function (xhr, status, error) {
-            console.error('Error fetching dentist details:', error);
-        }
+                console.error('Error fetching dentist details:', error);
+            }
         });
-    });
+    }
+});
+
+
     </script>
 </body>
 </html>

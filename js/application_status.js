@@ -145,8 +145,9 @@ $(document).ready(function () {
                 { 
                     data: 'child_name',
                     render: function (data, type, full, meta) {
+                        const linkDisabled = full.primary_email == null ? 'pe-none text-dark' : 'pe-auto';
                         let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.primary_email}`;
-                        return `<a href="${url}">${full.child_first_name +" "+ full.child_last_name}</a>`;
+                        return `<a href="${url}" class='${linkDisabled}'>${full.child_first_name +" "+ full.child_last_name}</a>`;
                     },
                 },
                 { 

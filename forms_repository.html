@@ -162,31 +162,31 @@
     <!-- Alert Message-->
 
     <div class="success-msg alert alert-success">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
         <strong>Success!</strong>Classroom was successfully added!
     </div>
     <div class="error-msg-1 alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
         <strong>Oops!</strong>Failed to save classroom!
     </div>
     <div class="error-msg-2 alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
         <strong>Oops!</strong>You have to fill all the fields!
     </div>
     <div class="success-msg-update alert alert-success">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
         <strong>Success!</strong>Class room name updated!
     </div>
     <div class="success-msg-delete alert alert-success">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
         <strong>Success!</strong>Class room name deleted!
     </div>
     <div class="error-form-msg-1 alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
         <strong>Oops!</strong> You have to select the fields!
     </div>
     <div class="success-form-msg-update alert alert-success">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
         <strong>Success!</strong> Form updated!
     </div>
 
@@ -545,16 +545,8 @@
                         if (data) {
                             // window.location.href = "../reg_form/sponsorreport.html";
                             $(".success-msg-delete").show();
-                            setTimeout(function () {
-                                $(".success-msg-delete").hide();
-                                window.location.reload();
-                            }, 3000);
                         } else {
                             $(".error-msg-1").show();
-                            setTimeout(function () {
-                                $(".error-msg-1").hide();
-                                window.location.reload();
-                            }, 3000);
                         }
                     }
                 };
@@ -632,41 +624,53 @@
         });
 
         $(document).on("change", "#multi_form_type", function () {
-            let selectedValues = $('#multi_form_type').val();
+            let $select = $(this);
+            let selectedValues = $select.val(); // Get selected values
+
+            // Check if "All" is selected
+            if (selectedValues.includes("all")) {
+                // If "All" is selected, deselect all others and select only "All"
+                $select.val(["all","available","default","active","archive"]).selectpicker("refresh");
+            } else if (selectedValues.length === 4) {
+                // If no options are selected, reselect "All"
+                $select.val([]).selectpicker("refresh");
+            }
+
+            // Make an API call to fetch data
             $.ajax({
-                url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/get_all_form_details',
-                type: 'get',
-                datasrc: '',
-                dataType: 'json',
+                url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/get_all_form_details",
+                type: "get",
+                dataType: "json",
                 success: function (response) {
                     console.log("API Response:", response);
                     let filteredData = "";
 
                     // Loop through each selected value to filter response data
-                    selectedValues.forEach(typeValue => {
-                        console.log(selectedValues);
-                        if (response[typeValue]) {
+                    selectedValues.forEach((typeValue) => {
+                        if (typeValue == "all" && response[typeValue]) {
                             Object.entries(response[typeValue]).forEach(([key, value]) => {
-                                filteredData += '<option value="' + value + '" data-tokens="' + key + '">' + key + '</option>';
+                                filteredData +='<option value="' + value + '" data-tokens="' + key +
+                                    '">' + key + "</option>";
                             });
-                        } else {
+                        }  else {
                             console.warn(`No data found for category: ${typeValue}`);
                         }
+                        console.log(typeValue);
                     });
+
                     console.log("Filtered Data HTML:", filteredData);
 
-                    $secondSelect = $('#multi_form_name').html(filteredData);
+                    // Populate the second select dropdown
+                    let $secondSelect = $("#multi_form_name").html(filteredData);
 
                     // Refresh selectpicker if using Bootstrap selectpicker
-                    $secondSelect.selectpicker('refresh');
+                    $secondSelect.selectpicker("refresh");
                 },
                 error: function (error) {
                     console.error("Error fetching data:", error);
-                }
-
+                },
+            });
         });
-    });
-
     $(document).on("change", "#multi_cls_room", function () {
         let selectedClsValues = $('#multi_cls_room').val();
        
@@ -717,28 +721,17 @@
                     // return false;
                     if (response.message === "Forms updated successfully") {
                         $(".success-form-msg-update").show();
-                        setTimeout(function () {
-                            $(".success-form-msg-update").hide();
-                            window.location.reload();
-                        }, 3000);
                     }
 
                 },
                 error: function (xhr, status, error) {
                     console.log(error)
                     $(".error-msg-notfound").show();
-                    setTimeout(function () {
-                        $(".error-msg-notfound").hide();
-                    }, 3000);
                 }
             });
         
         } else {
             $(".error-msg-2").show();
-            setTimeout(function () {
-                $(".error-msg-2").hide();
-            }, 3000);
-            
         }
 
     });
@@ -770,19 +763,12 @@
                     // return false;
                     if (response.message === "Data processed successfully") {
                         $(".success-form-msg-update").show();
-                        setTimeout(function () {
-                            $(".success-form-msg-update").hide();
-                            window.location.reload();
-                        }, 3000);
                     }
 
                 },
                 error: function (xhr, status, error) {
                     console.log(error)
                     $(".error-msg-notfound").show();
-                    setTimeout(function () {
-                        $(".error-msg-notfound").hide();
-                    }, 3000);
                 }
             });
         
@@ -805,27 +791,17 @@
                     // return false;
                     if (response.message === "Data processed successfully") {
                         $(".success-form-msg-update").show();
-                        setTimeout(function () {
-                            $(".success-form-msg-update").hide();
-                            window.location.reload();
-                        }, 3000);
                     }
 
                 },
                 error: function (xhr, status, error) {
                     console.log(error)
                     $(".error-msg-notfound").show();
-                    setTimeout(function () {
-                        $(".error-msg-notfound").hide();
-                    }, 3000);
                 }
             });
             
         }else {
             $(".error-msg-2").show();
-            setTimeout(function () {
-                $(".error-msg-2").hide();
-            }, 3000);
         }
       
 

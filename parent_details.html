@@ -234,23 +234,23 @@
     <!-- Alert Message -->
 
     <div class="success-msg alert alert-success">
-        <a href="#" data-dismiss="alert"></a>
+        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
         <strong>Success!</strong> Email Sent Successfully!
     </div>
     <div class="error-msg alert alert-danger">
-        <a href="#" data-dismiss="alert" aria-label="close"></a>
+        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
         <strong>Oops!</strong> Email sending failed!
     </div>
     <div class="success-form-msg-update alert alert-success">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
         <strong>Success!</strong> Parent Status Updated!
     </div>
     <div class="error-msg alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
         <strong>Oops!</strong> You have to fill all the fields!
     </div>
     <div class="error-msg-notfound alert alert-danger">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
         <strong>Oops!</strong> failed to submit admission form
     </div>
     <!-- Alert Message End-->
@@ -322,16 +322,16 @@
                                         <div>
                                             <!-- <h2 class="card_title">Child Basic Information</h2><br> -->
                                             <div class="success-msg-update alert alert-success">
-                                                <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+                                                <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                                                 <strong>Success!</strong> Parent Status Updated!
                                             </div>
                                             
                                             <div class="error-msg alert alert-danger">
-                                                <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+                                                <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                                                 <strong>Oops!</strong> You have to fill all the fields!
                                             </div>
                                             <div class="error-msg-notfound alert alert-danger">
-                                                <a href="#" class="close" data-dismiss="alert" aria-label="close"></a>
+                                                <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                                                 <strong>Oops!</strong> failed to submit admission form
                                             </div>
                                     
@@ -644,33 +644,23 @@
                         // return false;
                         if (response.message === `Parent status with parent_id ${parentId} updated successfully`) {
                             $(".success-form-msg-update").show();
-                            setTimeout(function () {
-                                $(".success-form-msg-update").hide();
-                                window.location.reload();
-                            }, 3000);
+                          
                         } else {
                             $(".error-msg-notfound").show();
-                            setTimeout(function () {
-                                $(".error-msg-notfound").hide();
-                            }, 3000);
+                          
                         }
 
                     },
                     error: function (xhr, status, error) {
                         console.log(error)
                         $(".error-msg-notfound").show();
-                        setTimeout(function () {
-                            $(".error-msg-notfound").hide();
-                        }, 3000);
+                      
                     }
                 });
             
             } else {
                 $(".error-msg").show();
-                setTimeout(function () {
-                    $(".error-msg").hide();
-                }, 3000);
-                
+              
             }
 
         } else {

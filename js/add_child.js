@@ -22,28 +22,18 @@ function submitForm() {
                 // return false;
                 if (response.message === "Child information created successfully") {
                     $(".success-msg-update").show();
-                    setTimeout(function () {
-                        $(".success-msg-update").hide();
-                        window.location.reload();
-                    }, 3000);
                 }
 
             },
             error: function (xhr, status, error) {
                 console.log(error)
                 $(".success-msg").show();
-                setTimeout(function () {
-                    $(".error-msg-notfound").hide();
-                }, 3000);
             }
         });
     } else {
         // window.location.reload();
         // alert('you have to fill all the fields');
         $(".error-msg").show();
-        setTimeout(function () {
-            $(".error-msg").hide();
-        }, 3000);
     }
 
 

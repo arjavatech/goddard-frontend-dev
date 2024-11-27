@@ -41,7 +41,7 @@
                             <strong>Success!</strong> You have been signed in successfully!
                         </div>
                         <div class="error-msg-invalidurl alert alert-danger">
-                            <a href="#" data-dismiss="alert"></a>
+                            <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                             <strong>Oops!</strong> Already registered with another mail-id. (Invalid URL)
                         </div>
                         <div class="error-msg-mismatch alert alert-danger">
@@ -49,15 +49,15 @@
                             <strong>Oops!</strong> Password Mismatched!
                         </div>
                         <div class="error-msg alert alert-danger">
-                            <a href="#" data-dismiss="alert" aria-label="close"></a>
+                            <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                             <strong>Oops!</strong>Email Id is Mismatched!
                         </div>  
                         <div class="error-msg-empty alert alert-danger">
-                            <a href="#" data-dismiss="alert" aria-label="close"></a>
+                            <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                             <strong>Oops!</strong> You have to fill all the fields!
                         </div> 
                         <div class="error-msg-alreadyexists alert alert-danger">
-                            <a href="#" data-dismiss="alert" aria-label="close"></a>
+                            <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                             <strong>Oops!</strong> User already exists!
                         </div> 
                         
@@ -182,32 +182,19 @@
                                     setTimeout(function(){ 
                                         $(".success-msg").hide(); 
                                         window.location.href = "login.html";
-                                    }, 3000);
+                                    }, 5000);
                                 }else if(response.error == `signup_id with email ${email_id} Already Registered`){
                                     $(".error-msg-alreadyexists").show();
-                                    setTimeout(function(){ 
-                                        $(".error-msg-alreadyexists").hide(); 
-                                    }, 3000);
                                 } else if(response.error == "Already registered with another mail-id. (Invalid URL)"){
-                                    console.log("kk");
                                     $(".error-msg-invalidurl").show();
-                                    setTimeout(function(){ 
-                                        $(".error-msg-invalidurl").hide(); 
-                                    }, 3000);
                                 } else {
                                     $(".error-msg").show();
-                                    setTimeout(function(){ 
-                                        $(".error-msg").hide(); 
-                                    }, 3000);
                                 }
                             
                             },
                             error: function (xhr, status, error) {
                                 console.log(error)
                                 $(".error-msg").show();
-                                setTimeout(function(){ 
-                                    $(".error-msg").hide(); 
-                                }, 3000);
                             }
                         });
                     }
@@ -215,13 +202,10 @@
                         $(".error-msg-mismatch").show();
                         setTimeout(function(){ 
                             $(".error-msg-mismatch").hide(); 
-                        }, 3000);
+                        }, 5000);
                     }
                 }else{
                     $(".error-msg-empty").show();
-                    setTimeout(function(){ 
-                        $(".error-msg-empty").hide(); 
-                    }, 3000);
                 }
             }
             $(document).ready(function () {

@@ -11,4 +11,8 @@ $(document).ready(function () {
         document.body.style.visibility = 'visible';
         
     }
+    $(document).on('click', '.close', function() {
+        $(this).closest('.alert').fadeOut();
+        window.location.reload()
+    });
 });

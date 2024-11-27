@@ -44,16 +44,9 @@ $(document).ready(function () {
                 // console.log(xhr)
                 if (xhr.status === 200) {
                     $(".success-msg").show();
-                    setTimeout(function(){ 
-                        $(".success-msg").hide(); 
-                        window.location.reload();
-                    }, 3000);
+                    
                 } else {
                     $(".error-msg").show();
-                    setTimeout(function(){ 
-                        $(".error-msg").hide(); 
-                    }, 3000);
-                    alert("Wrong message");
                 }
             };
             xhr.open("PUT", `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_info/update_class/${child_id_value}`);

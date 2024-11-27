@@ -33,27 +33,12 @@ function emailSend() {
                     // return false;
                     if (response.error === "Already we send an mail. Please try different email") {
                         $(".error-msg-alreadyexists").show();
-                        setTimeout(function () {
-                            $(".error-msg-alreadyexists").hide();
-                            // window.location.reload();
-                        }, 3000);
                     } else if (response.error === "Email Already Registered with another mail. Please try different email") {
                         $(".error-msg-alreadyexists").show();
-                        setTimeout(function () {
-                            $(".error-msg-alreadyexists").hide();
-                            // window.location.reload();
-                        }, 3000);
                     } else if(response.message === "Parent invite created and Email sent successfully!") {
                         $(".success-msg").show();
-                        setTimeout(function () {
-                            $(".success-msg").hide();
-                            window.location.reload();
-                        }, 3000);
                     } else {
                         $(".error-msg").show();
-                        setTimeout(function () {
-                            $(".error-msg-empty").hide();
-                        }, 3000);
                     }
 
                 },
@@ -63,9 +48,6 @@ function emailSend() {
             });
         } else {
             $(".error-msg-empty").show();
-            setTimeout(function () {
-                $(".error-msg-empty").hide();
-            }, 3000);
         }
     } catch (error) {
         console.error('Error:', error);

@@ -17,6 +17,7 @@
     <script src="js/login.js"></script>
     <script src="js/validation.js"></script>
     <script src="js/reset_password.js"></script>
+    <script type="module" src="js/auth_verify.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -35,28 +36,28 @@
             <div class="card login_card_style">
                 <div class="card-body">
                     <div class="success-msg alert alert-success">
-                        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
+                        <a href="#" class="btn btn-success close  fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                         <strong>Success!</strong> You have been signed in successfully!
                     </div>
                     <div class="error-msg alert alert-danger">
-                        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
+                        <a href="#" class="btn btn-danger close close fw-bold float-end text-decoration-none text-white" data-dismiss="alert" aria-label="close">OK</a>
                         <strong>Oops!</strong> Incorrect UserName or Password!
                     </div>
                     <div class="error-msg-empty alert alert-danger">
-                        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
+                        <a href="#" class="btn btn-danger close  fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                         <strong>Oops!</strong> You have to fill all the fields!
                     </div>
 
                     <div class="forget-success-msg alert alert-success">
-                        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
+                        <a href="#" class="btn btn-success close  fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                         <strong>Success!</strong> Email send successfully!
                     </div> 
                     <div class="error-msg-alreadyexists alert alert-danger">
-                        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
+                        <a href="#" class="btn btn-danger close  fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                         <strong>Oops!</strong> We have already sent the password reset page URL to your email. Please check your inbox.
                     </div> 
                     <div class="error-msg-notfound alert alert-danger">
-                        <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
+                        <a href="#" class="btn btn-danger close  fw-bold float-end text-decoration-none" data-dismiss="alert" aria-label="close">OK</a>
                         <strong>Oops!</strong> User not found!
                     </div>
                     <div class=" text-center"><img src="image/gs_logo_tab.png" class="gd-tab-logo" type="image/png">

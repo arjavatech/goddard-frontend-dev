@@ -89,9 +89,6 @@ function loginFunction() {
                
             }else{
                 $(".error-msg").show();
-                setTimeout(function(){ 
-                    $(".error-msg").hide(); 
-                }, 3000);
             }
 
             // if (!isAuthenticated) {
@@ -108,9 +105,6 @@ function loginFunction() {
         },
         error: function (xhr, status, error) {
             $(".error-msg").show();
-            setTimeout(function(){ 
-            $(".error-msg").hide(); 
-            }, 3000);
             // console.log(error);
             // let spanMsg = document.getElementById("errorMessage");
             // let spanMsgDiv = document.getElementById("errorMessageDiv");
@@ -121,9 +115,6 @@ function loginFunction() {
     }else{
         // alert('fill the form');
         $(".error-msg-empty").show();
-            setTimeout(function(){
-            $(".error-msg-empty").hide(); 
-        }, 3000);
     }
 }
 

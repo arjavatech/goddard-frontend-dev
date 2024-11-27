@@ -21,6 +21,7 @@
         <script src="https://accounts.google.com/gsi/client" async defer></script>
         <meta name="google-signin-client_id" content="70072849812-7gjpuusbnoho0v8l80lli57v74rrvch4.apps.googleusercontent.com">
         <script src="js/login.js" ></script>
+        <script type="module" src="js/auth_verify.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.3.0/crypto-js.js"></script>
         <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
@@ -41,7 +42,7 @@
                             <strong>Success!</strong> You have been signed in successfully!
                         </div>
                         <div class="error-msg-invalidurl alert alert-danger">
-                            <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
+                            <a href="#" class="btn btn-danger close  fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                             <strong>Oops!</strong> Already registered with another mail-id. (Invalid URL)
                         </div>
                         <div class="error-msg-mismatch alert alert-danger">
@@ -49,15 +50,15 @@
                             <strong>Oops!</strong> Password Mismatched!
                         </div>
                         <div class="error-msg alert alert-danger">
-                            <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
+                            <a href="#" class="btn btn-danger close  fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                             <strong>Oops!</strong>Email Id is Mismatched!
                         </div>  
                         <div class="error-msg-empty alert alert-danger">
-                            <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
+                            <a href="#" class="btn btn-danger close  fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                             <strong>Oops!</strong> You have to fill all the fields!
                         </div> 
                         <div class="error-msg-alreadyexists alert alert-danger">
-                            <a href="#" class="close fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
+                            <a href="#" class="btn btn-danger close  fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
                             <strong>Oops!</strong> User already exists!
                         </div> 
                         

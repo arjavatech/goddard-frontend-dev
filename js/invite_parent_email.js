@@ -59,8 +59,8 @@ $(document).ready(function () {
         // console.log('checking email send');
         emailSend();
     });
-
-    $('#class_name').on('focus', function () {
+    classroomLoad();
+    function classroomLoad(){
         //for waking up the aws lambda server
         $.ajax({
             url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_details/getall',
@@ -73,12 +73,14 @@ $(document).ready(function () {
                 if (response !== "") {
                     for (var i = 0; i < response.length; i++) {
                         if (response[i].class_name != "" && response[i].class_name != undefined) {
-                            class_room += '<option value="' + response[i].class_id + '">' + response[i].class_name + '</option>';
+
+                            const isSelected = response[i].class_name === "Unassign" ? 'selected' : '';
+                            class_room += `<option value="${response[i].class_id}" ${isSelected}>${response[i].class_name}</option>`;
                         }
                     }
                 }
                 document.getElementById('class_name').innerHTML = class_room;
             }
         });
-    });
+    }
 })

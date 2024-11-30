@@ -89,6 +89,7 @@ function loadDynamicCards() {
     let putcallId = sessionStorage.getItem('putcallId');
     console.log(putcallId);
     
+    parentContainer.innerHTML = '';
     for (let i = 0; i < responseSize; i++) {
         console.log(child_response[i].child_id);
         let on_process = child_response[i].on_process;
@@ -97,7 +98,8 @@ function loadDynamicCards() {
         div.setAttribute('class', 'nav-item');
 
         let anchor = document.createElement('a');
-        anchor.setAttribute('class', 'nav-link');
+        anchor.setAttribute('class', 'nav-link ');
+        // anchor.classList.add('anchorvalue');
         anchor.setAttribute('data-child-id', child_response[i].child_id);
 
         let card = document.createElement('div');
@@ -107,6 +109,7 @@ function loadDynamicCards() {
             let allTabs = document.querySelectorAll('.nav-link');
             allTabs.forEach(tab => tab.classList.remove('active'));
             anchor.classList.add('active');
+          
 
             const selectedChildName = child_response[i].child_first_name;
             const selectedChildId = child_response[i].child_id;
@@ -900,7 +903,7 @@ function checking(editID) {
     
         // deactivate all left-side tabs
         $('.tab-pane').removeClass('active show');
-        // $('.nav-link').removeClass('active');
+        $('.anchorvalue').removeClass('active');
     
         if (pointer <= 6) {
             $('#childinformation').addClass('active show');

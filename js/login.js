@@ -89,32 +89,27 @@ function loginFunction() {
                
             }else{
                 $(".error-msg").show();
+                setTimeout(function(){
+                 $(".error-msg").hide(); 
+                 window.location.reload();
+                }, 3000);
             }
-
-            // if (!isAuthenticated) {
-            //     // Authentication failed
-            //     $(".error-msg").show();
-            //         setTimeout(function(){
-            //         $(".error-msg").hide(); 
-            //     }, 3000);
-            //     // let spanMsg = document.getElementById("errorMessage");
-            //     // let spanMsgDiv = document.getElementById("errorMessageDiv");
-            //     // spanMsgDiv.style.display = "block";
-            //     // spanMsg.style.display = "block";
-            // }
         },
         error: function (xhr, status, error) {
             $(".error-msg").show();
-            // console.log(error);
-            // let spanMsg = document.getElementById("errorMessage");
-            // let spanMsgDiv = document.getElementById("errorMessageDiv");
-            // spanMsgDiv.style.display = "block";
-            // spanMsg.style.display = "block";
+                setTimeout(function(){
+                 $(".error-msg").hide(); 
+                 window.location.reload();
+                }, 3000);
         }
     });
     }else{
         // alert('fill the form');
         $(".error-msg-empty").show();
+        setTimeout(function(){
+         $(".error-msg-empty").hide(); 
+         window.location.reload();
+        }, 3000);
     }
 }
 

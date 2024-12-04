@@ -837,19 +837,24 @@ function checking(editID) {
                 data: 'edit',
                 render: function (data, type, full, meta) {
                     let url = '';
+                    let print_url = '';
                     console.log(window.location.origin);
                     switch (full.formname) {
                         case 'admission_form':
                             url = `${window.location.origin}/goddard-frontend-dev/admission_form_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/goddard-frontend-dev/admission_form_pdf_completed.html?id=${editID}`;
                             break;
                         case 'authorization_form':
                             url = `${window.location.origin}/goddard-frontend-dev/authorization_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/goddard-frontend-dev/authorization_pdf_completed.html?id=${editID}`;
                             break;
                         case 'enrollment_form':
                             url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_pdf_completed.html?id=${editID}`;
                             break;
                         case 'parent_handbook':
                             url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_pdf_completed.html?id=${editID}`;
                             break;
                         default:
                             return '';
@@ -857,7 +862,7 @@ function checking(editID) {
                     return `
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 download-btn" data-url="${url}" data-name="${full.formname}.pdf" name="downbutton"><path fill="#0F2D52" d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 print-btn" data-url="${url}" data-name="${full.formname}.pdf" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 print-btn" data-url="${print_url}" data-name="${full.formname}.pdf" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
                         </div>`;
                 }
             }

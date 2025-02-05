@@ -230,12 +230,7 @@
                         id="year"
                         class="form-control float-end"
                         required
-                      >
-                        <option selected disabled>Year</option>
-                        <option value="2024">2024</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                      </select>
+                      ></select>
                       <i class="fa fa-chevron-down"></i>
                     </div>
                   </div>
@@ -278,118 +273,118 @@
     </div>
 
     <script>
-      const populateYearDropdown = () => {
-        const dropdown = document.getElementById("year");
-        const currentYear = new Date().getFullYear();
+          const populateYearDropdown = () => {
+            const dropdown = document.getElementById("year");
+            const currentYear = new Date().getFullYear();
 
-        for (let i = currentYear - 10; i <= currentYear + 10; i++) {
-          const option = document.createElement("option");
-          option.value = i;
-          option.textContent = i;
-          if (i === currentYear) option.selected = true;
-          dropdown.appendChild(option);
-        }
-      };
+            for (let i = currentYear - 10; i <= currentYear + 10; i++) {
+              let option = document.createElement("option");
+              option.value = i;
+              option.textContent = i;
+              if (i === currentYear) option.selected = true;
+              dropdown.appendChild(option);
+            }
+          };
 
-      // Initialize
-      populateYearDropdown();
-      createCalendar(new Date().getFullYear());
+          // Initialize
+          populateYearDropdown();
+          createCalendar(new Date().getFullYear());
 
-      function ExportToExcel(type, fn, dl) {
-        var elt = document.getElementById("example");
-        var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+          function ExportToExcel(type, fn, dl) {
+            var elt = document.getElementById("example");
+            var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
 
-        var ws = wb.Sheets["sheet1"];
-        var range = XLSX.utils.decode_range(ws["!ref"]);
+            var ws = wb.Sheets["sheet1"];
+            var range = XLSX.utils.decode_range(ws["!ref"]);
 
-        for (var R = range.s.r; R <= range.e.r; ++R) {
-          for (var C = range.s.c; C <= range.e.c; ++C) {
-            var cell_address = { c: C, r: R };
-            var cell_ref = XLSX.utils.encode_cell(cell_address);
-            var cell = ws[cell_ref];
-            if (
-              cell &&
-              typeof cell.v === "string" &&
-              cell.v.match(/^\d{2}\/\d{2}\/\d{4}/)
-            ) {
-              var date = new Date(cell.v);
-              if (!isNaN(date)) {
-                cell.v = date;
-                cell.t = "d"; // Mark cell as date type
-                cell.z = "mm/dd/yyyy h:mm:ss AM/PM"; // Set format
+            for (var R = range.s.r; R <= range.e.r; ++R) {
+              for (var C = range.s.c; C <= range.e.c; ++C) {
+                var cell_address = { c: C, r: R };
+                var cell_ref = XLSX.utils.encode_cell(cell_address);
+                var cell = ws[cell_ref];
+                if (
+                  cell &&
+                  typeof cell.v === "string" &&
+                  cell.v.match(/^\d{2}\/\d{2}\/\d{4}/)
+                ) {
+                  var date = new Date(cell.v);
+                  if (!isNaN(date)) {
+                    cell.v = date;
+                    cell.t = "d"; // Mark cell as date type
+                    cell.z = "mm/dd/yyyy h:mm:ss AM/PM"; // Set format
+                  }
+                }
               }
             }
+
+            return dl
+              ? XLSX.write(wb, { bookType: type, bookSST: true, type: "base64" })
+              : XLSX.writeFile(wb, fn || "MySheetName." + (type || "xlsx"));
           }
-        }
 
-        return dl
-          ? XLSX.write(wb, { bookType: type, bookSST: true, type: "base64" })
-          : XLSX.writeFile(wb, fn || "MySheetName." + (type || "xlsx"));
-      }
+          // function ExportToExcel(type, fn, dl) {
+          //     // Get the table element
+          //     var elt = document.getElementById('example');
 
-      // function ExportToExcel(type, fn, dl) {
-      //     // Get the table element
-      //     var elt = document.getElementById('example');
+          //     // Clone the table and remove the action column
+          //     var clonedTable = elt.cloneNode(true);
+          //     $(clonedTable).find('tr').each(function() {
+          //         $(this).find('td:last-child, th:last-child').remove();
+          //     });
 
-      //     // Clone the table and remove the action column
-      //     var clonedTable = elt.cloneNode(true);
-      //     $(clonedTable).find('tr').each(function() {
-      //         $(this).find('td:last-child, th:last-child').remove();
-      //     });
+          //     // Convert the cloned table to a workbook
+          //     var wb = XLSX.utils.table_to_book(clonedTable, { sheet: "sheet1" });
 
-      //     // Convert the cloned table to a workbook
-      //     var wb = XLSX.utils.table_to_book(clonedTable, { sheet: "sheet1" });
+          //     // Adjust date format for Excel
+          //     var ws = wb.Sheets["sheet1"];
+          //     var range = XLSX.utils.decode_range(ws['!ref']);
+          //     for (var R = range.s.r; R <= range.e.r; ++R) {
+          //         for (var C = range.s.c; C <= range.e.c; ++C) {
+          //             var cell_address = { c: C, r: R };
+          //             var cell_ref = XLSX.utils.encode_cell(cell_address);
+          //             if (ws[cell_ref] && typeof ws[cell_ref].v === 'string' && ws[cell_ref].v.match(/^\d{2}\/\d{2}\/\d{4}/)) {
+          //                 var date = new Date(ws[cell_ref].v);
+          //                 if (!isNaN(date)) {
+          //                     ws[cell_ref].v = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+          //                 }
+          //             }
+          //         }
+          //     }
 
-      //     // Adjust date format for Excel
-      //     var ws = wb.Sheets["sheet1"];
-      //     var range = XLSX.utils.decode_range(ws['!ref']);
-      //     for (var R = range.s.r; R <= range.e.r; ++R) {
-      //         for (var C = range.s.c; C <= range.e.c; ++C) {
-      //             var cell_address = { c: C, r: R };
-      //             var cell_ref = XLSX.utils.encode_cell(cell_address);
-      //             if (ws[cell_ref] && typeof ws[cell_ref].v === 'string' && ws[cell_ref].v.match(/^\d{2}\/\d{2}\/\d{4}/)) {
-      //                 var date = new Date(ws[cell_ref].v);
-      //                 if (!isNaN(date)) {
-      //                     ws[cell_ref].v = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
-      //                 }
-      //             }
-      //         }
-      //     }
+          //     return dl ?
+          //         XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+          //         XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+          // }
 
-      //     return dl ?
-      //         XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
-      //         XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
-      // }
-
-      function closeCompletedFormsTab() {
-        var completedFormsTab = document.getElementById("completedFormDetails");
-        if (completedFormsTab) {
-          completedFormsTab.style.display = "none";
-        }
-      }
-
-      function toggleContent(contentId) {
-        var content = document.getElementById(contentId);
-        if (!content) return;
-        var display = window.getComputedStyle(content).display;
-        if (display === "block") {
-          // to check if the clicked tab is the completed forms tab
-          if (contentId !== "completedFormDetails") {
-            content.style.display = "none";
-          }
-        } else {
-          //to hide all active content except for completedFormDetails
-          var activeContents = document.querySelectorAll(
-            '.tab-pane[style="display: block;"]'
-          );
-          activeContents.forEach(function (activeContent) {
-            if (activeContent.id !== contentId) {
-              activeContent.style.display = "none";
+          function closeCompletedFormsTab() {
+            var completedFormsTab = document.getElementById("completedFormDetails");
+            if (completedFormsTab) {
+              completedFormsTab.style.display = "none";
             }
-          });
-          content.style.display = "block";
-        }
-      }
+          }
+
+          function toggleContent(contentId) {
+            var content = document.getElementById(contentId);
+            if (!content) return;
+            var display = window.getComputedStyle(content).display;
+            if (display === "block") {
+              // to check if the clicked tab is the completed forms tab
+              if (contentId !== "completedFormDetails") {
+                content.style.display = "none";
+              }
+            } else {
+              //to hide all active content except for completedFormDetails
+              var activeContents = document.querySelectorAll(
+                '.tab-pane[style="display: block;"]'
+              );
+              activeContents.forEach(function (activeContent) {
+                if (activeContent.id !== contentId) {
+                  activeContent.style.display = "none";
+                }
+              });
+              content.style.display = "block";
+            }
+          }
     </script>
 
     <link

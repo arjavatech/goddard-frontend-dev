@@ -33,21 +33,12 @@ function emailSend() {
                     // return false;
                     if (response.error === "Already we send an mail. Please try different email") {
                         $(".error-msg-alreadyexists").show();
-                        setTimeout(function () {
-                            $(".error-msg-alreadyexists").hide();
-                            // window.location.reload();
-                        }, 3000);
+                    } else if (response.error === "Email Already Registered with another mail. Please try different email") {
+                        $(".error-msg-alreadyexists").show();
                     } else if(response.message === "Parent invite created and Email sent successfully!") {
                         $(".success-msg").show();
-                        setTimeout(function () {
-                            $(".success-msg").hide();
-                            window.location.reload();
-                        }, 3000);
                     } else {
                         $(".error-msg").show();
-                        setTimeout(function () {
-                            $(".error-msg-empty").hide();
-                        }, 3000);
                     }
 
                 },
@@ -57,9 +48,6 @@ function emailSend() {
             });
         } else {
             $(".error-msg-empty").show();
-            setTimeout(function () {
-                $(".error-msg-empty").hide();
-            }, 3000);
         }
     } catch (error) {
         console.error('Error:', error);
@@ -71,8 +59,8 @@ $(document).ready(function () {
         // console.log('checking email send');
         emailSend();
     });
-
-    $('#class_name').on('focus', function () {
+    classroomLoad();
+    function classroomLoad(){
         //for waking up the aws lambda server
         $.ajax({
             url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_details/getall',
@@ -85,12 +73,14 @@ $(document).ready(function () {
                 if (response !== "") {
                     for (var i = 0; i < response.length; i++) {
                         if (response[i].class_name != "" && response[i].class_name != undefined) {
-                            class_room += '<option value="' + response[i].class_id + '">' + response[i].class_name + '</option>';
+
+                            const isSelected = response[i].class_name === "Unassign" ? 'selected' : '';
+                            class_room += `<option value="${response[i].class_id}" ${isSelected}>${response[i].class_name}</option>`;
                         }
                     }
                 }
                 document.getElementById('class_name').innerHTML = class_room;
             }
         });
-    });
+    }
 })

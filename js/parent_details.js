@@ -18,22 +18,9 @@ async function emailSend(parent_email) {
             type: "GET",
             success: function (response) {
                 $(".success-msg").show();
-                setTimeout(function(){ 
-                    $(".success-msg").hide(); 
-                    window.location.reload();
-                }, 3000);
-                // alert("Email Sent Successfully");
-                // window.location.reload();
             },
             error: function (xhr, status, error) {
                 $(".error-msg").show();
-                setTimeout(function(){ 
-                    $(".error-msg").hide(); 
-                }, 3000);
-                // console.log(xhr);
-                // console.log(status);
-                // console.log(error);
-                // alert("Email sending failed")
             }
         });
     } catch (error) {

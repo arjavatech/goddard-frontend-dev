@@ -85,16 +85,21 @@ function responseToAuthenticationCheck() {
 function loadDynamicCards() {
     let responseSize = parseInt(localStorage.getItem('number_of_children'), 10);
     let parentContainer = document.getElementById('dynamicChildCards');
+    console.log(parentContainer);
     let putcallId = sessionStorage.getItem('putcallId');
-
+    console.log(putcallId);
+    
+    parentContainer.innerHTML = '';
     for (let i = 0; i < responseSize; i++) {
+        console.log(child_response[i].child_id);
         let on_process = child_response[i].on_process;
 
         let div = document.createElement('li');
         div.setAttribute('class', 'nav-item');
 
         let anchor = document.createElement('a');
-        anchor.setAttribute('class', 'nav-link');
+        anchor.setAttribute('class', 'nav-link ');
+        // anchor.classList.add('anchorvalue');
         anchor.setAttribute('data-child-id', child_response[i].child_id);
 
         let card = document.createElement('div');
@@ -104,6 +109,7 @@ function loadDynamicCards() {
             let allTabs = document.querySelectorAll('.nav-link');
             allTabs.forEach(tab => tab.classList.remove('active'));
             anchor.classList.add('active');
+          
 
             const selectedChildName = child_response[i].child_first_name;
             const selectedChildId = child_response[i].child_id;
@@ -130,6 +136,7 @@ function loadDynamicCards() {
     if (!putcallId) {
         if (responseSize > 0) {
             let firstAnchor = parentContainer.querySelector('a.nav-link');
+            console.log(firstAnchor);
             if (firstAnchor) {
                 firstAnchor.classList.add('active');
                 const selectedChildName = child_response[0].child_first_name;
@@ -146,6 +153,7 @@ function loadDynamicCards() {
         }
         localStorage.setItem('child_id', putcallId);
         checking(putcallId);
+        
     }
 }
 
@@ -228,121 +236,6 @@ function checking(editID) {
 
     //destroy datatable
     $('#example').DataTable().destroy();
-
-    // $('#example').on('click', '.download-btn', function () {
-    //     let url = $(this).data('url');
-    //     let fileName = $(this).data('name');
-    //     let editID = extractEditIDFromURL(url);
-
-    //     localStorage.setItem('form_name', fileName);
-    //     fetch(url)
-    //         .then(response => response.text())
-    //         .then(text => {
-    //             let hiddenDiv = document.createElement('div');
-    //             hiddenDiv.id = 'formContent';
-    //             hiddenDiv.style.display = 'none';
-    //             hiddenDiv.innerHTML = text;
-    //             document.body.appendChild(hiddenDiv);
-
-    //             populateFormData(editID, fileName).then(() => {
-    //                 setTimeout(() => {
-    //                     generatePDFContent().then(doc => {
-    //                         doc.save(fileName);
-    //                         document.body.removeChild(hiddenDiv);
-    //                         // window.location.reload();
-    //                     }).catch(error => {
-    //                         document.body.removeChild(hiddenDiv);
-    //                     });
-    //                 }, 1000); // Adjust timeout as needed
-    //             }).catch(error => {
-    //                 document.body.removeChild(hiddenDiv);
-    //             });
-    //         })
-    //         .catch(error => {
-    //             console.error('Error downloading the document:', error);
-    //         });
-    // });
-
-    // function generatePDFContent() {
-    //     return new Promise((resolve) => {
-    //         const { jsPDF } = window.jspdf;
-    //         const doc = new jsPDF('p', 'mm', [1500, 1400]);
-    //         let formContent = document.querySelector('#formContent');
-    //         formContent.style.display = 'block';
-
-    //         formContent.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-    //             checkbox.defaultChecked = checkbox.checked;
-    //         });
-
-    //         doc.html(formContent, {
-    //             callback: function () {
-    //                 formContent.style.display = 'none';
-    //                 resolve(doc);
-    //             },
-    //             x: 12,
-    //             y: 12
-    //         });
-    //     });
-    // }
-
-    // $('#example').on('click', '.print-btn', function () {
-    //     let url = $(this).data('url');
-    //     let formName = $(this).data('name');
-    //     let editID = extractEditIDFromURL(url);
-    //     localStorage.setItem('form_name', formName);
-
-    //     fetch(url)
-    //         .then(response => {
-    //             if (!response.ok) throw new Error('Network response was not ok');
-    //             return response.text();
-    //         })
-    //         .then(text => {
-    //             let hiddenDiv = document.createElement('div');
-    //             hiddenDiv.id = 'formContent';
-    //             hiddenDiv.style.display = 'none';
-    //             hiddenDiv.innerHTML = text;
-    //             document.body.appendChild(hiddenDiv);
-
-    //             return populateFormData(editID, formName);
-    //         })
-    //         .then(() => {
-    //             let hiddenDiv = document.getElementById('formContent');
-    //             if (hiddenDiv) {
-    //                 console.log('Form content div found:', hiddenDiv);
-    //                 printContent(hiddenDiv);
-    //             } else {
-    //                 throw new Error('Form content div not found');
-    //             }
-    //         })
-    //         .catch(error => {
-    //             console.error('Error:', error);
-    //             let hiddenDiv = document.getElementById('formContent');
-    //             if (hiddenDiv) {
-    //                 document.body.removeChild(hiddenDiv);
-    //             }
-    //         });
-    // });
-
-    // function printContent(hiddenDiv) {
-    //     console.log('Hidden div to print:', hiddenDiv);
-    //     let printWindow = window.open('', '', 'height=1400,width=1500');
-    //     let formContent = hiddenDiv.innerHTML;
-
-    //     printWindow.document.write('<html><head><title>Print Form</title>');
-    //     printWindow.document.write('</head><body>');
-    //     printWindow.document.write(formContent);
-    //     printWindow.document.write('</body></html>');
-    //     printWindow.document.close();
-
-    //     printWindow.onload = function () {
-    //         printWindow.focus();
-    //         printWindow.print();
-    //         printWindow.onafterprint = function () {
-    //             printWindow.close();
-    //             document.body.removeChild(hiddenDiv);
-    //         };
-    //     };
-    // }
 
     $('#example').on('click', '.download-btn', function () {
         let url = $(this).data('url');
@@ -944,19 +837,24 @@ function checking(editID) {
                 data: 'edit',
                 render: function (data, type, full, meta) {
                     let url = '';
+                    let print_url = '';
                     console.log(window.location.origin);
                     switch (full.formname) {
                         case 'admission_form':
                             url = `${window.location.origin}/goddard-frontend-dev/admission_form_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/goddard-frontend-dev/admission_form_pdf_completed.html?id=${editID}`;
                             break;
                         case 'authorization_form':
                             url = `${window.location.origin}/goddard-frontend-dev/authorization_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/goddard-frontend-dev/authorization_pdf_completed.html?id=${editID}`;
                             break;
                         case 'enrollment_form':
                             url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_pdf_completed.html?id=${editID}`;
                             break;
                         case 'parent_handbook':
                             url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_pdf_completed.html?id=${editID}`;
                             break;
                         default:
                             return '';
@@ -964,16 +862,104 @@ function checking(editID) {
                     return `
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 download-btn" data-url="${url}" data-name="${full.formname}.pdf" name="downbutton"><path fill="#0F2D52" d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z"/></svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 print-btn" data-url="${url}" data-name="${full.formname}.pdf" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 print-btn" data-url="${print_url}" data-name="${full.formname}.pdf" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg>
                         </div>`;
                 }
             }
         ],
         pageLength: 25,
     });
-    
 
-    // Click event handler for the print button
+  
+    function activateTab(pointer) { 
+        // Map pointer values to tab IDs or classes
+        const subTabMapping = {
+            1: '#childinfoCollapseOne', 
+            2: '#parentDetailsCollapseTwo', 
+            3: '#additionalParentDetailsCollapseTwo', 
+            4: '#emergencyCollapseThree', 
+            5: '#medicalcareCollapseFour',
+            6: '#childinfoagreeCollapseFive', 
+            7: '#historyCollapseOne', 
+            8: '#historyCollapseTwo', 
+            9: '#historyCollapseThree', 
+            10: '#historyCollapseFour', 
+            11: '#historyCollapseFive', 
+            12: '#historyCollapseSix', 
+            13: '#historyCollapseSeven', 
+            14: '#immunizationinstructions',
+            15:'#childproCollapseOne',
+            16:'#childproCollapseTwo',
+            17: '#childproCollapseThree',
+            18: '#childproCollapseFour',
+            19: '#childproCollapseFive',
+            20: '#pickuppassword',
+            21: '#photovideopermission',
+            22: '#securitypolicy',
+            23: '#medicaltransportation',
+            24: '#healthpolicies',
+            25: '#outsideengagements',
+            26 : '#socialmediaapproval',
+        };
+
+        const tabId = subTabMapping[pointer];
+        console.log(tabId);
+        console.log(pointer);
+    
+        // deactivate all left-side tabs
+        $('.tab-pane').removeClass('active show');
+        $('.anchorvalue').removeClass('active');
+    
+        if (pointer <= 6) {
+            $('#childinformation').addClass('active show');
+            $('[href="#childinformation"]').addClass('active'); 
+        } else if (pointer >= 7 && pointer <= 13) {
+            $('#childandfamilyhistory').addClass('active show');
+            $('[href="#childandfamilyhistory"]').addClass('active'); 
+        } else if (pointer == 14) {
+            $('#immunizationinstructions').addClass('active show');
+            $('[href="#immunizationinstructions"]').addClass('active'); 
+        } else if (pointer >= 15 && pointer <= 19) {
+            $('#childprofile').addClass('active show');
+            $('[href="#childprofile"]').addClass('active'); 
+        }else if (pointer == 20) {
+            $('#pickuppassword').addClass('active show');
+            $('[href="#pickuppassword"]').addClass('active'); 
+        }else if (pointer == 21) {
+            $('#photovideopermission').addClass('active show');
+            $('[href="#photovideopermission"]').addClass('active'); 
+        }else if (pointer == 22) {
+            $('#securitypolicy').addClass('active show');
+            $('[href="#securitypolicy"]').addClass('active'); 
+        }else if (pointer == 23) {
+            $('#medicaltransportation').addClass('active show');
+            $('[href="#medicaltransportation"]').addClass('active'); 
+        }else if (pointer == 24) {
+            $('#healthpolicies').addClass('active show');
+            $('[href="#healthpolicies"]').addClass('active'); 
+        }else if (pointer == 25) {
+            $('#outsideengagements').addClass('active show');
+            $('[href="#outsideengagements"]').addClass('active'); 
+        }else if (pointer == 26) {
+            $('#socialmediaapproval').addClass('active show');
+            $('[href="#socialmediaapproval"]').addClass('active'); 
+        }
+
+        if (tabId) {
+            // $('.accordion-collapse').removeClass('show');
+            // $('.accordion-button').addClass('collapsed').attr('aria-expanded', 'false');
+            const selectedTab = $(tabId);
+            if (selectedTab.length) {
+                selectedTab.addClass('show');
+                selectedTab
+                    .prev('.accordion-header')
+                    .find('.accordion-button')
+                    .removeClass('collapsed')
+                    .attr('aria-expanded', 'true');
+            }
+        }
+    }
+
 
     if (editID != '') {
         // formdiv.classList.remove('hide');
@@ -985,6 +971,11 @@ function checking(editID) {
             //this is used to get the response and return the result
             success: function (response) {
                 
+                let tabPointer = response.pointer;  // Assume this value comes from the API
+                if (typeof tabPointer !== 'undefined') {
+                    // Example of tab structure: If the tabs have IDs or classes like 'tab1', 'tab2', 'tab3'
+                    activateTab(tabPointer); 
+                }
                 console.log(response);
                 let childbasicInfo;
                 let childparentInfo;

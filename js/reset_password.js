@@ -53,46 +53,24 @@ function signupFunction(){
                     // return false 
                     if(response.error == `Parent info with email_id ${email_id} not found or Signup url is invalid`){
                         $(".error-msg-notfound").show();
-                        setTimeout(function(){ 
-                            $(".error-msg-notfound").hide(); 
-                        }, 3000);
                     }else if(response.message == `Parent Info with email_id ${email_id} password updated successfully`){
                         $(".success-msg-reset").show();
-                        setTimeout(function(){ 
-                            $(".success-msg-reset").hide(); 
-                            window.location.href = "login.html";
-                        }, 3000);
                     } else if(response.error == "Forget password url was expired!!!"){
                         $(".error-msg").show();
-                        setTimeout(function(){ 
-                            $(".error-msg").hide(); 
-                        }, 3000);
                     } else {
                         $(".error-msg-notfound").show();
-                        setTimeout(function(){ 
-                            $(".error-msg-notfound").hide(); 
-                        }, 3000);
                     }
                 },
                 error: function() {
                     // Handle AJAX errors
                     $(".error-msg-notfound").show();
-                    setTimeout(function(){ 
-                        $(".error-msg-notfound").hide(); 
-                    }, 3000);
                 }
             });
         } else {
             $(".error-msg-mismatch").show();
-            setTimeout(function(){ 
-                $(".error-msg-mismatch").hide(); 
-            }, 3000);
         }
     }else{
         $(".error-msg-empty").show();
-        setTimeout(function(){ 
-            $(".error-msg-empty").hide(); 
-        }, 3000);
     }
 
 }
@@ -108,41 +86,22 @@ function resendmailFunction(){
                 console.log(response)
                 if(response.message == "Password reset email sent successfully!"){
                     $(".forget-success-msg").show();
-                    setTimeout(function(){ 
-                        $(".forget-success-msg").hide(); 
-                        window.location.href = "login.html";
-                    }, 3000);
                 }else if(response.error == `SignUpInfo with email_id ${email_id} not found`){
                     $(".error-msg-notfound").show();
-                    setTimeout(function(){ 
-                        $(".error-msg-notfound").hide(); 
-                    }, 3000);
                 } else if(response.error == "We have already sent the password reset page URL to your email. Please check your inbox."){
                     $(".error-msg-alreadyexists").show();
-                    setTimeout(function(){ 
-                        $("error-msg-alreadyexists").hide(); 
-                    }, 3000);
                 }else{
                     $(".error-msg-notfound").show();
-                    setTimeout(function(){ 
-                        $(".error-msg-notfound").hide(); 
-                    }, 3000);
                 }
             },
             error: function() {
                 // Handle AJAX errors
                 $(".error-msg-notfound").show();
-                setTimeout(function(){ 
-                    $(".error-msg-notfound").hide(); 
-                }, 3000);
             }
         });
     
     }else{
         $(".error-msg-empty").show();
-        setTimeout(function(){ 
-            $(".error-msg-empty").hide(); 
-        }, 3000);
     }
 
 }

@@ -20,7 +20,7 @@
     }
 </style>
 
-<div id="childinformation" class="container tab-pane active"><br>
+<div id="childinformation" class="container tab-pane " role="tabpanel"><br>
     <div class="card">
         <h4 class="text-center title_bg">Child Information</h4>
         <div class="accordion p-4" id="childinfoAccordionExample">
@@ -34,7 +34,7 @@
                         <img src="image/circle-with.png" height="3%" width="3%" class="childdetails-circle float-end" style="display: none;">
                     </button>
                 </h2>
-                <div id="childinfoCollapseOne" class="accordion-collapse collapse show"
+                <div id="childinfoCollapseOne" class="accordion-collapse collapse "
                     aria-labelledby="childinfoHeadingOne" data-bs-parent="#childinfoAccordionExample">
                     <div class="accordion-body accordion_tab_body">
                         <div class="row m-1 mb-4">
@@ -556,8 +556,8 @@
                                         </label>
                                         <input type="text" class="form-control " aria-label="Emergency Relationship"
                                             id="child_emergency_contact_telephone_number0" name="child_emergency_contact_telephone_number0"
-                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')" placeholder="e.g. +1-212-456-8890">
-                                        <span id="child_emergency_contact_telephone_number_span" style="color:red; display:none">
+                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span0')" placeholder="e.g. +1-212-456-8890">
+                                        <span id="child_emergency_contact_telephone_number_span0" style="color:red; display:none">
                                             Enter valid input [only numbers,+,-,()].</span>
                                     </div>
                                 </div>
@@ -631,8 +631,8 @@
                                         </label>
                                         <input type="text" class="form-control " aria-label="Emergency Relationship"
                                             id="child_emergency_contact_telephone_number1" name="child_emergency_contact_telephone_number1"
-                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')" placeholder="e.g. +1-212-456-8890">
-                                        <span id="child_emergency_contact_telephone_number_span" style="color:red; display:none">
+                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span1')" placeholder="e.g. +1-212-456-8890">
+                                        <span id="child_emergency_contact_telephone_number_span1" style="color:red; display:none">
                                             Enter valid input [only numbers,+,-,()].</span>
                                     </div>
                                 </div>
@@ -706,8 +706,8 @@
                                         </label>
                                         <input type="text" class="form-control " aria-label="Emergency Relationship"
                                             id="child_emergency_contact_telephone_number2" name="child_emergency_contact_telephone_number2"
-                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span')" placeholder="e.g. +1-212-456-8890">
-                                        <span id="child_emergency_contact_telephone_number_span" style="color:red; display:none">
+                                            onchange="validatePhone(this,'child_emergency_contact_telephone_number_span2')" placeholder="e.g. +1-212-456-8890">
+                                        <span id="child_emergency_contact_telephone_number_span2" style="color:red; display:none">
                                             Enter valid input [only numbers,+,-,()].</span>
                                     </div>
                                 </div>
@@ -1111,7 +1111,7 @@
 <!--Child Information-->
 
 <!--Child and Family History-->
-<div id="childandfamilyhistory" class="container tab-pane fade"><br>
+<div id="childandfamilyhistory" class="container tab-pane  " role="tabpanel"><br>
     <div class="card">
         <h4 class="text-center title_bg">Child and Family History</h4>
         <div class="accordion p-4" id="historyAccordionExample">
@@ -1119,13 +1119,13 @@
             <div class="accordion-item">
                 <h2 class="accordion-header shadow" id="historyHeadingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#historyCollapseOne" aria-expanded="true" aria-controls="historyCollapseOne">
+                        data-bs-target="#historyCollapseOne" aria-expanded="false" aria-controls="historyCollapseOne">
                         Child History&nbsp;&nbsp;
                         <img src="image/tick.png" height="3%" width="3%" class="childhistoryDetails-tick float-end " style="display: none;">
                         <img src="image/circle-with.png" height="3%" width="3%" class="childhistoryDetails-circle float-end" style="display: none;">
                     </button>
                 </h2>
-                <div id="historyCollapseOne" class="accordion-collapse collapse show" aria-labelledby="historyHeadingOne"
+                <div id="historyCollapseOne" class="accordion-collapse collapse " aria-labelledby="historyHeadingOne"
                     data-bs-parent="#historyAccordionExample">
                     <div class="accordion-body accordion_tab_body">
                         <div class="row m-1 mb-4">
@@ -1828,7 +1828,7 @@
 <!--Child Information-->
 
 <!--Immunization Instructions-->
-<div id="immunizationinstructions" class="container tab-pane fade"><br>
+<div id="immunizationinstructions" class="container tab-pane fade" role="tabpanel"><br>
     <div class="card">
         <h4 class="text-center title_bg">Immunization Instructions</h4>
         <div class="p-4">
@@ -1867,20 +1867,20 @@
 <!--Immunization Instructions End-->
 
 <!--Child Profile Form-->
-<div id="childprofile" class="container tab-pane fade"><br>
+<div id="childprofile" class="container tab-pane fade" role="tabpanel"><br>
     <div class="card">
         <h4 class="text-center title_bg">Child Profile</h4>
         <div class="accordion p-4" id="childproAccordionExample">
             <!--Child Profile Details-->
             <div class="accordion-item">
                     <h2 class="accordion-header shadow" id="childproHeadingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseOne" aria-expanded="true" aria-controls="childproCollapseOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#childproCollapseOne" aria-expanded="false" aria-controls="childproCollapseOne">
                         Child Profile Details&nbsp;&nbsp;
                         <img src="image/tick.png" height="3%" width="3%" class="childprofiledetail-tick float-end " style="display: none;">
                         <img src="image/circle-with.png" height="3%" width="3%" class="childprofiledetail-circle float-end" style="display: none;">
                         </button>
                     </h2>
-                    <div id="childproCollapseOne" class="accordion-collapse collapse show" aria-labelledby="childproHeadingOne" data-bs-parent="#childproAccordionExample">
+                    <div id="childproCollapseOne" class="accordion-collapse collapse " aria-labelledby="childproHeadingOne" data-bs-parent="#childproAccordionExample">
                         <div class="accordion-body accordion_tab_body">
                         <div class="row m-1 mb-4">
                             <div class="col-sm">
@@ -1915,7 +1915,7 @@
                                     </div>
                                     <div class="wizard-form-radio">
                                         <input name="childcare_before" id="childcare_before2"
-                                            type="radio" value=1  >
+                                            type="radio" value=2  >
                                         <label for="childcare_before2">No</label>
                                     </div>
                                 </div>
@@ -1925,7 +1925,7 @@
                                     <label for="reason_for_childcare_before" class="form-label"><b>If so, what kind?</b></label>
                                     <select class="form-control form-select-lg" aria-label=".form-control-lg example"
                                         id="reason_for_childcare_before" name="reason_for_childcare_before">
-                                        <option></option>
+                                        <option value="0"></option>
                                         <option value="1">Relative’s Care</option>
                                         <option value="2">Home Care</option>
                                         <option value="3">Church Care</option>
@@ -1972,7 +1972,6 @@
                         </div>
                     </div>    
             </div>
-
             <!--Nutrition Details-->
             <div class="accordion-item">
                 <h2 class="accordion-header shadow" id="childproHeadingTwo">
@@ -2054,7 +2053,6 @@
                     </div>  
                 </div> 
             </div>
-
             <!--Rest and Diapering/Toilet Learning-->
             <div class="accordion-item">
                 <h2 class="accordion-header shadow" id="childproHeadingThree">
@@ -2138,7 +2136,6 @@
                     </div> 
                 </div>    
             </div> 
-
             <!--Medical Details-->
             <div class="accordion-item">
                 <h2 class="accordion-header shadow" id="childproHeadingFour">
@@ -2386,7 +2383,6 @@
                     </div>
                 </div>       
             </div>     
-
             <!--Parent Agreement--> 
             <div class="accordion-item">
                 <h2 class="accordion-header shadow" id="childproHeadingFive">
@@ -2937,11 +2933,71 @@
             }
         });
     });
-    $(document).on("click", ".dropdown-item", function () {
-        let dentistId = $(this).data('value');
+    // $(document).on("click", ".dropdown-item", function () {
+    //     let dentistId = $(this).data('value');
 
+    //     $.ajax({
+    //         url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/dentist/get/${dentistId}`,
+    //         type: 'GET',
+    //         dataType: 'json',
+    //         success: function (response) {
+    //             // Populate the dentist details
+    //             $('#dentist_telephone_number').val(response.dentist_telephone_number);
+    //             $('#dentist_street_address').val(response.dentist_street_address);
+    //             $('#dentist_city_address').val(response.dentist_city_address);
+    //             $('#dentist_state_address').val(response.dentist_state_address);
+    //             $('#dentist_zip_address').val(response.dentist_zip_address);
+
+    //              // Disable the input fields after setting the values
+    //             $('#dentist_telephone_number').prop('disabled', true);
+    //             $('#dentist_street_address').prop('disabled', true);
+    //             $('#dentist_city_address').prop('disabled', true);
+    //             $('#dentist_state_address').prop('disabled', true);
+    //             $('#dentist_zip_address').prop('disabled', true);
+
+    //         },
+    //         error: function (xhr, status, error) {
+    //         console.error('Error fetching dentist details:', error);
+    //     }
+    //     });
+    // });
+
+    $(document).on("click", ".dropdown-item", function (event) {
+    event.preventDefault();
+
+    // Remove the active class from all dropdown items
+    $('.dropdown-item').removeClass('active');
+
+    // Add the active class to the clicked item
+    $(this).addClass('active');
+
+    // Update the dropdown button text
+    const dropdownButton = document.getElementById('dropdownMenuButton');
+    dropdownButton.textContent = this.textContent;
+
+    // Get the selected dentist ID
+    const selectedDentistId = $(this).data('value');
+
+    if (selectedDentistId === 'others') {
+        // If "Others" is selected, enable the custom dentist name input and related fields
+        $('#child_dentist_name').removeClass('d-none').addClass('d-block');
+        $('#dentist_telephone_number').prop('disabled', false).val('');
+        $('#dentist_street_address').prop('disabled', false).val('');
+        $('#dentist_city_address').prop('disabled', false).val('');
+        $('#dentist_state_address').prop('disabled', false).val('');
+        $('#dentist_zip_address').prop('disabled', false).val('');
+    } else {
+        // Disable custom fields and fetch dentist details by ID
+        $('#child_dentist_name').addClass('d-none').removeClass('d-block');
+        $('#dentist_telephone_number').prop('disabled', true);
+        $('#dentist_street_address').prop('disabled', true);
+        $('#dentist_city_address').prop('disabled', true);
+        $('#dentist_state_address').prop('disabled', true);
+        $('#dentist_zip_address').prop('disabled', true);
+
+        // Fetch dentist details
         $.ajax({
-            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/dentist/get/${dentistId}`,
+            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/dentist/get/${selectedDentistId}`,
             type: 'GET',
             dataType: 'json',
             success: function (response) {
@@ -2951,20 +3007,15 @@
                 $('#dentist_city_address').val(response.dentist_city_address);
                 $('#dentist_state_address').val(response.dentist_state_address);
                 $('#dentist_zip_address').val(response.dentist_zip_address);
-
-                 // Disable the input fields after setting the values
-                $('#dentist_telephone_number').prop('disabled', true);
-                $('#dentist_street_address').prop('disabled', true);
-                $('#dentist_city_address').prop('disabled', true);
-                $('#dentist_state_address').prop('disabled', true);
-                $('#dentist_zip_address').prop('disabled', true);
-
             },
             error: function (xhr, status, error) {
-            console.error('Error fetching dentist details:', error);
-        }
+                console.error('Error fetching dentist details:', error);
+            }
         });
-    });
+    }
+});
+
+
     </script>
 </body>
 </html>

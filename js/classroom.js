@@ -76,16 +76,8 @@ form.addEventListener("submit", (e) => {
                 // console.log(confirmationRes)
                 if (data) {
                     $(".success-msg").show();
-                        setTimeout(function(){
-                        $(".success-msg").hide();
-                        window.location.reload();
-                    }, 3000);  
                 } else {
                     $(".error-msg-1").show();
-                        setTimeout(function(){
-                        $(".error-msg-1").hide();
-                        window.location.reload();
-                    }, 3000);  
                 }
             }       
         };
@@ -95,10 +87,6 @@ form.addEventListener("submit", (e) => {
         xhr.send(json);
     }else{
         $(".error-msg-2").show();
-            setTimeout(function(){
-            $(".error-msg-2").hide();
-            window.location.reload();
-        }, 3000);  
     }
 });
 
@@ -152,16 +140,16 @@ $(document).ready(function () {
                             // var confirmationRes = window.confirm(data);
                             if (data) {
                                 $(".success-msg-update").show();
-                                    setTimeout(function(){
-                                    $(".success-msg-update").hide();
-                                    window.location.href = "forms_repository.html";
-                                }, 3000);  
+                                //     setTimeout(function(){
+                                //     $(".success-msg-update").hide();
+                                //     window.location.href = "forms_repository.html";
+                                // }, 3000);  
                             } else {
                                 $(".error-msg-1").show();
-                                    setTimeout(function(){
-                                    $(".error-msg-1").hide();
-                                    window.location.href = "forms_repository.html";
-                                }, 3000); 
+                                //     setTimeout(function(){
+                                //     $(".error-msg-1").hide();
+                                //     window.location.href = "forms_repository.html";
+                                // }, 3000); 
                             }
                         }       
                     };

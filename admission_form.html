@@ -2805,7 +2805,7 @@
                     <label for="parent_sign_date_admission"  class="form-label"><b>Date</b>
                     </label>
                     <input type="date" class="form-control" id="parent_sign_date_admission"
-                        name="parent_sign_date_admission" onclick="dateValidation('parent_sign_date_admission')">
+                        name="parent_sign_date_admission" onclick="dateValidation('parent_sign_date_admission')" readonly>
                 </div>
             </div>
         </div>
@@ -2854,6 +2854,9 @@
  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
  
  <script>
+    // JavaScript to set the current date
+    document.getElementById('parent_sign_date_admission').value = new Date().toISOString().split('T')[0];
+
     $(document).on("focus", "#dropdownMenuButton", function () {
         $.ajax({
             url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/dentist/getall',

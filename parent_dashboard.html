@@ -1,329 +1,477 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Parent Dashboard</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
-        <link rel="stylesheet" href="css/all_forms.css">
-        <link rel="stylesheet" href="css/navbar_signout.css">
-        <link rel="stylesheet" href="css/parent_dashboard.css">
-        <link rel="stylesheet" href="css/data_table.css">  
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-        <script type="module" src='js/parent_dashboard.js' defer></script>
-        <script type="module" src='js/timeout.js'></script>
-        <script type="module" src="js/all_form.js"></script>
-        <script type="module" src="js/completed_form.js"></script>
-        <script src="js/validation.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <head>
+    <title>Parent Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png" />
+    <link rel="stylesheet" href="css/all_forms.css" />
+    <link rel="stylesheet" href="css/navbar_signout.css" />
+    <link rel="stylesheet" href="css/parent_dashboard.css" />
+    <link rel="stylesheet" href="css/data_table.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script type="module" src="js/parent_dashboard.js" defer></script>
+    <script type="module" src="js/timeout.js"></script>
+    <script type="module" src="js/all_form.js"></script>
+    <script type="module" src="js/completed_form.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
-        <style>
+    <style>
+      /****** DON'T REMOVE ******/
 
-        /****** DON'T REMOVE ******/   
+      /****** Accordion Icon don't remove ******/
+      .accordion-button:not(.collapsed)::after {
+        background-image: url("image/down_white.png") !important;
+        transform: rotate(-180deg) !important;
+      }
+      .accordion-button-one:not(.collapsed)::after {
+        background-image: url("image/down_white.png") !important;
+        transform: rotate(-180deg) !important;
+      }
+      /****** Accordion Icon ******/
 
-            /****** Accordion Icon don't remove ******/
-            .accordion-button:not(.collapsed)::after {
-                background-image: url('image/down_white.png') !important;
-                transform: rotate(-180deg) !important;
-            }
-            .accordion-button-one:not(.collapsed)::after {
-                background-image: url('image/down_white.png') !important;
-                transform: rotate(-180deg) !important;
-            }
-            /****** Accordion Icon ******/
-            
-        /****** DON'T REMOVE ******/  
+      /****** DON'T REMOVE ******/
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar_bg">
+      <div class="text-center">
+        <img
+          src="image/gs_logo_lynnwood.png"
+          alt="gs_logo_lynnwood"
+          type="image/png"
+          width="476px"
+          height="112px"
+        />
+      </div>
+      <div id="btn-signout" class="btn signout">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b
+          >Sign Out</b
+        >
+      </div>
+    </nav>
+    <!-- Navigation Bar End -->
 
-        </style>
-    </head>
-    <body>
-        <!-- Navigation Bar -->
-        <nav class="navbar_bg">
-            <div class="text-center">
-                <img src="image/gs_logo_lynnwood.png" alt="gs_logo_lynnwood" type="image/png" width="476px" height="112px">
-            </div>
-            <div id="btn-signout" class="btn signout"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Sign Out</b></div>
-        </nav>
-        <!-- Navigation Bar End -->
-
-        <!-- Welcome Screen -->
-        <div class="p-3">
-            <h2 class="parent_dashboard_title h2 pt-4 text-center">Parent Dashboard</h2>
-            <!-- Welcome Text -->
-            <h4 class="h4 pt-2 text-center" id="welcomeText" name="welcomeText"></h4>
-        </div>
-        <div class="success-msg alert alert-success" style="display: none;">
-            <a href="#" data-dismiss="alert"></a>
-            <strong>Success!</strong> Data saved successfully!
-        </div>   
-        <div class="error-msg alert alert-danger" style="display: none;">
-            <a href="#" data-dismiss="alert" aria-label="close"></a>
-            <strong>Oops!</strong> Failed to save admission form!
-        </div>  
-         <!-- Welcome Screen End -->
-        <div class="tab-bg m-2">
-            <div class="tab-bg"><ul class="nav" role="tablist" id="dynamicChildCards" onclick="closeCompletedFormsTab()"></ul></div>
-            <div class="row m-1 tab_body_bg"  id="formdiv" >
-                <div class="col-3 side_tab_bg"><br>
-                    <div class="accordion" id="accordionExample">
-                        <div class="accordion-item card">
-                            <h4 class="side-menu-title p-2"><b>Forms Status</b></h4>
-                            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <div class="accordion" id="accordionExampleone">
-                                        <!--Admission Form Tab-->
-                                        <div class="accordion-item accordion_incomplete_item">
-                                            <ul class="nav nav-pills flex-column tab-content menu" role="tablist" id="menu" >
-                                                <h6 class="p-3 side-menu" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="There is no forms available"><b>Incomplete</b></h6>
-                                                <div class="menu">
-                                                    <!--Child Information -->
-                                                    <div class="menu admission_form" id="admissionFormMenu"></div>
-                                                    <div class="menu authorization" id="authorizationMenu"></div>
-                                                    <div class="menu enrollment_agreement" id="enrollmentMenu"></div>
-                                                    <div class="menu parent_handbook" id="parentHandbookMenu"></div>
-                                                </div><br>
-                                                <span onclick="toggleContent('completedFormDetails')">
-                                                    <li>
-                                                        <a class="nav-link completedforms" data-bs-toggle="pill" 
-                                                        href="#completedFormDetails">
-                                                            <span>Completed Forms
-                                                                <img src="image/tick.png" height="10%" width="10%" class="completedforms-tick float-end" style="display: none;">
-                                                                <img src="image/circle-with.png" height="10%" width="10%" class="completedforms-circle float-end" style="display: none;">
-                                                            </span>
-                                                        </a>    
-                                                    </li>
-                                                </span>
-                                            </ul>
-                                        </div><br>
-                                    </div>  
-                                </div>
-                            </div>
-                        </div><br>
-                    </div><br>  
-                </div>
-                <div class="col-9">
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <!--Child Information -->
-                        <form id="childInfoAdmission"> 
-                            <div class="tab-content admission_form" id="admissionforms"></div>
-                        </form>
-                        <form id="childInfoAuthorization"> 
-                            <div class="tab-content authorization" id="authorization"></div>
-                        </form>
-                        <form id="childInfoEnrollment"> 
-                            <div class="tab-content enrollment_agreement" id="enrollmentagreement"></div>
-                        </form>
-                        <form id="childInfoHandbook"> 
-                            <div class="tab-content parent_handbook" id="parenthandbook"></div>
-                        </form>
-                    </div><br>
-                    <div  id="completedFormDetails"  class="container tab-pane fade">
-                        <div class="card">
-                            <h3 class="text-center title_bg">Completed Forms</h3>
-                            <div class="row g-0">
-                                <div class="col-sm-6 col-md-8 p-4">
-                                    <h4 class="completed-forms-childname">Child Name :&nbsp;<span id="childName"></span></h4>
-                                </div>
-                                <!-- <div class="col-6 col-sm-6 col-md-4 completed-forms-year">
-                                    <div class="float-end">
-                                        <div class="form-group">
-                                            <label for="year" class="wizard-form"> <b>Year</b></label>
-                                            <select name="year" id="year" class="form-control float-end" 
-                                            required>
-                                            <option selected disabled>Year</option>
-                                            <option value="2024">2024</option>
-                                            <option value="2023">2023</option>
-                                            <option value="2022">2022</option>
-                                            </select>
-                                            <i class="fa fa-chevron-down"></i>
-                                        </div>
-                                    </div>
-                                </div> -->
-                            </div>
-                            <div class="d-flex justify-content-center m-4">
-                                <div class="container" style="margin-top: 20px;">
-                                    <div class="table-wrapper" id="tableview">
-                                        <!-- Form Action Table -->
-                                        <table id="example" class="display nowrap" style="width:100%" rules ="all">  
-                                            <thead class="table-head">
-                                                <tr>
-                                                    <th>Form Name</th>
-                                                    <th>Time Stamp</th>
-                                                    <th>Action</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody></tbody>
-                                        </table>
-                                        <!-- Form Action Table End -->
-                                    </div>
-                                    <button class="excelbuttn"  onclick="ExportToExcel('xlsx')"><img src="image/excel.png" alt="image" style="height:25px;width:25px;"></button>
-                                </div>
-                            </div>    
+    <!-- Welcome Screen -->
+    <div class="p-3">
+      <h2 class="parent_dashboard_title h2 pt-4 text-center">
+        Parent Dashboard
+      </h2>
+      <!-- Welcome Text -->
+      <h4 class="h4 pt-2 text-center" id="welcomeText" name="welcomeText"></h4>
+    </div>
+    <div class="success-msg alert alert-success" style="display: none">
+      <a href="#" data-dismiss="alert"></a>
+      <strong>Success!</strong> Data saved successfully!
+    </div>
+    <div class="error-msg alert alert-danger" style="display: none">
+      <a href="#" data-dismiss="alert" aria-label="close"></a>
+      <strong>Oops!</strong> Failed to save admission form!
+    </div>
+    <!-- Welcome Screen End -->
+    <div class="tab-bg m-2">
+      <div class="tab-bg">
+        <ul
+          class="nav"
+          role="tablist"
+          id="dynamicChildCards"
+          onclick="closeCompletedFormsTab()"
+        ></ul>
+      </div>
+      <div class="row m-1 tab_body_bg" id="formdiv">
+        <div class="col-3 side_tab_bg">
+          <br />
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item card">
+              <h4 class="side-menu-title p-2"><b>Forms Status</b></h4>
+              <div
+                id="panelsStayOpen-collapseOne"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  <div class="accordion" id="accordionExampleone">
+                    <!--Admission Form Tab-->
+                    <div class="accordion-item accordion_incomplete_item">
+                      <ul
+                        class="nav nav-pills flex-column tab-content menu"
+                        role="tablist"
+                        id="menu"
+                      >
+                        <h6
+                          class="p-3 side-menu"
+                          data-bs-toggle="popover"
+                          data-bs-trigger="hover"
+                          data-bs-content="There is no forms available"
+                        >
+                          <b>Incomplete</b>
+                        </h6>
+                        <div class="menu">
+                          <!--Child Information -->
+                          <div
+                            class="menu admission_form"
+                            id="admissionFormMenu"
+                          ></div>
+                          <div
+                            class="menu authorization"
+                            id="authorizationMenu"
+                          ></div>
+                          <div
+                            class="menu enrollment_agreement"
+                            id="enrollmentMenu"
+                          ></div>
+                          <div
+                            class="menu parent_handbook"
+                            id="parentHandbookMenu"
+                          ></div>
                         </div>
-                    </div> 
+                        <br />
+                        <span onclick="toggleContent('completedFormDetails')">
+                          <li>
+                            <a
+                              class="nav-link completedforms"
+                              data-bs-toggle="pill"
+                              href="#completedFormDetails"
+                            >
+                              <span
+                                >Completed Forms
+                                <img
+                                  src="image/tick.png"
+                                  height="10%"
+                                  width="10%"
+                                  class="completedforms-tick float-end"
+                                  style="display: none"
+                                />
+                                <img
+                                  src="image/circle-with.png"
+                                  height="10%"
+                                  width="10%"
+                                  class="completedforms-circle float-end"
+                                  style="display: none"
+                                />
+                              </span>
+                            </a>
+                          </li>
+                        </span>
+                      </ul>
+                    </div>
+                    <br />
+                  </div>
                 </div>
+              </div>
             </div>
-        </div>  
-        
-        <script>
+            <br />
+          </div>
+          <br />
+        </div>
+        <div class="col-9">
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <!--Child Information -->
+            <form id="childInfoAdmission">
+              <div class="tab-content admission_form" id="admissionforms"></div>
+            </form>
+            <form id="childInfoAuthorization">
+              <div class="tab-content authorization" id="authorization"></div>
+            </form>
+            <form id="childInfoEnrollment">
+              <div
+                class="tab-content enrollment_agreement"
+                id="enrollmentagreement"
+              ></div>
+            </form>
+            <form id="childInfoHandbook">
+              <div
+                class="tab-content parent_handbook"
+                id="parenthandbook"
+              ></div>
+            </form>
+          </div>
+          <br />
+          <div id="completedFormDetails" class="container tab-pane fade">
+            <div class="card">
+              <h3 class="text-center title_bg">Completed Forms</h3>
+              <div class="row g-0">
+                <div class="col-sm-6 col-md-8 p-4">
+                  <h4 class="completed-forms-childname">
+                    Child Name :&nbsp;<span id="childName"></span>
+                  </h4>
+                </div>
+                <div class="col-6 col-sm-6 col-md-4 completed-forms-year">
+                  <div class="float-end">
+                    <div class="form-group">
+                      <label for="year" class="wizard-form"> <b>Year</b></label>
+                      <select
+                        name="year"
+                        id="year"
+                        class="form-control float-end"
+                        required
+                      ></select>
+                      <i class="fa fa-chevron-down"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-center m-4">
+                <div class="container" style="margin-top: 20px">
+                  <div class="table-wrapper" id="tableview">
+                    <!-- Form Action Table -->
+                    <table
+                      id="example"
+                      class="display nowrap"
+                      style="width: 100%"
+                      rules="all"
+                    >
+                      <thead class="table-head">
+                        <tr>
+                          <th>Form Name</th>
+                          <th>Time Stamp</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                    <!-- Form Action Table End -->
+                  </div>
+                  <button class="excelbuttn" onclick="ExportToExcel('xlsx')">
+                    <img
+                      src="image/excel.png"
+                      alt="image"
+                      style="height: 25px; width: 25px"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+          const populateYearDropdown = () => {
+            const dropdown = document.getElementById("year");
+            const currentYear = new Date().getFullYear();
+
+            for (let i = currentYear - 10; i <= currentYear + 10; i++) {
+              let option = document.createElement("option");
+              option.value = i;
+              option.textContent = i;
+              if (i === currentYear) option.selected = true;
+              dropdown.appendChild(option);
+            }
+          };
+
+          // Initialize
+          populateYearDropdown();
+          createCalendar(new Date().getFullYear());
+
           function ExportToExcel(type, fn, dl) {
-    var elt = document.getElementById('example');
-    var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
+            var elt = document.getElementById("example");
+            var wb = XLSX.utils.table_to_book(elt, { sheet: "sheet1" });
 
-    var ws = wb.Sheets["sheet1"];
-    var range = XLSX.utils.decode_range(ws['!ref']);
-    
-    for (var R = range.s.r; R <= range.e.r; ++R) {
-        for (var C = range.s.c; C <= range.e.c; ++C) {
-            var cell_address = { c: C, r: R };
-            var cell_ref = XLSX.utils.encode_cell(cell_address);
-            var cell = ws[cell_ref];
-            if (cell && typeof cell.v === 'string' && cell.v.match(/^\d{2}\/\d{2}\/\d{4}/)) {
-                var date = new Date(cell.v);
-                if (!isNaN(date)) {
+            var ws = wb.Sheets["sheet1"];
+            var range = XLSX.utils.decode_range(ws["!ref"]);
+
+            for (var R = range.s.r; R <= range.e.r; ++R) {
+              for (var C = range.s.c; C <= range.e.c; ++C) {
+                var cell_address = { c: C, r: R };
+                var cell_ref = XLSX.utils.encode_cell(cell_address);
+                var cell = ws[cell_ref];
+                if (
+                  cell &&
+                  typeof cell.v === "string" &&
+                  cell.v.match(/^\d{2}\/\d{2}\/\d{4}/)
+                ) {
+                  var date = new Date(cell.v);
+                  if (!isNaN(date)) {
                     cell.v = date;
-                    cell.t = 'd'; // Mark cell as date type
-                    cell.z = 'mm/dd/yyyy h:mm:ss AM/PM'; // Set format
+                    cell.t = "d"; // Mark cell as date type
+                    cell.z = "mm/dd/yyyy h:mm:ss AM/PM"; // Set format
+                  }
                 }
-            }
-        }
-    }
-
-    return dl ?
-        XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
-        XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
-}
-
-            // function ExportToExcel(type, fn, dl) {
-            //     // Get the table element
-            //     var elt = document.getElementById('example');
-                
-            //     // Clone the table and remove the action column
-            //     var clonedTable = elt.cloneNode(true);
-            //     $(clonedTable).find('tr').each(function() {
-            //         $(this).find('td:last-child, th:last-child').remove();
-            //     });
-
-            //     // Convert the cloned table to a workbook
-            //     var wb = XLSX.utils.table_to_book(clonedTable, { sheet: "sheet1" });
-
-            //     // Adjust date format for Excel
-            //     var ws = wb.Sheets["sheet1"];
-            //     var range = XLSX.utils.decode_range(ws['!ref']);
-            //     for (var R = range.s.r; R <= range.e.r; ++R) {
-            //         for (var C = range.s.c; C <= range.e.c; ++C) {
-            //             var cell_address = { c: C, r: R };
-            //             var cell_ref = XLSX.utils.encode_cell(cell_address);
-            //             if (ws[cell_ref] && typeof ws[cell_ref].v === 'string' && ws[cell_ref].v.match(/^\d{2}\/\d{2}\/\d{4}/)) {
-            //                 var date = new Date(ws[cell_ref].v);
-            //                 if (!isNaN(date)) {
-            //                     ws[cell_ref].v = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
-            //                 }
-            //             }
-            //         }
-            //     }
-
-            //     return dl ?
-            //         XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
-            //         XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
-            // }
-
-            function closeCompletedFormsTab() {
-                var completedFormsTab = document.getElementById("completedFormDetails");
-                if (completedFormsTab) {
-                    completedFormsTab.style.display = "none";
-                }
+              }
             }
 
-            function toggleContent(contentId) {
-                var content = document.getElementById(contentId);
-                if (!content) return; 
-                var display = window.getComputedStyle(content).display;
-                if (display === "block") {
-                    // to check if the clicked tab is the completed forms tab
-                    if (contentId !== "completedFormDetails") {
-                        content.style.display = "none";
-                    }
-                } else {
-                    //to hide all active content except for completedFormDetails
-                    var activeContents = document.querySelectorAll('.tab-pane[style="display: block;"]');
-                    activeContents.forEach(function(activeContent) {
-                        if (activeContent.id !== contentId) {
-                            activeContent.style.display = "none";
-                        }
-                    });
-                    content.style.display = "block";
+            return dl
+              ? XLSX.write(wb, { bookType: type, bookSST: true, type: "base64" })
+              : XLSX.writeFile(wb, fn || "MySheetName." + (type || "xlsx"));
+          }
+
+          // function ExportToExcel(type, fn, dl) {
+          //     // Get the table element
+          //     var elt = document.getElementById('example');
+
+          //     // Clone the table and remove the action column
+          //     var clonedTable = elt.cloneNode(true);
+          //     $(clonedTable).find('tr').each(function() {
+          //         $(this).find('td:last-child, th:last-child').remove();
+          //     });
+
+          //     // Convert the cloned table to a workbook
+          //     var wb = XLSX.utils.table_to_book(clonedTable, { sheet: "sheet1" });
+
+          //     // Adjust date format for Excel
+          //     var ws = wb.Sheets["sheet1"];
+          //     var range = XLSX.utils.decode_range(ws['!ref']);
+          //     for (var R = range.s.r; R <= range.e.r; ++R) {
+          //         for (var C = range.s.c; C <= range.e.c; ++C) {
+          //             var cell_address = { c: C, r: R };
+          //             var cell_ref = XLSX.utils.encode_cell(cell_address);
+          //             if (ws[cell_ref] && typeof ws[cell_ref].v === 'string' && ws[cell_ref].v.match(/^\d{2}\/\d{2}\/\d{4}/)) {
+          //                 var date = new Date(ws[cell_ref].v);
+          //                 if (!isNaN(date)) {
+          //                     ws[cell_ref].v = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+          //                 }
+          //             }
+          //         }
+          //     }
+
+          //     return dl ?
+          //         XLSX.write(wb, { bookType: type, bookSST: true, type: 'base64' }) :
+          //         XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+          // }
+
+          function closeCompletedFormsTab() {
+            var completedFormsTab = document.getElementById("completedFormDetails");
+            if (completedFormsTab) {
+              completedFormsTab.style.display = "none";
+            }
+          }
+
+          function toggleContent(contentId) {
+            var content = document.getElementById(contentId);
+            if (!content) return;
+            var display = window.getComputedStyle(content).display;
+            if (display === "block") {
+              // to check if the clicked tab is the completed forms tab
+              if (contentId !== "completedFormDetails") {
+                content.style.display = "none";
+              }
+            } else {
+              //to hide all active content except for completedFormDetails
+              var activeContents = document.querySelectorAll(
+                '.tab-pane[style="display: block;"]'
+              );
+              activeContents.forEach(function (activeContent) {
+                if (activeContent.id !== contentId) {
+                  activeContent.style.display = "none";
                 }
-            }                 
-        </script>
+              });
+              content.style.display = "block";
+            }
+          }
+    </script>
 
-        <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-        <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
-        <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.js"></script>
-        <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="http://www.datatables.net/rss.xml">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/searchbuilder/1.3.2/css/searchBuilder.dataTables.min.css">
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css">
-        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"></script>
-        <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
-       
-        <script>
-          
-          
-            // function parentDashBoardDetails(editID,year) {
-            //     //for avoid datatable error popup messages//
-            //     $.fn.dataTable.ext.errMode = 'none';
-            //     // Clearing the DataTable
-            //     clearDataTable();
+    <link
+      href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.js"></script>
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS 2.0"
+      href="http://www.datatables.net/rss.xml"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/searchbuilder/1.3.2/css/searchBuilder.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css"
+    />
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://code.jquery.com/jquery-3.5.1.js"
+    ></script>
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      language="javascript"
+      src="https://cdn.datatables.net/datetime/1.1.2/js/dataTables.dateTime.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"
+    ></script>
 
-            //     //destroy datatable
-            //     $('#example').DataTable().destroy();
+    <script>
+      // function parentDashBoardDetails(editID,year) {
+      //     //for avoid datatable error popup messages//
+      //     $.fn.dataTable.ext.errMode = 'none';
+      //     // Clearing the DataTable
+      //     clearDataTable();
 
-            //     //datatable creating function//
-            //     $('#example').DataTable({
-            //         //for adding horizontal scrool bar
-            //         scrollX: true,
-            //         Info : false,
-            //         //option is used to define the layout and elements that should be displayed around the table.
-            //         dom: 'Qlfrtip',
-            //         //for waking up the aws lambda server
-            //         ajax: {
-            //             url:`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/completed_form_status/${editID}?year${year}`,
-            //             dataSrc: 'completedFormStatus',
-            //         },
-            //         //it is used to define and configure the individual columns of the table.
-            //         columns: [
-            //             { data: 'form_name',
-            //             render: function ( data, type, full, meta ) {
-            //                     return full; 
-            //                     //return '<a href="'+ url +'"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9RvaUyBbAGaB9dcdAZxQvJJHKnd8vqQpsqgJpRuNrFCwk2ZY5vl5RgEj_b2wcGXW8OwE&usqp=CAU" id="editbutton"  name="editbutton"  height="20px;" style="text-align:right !important;"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton"  name="deletebutton"  height="20px;" style="text-align:right !important;cursor: pointer !important;"></a>';
-            //                 },
-            //             },
-            //             { data: 'edit',
-            //                 render: function ( data, type, full, meta ) {
-            //                     window.location.replace = `${window.location.origin}/add_class_room.html?id=${full.class_id} `;
-            //                     let url =`${window.location.origin}/add_class_room.html?id=${full.class_id}` //Question
-            //                    return '<a href="'+ url +'"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2" id="downbutton" name="downbutton"><path fill="#0F2D52" d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2" id="printbutton" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg></a>';
-            //                    //return '<a href="'+ url +'"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9RvaUyBbAGaB9dcdAZxQvJJHKnd8vqQpsqgJpRuNrFCwk2ZY5vl5RgEj_b2wcGXW8OwE&usqp=CAU" id="editbutton"  name="editbutton"  height="20px;" style="text-align:right !important;"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton"  name="deletebutton"  height="20px;" style="text-align:right !important;cursor: pointer !important;"></a>';
-            //                 },
-            //             },
-            //         ],
-            //         "pageLength": 5,
-            //     });
-            // }
-        </script>
-    </body>
+      //     //destroy datatable
+      //     $('#example').DataTable().destroy();
+
+      //     //datatable creating function//
+      //     $('#example').DataTable({
+      //         //for adding horizontal scrool bar
+      //         scrollX: true,
+      //         Info : false,
+      //         //option is used to define the layout and elements that should be displayed around the table.
+      //         dom: 'Qlfrtip',
+      //         //for waking up the aws lambda server
+      //         ajax: {
+      //             url:`https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/completed_form_status/${editID}?year${year}`,
+      //             dataSrc: 'completedFormStatus',
+      //         },
+      //         //it is used to define and configure the individual columns of the table.
+      //         columns: [
+      //             { data: 'form_name',
+      //             render: function ( data, type, full, meta ) {
+      //                     return full;
+      //                     //return '<a href="'+ url +'"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9RvaUyBbAGaB9dcdAZxQvJJHKnd8vqQpsqgJpRuNrFCwk2ZY5vl5RgEj_b2wcGXW8OwE&usqp=CAU" id="editbutton"  name="editbutton"  height="20px;" style="text-align:right !important;"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton"  name="deletebutton"  height="20px;" style="text-align:right !important;cursor: pointer !important;"></a>';
+      //                 },
+      //             },
+      //             { data: 'edit',
+      //                 render: function ( data, type, full, meta ) {
+      //                     window.location.replace = `${window.location.origin}/add_class_room.html?id=${full.class_id} `;
+      //                     let url =`${window.location.origin}/add_class_room.html?id=${full.class_id}` //Question
+      //                    return '<a href="'+ url +'"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2" id="downbutton" name="downbutton"><path fill="#0F2D52" d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2" id="printbutton" name="printbutton"><path fill="#0F2D52" d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zM432 248a24 24 0 1 1 0 48 24 24 0 1 1 0-48z"/></svg></a>';
+      //                    //return '<a href="'+ url +'"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9RvaUyBbAGaB9dcdAZxQvJJHKnd8vqQpsqgJpRuNrFCwk2ZY5vl5RgEj_b2wcGXW8OwE&usqp=CAU" id="editbutton"  name="editbutton"  height="20px;" style="text-align:right !important;"><img src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png" id="deletebutton"  name="deletebutton"  height="20px;" style="text-align:right !important;cursor: pointer !important;"></a>';
+      //                 },
+      //             },
+      //         ],
+      //         "pageLength": 5,
+      //     });
+      // }
+    </script>
+  </body>
 </html>

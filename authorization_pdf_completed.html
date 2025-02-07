@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authorization Completed</title>
+    <link rel="shortcut icon" href="image/gs_logo_tab.png" type="image/png">
+    <link rel="stylesheet" href="css/all_forms.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+    <div class="m-5">
+        <div class="card">
+            <div class="form-body">
+                <div class="card header-border">
+                    <div class="row">
+                        <div class="col-5">
+                            <div class="logo-style p-3">
+                                <img src="image/gs_logo_lynnwood.png" class="img-fluid" alt="gs_logo_lynnwood" type="image/png">
+                            </div>
+                        </div>
+                        <div class="col-7">
+                            <div class="title_bg pt-3">
+                                <h2 class="m-2">Authorization ACH</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-4">
+                    <form id="formContent">
+                        <!-- Authorization Form -->
+                        <div class="row m-4 mb-1">
+                            <div class="row">
+                                <div class="col-sm m-2">
+                                    <div class="form-group">
+                                        <label for="bank_routing" class="form-label"><b>Bank Routing</b></label><br>
+                                        <input name="bank_routing" type="text" maxlength="20" class="form-control text-box wizard-required" id="bank_routing">
+                                    </div>
+                                </div>
+                                <div class="col-sm m-2">
+                                    <div class="form-group">
+                                        <label for="bank_account" class="form-label"><b>Bank Account</b></label><br>
+                                        <input name="bank_account" type="text" maxlength="20" class="form-control text-box wizard-required" id="bank_account">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm m-2">
+                                    <div class="form-group">
+                                        <label for="driver_license" class="form-label"><b>Driver’s License</b></label><br>
+                                        <input name="driver_license" type="text" maxlength="20" class="form-control text-box wizard-required" id="driver_license">
+                                    </div>
+                                </div>
+                                <div class="col-sm m-2">
+                                    <div class="form-group">
+                                        <label for="state" class="form-label"><b>State</b></label>
+                                        <input name="state" type="text" maxlength="20" class="form-control text-box wizard-required" id="state">
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 class="panel-title text-center"><b>Statement of authorization</b></h5><br>
+                            <span> 
+                                <p>I <input type="text" class="form-control text-box inputBox" id="i" name="i">
+                                    hereby authorize (Alphabetz Corp, dba The Goddard School) to charge my above referenced bank account for the invoiced amount once each month on the 1st day of the month until changed by me in writing in the future. This will constitute the paid tuition for my child(ren) during the period designated. For wait-listed/newly enrolled families this is a one-time charge and not a recurring one until they start the school.</span>
+                            <p><b>Please provide us 10 days advance notice should you wish to put a stop to this authorization. An automatic electronic authorization of the monthly transaction will take place and an email-generated receipt will be automatically sent to the email address provided to us above. A copy of this document will be scanned and saved in an electronic file, the original will be shredded for your protection.</b></p>
+                        </div> 
+                        <!-- End-->
+                        <!-- Parent's agreement -->
+                        <h4 class="text-center">Parent Agreement</h4>
+                        <div class="row m-3">
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="parent_sign_ach" class="form-label"><b>Parent Signature</b></label>
+                                    <input type="text" class="form-control text-box" id="parent_sign_ach" name="parent_sign_ach">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group"> 
+                                    <label for="parent_sign_date_ach" class="form-label"><b>Date</b></label>
+                                    <input type="date" class="form-control text-box" id="parent_sign_date_ach" name="parent_sign_date_ach" onclick="dateValidation('parent_sign_date_ach')">
+                                </div>
+                            </div>
+                        </div><br>
+                        <!-- Authorization Form End -->
+                    </form>
+                </div> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>

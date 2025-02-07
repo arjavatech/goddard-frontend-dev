@@ -190,7 +190,7 @@
                     <label for="parent_sign_date_ach"  class="form-label"><b>Date</b>
                     </label>
                     <input type="date" class="form-control" id="parent_sign_date_ach"
-                        name="parent_sign_date_ach" onclick="dateValidation('parent_sign_date_ach')">
+                        name="parent_sign_date_ach" onclick="dateValidation('parent_sign_date_ach')" readonly>
                 </div>
             </div>
         </div>
@@ -234,3 +234,7 @@
     </div> 
 </div>
 <!--Admin Signature Form End-->
+
+<script>
+     document.getElementById('parent_sign_date_ach').value = new Date().toISOString().split('T')[0];
+</script>

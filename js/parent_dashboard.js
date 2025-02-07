@@ -971,7 +971,7 @@ function checking(editID) {
         ],
         pageLength: 25,
     });
-
+    
 
     // Click event handler for the print button
 
@@ -2477,6 +2477,11 @@ function checking(editID) {
                     } else {
                         let adminFinalAgreement = document.getElementById('adminFinalAgreement');
                         adminFinalAgreement.classList.add('disabled');
+                         // Reset the display for both images
+                         document.querySelector('.childadmin-tick').style.display = 'none';
+                         document.querySelector('.childadmin-circle').style.display = 'none';
+                         // Update the display for the clicked card
+                         document.querySelector('.childadmin-circle').style.display = 'block';
                     }
                 }
 
@@ -2650,12 +2655,19 @@ function checking(editID) {
                     if (localStorage.getItem('logged_in_email') !== 'goddard01arjava@gmail.com') {
                         let adminFinalAgreement = document.getElementById('enrollmentAdminFinalAgreement');
                         adminFinalAgreement.classList.add('disabled');
+                         // Reset the display for both images
+                         document.querySelector('.childenrollmentagreementadminsign-tick').style.display = 'none';
+                         document.querySelector('.childenrollmentagreementadminsign-circle').style.display = 'none';
+                         // Update the display for the clicked card
+                         document.querySelector('.childenrollmentagreementadminsign-circle').style.display = 'block';
 
                     } else {
                         let adminFinalAgreement = document.getElementById('enrollmentAdminFinalAgreement');
                         adminFinalAgreement.classList.remove('disabled');
+                         
                     }
                 }
+                
 
                 //authorization form
                 let authorizationDetails;
@@ -2763,12 +2775,20 @@ function checking(editID) {
                     if (localStorage.getItem('logged_in_email') !== 'goddard01arjava@gmail.com') {
                         let adminFinalAgreement = document.getElementById('achAdminFinalAgreement');
                         adminFinalAgreement.classList.add('disabled');
+                         // Reset the display for both images
+                         document.querySelector('.authorizationadminsign-tick').style.display = 'none';
+                         document.querySelector('.authorizationadminsign-circle').style.display = 'none';
+                         // Update the display for the clicked card
+                         document.querySelector('.authorizationadminsign-circle').style.display = 'block';
 
                     } else {
                         let adminFinalAgreement = document.getElementById('achAdminFinalAgreement');
                         adminFinalAgreement.classList.remove('disabled');
+                        
                     }
                 }
+
+                
                 
 
                 //parent Handbook form
@@ -3274,15 +3294,22 @@ function checking(editID) {
                     }
                 });
 
-                //authorization form admin restriction
+                //parent handbook form admin restriction
                 if (document.getElementById('adminsignaturehandbook') != null) {
                     if (localStorage.getItem('logged_in_email') !== 'goddard01arjava@gmail.com') {
                         let adminFinalAgreement = document.getElementById('handbookAdminFinalAgreement');
                         adminFinalAgreement.classList.add('disabled');
+                         // Reset the display for both images
+                         document.querySelector('.parentHandbookadmin-tick').style.display = 'none';
+                         document.querySelector('.parentHandbookadmin-circle').style.display = 'none';
+                         // Update the display for the clicked card
+                         document.querySelector('.parentHandbookadmin-circle').style.display = 'block';
 
                     } else {
                         let adminFinalAgreement = document.getElementById('handbookAdminFinalAgreement');
                         adminFinalAgreement.classList.remove('disabled');
+                        console.log('else book');
+                        
                     }
                 }
                 //to set all response value into local storage variable

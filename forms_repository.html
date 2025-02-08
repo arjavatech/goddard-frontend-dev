@@ -625,16 +625,18 @@
 
         $(document).on("change", "#multi_form_type", function () {
             let $select = $(this);
-            let selectedValues = $select.val(); // Get selected values
+            let selectedValues = $select.val(); // Handle empty selections gracefully
 
-            // Check if "All" is selected
+            // If "All" is selected, select all options
             if (selectedValues.includes("all")) {
-                // If "All" is selected, deselect all others and select only "All"
-                $select.val(["all","available","default","active","archive"]).selectpicker("refresh");
+                $select.val(["all", "available", "default", "active", "archive"]).selectpicker("refresh");
             } else if (selectedValues.length === 4) {
-                // If no options are selected, reselect "All"
-                $select.val([]).selectpicker("refresh");
+                // Properly clear the selection
+                $select.val([]); 
+                $select.selectpicker("deselectAll"); 
+                $select.selectpicker("refresh"); // Refresh UI
             }
+            console.log("Selected Values:", selectedValues);
 
             // Make an API call to fetch data
             $.ajax({
@@ -644,15 +646,21 @@
                 success: function (response) {
                     console.log("API Response:", response);
                     let filteredData = "";
+                    $select.selectpicker("refresh");
 
                     // Loop through each selected value to filter response data
                     selectedValues.forEach((typeValue) => {
-                        if (typeValue == "all" && response[typeValue]) {
+                        if (typeValue == "all") {
                             Object.entries(response[typeValue]).forEach(([key, value]) => {
                                 filteredData +='<option value="' + value + '" data-tokens="' + key +
                                     '">' + key + "</option>";
                             });
-                        }  else {
+                        } else if (response[typeValue]) {
+                            Object.entries(response[typeValue]).forEach(([key, value]) => {
+                                filteredData += '<option value="' + value + '" data-tokens="' + key + '">' + key + "</option>";
+                            });
+                        }  
+                        else {
                             console.warn(`No data found for category: ${typeValue}`);
                         }
                         console.log(typeValue);

@@ -3047,9 +3047,12 @@ function checking(editID) {
             document.getElementsByName("parent_sign_admission")[0].value =
               response.parent_sign_admission;
           }
-          if (typeof response.parent_sign_date_admission !== "undefined") {
+          
+          if (response.parent_sign_date_admission === null || response.parent_sign_date_admission === undefined) {
+            document.getElementsByName("parent_sign_date_admission")[0].value = new Date().toISOString().split('T')[0];
+          } else {
             document.getElementsByName("parent_sign_date_admission")[0].value =
-              response.parent_sign_date_admission;
+            response.parent_sign_date_admission;
           }
 
           if (
@@ -3363,14 +3366,14 @@ function checking(editID) {
           }
         });
 
-        if (
-          document.getElementById("childenrollmentagreementparentsign") != null
-        ) {
+        if (document.getElementById("childenrollmentagreementparentsign") != null) {
           if (typeof response.parent_sign_enroll !== "undefined") {
             document.getElementsByName("parent_sign_enroll")[0].value =
               response.parent_sign_enroll;
           }
-          if (typeof response.parent_sign_date_enroll !== "undefined") {
+          if (response.parent_sign_date_enroll === null || response.parent_sign_date_enroll === undefined) {
+            document.getElementsByName("parent_sign_date_enroll")[0].value = new Date().toISOString().split('T')[0];
+          } else {
             document.getElementsByName("parent_sign_date_enroll")[0].value =
               response.parent_sign_date_enroll;
           }
@@ -3536,11 +3539,14 @@ function checking(editID) {
             document.getElementsByName("parent_sign_ach")[0].value =
               response.parent_sign_ach;
           }
-          if (typeof response.parent_sign_date_ach !== "undefined") {
+          
+          if (response.parent_sign_date_ach === null || response.parent_sign_date_ach === undefined) {
+            document.getElementsByName("parent_sign_date_ach")[0].value = new Date().toISOString().split('T')[0];
+          } else {
             document.getElementsByName("parent_sign_date_ach")[0].value =
-              response.parent_sign_date_ach;
+            response.parent_sign_date_ach;
           }
-
+       
           if (response.parent_sign_ach && response.parent_sign_date_ach) {
             // Reset the display for both images
             document.querySelector(
@@ -4204,10 +4210,13 @@ function checking(editID) {
             document.getElementsByName("parent_sign_handbook")[0].value =
               response.parent_sign_handbook;
           }
-          if (typeof response.parent_sign_date_handbook !== "undefined") {
-            document.getElementsByName("parent_sign_date_handbook")[0].value =
-              response.parent_sign_date_handbook;
+         
+          if (response.parent_sign_date_handbook === null || response.parent_sign_date_handbook === undefined) {
+            document.getElementsByName("parent_sign_date_handbook")[0].value = new Date().toISOString().split('T')[0];
+          } else {
+            document.getElementsByName("parent_sign_date_handbook")[0].value = response.parent_sign_date_handbook;
           }
+          
           let parenthandbookparentsign;
           if (
             response.parent_sign_handbook &&

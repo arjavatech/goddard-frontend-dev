@@ -332,7 +332,7 @@
                     <label for="parent_sign_date_enroll"  class="form-label"><b>Date</b>
                     </label>
                     <input type="date" class="form-control" id="parent_sign_date_enroll"
-                        name="parent_sign_date_enroll" onclick="dateValidation('parent_sign_date_enroll')">
+                        name="parent_sign_date_enroll" onclick="dateValidation('parent_sign_date_enroll')" readonly>
                 </div>
             </div>
         </div>    
@@ -376,6 +376,3 @@
     </div> 
 </div>
 <!--Admin Signature Form End-->
-<script>
-    document.getElementById('parent_sign_date_enroll').value = new Date().toISOString().split('T')[0];
-</script>

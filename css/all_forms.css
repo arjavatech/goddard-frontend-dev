@@ -5,7 +5,50 @@ p, ol li, ul li
     text-align: justify;
 }
 
+.container {
+    padding: 0% !important;
+}
 
+.form-body {
+    border: 2px solid #0F2D52;
+}
+.form-head {
+    margin: 0;
+    border-bottom: 2px solid #0F2D52;
+}
+.title_bg {
+    background-color: #0F2D52;
+    color: #fff;
+    padding: 20px;
+}
+.logo-style img {
+    max-width: 100%;
+    height: auto;
+}
+.text-box {
+    width: 100%;
+}
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1620px !important;
+    }
+    .entrol-pages1 {
+        margin-bottom: 12% !important;
+    }
+}
+@media (max-width: 1366px) {
+    .title_bg h2 {
+        font-size: 1.5rem;
+    }
+    .entrol-pages1 {
+        margin-bottom: 1% !important;
+    }
+}
+@media (max-width: 768px) {
+    .title_bg h2 {
+        font-size: 1.5rem;
+    }
+}
 .header-border {
     border: none !important;
     border-bottom: 2px solid #0F2D52 !important;

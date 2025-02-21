@@ -35,6 +35,48 @@ p, ol li, ul li
     .entrol-pages1 {
         margin-bottom: 12% !important;
     }
+    .add-pages1 {
+        margin-bottom: 3%;
+    }
+    .add-pages2 {
+        margin-bottom: 4%;
+    }
+    .add-pages3 {
+        margin-bottom: 4%;
+    }
+    .add-pages4 {
+        margin-bottom: 6%;
+    }
+    .add-pages5 {
+        margin-bottom: 5%;
+    }
+    .add-pages6 {
+        margin-bottom: 10%;
+    }
+    .add-pages7 {
+        margin-bottom: 13%;
+    }
+    .parent-pages1 {
+        margin-bottom: 22%;
+    }
+    .parent-pages2, .parent-pages3 {
+        margin-bottom: 17%;
+    }
+    .parent-pages4 {
+        margin-bottom: 15%;
+    }
+    .parent-pages5 {
+        margin-bottom: 12%;
+    }
+    .parent-pages6 {
+        margin-bottom: 21%;
+    }
+    .parent-pages7, .parent-pages8 {
+        margin-bottom: 16%;
+    }
+    .parent-pages9 {
+        margin-bottom: 20%;
+    }
 }
 @media (max-width: 1366px) {
     .title_bg h2 {
@@ -42,6 +84,42 @@ p, ol li, ul li
     }
     .entrol-pages1 {
         margin-bottom: 1% !important;
+    }
+    .add-pages1 {
+        margin-bottom: 7%;
+    }
+    .add-pages2 {
+        margin-bottom: 9%;
+    }
+    .add-pages3 {
+        margin-bottom: 7%;
+    }
+    .add-pages4 {
+        margin-bottom: 10%;
+    }
+    .add-pages5 {
+        margin-bottom: 3%;
+    }
+    .add-pages6 {
+        margin-bottom: 6%;
+    }
+    .add-pages7 {
+        margin-bottom: 11%;
+    }
+    .parent-pages1, .parent-pages3, .parent-pages4, .parent-pages6 {
+        margin-bottom: 3%;
+    }
+    .parent-pages2, .parent-pages5 {
+        margin-bottom: 2%;
+    }
+    .parent-pages7 {
+        margin-bottom: 4%;
+    }
+    .parent-pages8 {
+        margin-bottom: 7%;
+    }
+    .parent-pages9 {
+        margin-bottom: 12%;
     }
 }
 @media (max-width: 768px) {

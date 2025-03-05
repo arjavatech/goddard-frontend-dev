@@ -35,6 +35,9 @@ p, ol li, ul li
     .entrol-pages1 {
         margin-bottom: 12% !important;
     }
+    .entrol-pages2 {
+        margin-bottom: 6% !important;
+    }
     .add-pages1 {
         margin-bottom: 3%;
     }
@@ -71,11 +74,17 @@ p, ol li, ul li
     .parent-pages6 {
         margin-bottom: 21%;
     }
-    .parent-pages7, .parent-pages8 {
-        margin-bottom: 16%;
+    .parent-pages7 {
+        margin-bottom: 22%;
+    }
+    .parent-pages8 {
+        margin-bottom: 17%;
     }
     .parent-pages9 {
         margin-bottom: 20%;
+    }
+    .parent-pages11 {
+        margin-bottom: 10%;
     }
 }
 @media (max-width: 1366px) {

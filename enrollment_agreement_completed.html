@@ -248,14 +248,7 @@
                                         <input id="point_nine_initial_here" name="point_nine_initial_here" type="text"
                                             class="form-control text-box inputBox">
                                     </span>
-                                    <span id="apiResponsep9" name="apiResponsep9">
-                                        <li>The Goddard School is a year-round program. Tuition is payable for all 12 months unless
-                                            withdrawing from enrollment.</li>
-                                    </span><br><br><br>
-                                    <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
-                                        <input id="point_ten_initial_here" name="point_ten_initial_here" type="text"
-                                            class="form-control text-box inputBox">
-                                    </span>
+                                    
                                 </div>
                                 <!-- </form> -->
                             </div>
@@ -285,7 +278,14 @@
                     <div class="p-4">
                         <div class="row m-1 mb-4">
                             <div class="container overallblock">
-                               
+                                <span id="apiResponsep9" name="apiResponsep9">
+                                    <li>The Goddard School is a year-round program. Tuition is payable for all 12 months unless
+                                        withdrawing from enrollment.</li>
+                                </span><br><br><br>
+                                <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
+                                    <input id="point_ten_initial_here" name="point_ten_initial_here" type="text"
+                                        class="form-control text-box inputBox">
+                                </span>
                               
                                 <span id="apiResponsep10" name="apiResponsep10">
                                     <li>The School will open at 7:00am and close at 6:00pm (from September), however modified school hours may apply in case of any
@@ -354,7 +354,7 @@
                                 <span id="apiResponsep17" name="apiResponsep17">
                                     <li>Parents acknowledge and agree that representatives of the School’s franchisor, Goddard Systems, Inc. (“GSI”) will have access to
                                         information in children’s files as part of GSI’s Quality Assurance reviews and otherwise.</li>
-                                </span><br><br><br>
+                                </span><br><br>
                                 <span class="initila_here" id="initial"><b>Initial here &nbsp;</b>
                                     <input id="point_eighteen_initial_here" name="point_eighteen_initial_here"
                                         type="text" class="form-control text-box inputBox">
@@ -384,22 +384,6 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <label for="signature_parent_or_guardian" class="form-label"><b>Signature of Parent or Guardian</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box" id="signature_parent_or_guardian"
-                                                name="signature_parent_or_guardian">
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="signature_guardian_date" class="form-label"><b>Date</b>
-                                            </label>
-                                            <input type="date" class="form-control text-box" id="signature_guardian_date"
-                                                name="signature_guardian_date">
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
                                             <label for="enrollment_child_name" class="form-label"><b>Child’s Name</b>
                                             </label>
                                             <input type="text" class="form-control text-box" id="enrollment_child_name"
@@ -423,75 +407,91 @@
                                                 name="preferred_start_date">
                                         </div>
                                     </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="preferred_schedule" class="form-label"><b>Preferred
-                                                    Schedule</b></label>
-                                            <input type="text" class="form-control text-box" id="preferred_schedule"
-                                                name="preferred_schedule">
-                                        </div><br>
-                                        <input type="checkbox" class="input-checkbox" id="full_day" name="full_day">
-                                        <label class="form-check-label" for="full_day">
-                                            <span class="custom-checkbox"></span><span><b>Full-Day</b></span>
-                                        </label>
-                                        <input type="checkbox" class="input-checkbox" id="half_day" name="half_day">
-                                        <label class="form-check-label" for="half_day">
-                                            <span class="custom-checkbox"></span><span><b>Half-Day</b></span>
-                                        </label>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="preferred_start_date" class="form-label"><b>Preferred Start Date</b>
-                                            </label>
-                                            <input type="date" class="form-control text-box" id="preferred_start_date"
-                                                name="preferred_start_date">
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="preferred_email" class="form-label"><b>Email</b>
-                                            </label>
-                                            <input type="email" class="form-control text-box" id="preferred_email"
-                                                name="preferred_email">
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="preferred_home_addr" class="form-label"><b>Home Address</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box" id="preferred_home_addr"
-                                                name="preferred_home_addr">
-                                        </div>
-                                    </div>
                                 </div>
-
-                                <h4 class="text-center">Parent Agreement</h4>
-                                <div class="row m-2">
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="parent_sign_enroll" class="form-label"><b>Parent Signature</b>
-                                            </label>
-                                            <input type="text" class="form-control text-box" id="parent_sign_enroll"
-                                                name="parent_sign_enroll">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm">
-                                        <div class="form-group">
-                                            <label for="parent_sign_date_enroll" class="form-label"><b>Date</b>
-                                            </label>
-                                            <input type="date" class="form-control text-box"
-                                                id="parent_sign_date_enroll" name="parent_sign_date_enroll"
-                                                onclick="dateValidation('parent_sign_date_enroll')">
-                                        </div>
-                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+            </div>
+            <div class="pages">
+                <div class="form-body">
+                    <div class="form-head">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="logo-style p-3">
+                                    <img src="image/gs_logo_lynnwood.png" class="img-fluid" alt="gs_logo_lynnwood"
+                                        type="image/png">
                                 </div>
-
+                            </div>
+                            <div class="col-md-6">
+                                <div class="title_bg p-5">
+                                    <h2 class="m-4">Enrollment Agreement</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="checkbox" class="input-checkbox" id="full_day" name="full_day">
+                                <label class="form-check-label" for="full_day">
+                                    <span class="custom-checkbox"></span><span><b>Full-Day</b></span>
+                                </label>
+                                <input type="checkbox" class="input-checkbox" id="half_day" name="half_day">
+                                <label class="form-check-label" for="half_day">
+                                    <span class="custom-checkbox"></span><span><b>Half-Day</b></span>
+                                </label>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="preferred_start_date" class="form-label"><b>Preferred Start Date</b>
+                                    </label>
+                                    <input type="date" class="form-control text-box" id="preferred_start_date"
+                                        name="preferred_start_date">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="preferred_email" class="form-label"><b>Email</b>
+                                    </label>
+                                    <input type="email" class="form-control text-box" id="preferred_email"
+                                        name="preferred_email">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="preferred_home_addr" class="form-label"><b>Home Address</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box" id="preferred_home_addr"
+                                        name="preferred_home_addr">
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <br>
+                        <h4 class="text-center mb-2">Parent Agreement</h4>
+                        <div class="row m-2">
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="parent_sign_enroll" class="form-label"><b>Parent Signature</b>
+                                    </label>
+                                    <input type="text" class="form-control text-box" id="parent_sign_enroll"
+                                        name="parent_sign_enroll">
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="form-group">
+                                    <label for="parent_sign_date_enroll" class="form-label"><b>Date</b>
+                                    </label>
+                                    <input type="date" class="form-control text-box"
+                                        id="parent_sign_date_enroll" name="parent_sign_date_enroll"
+                                        onclick="dateValidation('parent_sign_date_enroll')">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
            
         </div>
     </ol>

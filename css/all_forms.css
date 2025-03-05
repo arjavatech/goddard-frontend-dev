@@ -83,7 +83,7 @@ p, ol li, ul li
         font-size: 1.5rem;
     }
     .entrol-pages1 {
-        margin-bottom: 1% !important;
+        margin-bottom: 6% !important;
     }
     .add-pages1 {
         margin-bottom: 7%;
@@ -113,13 +113,16 @@ p, ol li, ul li
         margin-bottom: 2%;
     }
     .parent-pages7 {
-        margin-bottom: 4%;
+        margin-bottom: 15%;
     }
     .parent-pages8 {
-        margin-bottom: 7%;
+        margin-bottom: 10%;
     }
     .parent-pages9 {
-        margin-bottom: 12%;
+        margin-bottom: 8%;
+    }
+    .parent-pages11 {
+        margin-bottom: 5%;
     }
 }
 @media (max-width: 768px) {

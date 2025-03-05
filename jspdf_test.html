@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form PDF</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin: 20px; }
+        form { width: 300px; margin: auto; text-align: left; }
+        input, button { width: 100%; margin: 5px 0; padding: 8px; }
+    </style>
+</head>
+<body>
+
+    <h2>Admission Form</h2>
+    <form id="admissionForm">
+        <label>Full Name:</label>
+        <input type="text" id="fullName" required>
+
+        <label>Email:</label>
+        <input type="email" id="email" required>
+
+        <label>Phone:</label>
+        <input type="text" id="phone" required>
+
+        <label>Course:</label>
+        <input type="text" id="course" required>
+
+        <button type="button" onclick="generatePDF()">Download PDF</button>
+    </form>
+
+    <script>
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const fullName = document.getElementById("fullName").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const course = document.getElementById("course").value;
+
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(18);
+            doc.text("Admission Form", 80, 20);
+
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(12);
+            doc.addPage();
+            doc.text(`Full Name: ${fullName}`, 20, 40);
+            doc.text(`Email: ${email}`, 20, 50);
+            doc.addPage();
+
+            doc.text(`Phone: ${phone}`, 20, 60);
+            doc.addPage();
+
+            doc.text(`Course: ${course}`, 20, 70);
+
+            doc.setPage(1)
+            doc.text('I am on page 1', 20, 10)
+
+            doc.save("admission_form.pdf");
+        }
+    </script>
+
+</body>
+</html>

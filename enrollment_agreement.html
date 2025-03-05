@@ -314,42 +314,18 @@
                     </p>
                 <div class="row">
                     <div class="col-6">
-                        <div class="form-group">
-                            <label for="signature_parent_or_guardian" class="form-label"><b>Signature of Parent or Guardian</b>
+                        <div class="form-group"> 
+                            <label for="preferred_start_date"  class="form-label"><b>Preferred Start Date</b>
                             </label>
-                            <input type="text" class="form-control" id="signature_parent_or_guardian"
-                                name="signature_parent_or_guardian">
+                            <input type="date" class="form-control" id="preferred_start_date"
+                                name="preferred_start_date">
                         </div>
                     </div>
                     <div class="col-6">
-                        <div class="form-group">
-                            <label for="signature_guardian_date" class="form-label"><b>Date</b>
-                            </label>
-                            <input type="date" class="form-control" id="signature_guardian_date"
-                                name="signature_guardian_date">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="enrollment_child_name" class="form-label"><b>Child’s Name</b>
-                            </label>
-                            <input type="text" class="form-control" id="enrollment_child_name"
-                                name="enrollment_child_name">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="form-group">
-                            <label for="enrollment_child_dob" class="form-label"><b>Date of Birth</b>
-                            </label>
-                            <input type="date" class="form-control" id="enrollment_child_dob"
-                                name="enrollment_child_dob">
-                        </div>
-                    </div>
-                    
-                    <div class="col-6">
-                        <div class="form-group">
+                        <div class="form-group"> 
                             <label for="preferred_schedule" class="form-label"><b>Preferred Schedule</b></label>
-                            <select class="form-control" aria-label=".form-control-lg example" id="preferred_schedule"
+                            <select class="form-control" aria-label=".form-control-lg example" 
+                            id="preferred_schedule"
                                 name="preferred_schedule">
                                 <option selected disabled>Select</option>
                                 <option value="two_days">2 Days</option>
@@ -359,40 +335,17 @@
                             <i class="fa fa-chevron-down"></i>
                         </div><br>
                         <div class="wizard-form-checkbox">
-                            <input type="checkbox" class="input-checkbox" id="full_day" name="full_day">
+                            <input type="checkbox" class="input-checkbox"
+                                id="full_day" name="full_day">
                             <label class="form-check-label" for="full_day">
-                                <span class="custom-checkbox"></span><span><b>Full-Day</b></span>
+                                <span class="svg"></span><span><b>Full-Day</b></span>
                             </label>
-                            <input type="checkbox" class="input-checkbox" id="half_day" name="half_day">
+                            <input type="checkbox" class="input-checkbox"
+                                id="half_day" name="half_day">
                             <label class="form-check-label" for="half_day">
-                                <span class="custom-checkbox"></span><span><b>Half-Day</b></span>
+                                <span class="svg"></span><span><b>Half-Day</b></span>
                             </label>
                         </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="preferred_start_date" class="form-label"><b>Preferred Start Date</b>
-                                </label>
-                                <input type="date" class="form-control" id="preferred_start_date"
-                                    name="preferred_start_date">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="preferred_email" class="form-label"><b>Email</b>
-                                </label>
-                                <input type="email" class="form-control" id="preferred_email"
-                                    name="preferred_email">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group">
-                                <label for="preferred_home_addr" class="form-label"><b>Home Address</b>
-                                </label>
-                                <input type="text" class="form-control" id="preferred_home_addr"
-                                    name="preferred_home_addr">
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </ol>
             <div class="text-center mb-4">

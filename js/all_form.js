@@ -191,7 +191,7 @@ function submitForm(editID,number) {
     xhr.send(json);
 }
 
-function authorizationSubmitForm(editID) {
+function authorizationSubmitForm(editID,number) {
     const form = document.getElementById("childInfoAuthorization");
     var old = form;
      var new_element = old.cloneNode(true);
@@ -200,6 +200,7 @@ function authorizationSubmitForm(editID) {
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     obj.form_year_ach = year;
+    obj.pointer = number;
     //to get values from local storage variable and stored it into response1 variable.
     var response=JSON.parse(window.localStorage.getItem("responseData"));
     console.log(response);
@@ -251,7 +252,7 @@ function authorizationSubmitForm(editID) {
     xhr.send(json);
 }
 
-function enrollmentSubmitForm(editID) {
+function enrollmentSubmitForm(editID,number) {
     const form = document.getElementById("childInfoEnrollment");
     var old = form;
      var new_element = old.cloneNode(true);
@@ -260,6 +261,7 @@ function enrollmentSubmitForm(editID) {
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     obj.form_year_enroll = year;
+    obj.pointer = number;
     //to get values from local storage variable and stored it into response1 variable.
     var response=JSON.parse(window.localStorage.getItem("responseData"));
     console.log(response);
@@ -311,7 +313,7 @@ function enrollmentSubmitForm(editID) {
     xhr.send(json);
 }
 
-function handbookSubmitForm(editID) {
+function handbookSubmitForm(editID,number) {
     const form = document.getElementById("childInfoHandbook");
     var old = form;
      var new_element = old.cloneNode(true);
@@ -320,6 +322,7 @@ function handbookSubmitForm(editID) {
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
     obj.form_year_handbook = year;
+    obj.pointer = number;
     //to get values from local storage variable and stored it into response1 variable.
     var response=JSON.parse(window.localStorage.getItem("responseData"));
     console.log(response);
@@ -505,27 +508,27 @@ $(document).ready(function () {
 
         $(document).on("click", ".ach-save-btn", function(e) {
             e.preventDefault();
-            authorizationSubmitForm(editChildID);
+            authorizationSubmitForm(editChildID,27);
         });
         $(document).on("click", ".ach-submit-btn", function(e) {
             e.preventDefault();
-            authorizationSubmitForm(editChildID);
+            authorizationSubmitForm(editChildID,1);
         });
         $(document).on("click", ".enrollment-save-btn", function(e) {
             e.preventDefault();
-            enrollmentSubmitForm(editChildID);
+            enrollmentSubmitForm(editChildID,28);
         });
         $(document).on("click", ".enrollment-submit-btn", function(e) {
             e.preventDefault();
-            enrollmentSubmitForm(editChildID);
+            enrollmentSubmitForm(editChildID,1);
         });
         $(document).on("click", ".handbook_button", function(e) {
             e.preventDefault();
-            handbookSubmitForm(editChildID);
+            handbookSubmitForm(editChildID,29);
         });
         $(document).on("click", ".handbook-submit-btn", function(e) {
             e.preventDefault();
-            handbookSubmitForm(editChildID);
+            handbookSubmitForm(editChildID,1);
         });
         $(document).on("click", ".cancel-btn", function(e) {
             e.preventDefault();

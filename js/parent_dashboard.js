@@ -1098,24 +1098,24 @@ function checking(editID) {
 
                         //  for cloud
                         switch (full.formname) {
-                          case "admission_form":
-                            url = `${window.location.origin}/goddard-frontend-dev/admission_form_completed.html?id=${editID}`;
-                            print_url = `${window.location.origin}/goddard-frontend-dev/admission_form_pdf_completed.html?id=${editID}`;
-                            break;
-                          case "authorization_form":
-                            url = `${window.location.origin}/goddard-frontend-dev/authorization_completed.html?id=${editID}`;
-                            print_url = `${window.location.origin}/goddard-frontend-dev/authorization_pdf_completed.html?id=${editID}`;
-                            break;
-                          case "enrollment_form":
-                            url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_completed.html?id=${editID}`;
-                            print_url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_pdf_completed.html?id=${editID}`;
-                            break;
-                          case "parent_handbook":
-                            url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_completed.html?id=${editID}`;
-                            print_url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_pdf_completed.html?id=${editID}`;
-                            break;
-                          default:
-                            return "";
+                            case "admission_form":
+                                url = `${window.location.origin}/goddard-frontend-dev/admission_form_completed.html?id=${editID}`;
+                                print_url = `${window.location.origin}/goddard-frontend-dev/admission_form_pdf_completed.html?id=${editID}`;
+                                break;
+                            case "authorization_form":
+                                url = `${window.location.origin}/goddard-frontend-dev/authorization_completed.html?id=${editID}`;
+                                print_url = `${window.location.origin}/goddard-frontend-dev/authorization_pdf_completed.html?id=${editID}`;
+                                break;
+                            case "enrollment_form":
+                                url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_completed.html?id=${editID}`;
+                                print_url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_pdf_completed.html?id=${editID}`;
+                                break;
+                            case "parent_handbook":
+                                url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_completed.html?id=${editID}`;
+                                print_url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_pdf_completed.html?id=${editID}`;
+                                break;
+                            default:
+                                return "";
                         }
                         return `
                 <div>
@@ -1170,6 +1170,10 @@ function checking(editID) {
             24: "#healthpolicies",
             25: "#outsideengagements",
             26: "#socialmediaapproval",
+
+            27:"#authorizationach",
+            28:"#childenrollmentagreement",
+            29:"#volumeone",
         };
 
         const tabId = subTabMapping[pointer];
@@ -1179,6 +1183,24 @@ function checking(editID) {
         // deactivate all left-side tabs
         $(".tab-pane").removeClass("active show");
         $(".anchorvalue").removeClass("active");
+
+        if(pointer <= 26){
+            $(".admissionFormLabel").addClass("shadow");
+            $(".admissionFormLabelButton").removeClass("collapsed");
+            $("#admission").addClass("show");
+        } else if(pointer == 27){
+            $(".achFormLabel").addClass("shadow");
+            $(".achFormLabelButton").removeClass("collapsed");
+            $("#authorizationform").addClass("show");
+        } else if(pointer == 28){
+            $(".enrollFormLabel").addClass("shadow");
+            $(".enrollFormLabelButton").removeClass("collapsed");
+            $("#enrollmentagreementform").addClass("show");
+        } else if(pointer == 29){
+            $(".handbookFormLabel").addClass("shadow");
+            $(".handbookFormLabelButton").removeClass("collapsed");
+            $("#handbook").addClass("show");
+        }
 
         if (pointer <= 6) {
             $("#childinformation").addClass("active show");
@@ -1213,6 +1235,16 @@ function checking(editID) {
         } else if (pointer == 26) {
             $("#socialmediaapproval").addClass("active show");
             $('[href="#socialmediaapproval"]').addClass("active");
+        } else if (pointer == 27) {
+            $("#authorizationach").addClass("active show");
+            $('[href="#authorizationach"]').addClass("active");
+        } else if (pointer == 28) {
+            console.log('ifffff');
+            $("#childenrollmentagreement").addClass("active show");
+            $('[href="#childenrollmentagreement"]').addClass("active");
+        } else if (pointer == 29) {
+            $("#volumeone").addClass("active show");
+            $('[href="#volumeone"]').addClass("active");
         }
 
         if (tabId) {
@@ -1240,6 +1272,7 @@ function checking(editID) {
             //this is used to get the response and return the result
             success: function (response) {
                 let tabPointer = response.pointer; // Assume this value comes from the API
+                console.log(tabPointer);
                 if (typeof tabPointer !== "undefined") {
                     // Example of tab structure: If the tabs have IDs or classes like 'tab1', 'tab2', 'tab3'
                     activateTab(tabPointer);
@@ -1258,9 +1291,8 @@ function checking(editID) {
                         document.getElementsByClassName("child_first_name")[0].value =
                             response.child_first_name;
 
-                            // add cname in entrollment form
-                        document.getElementsByClassName("enrollment_child_name")[0].value =
-                        response.child_first_name;
+                    // add cname in entrollment form
+                    // document.getElementsByClassName("enrollment_child_name")[0].value = response.child_first_name;
 
                     if (typeof response.child_last_name !== "undefined")
                         document.getElementsByClassName("child_last_name")[0].value =
@@ -1277,7 +1309,7 @@ function checking(editID) {
                         document.getElementsByClassName("dob")[0].value = response.dob;
 
                     // add dob in entrollment form
-                        document.getElementsByClassName("enrollment_child_dob")[0].value = response.dob;
+                    // document.getElementsByClassName("enrollment_child_dob")[0].value = response.dob;
 
                     if (typeof response.primary_language !== "undefined")
                         document.getElementsByName("primary_language")[0].value =
@@ -1336,9 +1368,9 @@ function checking(editID) {
                         document.getElementsByName("parent_street_address")[0].value =
                             response.primary_parent_info.parent_street_address;
 
-                            // add address in entrollment form
-                            document.getElementsByName("preferred_home_addr")[0].value =
-                            response.primary_parent_info.parent_street_address + "," + response.primary_parent_info.parent_city_address + "," + response.primary_parent_info.parent_zip_address;
+                        // add address in entrollment form
+                        // document.getElementsByName("preferred_home_addr")[0].value =
+                        //     response.primary_parent_info.parent_street_address + "," + response.primary_parent_info.parent_city_address + "," + response.primary_parent_info.parent_zip_address;
 
                         document.getElementsByName("parent_city_address")[0].value =
                             response.primary_parent_info.parent_city_address;
@@ -1361,8 +1393,8 @@ function checking(editID) {
                         document.getElementsByName("parent_email")[0].value =
                             response.primary_parent_info.parent_email;
                         // add email in entrollment form
-                            document.getElementsByName("preferred_email")[0].value =
-                            response.primary_parent_info.parent_email;
+                        // document.getElementsByName("preferred_email")[0].value =
+                        //     response.primary_parent_info.parent_email;
 
                     }
 

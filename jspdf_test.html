@@ -65,3 +65,57 @@
 
 </body>
 </html>
+
+
+<style>
+    /* Hide the default checkbox */
+.custom-checkbox {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: #ccc; /* Default background */
+  border: 2px solid #333; /* Border color */
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* When the checkbox is checked */
+.custom-checkbox:checked {
+  background-color: #4d5f74; /* Blue background when checked */
+  border-color: #0056b3;
+}
+
+/* The tick mark */
+.custom-checkbox::after {
+  content: "✓"; /* Unicode checkmark */
+  font-size: 16px;
+  color: white; /* White tick mark */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.2s ease-in-out;
+}
+
+/* Show the tick mark when checked */
+.custom-checkbox:checked::after {
+  opacity: 1;
+}
+
+</style>
+
+<label>
+    <input type="checkbox" class="custom-checkbox">
+    Full-Day
+  </label>
+  <label>
+    <input type="checkbox" class="custom-checkbox">
+    Half-Day
+  </label>
+  

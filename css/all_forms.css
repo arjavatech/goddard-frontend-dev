@@ -275,58 +275,43 @@ h2.accordion-header.shadow {
 
 /***Checkbox style***/
   /* Hide the default checkbox */
-  .wizard-form-checkbox input[type="checkbox"] {
-    display: none;
-}
-
-/* Style the label */
-.wizard-form-checkbox .form-check-label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-/* Custom checkbox box */
-.wizard-form-checkbox .custom-checkbox {
-    width: 18px;
-    height: 18px;
-    border-radius: 3px;
-    border: 1px solid #0F2D52;
-    display: inline-block;
+  .custom-checkbox {
     position: relative;
-    background-color: white;
-    transition: all 0.2s ease;
-    margin-right: 5px;
+    width: 20px;
+    height: 20px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-in-out;
 }
 
-/* Tick icon using CSS ::after */
-.wizard-form-checkbox .custom-checkbox::after {
-    content: "✔";  /* Unicode checkmark */
-    font-size: 14px;
-    color: white !important;
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.2s ease;
-}
-
-/* Checked State */
-.wizard-form-checkbox .input-checkbox:checked + .form-check-label .custom-checkbox {
+/* When the checkbox is checked */
+.custom-checkbox:checked {
     background-color: #0F2D52;
     border-color: #0F2D52;
 }
 
-/* Show tick when checked */
-.wizard-form-checkbox .input-checkbox:checked + .form-check-label .custom-checkbox::after {
-    opacity: 1;
+/* The tick mark */
+.custom-checkbox::after {
+    content: "✓";
+    font-size: 16px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
-@keyframes wave-46 {
-    50% {
-        transform: scale(0.9);
-    }
+/* Show the tick mark when checked */
+.custom-checkbox:checked::after {
+    opacity: 1;
 }
 
 /***Checkbox style end***/

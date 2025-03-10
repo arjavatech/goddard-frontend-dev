@@ -449,6 +449,10 @@ function checking(editID) {
                             "parent_sign_date_enroll",
                             "preferred_start_date",
                             "preferred_schedule",
+                            "child_first_name",
+                            "dob",
+                            "parent_email",
+
                         ];
 
                         fields.forEach((field) => {
@@ -459,15 +463,62 @@ function checking(editID) {
                                 }
                             }
                         });
+
+                        const enroll_date = [
+                            "parent_sign_date_enroll",
+                        ];
+
+                        enroll_date.forEach((field) => {
+                            if (response[field] !== undefined) {
+                                let element = form.querySelector(`input[name='point_one_field_one']`);
+                                if (element) {
+                                    element.setAttribute("value", response[field]);
+                                }
+                            }
+                        });
                         // Checkbox handling
                         const checkboxFields = ["full_day", "half_day"];
 
                         checkboxFields.forEach((field) => {
                             let element = form.querySelector(`[name='${field}']`);
-                            if (element && response[field] == 1) {
+                            if (element && response[field] == "on") {
                                 element.setAttribute("checked", true);
                             }
                         });
+
+                        // Handle nested objects for parent info (primary parent)
+                        const parentFields = {
+                            primary_parent_email: response.primary_parent_info?.parent_email,
+                        };
+
+                        Object.entries(parentFields).forEach(([field, value]) => {
+                            let element = form.querySelector(`[name='${field}']`);
+                            if (element && value !== undefined) {
+                                element.setAttribute("value", value);
+                            }
+                        });
+
+                        // Handle nested objects for parent info (primary parent)
+                        const parentFieldsAddress = {
+                            parent_street_address:
+                                response.primary_parent_info?.parent_street_address,
+                            parent_city_address:
+                                response.primary_parent_info?.parent_city_address,
+                            parent_state_address:
+                                response.primary_parent_info?.parent_state_address,
+                            parent_zip_address:
+                                response.primary_parent_info?.parent_zip_address,
+                           
+                        };
+                        // Object.entries(parentFieldsAddress).forEach(([field, value]) => {
+                            let element = form.querySelector(`[name='preferred_home_addr']`);
+                            if (element !== undefined) {
+                                let addressValue =  parentFieldsAddress.parent_street_address
+                                 + "," + parentFieldsAddress.parent_city_address + "," +
+                                 parentFieldsAddress.parent_zip_address;
+                                element.setAttribute("value", addressValue);
+                            }
+                        // });
                     } else if (formName === "parent_handbook.pdf") {
                         const checkboxFields = [
                             "welcome_goddard_agreement",
@@ -1075,48 +1126,48 @@ function checking(editID) {
                         console.log(window.location.origin);
 
                         // for localhost 
-                        // switch (full.formname) {
-                        //     case "admission_form":
-                        //         url = `${window.location.origin}/admission_form_completed.html?id=${editID}`;
-                        //         print_url = `${window.location.origin}/admission_form_pdf_completed.html?id=${editID}`;
-                        //         break;
-                        //     case "authorization_form":
-                        //         url = `${window.location.origin}/authorization_completed.html?id=${editID}`;
-                        //         print_url = `${window.location.origin}/authorization_pdf_completed.html?id=${editID}`;
-                        //         break;
-                        //     case "enrollment_form":
-                        //         url = `${window.location.origin}/enrollment_agreement_completed.html?id=${editID}`;
-                        //         print_url = `${window.location.origin}/enrollment_agreement_pdf_completed.html?id=${editID}`;
-                        //         break;
-                        //     case "parent_handbook":
-                        //         url = `${window.location.origin}/parent_handbook_completed.html?id=${editID}`;
-                        //         print_url = `${window.location.origin}/parent_handbook_pdf_completed.html?id=${editID}`;
-                        //         break;
-                        //     default:
-                        //         return "";
-                        // }
-
-                        //  for cloud
                         switch (full.formname) {
                             case "admission_form":
-                                url = `${window.location.origin}/goddard-frontend-dev/admission_form_completed.html?id=${editID}`;
-                                print_url = `${window.location.origin}/goddard-frontend-dev/admission_form_pdf_completed.html?id=${editID}`;
+                                url = `${window.location.origin}/admission_form_completed.html?id=${editID}`;
+                                print_url = `${window.location.origin}/admission_form_pdf_completed.html?id=${editID}`;
                                 break;
                             case "authorization_form":
-                                url = `${window.location.origin}/goddard-frontend-dev/authorization_completed.html?id=${editID}`;
-                                print_url = `${window.location.origin}/goddard-frontend-dev/authorization_pdf_completed.html?id=${editID}`;
+                                url = `${window.location.origin}/authorization_completed.html?id=${editID}`;
+                                print_url = `${window.location.origin}/authorization_pdf_completed.html?id=${editID}`;
                                 break;
                             case "enrollment_form":
-                                url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_completed.html?id=${editID}`;
-                                print_url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_pdf_completed.html?id=${editID}`;
+                                url = `${window.location.origin}/enrollment_agreement_completed.html?id=${editID}`;
+                                print_url = `${window.location.origin}/enrollment_agreement_pdf_completed.html?id=${editID}`;
                                 break;
                             case "parent_handbook":
-                                url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_completed.html?id=${editID}`;
-                                print_url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_pdf_completed.html?id=${editID}`;
+                                url = `${window.location.origin}/parent_handbook_completed.html?id=${editID}`;
+                                print_url = `${window.location.origin}/parent_handbook_pdf_completed.html?id=${editID}`;
                                 break;
                             default:
                                 return "";
                         }
+
+                        //  for cloud
+                        // switch (full.formname) {
+                        //     case "admission_form":
+                        //         url = `${window.location.origin}/goddard-frontend-dev/admission_form_completed.html?id=${editID}`;
+                        //         print_url = `${window.location.origin}/goddard-frontend-dev/admission_form_pdf_completed.html?id=${editID}`;
+                        //         break;
+                        //     case "authorization_form":
+                        //         url = `${window.location.origin}/goddard-frontend-dev/authorization_completed.html?id=${editID}`;
+                        //         print_url = `${window.location.origin}/goddard-frontend-dev/authorization_pdf_completed.html?id=${editID}`;
+                        //         break;
+                        //     case "enrollment_form":
+                        //         url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_completed.html?id=${editID}`;
+                        //         print_url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_pdf_completed.html?id=${editID}`;
+                        //         break;
+                        //     case "parent_handbook":
+                        //         url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_completed.html?id=${editID}`;
+                        //         print_url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_pdf_completed.html?id=${editID}`;
+                        //         break;
+                        //     default:
+                        //         return "";
+                        // }
                         return `
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="18" height="18" class="action-icons m-2 download-btn" data-url="${url}" data-name="${full.formname}.pdf" name="downbutton"><path fill="#0F2D52" d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM376.9 294.6L269.8 394.5c-3.8 3.5-8.7 5.5-13.8 5.5s-10.1-2-13.8-5.5L135.1 294.6c-4.5-4.2-7.1-10.1-7.1-16.3c0-12.3 10-22.3 22.3-22.3l57.7 0 0-96c0-17.7 14.3-32 32-32l32 0c17.7 0 32 14.3 32 32l0 96 57.7 0c12.3 0 22.3 10 22.3 22.3c0 6.2-2.6 12.1-7.1 16.3z"/></svg>
@@ -3296,6 +3347,7 @@ function checking(editID) {
                 let enrollmentDetails;
                 let enrollmentparent;
                 if (document.getElementById("childenrollmentagreement") != null) {
+                    document.getElementsByName("point_one_field_one")[0].value = new Date().toISOString().split('T')[0];
                     // if (typeof response.point_one_field_one !== "undefined")
                     //     document.getElementsByName("point_one_field_one")[0].value = response.point_one_field_one;
                     // if (typeof response.point_one_field_two !== "undefined")
@@ -3432,6 +3484,7 @@ function checking(editID) {
                         ).style.display = "block";
                         enrollmentDetails = false;
                     }
+                    document.getElementsByName("parent_sign_date_enroll")[0].value = new Date().toISOString().split('T')[0];
                 }
                 var inputs = document.querySelectorAll(
                     "#childenrollmentagreement input"

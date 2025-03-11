@@ -11,6 +11,14 @@ function submitForm(editID,number) {
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData); 
     console.log(obj);
+
+    var currentDate = new Date(obj.admin_sign_date_admission);
+    var epochTime = currentDate.getTime();
+    var epochValueConversion = parseInt(epochTime, 10)
+    console.log(typeof epochValueConversion);
+    obj.admin_sign_date_admission =  epochValueConversion.toString();
+
+
     obj.form_year_admission = year;
     obj.pointer = number;
     const bottleFedValue = document.querySelector('input[name="bottle_fed"]:checked')?.value || null;
@@ -27,6 +35,10 @@ function submitForm(editID,number) {
     outputobject.bottle_fed = obj.bottle_fed,
     outputobject.breast_fed = obj.breast_fed,
     outputobject.classid = response.classid;
+
+    
+
+
     //to set local response variable id value for outputobject id value.
     if(editID != ''){
         outputobject.primary_parent_email = editID;
@@ -199,6 +211,17 @@ function authorizationSubmitForm(editID,number) {
      old.parentNode.replaceChild(new_element,old);
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
+    console.log(obj);
+    console.log(obj.admin_sign_date_ach);
+
+    // const currentDate = obj.admin_sign_date_ach;
+    var currentDate = new Date(obj.admin_sign_date_ach);
+    var epochTime = currentDate.getTime();
+    var epochValueConversion = parseInt(epochTime, 10)
+    console.log(typeof epochValueConversion);
+    obj.admin_sign_date_ach =  epochValueConversion.toString();
+    // console.log(epochTime);
+
     obj.form_year_ach = year;
     obj.pointer = number;
     //to get values from local storage variable and stored it into response1 variable.
@@ -260,6 +283,14 @@ function enrollmentSubmitForm(editID,number) {
      old.parentNode.replaceChild(new_element,old);
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
+    console.log(obj);
+
+    var currentDate = new Date(obj.admin_sign_date_enroll);
+    var epochTime = currentDate.getTime();
+    var epochValueConversion = parseInt(epochTime, 10)
+    console.log(typeof epochValueConversion);
+    obj.admin_sign_date_enroll =  epochValueConversion.toString();
+
     obj.form_year_enroll = year;
     obj.pointer = number;
     //to get values from local storage variable and stored it into response1 variable.
@@ -321,6 +352,14 @@ function handbookSubmitForm(editID,number) {
      old.parentNode.replaceChild(new_element,old);
     const formData = new FormData(form);
     const obj = Object.fromEntries(formData);
+    console.log(obj);
+
+    var currentDate = new Date(obj.admin_sign_date_handbook);
+    var epochTime = currentDate.getTime();
+    var epochValueConversion = parseInt(epochTime, 10)
+    console.log(typeof epochValueConversion);
+    obj.admin_sign_date_handbook =  epochValueConversion.toString();
+
     obj.form_year_handbook = year;
     obj.pointer = number;
     //to get values from local storage variable and stored it into response1 variable.

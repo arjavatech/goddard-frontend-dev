@@ -16,7 +16,7 @@ function submitForm(editID,number) {
     var epochTime = currentDate.getTime();
     var epochValueConversion = parseInt(epochTime, 10)
     console.log(typeof epochValueConversion);
-    obj.admin_sign_date_admission =  epochValueConversion.toString();
+    obj.admin_sign_date_admission =  epochValueConversion;
 
 
     obj.form_year_admission = year;
@@ -219,7 +219,7 @@ function authorizationSubmitForm(editID,number) {
     var epochTime = currentDate.getTime();
     var epochValueConversion = parseInt(epochTime, 10)
     console.log(typeof epochValueConversion);
-    obj.admin_sign_date_ach =  epochValueConversion.toString();
+    obj.admin_sign_date_ach =  epochValueConversion;
     // console.log(epochTime);
 
     obj.form_year_ach = year;
@@ -289,7 +289,7 @@ function enrollmentSubmitForm(editID,number) {
     var epochTime = currentDate.getTime();
     var epochValueConversion = parseInt(epochTime, 10)
     console.log(typeof epochValueConversion);
-    obj.admin_sign_date_enroll =  epochValueConversion.toString();
+    obj.admin_sign_date_enroll =  epochValueConversion;
 
     obj.form_year_enroll = year;
     obj.pointer = number;
@@ -358,7 +358,7 @@ function handbookSubmitForm(editID,number) {
     var epochTime = currentDate.getTime();
     var epochValueConversion = parseInt(epochTime, 10)
     console.log(typeof epochValueConversion);
-    obj.admin_sign_date_handbook =  epochValueConversion.toString();
+    obj.admin_sign_date_handbook =  epochValueConversion;
 
     obj.form_year_handbook = year;
     obj.pointer = number;

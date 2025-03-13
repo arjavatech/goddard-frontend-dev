@@ -277,7 +277,7 @@
             const dropdown = document.getElementById("year");
             const currentYear = new Date().getFullYear();
 
-            for (let i = currentYear - 10; i <= currentYear + 10; i++) {
+            for (let i = currentYear - 10; i <= currentYear; i++) {
               let option = document.createElement("option");
               option.value = i;
               option.textContent = i;

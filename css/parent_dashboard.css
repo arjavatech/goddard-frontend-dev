@@ -126,7 +126,11 @@ a {
 }
 
 .input-error {
-    border-color: rgb(212, 86, 86) !important;
+    border: 1.4px solid rgb(212, 86, 86) !important;
+}
+
+.input-success {
+    border: 1.4px solid green !important;
 }
 
 /*****Parent Dashboard Style End*****/

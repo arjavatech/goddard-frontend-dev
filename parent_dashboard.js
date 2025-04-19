@@ -1,304 +1,157 @@
-// import { isAuthenticated } from "./authentication_verify.js";
-
-// let child_response = null;
-
-// function clearLocalStorageExcept(keysToKeep) {
-//     for (let key in localStorage) {
-//         if (localStorage.hasOwnProperty(key) && !keysToKeep.includes(key)) {
-//             localStorage.removeItem(key);
-//         }
-//     }
-// }
-
-// function checkParentAuthentication(editID, callback) {
-//     const logged_in_email = localStorage.getItem("logged_in_email");
-//     // const is_admin = localStorage.getItem('is_admin');
-//     let url;
-//     if (
-//         editID == logged_in_email ||
-//         logged_in_email == "goddard01arjava@gmail.com" ||
-//         editID == ""
-//     ) {
-//         // (stop user to see other kids || check admin login || default parent login)
-//         if (editID != "") {
-//             url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/testadmission_child_personal/parent_email/${editID}`;
-//         } else {
-//             url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/testadmission_child_personal/parent_email/${logged_in_email}`;
-//         }
-//         $.ajax({
-//             url: url,
-//             type: "get",
-//             success: function (response) {
-//                 let keysToKeep = ["logged_in_email"];
-//                 clearLocalStorageExcept(keysToKeep);
-//                 // localStorage.clear()
-//                 if (response["parent_name"]) {
-//                     localStorage.setItem("parent_name", response["parent_name"]);
-//                     //    localStorage.setItem('parent_id', response[0].id)
-//                 }
-//                 if (typeof callback === "function") {
-//                     callback();
-//                 }
-//             },
-//         });
-//     } else {
-//         window.location.href = "login.html";
-//     }
-// }
-
-// function getAllInfo(editID, callback) {
-//     const logged_in_email = localStorage.getItem("logged_in_email");
-//     let url;
-//     if (editID != "") {
-//         url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/testadmission_child_personal/parent_email/${editID}`;
-//     } else {
-//         url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/testadmission_child_personal/parent_email/${logged_in_email}`;
-//     }
-
-//     $.ajax({
-//         url: url,
-//         type: "get",
-//         success: function (response) {
-//             // localStorage.clear()
-//             if (response["children"]) {
-//                 // Iterate through all the child and store the response
-//                 child_response = response["children"];
-//                 localStorage.setItem(
-//                     "number_of_children",
-//                     response["children"].length.toString()
-//                 );
-//             }
-//             if (typeof callback === "function") {
-//                 callback();
-//             }
-//         },
-//     });
-// }
-
-// function responseToAuthenticationCheck() {
-//     const parentName = localStorage.getItem("logged_in_email");
-//     if (parentName !== "undefined" && parentName !== null) {
-//         document.body.style.visibility = "visible";
-//     } else {
-//         document.getElementById("welcomeText").innerHTML = "Parent not found";
-//         window.alert("Parent Not found");
-//         window.history.back();
-//     }
-// }
-
-// function loadDynamicCards() {
-//     let responseSize = parseInt(localStorage.getItem("number_of_children"), 10);
-//     let parentContainer = document.getElementById("dynamicChildCards");
-//     let putcallId = sessionStorage.getItem("putcallId");
-
-//     parentContainer.innerHTML = "";
-//     for (let i = 0; i < responseSize; i++) {
-//         let on_process = child_response[i].on_process;
-
-//         let div = document.createElement("li");
-//         div.setAttribute("class", "nav-item");
-
-//         let anchor = document.createElement("a");
-//         anchor.setAttribute("class", "nav-link ");
-//         // anchor.classList.add('anchorvalue');
-//         anchor.setAttribute("data-child-id", child_response[i].child_id);
-
-//         let card = document.createElement("div");
-//         card.setAttribute("style", "height:40px");
-
-//         anchor.addEventListener("click", function () {
-//             let allTabs = document.querySelectorAll(".nav-link");
-//             allTabs.forEach((tab) => tab.classList.remove("active"));
-//             anchor.classList.add("active");
-
-//             const selectedChildName = child_response[i].child_first_name;
-//             const selectedChildId = child_response[i].child_id;
-//             localStorage.setItem("child_name", selectedChildName);
-//             localStorage.setItem("child_id", selectedChildId);
-//             checking(selectedChildId);
-//         });
-
-//         let cardBody = document.createElement("div");
-//         cardBody.classList.add("card-body");
-
-//         let childName = document.createElement("h6");
-//         childName.id = child_response[i].child_id;
-//         childName.classList.add("text-center", "dashboard_card_text", "h6");
-//         childName.innerHTML = child_response[i].child_first_name;
-
-//         cardBody.appendChild(childName);
-//         card.appendChild(cardBody);
-//         anchor.appendChild(card);
-//         div.appendChild(anchor);
-//         parentContainer.appendChild(div);
-//     }
-
-//     if (!putcallId) {
-//         if (responseSize > 0) {
-//             let firstAnchor = parentContainer.querySelector("a.nav-link");
-//             if (firstAnchor) {
-//                 firstAnchor.classList.add("active");
-//                 const selectedChildName = child_response[0].child_first_name;
-//                 const selectedChildId = child_response[0].child_id;
-//                 localStorage.setItem("child_name", selectedChildName);
-//                 localStorage.setItem("child_id", selectedChildId);
-//                 checking(selectedChildId);
-//             }
-//         }
-//     } else {
-//         let selectedAnchor = parentContainer.querySelector(
-//             `a.nav-link[data-child-id='${putcallId}']`
-//         );
-//         if (selectedAnchor) {
-//             selectedAnchor.classList.add("active");
-//         }
-//         localStorage.setItem("child_id", putcallId);
-//         checking(putcallId);
-//     }
-// }
-
-// function welcomeText() {
-//     const parentName = localStorage.getItem("parent_name");
-
-//     if (localStorage.getItem("logged_in_email") == "goddard01arjava@gmail.com") {
-//         document.getElementById("welcomeText").innerHTML = "Welcome Admin";
-//         loadDynamicCards();
-//     } else {
-//         document.getElementById("welcomeText").innerHTML = "Welcome " + parentName;
-//         loadDynamicCards();
-//     }
-//     // createAddChildButton();
-//     // additionalHtmlContainer.style.display = 'block';
-// }
-
 import { isAuthenticated } from "./authentication_verify.js";
 
 let child_response = null;
 
 function clearLocalStorageExcept(keysToKeep) {
-    Object.keys(localStorage).forEach((key) => {
-        if (!keysToKeep.includes(key)) {
+    for (let key in localStorage) {
+        if (localStorage.hasOwnProperty(key) && !keysToKeep.includes(key)) {
             localStorage.removeItem(key);
         }
-    });
+    }
 }
 
 function checkParentAuthentication(editID, callback) {
     const logged_in_email = localStorage.getItem("logged_in_email");
-
-    if (!logged_in_email) {
+    // const is_admin = localStorage.getItem('is_admin');
+    let url;
+    if (
+        editID == logged_in_email ||
+        logged_in_email == "goddard01arjava@gmail.com" ||
+        editID == ""
+    ) {
+        // (stop user to see other kids || check admin login || default parent login)
+        if (editID != "") {
+            url = `a://admission_child_personal/parent_email/${editID}`;
+        } else {
+            url = `a://admission_child_personal/parent_email/${logged_in_email}`;
+        }
+        $.ajax({
+            url: url,
+            type: "get",
+            success: function (response) {
+                let keysToKeep = ["logged_in_email"];
+                clearLocalStorageExcept(keysToKeep);
+                // localStorage.clear()
+                if (response["parent_name"]) {
+                    localStorage.setItem("parent_name", response["parent_name"]);
+                    //    localStorage.setItem('parent_id', response[0].id)
+                }
+                if (typeof callback === "function") {
+                    callback();
+                }
+            },
+        });
+    } else {
         window.location.href = "login.html";
-        return;
     }
-
-    let url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/testadmission_child_personal/parent_email/${editID || logged_in_email}`;
-
-    $.get(url, function (response) {
-        console.log(response);
-        clearLocalStorageExcept(["logged_in_email"]);
-
-        if (response.parent_name) {
-            localStorage.setItem("parent_name", response.parent_name);
-        }
-
-        if (typeof callback === "function") {
-            callback();
-        }
-    }).fail(() => {
-        console.error("Failed to fetch parent data");
-        window.location.href = "login.html";
-    });
 }
 
 function getAllInfo(editID, callback) {
     const logged_in_email = localStorage.getItem("logged_in_email");
-    let url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/testadmission_child_personal/parent_email/${editID || logged_in_email}`;
+    let url;
+    if (editID != "") {
+        url = `a://admission_child_personal/parent_email/${editID}`;
+    } else {
+        url = `a://admission_child_personal/parent_email/${logged_in_email}`;
+    }
 
-    $.get(url, function (response) {
-        console.log(response);
-        if (response.children) {
-            child_response = response.children;
-            localStorage.setItem("number_of_children", child_response.length.toString());
-        }
-
-        if (typeof callback === "function") {
-            callback();
-        }
-    }).fail(() => console.error("Failed to fetch child information"));
+    $.ajax({
+        url: url,
+        type: "get",
+        success: function (response) {
+            // localStorage.clear()
+            if (response["children"]) {
+                // Iterate through all the child and store the response
+                child_response = response["children"];
+                localStorage.setItem(
+                    "number_of_children",
+                    response["children"].length.toString()
+                );
+            }
+            if (typeof callback === "function") {
+                callback();
+            }
+        },
+    });
 }
 
 function responseToAuthenticationCheck() {
     const parentName = localStorage.getItem("logged_in_email");
-    if (parentName) {
+    if (parentName !== "undefined" && parentName !== null) {
         document.body.style.visibility = "visible";
     } else {
-        document.getElementById("welcomeText").textContent = "Parent not found";
-        alert("Parent Not found");
+        document.getElementById("welcomeText").innerHTML = "Parent not found";
+        window.alert("Parent Not found");
         window.history.back();
     }
 }
 
 function loadDynamicCards() {
-    let responseSize = parseInt(localStorage.getItem("number_of_children"), 10) || 0;
+    let responseSize = parseInt(localStorage.getItem("number_of_children"), 10);
     let parentContainer = document.getElementById("dynamicChildCards");
     let putcallId = sessionStorage.getItem("putcallId");
 
     parentContainer.innerHTML = "";
+    for (let i = 0; i < responseSize; i++) {
+        let on_process = child_response[i].on_process;
 
-    if (!child_response || child_response.length === 0) return;
-
-    let fragment = document.createDocumentFragment();
-
-    child_response.forEach((child, index) => {
         let div = document.createElement("li");
-        div.classList.add("nav-item");
+        div.setAttribute("class", "nav-item");
 
         let anchor = document.createElement("a");
-        anchor.classList.add("nav-link");
-        anchor.dataset.childId = child.child_id;
+        anchor.setAttribute("class", "nav-link ");
+        // anchor.classList.add('anchorvalue');
+        anchor.setAttribute("data-child-id", child_response[i].child_id);
 
         let card = document.createElement("div");
-        card.style.height = "40px";
+        card.setAttribute("style", "height:40px");
 
         anchor.addEventListener("click", function () {
-            document.querySelectorAll(".nav-link").forEach((tab) => tab.classList.remove("active"));
+            let allTabs = document.querySelectorAll(".nav-link");
+            allTabs.forEach((tab) => tab.classList.remove("active"));
             anchor.classList.add("active");
 
-            localStorage.setItem("child_name", child.child_first_name);
-            localStorage.setItem("child_id", child.child_id);
-            checking(child.child_id);
+            const selectedChildName = child_response[i].child_first_name;
+            const selectedChildId = child_response[i].child_id;
+            localStorage.setItem("child_name", selectedChildName);
+            localStorage.setItem("child_id", selectedChildId);
+            checking(selectedChildId);
         });
 
         let cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
 
         let childName = document.createElement("h6");
-        childName.id = child.child_id;
+        childName.id = child_response[i].child_id;
         childName.classList.add("text-center", "dashboard_card_text", "h6");
-        childName.textContent = child.child_first_name;
+        childName.innerHTML = child_response[i].child_first_name;
 
         cardBody.appendChild(childName);
         card.appendChild(cardBody);
         anchor.appendChild(card);
         div.appendChild(anchor);
-        fragment.appendChild(div);
-    });
-
-    parentContainer.appendChild(fragment);
+        parentContainer.appendChild(div);
+    }
 
     if (!putcallId) {
         if (responseSize > 0) {
             let firstAnchor = parentContainer.querySelector("a.nav-link");
             if (firstAnchor) {
                 firstAnchor.classList.add("active");
-                localStorage.setItem("child_name", child_response[0].child_first_name);
-                localStorage.setItem("child_id", child_response[0].child_id);
-                checking(child_response[0].child_id);
+                const selectedChildName = child_response[0].child_first_name;
+                const selectedChildId = child_response[0].child_id;
+                localStorage.setItem("child_name", selectedChildName);
+                localStorage.setItem("child_id", selectedChildId);
+                checking(selectedChildId);
             }
         }
     } else {
-        let selectedAnchor = parentContainer.querySelector(`a.nav-link[data-child-id='${putcallId}']`);
-        if (selectedAnchor) selectedAnchor.classList.add("active");
+        let selectedAnchor = parentContainer.querySelector(
+            `a.nav-link[data-child-id='${putcallId}']`
+        );
+        if (selectedAnchor) {
+            selectedAnchor.classList.add("active");
+        }
         localStorage.setItem("child_id", putcallId);
         checking(putcallId);
     }
@@ -306,14 +159,16 @@ function loadDynamicCards() {
 
 function welcomeText() {
     const parentName = localStorage.getItem("parent_name");
-    const logged_in_email = localStorage.getItem("logged_in_email");
 
-    if (logged_in_email === "goddard01arjava@gmail.com") {
-        document.getElementById("welcomeText").textContent = "Welcome Admin";
+    if (localStorage.getItem("logged_in_email") == "goddard01arjava@gmail.com") {
+        document.getElementById("welcomeText").innerHTML = "Welcome Admin";
+        loadDynamicCards();
     } else {
-        document.getElementById("welcomeText").textContent = `Welcome ${parentName}`;
+        document.getElementById("welcomeText").innerHTML = "Welcome " + parentName;
+        loadDynamicCards();
     }
-    loadDynamicCards();
+    // createAddChildButton();
+    // additionalHtmlContainer.style.display = 'block';
 }
 
 function checking(editID) {
@@ -322,7 +177,7 @@ function checking(editID) {
     // var tab_content = document.querySelector(".tab-content");
     // tab_content.reset();
     $.ajax({
-        url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/testadmission_child_personal/incomplete_form_status/${editID}`,
+        url: `a://admission_child_personal/incomplete_form_status/${editID}`,
         type: "GET",
         dataType: "json",
         success: function (response) {
@@ -539,7 +394,7 @@ function checking(editID) {
     function populateFormData(editID, formName) {
         return new Promise((resolve, reject) => {
             $.ajax({
-                url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/testchild_all_form_details/fetch/${editID}`,
+                url: `a://child_all_form_details/fetch/${editID}`,
                 type: "GET",
                 success: function (response) {
                     console.log(response);
@@ -1224,7 +1079,7 @@ function checking(editID) {
             dom: "Qlfrtip",
             lengthChange: false,
             ajax: {
-                url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/testadmission_child_personal/completed_form_status_year/${editID}/${year}`,
+                url: `a://admission_child_personal/completed_form_status_year/${editID}/${year}`,
                 dataSrc: function (json) {
                     if (
                         !json.CompletedFormStatus ||
@@ -1459,7 +1314,7 @@ function checking(editID) {
         // addChildDiv.style.display = 'none';
         //for waking up the aws lambda server
         $.ajax({
-            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/testchild_all_form_details/fetch/${editID}`,
+            url: `a://child_all_form_details/fetch/${editID}`,
             type: "GET",
             //this is used to get the response and return the result
             success: function (response) {

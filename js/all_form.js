@@ -36,9 +36,6 @@ function submitForm(editID,number) {
     outputobject.breast_fed = obj.breast_fed,
     outputobject.classid = response.classid;
 
-    
-
-
     //to set local response variable id value for outputobject id value.
     if(editID != ''){
         outputobject.primary_parent_email = editID;
@@ -578,10 +575,10 @@ $(document).ready(function () {
             e.preventDefault(); // Prevent the default form submission
             saveForm();
         });
-        $("#submit_button").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            submitForm();
-        });
+        // $("#submit_button").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     submitForm();
+        // });
         $("#cancelButton").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
             clearForm();

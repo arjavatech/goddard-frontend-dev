@@ -1513,7 +1513,7 @@ function checking(editID) {
                         document.getElementById(
                             "do_relevant_custody_papers_apply1"
                         ).checked = true;
-                    } else {
+                    } else if(response.do_relevant_custody_papers_apply === 2) {
                         document.getElementById(
                             "do_relevant_custody_papers_apply2"
                         ).checked = true;
@@ -1522,7 +1522,7 @@ function checking(editID) {
                         document.getElementById("gender1").checked = true;
                     } else if (response.gender == 2) {
                         document.getElementById("gender2").checked = true;
-                    } else {
+                    } else if (response.gender == 3) {
                         document.getElementById("gender3").checked = true;
                     }
 
@@ -1985,10 +1985,19 @@ function checking(editID) {
                 var inputs = document.querySelectorAll("#childinformation input");
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error");
+                        }
                     }
                 });
 
@@ -2498,11 +2507,21 @@ function checking(editID) {
                 var inputs = document.querySelectorAll("#childandfamilyhistory input");
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
+                    
                 });
 
                 //immunization details
@@ -2545,10 +2564,19 @@ function checking(editID) {
                 );
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
 
@@ -2928,10 +2956,19 @@ function checking(editID) {
                 var inputs = document.querySelectorAll("#childprofile input");
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
 
@@ -2980,10 +3017,19 @@ function checking(editID) {
                 var inputs = document.querySelectorAll("#pickuppassword input");
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
 
@@ -3053,10 +3099,19 @@ function checking(editID) {
                 var inputs = document.querySelectorAll("#photovideopermission input");
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
 
@@ -3098,10 +3153,19 @@ function checking(editID) {
                 var inputs = document.querySelectorAll("#securitypolicy input");
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
 
@@ -3152,10 +3216,19 @@ function checking(editID) {
                 var inputs = document.querySelectorAll("#medicaltransportation input");
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
 
@@ -3194,10 +3267,19 @@ function checking(editID) {
                 var inputs = document.querySelectorAll("#healthpolicies input");
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
 
@@ -3237,10 +3319,19 @@ function checking(editID) {
                 var inputs = document.querySelectorAll("#outsideengagements input");
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
 
@@ -3304,10 +3395,19 @@ function checking(editID) {
                 var inputs = document.querySelectorAll("#socialmediaapproval input");
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
 
@@ -3390,10 +3490,19 @@ function checking(editID) {
                 var inputs = document.querySelectorAll("#parentsignature input");
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
 
@@ -3625,10 +3734,19 @@ function checking(editID) {
                 );
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
 
@@ -3697,10 +3815,19 @@ function checking(editID) {
                 );
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
 
@@ -3793,10 +3920,19 @@ function checking(editID) {
                 var inputs = document.querySelectorAll("#authorizationach input");
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
 
@@ -3867,10 +4003,19 @@ function checking(editID) {
                 );
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
                 //authorization form admin restriction
@@ -4465,10 +4610,19 @@ function checking(editID) {
                 var inputs = document.querySelectorAll("#volumeone input");
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
                 if (document.getElementById("parentsignaturehandbook") != null) {
@@ -4531,10 +4685,19 @@ function checking(editID) {
                 );
 
                 inputs.forEach(function (input) {
-                    if (input.value.trim() === "") {
-                        input.classList.add("input-error"); // Add a class to highlight empty input
+                    if (input.type === "checkbox" || input.type === "radio") {
+                        if (input.checked) {
+                            input.classList.remove("input-success");
+                            input.classList.remove("input-error");
+                        } 
                     } else {
-                        input.classList.remove("input-error"); // Remove error class if input is not empty
+                        if (input.value.trim() === "") {
+                            input.classList.add("input-error"); // Add a class to highlight empty input
+                            input.classList.remove("input-success");
+                        } else {
+                            input.classList.add("input-success");
+                            input.classList.remove("input-error"); // Remove error class if input is not empty
+                        }
                     }
                 });
 

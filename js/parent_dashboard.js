@@ -1381,14 +1381,27 @@ function checking(editID) {
                         document.getElementById(
                             "do_relevant_custody_papers_apply2"
                         ).checked = true;
+                    } else {
+                        document.getElementById(
+                            "do_relevant_custody_papers_apply1"
+                        ).checked = false;
+                        document.getElementById(
+                            "do_relevant_custody_papers_apply2"
+                        ).checked = false;
                     }
+
                     if (response.gender == 1) {
                         document.getElementById("gender1").checked = true;
                     } else if (response.gender == 2) {
                         document.getElementById("gender2").checked = true;
                     } else if (response.gender == 3) {
                         document.getElementById("gender3").checked = true;
+                    } else {
+                        document.getElementById("gender1").checked = false;
+                        document.getElementById("gender2").checked = false;
+                        document.getElementById("gender3").checked = false;
                     }
+
 
                     if (
                         response.child_first_name &&

@@ -627,11 +627,16 @@
             let select = $(this);
             let selectedValues = select.val();
 
-            // If "All" is selected, select all options
-            if (selectedValues.includes("all")) {
-                selectedValues = ["all"];
-                select.val(["all"]).selectpicker("refresh");
-            } 
+            if (selectedValues.includes("all") && selectedValues.length > 1) {
+                // Remove "all" from the selection
+                selectedValues = selectedValues.filter(function(value) {
+                    return value !== "all";
+                });
+                // Set the updated selection
+                select.val(selectedValues).selectpicker("refresh");
+            }
+
+            // console.log(selectedValues);
 
             // Make an API call to fetch data
             $.ajax({

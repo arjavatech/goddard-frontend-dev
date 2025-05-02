@@ -578,10 +578,10 @@ $(document).ready(function () {
             e.preventDefault(); // Prevent the default form submission
             saveForm();
         });
-        $("#submit_button").on("click", function (e) {
-            e.preventDefault(); // Prevent the default form submission
-            submitForm();
-        });
+        // $("#admission_submit_button").on("click", function (e) {
+        //     e.preventDefault(); // Prevent the default form submission
+        //     submitForm();
+        // });
         $("#cancelButton").on("click", function (e) {
             e.preventDefault(); // Prevent the default form submission
             clearForm();

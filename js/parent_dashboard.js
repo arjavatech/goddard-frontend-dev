@@ -60,7 +60,7 @@ function checkParentAuthentication(editID, callback) {
 
 function getAllInfo(editID, callback) {
     const logged_in_email = localStorage.getItem("logged_in_email");
-    
+
     let url;
     if (editID != "") {
         url = `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/parent_email/${editID}`;
@@ -81,11 +81,11 @@ function getAllInfo(editID, callback) {
                     response["children"].length.toString()
                 );
             }
-           
+
             if (typeof callback === "function") {
                 callback();
             }
-           
+
         },
     });
 }
@@ -360,16 +360,16 @@ function populateFormData(editID, formName) {
                             response.primary_parent_info?.parent_state_address,
                         parent_zip_address:
                             response.primary_parent_info?.parent_zip_address,
-                       
+
                     };
                     // Object.entries(parentFieldsAddress).forEach(([field, value]) => {
-                        let element = form.querySelector(`[name='preferred_home_addr']`);
-                        if (element !== undefined) {
-                            let addressValue =  parentFieldsAddress.parent_street_address
-                             + "," + parentFieldsAddress.parent_city_address + "," +
-                             parentFieldsAddress.parent_zip_address;
-                            element.setAttribute("value", addressValue);
-                        }
+                    let element = form.querySelector(`[name='preferred_home_addr']`);
+                    if (element !== undefined) {
+                        let addressValue = parentFieldsAddress.parent_street_address
+                            + "," + parentFieldsAddress.parent_city_address + "," +
+                            parentFieldsAddress.parent_zip_address;
+                        element.setAttribute("value", addressValue);
+                    }
                     // });
                 } else if (formName === "parent_handbook.pdf") {
                     const checkboxFields = [
@@ -966,9 +966,9 @@ function activateTab(pointer) {
         25: "#outsideengagements",
         26: "#socialmediaapproval",
 
-        27:"#authorizationach",
-        28:"#childenrollmentagreement",
-        29:"#volumeone",
+        27: "#authorizationach",
+        28: "#childenrollmentagreement",
+        29: "#volumeone",
     };
 
     const tabId = subTabMapping[pointer];
@@ -979,19 +979,19 @@ function activateTab(pointer) {
     $(".tab-pane").removeClass("active show");
     $(".anchorvalue").removeClass("active");
 
-    if(pointer <= 26){
+    if (pointer <= 26) {
         $(".admissionFormLabel").addClass("shadow");
         $(".admissionFormLabelButton").removeClass("collapsed");
         $("#admission").addClass("show");
-    } else if(pointer == 27){
+    } else if (pointer == 27) {
         $(".achFormLabel").addClass("shadow");
         $(".achFormLabelButton").removeClass("collapsed");
         $("#authorizationform").addClass("show");
-    } else if(pointer == 28){
+    } else if (pointer == 28) {
         $(".enrollFormLabel").addClass("shadow");
         $(".enrollFormLabelButton").removeClass("collapsed");
         $("#enrollmentagreementform").addClass("show");
-    } else if(pointer == 29){
+    } else if (pointer == 29) {
         $(".handbookFormLabel").addClass("shadow");
         $(".handbookFormLabelButton").removeClass("collapsed");
         $("#handbook").addClass("show");
@@ -1145,7 +1145,7 @@ $("#example").on("click", ".print-btn", function () {
         });
 });
 
-function completedForm(editID,curyear) {
+function completedForm(editID, curyear) {
     console.log(curyear);
     // DataTable initialization
     $("#example").DataTable({
@@ -1260,19 +1260,19 @@ function completedForm(editID,curyear) {
 function checking(editID) {
     window.localStorage.setItem("editChildId", editID);
     showSpinner(); // Show spinner at the beginning
-    
+
     // First, load the form structure
     $.ajax({
         url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/incomplete_form_status/${editID}`,
         type: "GET",
         dataType: "json",
-        success: function(response) {
+        success: function (response) {
             let mainTopics = [];
             // iterate over the values of incompletedformstatus
             for (let value of Object.values(response["InCompletedFormStatus"])) {
                 mainTopics.push(value);
             }
-            
+
             // Clear all menu containers first
             document.getElementById("admissionFormMenu").innerHTML = "";
             document.getElementById("authorizationMenu").innerHTML = "";
@@ -1285,7 +1285,7 @@ function checking(editID) {
 
             // Create a promise array for all content loading
             let loadPromises = [];
-            
+
             for (let i = 0; i < mainTopics.length; i++) {
                 let mainTopic = mainTopics[i];
                 let trimValues = mainTopic.replace(/\s+/g, "_").toLowerCase();
@@ -1298,15 +1298,15 @@ function checking(editID) {
                 ) {
                     // Create a promise for each menu item loading
                     let menuPromise = new Promise((resolve, reject) => {
-                        $(`.menu.${trimValues}`).load(trimValues + "_list_item.html", function() {
+                        $(`.menu.${trimValues}`).load(trimValues + "_list_item.html", function () {
                             resolve();
                         });
                     });
                     loadPromises.push(menuPromise);
-                    
+
                     // Create a promise for each content loading
                     let contentPromise = new Promise((resolve, reject) => {
-                        $(`.tab-content.${trimValues}`).load(trimValues + ".html", function() {
+                        $(`.tab-content.${trimValues}`).load(trimValues + ".html", function () {
                             $(".svg").append(
                                 '<svg width="12px" height="10px" viewbox="0 0 12 10"><polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg>'
                             );
@@ -1316,38 +1316,38 @@ function checking(editID) {
                     loadPromises.push(contentPromise);
                 }
             }
-            
+
             // Wait for all content to be loaded before fetching form data
             Promise.all(loadPromises).then(() => {
                 // Now fetch form data only after all DOM elements are loaded
                 fetchFormData(editID);
             });
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error("Error loading form structure:", error);
             hideSpinner();
         }
     });
-    
+
     let childName = localStorage.getItem("child_name");
     if (document.getElementById("childName")) {
         document.getElementById("childName").innerHTML = childName;
     }
-    
+
     // Set up completed forms functionality
     let link = document.querySelector(".completedforms");
     if (link) {
         let year = new Date().getFullYear();
-        link.addEventListener("click", function(event) {
+        link.addEventListener("click", function (event) {
             event.preventDefault();
         });
-        
+
         $.fn.dataTable.ext.errMode = "none";
-        
+
         if ($.fn.DataTable.isDataTable("#example")) {
             $("#example").DataTable().destroy();
         }
-        
+
         completedForm(editID, year);
     }
 }
@@ -1358,22 +1358,22 @@ function fetchFormData(editID) {
         hideSpinner();
         return;
     }
-    
+
     $.ajax({
         url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_all_form_details/fetch/${editID}`,
         type: "GET",
-        success: function(response) {
+        success: function (response) {
             console.log("Form data received:", response);
-            
+
             // Store response data in localStorage
             window.localStorage.setItem("responseData", JSON.stringify(response));
-            
+
             // Activate correct tab if needed
             let tabPointer = response.pointer;
             if (typeof tabPointer !== "undefined") {
                 activateTab(tabPointer);
             }
-            
+
             // Using a timeout to ensure all dynamic content is fully rendered
             setTimeout(() => {
                 updateFormFields(response);
@@ -1381,7 +1381,7 @@ function fetchFormData(editID) {
                 hideSpinner();
             }, 300);
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error("Error fetching form data:", error);
             hideSpinner();
         }
@@ -1392,13 +1392,13 @@ function fetchFormData(editID) {
 function updateFormFields(response) {
     const childInfoForm = document.getElementById("childinformation");
     if (childInfoForm) {
-        if (typeof response.child_first_name !== "undefined" ) {
+        if (typeof response.child_first_name !== "undefined") {
             const firstNameField = document.getElementsByName("child_first_name")[0];
             if (firstNameField) {
                 firstNameField.value = response.child_first_name;
             }
         }
-        if (typeof response.child_last_name !== "undefined" ) {
+        if (typeof response.child_last_name !== "undefined") {
             const firstNameField = document.getElementsByName("child_last_name")[0];
             if (firstNameField) {
                 firstNameField.value = response.child_last_name;
@@ -1422,14 +1422,14 @@ function updateFormFields(response) {
                 languageField.value = response.primary_language;
             }
         }
-        
+
         if (typeof response.school_age_child_school !== "undefined") {
             const schoolField = document.getElementsByName("school_age_child_school")[0];
             if (schoolField) {
                 schoolField.value = response.school_age_child_school;
             }
         }
-        
+
         if (typeof response.do_relevant_custody_papers_apply !== "undefined") {
             if (response.do_relevant_custody_papers_apply === 1) {
                 const custodyYes = document.getElementById("do_relevant_custody_papers_apply1");
@@ -1443,12 +1443,12 @@ function updateFormFields(response) {
                 }
             }
         }
-        
+
         if (typeof response.gender !== "undefined") {
             const gender1 = document.getElementById("gender1");
             const gender2 = document.getElementById("gender2");
             const gender3 = document.getElementById("gender3");
-        
+
             if (response.gender == 1 && gender1) {
                 gender1.checked = true;
             } else if (response.gender == 2 && gender2) {
@@ -1457,15 +1457,15 @@ function updateFormFields(response) {
                 gender3.checked = true;
             }
         }
-console.log(response.primary_parent_info);
+        console.log(response.primary_parent_info);
         if (response.primary_parent_info) {
             const info = response.primary_parent_info;
-        
+
             const setFieldValue = (name, value) => {
                 const field = document.getElementsByName(name)[0];
                 if (field) field.value = value;
             };
-        
+
             setFieldValue("parent_name", info.parent_name);
             setFieldValue("parent_street_address", info.parent_street_address);
             setFieldValue("parent_city_address", info.parent_city_address);
@@ -1478,16 +1478,16 @@ console.log(response.primary_parent_info);
             setFieldValue("business_telephone_number", info.parent_business_telephone_number);
             setFieldValue("business_cell_number", info.parent_business_cell_number);
             setFieldValue("parent_email", info.parent_email);
-        
+
         }
         if (response.additional_parent_info) {
             const info = response.additional_parent_info;
-        
+
             const setFieldValue = (name, value) => {
                 const field = document.getElementsByName(name)[0];
                 if (field) field.value = value;
             };
-        
+
             setFieldValue("parent_two_name", info.parent_name);
             setFieldValue("parent_two_street_address", info.parent_street_address);
             setFieldValue("parent_two_city_address", info.parent_city_address);
@@ -1498,24 +1498,24 @@ console.log(response.primary_parent_info);
             setFieldValue("parent_two_work_hours_from", info.parent_work_hours_from);
             setFieldValue("parent_two_work_hours_to", info.parent_work_hours_to);
             setFieldValue("parent_two_business_telephone_number", info.parent_business_telephone_number);
-            
+
             // Note: You're referencing `response.primary_parent_info` for this field, likely a mistake.
             // If that's intentional, leave it. Otherwise, use `info` instead for consistency.
             setFieldValue("parent_two_business_cell_number", response.primary_parent_info?.parent_business_cell_number);
-        
+
             setFieldValue("parent_two_email", info.parent_email);
         }
         if (response.emergency_contact_info) {
             let allContactsValid = true;
-        
+
             const setInputValue = (id, value) => {
                 const input = document.getElementById(id);
                 if (input) input.value = value || "";
             };
-        
+
             response.emergency_contact_info.forEach((contact, index) => {
                 let isValidContact = true;
-        
+
                 const requiredFields = [
                     "child_emergency_contact_name",
                     "child_emergency_contact_relationship",
@@ -1525,24 +1525,24 @@ console.log(response.primary_parent_info);
                     "child_emergency_contact_state_address",
                     "child_emergency_contact_zip_address"
                 ];
-        
+
                 requiredFields.forEach(field => {
                     const id = `${field}${index}`;
                     const value = contact[field];
                     setInputValue(id, value);
                     if (!value) isValidContact = false;
                 });
-        
+
                 if (!isValidContact) allContactsValid = false;
             });
             if (response.child_care_provider_info) {
                 const info = response.child_care_provider_info;
-            
+
                 const setInputValue = (id, value) => {
                     const input = document.getElementById(id);
                     if (input) input.value = value || "";
                 };
-            
+
                 setInputValue("child_care_provider_name", info.child_care_provider_name);
                 setInputValue("child_care_provider_telephone_number", info.child_care_provider_telephone_number);
                 setInputValue("child_hospital_affiliation", info.child_hospital_affiliation);
@@ -1562,35 +1562,35 @@ console.log(response.primary_parent_info);
                     dentist_state_address: dentistState = "",
                     dentist_zip_address: dentistZip = ""
                 } = info;
-            
+
                 const dropdownButton = document.getElementById("dropdownMenuButton");
                 const dropdownItems = document.querySelectorAll("#dropdown-menu .dropdown-item");
                 let matched = false;
-            
+
                 dropdownItems.forEach((item) => {
                     if ($(item).data("value") === dentistId) {
                         dropdownButton.textContent = item.textContent;
                         matched = true;
                     }
                 });
-            
+
                 if (!matched) {
                     dropdownButton.textContent = "Others";
-            
+
                     // Append custom name input only if it doesn't already exist
                     if (!document.getElementById("customDentistName")) {
                         $("#dropdown-menu").append(`
                             <input type="text" id="customDentistName" class="form-control mt-2" placeholder="Enter dentist name..." value="${dentistName}">
                         `);
                     }
-            
+
                     // Enable and set values for the fields
                     $("#dentist_telephone_number").prop("disabled", false).val(dentistPhone);
                     $("#dentist_street_address").prop("disabled", false).val(dentistStreet);
                     $("#dentist_city_address").prop("disabled", false).val(dentistCity);
                     $("#dentist_state_address").prop("disabled", false).val(dentistState);
                     $("#dentist_zip_address").prop("disabled", false).val(dentistZip);
-            
+
                     $("#child_dentist_name").removeClass("d-none").val(dentistName);
                 } else {
                     // Disable and clear the extra fields if a known dentist is selected
@@ -1608,35 +1608,35 @@ console.log(response.primary_parent_info);
                     disabilitiesField.value = response.special_diabilities;
                 }
             }
-            
+
             if (typeof response.allergies_medication_reaction !== "undefined") {
                 const allergiesField = document.getElementsByName("allergies_medication_reaction")[0];
                 if (allergiesField) {
                     allergiesField.value = response.allergies_medication_reaction;
                 }
             }
-            
+
             if (typeof response.additional_info !== "undefined") {
                 const additionalInfoField = document.getElementsByName("additional_info")[0];
                 if (additionalInfoField) {
                     additionalInfoField.value = response.additional_info;
                 }
             }
-            
+
             if (typeof response.medication !== "undefined") {
                 const medicationField = document.getElementsByName("medication")[0];
                 if (medicationField) {
                     medicationField.value = response.medication;
                 }
             }
-            
+
             if (typeof response.health_insurance !== "undefined") {
                 const insuranceField = document.getElementsByName("health_insurance")[0];
                 if (insuranceField) {
                     insuranceField.value = response.health_insurance;
                 }
             }
-            
+
             if (typeof response.policy_number !== "undefined") {
                 const policyNumberField = document.getElementsByName("policy_number")[0];
                 if (policyNumberField) {
@@ -1649,34 +1649,34 @@ console.log(response.primary_parent_info);
                     emergencyCareField.value = response.obtaining_emergency_medical_care;
                 }
             }
-            
+
             if (typeof response.administration_first_aid_procedures !== "undefined") {
                 const firstAidField = document.getElementsByName("administration_first_aid_procedures")[0];
                 if (firstAidField) {
                     firstAidField.value = response.administration_first_aid_procedures;
                 }
             }
-            
+
             const agreementCheckbox = document.getElementById("agree_all_above_information_is_correct");
             if (agreementCheckbox) {
                 agreementCheckbox.checked = response.agree_all_above_information_is_correct === "on";
             }
-                                                
-    
+
+
         }
-                
-       
+
+
     }
 
     const childfamilyHistory = document.getElementById("childandfamilyhistory");
-    if(childfamilyHistory){
+    if (childfamilyHistory) {
         if (typeof response.physical_exam_last_date !== "undefined") {
             const physicalExamField = document.getElementsByName("physical_exam_last_date")[0];
             if (physicalExamField) {
                 physicalExamField.value = response.physical_exam_last_date;
             }
         }
-        
+
         if (typeof response.dental_exam_last_date !== "undefined") {
             const dentalExamField = document.getElementsByName("dental_exam_last_date")[0];
             if (dentalExamField) {
@@ -1689,105 +1689,105 @@ console.log(response.primary_parent_info);
                 allergiesField.value = response.allergies;
             }
         }
-        
+
         if (typeof response.asthma !== "undefined") {
             const asthmaField = document.getElementsByName("asthma")[0];
             if (asthmaField) {
                 asthmaField.value = response.asthma;
             }
         }
-        
+
         if (typeof response.bleeding_problems !== "undefined") {
             const bleedingProblemsField = document.getElementsByName("bleeding_problems")[0];
             if (bleedingProblemsField) {
                 bleedingProblemsField.value = response.bleeding_problems;
             }
         }
-        
+
         if (typeof response.diabetes !== "undefined") {
             const diabetesField = document.getElementsByName("diabetes")[0];
             if (diabetesField) {
                 diabetesField.value = response.diabetes;
             }
         }
-        
+
         if (typeof response.epilepsy !== "undefined") {
             const epilepsyField = document.getElementsByName("epilepsy")[0];
             if (epilepsyField) {
                 epilepsyField.value = response.epilepsy;
             }
         }
-        
+
         if (typeof response.frequent_ear_infections !== "undefined") {
             const frequentEarInfectionsField = document.getElementsByName("frequent_ear_infections")[0];
             if (frequentEarInfectionsField) {
                 frequentEarInfectionsField.value = response.frequent_ear_infections;
             }
         }
-        
+
         if (typeof response.frequent_illnesses !== "undefined") {
             const frequentIllnessesField = document.getElementsByName("frequent_illnesses")[0];
             if (frequentIllnessesField) {
                 frequentIllnessesField.value = response.frequent_illnesses;
             }
         }
-        
+
         if (typeof response.hearing_problems !== "undefined") {
             const hearingProblemsField = document.getElementsByName("hearing_problems")[0];
             if (hearingProblemsField) {
                 hearingProblemsField.value = response.hearing_problems;
             }
         }
-        
+
         if (typeof response.high_fevers !== "undefined") {
             const highFeversField = document.getElementsByName("high_fevers")[0];
             if (highFeversField) {
                 highFeversField.value = response.high_fevers;
             }
         }
-        
+
         if (typeof response.hospitalization !== "undefined") {
             const hospitalizationField = document.getElementsByName("hospitalization")[0];
             if (hospitalizationField) {
                 hospitalizationField.value = response.hospitalization;
             }
         }
-        
+
         if (typeof response.rheumatic_fever !== "undefined") {
             const rheumaticFeverField = document.getElementsByName("rheumatic_fever")[0];
             if (rheumaticFeverField) {
                 rheumaticFeverField.value = response.rheumatic_fever;
             }
         }
-        
+
         if (typeof response.seizures_convulsions !== "undefined") {
             const seizuresConvulsionsField = document.getElementsByName("seizures_convulsions")[0];
             if (seizuresConvulsionsField) {
                 seizuresConvulsionsField.value = response.seizures_convulsions;
             }
         }
-        
+
         if (typeof response.serious_injuries_accidents !== "undefined") {
             const seriousInjuriesField = document.getElementsByName("serious_injuries_accidents")[0];
             if (seriousInjuriesField) {
                 seriousInjuriesField.value = response.serious_injuries_accidents;
             }
         }
-        
+
         if (typeof response.surgeries !== "undefined") {
             const surgeriesField = document.getElementsByName("surgeries")[0];
             if (surgeriesField) {
                 surgeriesField.value = response.surgeries;
             }
         }
-        
+
         if (typeof response.vision_problems !== "undefined") {
             const visionProblemsField = document.getElementsByName("vision_problems")[0];
             if (visionProblemsField) {
                 visionProblemsField.value = response.vision_problems;
             }
         }
-        
+
         if (typeof response.medical_other !== "undefined") {
             const medicalOtherField = document.getElementsByName("medical_other")[0];
             if (medicalOtherField) {
@@ -1801,42 +1801,42 @@ console.log(response.primary_parent_info);
                 illnessDuringPregnancyField.value = response.illness_during_pregnancy;
             }
         }
-        
+
         if (typeof response.condition_of_newborn !== "undefined") {
             const conditionOfNewbornField = document.getElementsByName("condition_of_newborn")[0];
             if (conditionOfNewbornField) {
                 conditionOfNewbornField.value = response.condition_of_newborn;
             }
         }
-        
+
         if (typeof response.duration_of_pregnancy !== "undefined") {
             const durationOfPregnancyField = document.getElementsByName("duration_of_pregnancy")[0];
             if (durationOfPregnancyField) {
                 durationOfPregnancyField.value = response.duration_of_pregnancy;
             }
         }
-        
+
         if (typeof response.birth_weight_lbs !== "undefined") {
             const birthWeightLbsField = document.getElementsByName("birth_weight_lbs")[0];
             if (birthWeightLbsField) {
                 birthWeightLbsField.value = response.birth_weight_lbs;
             }
         }
-        
+
         if (typeof response.birth_weight_oz !== "undefined") {
             const birthWeightOzField = document.getElementsByName("birth_weight_oz")[0];
             if (birthWeightOzField) {
                 birthWeightOzField.value = response.birth_weight_oz;
             }
         }
-        
+
         if (typeof response.complications !== "undefined") {
             const complicationsField = document.getElementsByName("complications")[0];
             if (complicationsField) {
                 complicationsField.value = response.complications;
             }
         }
-        
+
         if (response.bottle_fed === 1) {
             const bottleFed1 = document.getElementById("bottle_fed1");
             if (bottleFed1) {
@@ -1848,7 +1848,7 @@ console.log(response.primary_parent_info);
                 bottleFed2.checked = true;
             }
         }
-        
+
         if (response.breast_fed === 1) {
             const breastFed1 = document.getElementById("breast_fed1");
             if (breastFed1) {
@@ -1860,14 +1860,14 @@ console.log(response.primary_parent_info);
                 breastFed2.checked = true;
             }
         }
-        
+
         if (typeof response.other_siblings_name !== "undefined") {
             const siblingsNameField = document.getElementsByName("other_siblings_name")[0];
             if (siblingsNameField) {
                 siblingsNameField.value = response.other_siblings_name;
             }
         }
-        
+
         if (typeof response.other_siblings_age !== "undefined") {
             const siblingsAgeField = document.getElementsByName("other_siblings_age")[0];
             if (siblingsAgeField) {
@@ -1880,63 +1880,63 @@ console.log(response.primary_parent_info);
                 checkbox.checked = response.family_history_allergies === "on";
             }
         }
-        
+
         if (typeof response.family_history_heart_problems !== "undefined") {
             const checkbox = document.getElementById("family_history_heart_problems");
             if (checkbox) {
                 checkbox.checked = response.family_history_heart_problems === "on";
             }
         }
-        
+
         if (typeof response.family_history_tuberculosis !== "undefined") {
             const checkbox = document.getElementById("family_history_tuberculosis");
             if (checkbox) {
                 checkbox.checked = response.family_history_tuberculosis === "on";
             }
         }
-        
+
         if (typeof response.family_history_asthma !== "undefined") {
             const checkbox = document.getElementById("family_history_asthma");
             if (checkbox) {
                 checkbox.checked = response.family_history_asthma === "on";
             }
         }
-        
+
         if (typeof response.family_history_high_blood_pressure !== "undefined") {
             const checkbox = document.getElementById("family_history_high_blood_pressure");
             if (checkbox) {
                 checkbox.checked = response.family_history_high_blood_pressure === "on";
             }
         }
-        
+
         if (typeof response.family_history_vision_problems !== "undefined") {
             const checkbox = document.getElementById("family_history_vision_problems");
             if (checkbox) {
                 checkbox.checked = response.family_history_vision_problems === "on";
             }
         }
-        
+
         if (typeof response.family_history_diabetes !== "undefined") {
             const checkbox = document.getElementById("family_history_diabetes");
             if (checkbox) {
                 checkbox.checked = response.family_history_diabetes === "on";
             }
         }
-        
+
         if (typeof response.family_history_hyperactivity !== "undefined") {
             const checkbox = document.getElementById("family_history_hyperactivity");
             if (checkbox) {
                 checkbox.checked = response.family_history_hyperactivity === "on";
             }
         }
-        
+
         if (typeof response.family_history_epilepsy !== "undefined") {
             const checkbox = document.getElementById("family_history_epilepsy");
             if (checkbox) {
                 checkbox.checked = response.family_history_epilepsy === "on";
             }
         }
-        
+
         if (typeof response.no_illnesses_for_this_child !== "undefined") {
             const checkbox = document.getElementById("no_illnesses_for_this_child");
             if (checkbox) {
@@ -1960,21 +1960,21 @@ console.log(response.primary_parent_info);
         setInputValue("language_used_at_home", response.language_used_at_home);
         setInputValue("changes_at_home_situation", response.changes_at_home_situation);
         setInputValue("educational_expectations_of_child", response.educational_expectations_of_child);
-  
-                
+
+
         setCheckbox("agree_all_above_info_is_correct", response.agree_all_above_info_is_correct);
 
     }
 
     const immunizationValue = document.getElementById("immunizationinstructions");
-    if(immunizationValue){
+    if (immunizationValue) {
         setCheckbox("do_you_agree_this_immunization_instructions", response.do_you_agree_this_immunization_instructions);
         // immunizationInstruction = response.do_you_agree_this_immunization_instructions === "on";
 
     }
-    
-    const childHistoryValue =  document.getElementById("childprofile");
-    if(childHistoryValue){
+
+    const childHistoryValue = document.getElementById("childprofile");
+    if (childHistoryValue) {
         setInputValue("important_fam_members", response.important_fam_members);
         setInputValue("about_family_celebrations", response.about_family_celebrations);
 
@@ -2043,16 +2043,16 @@ console.log(response.primary_parent_info);
     }
 
     const pickupPasswordValue = document.getElementById("pickuppassword");
-    if(pickupPasswordValue){
+    if (pickupPasswordValue) {
         if (typeof response.child_password_pick_up_password_form !== "undefined") {
             setInputValue("child_password_pick_up_password_form", response.child_password_pick_up_password_form);
         }
-        
+
         setCheckbox("do_you_agree_this_pick_up_password_form", response.do_you_agree_this_pick_up_password_form);
     }
 
     const photoVideoPermissionValue = document.getElementById("photoVideoPermission");
-    if(photoVideoPermissionValue){
+    if (photoVideoPermissionValue) {
         // Set the value for photo usage form
         if (typeof response.photo_usage_photo_video_permission_form !== "undefined") {
             setInputValue("photo_usage_photo_video_permission_form", response.photo_usage_photo_video_permission_form);
@@ -2064,14 +2064,14 @@ console.log(response.primary_parent_info);
     }
 
     const securitypolicyValue = document.getElementById("securitypolicy");
-    if(securitypolicyValue){
+    if (securitypolicyValue) {
         // Using the helper function to set the checkbox state
         setCheckbox("security_release_policy_form", response.security_release_policy_form);
 
     }
 
     const medicaltransportationWeiverValue = document.getElementById("medicaltransportationWeiver");
-    if(medicaltransportationWeiverValue){
+    if (medicaltransportationWeiverValue) {
         // Set the value for the 'med_technicians_med_transportation_waiver' field if it's defined
         if (typeof response.med_technicians_med_transportation_waiver !== "undefined") {
             document.getElementsByName("med_technicians_med_transportation_waiver")[0].value = response.med_technicians_med_transportation_waiver;
@@ -2082,18 +2082,18 @@ console.log(response.primary_parent_info);
     }
 
     const healthPolicyValue = document.getElementById("healthPolicy");
-    if(healthPolicyValue){
+    if (healthPolicyValue) {
         setCheckbox("do_you_agree_this_health_policies", response.do_you_agree_this_health_policies);
     }
 
     const outsideWeiverValue = document.getElementById("outsideWeiver");
-    if(outsideWeiverValue){
+    if (outsideWeiverValue) {
         setCheckbox("parent_sign_outside_waiver", response.parent_sign_outside_waiver);
 
     }
 
     const socialMediaValue = document.getElementById("socialMedia");
-    if(socialMediaValue){
+    if (socialMediaValue) {
         setCheckbox("approve_social_media_post1", response.approve_social_media_post == 1);
         setCheckbox("approve_social_media_post2", response.approve_social_media_post == 2);
         setValue("printed_name_social_media_post", response.printed_name_social_media_post);
@@ -2110,7 +2110,7 @@ console.log(response.primary_parent_info);
                 signField.value = response.parent_sign_admission;
             }
         }
-        
+
         const dateField = document.getElementsByName("parent_sign_date_admission")[0];
         if (dateField) {
             if (response.parent_sign_date_admission === null || response.parent_sign_date_admission === undefined) {
@@ -2120,7 +2120,420 @@ console.log(response.primary_parent_info);
             }
         }
     }
+
+    // Render the value for Enrollment Agreement Form 
+
+    const childEnrollmentAgreementValue = document.getElementById("childenrollmentagreement");
+    if (childEnrollmentAgreementValue) {
+
+        if (typeof response.point_one_field_one !== "undefined") {
+            const pointOneFieldValue = document.getElementsByName("point_one_field_one")[0];
+            if (pointOneFieldValue) {
+                pointOneFieldValue.value = response.point_one_field_one;
+            }
+        } else {
+            document.getElementsByName("point_one_field_one")[0].value = new Date().toISOString().split('T')[0];
+        }
+
+        if (typeof response.point_one_field_two !== "undefined") {
+            const pointTwoFieldValue = document.getElementsByName("point_one_field_two")[0];
+            if (pointTwoFieldValue) {
+                pointTwoFieldValue.value = response.point_one_field_two;
+            }
+        }
+
+        if (typeof response.point_one_field_three !== "undefined") {
+            const pointThreeFieldValue = document.getElementsByName("point_one_field_three")[0];
+            if (pointThreeFieldValue) {
+                pointThreeFieldValue.value = response.point_one_field_three;
+            }
+        }
+
+        if (typeof response.point_two_initial_here !== "undefined") {
+            const pointTwoInitialValue = document.getElementsByName("point_two_initial_here")[0];
+            if (pointTwoInitialValue) {
+                pointTwoInitialValue.value = response.point_two_initial_here;
+            }
+        }
+
+        if (typeof response.point_three_initial_here !== "undefined") {
+            const pointThreeInitialValue = document.getElementsByName("point_three_initial_here")[0];
+            if (pointThreeInitialValue) {
+                pointThreeInitialValue.value = response.point_three_initial_here;
+            }
+        }
+
+        if (typeof response.point_four_initial_here !== "undefined") {
+            const pointFourInitialValue = document.getElementsByName("point_four_initial_here")[0];
+            if (pointFourInitialValue) {
+                pointFourInitialValue.value = response.point_four_initial_here;
+            }
+        }
+
+        if (typeof response.point_five_initial_here !== "undefined") {
+            const pointFiveInitialValue = document.getElementsByName("point_five_initial_here")[0];
+            if (pointFiveInitialValue) {
+                pointFiveInitialValue.value = response.point_five_initial_here;
+            }
+        }
+
+        if (typeof response.point_six_initial_here !== "undefined") {
+            const pointSixInitialValue = document.getElementsByName("point_six_initial_here")[0];
+            if (pointSixInitialValue) {
+                pointSixInitialValue.value = response.point_six_initial_here;
+            }
+        }
+
+        if (typeof response.point_seven_initial_here !== "undefined") {
+            const pointSevenInitialValue = document.getElementsByName("point_seven_initial_here")[0];
+            if (pointSevenInitialValue) {
+                pointSevenInitialValue.value = response.point_seven_initial_here;
+            }
+        }
+
+        if (typeof response.point_eight_initial_here !== "undefined") {
+            const pointEightInitialValue = document.getElementsByName("point_eight_initial_here")[0];
+            if (pointEightInitialValue) {
+                pointEightInitialValue.value = response.point_eight_initial_here;
+            }
+        }
+
+        if (typeof response.point_nine_initial_here !== "undefined") {
+            const pointNineInitialValue = document.getElementsByName("point_nine_initial_here")[0];
+            if (pointNineInitialValue) {
+                pointNineInitialValue.value = response.point_nine_initial_here;
+            }
+        }
+
+        if (typeof response.point_ten_initial_here !== "undefined") {
+            const pointTenInitialValue = document.getElementsByName("point_ten_initial_here")[0];
+            if (pointTenInitialValue) {
+                pointTenInitialValue.value = response.point_ten_initial_here;
+            }
+        }
+
+        if (typeof response.point_eleven_initial_here !== "undefined") {
+            const pointElevenInitialValue = document.getElementsByName("point_eleven_initial_here")[0];
+            if (pointElevenInitialValue) {
+                pointElevenInitialValue.value = response.point_eleven_initial_here;
+            }
+        }
+
+        if (typeof response.point_twelve_initial_here !== "undefined") {
+            const pointTwelveInitialValue = document.getElementsByName("point_twelve_initial_here")[0];
+            if (pointTwelveInitialValue) {
+                pointTwelveInitialValue.value = response.point_twelve_initial_here;
+            }
+        }
+
+        if (typeof response.point_thirteen_initial_here !== "undefined") {
+            const pointThirteenInitialValue = document.getElementsByName("point_thirteen_initial_here")[0];
+            if (pointThirteenInitialValue) {
+                pointThirteenInitialValue.value = response.point_thirteen_initial_here;
+            }
+        }
+
+        if (typeof response.point_fourteen_initial_here !== "undefined") {
+            const pointFourteenInitialValue = document.getElementsByName("point_fourteen_initial_here")[0];
+            if (pointFourteenInitialValue) {
+                pointFourteenInitialValue.value = response.point_fourteen_initial_here;
+            }
+        }
+
+        if (typeof response.point_fifteen_initial_here !== "undefined") {
+            const pointFifteenInitialValue = document.getElementsByName("point_fifteen_initial_here")[0];
+            if (pointFifteenInitialValue) {
+                pointFifteenInitialValue.value = response.point_fifteen_initial_here;
+            }
+        }
+
+        if (typeof response.point_sixteen_initial_here !== "undefined") {
+            const pointSixteenInitialValue = document.getElementsByName("point_sixteen_initial_here")[0];
+            if (pointSixteenInitialValue) {
+                pointSixteenInitialValue.value = response.point_sixteen_initial_here;
+            }
+        }
+
+        if (typeof response.point_seventeen_initial_here !== "undefined") {
+            const pointSeventeenInitialValue = document.getElementsByName("point_seventeen_initial_here")[0];
+            if (pointSeventeenInitialValue) {
+                pointSeventeenInitialValue.value = response.point_seventeen_initial_here;
+            }
+        }
+
+        if (typeof response.point_eighteen_initial_here !== "undefined") {
+            const pointEighteenInitialValue = document.getElementsByName("point_eighteen_initial_here")[0];
+            if (pointEighteenInitialValue) {
+                pointEighteenInitialValue.value = response.point_eighteen_initial_here;
+            }
+        }
+
+        if (typeof response.point_ninteen_initial_here !== "undefined") {
+            const pointNinteenInitialValue = document.getElementsByName("point_ninteen_initial_here")[0];
+            if (pointNinteenInitialValue) {
+                pointNinteenInitialValue.value = response.point_ninteen_initial_here;
+            }
+        }
+
+        if (typeof response.preferred_start_date !== "undefined") {
+            const preferredStartDateValue = document.getElementsByName("preferred_start_date")[0];
+            if (preferredStartDateValue) {
+                preferredStartDateValue.value = response.preferred_start_date;
+            }
+        }
+
+        if (typeof response.preferred_schedule !== "undefined") {
+            const preferredScheduleValue = document.getElementsByName("preferred_schedule")[0];
+            if (preferredScheduleValue) {
+                preferredScheduleValue.value = response.preferred_schedule;
+            }
+        }
+
+        if (response.full_day == "on") {
+            document.getElementById("full_day").checked = true;
+        } else {
+            document.getElementById("full_day").checked = false;
+        }
+        if (response.half_day == "on") {
+            document.getElementById("half_day").checked = true;
+        } else {
+            document.getElementById("half_day").checked = false;
+        }
+
+    }
+
+    // Entrollment form parent agreement
+    const parentSignatureEntrollForm = document.getElementById("childenrollmentagreementparentsign");
+    if (parentSignatureEntrollForm) {
+        if (typeof response.parent_sign_enroll !== "undefined") {
+            const signField = document.getElementsByName("parent_sign_enroll")[0];
+            if (signField) {
+                signField.value = response.parent_sign_enroll;
+            }
+        }
+
+        const dateField = document.getElementsByName("parent_sign_date_enroll")[0];
+        if (dateField) {
+            if (response.parent_sign_date_enroll === null || response.parent_sign_date_enroll === undefined) {
+                dateField.value = new Date().toISOString().split('T')[0];
+            } else {
+                dateField.value = response.parent_sign_date_enroll;
+            }
+        }
+    }
+
+    // Render the value for Entrollment Agreement Form
+
+    const Authorizationach = document.getElementById("authorizationach");
+
+    if (Authorizationach) {
+        if (typeof response.bank_routing !== "undefined"){
+            const bankRouting = document.getElementById("bank_routing");
+            if(bankRouting){
+                bankRouting.value = response.bank_routing;
+            }
+        }
+        if (typeof response.bank_account !== "undefined"){
+            const bankAccount = document.getElementById("bank_account");
+            if(bankAccount){
+                bankAccount.value = response.bank_account;
+            }
+        }
+
+        if (typeof response.driver_license !== "undefined"){
+            const DriverLicense = document.getElementById("driver_license");
+            if(DriverLicense){
+                DriverLicense.value = response.driver_license;
+            }
+        }
         
+        if (typeof response.state !== "undefined"){
+            const State = document.getElementById("state");
+            if(State){
+                State.value = response.state;
+            }
+        }
+        
+        if (typeof response.i !== "undefined"){
+            const I = document.getElementById("i");
+            if(I){
+                I.value = response.i;
+            }
+        }
+       
+    }
+
+    // Authorization form parent agreement
+    const parentSignatureAuthorizationForm = document.getElementById("authorizationparentsign");
+    if (parentSignatureAuthorizationForm) {
+        if (typeof response.parent_sign_ach !== "undefined") {
+            const signField = document.getElementsByName("parent_sign_ach")[0];
+            if (signField) {
+                signField.value = response.parent_sign_ach;
+            }
+        }
+
+        const dateField = document.getElementsByName("parent_sign_date_ach")[0];
+        if (dateField) {
+            if (response.parent_sign_date_ach === null || response.parent_sign_date_ach === undefined) {
+                dateField.value = new Date().toISOString().split('T')[0];
+            } else {
+                dateField.value = response.parent_sign_date_ach;
+            }
+        }
+    }
+
+
+    // Render the value for Parent Handbook
+
+    const Volumeone = document.getElementById("volumeone");
+
+    if(Volumeone){
+        if (typeof response.welcome_goddard_agreement !== "undefined") {
+            const checkbox = document.getElementById("welcome_goddard_agreement");
+            if (checkbox) {
+                checkbox.checked = response.welcome_goddard_agreement === "on";
+            }
+        }
+        if (typeof response.mission_statement_agreement !== "undefined") {
+            const checkbox = document.getElementById("mission_statement_agreement");
+            if (checkbox) {
+                checkbox.checked = response.mission_statement_agreement === "on";
+            }
+        }
+        if (typeof response.general_information_agreement !== "undefined") {
+            const checkbox = document.getElementById("general_information_agreement");
+            if (checkbox) {
+                checkbox.checked = response.general_information_agreement === "on";
+            }
+        }
+
+        if (typeof response.medical_care_provider_agreement !== "undefined") {
+            const checkbox = document.getElementById("medical_care_provider_agreement");
+            if (checkbox) {
+                checkbox.checked = response.medical_care_provider_agreement === "on";
+            }
+        }
+
+        if (typeof response.parent_access_agreement !== "undefined") {
+            const checkbox = document.getElementById("parent_access_agreement");
+            if (checkbox) {
+                checkbox.checked = response.parent_access_agreement === "on";
+            }
+        }
+
+        if (typeof response.release_of_children_agreement !== "undefined") {
+            const checkbox = document.getElementById("release_of_children_agreement");
+            if (checkbox) {
+                checkbox.checked = response.release_of_children_agreement === "on";
+            }
+        }
+
+        if (typeof response.registration_fees_agreement !== "undefined") {
+            const checkbox = document.getElementById("registration_fees_agreement");
+            if (checkbox) {
+                checkbox.checked = response.registration_fees_agreement === "on";
+            }
+        }
+
+        if (typeof response.outside_engagements_agreement !== "undefined") {
+            const checkbox = document.getElementById("outside_engagements_agreement");
+            if (checkbox) {
+                checkbox.checked = response.outside_engagements_agreement === "on";
+            }
+        }
+
+        if (typeof response.health_policies_agreement !== "undefined") {
+            const checkbox = document.getElementById("health_policies_agreement");
+            if (checkbox) {
+                checkbox.checked = response.health_policies_agreement === "on";
+            }
+        }
+
+        if (typeof response.medication_procedures_agreement !== "undefined") {
+            const checkbox = document.getElementById("medication_procedures_agreement");
+            if (checkbox) {
+                checkbox.checked = response.medication_procedures_agreement === "on";
+            }
+        }
+
+        if (typeof response.bring_to_school_agreement !== "undefined") {
+            const checkbox = document.getElementById("bring_to_school_agreement");
+            if (checkbox) {
+                checkbox.checked = response.bring_to_school_agreement === "on";
+            }
+        }
+
+        if (typeof response.rest_time_agreement !== "undefined") {
+            const checkbox = document.getElementById("rest_time_agreement");
+            if (checkbox) {
+                checkbox.checked = response.rest_time_agreement === "on";
+            }
+        }
+
+        if (typeof response.training_philosophy_agreement !== "undefined") {
+            const checkbox = document.getElementById("training_philosophy_agreement");
+            if (checkbox) {
+                checkbox.checked = response.training_philosophy_agreement === "on";
+            }
+        }
+
+        if (typeof response.affiliation_policy_agreement !== "undefined") {
+            const checkbox = document.getElementById("affiliation_policy_agreement");
+            if (checkbox) {
+                checkbox.checked = response.affiliation_policy_agreement === "on";
+            }
+        }
+
+        if (typeof response.security_issue_agreement !== "undefined") {
+            const checkbox = document.getElementById("security_issue_agreement");
+            if (checkbox) {
+                checkbox.checked = response.security_issue_agreement === "on";
+            }
+        }
+
+        if (typeof response.expulsion_policy_agreement !== "undefined") {
+            const checkbox = document.getElementById("expulsion_policy_agreement");
+            if (checkbox) {
+                checkbox.checked = response.expulsion_policy_agreement === "on";
+            }
+        }
+
+        if (typeof response.addressing_individual_child_agreement !== "undefined") {
+            const checkbox = document.getElementById("addressing_individual_child_agreement");
+            if (checkbox) {
+                checkbox.checked = response.addressing_individual_child_agreement === "on";
+            }
+        }
+
+        if (typeof response.finalword_agreement !== "undefined") {
+            const checkbox = document.getElementById("finalword_agreement");
+            if (checkbox) {
+                checkbox.checked = response.finalword_agreement === "on";
+            }
+        }
+    }
+
+     // ParentHandbook form parent agreement
+     const parentSignatureParentHandbookForm = document.getElementById("parentsignaturehandbook");
+     if (parentSignatureParentHandbookForm) {
+         if (typeof response.parent_sign_handbook !== "undefined") {
+             const signField = document.getElementsByName("parent_sign_handbook")[0];
+             if (signField) {
+                 signField.value = response.parent_sign_handbook;
+             }
+         }
+ 
+         const dateField = document.getElementsByName("parent_sign_date_handbook")[0];
+         if (dateField) {
+             if (response.parent_sign_date_handbook === null || response.parent_sign_date_handbook === undefined) {
+                 dateField.value = new Date().toISOString().split('T')[0];
+             } else {
+                 dateField.value = response.parent_sign_date_handbook;
+             }
+         }
+     }
+
 }
 
 function setRadioValue(baseId, value) {
@@ -2175,7 +2588,7 @@ function validateAllForms(response) {
     let admissionparentsign = false;
     let isValidContact = false;
     let allContactsValid = false;
-    
+
     // Validate child information
     if (document.getElementById("childinformation")) {
         if (
@@ -2210,7 +2623,7 @@ function validateAllForms(response) {
             response.primary_parent_info.parent_email
         ) {
             updateValidationIcons(".parentdetails-tick", ".parentdetails-circle", true);
-        }else {
+        } else {
             updateValidationIcons(".parentdetails-tick", ".parentdetails-circle", false);
         }
 
@@ -2230,7 +2643,7 @@ function validateAllForms(response) {
             response.additional_parent_info.parent_email
         ) {
             updateValidationIcons(".parent_twodetails-tick", ".parent_twodetails-circle", true);
-        }else {
+        } else {
             updateValidationIcons(".parent_twodetails-tick", ".parent_twodetails-circle", false);
         }
 
@@ -2246,17 +2659,17 @@ function validateAllForms(response) {
         ) {
             isValidContact = false;
             allContactsValid = false;
-        }else {
+        } else {
             isValidContact = true;
             allContactsValid = true;
-           
+
         }
         if (allContactsValid) {
             updateValidationIcons(".emergencycontact-tick", ".emergencycontact-circle", true);
-        }else {
+        } else {
             updateValidationIcons(".emergencycontact-tick", ".emergencycontact-circle", false);
         }
-        
+
         // Medical care validation
         if (
             response.child_care_provider_info?.child_care_provider_name &&
@@ -2292,7 +2705,7 @@ function validateAllForms(response) {
             response.agree_all_above_information_is_correct
         ) {
             updateValidationIcons(".parentagreement-tick", ".parentagreement-circle", true);
-        }else {
+        } else {
             updateValidationIcons(".parentagreement-tick", ".parentagreement-circle", false);
         }
         // Overall child info validation
@@ -2587,9 +3000,9 @@ function validateAllForms(response) {
             updateValidationIcons(".childparent-tick", ".childparent-circle", false);
             admissionparentsign = false;
         }
-        
+
         // Enable/disable parent final agreement button
-        const allFormsComplete = 
+        const allFormsComplete =
             childbasicInfo &&
             childparentInfo &&
             childEmergencyContact &&
@@ -2615,7 +3028,7 @@ function validateAllForms(response) {
             healthPolicy &&
             outsideWeiver &&
             socialMedia;
-            
+
         let parentFinalAgreement = document.getElementById("parentFinalAgreement");
         if (parentFinalAgreement) {
             if (allFormsComplete) {
@@ -2625,9 +3038,9 @@ function validateAllForms(response) {
             }
         }
     }
-    
+
     // Overall admission form validation
-    const allFormsAndSignatureComplete = 
+    const allFormsAndSignatureComplete =
         childbasicInfo &&
         childparentInfo &&
         childEmergencyContact &&
@@ -2654,10 +3067,10 @@ function validateAllForms(response) {
         outsideWeiver &&
         socialMedia &&
         admissionparentsign;
-        
+
     const admissionTick = document.querySelector(".admission-tick");
     const admissionCircle = document.querySelector(".admission-circle");
-    
+
     if (admissionTick && admissionCircle) {
         updateValidationIcons(".admission-tick", ".admission-circle", allFormsAndSignatureComplete);
     }
@@ -2667,11 +3080,11 @@ function validateAllForms(response) {
 function updateValidationIcons(tickSelector, circleSelector, isValid) {
     const tickElement = document.querySelector(tickSelector);
     const circleElement = document.querySelector(circleSelector);
-    
+
     if (tickElement && circleElement) {
         tickElement.style.display = "none";
         circleElement.style.display = "none";
-        
+
         if (isValid) {
             tickElement.style.display = "block";
         } else {
@@ -2681,34 +3094,34 @@ function updateValidationIcons(tickSelector, circleSelector, isValid) {
 }
 
 // function checking(editID) {
-    
+
 //     $.ajax({
 //         url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/incomplete_form_status/${editID}`,
 //         type: "GET",
 //         dataType: "json",
 //         success: function (response) {
 //             let mainTopics = Object.values(response["InCompletedFormStatus"]);
-    
+
 //             // Clear all menus and tab containers
 //             $("#admissionFormMenu, #authorizationMenu, #enrollmentMenu, #parentHandbookMenu").empty();
 //             $("#admissionforms, #authorization, #enrollmentagreement, #parenthandbook").empty();
-    
+
 //             const mainTopicMap = {
 //                 admission_form: "admission_form",
 //                 authorization: "authorization",
 //                 enrollment_agreement: "enrollment_agreement",
 //                 parent_handbook: "parent_handbook"
 //             };
-    
+
 //             let loadCount = 0;
 //             let expectedLoads = 0;
-    
+
 //             mainTopics.forEach(topic => {
 //                 let trimValues = topic.replace(/\s+/g, "_").toLowerCase();
-    
+
 //                 if (mainTopicMap[trimValues]) {
 //                     expectedLoads += 2;
-    
+
 //                     // Load menu list item
 //                     $(`.menu.${trimValues}`).load(`${trimValues}_list_item.html`, function (response, status) {
 //                         loadCount++;
@@ -2717,7 +3130,7 @@ function updateValidationIcons(tickSelector, circleSelector, isValid) {
 //                         }
 //                         checkAllLoaded();
 //                     });
-    
+
 //                     // Load content tab
 //                     $(`.tab-content.${trimValues}`).load(`${trimValues}.html`, function (response, status) {
 //                         loadCount++;
@@ -2728,25 +3141,25 @@ function updateValidationIcons(tickSelector, circleSelector, isValid) {
 //                     });
 //                 }
 //             });
-    
+
 //             function checkAllLoaded() {
 //                 if (loadCount === expectedLoads) {
 //                     renderAfterAllLoaded();
 //                 }
 //             }
-    
+
 //             function renderAfterAllLoaded() {
 //                 console.log("✅ All tabs and list items loaded.");
-    
+
 //                 // Now safe to render tick mark
 //                 $(".svg").append(
 //                     '<svg width="12px" height="10px" viewbox="0 0 12 10"><polyline points="1.5 6 4.5 9 10.5 1"></polyline></svg>'
 //                 );
-    
+
 //                 // Safe to call form logic
 //                 const year = new Date().getFullYear();
 //                 completedForm(editID, year);
-    
+
 //                 // Optional: Destroy existing DataTable if needed
 //                 if ($.fn.DataTable.isDataTable("#example")) {
 //                     $("#example").DataTable().destroy();
@@ -2757,11 +3170,11 @@ function updateValidationIcons(tickSelector, circleSelector, isValid) {
 //             console.error("AJAX Error:", status, error);
 //         }
 //     });
-    
+
 //     // Set child name
 //     const childName = localStorage.getItem("child_name");
 //     document.getElementById("childName").innerHTML = childName || "";
-    
+
 //     // Completed forms link
 //     const completedFormsLink = document.querySelector(".completedforms");
 //     if (completedFormsLink) {
@@ -2770,10 +3183,10 @@ function updateValidationIcons(tickSelector, circleSelector, isValid) {
 //             // parentDashBoardDetails(editID, new Date().getFullYear());
 //         });
 //     }
-    
+
 //     // Prevent DataTable errors from popping up
 //     $.fn.dataTable.ext.errMode = "none";
-    
+
 //     const year = new Date().getFullYear();
 //     completedForm(editID, year);
 //     //destroy datatable
@@ -3844,7 +4257,7 @@ function updateValidationIcons(tickSelector, circleSelector, isValid) {
 //                             input.classList.remove("input-error"); // Remove error class if input is not empty
 //                         }
 //                     }
-                    
+
 //                 });
 
 //                 //immunization details

@@ -61,7 +61,7 @@
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="nick_name" class="form-label"><b>NICKNAME</b></label>
-                                    <input name="nick_name" type="text" maxlength="50" class="form-control"
+                                    <input name="nick_name" type="text" maxlength="50" class="form-control nick_name"
                                         id="nick_name" placeholder="e.g. John">
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                             <div class="col-sm">
                                 <div class="form-group">
                                     <label for="primary_language" class="form-label"><b>PRIMARY LANGUAGE</b></label>
-                                    <input type="text" class="form-control " aria-label="Telephone Number"
+                                    <input type="text" class="form-control primary_language" aria-label="Telephone Number"
                                         id="primary_language" name="primary_language" placeholder="e.g. English">
                                 </div>
                             </div>
@@ -1934,7 +1934,7 @@
                             </div>
                             <div class="col-sm" >
                                 <div class="form-group"> 
-                                    <label for="reason_for_childcare_before" class="form-label"><b>If so, what kind?</b></label>
+                                    <label for="reason_for_childcare_before" id="reason_for_childcare_before_label" class="form-label"><b>If so, what kind?</b></label>
                                     <select class="form-control form-select-lg" aria-label=".form-control-lg example"
                                         id="reason_for_childcare_before" name="reason_for_childcare_before">
                                         <option value="0"></option>
@@ -2823,7 +2823,7 @@
         </div>
         <!-- Parent's or guardian's signature end -->
         <div class="text-center">
-            <button class="submit-btn mb-4 admission-submit-btn" id="submit_button">submit</button> 
+            <button class="submit-btn mb-4 admission-submit-btn" id="admission_submit_button">submit</button> 
         </div>   
     </div> 
 </div>
@@ -2855,7 +2855,7 @@
         <!-- Admin's or guardian's signature end -->
         <div class="text-center">
             <!-- <button class="cancel-btn" id="cancelButton">Cancel</button> -->
-            <button class="submit-btn mb-4 admission-submit-btn" id="submit_button">submit</button> 
+            <button class="submit-btn mb-4 admission-submit-btn" id="admission_admin_submit_button">submit</button> 
         </div>   
     </div> 
 </div>

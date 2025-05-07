@@ -2051,6 +2051,9 @@ function updateFormFields(response) {
         setCheckbox("do_you_agree_this_pick_up_password_form", response.do_you_agree_this_pick_up_password_form);
     }
 
+    console.log( response.photo_usage_photo_video_permission_form);
+    console.log(response.photo_permission_agree_group_photos_electronic);
+    console.log(response.do_you_agree_this_photo_video_permission_form);
     const photoVideoPermissionValue = document.getElementById("photoVideoPermission");
     if (photoVideoPermissionValue) {
         // Set the value for photo usage form
@@ -2059,8 +2062,20 @@ function updateFormFields(response) {
         }
 
         // Set checkboxes based on the response
-        setCheckbox("photo_permission_agree_group_photos_electronic", response.photo_permission_agree_group_photos_electronic);
-        setCheckbox("do_you_agree_this_photo_video_permission_form", response.do_you_agree_this_photo_video_permission_form);
+        if (typeof response.photo_permission_agree_group_photos_electronic !== "undefined") {
+            const checkbox = document.getElementById("photo_permission_agree_group_photos_electronic");
+            if (checkbox) {
+                checkbox.checked = response.photo_permission_agree_group_photos_electronic === "on";
+            }
+        }
+        if (typeof response.do_you_agree_this_photo_video_permission_form !== "undefined") {
+            const checkbox = document.getElementById("do_you_agree_this_photo_video_permission_form");
+            if (checkbox) {
+                checkbox.checked = response.do_you_agree_this_photo_video_permission_form === "on";
+            }
+        }
+        // setCheckbox("photo_permission_agree_group_photos_electronic", response.photo_permission_agree_group_photos_electronic);
+        // setCheckbox("do_you_agree_this_photo_video_permission_form", response.do_you_agree_this_photo_video_permission_form);
     }
 
     const securitypolicyValue = document.getElementById("securitypolicy");
@@ -2074,7 +2089,8 @@ function updateFormFields(response) {
     if (medicaltransportationWeiverValue) {
         // Set the value for the 'med_technicians_med_transportation_waiver' field if it's defined
         if (typeof response.med_technicians_med_transportation_waiver !== "undefined") {
-            document.getElementsByName("med_technicians_med_transportation_waiver")[0].value = response.med_technicians_med_transportation_waiver;
+            setInputValue("med_technicians_med_transportation_waiver", response.med_technicians_med_transportation_waiver);
+            // document.getElementsByName("med_technicians_med_transportation_waiver")[0].value = response.med_technicians_med_transportation_waiver;
         }
 
         // Use the helper function to set the checkbox state
@@ -2622,8 +2638,10 @@ function validateAllForms(response) {
             response.primary_parent_info.parent_business_cell_number &&
             response.primary_parent_info.parent_email
         ) {
+            childparentInfo = true;
             updateValidationIcons(".parentdetails-tick", ".parentdetails-circle", true);
         } else {
+            childparentInfo = false;
             updateValidationIcons(".parentdetails-tick", ".parentdetails-circle", false);
         }
 
@@ -2642,8 +2660,10 @@ function validateAllForms(response) {
             response.additional_parent_info.parent_business_cell_number &&
             response.additional_parent_info.parent_email
         ) {
+            additionalChildparentInfo = true;
             updateValidationIcons(".parent_twodetails-tick", ".parent_twodetails-circle", true);
         } else {
+            additionalChildparentInfo = false;
             updateValidationIcons(".parent_twodetails-tick", ".parent_twodetails-circle", false);
         }
 
@@ -2665,8 +2685,10 @@ function validateAllForms(response) {
 
         }
         if (allContactsValid) {
+            childEmergencyContact = true;
             updateValidationIcons(".emergencycontact-tick", ".emergencycontact-circle", true);
         } else {
+            childEmergencyContact = false;
             updateValidationIcons(".emergencycontact-tick", ".emergencycontact-circle", false);
         }
 
@@ -2693,10 +2715,10 @@ function validateAllForms(response) {
             response.policy_number
         ) {
             updateValidationIcons(".medicalcare-tick", ".medicalcare-circle", true);
-            // childMedicalcare = true;
+            childMedicalcare = true;
         } else {
             updateValidationIcons(".medicalcare-tick", ".medicalcare-circle", false);
-            // childMedicalcare = false;
+            childMedicalcare = false;
         }
 
         if (
@@ -2704,8 +2726,10 @@ function validateAllForms(response) {
             response.administration_first_aid_procedures &&
             response.agree_all_above_information_is_correct
         ) {
+            childParentAgreementOne = true;
             updateValidationIcons(".parentagreement-tick", ".parentagreement-circle", true);
         } else {
+            childParentAgreementOne = false;
             updateValidationIcons(".parentagreement-tick", ".parentagreement-circle", false);
         }
         // Overall child info validation
@@ -2717,25 +2741,23 @@ function validateAllForms(response) {
             childEmergencyContact &&
             childParentAgreementOne
         ) {
+           
             updateValidationIcons(".childinfo-tick", ".childinfo-circle", true);
         } else {
+           
             updateValidationIcons(".childinfo-tick", ".childinfo-circle", false);
         }
 
-        if (
-            response.agree_all_above_info_is_correct
-        ) {
-            updateValidationIcons(".parentagreement-two-tick", ".parentagreement-two-circle", true);
-        } else {
-            updateValidationIcons(".parentagreement-two-tick", ".parentagreement-two-circle", false);
-        }
+        
 
         if (
             response.physical_exam_last_date &&
             response.dental_exam_last_date
         ) {
+            childHistory = true;
             updateValidationIcons(".childhistoryDetails-tick", ".childhistoryDetails-circle", true);
         } else {
+            childHistory = false;
             updateValidationIcons(".childhistoryDetails-tick", ".childhistoryDetails-circle", false);
         }
 
@@ -2756,8 +2778,10 @@ function validateAllForms(response) {
             response.vision_problems &&
             response.medical_other
         ) {
+            medicalHistory = true;
             updateValidationIcons(".medicalhistory-tick", ".medicalhistory-circle", true);
         } else {
+            medicalHistory = false;
             updateValidationIcons(".medicalhistory-tick", ".medicalhistory-circle", false);
         }
         //pragnancy history
@@ -2773,8 +2797,10 @@ function validateAllForms(response) {
             response.other_siblings_name &&
             response.other_siblings_age
         ) {
+            pregnancyHistory = true;
             updateValidationIcons(".pregnancyhistory-tick", ".pregnancyhistory-circle", true);
         } else {
+            pregnancyHistory = false;
             updateValidationIcons(".pregnancyhistory-tick", ".pregnancyhistory-circle", false);
         }
 
@@ -2791,8 +2817,10 @@ function validateAllForms(response) {
             response.family_history_epilepsy ||
             response.no_illnesses_for_this_child
         ) {
+            familyHistroy = true;
             updateValidationIcons(".familyhistory-tick", ".familyhistory-circle", true);
         } else {
+            familyHistroy = false;
             updateValidationIcons(".familyhistory-tick", ".familyhistory-circle", false);
         }
 
@@ -2808,8 +2836,10 @@ function validateAllForms(response) {
             response.child_response_frustration &&
             response.favorite_activities
         ) {
+            socialBehavior = true;
             updateValidationIcons(".socialbehavior-tick", ".socialbehavior-circle", true);
         } else {
+            socialBehavior = false;
             updateValidationIcons(".socialbehavior-tick", ".socialbehavior-circle", false);
         }
 
@@ -2822,9 +2852,20 @@ function validateAllForms(response) {
             response.changes_at_home_situation &&
             response.educational_expectations_of_child
         ) {
+            environmentalFactor = true;
             updateValidationIcons(".environmentalfactor-tick", ".environmentalfactor-circle", true);
         } else {
+            environmentalFactor = false;
             updateValidationIcons(".environmentalfactor-tick", ".environmentalfactor-circle", false);
+        }
+        if (
+            response.agree_all_above_info_is_correct
+        ) {
+            parentAgreementTwo = true;
+            updateValidationIcons(".parentagreement-two-tick", ".parentagreement-two-circle", true);
+        } else {
+            parentAgreementTwo = false;
+            updateValidationIcons(".parentagreement-two-tick", ".parentagreement-two-circle", false);
         }
 
         //social behavior 
@@ -2841,8 +2882,9 @@ function validateAllForms(response) {
         } else {
             updateValidationIcons(".childhistory-tick", ".childhistory-circle", false);
         }
+
         if (
-            immunizationInstruction == true
+            response.do_you_agree_this_immunization_instructions == "on"
         ) {
             updateValidationIcons(".immunization-tick", ".immunization-circle", true);
         } else {
@@ -2858,8 +2900,10 @@ function validateAllForms(response) {
             response.drop_off_time &&
             response.pick_up_time
         ) {
+            childProfile = true;
             updateValidationIcons(".childprofiledetail-tick", ".childprofiledetail-circle", true);
         } else {
+            childProfile = false;
             updateValidationIcons(".childprofiledetail-tick", ".childprofiledetail-circle", false);
         }
         if (
@@ -2867,8 +2911,10 @@ function validateAllForms(response) {
             response.eat_own &&
             response.favorite_foods
         ) {
+            nutritionDetails = true;
             updateValidationIcons(".nutrition-tick", ".nutrition-circle", true);
         } else {
+            nutritionDetails = false;
             updateValidationIcons(".nutrition-tick", ".nutrition-circle", false);
         }
 
@@ -2877,8 +2923,10 @@ function validateAllForms(response) {
             response.rest_routine &&
             response.toilet_trained
         ) {
+            restDetails = true;
             updateValidationIcons(".restdetails-tick", ".restdetails-circle", true);
         } else {
+            restDetails = false;
             updateValidationIcons(".restdetails-tick", ".restdetails-circle", false);
         }
         if (
@@ -2900,15 +2948,19 @@ function validateAllForms(response) {
             response.explain_for_desire_any_accommodations &&
             response.additional_information
         ) {
+            medicalDetails = true;
             updateValidationIcons(".medicaldetails-tick", ".medicaldetails-circle", true);
         } else {
+            medicalDetails = false;
             updateValidationIcons(".medicaldetails-tick", ".medicaldetails-circle", false);
         }
         if (
             response.do_you_agree_this
         ) {
+            parentAgreementThree = true;
             updateValidationIcons(".parentagreement-three-tick", ".parentagreement-three-circle", true);
         } else {
+            parentAgreementThree = false;
             updateValidationIcons(".parentagreement-three-tick", ".parentagreement-three-circle", false);
         }
 
@@ -2932,10 +2984,13 @@ function validateAllForms(response) {
             updateValidationIcons(".childpickup-tick", ".childpickup-circle", false);
         }
 
+        console.log( response.photo_usage_photo_video_permission_form);
+        console.log(response.photo_permission_agree_group_photos_electronic);
+        console.log(response.do_you_agree_this_photo_video_permission_form);
         if (
             response.photo_usage_photo_video_permission_form &&
-            response.photo_permission_agree_group_photos_electronic &&
-            response.do_you_agree_this_photo_video_permission_form
+            response.photo_permission_agree_group_photos_electronic == "on" &&
+            response.do_you_agree_this_photo_video_permission_form == "on"
         ) {
             updateValidationIcons(".childphotopermission-tick", ".childphotopermission-circle", true);
         } else {
@@ -3032,8 +3087,10 @@ function validateAllForms(response) {
         let parentFinalAgreement = document.getElementById("parentFinalAgreement");
         if (parentFinalAgreement) {
             if (allFormsComplete) {
+                updateValidationIcons(".childparent-tick", ".childparent-circle", true);
                 parentFinalAgreement.classList.remove("disabled");
             } else {
+                updateValidationIcons(".childparent-tick", ".childparent-circle", false);
                 parentFinalAgreement.classList.add("disabled");
             }
         }
@@ -3074,6 +3131,201 @@ function validateAllForms(response) {
     if (admissionTick && admissionCircle) {
         updateValidationIcons(".admission-tick", ".admission-circle", allFormsAndSignatureComplete);
     }
+
+
+    let enrollmentDetails;
+    let enrollmentparent;
+    if (
+        response.point_one_field_three &&
+        response.point_two_initial_here &&
+        response.point_three_initial_here &&
+        response.point_four_initial_here &&
+        response.point_five_initial_here &&
+        response.point_six_initial_here &&
+        response.point_seven_initial_here &&
+        response.point_eight_initial_here &&
+        response.point_nine_initial_here &&
+        response.point_ten_initial_here &&
+        response.point_eleven_initial_here &&
+        response.point_twelve_initial_here &&
+        response.point_thirteen_initial_here &&
+        response.point_fourteen_initial_here &&
+        response.point_fifteen_initial_here &&
+        response.point_sixteen_initial_here &&
+        response.point_seventeen_initial_here &&
+        response.point_eighteen_initial_here &&
+        response.point_ninteen_initial_here &&
+        response.preferred_start_date &&
+        response.preferred_schedule
+    ) {
+        enrollmentDetails = true;
+        updateValidationIcons(".childenrollmentagreement-tick", ".childenrollmentagreement-circle", true);
+    } else {
+        enrollmentDetails = false;
+         updateValidationIcons(".childenrollmentagreement-tick", ".childenrollmentagreement-circle", true);
+    }
+
+     // Validate parent signature
+     if (document.getElementById("parentsignature")) {
+        if (
+            response.parent_sign_enroll &&
+            response.parent_sign_date_enroll
+        ) {
+            updateValidationIcons(".childenrollmentagreementparentsign-tick", ".childenrollmentagreementparentsign-circle", true);
+            enrollmentparent = true;
+        } else {
+            updateValidationIcons(".childenrollmentagreementparentsign-tick", ".childenrollmentagreementparentsign-circle", false);
+            enrollmentparent = false;
+        }
+
+        // Enable/disable parent final agreement button
+        const allFormsCompleteEnroll = enrollmentDetails
+
+        let parentFinalAgreement = document.getElementById("authorizationparentsign");
+        if (parentFinalAgreement) {
+            if (allFormsCompleteEnroll) {
+                updateValidationIcons(".childenrollmentagreementparentsign-tick", ".childenrollmentagreementparentsign-circle", true);
+                parentFinalAgreement.classList.remove("disabled");
+            } else {
+                updateValidationIcons(".childenrollmentagreementparentsign-tick", ".childenrollmentagreementparentsign-circle", false);
+                parentFinalAgreement.classList.add("disabled");
+            }
+        }
+    }
+
+    // Overall admission form validation
+    const allFormsAndSignatureCompleteEnroll = enrollmentDetails && enrollmentparent
+    const admissionTickEnroll = document.querySelector(".childenrollmentagreementadminsign-tick");
+    const admissionCircleEnroll = document.querySelector(".childenrollmentagreementadminsign-circle");
+
+    if (admissionTick && admissionCircle) {
+        updateValidationIcons(".childenrollment-tick", ".childenrollment-circle", allFormsAndSignatureCompleteEnroll);
+    }
+
+
+    //authorization form
+    let authorizationDetails;
+    let achparentsign;
+    if (
+        response.bank_routing &&
+        response.bank_account &&
+        response.driver_license &&
+        response.state &&
+        response.i
+    ) {
+        authorizationDetails = true;
+        updateValidationIcons(".authorizationach-tick", ".authorizationach-circle", true);
+    } else {
+        authorizationDetails = false;
+         updateValidationIcons(".authorizationach-tick", ".authorizationach-circle", true);
+    }
+
+     // Validate parent signature
+     if (document.getElementById("parentsignature")) {
+        if (
+            response.parent_sign_date_ach &&
+            response.parent_sign_date_ach
+        ) {
+            updateValidationIcons(".authorizationparentsign-tick", ".authorizationparentsign-circle", true);
+            achparentsign = true;
+        } else {
+            updateValidationIcons(".authorizationparentsign-tick", ".authorizationparentsign-circle", false);
+            achparentsign = false;
+        }
+
+        // Enable/disable parent final agreement button
+        const allFormsCompleteAch = authorizationDetails
+
+        let parentFinalAgreement = document.getElementById("parentFinalAgreement");
+        if (parentFinalAgreement) {
+            if (allFormsCompleteAch) {
+                updateValidationIcons(".authorizationadminsign-tick", ".authorizationadminsign-circle", true);
+                parentFinalAgreement.classList.remove("disabled");
+            } else {
+                updateValidationIcons(".authorizationadminsign-tick", ".authorizationadminsign-circle", false);
+                parentFinalAgreement.classList.add("disabled");
+            }
+        }
+    }
+
+    // Overall admission form validation
+    const allFormsAndSignatureCompleteAch = authorizationDetails && achparentsign
+    const admissionTickAch = document.querySelector(".authorizationparentsign-tick");
+    const admissionCircleAch = document.querySelector(".authorizationparentsign-circle");
+
+    if (admissionTick && admissionCircle) {
+        updateValidationIcons(".authorization-tick", ".authorization-circle", allFormsAndSignatureCompleteAch);
+    }
+
+    //authorization form
+    let welcome_goddard_agreement;
+    let parentHandBook;
+    if (
+        welcome_goddard_agreement == true &&
+        mission_statement_agreement == true &&
+        general_information_agreement == true &&
+        medical_care_provider_agreement == true &&
+        parent_access_agreement == true &&
+        release_of_children_agreement == true &&
+        registration_fees_agreement == true &&
+        outside_engagements_agreement == true &&
+        health_policies_agreement == true &&
+        medication_procedures_agreement == true &&
+        bring_to_school_agreement == true &&
+        rest_time_agreement == true &&
+        training_philosophy_agreement == true &&
+        affiliation_policy_agreement == true &&
+        security_issue_agreement == true &&
+        expulsion_policy_agreement == true &&
+        addressing_individual_child_agreement == true &&
+        finalword_agreement == true
+    ) {
+        welcome_goddard_agreement = true;
+        updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", true);
+    } else {
+        welcome_goddard_agreement = false;
+         updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", true);
+    }
+
+     // Validate parent signature
+     if (document.getElementById("parentsignaturehandbook")) {
+        if (
+            response.parent_sign_handbook &&
+            response.parent_sign_date_handbook
+        ) {
+            updateValidationIcons(".childparenthandbook-tick", ".childparenthandbook-circle", true);
+            achparentsign = true;
+        } else {
+            updateValidationIcons(".childparenthandbook-tick", ".childparenthandbook-circle", false);
+            achparentsign = false;
+        }
+
+        // Enable/disable parent final agreement button
+        const allFormsCompleteAch = welcome_goddard_agreement
+
+        let parentFinalAgreement = document.getElementById("parentFinalAgreement");
+        if (parentFinalAgreement) {
+            if (allFormsCompleteAch) {
+                updateValidationIcons(".childparenthandbook-tick", ".childparenthandbook-circle", true);
+                parentFinalAgreement.classList.remove("disabled");
+            } else {
+                updateValidationIcons(".childparenthandbook-tick", ".childparenthandbook-circle", false);
+                parentFinalAgreement.classList.add("disabled");
+            }
+        }
+    }
+
+    // Overall admission form validation
+    const allFormsAndSignatureCompleteHandbook = welcome_goddard_agreement && parentHandBook
+    const admissionTickHandbook = document.querySelector(".childparenthandbook-tick");
+    const admissionCircleHandbook = document.querySelector(".childparenthandbook-circle");
+
+    if (admissionTick && admissionCircle) {
+        updateValidationIcons(".handbook-tick", ".handbook-circle", allFormsAndSignatureCompleteHandbook);
+    }
+
+    
+    
 }
 
 // Helper function to update validation icons

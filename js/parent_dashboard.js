@@ -1668,6 +1668,25 @@ function updateFormFields(response) {
 
     }
 
+    var inputs = document.querySelectorAll("#childinformation input");
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error");
+            }
+        }
+    });
+
     const childfamilyHistory = document.getElementById("childandfamilyhistory");
     if (childfamilyHistory) {
         if (typeof response.physical_exam_last_date !== "undefined") {
@@ -1966,6 +1985,26 @@ function updateFormFields(response) {
 
     }
 
+    var inputs = document.querySelectorAll("#childandfamilyhistory input");
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+
+    });
+
     const immunizationValue = document.getElementById("immunizationinstructions");
     if (immunizationValue) {
         setCheckbox("do_you_agree_this_immunization_instructions", response.do_you_agree_this_immunization_instructions);
@@ -1973,11 +2012,32 @@ function updateFormFields(response) {
 
     }
 
+    var inputs = document.querySelectorAll(
+        "#immunizationinstructions input"
+    );
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
+
     const childHistoryValue = document.getElementById("childprofile");
     if (childHistoryValue) {
         setInputValue("important_fam_members", response.important_fam_members);
         setInputValue("about_family_celebrations", response.about_family_celebrations);
-
+        setRadioValue("childcare_before", response.childcare_before);
         setInputValue("reason_for_childcare_before", response.reason_for_childcare_before);
         setInputValue("what_child_interests", response.what_child_interests);
         setInputValue("drop_off_time", response.drop_off_time);
@@ -2042,6 +2102,25 @@ function updateFormFields(response) {
 
     }
 
+    var inputs = document.querySelectorAll("#childprofile input");
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
+
     const pickupPasswordValue = document.getElementById("pickuppassword");
     if (pickupPasswordValue) {
         if (typeof response.child_password_pick_up_password_form !== "undefined") {
@@ -2051,10 +2130,29 @@ function updateFormFields(response) {
         setCheckbox("do_you_agree_this_pick_up_password_form", response.do_you_agree_this_pick_up_password_form);
     }
 
-    console.log( response.photo_usage_photo_video_permission_form);
+    var inputs = document.querySelectorAll("#pickuppassword input");
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
+
+    console.log(response.photo_usage_photo_video_permission_form);
     console.log(response.photo_permission_agree_group_photos_electronic);
     console.log(response.do_you_agree_this_photo_video_permission_form);
-    const photoVideoPermissionValue = document.getElementById("photoVideoPermission");
+    const photoVideoPermissionValue = document.getElementById("photovideopermission");
     if (photoVideoPermissionValue) {
         // Set the value for photo usage form
         if (typeof response.photo_usage_photo_video_permission_form !== "undefined") {
@@ -2078,6 +2176,25 @@ function updateFormFields(response) {
         // setCheckbox("do_you_agree_this_photo_video_permission_form", response.do_you_agree_this_photo_video_permission_form);
     }
 
+    var inputs = document.querySelectorAll("#photovideopermission select");
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
+
     const securitypolicyValue = document.getElementById("securitypolicy");
     if (securitypolicyValue) {
         // Using the helper function to set the checkbox state
@@ -2085,8 +2202,28 @@ function updateFormFields(response) {
 
     }
 
-    const medicaltransportationWeiverValue = document.getElementById("medicaltransportationWeiver");
+    var inputs = document.querySelectorAll("#securitypolicy input");
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
+
+    const medicaltransportationWeiverValue = document.getElementById("medicaltransportation");
     if (medicaltransportationWeiverValue) {
+       
         // Set the value for the 'med_technicians_med_transportation_waiver' field if it's defined
         if (typeof response.med_technicians_med_transportation_waiver !== "undefined") {
             setInputValue("med_technicians_med_transportation_waiver", response.med_technicians_med_transportation_waiver);
@@ -2097,25 +2234,100 @@ function updateFormFields(response) {
         setCheckbox("medical_transportation_waiver", response.medical_transportation_waiver);
     }
 
-    const healthPolicyValue = document.getElementById("healthPolicy");
+    var inputs = document.querySelectorAll("#medicaltransportation input");
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
+
+    const healthPolicyValue = document.getElementById("healthpolicies");
     if (healthPolicyValue) {
         setCheckbox("do_you_agree_this_health_policies", response.do_you_agree_this_health_policies);
     }
 
-    const outsideWeiverValue = document.getElementById("outsideWeiver");
+    var inputs = document.querySelectorAll("#healthpolicies input");
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
+
+    const outsideWeiverValue = document.getElementById("outsideengagements");
     if (outsideWeiverValue) {
         setCheckbox("parent_sign_outside_waiver", response.parent_sign_outside_waiver);
 
     }
 
-    const socialMediaValue = document.getElementById("socialMedia");
+    var inputs = document.querySelectorAll("#outsideengagements input");
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
+
+    const socialMediaValue = document.getElementById("socialmediaapproval");
     if (socialMediaValue) {
-        setCheckbox("approve_social_media_post1", response.approve_social_media_post == 1);
-        setCheckbox("approve_social_media_post2", response.approve_social_media_post == 2);
-        setValue("printed_name_social_media_post", response.printed_name_social_media_post);
-        setCheckbox("do_you_agree_this_social_media_post", response.do_you_agree_this_social_media_post == "on");
+        setRadioValue("approve_social_media_post", response.approve_social_media_post);
+        setInputValue("printed_name_social_media_post", response.printed_name_social_media_post);
+        setCheckbox("do_you_agree_this_social_media_post", response.do_you_agree_this_social_media_post);
 
     }
+
+    var inputs = document.querySelectorAll("#socialmediaapproval input");
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
 
     // // Admission form parent agreement
     const parentSignatureForm = document.getElementById("parentsignature");
@@ -2136,6 +2348,25 @@ function updateFormFields(response) {
             }
         }
     }
+
+    var inputs = document.querySelectorAll("#parentsignature input");
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
 
     // Render the value for Enrollment Agreement Form 
 
@@ -2318,6 +2549,38 @@ function updateFormFields(response) {
 
     }
 
+    var inputs = document.querySelectorAll(
+        "#childenrollmentagreement input"
+    );
+    var selects = document.querySelectorAll("#childenrollmentagreement select");
+
+    selects.forEach(function (select) {
+        if (select.value.trim() === "") {
+            select.classList.add("input-error"); // Add a class to highlight empty input
+            select.classList.remove("input-success");
+        } else {
+            select.classList.add("input-success");
+            select.classList.remove("input-error"); // Remove error class if input is not empty
+        }
+    });
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
+
     // Entrollment form parent agreement
     const parentSignatureEntrollForm = document.getElementById("childenrollmentagreementparentsign");
     if (parentSignatureEntrollForm) {
@@ -2338,46 +2601,99 @@ function updateFormFields(response) {
         }
     }
 
+    var inputs = document.querySelectorAll(
+        "#childenrollmentagreementparentsign input"
+    );
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
+
     // Render the value for Entrollment Agreement Form
 
     const Authorizationach = document.getElementById("authorizationach");
 
     if (Authorizationach) {
-        if (typeof response.bank_routing !== "undefined"){
+        if (typeof response.bank_routing !== "undefined") {
             const bankRouting = document.getElementById("bank_routing");
-            if(bankRouting){
+            if (bankRouting) {
                 bankRouting.value = response.bank_routing;
             }
         }
-        if (typeof response.bank_account !== "undefined"){
+        if (typeof response.bank_account !== "undefined") {
             const bankAccount = document.getElementById("bank_account");
-            if(bankAccount){
+            if (bankAccount) {
                 bankAccount.value = response.bank_account;
             }
         }
 
-        if (typeof response.driver_license !== "undefined"){
+        if (typeof response.driver_license !== "undefined") {
             const DriverLicense = document.getElementById("driver_license");
-            if(DriverLicense){
+            if (DriverLicense) {
                 DriverLicense.value = response.driver_license;
             }
         }
-        
-        if (typeof response.state !== "undefined"){
+
+        if (typeof response.state !== "undefined") {
             const State = document.getElementById("state");
-            if(State){
+            if (State) {
                 State.value = response.state;
             }
         }
-        
-        if (typeof response.i !== "undefined"){
+
+        if (typeof response.i !== "undefined") {
             const I = document.getElementById("i");
-            if(I){
+            if (I) {
                 I.value = response.i;
             }
         }
-       
+
     }
+
+    var inputs = document.querySelectorAll("#authorizationach input");
+
+    var selects = document.querySelectorAll("#authorizationach select");
+
+    selects.forEach(function (select) {
+        if (select.value.trim() === "") {
+            select.classList.add("input-error"); // Add a class to highlight empty input
+            select.classList.remove("input-success");
+        } else {
+            select.classList.add("input-success");
+            select.classList.remove("input-error"); // Remove error class if input is not empty
+        }
+    });
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
+
 
     // Authorization form parent agreement
     const parentSignatureAuthorizationForm = document.getElementById("authorizationparentsign");
@@ -2399,12 +2715,32 @@ function updateFormFields(response) {
         }
     }
 
+    var inputs = document.querySelectorAll(
+        "#authorizationparentsign input"
+    );
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
 
     // Render the value for Parent Handbook
 
     const Volumeone = document.getElementById("volumeone");
 
-    if(Volumeone){
+    if (Volumeone) {
         if (typeof response.welcome_goddard_agreement !== "undefined") {
             const checkbox = document.getElementById("welcome_goddard_agreement");
             if (checkbox) {
@@ -2530,25 +2866,65 @@ function updateFormFields(response) {
         }
     }
 
-     // ParentHandbook form parent agreement
-     const parentSignatureParentHandbookForm = document.getElementById("parentsignaturehandbook");
-     if (parentSignatureParentHandbookForm) {
-         if (typeof response.parent_sign_handbook !== "undefined") {
-             const signField = document.getElementsByName("parent_sign_handbook")[0];
-             if (signField) {
-                 signField.value = response.parent_sign_handbook;
-             }
-         }
- 
-         const dateField = document.getElementsByName("parent_sign_date_handbook")[0];
-         if (dateField) {
-             if (response.parent_sign_date_handbook === null || response.parent_sign_date_handbook === undefined) {
-                 dateField.value = new Date().toISOString().split('T')[0];
-             } else {
-                 dateField.value = response.parent_sign_date_handbook;
-             }
-         }
-     }
+    var inputs = document.querySelectorAll("#volumeone input");
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
+
+    // ParentHandbook form parent agreement
+    const parentSignatureParentHandbookForm = document.getElementById("parentsignaturehandbook");
+    if (parentSignatureParentHandbookForm) {
+        if (typeof response.parent_sign_handbook !== "undefined") {
+            const signField = document.getElementsByName("parent_sign_handbook")[0];
+            if (signField) {
+                signField.value = response.parent_sign_handbook;
+            }
+        }
+
+        const dateField = document.getElementsByName("parent_sign_date_handbook")[0];
+        if (dateField) {
+            if (response.parent_sign_date_handbook === null || response.parent_sign_date_handbook === undefined) {
+                dateField.value = new Date().toISOString().split('T')[0];
+            } else {
+                dateField.value = response.parent_sign_date_handbook;
+            }
+        }
+    }
+
+    var inputs = document.querySelectorAll(
+        "#parentsignaturehandbook input"
+    );
+
+    inputs.forEach(function (input) {
+        if (input.type === "checkbox" || input.type === "radio") {
+            if (input.checked) {
+                input.classList.remove("input-success");
+                input.classList.remove("input-error");
+            }
+        } else {
+            if (input.value.trim() === "") {
+                input.classList.add("input-error"); // Add a class to highlight empty input
+                input.classList.remove("input-success");
+            } else {
+                input.classList.add("input-success");
+                input.classList.remove("input-error"); // Remove error class if input is not empty
+            }
+        }
+    });
 
 }
 
@@ -2741,14 +3117,14 @@ function validateAllForms(response) {
             childEmergencyContact &&
             childParentAgreementOne
         ) {
-           
+
             updateValidationIcons(".childinfo-tick", ".childinfo-circle", true);
         } else {
-           
+
             updateValidationIcons(".childinfo-tick", ".childinfo-circle", false);
         }
 
-        
+
 
         if (
             response.physical_exam_last_date &&
@@ -2984,7 +3360,7 @@ function validateAllForms(response) {
             updateValidationIcons(".childpickup-tick", ".childpickup-circle", false);
         }
 
-        console.log( response.photo_usage_photo_video_permission_form);
+        console.log(response.photo_usage_photo_video_permission_form);
         console.log(response.photo_permission_agree_group_photos_electronic);
         console.log(response.do_you_agree_this_photo_video_permission_form);
         if (
@@ -3162,11 +3538,11 @@ function validateAllForms(response) {
         updateValidationIcons(".childenrollmentagreement-tick", ".childenrollmentagreement-circle", true);
     } else {
         enrollmentDetails = false;
-         updateValidationIcons(".childenrollmentagreement-tick", ".childenrollmentagreement-circle", true);
+        updateValidationIcons(".childenrollmentagreement-tick", ".childenrollmentagreement-circle", true);
     }
 
-     // Validate parent signature
-     if (document.getElementById("parentsignature")) {
+    // Validate parent signature
+    if (document.getElementById("parentsignature")) {
         if (
             response.parent_sign_enroll &&
             response.parent_sign_date_enroll
@@ -3217,11 +3593,11 @@ function validateAllForms(response) {
         updateValidationIcons(".authorizationach-tick", ".authorizationach-circle", true);
     } else {
         authorizationDetails = false;
-         updateValidationIcons(".authorizationach-tick", ".authorizationach-circle", true);
+        updateValidationIcons(".authorizationach-tick", ".authorizationach-circle", true);
     }
 
-     // Validate parent signature
-     if (document.getElementById("parentsignature")) {
+    // Validate parent signature
+    if (document.getElementById("parentsignature")) {
         if (
             response.parent_sign_date_ach &&
             response.parent_sign_date_ach
@@ -3284,11 +3660,11 @@ function validateAllForms(response) {
         updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", true);
     } else {
         welcome_goddard_agreement = false;
-         updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", true);
+        updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", true);
     }
 
-     // Validate parent signature
-     if (document.getElementById("parentsignaturehandbook")) {
+    // Validate parent signature
+    if (document.getElementById("parentsignaturehandbook")) {
         if (
             response.parent_sign_handbook &&
             response.parent_sign_date_handbook
@@ -3324,8 +3700,8 @@ function validateAllForms(response) {
         updateValidationIcons(".handbook-tick", ".handbook-circle", allFormsAndSignatureCompleteHandbook);
     }
 
-    
-    
+
+
 }
 
 // Helper function to update validation icons

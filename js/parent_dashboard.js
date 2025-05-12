@@ -3471,6 +3471,17 @@ function validateAllForms(response) {
                 parentFinalAgreement.classList.add("disabled");
             }
         }
+
+        let adminFinalAgreement = document.getElementById("adminFinalAgreement");
+        if (adminFinalAgreement) {
+             if ( localStorage.getItem("logged_in_email") !== "goddard01arjava@gmail.com") {
+                // updateValidationIcons(".childadmin-tick", ".childadmin-circle", true);
+                adminFinalAgreement.classList.add("disabled");
+            } else {
+                // updateValidationIcons(".childadmin-tick", ".childadmin-circle", false);
+                adminFinalAgreement.classList.remove("disabled");
+            }
+        }
     }
 
     // Overall admission form validation
@@ -3568,6 +3579,17 @@ function validateAllForms(response) {
                 parentFinalAgreement.classList.add("disabled");
             }
         }
+
+        let enrollmentAdminFinalAgreement = document.getElementById("enrollmentAdminFinalAgreement");
+        if (enrollmentAdminFinalAgreement) {
+            if (localStorage.getItem("logged_in_email") !== "goddard01arjava@gmail.com") {
+                // updateValidationIcons(".childenrollmentagreementadminsign-tick", ".childenrollmentagreementadminsign-circle", true);
+                enrollmentAdminFinalAgreement.classList.add("disabled");
+            } else {
+                // updateValidationIcons(".childenrollmentagreementadminsign-tick", ".childenrollmentagreementadminsign-circle", false);
+                enrollmentAdminFinalAgreement.classList.remove("disabled");
+            }
+        }
     }
 
     // Overall admission form validation
@@ -3621,6 +3643,17 @@ function validateAllForms(response) {
             } else {
                 updateValidationIcons(".authorizationparentsign-tick", ".authorizationparentsign-circle", false);
                 parentFinalAgreement.classList.add("disabled");
+            }
+        }
+
+         let achAdminFinalAgreement = document.getElementById("achAdminFinalAgreement");
+        if (achAdminFinalAgreement) {
+            if (localStorage.getItem("logged_in_email") !== "goddard01arjava@gmail.com") {
+                // updateValidationIcons(".authorizationadminsign-tick", ".authorizationadminsign-circle", true);
+                achAdminFinalAgreement.classList.add("disabled");
+            } else {
+                // updateValidationIcons(".authorizationadminsign-tick", ".authorizationadminsign-circle", false);
+                achAdminFinalAgreement.classList.remove("disabled");
             }
         }
     }
@@ -3688,6 +3721,17 @@ function validateAllForms(response) {
             } else {
                 updateValidationIcons(".childparenthandbook-tick", ".childparenthandbook-circle", false);
                 parentFinalAgreement.classList.add("disabled");
+            }
+        }
+
+         let handbookFinalAgreement = document.getElementById("handbookFinalAgreement");
+        if (handbookFinalAgreement) {
+            if (localStorage.getItem("logged_in_email") !== "goddard01arjava@gmail.com") {
+                // updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", true);
+                handbookFinalAgreement.classList.add("disabled");
+            } else {
+                // updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", false);
+                handbookFinalAgreement.classList.remove("disabled");
             }
         }
     }

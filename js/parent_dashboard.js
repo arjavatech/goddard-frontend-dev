@@ -2949,6 +2949,7 @@ function setCheckbox(id, value) {
 
 
 // Function to validate all forms and update UI indicators
+// Function to validate all forms and update UI indicators
 function validateAllForms(response) {
     // Initialize validation flags
     let childbasicInfo = false;
@@ -3117,14 +3118,14 @@ function validateAllForms(response) {
             childEmergencyContact &&
             childParentAgreementOne
         ) {
-
+           
             updateValidationIcons(".childinfo-tick", ".childinfo-circle", true);
         } else {
-
+           
             updateValidationIcons(".childinfo-tick", ".childinfo-circle", false);
         }
 
-
+        
 
         if (
             response.physical_exam_last_date &&
@@ -3360,7 +3361,7 @@ function validateAllForms(response) {
             updateValidationIcons(".childpickup-tick", ".childpickup-circle", false);
         }
 
-        console.log(response.photo_usage_photo_video_permission_form);
+        console.log( response.photo_usage_photo_video_permission_form);
         console.log(response.photo_permission_agree_group_photos_electronic);
         console.log(response.do_you_agree_this_photo_video_permission_form);
         if (
@@ -3538,11 +3539,11 @@ function validateAllForms(response) {
         updateValidationIcons(".childenrollmentagreement-tick", ".childenrollmentagreement-circle", true);
     } else {
         enrollmentDetails = false;
-        updateValidationIcons(".childenrollmentagreement-tick", ".childenrollmentagreement-circle", true);
+         updateValidationIcons(".childenrollmentagreement-tick", ".childenrollmentagreement-circle", true);
     }
 
-    // Validate parent signature
-    if (document.getElementById("parentsignature")) {
+     // Validate parent signature
+     if (document.getElementById("childenrollmentagreementparentsign")) {
         if (
             response.parent_sign_enroll &&
             response.parent_sign_date_enroll
@@ -3557,7 +3558,7 @@ function validateAllForms(response) {
         // Enable/disable parent final agreement button
         const allFormsCompleteEnroll = enrollmentDetails
 
-        let parentFinalAgreement = document.getElementById("authorizationparentsign");
+        let parentFinalAgreement = document.getElementById("enrollmentFinalAgreement");
         if (parentFinalAgreement) {
             if (allFormsCompleteEnroll) {
                 updateValidationIcons(".childenrollmentagreementparentsign-tick", ".childenrollmentagreementparentsign-circle", true);
@@ -3593,11 +3594,11 @@ function validateAllForms(response) {
         updateValidationIcons(".authorizationach-tick", ".authorizationach-circle", true);
     } else {
         authorizationDetails = false;
-        updateValidationIcons(".authorizationach-tick", ".authorizationach-circle", true);
+         updateValidationIcons(".authorizationach-tick", ".authorizationach-circle", true);
     }
 
-    // Validate parent signature
-    if (document.getElementById("parentsignature")) {
+     // Validate parent signature
+     if (document.getElementById("authorizationparentsign")) {
         if (
             response.parent_sign_date_ach &&
             response.parent_sign_date_ach
@@ -3612,13 +3613,13 @@ function validateAllForms(response) {
         // Enable/disable parent final agreement button
         const allFormsCompleteAch = authorizationDetails
 
-        let parentFinalAgreement = document.getElementById("parentFinalAgreement");
+        let parentFinalAgreement = document.getElementById("achFinalAgreement");
         if (parentFinalAgreement) {
             if (allFormsCompleteAch) {
-                updateValidationIcons(".authorizationadminsign-tick", ".authorizationadminsign-circle", true);
+                updateValidationIcons(".authorizationparentsign-tick", ".authorizationparentsign-circle", true);
                 parentFinalAgreement.classList.remove("disabled");
             } else {
-                updateValidationIcons(".authorizationadminsign-tick", ".authorizationadminsign-circle", false);
+                updateValidationIcons(".authorizationparentsign-tick", ".authorizationparentsign-circle", false);
                 parentFinalAgreement.classList.add("disabled");
             }
         }
@@ -3660,11 +3661,11 @@ function validateAllForms(response) {
         updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", true);
     } else {
         welcome_goddard_agreement = false;
-        updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", true);
+         updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", true);
     }
 
-    // Validate parent signature
-    if (document.getElementById("parentsignaturehandbook")) {
+     // Validate parent signature
+     if (document.getElementById("parentsignaturehandbook")) {
         if (
             response.parent_sign_handbook &&
             response.parent_sign_date_handbook
@@ -3679,7 +3680,7 @@ function validateAllForms(response) {
         // Enable/disable parent final agreement button
         const allFormsCompleteAch = welcome_goddard_agreement
 
-        let parentFinalAgreement = document.getElementById("parentFinalAgreement");
+        let parentFinalAgreement = document.getElementById("handbookFinalAgreement");
         if (parentFinalAgreement) {
             if (allFormsCompleteAch) {
                 updateValidationIcons(".childparenthandbook-tick", ".childparenthandbook-circle", true);
@@ -3700,8 +3701,8 @@ function validateAllForms(response) {
         updateValidationIcons(".handbook-tick", ".handbook-circle", allFormsAndSignatureCompleteHandbook);
     }
 
-
-
+    
+    
 }
 
 // Helper function to update validation icons

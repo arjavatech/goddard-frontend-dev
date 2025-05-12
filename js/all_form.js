@@ -123,41 +123,41 @@ function submitForm(editID,number) {
 
     console.log( obj.dentist_telephone_number);
     // Additional objects for specific sections
-    let dentistName = document.getElementById('dropdownMenuButton').textContent.trim();
-    console.log(dentistName);
-    if (dentistName === 'Others') {
-        // If "Others" is selected, get the custom input value for dentist name
-        dentistName = document.getElementById('child_dentist_name').value;
-        console.log(dentistName);
-    }else{
-        dentistName = document.getElementById('dropdownMenuButton').textContent.trim();
-        console.log(dentistName);
-    }
-    // let dentist_Id;
-    // if(response.child_dentist_info){
-    //     dentist_Id = response.child_dentist_info.child_dentist_id
+    // let dentistName = document.getElementById('dropdownMenuButton').textContent.trim();
+    // console.log(dentistName);
+    // if (dentistName === 'Others') {
+    //     // If "Others" is selected, get the custom input value for dentist name
+    //     dentistName = document.getElementById('child_dentist_name').value;
+    //     console.log(dentistName);
+    // }else{
+    //     dentistName = document.getElementById('dropdownMenuButton').textContent.trim();
+    //     console.log(dentistName);
     // }
-    let dentist_Id = null;
-    const selectedDentistOption = document.querySelector('.dropdown-item.active');
-    console.log(selectedDentistOption);
-    if (selectedDentistOption) {
-        dentist_Id = selectedDentistOption.getAttribute('data-value');
-        console.log(dentist_Id);
-    }
-    let child_dentist_info = {
-        child_dentist_id : dentist_Id ? parseInt(dentist_Id) : null,
-        // child_dentist_id: response.child_dentist_info.child_dentist_id || '',
-        child_dentist_name: dentistName || '',
-        dentist_telephone_number: document.getElementById('dentist_telephone_number').value,
-        dentist_street_address: document.getElementById('dentist_street_address').value,
-        dentist_city_address: document.getElementById('dentist_city_address').value,
-        dentist_state_address: document.getElementById('dentist_state_address').value,
-        dentist_zip_address: document.getElementById('dentist_zip_address').value
-    };
-    outputobject.child_dentist_info = child_dentist_info;
-    console.log(outputobject.child_dentist_info);
+    // // let dentist_Id;
+    // // if(response.child_dentist_info){
+    // //     dentist_Id = response.child_dentist_info.child_dentist_id
+    // // }
+    // let dentist_Id = null;
+    // const selectedDentistOption = document.querySelector('.dropdown-item.active');
+    // console.log(selectedDentistOption);
+    // if (selectedDentistOption) {
+    //     dentist_Id = selectedDentistOption.getAttribute('data-value');
+    //     console.log(dentist_Id);
+    // }
+    // let child_dentist_info = {
+    //     child_dentist_id : dentist_Id ? parseInt(dentist_Id) : null,
+    //     // child_dentist_id: response.child_dentist_info.child_dentist_id || '',
+    //     child_dentist_name: dentistName || '',
+    //     dentist_telephone_number: document.getElementById('dentist_telephone_number').value,
+    //     dentist_street_address: document.getElementById('dentist_street_address').value,
+    //     dentist_city_address: document.getElementById('dentist_city_address').value,
+    //     dentist_state_address: document.getElementById('dentist_state_address').value,
+    //     dentist_zip_address: document.getElementById('dentist_zip_address').value
+    // };
+    // outputobject.child_dentist_info = child_dentist_info;
+    // console.log(outputobject.child_dentist_info);
 
-    console.log(outputobject.child_dentist_info);
+    // console.log(outputobject.child_dentist_info);
     let care_provider_Id;
     if(response.child_dentist_info){
         care_provider_Id = response.child_care_provider_info.child_care_provider_id
@@ -180,27 +180,27 @@ function submitForm(editID,number) {
     const json=JSON.stringify(outputobject); 
     console.log(json);
     let xhr = new XMLHttpRequest();
-    xhr.onload = () => {
-        if (xhr.status === 200) {
-            $(".success-msg").show();
-            setTimeout(function(){ 
-                $(".success-msg").hide(); 
-                // window.location.reload();
-                // window.location.href = `./parent_dashboard.html?childid=${child_id_val}`;
-                sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
-                window.location.href = `./parent_dashboard.html?id=${editID}`;
+    // xhr.onload = () => {
+    //     if (xhr.status === 200) {
+    //         $(".success-msg").show();
+    //         setTimeout(function(){ 
+    //             $(".success-msg").hide(); 
+    //             // window.location.reload();
+    //             // window.location.href = `./parent_dashboard.html?childid=${child_id_val}`;
+    //             sessionStorage.setItem('putcallId',localStorage.getItem('child_id'));
+    //             window.location.href = `./parent_dashboard.html?id=${editID}`;
 
-            }, 3000);
-        }else{
-            $(".error-msg").show();
-            setTimeout(function(){ 
-                $(".error-msg").hide(); 
-            }, 3000);
-        }
-    };
-    xhr.open("PUT", ` https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/admission_segment_update/${localStorage.getItem('child_id')}`);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(json);
+    //         }, 3000);
+    //     }else{
+    //         $(".error-msg").show();
+    //         setTimeout(function(){ 
+    //             $(".error-msg").hide(); 
+    //         }, 3000);
+    //     }
+    // };
+    // xhr.open("PUT", ` https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/admission_segment_update/${localStorage.getItem('child_id')}`);
+    // xhr.setRequestHeader("Content-Type", "application/json");
+    // xhr.send(json);
 }
 
 function authorizationSubmitForm(editID,number) {

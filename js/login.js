@@ -59,7 +59,7 @@ function loginFunction() {
         console.log(obj);
 
         $.ajax({
-        url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/sign_in/check`,
+        url: `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/sign_in/check`,
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(obj),

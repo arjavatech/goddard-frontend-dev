@@ -443,7 +443,7 @@
                 lengthChange: false,
                 //for waking up the aws lambda server
                 ajax: {
-                    url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_count_with_class_name',
+                    url: 'https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/child_count_with_class_name',
                     dataSrc: '',
                 },
                 //it is used to define and configure the individual columns of the table.
@@ -516,7 +516,7 @@
         if (editID != '') {
             //for waking up the aws lambda server
             $.ajax({
-                url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_details/get/${editID}`,
+                url: `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/class_details/get/${editID}`,
                 type: 'get',
                 //this is uesd to get the response and return the result
                 success: function (response) {
@@ -551,7 +551,7 @@
                     }
                 };
 
-                xhr.open("PUT", `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_details/delete/${id}`);
+                xhr.open("PUT", `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/class_details/delete/${id}`);
                 xhr.setRequestHeader("Content-Type", "application/json");
                 xhr.send(json);
             }
@@ -565,7 +565,7 @@
             function active_forms() {
 
                 $.ajax({
-                url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/get_all_form_details',
+                url: 'https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/get_all_form_details',
                 type: 'get',
                 datasrc: '',
                 dataType: 'json',
@@ -599,7 +599,7 @@
             function classroom_names() {
                 // For waking up the AWS Lambda server
                 $.ajax({
-                    url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/child_count_with_class_name',
+                    url: 'https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/child_count_with_class_name',
                     type: 'GET',
                     dataType: 'json',
                     success: function (response) {
@@ -640,7 +640,7 @@
 
             // Make an API call to fetch data
             $.ajax({
-                url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/get_all_form_details",
+                url: "https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/get_all_form_details",
                 type: "get",
                 dataType: "json",
                 success: function (response) {
@@ -677,7 +677,7 @@
         let selectedClsValues = $('#multi_cls_room').val();
        
         $.ajax({
-            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_wise_child_details`,
+            url: `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/class_wise_child_details`,
             type: 'GET',
             dataType: 'json',
             success: function (response) {
@@ -714,7 +714,7 @@
         if(formId_len != 0 && form_allocate != ""){
            
             $.ajax({
-                url: " https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/update_form_repo_state",
+                url: " https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/update_form_repo_state",
                 type: "PUT",
                 contentType: "application/json",
                 data: json,
@@ -756,7 +756,7 @@
         // console.log(json);
         // return false
             $.ajax({
-                url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/class_repo_update",
+                url: "https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/class_repo_update",
                 type: "POST",
                 contentType: "application/json",
                 data: json,
@@ -784,7 +784,7 @@
         // return false
 
             $.ajax({
-                url: " https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/student_repo_update",
+                url: " https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/student_repo_update",
                 type: "POST",
                 contentType: "application/json",
                 data: json,

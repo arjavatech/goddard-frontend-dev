@@ -43,7 +43,7 @@ function signupFunction(){
             // console.log(obj);
             // return false;
             $.ajax({
-                url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_info/update_password",
+                url: "https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/parent_info/update_password",
                 type: "PUT",
                 contentType: "application/json",
                 data: JSON.stringify(obj),
@@ -79,7 +79,7 @@ function resendmailFunction(){
     let email_id = document.getElementById('email_id').value;
     if (email_id != ''){
         $.ajax({
-            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/forget_password_mail_trigger/${email_id}`,
+            url: `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/forget_password_mail_trigger/${email_id}`,
             type: "GET",
             dataType: 'json',
             success: function (response) {

@@ -897,20 +897,18 @@
                                     <label for="child_dentist_name" class="form-label"><b>NAME OF CHILD'S
                                             DENTIST</b>
                                     </label>
-                                    <div class="dropdown">
+                                    <input type="text" class="form-control" id="child_dentist_name"
+                                    name="child_dentist_name" placeholder="e.g. Jordan">
+                                    <!-- <div class="dropdown">
                                         <button class="btn dropdown-toggle form-control" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Select an dentist
                                         </button>
                                         <div class="dropdown-menu" id="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                            
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 
-                                <div class="mt-2">
-                                    <input type="text" class="form-control d-none" id="child_dentist_name"
-                                    name="child_dentist_name" placeholder="e.g. Jordan">
-                                </div>
                             </div>
                             <div class="col-sm">
                                 <div class="form-group">
@@ -919,7 +917,7 @@
                                     </label>
                                     <input type="text" class="form-control " id="dentist_telephone_number"
                                         name="dentist_telephone_number"
-                                        onchange="validatePhone(this,'dentist_telephone_number_span')" placeholder="e.g.+1-212-838-8979 " disabled>
+                                        onchange="validatePhone(this,'dentist_telephone_number_span')" placeholder="e.g.+1-212-838-8979 ">
                                     <span id="dentist_telephone_number_span"
                                         style="color:red; display:none">
                                         Enter valid input [only numbers,+,-,()].</span>
@@ -932,7 +930,7 @@
                                     </label>
                                     <input type="text" class="form-control "
                                         id="dentist_street_address"
-                                        name="dentist_street_address" placeholder="e.g. 2nd Street" disabled>
+                                        name="dentist_street_address" placeholder="e.g. 2nd Street">
                                 </div>
                             </div>
                         </div>
@@ -953,7 +951,7 @@
                                     </label>
                                     <input type="text" class="form-control "
                                         id="dentist_city_address"
-                                        name="dentist_city_address" placeholder="e.g. Dorm" disabled>
+                                        name="dentist_city_address" placeholder="e.g. Dorm">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -963,7 +961,7 @@
                                     </label>
                                     <input type="text" class="form-control "
                                         id="dentist_state_address"
-                                        name="dentist_state_address" placeholder="e.g. New York" disabled>
+                                        name="dentist_state_address" placeholder="e.g. New York">
                                 </div>
                             </div>
                             <div class="col-sm">
@@ -974,7 +972,7 @@
                                     <input type="text" class="form-control "
                                         id="dentist_zip_address"
                                         name="dentist_zip_address"
-                                        onchange="ValidatePincode(this,'child_care_provider_zip_address_span')" placeholder="e.g. 10003" disabled>
+                                        onchange="ValidatePincode(this,'child_care_provider_zip_address_span')" placeholder="e.g. 10003">
                                     <span id="child_care_provider_zip_address_span"
                                         style="color:red; display:none">
                                         Enter valid input [only numbers].</span>
@@ -2871,7 +2869,7 @@
 
     $(document).on("focus", "#dropdownMenuButton", function () {
         $.ajax({
-            url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/dentist/getall',
+            url: 'https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/dentist/getall',
             type: 'GET',
             dataType: 'json',
             success: function (response) {
@@ -2952,7 +2950,7 @@
     //     let dentistId = $(this).data('value');
 
     //     $.ajax({
-    //         url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/dentist/get/${dentistId}`,
+    //         url: `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/dentist/get/${dentistId}`,
     //         type: 'GET',
     //         dataType: 'json',
     //         success: function (response) {
@@ -3012,7 +3010,7 @@
 
         // Fetch dentist details
         $.ajax({
-            url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/dentist/get/${selectedDentistId}`,
+            url: `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/dentist/get/${selectedDentistId}`,
             type: 'GET',
             dataType: 'json',
             success: function (response) {

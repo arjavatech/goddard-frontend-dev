@@ -458,7 +458,7 @@
         //             console.log(json);
 
         //             $.ajax({
-        //                 url: "https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/email/send",
+        //                 url: "https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/email/send",
         //                 type: "POST",
         //                 contentType: "application/json",
         //                 data: json,
@@ -520,7 +520,7 @@
                 scrollY: '500px',
                 //for waking up the aws lambda server
                 ajax: {
-                    url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_invite_status/getall',
+                    url: 'https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/parent_invite_status/getall',
                     dataSrc: function(json) {
 
                         if (!statusval) {
@@ -588,7 +588,7 @@
         function setModalValue(buttonValue) {
             //for waking up the aws lambda server
             $.ajax({
-                url: 'https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/parent_info/getall',
+                url: 'https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/parent_info/getall',
                 type: 'get',
                 datasrc: '',
                 dataType: 'json',
@@ -635,7 +635,7 @@
             if(parentId != ''){
                
                 $.ajax({
-                    url: `https://ijz2b76zn8.execute-api.ap-south-1.amazonaws.com/test/update_parent_info_status/${parentId}`,
+                    url: `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/update_parent_info_status/${parentId}`,
                     type: "PUT",
                     contentType: "application/json",
                     data: json,

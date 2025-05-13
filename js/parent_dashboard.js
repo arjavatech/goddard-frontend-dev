@@ -1363,7 +1363,7 @@ function fetchFormData(editID) {
         url: `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/child_all_form_details/fetch/${editID}`,
         type: "GET",
         success: function (response) {
-            console.log("Form data received:", response);
+            // console.log("Form data received:", response);
 
             // Store response data in localStorage
             window.localStorage.setItem("responseData", JSON.stringify(response));
@@ -3403,9 +3403,6 @@ function validateAllForms(response) {
             updateValidationIcons(".childpickup-tick", ".childpickup-circle", false);
         }
 
-        console.log( response.photo_usage_photo_video_permission_form);
-        console.log(response.photo_permission_agree_group_photos_electronic);
-        console.log(response.do_you_agree_this_photo_video_permission_form);
         if (
             response.photo_usage_photo_video_permission_form &&
             response.photo_permission_agree_group_photos_electronic == "on" &&
@@ -3746,11 +3743,9 @@ function validateAllForms(response) {
     if (
         response.welcome_goddard_agreement == "on" 
     ) {
-        console.log('on');
         welcome_goddard_agreement = true;
         updateValidationIcons(".goddard-tick", ".goddard-circle", true);
     } else {
-        console.log('off');
         welcome_goddard_agreement = false;
         updateValidationIcons(".goddard-tick", ".goddard-circle", false);
     }
@@ -3928,26 +3923,7 @@ function validateAllForms(response) {
     // let welcome_goddard_agreement;
     let parentHandBook;
     let handbookparentsign;
-        console.log(welcome_goddard_agreement)
-        console.log(mission_statement_agreement)
-        console.log(general_information_agreement)
-        console.log(medical_care_provider_agreement)
-        console.log(parent_access_agreement)
-        console.log(release_of_children_agreement)
-        console.log(registration_fees_agreement)
-        console.log(outside_engagements_agreement)
-        console.log(health_policies_agreement)
-        console.log(medication_procedures_agreement)
-        console.log(bring_to_school_agreement)
-        console.log(rest_time_agreement)
-        console.log(training_philosophy_agreement)
-        console.log(affiliation_policy_agreement)
-        console.log(security_issue_agreement)
-        console.log(expulsion_policy_agreement)
-        console.log(addressing_individual_child_agreement)
-        console.log(finalword_agreement)
-        console.log("##################################");
-        let allhandbookValue = welcome_goddard_agreement &&
+    let allhandbookValue = welcome_goddard_agreement &&
         mission_statement_agreement &&
         general_information_agreement &&
         medical_care_provider_agreement &&
@@ -3965,31 +3941,10 @@ function validateAllForms(response) {
         expulsion_policy_agreement &&
         addressing_individual_child_agreement &&
         finalword_agreement;
-
-        console.log(welcome_goddard_agreement)
-        console.log(mission_statement_agreement)
-        console.log(general_information_agreement)
-        console.log(medical_care_provider_agreement)
-        console.log(parent_access_agreement)
-        console.log(release_of_children_agreement)
-        console.log(registration_fees_agreement)
-        console.log(outside_engagements_agreement)
-        console.log(health_policies_agreement)
-        console.log(medication_procedures_agreement)
-        console.log(bring_to_school_agreement)
-        console.log(rest_time_agreement)
-        console.log(training_philosophy_agreement)
-        console.log(affiliation_policy_agreement)
-        console.log(security_issue_agreement)
-        console.log(expulsion_policy_agreement)
-        console.log(addressing_individual_child_agreement)
-        console.log(finalword_agreement)
     if ( allhandbookValue) {
-        console.log('checking trure');
         parentHandBook = true;
         updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", true);
     } else {
-        console.log('checking false');
         parentHandBook = false;
          updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", false);
     }

@@ -1551,57 +1551,94 @@ function updateFormFields(response) {
                 setInputValue("child_care_provider_state_address", info.child_care_provider_state_address);
                 setInputValue("child_care_provider_zip_address", info.child_care_provider_zip_address);
             }
-            if (response.child_dentist_info) {
-                const info = response.child_dentist_info;
-                const {
-                    child_dentist_id: dentistId,
-                    child_dentist_name: dentistName = "",
-                    dentist_telephone_number: dentistPhone = "",
-                    dentist_street_address: dentistStreet = "",
-                    dentist_city_address: dentistCity = "",
-                    dentist_state_address: dentistState = "",
-                    dentist_zip_address: dentistZip = ""
-                } = info;
-
-                const dropdownButton = document.getElementById("dropdownMenuButton");
-                const dropdownItems = document.querySelectorAll("#dropdown-menu .dropdown-item");
-                let matched = false;
-
-                dropdownItems.forEach((item) => {
-                    if ($(item).data("value") === dentistId) {
-                        dropdownButton.textContent = item.textContent;
-                        matched = true;
-                    }
-                });
-
-                if (!matched) {
-                    dropdownButton.textContent = "Others";
-
-                    // Append custom name input only if it doesn't already exist
-                    if (!document.getElementById("customDentistName")) {
-                        $("#dropdown-menu").append(`
-                            <input type="text" id="customDentistName" class="form-control mt-2" placeholder="Enter dentist name..." value="${dentistName}">
-                        `);
-                    }
-
-                    // Enable and set values for the fields
-                    $("#dentist_telephone_number").prop("disabled", false).val(dentistPhone);
-                    $("#dentist_street_address").prop("disabled", false).val(dentistStreet);
-                    $("#dentist_city_address").prop("disabled", false).val(dentistCity);
-                    $("#dentist_state_address").prop("disabled", false).val(dentistState);
-                    $("#dentist_zip_address").prop("disabled", false).val(dentistZip);
-
-                    $("#child_dentist_name").removeClass("d-none").val(dentistName);
-                } else {
-                    // Disable and clear the extra fields if a known dentist is selected
-                    $("#dentist_telephone_number").prop("disabled", true);
-                    $("#dentist_street_address").prop("disabled", true);
-                    $("#dentist_city_address").prop("disabled", true);
-                    $("#dentist_state_address").prop("disabled", true);
-                    $("#dentist_zip_address").prop("disabled", true);
-                    $("#child_dentist_name").addClass("d-none");
+            if(response.child_dentist_name){
+                const childDentistNameValue = document.getElementById("child_dentist_name");
+                if (childDentistNameValue) {
+                    childDentistNameValue.value = response.child_dentist_name;
                 }
             }
+
+            if(response.dentist_telephone_number){
+                const DentistTelephoneNumberValue = document.getElementById("dentist_telephone_number");
+                if (DentistTelephoneNumberValue) {
+                    DentistTelephoneNumberValue.value = response.dentist_telephone_number;
+                }
+            }
+            if(response.dentist_street_address){
+                const DentistStreetAddressValue = document.getElementById("dentist_street_address");
+                if (DentistStreetAddressValue) {
+                    DentistStreetAddressValue.value = response.dentist_street_address;
+                }
+            }
+            if(response.dentist_state_address){
+                const DentistStateAddressValue = document.getElementById("dentist_state_address");
+                if (DentistStateAddressValue) {
+                    DentistStateAddressValue.value = response.dentist_state_address;
+                }
+            }
+            if(response.dentist_city_address){
+                const DentistCityAddressValue = document.getElementById("dentist_city_address");
+                if (DentistCityAddressValue) {
+                    DentistCityAddressValue.value = response.dentist_city_address;
+                }
+            }
+            if(response.dentist_zip_address){
+                const DentistZipAddressValue = document.getElementById("dentist_zip_address");
+                if (DentistZipAddressValue) {
+                    DentistZipAddressValue.value = response.dentist_zip_address;
+                }
+            }
+            // if (response.child_dentist_info) {
+            //     const info = response.child_dentist_info;
+            //     const {
+            //         child_dentist_id: dentistId,
+            //         child_dentist_name: dentistName = "",
+            //         dentist_telephone_number: dentistPhone = "",
+            //         dentist_street_address: dentistStreet = "",
+            //         dentist_city_address: dentistCity = "",
+            //         dentist_state_address: dentistState = "",
+            //         dentist_zip_address: dentistZip = ""
+            //     } = info;
+
+            //     const dropdownButton = document.getElementById("dropdownMenuButton");
+            //     const dropdownItems = document.querySelectorAll("#dropdown-menu .dropdown-item");
+            //     let matched = false;
+
+            //     dropdownItems.forEach((item) => {
+            //         if ($(item).data("value") === dentistId) {
+            //             dropdownButton.textContent = item.textContent;
+            //             matched = true;
+            //         }
+            //     });
+
+            //     if (!matched) {
+            //         dropdownButton.textContent = "Others";
+
+            //         // Append custom name input only if it doesn't already exist
+            //         if (!document.getElementById("customDentistName")) {
+            //             $("#dropdown-menu").append(`
+            //                 <input type="text" id="customDentistName" class="form-control mt-2" placeholder="Enter dentist name..." value="${dentistName}">
+            //             `);
+            //         }
+
+            //         // Enable and set values for the fields
+            //         $("#dentist_telephone_number").prop("disabled", false).val(dentistPhone);
+            //         $("#dentist_street_address").prop("disabled", false).val(dentistStreet);
+            //         $("#dentist_city_address").prop("disabled", false).val(dentistCity);
+            //         $("#dentist_state_address").prop("disabled", false).val(dentistState);
+            //         $("#dentist_zip_address").prop("disabled", false).val(dentistZip);
+
+            //         $("#child_dentist_name").removeClass("d-none").val(dentistName);
+            //     } else {
+            //         // Disable and clear the extra fields if a known dentist is selected
+            //         $("#dentist_telephone_number").prop("disabled", true);
+            //         $("#dentist_street_address").prop("disabled", true);
+            //         $("#dentist_city_address").prop("disabled", true);
+            //         $("#dentist_state_address").prop("disabled", true);
+            //         $("#dentist_zip_address").prop("disabled", true);
+            //         $("#child_dentist_name").addClass("d-none");
+            //     }
+            // }
             if (typeof response.special_diabilities !== "undefined") {
                 const disabilitiesField = document.getElementsByName("special_diabilities")[0];
                 if (disabilitiesField) {
@@ -3078,12 +3115,12 @@ function validateAllForms(response) {
             response.child_care_provider_info?.child_care_provider_city_address &&
             response.child_care_provider_info?.child_care_provider_state_address &&
             response.child_care_provider_info?.child_care_provider_zip_address &&
-            response.child_dentist_info?.child_dentist_name &&
-            response.child_dentist_info?.dentist_telephone_number &&
-            response.child_dentist_info?.dentist_street_address &&
-            response.child_dentist_info?.dentist_city_address &&
-            response.child_dentist_info?.dentist_state_address &&
-            response.child_dentist_info?.dentist_zip_address &&
+            response.child_dentist_name &&
+            response.dentist_telephone_number &&
+            response.dentist_street_address &&
+            response.dentist_city_address &&
+            response.dentist_state_address &&
+            response.dentist_zip_address &&
             response.special_diabilities &&
             response.allergies_medication_reaction &&
             response.additional_info &&

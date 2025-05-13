@@ -1506,35 +1506,21 @@ function updateFormFields(response) {
             setFieldValue("parent_two_email", info.parent_email);
         }
         if (response.emergency_contact_info) {
-            let allContactsValid = true;
-
-            const setInputValue = (id, value) => {
-                const input = document.getElementById(id);
-                if (input) input.value = value || "";
+            const setFieldValue = (id, value) => {
+                const el = document.getElementById(id);
+                if (el) el.value = value || "";
             };
-
-            response.emergency_contact_info.forEach((contact, index) => {
-                let isValidContact = true;
-
-                const requiredFields = [
-                    "child_emergency_contact_name",
-                    "child_emergency_contact_relationship",
-                    "child_emergency_contact_telephone_number",
-                    "child_emergency_contact_full_address",
-                    "child_emergency_contact_city_address",
-                    "child_emergency_contact_state_address",
-                    "child_emergency_contact_zip_address"
-                ];
-
-                requiredFields.forEach(field => {
-                    const id = `${field}${index}`;
-                    const value = contact[field];
-                    setInputValue(id, value);
-                    if (!value) isValidContact = false;
-                });
-
-                if (!isValidContact) allContactsValid = false;
+           response.emergency_contact_info.forEach((contact, index) => {
+                setFieldValue(`child_emergency_contact_name${index}`, contact.child_emergency_contact_name);
+                setFieldValue(`child_emergency_contact_relationship${index}`, contact.child_emergency_contact_relationship);
+                setFieldValue(`child_emergency_contact_telephone_number${index}`, contact.child_emergency_contact_telephone_number);
+                setFieldValue(`child_emergency_contact_full_address${index}`, contact.child_emergency_contact_full_address);
+                setFieldValue(`child_emergency_contact_city_address${index}`, contact.child_emergency_contact_city_address);
+                setFieldValue(`child_emergency_contact_state_address${index}`, contact.child_emergency_contact_state_address);
+                setFieldValue(`child_emergency_contact_zip_address${index}`, contact.child_emergency_contact_zip_address);
             });
+
+        
             if (response.child_care_provider_info) {
                 const info = response.child_care_provider_info;
 
@@ -3082,26 +3068,41 @@ function validateAllForms(response) {
         }
 
         //emergency care provide
-        if (
-            response.child_emergency_contact_name ||
-            response.child_emergency_contact_relationship ||
-            response.child_emergency_contact_telephone_number ||
-            response.child_emergency_contact_full_address ||
-            response.child_emergency_contact_city_address ||
-            response.child_emergency_contact_state_address ||
-            response.child_emergency_contact_zip_address
-        ) {
-            isValidContact = false;
-            allContactsValid = false;
-        } else {
-            isValidContact = true;
-            allContactsValid = true;
+        // if (
+        //     response.child_emergency_contact_name ||
+        //     response.child_emergency_contact_relationship ||
+        //     response.child_emergency_contact_telephone_number ||
+        //     response.child_emergency_contact_full_address ||
+        //     response.child_emergency_contact_city_address ||
+        //     response.child_emergency_contact_state_address ||
+        //     response.child_emergency_contact_zip_address
+        // ) {
+        //     isValidContact = false;
+        //     allContactsValid = false;
+        // } else {
+        //     isValidContact = true;
+        //     allContactsValid = true;
 
-        }
-        if (allContactsValid) {
-            childEmergencyContact = true;
-            updateValidationIcons(".emergencycontact-tick", ".emergencycontact-circle", true);
-        } else {
+        // }
+        // if (allContactsValid) {
+        //     childEmergencyContact = true;
+        //     updateValidationIcons(".emergencycontact-tick", ".emergencycontact-circle", true);
+        if (response.emergency_contact_info) {
+            const allContactsValid = response.emergency_contact_info.every((contact) => {
+                return (
+                    contact.child_emergency_contact_name &&
+                    contact.child_emergency_contact_relationship &&
+                    contact.child_emergency_contact_telephone_number &&
+                    contact.child_emergency_contact_full_address &&
+                    contact.child_emergency_contact_city_address &&
+                    contact.child_emergency_contact_state_address &&
+                    contact.child_emergency_contact_zip_address
+                );
+            });
+
+            childEmergencyContact = allContactsValid;
+            updateValidationIcons(".emergencycontact-tick", ".emergencycontact-circle", allContactsValid);
+        }  else {
             childEmergencyContact = false;
             updateValidationIcons(".emergencycontact-tick", ".emergencycontact-circle", false);
         }
@@ -3300,8 +3301,10 @@ function validateAllForms(response) {
         if (
             response.do_you_agree_this_immunization_instructions == "on"
         ) {
+            immunizationInstruction = true;
             updateValidationIcons(".immunization-tick", ".immunization-circle", true);
         } else {
+            immunizationInstruction = false;
             updateValidationIcons(".immunization-tick", ".immunization-circle", false);
         }
 
@@ -3393,8 +3396,10 @@ function validateAllForms(response) {
             response.child_password_pick_up_password_form &&
             response.do_you_agree_this_pick_up_password_form
         ) {
+            pickupPassword = true;
             updateValidationIcons(".childpickup-tick", ".childpickup-circle", true);
         } else {
+            pickupPassword = false;
             updateValidationIcons(".childpickup-tick", ".childpickup-circle", false);
         }
 
@@ -3406,37 +3411,47 @@ function validateAllForms(response) {
             response.photo_permission_agree_group_photos_electronic == "on" &&
             response.do_you_agree_this_photo_video_permission_form == "on"
         ) {
+            photoVideoPermission = true;
             updateValidationIcons(".childphotopermission-tick", ".childphotopermission-circle", true);
         } else {
+            photoVideoPermission = false;
             updateValidationIcons(".childphotopermission-tick", ".childphotopermission-circle", false);
         }
         if (
             response.security_release_policy_form
         ) {
+            securityPolicy = true
             updateValidationIcons(".childsecurity-tick", ".childsecurity-circle", true);
         } else {
+            securityPolicy = false
             updateValidationIcons(".childsecurity-tick", ".childsecurity-circle", false);
         }
         if (
             response.med_technicians_med_transportation_waiver &&
             response.medical_transportation_waiver
         ) {
+            medicaltransportationWeiver = true
             updateValidationIcons(".childmedical-tick", ".childmedical-circle", true);
         } else {
+            medicaltransportationWeiver = true
             updateValidationIcons(".childmedical-tick", ".childmedical-circle", false);
         }
         if (
             response.do_you_agree_this_health_policies
         ) {
+            healthPolicy = true
             updateValidationIcons(".childhealth-tick", ".childhealth-circle", true);
         } else {
+            healthPolicy = false
             updateValidationIcons(".childhealth-tick", ".childhealth-circle", false);
         }
         if (
             response.parent_sign_outside_waiver
         ) {
+            outsideWeiver = true
             updateValidationIcons(".childoutside-tick", ".childoutside-circle", true);
         } else {
+            outsideWeiver = false
             updateValidationIcons(".childoutside-tick", ".childoutside-circle", false);
         }
         if (
@@ -3444,8 +3459,10 @@ function validateAllForms(response) {
             response.printed_name_social_media_post &&
             response.do_you_agree_this_social_media_post
         ) {
+            socialMedia = true;
             updateValidationIcons(".socialmedia-tick", ".socialmedia-circle", true);
         } else {
+            socialMedia = false;
             updateValidationIcons(".socialmedia-tick", ".socialmedia-circle", false);
         }
         // if (
@@ -3498,12 +3515,15 @@ function validateAllForms(response) {
             outsideWeiver &&
             socialMedia;
 
+
         let parentFinalAgreement = document.getElementById("parentFinalAgreement");
         if (parentFinalAgreement) {
             if (allFormsComplete) {
+                console.log('true')
                 updateValidationIcons(".childparent-tick", ".childparent-circle", true);
                 parentFinalAgreement.classList.remove("disabled");
             } else {
+                 console.log('false')
                 updateValidationIcons(".childparent-tick", ".childparent-circle", false);
                 parentFinalAgreement.classList.add("disabled");
             }
@@ -3587,7 +3607,7 @@ function validateAllForms(response) {
         updateValidationIcons(".childenrollmentagreement-tick", ".childenrollmentagreement-circle", true);
     } else {
         enrollmentDetails = false;
-         updateValidationIcons(".childenrollmentagreement-tick", ".childenrollmentagreement-circle", true);
+         updateValidationIcons(".childenrollmentagreement-tick", ".childenrollmentagreement-circle", false);
     }
 
      // Validate parent signature
@@ -3640,8 +3660,8 @@ function validateAllForms(response) {
 
 
     //authorization form
-    let authorizationDetails;
-    let achparentsign;
+    let authorizationDetails = false;
+    let achparentsign = false;
     if (
         response.bank_routing &&
         response.bank_account &&
@@ -3653,7 +3673,7 @@ function validateAllForms(response) {
         updateValidationIcons(".authorizationach-tick", ".authorizationach-circle", true);
     } else {
         authorizationDetails = false;
-         updateValidationIcons(".authorizationach-tick", ".authorizationach-circle", true);
+         updateValidationIcons(".authorizationach-tick", ".authorizationach-circle", false);
     }
 
      // Validate parent signature
@@ -3675,10 +3695,10 @@ function validateAllForms(response) {
         let parentFinalAgreement = document.getElementById("achFinalAgreement");
         if (parentFinalAgreement) {
             if (allFormsCompleteAch) {
-                updateValidationIcons(".authorizationparentsign-tick", ".authorizationparentsign-circle", true);
+                // updateValidationIcons(".authorizationparentsign-tick", ".authorizationparentsign-circle", true);
                 parentFinalAgreement.classList.remove("disabled");
             } else {
-                updateValidationIcons(".authorizationparentsign-tick", ".authorizationparentsign-circle", false);
+                // updateValidationIcons(".authorizationparentsign-tick", ".authorizationparentsign-circle", false);
                 parentFinalAgreement.classList.add("disabled");
             }
         }
@@ -3704,55 +3724,297 @@ function validateAllForms(response) {
         updateValidationIcons(".authorization-tick", ".authorization-circle", allFormsAndSignatureCompleteAch);
     }
 
-    //authorization form
-    let welcome_goddard_agreement;
-    let parentHandBook;
+    //parent handbook form
+    let welcome_goddard_agreement= false;
+    let mission_statement_agreement = false;
+    let general_information_agreement = false;
+    let medical_care_provider_agreement = false;
+    let parent_access_agreement = false;
+    let release_of_children_agreement = false;
+    let registration_fees_agreement = false;
+    let outside_engagements_agreement = false;
+    let health_policies_agreement = false;
+    let medication_procedures_agreement = false;
+    let bring_to_school_agreement = false;
+    let rest_time_agreement = false;
+    let training_philosophy_agreement = false;
+    let affiliation_policy_agreement = false;
+    let security_issue_agreement = false;
+    let expulsion_policy_agreement = false;
+    let addressing_individual_child_agreement = false;
+    let finalword_agreement = false;
     if (
-        welcome_goddard_agreement == true &&
-        mission_statement_agreement == true &&
-        general_information_agreement == true &&
-        medical_care_provider_agreement == true &&
-        parent_access_agreement == true &&
-        release_of_children_agreement == true &&
-        registration_fees_agreement == true &&
-        outside_engagements_agreement == true &&
-        health_policies_agreement == true &&
-        medication_procedures_agreement == true &&
-        bring_to_school_agreement == true &&
-        rest_time_agreement == true &&
-        training_philosophy_agreement == true &&
-        affiliation_policy_agreement == true &&
-        security_issue_agreement == true &&
-        expulsion_policy_agreement == true &&
-        addressing_individual_child_agreement == true &&
-        finalword_agreement == true
+        response.welcome_goddard_agreement == "on" 
     ) {
+        console.log('on');
         welcome_goddard_agreement = true;
+        updateValidationIcons(".goddard-tick", ".goddard-circle", true);
+    } else {
+        console.log('off');
+        welcome_goddard_agreement = false;
+        updateValidationIcons(".goddard-tick", ".goddard-circle", false);
+    }
+
+    if (
+        response.mission_statement_agreement == "on" 
+    ) {
+        mission_statement_agreement = true;
+        updateValidationIcons(".mission-tick", ".mission-circle", true);
+    } else {
+        mission_statement_agreement = false;
+        updateValidationIcons(".mission-tick", ".mission-circle", false);
+    }
+
+    if (
+        response.general_information_agreement == "on" 
+    ) {
+        general_information_agreement = true;
+        updateValidationIcons(".generalinfo-tick", ".generalinfo-circle", true);
+    } else {
+        general_information_agreement = false;
+        updateValidationIcons(".generalinfo-tick", ".generalinfo-circle", false);
+    }
+
+    if (
+        response.medical_care_provider_agreement == "on" 
+    ) {
+        medical_care_provider_agreement = true;
+        updateValidationIcons(".statement-tick", ".statement-circle", true);
+    } else {
+        medical_care_provider_agreement = false;
+        updateValidationIcons(".statement-tick", ".statement-circle", false);
+    }
+
+    if (
+        response.parent_access_agreement == "on" 
+    ) {
+        parent_access_agreement = true;
+        updateValidationIcons(".parentaccess-tick", ".parentaccess-circle", true);
+    } else {
+        parent_access_agreement = false;
+        updateValidationIcons(".parentaccess-tick", ".parentaccess-circle", false);
+    }
+
+    if (
+        response.release_of_children_agreement == "on" 
+    ) {
+        release_of_children_agreement = true;
+        updateValidationIcons(".releasechild-tick", ".releasechild-circle", true);
+    } else {
+        release_of_children_agreement = false;
+        updateValidationIcons(".releasechild-tick", ".releasechild-circle", false);
+    }
+
+    if (
+        response.registration_fees_agreement == "on" 
+    ) {
+        registration_fees_agreement = true;
+        updateValidationIcons(".fees-tick", ".fees-circle", true);
+    } else {
+        registration_fees_agreement = false;
+        updateValidationIcons(".fees-tick", ".fees-circle", false);
+    }
+
+    if (
+        response.outside_engagements_agreement == "on" 
+    ) {
+        outside_engagements_agreement = true;
+        updateValidationIcons(".outsideengagement-tick", ".outsideengagement-circle", true);
+    } else {
+        outside_engagements_agreement = false;
+        updateValidationIcons(".outsideengagement-tick", ".outsideengagement-circle", false);
+    }
+
+    if (
+        response.health_policies_agreement == "on" 
+    ) {
+        health_policies_agreement = true;
+        updateValidationIcons(".healthpolicies-tick", ".healthpolicies-circle", true);
+    } else {
+        health_policies_agreement = false;
+        updateValidationIcons(".healthpolicies-tick", ".healthpolicies-circle", false);
+    }
+
+    if (
+        response.medication_procedures_agreement == "on" 
+    ) {
+        medication_procedures_agreement = true;
+        updateValidationIcons(".medicationprocedures-tick", ".medicationprocedures-circle", true);
+    } else {
+        medication_procedures_agreement = false;
+        updateValidationIcons(".medicationprocedures-tick", ".medicationprocedures-circle", false);
+    }
+
+    if (
+        response.bring_to_school_agreement == "on" 
+    ) {
+        bring_to_school_agreement = true;
+        updateValidationIcons(".toysfromhome-tick", ".toysfromhome-circle", true);
+    } else {
+        bring_to_school_agreement = false;
+        updateValidationIcons(".toysfromhome-tick", ".toysfromhome-circle", false);
+    }
+
+    if (
+        response.rest_time_agreement == "on" 
+    ) {
+        rest_time_agreement = true;
+        updateValidationIcons(".restmealssnacks-tick", ".restmealssnacks-circle", true);
+    } else {
+        rest_time_agreement = false;
+        updateValidationIcons(".restmealssnacks-tick", ".restmealssnacks-circle", false);
+    }
+
+    if (
+        response.training_philosophy_agreement == "on" 
+    ) {
+        training_philosophy_agreement = true;
+        updateValidationIcons(".transition-tick", ".transition-circle", true);
+    } else {
+        training_philosophy_agreement = false;
+        updateValidationIcons(".transition-tick", ".transition-circle", false);
+    }
+
+    if (
+        response.affiliation_policy_agreement == "on" 
+    ) {
+        affiliation_policy_agreement = true;
+        updateValidationIcons(".emergencyclosings-tick", ".emergencyclosings-circle", true);
+    } else {
+        affiliation_policy_agreement = false;
+        updateValidationIcons(".emergencyclosings-tick", ".emergencyclosings-circle", false);
+    }
+
+    if (
+        response.security_issue_agreement == "on" 
+    ) {
+        security_issue_agreement = true;
+        updateValidationIcons(".websitesblogs-tick", ".websitesblogs-circle", true);
+    } else {
+        security_issue_agreement = false;
+        updateValidationIcons(".websitesblogs-tick", ".websitesblogs-circle", false);
+    }
+    if (
+        response.expulsion_policy_agreement == "on" 
+    ) {
+        expulsion_policy_agreement = true;
+        updateValidationIcons(".expulsionpolicy-tick", ".expulsionpolicy-circle", true);
+    } else {
+        expulsion_policy_agreement = false;
+        updateValidationIcons(".expulsionpolicy-tick", ".expulsionpolicy-circle", false);
+    }
+
+    if (
+        response.addressing_individual_child_agreement == "on" 
+    ) {
+        addressing_individual_child_agreement = true;
+        updateValidationIcons(".addressing-tick", ".addressing-circle", true);
+    } else {
+        addressing_individual_child_agreement = false;
+        updateValidationIcons(".addressing-tick", ".addressing-circle", false);
+    }
+
+    if (
+        response.finalword_agreement == "on" 
+    ) {
+        finalword_agreement = true;
+        updateValidationIcons(".finalword-tick", ".finalword-circle", true);
+    } else {
+        finalword_agreement = false;
+        updateValidationIcons(".finalword-tick", ".finalword-circle", false);
+    }
+
+
+    // let welcome_goddard_agreement;
+    let parentHandBook;
+    let handbookparentsign;
+        console.log(welcome_goddard_agreement)
+        console.log(mission_statement_agreement)
+        console.log(general_information_agreement)
+        console.log(medical_care_provider_agreement)
+        console.log(parent_access_agreement)
+        console.log(release_of_children_agreement)
+        console.log(registration_fees_agreement)
+        console.log(outside_engagements_agreement)
+        console.log(health_policies_agreement)
+        console.log(medication_procedures_agreement)
+        console.log(bring_to_school_agreement)
+        console.log(rest_time_agreement)
+        console.log(training_philosophy_agreement)
+        console.log(affiliation_policy_agreement)
+        console.log(security_issue_agreement)
+        console.log(expulsion_policy_agreement)
+        console.log(addressing_individual_child_agreement)
+        console.log(finalword_agreement)
+        console.log("##################################");
+        let allhandbookValue = welcome_goddard_agreement &&
+        mission_statement_agreement &&
+        general_information_agreement &&
+        medical_care_provider_agreement &&
+        parent_access_agreement &&
+        release_of_children_agreement &&
+        registration_fees_agreement &&
+        outside_engagements_agreement &&
+        health_policies_agreement &&
+        medication_procedures_agreement &&
+        bring_to_school_agreement &&
+        rest_time_agreement &&
+        training_philosophy_agreement &&
+        affiliation_policy_agreement &&
+        security_issue_agreement &&
+        expulsion_policy_agreement &&
+        addressing_individual_child_agreement &&
+        finalword_agreement;
+
+        console.log(welcome_goddard_agreement)
+        console.log(mission_statement_agreement)
+        console.log(general_information_agreement)
+        console.log(medical_care_provider_agreement)
+        console.log(parent_access_agreement)
+        console.log(release_of_children_agreement)
+        console.log(registration_fees_agreement)
+        console.log(outside_engagements_agreement)
+        console.log(health_policies_agreement)
+        console.log(medication_procedures_agreement)
+        console.log(bring_to_school_agreement)
+        console.log(rest_time_agreement)
+        console.log(training_philosophy_agreement)
+        console.log(affiliation_policy_agreement)
+        console.log(security_issue_agreement)
+        console.log(expulsion_policy_agreement)
+        console.log(addressing_individual_child_agreement)
+        console.log(finalword_agreement)
+    if ( allhandbookValue) {
+        console.log('checking trure');
+        parentHandBook = true;
         updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", true);
     } else {
-        welcome_goddard_agreement = false;
-         updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", true);
+        console.log('checking false');
+        parentHandBook = false;
+         updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", false);
     }
 
      // Validate parent signature
-     if (document.getElementById("parentsignaturehandbook")) {
+     if (document.getElementById("handbookFinalAgreement")) {
         if (
             response.parent_sign_handbook &&
             response.parent_sign_date_handbook
         ) {
             updateValidationIcons(".childparenthandbook-tick", ".childparenthandbook-circle", true);
-            achparentsign = true;
+            handbookparentsign = true;
         } else {
             updateValidationIcons(".childparenthandbook-tick", ".childparenthandbook-circle", false);
-            achparentsign = false;
+            handbookparentsign = false;
         }
 
         // Enable/disable parent final agreement button
-        const allFormsCompleteAch = welcome_goddard_agreement
+        const allFormsCompleteHandbook = parentHandBook  
+
+
 
         let parentFinalAgreement = document.getElementById("handbookFinalAgreement");
         if (parentFinalAgreement) {
-            if (allFormsCompleteAch) {
+            if (allFormsCompleteHandbook) {
                 updateValidationIcons(".childparenthandbook-tick", ".childparenthandbook-circle", true);
                 parentFinalAgreement.classList.remove("disabled");
             } else {
@@ -3761,7 +4023,7 @@ function validateAllForms(response) {
             }
         }
 
-         let handbookFinalAgreement = document.getElementById("handbookFinalAgreement");
+         let handbookFinalAgreement = document.getElementById("handbookAdminFinalAgreement");
         if (handbookFinalAgreement) {
             if (localStorage.getItem("logged_in_email") !== "goddard01arjava@gmail.com") {
                 // updateValidationIcons(".goddardschool1-tick", ".goddardschool1-circle", true);

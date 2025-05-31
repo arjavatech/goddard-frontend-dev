@@ -1192,7 +1192,7 @@ function completedForm(editID, curyear) {
                     const epochTimes = data; // Example epoch time
                     const date = new Date(epochTimes);
                     // console.log(date);
-                    return date; // It's already formatted in dataSrc function
+                    return data; // It's already formatted in dataSrc function
                 },
             },
             {

@@ -13,7 +13,7 @@ function submitForm() {
         const json = JSON.stringify(obj);
 
         $.ajax({
-            url: "https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/child_info/create",
+            url: "https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/child_info/create",
             type: "POST",
             contentType: "application/json",
             data: json,
@@ -49,7 +49,7 @@ $(document).ready(function () {
         // $('#primary_parent_email').on('focus', function () {
         //     //for waking up the aws lambda server
         //     $.ajax({
-        //         url: 'https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/parent_info/getall',
+        //         url: 'https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/parent_info/getall',
         //         type: 'get',
         //         datasrc: '',
         //         dataType: 'json',
@@ -74,7 +74,7 @@ $(document).ready(function () {
         //     let selectedEmailId = window.location.search.slice(7);
         //     //for waking up the aws lambda server
         //     $.ajax({
-        //         url: 'https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/parent_info/getall',
+        //         url: 'https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/parent_info/getall',
         //         type: 'get',
         //         datasrc: '',
         //         dataType: 'json',
@@ -111,7 +111,7 @@ $(document).ready(function () {
         function classroomLoad(){
             //for waking up the aws lambda server
             $.ajax({
-                url: 'https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/class_details/getall',
+                url: 'https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/class_details/getall',
                 type: 'get',
                 datasrc: '',
                 dataType: 'json',

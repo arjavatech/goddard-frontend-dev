@@ -198,7 +198,7 @@ function submitForm(editID,number) {
             }, 3000);
         }
     };
-    xhr.open("PUT", ` https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/admission_segment_update/${localStorage.getItem('child_id')}`);
+    xhr.open("PUT", ` https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/admission_segment_update/${localStorage.getItem('child_id')}`);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -270,7 +270,7 @@ function authorizationSubmitForm(editID,number) {
             }, 3000);
         }
     };
-    xhr.open("PUT", `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/authorization_form/update/${localStorage.getItem('child_id')}`);
+    xhr.open("PUT", `https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/authorization_form/update/${localStorage.getItem('child_id')}`);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -339,7 +339,7 @@ function enrollmentSubmitForm(editID,number) {
             }, 3000);
         }
     };
-    xhr.open("PUT", `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/enrollment_form/update/${localStorage.getItem('child_id')}`);
+    xhr.open("PUT", `https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/enrollment_form/update/${localStorage.getItem('child_id')}`);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }
@@ -408,7 +408,7 @@ function handbookSubmitForm(editID,number) {
             }, 3000);
         }
     };
-    xhr.open("PUT", `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/parent_handbook/update/${localStorage.getItem('child_id')}`);
+    xhr.open("PUT", `https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/parent_handbook/update/${localStorage.getItem('child_id')}`);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }

@@ -60,7 +60,7 @@ function loginFunction() {
         console.log(obj);
 
         $.ajax({
-        url: `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/sign_in/check`,
+        url: `https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/sign_in/check`,
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(obj),

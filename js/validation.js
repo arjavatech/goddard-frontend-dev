@@ -85,7 +85,7 @@ function parentSignValidation(val){
 
 // function activeFormList(){
 //     $.ajax({
-//         url :' https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/goddard_all_form/all/forms?status=Active',
+//         url :' https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/goddard_all_form/all/forms?status=Active',
 //         type : 'GET',
 //         success : function(response){
 //             let responsevalue = Object.values(response);

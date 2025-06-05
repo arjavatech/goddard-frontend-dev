@@ -14,7 +14,7 @@ async function emailSend(parent_email) {
     try {
        
         $.ajax({
-            url: `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/parent_invite_mail/resend/${parent_email}`,
+            url: `https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/parent_invite_mail/resend/${parent_email}`,
             type: "GET",
             success: function (response) {
                 $(".success-msg").show();

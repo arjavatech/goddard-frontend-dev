@@ -6,7 +6,7 @@ $(document).ready(function () {
     // Fetch classroom options for dropdown
     let classroomOptions = [];
     $.ajax({
-        url: 'https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/class_details/getall',
+        url: 'https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/class_details/getall',
         method: 'GET',
         async: false, //  options are loaded before datatable initialization
         success: function(data) {
@@ -56,7 +56,7 @@ $(document).ready(function () {
                     alert("Wrong message");
                 }
             };
-            xhr.open("PUT", `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/child_info/update_class/${child_id_value}`);
+            xhr.open("PUT", `https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/child_info/update_class/${child_id_value}`);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.send(json);
         }else{
@@ -189,10 +189,10 @@ $(document).ready(function () {
     // Classroom based details
     if(classID != ""){
          // Initialize a new DataTable with the updated URL
-         initializeDataTable(`https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/class_based_all_child_details/${classID}`);
+         initializeDataTable(`https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/class_based_all_child_details/${classID}`);
     } else {
         // Initialize DataTable with default URL
-        initializeDataTable('https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/admission_child_personal/all_child_status');
+        initializeDataTable('https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
     }
 
     $('#clsroomSearch').on('change', function() {
@@ -204,17 +204,17 @@ $(document).ready(function () {
          table.clear().destroy();
          
         if(formSelectedval == undefined){
-            initializeDataTable(`https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/class_based_all_child_details/${clsroomSearchId}`);
+            initializeDataTable(`https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/class_based_all_child_details/${clsroomSearchId}`);
         } else if(clsroomDataval =="" && formSelectedval == "") {
-            initializeDataTable('https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/admission_child_personal/all_child_status');
+            initializeDataTable('https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
         } else if(formSelectedval == "" && clsroomDataval !==""){
             // Initialize DataTable with default URL
-            initializeDataTable(`https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/class_based_all_child_details/${clsroomSearchId}`);
+            initializeDataTable(`https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/class_based_all_child_details/${clsroomSearchId}`);
         } else if(formSelectedval !== "" && clsroomDataval ==""){
-            initializeDataTable(`https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/form_based_all_child_details/${formSelectedval}`);
+            initializeDataTable(`https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/form_based_all_child_details/${formSelectedval}`);
         }
           else {
-            initializeDataTable(`https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/form_based_all_child_details/${formSelectedval}`,clsroomDataval);
+            initializeDataTable(`https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/form_based_all_child_details/${formSelectedval}`,clsroomDataval);
         }
         
     });
@@ -229,10 +229,10 @@ $(document).ready(function () {
 
         if(form_name != ""){
             // Initialize a new DataTable with the updated URL
-            initializeDataTable(`https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/form_based_all_child_details/${form_name}`);
+            initializeDataTable(`https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/form_based_all_child_details/${form_name}`);
         } else {
             // Initialize DataTable with default URL
-            initializeDataTable('https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/admission_child_personal/all_child_status');
+            initializeDataTable('https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/admission_child_personal/all_child_status');
         }
         
     });
@@ -240,7 +240,7 @@ $(document).ready(function () {
     // Preload the form_name dropdown options
     $('#form_name').on('focus', function() {
         $.ajax({
-            url: 'https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/all_form_info/getall',
+            url: 'https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/all_form_info/getall',
             type: 'get',
             dataType: 'json',
             success: function(response) {
@@ -262,7 +262,7 @@ $(document).ready(function () {
      clsroomSearch(); // call classroom function
      function clsroomSearch(){
         $.ajax({
-            url: 'https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/class_details/getall',
+            url: 'https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/class_details/getall',
             type: 'get',
             dataType: 'json',
             success: function(response) {

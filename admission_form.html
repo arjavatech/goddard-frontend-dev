@@ -2869,7 +2869,7 @@
 
     $(document).on("focus", "#dropdownMenuButton", function () {
         $.ajax({
-            url: 'https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/dentist/getall',
+            url: 'https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/dentist/getall',
             type: 'GET',
             dataType: 'json',
             success: function (response) {
@@ -2950,7 +2950,7 @@
     //     let dentistId = $(this).data('value');
 
     //     $.ajax({
-    //         url: `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/dentist/get/${dentistId}`,
+    //         url: `https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/dentist/get/${dentistId}`,
     //         type: 'GET',
     //         dataType: 'json',
     //         success: function (response) {
@@ -3010,7 +3010,7 @@
 
         // Fetch dentist details
         $.ajax({
-            url: `https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/dentist/get/${selectedDentistId}`,
+            url: `https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/dentist/get/${selectedDentistId}`,
             type: 'GET',
             dataType: 'json',
             success: function (response) {

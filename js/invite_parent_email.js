@@ -24,7 +24,7 @@ function emailSend() {
         if (obj.child_fname != "" && obj.child_lname && obj.child_classroom_id && obj.parent_name && obj.invite_email) {
 
             $.ajax({
-                url: "https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/parent_invite_with_mail_trigger/create",
+                url: "Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/parent_invite_with_mail_trigger/create",
                 type: "POST",
                 contentType: "application/json",
                 data: json,
@@ -63,7 +63,7 @@ $(document).ready(function () {
     function classroomLoad(){
         //for waking up the aws lambda server
         $.ajax({
-            url: 'https://zjnj2xrqwg.execute-api.ap-south-1.amazonaws.com/prod/class_details/getall',
+            url: 'Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_details/getall',
             type: 'get',
             datasrc: '',
             dataType: 'json',

@@ -50,8 +50,9 @@ function loginFunction() {
     const password = document.getElementById('login_pswd').value;
 
     
-    if (email_id !== '' && password !== '' && email_id === email_id.toLowerCase()){
+    if (email_id !== '' && password !== ''){
         const hashedUserPassword = CryptoJS.SHA256(password).toString(CryptoJS.enc.Hex);
+        email_id === email_id.toLowerCase()
 
         const obj = {};
         obj.email = email_id;

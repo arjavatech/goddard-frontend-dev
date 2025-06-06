@@ -965,17 +965,19 @@ function activateTab(pointer) {
         24: "#healthpolicies",
         25: "#outsideengagements",
         26: "#socialmediaapproval",
-
         27: "#authorizationach",
         28: "#childenrollmentagreement",
         29: "#volumeone",
     };
 
-    const tabId = subTabMapping[pointer];
-    // console.log(tabId);
-    // console.log(pointer);
+    if(pointer == null)
+    {
+        console.log(pointer)
+        pointer = 28;
+    }
 
-    // deactivate all left-side tabs
+    const tabId = subTabMapping[pointer];
+
     $(".tab-pane").removeClass("active show");
     $(".anchorvalue").removeClass("active");
 

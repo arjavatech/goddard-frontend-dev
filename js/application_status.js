@@ -79,7 +79,7 @@ $(document).ready(function () {
     //             { 
     //                 data: 'child_name',
     //                 render: function (data, type, full, meta) {
-    //                     let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.parent_email}`;
+    //                     let url = `${window.location.origin}/parent_dashboard.html?id=${full.parent_email}`;
     //                     return `<a href="${url}">${full.child_name}</a>`;
     //                 },
     //             },
@@ -146,7 +146,7 @@ $(document).ready(function () {
                     data: 'child_name',
                     render: function (data, type, full, meta) {
                         const linkDisabled = full.primary_email == null ? 'pe-none text-dark' : 'pe-auto';
-                        let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.primary_email}`;
+                        let url = `${window.location.origin}/parent_dashboard.html?id=${full.primary_email}`;
                         return `<a href="${url}" target="_blank" class='${linkDisabled}'>${full.child_first_name +" "+ full.child_last_name}</a>`;
                     },
                 },

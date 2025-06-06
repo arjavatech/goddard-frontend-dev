@@ -450,7 +450,7 @@
         //             let randomID = Math.floor(Date.now() / 1000);
         //             obj.invite_id =randomID;
         //             obj.subject = 'Invite parents';
-        //             let messageData = 'https://arjavatech.github.io/goddard-frontend-dev/signup.html';
+        //             let messageData = 'https://arjavatech.github.io/signup.html';
         //             obj.body = `${messageData}?id=${randomID}`;
         //             obj.attachmentName ="AttachmentForm";
         //             obj.attachmentKey ="attachment";
@@ -541,7 +541,7 @@
                         data: 'parent_name',
                         render: function (data, type, full, meta) {
                             const linkDisabled = full.primary_email == null ? 'pe-none text-dark' : 'pe-auto';
-                            let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.primary_email}`;
+                            let url = `${window.location.origin}/parent_dashboard.html?id=${full.primary_email}`;
                             return `<a href="${url}" target="_blank" class="text-primary ${linkDisabled}" >${full.parent_name}</a>`;
                         },
                     },

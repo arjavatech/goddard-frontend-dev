@@ -1227,20 +1227,20 @@ function completedForm(editID, curyear) {
                     //  for cloud
                     switch (full.formname) {
                         case "admission_form":
-                            url = `${window.location.origin}/goddard-frontend-dev/admission_form_completed.html?id=${editID}`;
-                            print_url = `${window.location.origin}/goddard-frontend-dev/admission_form_pdf_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/admission_form_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/admission_form_pdf_completed.html?id=${editID}`;
                             break;
                         case "authorization_form":
-                            url = `${window.location.origin}/goddard-frontend-dev/authorization_completed.html?id=${editID}`;
-                            print_url = `${window.location.origin}/goddard-frontend-dev/authorization_pdf_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/authorization_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/authorization_pdf_completed.html?id=${editID}`;
                             break;
                         case "enrollment_form":
-                            url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_completed.html?id=${editID}`;
-                            print_url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_pdf_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/enrollment_agreement_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/enrollment_agreement_pdf_completed.html?id=${editID}`;
                             break;
                         case "parent_handbook":
-                            url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_completed.html?id=${editID}`;
-                            print_url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_pdf_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/parent_handbook_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/parent_handbook_pdf_completed.html?id=${editID}`;
                             break;
                         default:
                             return "";

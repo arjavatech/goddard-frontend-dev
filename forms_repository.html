@@ -450,7 +450,7 @@
                 columns: [
                     { data: 'class_name',
                     render: function (data, type, full, meta) {
-                        let url = `${window.location.origin}/goddard-frontend-dev/clsbased_application_status.html?id=${full.class_id}`;
+                        let url = `${window.location.origin}/clsbased_application_status.html?id=${full.class_id}`;
                         return `<a href="${url}" class="text-primary">${full.class_name}</a>`;
                     },
                      },
@@ -458,8 +458,8 @@
                     {
                         data: 'edit',
                         render: function (data, type, full, meta) {
-                            window.location.replace = `${window.location.origin}/goddard-frontend-dev/forms_repository.html?id=${full.class_id}`;
-                            let url = `${window.location.origin}/goddard-frontend-dev/forms_repository.html?id=${full.class_id}` //Question
+                            window.location.replace = `${window.location.origin}/forms_repository.html?id=${full.class_id}`;
+                            let url = `${window.location.origin}/forms_repository.html?id=${full.class_id}` //Question
                             let title = "";
                             let Onclick = "";
                             let color_del = "";

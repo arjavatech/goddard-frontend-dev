@@ -79,6 +79,7 @@
         .linkstatus {
             background-color: gray !important;
         }
+
         .dropdown-container {
             position: relative;
             display: inline-block;
@@ -218,8 +219,8 @@
             <!-- Side Menu Bar End -->
             <div class="col-8">
                 <div class="text-center m-2">
-                    <a href="admin_dashboard.html"><img src="image/gs_logo_lynnwood.png" alt="gs_logo_lynnwood" type="image/png" width="476px"
-                        height="112px"></a>
+                    <a href="admin_dashboard.html"><img src="image/gs_logo_lynnwood.png" alt="gs_logo_lynnwood"
+                            type="image/png" width="476px" height="112px"></a>
                 </div>
             </div>
             <div class="col-2">
@@ -266,7 +267,7 @@
             </h2>
             <div class="ms-4">
                 <a href="invite_parent.html" class="btn btn-primary text-white text-decoration-none">Invite Parent</a>
-                <!-- <a href="add_child.html" class="btn btn-primary text-white text-decoration-none">Add Child</a> --> 
+                <!-- <a href="add_child.html" class="btn btn-primary text-white text-decoration-none">Add Child</a> -->
             </div>
             <div class="row">
                 <div class="col-7"></div>
@@ -281,7 +282,7 @@
                     </div>
                 </div>
             </div>
-            
+
 
             <div class="d-flex justify-content-center m-2">
 
@@ -308,7 +309,24 @@
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="success-msg-update alert alert-success">
+                    <a href="#" class="btn btn-success close  fw-bold float-end" data-dismiss="alert"
+                        aria-label="close">OK</a>
+                    <strong>Success!</strong> Parent Status Updated!
+                </div>
+
+                <div class="error-msg alert alert-danger">
+                    <a href="#" class="btn btn-danger close  fw-bold float-end" data-dismiss="alert"
+                        aria-label="close">OK</a>
+                    <strong>Oops!</strong> You have to fill all the fields!
+                </div>
+                <div class="error-msg-notfound alert alert-danger">
+                    <a href="#" class="btn btn-danger close  fw-bold float-end" data-dismiss="alert"
+                        aria-label="close">OK</a>
+                    <strong>Oops!</strong> failed to submit admission form
+                </div>
+
+                <div class="modal-dialog" id="parentdialogsentmodel">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Child Basic Information</h5>
@@ -321,20 +339,7 @@
                                     <div class="card_center">
                                         <div>
                                             <!-- <h2 class="card_title">Child Basic Information</h2><br> -->
-                                            <div class="success-msg-update alert alert-success">
-                                                <a href="#" class="btn btn-success close  fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
-                                                <strong>Success!</strong> Parent Status Updated!
-                                            </div>
-                                            
-                                            <div class="error-msg alert alert-danger">
-                                                <a href="#" class="btn btn-danger close  fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
-                                                <strong>Oops!</strong> You have to fill all the fields!
-                                            </div>
-                                            <div class="error-msg-notfound alert alert-danger">
-                                                <a href="#" class="btn btn-danger close  fw-bold float-end" data-dismiss="alert" aria-label="close">OK</a>
-                                                <strong>Oops!</strong> failed to submit admission form
-                                            </div>
-                                    
+
                                             <div class="container" id="avf_form">
                                                 <form id="childBasicForm">
                                                     <div class="row">
@@ -382,7 +387,8 @@
                                                             <div class="form-group">
                                                                 <label class="col-form-label"><b>Parent
                                                                         Email</b></label>
-                                                                <input class="form-control" id="primary_parent_email" disabled>
+                                                                <input class="form-control" id="primary_parent_email"
+                                                                    disabled>
                                                                 <input type="hidden" name="parent_id"
                                                                     id="primary_parent_hidden">
                                                                 <!-- <i class="fa fa-chevron-down"></i> -->
@@ -392,7 +398,8 @@
                                                     <div class="form-group clearfix m-5">
                                                         <div class="text-center">
                                                             <a href="parent_details.html" class="cancel-btn">Cancel</a>
-                                                            <button class="add-btn" id="basic_child_button">Add</button>
+                                                            <button type="button" class="add-btn"
+                                                                id="basic_child_button">Add</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -450,7 +457,7 @@
         //             let randomID = Math.floor(Date.now() / 1000);
         //             obj.invite_id =randomID;
         //             obj.subject = 'Invite parents';
-        //             let messageData = 'https://arjavatech.github.io/goddard-frontend-dev/signup.html';
+        //             let messageData = 'https://arjavatech.github.io/signup.html';
         //             obj.body = `${messageData}?id=${randomID}`;
         //             obj.attachmentName ="AttachmentForm";
         //             obj.attachmentKey ="attachment";
@@ -484,18 +491,18 @@
             // function for create dropdown options
             function getStatusDropdown(selectedStatusName, parentId) {
                 let dropdown = `<div class="dropdown-container"><select class="parent-dropdown" data-parent-id="${parentId}">`;
-                    const Acselected = "Active" === selectedStatusName ? 'selected' : '';
-                    const Axselected = "Archive" === selectedStatusName ? 'selected' : '';
+                const Acselected = "Active" === selectedStatusName ? 'selected' : '';
+                const Axselected = "Archive" === selectedStatusName ? 'selected' : '';
 
-                    dropdown += `<option value="1" ${Acselected}>Active</option>
+                dropdown += `<option value="1" ${Acselected}>Active</option>
                                 <option value="2" ${Axselected}>Archive</option>`;
-                    dropdown += `</select></div>`;
-                    return dropdown;
+                dropdown += `</select></div>`;
+                return dropdown;
             }
 
-             // Parent Filter
+            // Parent Filter
 
-            $(document).on("change", "#parentSearch", function() {
+            $(document).on("change", "#parentSearch", function () {
                 console.log(this.value);
                 initializeDataTable(this.value);
             });
@@ -523,69 +530,62 @@
                     url: 'Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/parent_invite_status/getall',
                     dataSrc: function(json) {
 
-                        if (!statusval) {
-                            return json.Active || [];
-                        } else if (statusval === "Archive") {
-                            return json.Archive || [];
-                        } else if (statusval === "Active") {
-                            return json.Active || [];
-                        } else {
-                            return [];
                         }
-                        
-                    }
-                },
-                //it is used to define and configure the individual columns of the table.
-                columns: [
-                    {
-                        data: 'parent_name',
-                        render: function (data, type, full, meta) {
-                            const linkDisabled = full.primary_email == null ? 'pe-none text-dark' : 'pe-auto';
-                            let url = `${window.location.origin}/goddard-frontend-dev/parent_dashboard.html?id=${full.primary_email}`;
-                            return `<a href="${url}" target="_blank" class="text-primary ${linkDisabled}" >${full.parent_name}</a>`;
-                        },
                     },
-                    { data: 'primary_email',
-                        render: function (data, type, full, meta) {
-                            const emailId = full.primary_email != null ? `${full.primary_email}` : `${full.invite_email}`;
-                            return `${emailId}`;
+                    //it is used to define and configure the individual columns of the table.
+                    columns: [
+                        {
+                            data: 'parent_name',
+                            render: function (data, type, full, meta) {
+                                const linkDisabled = full.primary_email == null ? 'pe-none text-dark' : 'pe-auto';
+                                let url = `${window.location.origin}/parent_dashboard.html?id=${full.primary_email}`;
+                                return `<a href="${url}" target="_blank" class="text-primary ${linkDisabled}" >${full.parent_name}</a>`;
+                            },
+                        },
+                        {
+                            data: 'primary_email',
+                            render: function (data, type, full, meta) {
+                                const emailId = full.primary_email != null ? `${full.primary_email}` : `${full.invite_email}`;
+                                return `${emailId}`;
 
+                            },
                         },
-                    },
-                    {
-                        data: 'time_stamp',
-                        render: function (data, type, full, meta) {
-                            const timestamp = full.time_stamp;
-                            // Split the timestamp into date and time
-                            const [datePart, timePart] = timestamp.split(' ');
-                            return datePart;
+                        {
+                            data: 'time_stamp',
+                            render: function (data, type, full, meta) {
+                                const timestamp = full.time_stamp;
+                                // Split the timestamp into date and time
+                                const [datePart, timePart] = timestamp.split(' ');
+                                return datePart;
+                            },
                         },
-                    },
-                    { data: 'status',
-                        render: function (data, type, full, meta) {
-                            return getStatusDropdown(full.status, full.parent_id);
+                        {
+                            data: 'status',
+                            render: function (data, type, full, meta) {
+                                return getStatusDropdown(full.status, full.parent_id);
+                            },
                         },
-                    },
-                    {
-                        data: 'resend',
-                        render: function (data, type, full, meta) {
-                            const disabled = full.invite_status === 'Active' ? 'disabled' : '';
-                            // const linkstatus = full.status === 'Inactive' ? '#' : `add_child.html?email=${full.invite_email}`;
-                            const linkstatuscolor = full.invite_status === 'Inactive' ? 'linkstatus' : '';
-                            const linkdisabled = full.invite_status === 'Inactive' ? 'disabled' : '';
-                            return `<button id="sendButton"  name="sendButton" class="invite-button ${disabled}" onclick="emailSend('${full.invite_email}')" ${disabled}>Send</button>
+                        {
+                            data: 'resend',
+                            render: function (data, type, full, meta) {
+                                const disabled = full.invite_status === 'Active' ? 'disabled' : '';
+                                // const linkstatus = full.status === 'Inactive' ? '#' : `add_child.html?email=${full.invite_email}`;
+                                const linkstatuscolor = full.invite_status === 'Inactive' ? 'linkstatus' : '';
+                                const linkdisabled = full.invite_status === 'Inactive' ? 'disabled' : '';
+                                return `<button id="sendButton"  name="sendButton" class="invite-button ${disabled}" onclick="emailSend('${full.invite_email}')" ${disabled}>Send</button>
                             <button id="getEmailid" class="invite-button text-white ${linkstatuscolor}" data-bs-toggle="modal"
                             data-bs-target="#exampleModal" onclick="setModalValue('${full.invite_email}')" ${linkdisabled} >Add Child</button>`;
 
+                            },
                         },
-                    },
-                ],
-                "pageLength": 250,
-            });
+                    ],
+                    "pageLength": 250,
+                });
             }
         });
 
         function setModalValue(buttonValue) {
+
             //for waking up the aws lambda server
             $.ajax({
                 url: 'Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/parent_info/getall',
@@ -616,60 +616,60 @@
             });
         }
 
-       
-        $(document).on("change", ".parent-dropdown", function(event) {
-        event.preventDefault(); // Prevent default form submission
-        let selectedParentStatus = $(this).val();
-        let parentId = $(this).data('parent-id');
+
+        $(document).on("change", ".parent-dropdown", function (event) {
+            event.preventDefault(); // Prevent default form submission
+            let selectedParentStatus = $(this).val();
+            let parentId = $(this).data('parent-id');
             // console.log(selectedParentStatus);
-        let obj = {
-            "status" : selectedParentStatus
-        }
-        
-        const json = JSON.stringify(obj);
-        
-        var msg = confirm("Are you sure?"); 
-        //it check the user confirmation if yes or no       
-        if (msg == true) { 
-
-            if(parentId != ''){
-               
-                $.ajax({
-                    url: `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/update_parent_info_status/${parentId}`,
-                    type: "PUT",
-                    contentType: "application/json",
-                    data: json,
-                    success: function (response) {
-                        // console.log(response);
-                        // return false;
-                        if (response.message === `Parent status with parent_id ${parentId} updated successfully`) {
-                            $(".success-form-msg-update").show();
-                          
-                        } else {
-                            $(".error-msg-notfound").show();
-                          
-                        }
-
-                    },
-                    error: function (xhr, status, error) {
-                        console.log(error)
-                        $(".error-msg-notfound").show();
-                      
-                    }
-                });
-            
-            } else {
-                $(".error-msg").show();
-              
+            let obj = {
+                "status": selectedParentStatus
             }
 
-        } else {
+            const json = JSON.stringify(obj);
+
+            var msg = confirm("Are you sure?");
+            //it check the user confirmation if yes or no       
+            if (msg == true) {
+
+                if (parentId != '') {
+
+                    $.ajax({
+                        url: `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/update_parent_info_status/${parentId}`,
+                        type: "PUT",
+                        contentType: "application/json",
+                        data: json,
+                        success: function (response) {
+                            // console.log(response);
+                            // return false;
+                            if (response.message === `Parent status with parent_id ${parentId} updated successfully`) {
+                                $(".success-form-msg-update").show();
+
+                            } else {
+                                $(".error-msg-notfound").show();
+
+                            }
+
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(error)
+                            $(".error-msg-notfound").show();
+
+                        }
+                    });
+
+                } else {
+                    $(".error-msg").show();
+
+                }
+
+            } else {
                 window.location.reload();
-        }
+            }
 
-    });
+        });
 
-   
+
 
         function ExportToExcel(type, fn, dl) {
             var elt = document.getElementById('example');
@@ -694,6 +694,12 @@
                 XLSX.writeFile(wb, fn || ('Parent details.' + (type || 'xlsx')));
             }
         }
+
+
+        document.getElementById('basic_child_button').addEventListener('click', function () {
+            document.getElementById('parentdialogsentmodel').style.display = 'none';
+        });
+
     </script>
 </body>
 

@@ -1930,7 +1930,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm" >
+                            <div class="col-sm" id="childcare_type_section">
                                 <div class="form-group"> 
                                     <label for="reason_for_childcare_before" id="reason_for_childcare_before_label" class="form-label"><b>If so, what kind?</b></label>
                                     <select class="form-control form-select-lg" aria-label=".form-control-lg example"
@@ -3027,6 +3027,24 @@
         });
     }
 });
+
+        const yesRadio = document.getElementById('childcare_before1');
+        const noRadio = document.getElementById('childcare_before2');
+        const childcareTypeSection = document.getElementById('childcare_type_section');
+
+        function toggleChildcareType() {
+            if (yesRadio.checked) {
+                childcareTypeSection.style.display = 'block';
+            } else {
+                childcareTypeSection.style.display = 'none';
+            }
+        }
+
+        yesRadio.addEventListener('change', toggleChildcareType);
+        noRadio.addEventListener('change', toggleChildcareType);
+        
+        // Initial Calling
+        toggleChildcareType()
 
 
     </script>

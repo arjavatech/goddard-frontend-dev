@@ -397,6 +397,7 @@ span.initila_here {
     text-align: right;
     margin-top: -40px !important;
     margin-bottom: 20px;
+    margin-right: 10px !important;
 }
 
 input.inputBox
@@ -491,4 +492,21 @@ select+i.fa {
 
 /***Completed forms***/
 
-  
+  .nav .card-body {
+    padding: 15px !important;
+}
+
+
+
+
+p, ol li{
+ padding: 3% !important;
+}
+
+
+td {
+    text-align: left;
+    padding: 9px !important;
+    font-size: small !important;
+   
+}

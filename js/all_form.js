@@ -198,7 +198,7 @@ function submitForm(editID,number) {
             }, 3000);
         }
     };
-    xhr.open("PUT", ` https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/admission_segment_update/${localStorage.getItem('child_id')}`);
+    xhr.open("PUT", ` https://v2bvjzsgrk.execute-api.ap-south-1.amazonaws.com/test/admission_segment/${localStorage.getItem('child_id')}`);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(json);
 }

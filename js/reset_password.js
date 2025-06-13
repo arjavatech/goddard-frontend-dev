@@ -39,7 +39,7 @@ function signupFunction(){
             const obj = {};
             obj.email = email_id;
             obj.password = hashedPassword;
-            obj.signup_url = `https://arjavatech.github.io/goddard-frontend-dev/reset_password.html?invite_id=${signupInvite}`;
+            obj.signup_url = `https://arjavatech.github.io/reset_password.html?invite_id=${signupInvite}`;
             // console.log(obj);
             // return false;
             $.ajax({

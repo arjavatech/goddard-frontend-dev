@@ -965,17 +965,19 @@ function activateTab(pointer) {
         24: "#healthpolicies",
         25: "#outsideengagements",
         26: "#socialmediaapproval",
-
         27: "#authorizationach",
         28: "#childenrollmentagreement",
         29: "#volumeone",
     };
 
-    const tabId = subTabMapping[pointer];
-    // console.log(tabId);
-    // console.log(pointer);
+    if(pointer == null)
+    {
+        console.log(pointer)
+        pointer = 28;
+    }
 
-    // deactivate all left-side tabs
+    const tabId = subTabMapping[pointer];
+
     $(".tab-pane").removeClass("active show");
     $(".anchorvalue").removeClass("active");
 
@@ -1227,20 +1229,20 @@ function completedForm(editID, curyear) {
                     //  for cloud
                     switch (full.formname) {
                         case "admission_form":
-                            url = `${window.location.origin}/goddard-frontend-dev/admission_form_completed.html?id=${editID}`;
-                            print_url = `${window.location.origin}/goddard-frontend-dev/admission_form_pdf_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/admission_form_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/admission_form_pdf_completed.html?id=${editID}`;
                             break;
                         case "authorization_form":
-                            url = `${window.location.origin}/goddard-frontend-dev/authorization_completed.html?id=${editID}`;
-                            print_url = `${window.location.origin}/goddard-frontend-dev/authorization_pdf_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/authorization_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/authorization_pdf_completed.html?id=${editID}`;
                             break;
                         case "enrollment_form":
-                            url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_completed.html?id=${editID}`;
-                            print_url = `${window.location.origin}/goddard-frontend-dev/enrollment_agreement_pdf_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/enrollment_agreement_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/enrollment_agreement_pdf_completed.html?id=${editID}`;
                             break;
                         case "parent_handbook":
-                            url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_completed.html?id=${editID}`;
-                            print_url = `${window.location.origin}/goddard-frontend-dev/parent_handbook_pdf_completed.html?id=${editID}`;
+                            url = `${window.location.origin}/parent_handbook_completed.html?id=${editID}`;
+                            print_url = `${window.location.origin}/parent_handbook_pdf_completed.html?id=${editID}`;
                             break;
                         default:
                             return "";

@@ -450,7 +450,7 @@
                 columns: [
                     { data: 'class_name',
                     render: function (data, type, full, meta) {
-                        let url = `${window.location.origin}/goddard-frontend-dev/clsbased_application_status.html?id=${full.class_id}`;
+                        let url = `${window.location.origin}/clsbased_application_status.html?id=${full.class_id}`;
                         return `<a href="${url}" class="text-primary">${full.class_name}</a>`;
                     },
                      },
@@ -458,8 +458,8 @@
                     {
                         data: 'edit',
                         render: function (data, type, full, meta) {
-                            window.location.replace = `${window.location.origin}/goddard-frontend-dev/forms_repository.html?id=${full.class_id}`;
-                            let url = `${window.location.origin}/goddard-frontend-dev/forms_repository.html?id=${full.class_id}` //Question
+                            window.location.replace = `${window.location.origin}/forms_repository.html?id=${full.class_id}`;
+                            let url = `${window.location.origin}/forms_repository.html?id=${full.class_id}` //Question
                             let title = "";
                             let Onclick = "";
                             let color_del = "";
@@ -527,6 +527,7 @@
                 }
             });
         }
+       
         function deleteClassroom(id) {
             console.log(id);
             var delete_object = { class_id: id };
@@ -723,6 +724,9 @@
                     // return false;
                     if (response.message === "Forms updated successfully") {
                         $(".success-form-msg-update").show();
+                        setTimeout(() => {
+                            $('a[href="#formsrepository"]').tab('show');
+                        }, 100); 
                     }
 
                 },
@@ -808,17 +812,6 @@
       
 
     });
-
-        // Add event listener for radio buttons
-        // document.getElementById("radioClass").addEventListener("click", function() {
-        //     document.getElementById("classRoomDiv").style.display = "block";  // Show Class Room select
-        //     document.getElementById("childNameDiv").style.display = "none";   // Hide Child Name select
-        // });
-    
-        // document.getElementById("radioChild").addEventListener("click", function() {
-        //     document.getElementById("classRoomDiv").style.display = "none";   // Hide Class Room select
-        //     document.getElementById("childNameDiv").style.display = "block";  // Show Child Name select
-        // });
 
 
     </script>

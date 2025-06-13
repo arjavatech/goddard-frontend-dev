@@ -43,7 +43,7 @@ function signupFunction(){
             // console.log(obj);
             // return false;
             $.ajax({
-                url: "Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/parent_info/update_password",
+                url: "https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/parent_info/update_password",
                 type: "PUT",
                 contentType: "application/json",
                 data: JSON.stringify(obj),
@@ -79,7 +79,7 @@ function resendmailFunction(){
     let email_id = document.getElementById('email_id').value;
     if (email_id != ''){
         $.ajax({
-            url: `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/forget_password_mail_trigger/${email_id}`,
+            url: `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/forget_password_mail_trigger/${email_id}`,
             type: "GET",
             dataType: 'json',
             success: function (response) {

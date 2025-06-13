@@ -465,7 +465,7 @@
         //             console.log(json);
 
         //             $.ajax({
-        //                 url: "Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/email/send",
+        //                 url: "https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/email/send",
         //                 type: "POST",
         //                 contentType: "application/json",
         //                 data: json,
@@ -517,18 +517,28 @@
                 }
                 //datatable creating function//
                 $('#example').DataTable({
-                //for adding horizontal scrool bar
-                scrollX: true,
-                Info: false,
-                //option is used to define the layout and elements that should be displayed around the table.
-                dom: 'Qlfrtip',
-                lengthChange: false,
-                scrollCollapse: true,
-                scrollY: '500px',
-                //for waking up the aws lambda server
-                ajax: {
-                    url: 'Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/parent_invite_status/getall',
-                    dataSrc: function(json) {
+                    //for adding horizontal scrool bar
+                    scrollX: true,
+                    Info: false,
+                    //option is used to define the layout and elements that should be displayed around the table.
+                    dom: 'Qlfrtip',
+                    lengthChange: false,
+                    scrollCollapse: true,
+                    scrollY: '500px',
+                    //for waking up the aws lambda server
+                    ajax: {
+                        url: 'https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/parent_invite_status/getall',
+                        dataSrc: function (json) {
+
+                            if (!statusval) {
+                                return json.Active || [];
+                            } else if (statusval === "Archive") {
+                                return json.Archive || [];
+                            } else if (statusval === "Active") {
+                                return json.Active || [];
+                            } else {
+                                return [];
+                            }
 
                         }
                     },
@@ -588,7 +598,7 @@
 
             //for waking up the aws lambda server
             $.ajax({
-                url: 'Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/parent_info/getall',
+                url: 'https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/parent_info/getall',
                 type: 'get',
                 datasrc: '',
                 dataType: 'json',

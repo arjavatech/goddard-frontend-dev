@@ -15,7 +15,7 @@ import {isAuthenticated} from "./authentication_verify.js";
 //         let json = JSON.stringify(obj);
 //         console.log(json);
 //         $.ajax({
-//             url: "Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/ClassId_ClassName_info/add",
+//             url: "https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/ClassId_ClassName_info/add",
 //             type: "POST",
 //             contentType: "application/json",
 //             data: json,
@@ -38,7 +38,7 @@ import {isAuthenticated} from "./authentication_verify.js";
 //         let json = JSON.stringify(obj);
 //         console.log(json);
 //         $.ajax({
-//             url: "Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/ClassId_ClassName_info/update",
+//             url: "https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/ClassId_ClassName_info/update",
 //             type: "PUT",
 //             contentType: "application/json",
 //             data: json,
@@ -82,7 +82,7 @@ form.addEventListener("submit", (e) => {
             }       
         };
 
-        xhr.open("POST", 'Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_details/create');
+        xhr.open("POST", 'https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_details/create');
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(json);
     }else{
@@ -100,7 +100,7 @@ $(document).ready(function () {
         if(editID != ''){
             //for waking up the aws lambda server
             $.ajax({
-                url: `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_details/update/${editID}`,
+                url: `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_details/update/${editID}`,
                 type: 'PUT',
                 //this is uesd to get the response and return the result
                 success: function(response){
@@ -154,7 +154,7 @@ $(document).ready(function () {
                         }       
                     };
 
-                    xhr.open("PUT", `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_details/update/${editID}`);
+                    xhr.open("PUT", `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_details/update/${editID}`);
                     xhr.setRequestHeader("Content-Type", "application/json");
                     xhr.send(json);
                 }

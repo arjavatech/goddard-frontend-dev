@@ -33,9 +33,9 @@ function checkParentAuthentication(editID, callback) {
     ) {
         // (stop user to see other kids || check admin login || default parent login)
         if (editID != "") {
-            url = `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/admission_child_personal/parent_email/${editID}`;
+            url = `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/admission_child_personal/parent_email/${editID}`;
         } else {
-            url = `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/admission_child_personal/parent_email/${logged_in_email}`;
+            url = `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/admission_child_personal/parent_email/${logged_in_email}`;
         }
         $.ajax({
             url: url,
@@ -63,9 +63,9 @@ function getAllInfo(editID, callback) {
 
     let url;
     if (editID != "") {
-        url = `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/admission_child_personal/parent_email/${editID}`;
+        url = `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/admission_child_personal/parent_email/${editID}`;
     } else {
-        url = `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/admission_child_personal/parent_email/${logged_in_email}`;
+        url = `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/admission_child_personal/parent_email/${logged_in_email}`;
     }
 
     $.ajax({
@@ -249,7 +249,7 @@ function extractEditIDFromURL(url) {
 function populateFormData(editID, formName) {
     return new Promise((resolve, reject) => {
         $.ajax({
-            url: `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/child_all_form_details/fetch/${editID}`,
+            url: `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/child_all_form_details/fetch/${editID}`,
             type: "GET",
             success: function (response) {
                 console.log(response);
@@ -1156,7 +1156,7 @@ function completedForm(editID, curyear) {
         dom: "Qlfrtip",
         lengthChange: false,
         ajax: {
-            url: `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/admission_child_personal/completed_form_status_year/${editID}/${curyear}`,
+            url: `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/admission_child_personal/completed_form_status_year/${editID}/${curyear}`,
             dataSrc: function (json) {
                 console.log(json);
                 if (
@@ -1265,7 +1265,7 @@ function checking(editID) {
 
     // First, load the form structure
     $.ajax({
-        url: `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/admission_child_personal/incomplete_form_status/${editID}`,
+        url: `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/admission_child_personal/incomplete_form_status/${editID}`,
         type: "GET",
         dataType: "json",
         success: function (response) {
@@ -1362,7 +1362,7 @@ function fetchFormData(editID) {
     }
 
     $.ajax({
-        url: `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/child_all_form_details/fetch/${editID}`,
+        url: `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/child_all_form_details/fetch/${editID}`,
         type: "GET",
         success: function (response) {
             // console.log("Form data received:", response);
@@ -4025,7 +4025,7 @@ function updateValidationIcons(tickSelector, circleSelector, isValid) {
 // function checking(editID) {
 
 //     $.ajax({
-//         url: `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/admission_child_personal/incomplete_form_status/${editID}`,
+//         url: `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/admission_child_personal/incomplete_form_status/${editID}`,
 //         type: "GET",
 //         dataType: "json",
 //         success: function (response) {
@@ -4124,7 +4124,7 @@ function updateValidationIcons(tickSelector, circleSelector, isValid) {
 //     if (editID != "") {
 //         //for waking up the aws lambda server
 //         $.ajax({
-//             url: `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/child_all_form_details/fetch/${editID}`,
+//             url: `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/child_all_form_details/fetch/${editID}`,
 //             type: "GET",
 //             //this is used to get the response and return the result
 //             success: function (response) {

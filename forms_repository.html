@@ -443,7 +443,7 @@
                 lengthChange: false,
                 //for waking up the aws lambda server
                 ajax: {
-                    url: 'Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/child_count_with_class_name',
+                    url: 'https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/child_count_with_class_name',
                     dataSrc: '',
                 },
                 //it is used to define and configure the individual columns of the table.
@@ -516,7 +516,7 @@
         if (editID != '') {
             //for waking up the aws lambda server
             $.ajax({
-                url: `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_details/get/${editID}`,
+                url: `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_details/get/${editID}`,
                 type: 'get',
                 //this is uesd to get the response and return the result
                 success: function (response) {
@@ -527,6 +527,7 @@
                 }
             });
         }
+       
         function deleteClassroom(id) {
             console.log(id);
             var delete_object = { class_id: id };
@@ -551,7 +552,7 @@
                     }
                 };
 
-                xhr.open("PUT", `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_details/delete/${id}`);
+                xhr.open("PUT", `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_details/delete/${id}`);
                 xhr.setRequestHeader("Content-Type", "application/json");
                 xhr.send(json);
             }
@@ -565,7 +566,7 @@
             function active_forms() {
 
                 $.ajax({
-                url: 'Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/get_all_form_details',
+                url: 'https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/get_all_form_details',
                 type: 'get',
                 datasrc: '',
                 dataType: 'json',
@@ -599,7 +600,7 @@
             function classroom_names() {
                 // For waking up the AWS Lambda server
                 $.ajax({
-                    url: 'Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/child_count_with_class_name',
+                    url: 'https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/child_count_with_class_name',
                     type: 'GET',
                     dataType: 'json',
                     success: function (response) {
@@ -640,7 +641,7 @@
 
             // Make an API call to fetch data
             $.ajax({
-                url: "Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/get_all_form_details",
+                url: "https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/get_all_form_details",
                 type: "get",
                 dataType: "json",
                 success: function (response) {
@@ -677,7 +678,7 @@
         let selectedClsValues = $('#multi_cls_room').val();
        
         $.ajax({
-            url: `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_wise_child_details`,
+            url: `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_wise_child_details`,
             type: 'GET',
             dataType: 'json',
             success: function (response) {
@@ -714,7 +715,7 @@
         if(formId_len != 0 && form_allocate != ""){
            
             $.ajax({
-                url: " Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/update_form_repo_state",
+                url: " https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/update_form_repo_state",
                 type: "PUT",
                 contentType: "application/json",
                 data: json,
@@ -723,6 +724,9 @@
                     // return false;
                     if (response.message === "Forms updated successfully") {
                         $(".success-form-msg-update").show();
+                        setTimeout(() => {
+                            $('a[href="#formsrepository"]').tab('show');
+                        }, 100); 
                     }
 
                 },
@@ -756,7 +760,7 @@
         // console.log(json);
         // return false
             $.ajax({
-                url: "Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_repo_update",
+                url: "https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/class_repo_update",
                 type: "POST",
                 contentType: "application/json",
                 data: json,
@@ -784,7 +788,7 @@
         // return false
 
             $.ajax({
-                url: " Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/student_repo_update",
+                url: " https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/student_repo_update",
                 type: "POST",
                 contentType: "application/json",
                 data: json,
@@ -808,17 +812,6 @@
       
 
     });
-
-        // Add event listener for radio buttons
-        // document.getElementById("radioClass").addEventListener("click", function() {
-        //     document.getElementById("classRoomDiv").style.display = "block";  // Show Class Room select
-        //     document.getElementById("childNameDiv").style.display = "none";   // Hide Child Name select
-        // });
-    
-        // document.getElementById("radioChild").addEventListener("click", function() {
-        //     document.getElementById("classRoomDiv").style.display = "none";   // Hide Class Room select
-        //     document.getElementById("childNameDiv").style.display = "block";  // Show Child Name select
-        // });
 
 
     </script>

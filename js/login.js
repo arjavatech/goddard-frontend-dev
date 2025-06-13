@@ -60,7 +60,7 @@ function loginFunction() {
         console.log(obj);
 
         $.ajax({
-        url: `Environment: https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/sign_in/check`,
+        url: `https://7jpl4gpmpg.execute-api.ap-south-1.amazonaws.com/dev/sign_in/check`,
         type: "POST",
         contentType: "application/json",
         data: JSON.stringify(obj),
